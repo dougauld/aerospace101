@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="/jqmath/jqmath-0.4.3.css">
+<script src="/jqmath/jquery-1.4.3.min.js"></script>
+<script src="/jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="./aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a>
+   <ul class="sub-menu">
+   <li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="../properties-of-the-atmosphere/sea-level-conditions.html">Sea Level Conditions</a></li>
+   <li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="../properties-of-the-atmosphere/variation-with-altitude.html">Variation with Altitude</a></li>
+   <li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="../properties-of-the-atmosphere/variation-due-to-local-ground-conditions.html">Variation due to Local Ground Conditions</a></li>
+   <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230"><a href="../properties-of-the-atmosphere/variation-due-to-humidity.html">Variation due to Humidity</a></li>
+   <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231"><a href="../properties-of-the-atmosphere/variation-due-to-extremely-altitude.html">Variation Due to Extremely Altitude</a></li>
+   <li id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232"><a href="../properties-of-the-atmosphere/table-of-atmospheric-properties.html">Table of Atmospheric Properties</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>
+   <ul class="sub-menu">
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="../subsonic-aerofoil-and-wing-theory/aerofoil-section-2-d-geometry.html">Aerofoil Section 2-D Geometry</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="../subsonic-aerofoil-and-wing-theory/joukowski-aerofoils-and-flow-mapping.html">Joukowski Aerofoils and Flow Mapping</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="../subsonic-aerofoil-and-wing-theory/2-d-thin-aerofoil-theory.html">2-D Thin Aerofoil Theory</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="../subsonic-aerofoil-and-wing-theory/2d-panel-methods.html">2D Panel Methods</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="../subsonic-aerofoil-and-wing-theory/2d-boundary-layer-modelling.html">2D Boundary Layer Modelling</a></li>
+   <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../subsonic-aerofoil-and-wing-theory/3d-prandtl-lifting-line-theory.html">3D Prandtl Lifting Line Theory</a></li>
+   <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../subsonic-aerofoil-and-wing-theory/3d-vortex-lattice-method.html">3D Vortex Lattice Method</a></li>
+   <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../subsonic-aerofoil-and-wing-theory/subsonic-compressibility-corrections.html">Subsonic Compressibility Corrections</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a>
+   <ul class="sub-menu">
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="../propulsion/blade-element-propeller-theory.html">Blade Element Propeller Theory</a></li>
+   <li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="../propulsion/blade-element-rotor-theory.html">Blade Element Rotor Theory</a></li>
+   <li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="../propulsion/gas-turbine-analysis.html">Gas Turbine Analysis</a></li>
+   <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="../propulsion/simple-rocket-analysis.html">Simple Rocket Analysis</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>
+   <ul class="sub-menu">
+   <li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><a href="../wind-tunnel-simulation/admin-office.html">Admin Office</a></li>
+   <li id="menu-item-520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="../wind-tunnel-simulation/pattern-shop.html">Pattern Shop</a></li>
+   <li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="../wind-tunnel-simulation/wind-tunnel-laboratory.html">Wind Tunnel Laboratory</a></li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<h3 id="sites-page-title-header" align="left"><span id="sites-page-title" dir="ltr" style="color: #800000;" tabindex="-1">TABLE OF ATMOSPHERIC PROPERTIES (ISA)</span></h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+<div id="sites-canvas-main-content">
+<div dir="ltr">
+<table border="1" width="90%" cellspacing="0" cellpadding="4">
+<thead>
+<tr valign="top">
+<td style="text-align: center;" colspan="2"><b>Altitude</b></td>
+<td style="text-align: center;"><b>Temperature</b></td>
+<td><b>P/P<sub>O</sub></b></td>
+<td><b>ρ/ρ<sub>O</sub></b></td>
+<td><b>μ/μ<sub>O</sub></b></td>
+<td><b>ν/ν<sub>O</sub></b></td>
+<td><b>Speed of Sound</b></td>
+</tr>
+<tr>
+<td><b>m</b></td>
+<td><b>ft</b></td>
+<td><b><sup>o</sup>C</b></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td><b>m/s</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>15.2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>340.3</td>
+</tr>
+<tr>
+<td>152</td>
+<td>500</td>
+<td>14.2</td>
+<td>0.9821</td>
+<td>0.9855</td>
+<td>0.9973</td>
+<td>1.0121</td>
+<td>339.7</td>
+</tr>
+<tr>
+<td>304</td>
+<td>1000</td>
+<td>13.2</td>
+<td>0.9644</td>
+<td>0.9711</td>
+<td>0.9947</td>
+<td>1.0243</td>
+<td>339.1</td>
+</tr>
+<tr>
+<td>457</td>
+<td>1500</td>
+<td>12.2</td>
+<td>0.947</td>
+<td>0.9568</td>
+<td>0.992</td>
+<td>1.0367</td>
+<td>338.5</td>
+</tr>
+<tr>
+<td>609</td>
+<td>2000</td>
+<td>11.2</td>
+<td>0.9298</td>
+<td>0.9428</td>
+<td>0.9893</td>
+<td>1.0493</td>
+<td>338</td>
+</tr>
+<tr>
+<td>762</td>
+<td>2500</td>
+<td>10.2</td>
+<td>0.9129</td>
+<td>0.9289</td>
+<td>0.9866</td>
+<td>1.0622</td>
+<td>337.4</td>
+</tr>
+<tr>
+<td>914</td>
+<td>3000</td>
+<td>9.3</td>
+<td>0.8962</td>
+<td>0.9151</td>
+<td>0.9839</td>
+<td>1.0752</td>
+<td>336.8</td>
+</tr>
+<tr>
+<td>1066</td>
+<td>3500</td>
+<td>8.3</td>
+<td>0.8798</td>
+<td>0.9015</td>
+<td>0.9812</td>
+<td>1.0884</td>
+<td>336.2</td>
+</tr>
+<tr>
+<td>1219</td>
+<td>4000</td>
+<td>7.3</td>
+<td>0.8637</td>
+<td>0.8881</td>
+<td>0.9785</td>
+<td>1.1018</td>
+<td>335.6</td>
+</tr>
+<tr>
+<td>1371</td>
+<td>4500</td>
+<td>6.3</td>
+<td>0.8477</td>
+<td>0.8748</td>
+<td>0.9758</td>
+<td>1.1155</td>
+<td>335</td>
+</tr>
+<tr>
+<td>1524</td>
+<td>5000</td>
+<td>5.3</td>
+<td>0.832</td>
+<td>0.8617</td>
+<td>0.9731</td>
+<td>1.1293</td>
+<td>334.4</td>
+</tr>
+<tr>
+<td>1676</td>
+<td>5500</td>
+<td>4.3</td>
+<td>0.8166</td>
+<td>0.8487</td>
+<td>0.9704</td>
+<td>1.1434</td>
+<td>333.8</td>
+</tr>
+<tr>
+<td>1828</td>
+<td>6000</td>
+<td>3.3</td>
+<td>0.8014</td>
+<td>0.8359</td>
+<td>0.9677</td>
+<td>1.1577</td>
+<td>333.2</td>
+</tr>
+<tr>
+<td>1981</td>
+<td>6500</td>
+<td>2.3</td>
+<td>0.7864</td>
+<td>0.8232</td>
+<td>0.9649</td>
+<td>1.1722</td>
+<td>332.6</td>
+</tr>
+<tr>
+<td>2133</td>
+<td>7000</td>
+<td>1.3</td>
+<td>0.7716</td>
+<td>0.8106</td>
+<td>0.9622</td>
+<td>1.187</td>
+<td>332</td>
+</tr>
+<tr>
+<td>2286</td>
+<td>7500</td>
+<td>0.3</td>
+<td>0.7571</td>
+<td>0.7983</td>
+<td>0.9595</td>
+<td>1.202</td>
+<td>331.4</td>
+</tr>
+<tr>
+<td>2438</td>
+<td>8000</td>
+<td>-0.6</td>
+<td>0.7428</td>
+<td>0.786</td>
+<td>0.9567</td>
+<td>1.2172</td>
+<td>330.8</td>
+</tr>
+<tr>
+<td>2590</td>
+<td>8500</td>
+<td>-1.6</td>
+<td>0.7287</td>
+<td>0.7739</td>
+<td>0.954</td>
+<td>1.2327</td>
+<td>330.2</td>
+</tr>
+<tr>
+<td>2743</td>
+<td>9000</td>
+<td>-2.6</td>
+<td>0.7148</td>
+<td>0.762</td>
+<td>0.9512</td>
+<td>1.2484</td>
+<td>329.6</td>
+</tr>
+<tr>
+<td>2895</td>
+<td>9500</td>
+<td>-3.6</td>
+<td>0.7012</td>
+<td>0.7501</td>
+<td>0.9485</td>
+<td>1.2644</td>
+<td>329</td>
+</tr>
+<tr>
+<td>3048</td>
+<td>10000</td>
+<td>-4.6</td>
+<td>0.6877</td>
+<td>0.7385</td>
+<td>0.9457</td>
+<td>1.2807</td>
+<td>328.4</td>
+</tr>
+<tr>
+<td>3200</td>
+<td>10500</td>
+<td>-5.6</td>
+<td>0.6745</td>
+<td>0.7269</td>
+<td>0.943</td>
+<td>1.2972</td>
+<td>327.8</td>
+</tr>
+<tr>
+<td>3352</td>
+<td>11000</td>
+<td>-6.6</td>
+<td>0.6614</td>
+<td>0.7155</td>
+<td>0.9402</td>
+<td>1.314</td>
+<td>327.2</td>
+</tr>
+<tr>
+<td>3505</td>
+<td>11500</td>
+<td>-7.6</td>
+<td>0.6486</td>
+<td>0.7043</td>
+<td>0.9374</td>
+<td>1.331</td>
+<td>326.6</td>
+</tr>
+<tr>
+<td>3657</td>
+<td>12000</td>
+<td>-8.6</td>
+<td>0.636</td>
+<td>0.6932</td>
+<td>0.9347</td>
+<td>1.3484</td>
+<td>326</td>
+</tr>
+<tr>
+<td>3810</td>
+<td>12500</td>
+<td>-9.6</td>
+<td>0.6236</td>
+<td>0.6822</td>
+<td>0.9319</td>
+<td>1.366</td>
+<td>325.4</td>
+</tr>
+<tr>
+<td>3962</td>
+<td>13000</td>
+<td>-10.6</td>
+<td>0.6113</td>
+<td>0.6713</td>
+<td>0.9291</td>
+<td>1.384</td>
+<td>324.7</td>
+</tr>
+<tr>
+<td>4114</td>
+<td>13500</td>
+<td>-11.5</td>
+<td>0.5993</td>
+<td>0.6606</td>
+<td>0.9263</td>
+<td>1.4022</td>
+<td>324.1</td>
+</tr>
+<tr>
+<td>4267</td>
+<td>14000</td>
+<td>-12.5</td>
+<td>0.5875</td>
+<td>0.65</td>
+<td>0.9235</td>
+<td>1.4207</td>
+<td>323.5</td>
+</tr>
+<tr>
+<td>4419</td>
+<td>14500</td>
+<td>-13.5</td>
+<td>0.5758</td>
+<td>0.6396</td>
+<td>0.9207</td>
+<td>1.4396</td>
+<td>322.9</td>
+</tr>
+<tr>
+<td>4572</td>
+<td>15000</td>
+<td>-14.5</td>
+<td>0.5643</td>
+<td>0.6292</td>
+<td>0.9179</td>
+<td>1.4588</td>
+<td>322.3</td>
+</tr>
+<tr>
+<td>4724</td>
+<td>15500</td>
+<td>-15.5</td>
+<td>0.5531</td>
+<td>0.619</td>
+<td>0.9151</td>
+<td>1.4783</td>
+<td>321.7</td>
+</tr>
+<tr>
+<td>4876</td>
+<td>16000</td>
+<td>-16.5</td>
+<td>0.542</td>
+<td>0.609</td>
+<td>0.9123</td>
+<td>1.4981</td>
+<td>321</td>
+</tr>
+<tr>
+<td>5029</td>
+<td>16500</td>
+<td>-17.5</td>
+<td>0.5311</td>
+<td>0.599</td>
+<td>0.9094</td>
+<td>1.5183</td>
+<td>320.4</td>
+</tr>
+<tr>
+<td>5181</td>
+<td>17000</td>
+<td>-18.5</td>
+<td>0.5203</td>
+<td>0.5892</td>
+<td>0.9066</td>
+<td>1.5388</td>
+<td>319.8</td>
+</tr>
+<tr>
+<td>5334</td>
+<td>17500</td>
+<td>-19.5</td>
+<td>0.5098</td>
+<td>0.5795</td>
+<td>0.9038</td>
+<td>1.5596</td>
+<td>319.2</td>
+</tr>
+<tr>
+<td>5486</td>
+<td>18000</td>
+<td>-20.5</td>
+<td>0.4994</td>
+<td>0.5699</td>
+<td>0.9009</td>
+<td>1.5809</td>
+<td>318.5</td>
+</tr>
+<tr>
+<td>5638</td>
+<td>18500</td>
+<td>-21.5</td>
+<td>0.4892</td>
+<td>0.5604</td>
+<td>0.8981</td>
+<td>1.6025</td>
+<td>317.9</td>
+</tr>
+<tr>
+<td>5791</td>
+<td>19000</td>
+<td>-22.4</td>
+<td>0.4791</td>
+<td>0.5511</td>
+<td>0.8953</td>
+<td>1.6244</td>
+<td>317.3</td>
+</tr>
+<tr>
+<td>5943</td>
+<td>19500</td>
+<td>-23.4</td>
+<td>0.4693</td>
+<td>0.5419</td>
+<td>0.8924</td>
+<td>1.6468</td>
+<td>316.7</td>
+</tr>
+<tr>
+<td>6096</td>
+<td>20000</td>
+<td>-24.4</td>
+<td>0.4595</td>
+<td>0.5328</td>
+<td>0.8895</td>
+<td>1.6696</td>
+<td>316</td>
+</tr>
+<tr>
+<td>6248</td>
+<td>20500</td>
+<td>-25.4</td>
+<td>0.45</td>
+<td>0.5238</td>
+<td>0.8867</td>
+<td>1.6927</td>
+<td>315.4</td>
+</tr>
+<tr>
+<td>6400</td>
+<td>21000</td>
+<td>-26.4</td>
+<td>0.4406</td>
+<td>0.515</td>
+<td>0.8838</td>
+<td>1.7163</td>
+<td>314.8</td>
+</tr>
+<tr>
+<td>6553</td>
+<td>21500</td>
+<td>-27.4</td>
+<td>0.4314</td>
+<td>0.5062</td>
+<td>0.8809</td>
+<td>1.7403</td>
+<td>314.1</td>
+</tr>
+<tr>
+<td>6705</td>
+<td>22000</td>
+<td>-28.4</td>
+<td>0.4223</td>
+<td>0.4976</td>
+<td>0.8781</td>
+<td>1.7647</td>
+<td>313.5</td>
+</tr>
+<tr>
+<td>6858</td>
+<td>22500</td>
+<td>-29.4</td>
+<td>0.4134</td>
+<td>0.4891</td>
+<td>0.8752</td>
+<td>1.7895</td>
+<td>312.9</td>
+</tr>
+<tr>
+<td>7010</td>
+<td>23000</td>
+<td>-30.4</td>
+<td>0.4046</td>
+<td>0.4806</td>
+<td>0.8723</td>
+<td>1.8148</td>
+<td>312.2</td>
+</tr>
+<tr>
+<td>7162</td>
+<td>23500</td>
+<td>-31.4</td>
+<td>0.396</td>
+<td>0.4723</td>
+<td>0.8694</td>
+<td>1.8406</td>
+<td>311.6</td>
+</tr>
+<tr>
+<td>7315</td>
+<td>24000</td>
+<td>-32.3</td>
+<td>0.3876</td>
+<td>0.4642</td>
+<td>0.8665</td>
+<td>1.8668</td>
+<td>311</td>
+</tr>
+<tr>
+<td>7467</td>
+<td>24500</td>
+<td>-33.3</td>
+<td>0.3793</td>
+<td>0.4561</td>
+<td>0.8636</td>
+<td>1.8935</td>
+<td>310.3</td>
+</tr>
+<tr>
+<td>7620</td>
+<td>25000</td>
+<td>-34.3</td>
+<td>0.3711</td>
+<td>0.4481</td>
+<td>0.8607</td>
+<td>1.9207</td>
+<td>309.7</td>
+</tr>
+<tr>
+<td>7772</td>
+<td>25500</td>
+<td>-35.3</td>
+<td>0.3631</td>
+<td>0.4402</td>
+<td>0.8578</td>
+<td>1.9484</td>
+<td>309</td>
+</tr>
+<tr>
+<td>7924</td>
+<td>26000</td>
+<td>-36.3</td>
+<td>0.3552</td>
+<td>0.4325</td>
+<td>0.8548</td>
+<td>1.9766</td>
+<td>308.4</td>
+</tr>
+<tr>
+<td>8077</td>
+<td>26500</td>
+<td>-37.3</td>
+<td>0.3474</td>
+<td>0.4248</td>
+<td>0.8519</td>
+<td>2.0053</td>
+<td>307.7</td>
+</tr>
+<tr>
+<td>8229</td>
+<td>27000</td>
+<td>-38.3</td>
+<td>0.3398</td>
+<td>0.4173</td>
+<td>0.849</td>
+<td>2.0345</td>
+<td>307.1</td>
+</tr>
+<tr>
+<td>8382</td>
+<td>27500</td>
+<td>-39.3</td>
+<td>0.3324</td>
+<td>0.4098</td>
+<td>0.846</td>
+<td>2.0643</td>
+<td>306.4</td>
+</tr>
+<tr>
+<td>8534</td>
+<td>28000</td>
+<td>-40.3</td>
+<td>0.325</td>
+<td>0.4025</td>
+<td>0.8431</td>
+<td>2.0947</td>
+<td>305.8</td>
+</tr>
+<tr>
+<td>8686</td>
+<td>28500</td>
+<td>-41.3</td>
+<td>0.3178</td>
+<td>0.3953</td>
+<td>0.8402</td>
+<td>2.1256</td>
+<td>305.1</td>
+</tr>
+<tr>
+<td>8839</td>
+<td>29000</td>
+<td>-42.3</td>
+<td>0.3107</td>
+<td>0.3881</td>
+<td>0.8372</td>
+<td>2.1571</td>
+<td>304.5</td>
+</tr>
+<tr>
+<td>8991</td>
+<td>29500</td>
+<td>-43.2</td>
+<td>0.3038</td>
+<td>0.3811</td>
+<td>0.8342</td>
+<td>2.1892</td>
+<td>303.8</td>
+</tr>
+<tr>
+<td>9144</td>
+<td>30000</td>
+<td>-44.2</td>
+<td>0.297</td>
+<td>0.3741</td>
+<td>0.8313</td>
+<td>2.2219</td>
+<td>303.2</td>
+</tr>
+<tr>
+<td>9296</td>
+<td>30500</td>
+<td>-45.2</td>
+<td>0.2903</td>
+<td>0.3673</td>
+<td>0.8283</td>
+<td>2.2553</td>
+<td>302.5</td>
+</tr>
+<tr>
+<td>9448</td>
+<td>31000</td>
+<td>-46.2</td>
+<td>0.2837</td>
+<td>0.3605</td>
+<td>0.8253</td>
+<td>2.2892</td>
+<td>301.9</td>
+</tr>
+<tr>
+<td>9601</td>
+<td>31500</td>
+<td>-47.2</td>
+<td>0.2772</td>
+<td>0.3539</td>
+<td>0.8223</td>
+<td>2.3239</td>
+<td>301.2</td>
+</tr>
+<tr>
+<td>9753</td>
+<td>32000</td>
+<td>-48.2</td>
+<td>0.2709</td>
+<td>0.3473</td>
+<td>0.8194</td>
+<td>2.3592</td>
+<td>300.5</td>
+</tr>
+<tr>
+<td>9906</td>
+<td>32500</td>
+<td>-49.2</td>
+<td>0.2647</td>
+<td>0.3408</td>
+<td>0.8164</td>
+<td>2.3952</td>
+<td>299.9</td>
+</tr>
+<tr>
+<td>10058</td>
+<td>33000</td>
+<td>-50.2</td>
+<td>0.2586</td>
+<td>0.3345</td>
+<td>0.8134</td>
+<td>2.4318</td>
+<td>299.2</td>
+</tr>
+<tr>
+<td>10210</td>
+<td>33500</td>
+<td>-51.2</td>
+<td>0.2526</td>
+<td>0.3282</td>
+<td>0.8104</td>
+<td>2.4692</td>
+<td>298.6</td>
+</tr>
+<tr>
+<td>10363</td>
+<td>34000</td>
+<td>-52.2</td>
+<td>0.2467</td>
+<td>0.322</td>
+<td>0.8073</td>
+<td>2.5074</td>
+<td>297.9</td>
+</tr>
+<tr>
+<td>10515</td>
+<td>34500</td>
+<td>-53.2</td>
+<td>0.241</td>
+<td>0.3159</td>
+<td>0.8043</td>
+<td>2.5463</td>
+<td>297.2</td>
+</tr>
+<tr>
+<td>10668</td>
+<td>35000</td>
+<td>-54.1</td>
+<td>0.2353</td>
+<td>0.3099</td>
+<td>0.8013</td>
+<td>2.5859</td>
+<td>296.5</td>
+</tr>
+<tr>
+<td>10820</td>
+<td>35500</td>
+<td>-55.1</td>
+<td>0.2298</td>
+<td>0.3039</td>
+<td>0.7983</td>
+<td>2.6264</td>
+<td>295.9</td>
+</tr>
+<tr>
+<td>10972</td>
+<td>36000</td>
+<td>-56.1</td>
+<td>0.2243</td>
+<td>0.2981</td>
+<td>0.7952</td>
+<td>2.6677</td>
+<td>295.2</td>
+</tr>
+<tr>
+<td><b>11000</b></td>
+<td><b>36089</b></td>
+<td><b>-56.5</b></td>
+<td><b>0.2234</b></td>
+<td><b>0.2971</b></td>
+<td><b>0.7947</b></td>
+<td><b>2.6751</b></td>
+<td><b>295.1</b></td>
+</tr>
+<tr>
+<td>11277</td>
+<td>37000</td>
+<td>-56.5</td>
+<td>0.2138</td>
+<td>0.2843</td>
+<td>0.7947</td>
+<td>2.7948</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>11582</td>
+<td>38000</td>
+<td>-56.5</td>
+<td>0.2038</td>
+<td>0.271</td>
+<td>0.7947</td>
+<td>2.9324</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>11887</td>
+<td>39000</td>
+<td>-56.5</td>
+<td>0.1942</td>
+<td>0.2583</td>
+<td>0.7947</td>
+<td>3.0768</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>12192</td>
+<td>40000</td>
+<td>-56.5</td>
+<td>0.1851</td>
+<td>0.2462</td>
+<td>0.7947</td>
+<td>3.2283</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>12496</td>
+<td>41000</td>
+<td>-56.5</td>
+<td>0.1764</td>
+<td>0.2346</td>
+<td>0.7947</td>
+<td>3.3872</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>12801</td>
+<td>42000</td>
+<td>-56.5</td>
+<td>0.1681</td>
+<td>0.2236</td>
+<td>0.7947</td>
+<td>3.554</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>13106</td>
+<td>43000</td>
+<td>-56.5</td>
+<td>0.1602</td>
+<td>0.2131</td>
+<td>0.7947</td>
+<td>3.729</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>13411</td>
+<td>44000</td>
+<td>-56.5</td>
+<td>0.1527</td>
+<td>0.2031</td>
+<td>0.7947</td>
+<td>3.9126</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>13716</td>
+<td>45000</td>
+<td>-56.5</td>
+<td>0.1456</td>
+<td>0.1936</td>
+<td>0.7947</td>
+<td>4.1052</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>14020</td>
+<td>46000</td>
+<td>-56.5</td>
+<td>0.1387</td>
+<td>0.1845</td>
+<td>0.7947</td>
+<td>4.3073</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>14325</td>
+<td>47000</td>
+<td>-56.5</td>
+<td>0.1322</td>
+<td>0.1758</td>
+<td>0.7947</td>
+<td>4.5194</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>14630</td>
+<td>48000</td>
+<td>-56.5</td>
+<td>0.126</td>
+<td>0.1676</td>
+<td>0.7947</td>
+<td>4.7419</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>14935</td>
+<td>49000</td>
+<td>-56.5</td>
+<td>0.1201</td>
+<td>0.1597</td>
+<td>0.7947</td>
+<td>4.9754</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>15240</td>
+<td>50000</td>
+<td>-56.5</td>
+<td>0.1145</td>
+<td>0.1522</td>
+<td>0.7947</td>
+<td>5.2203</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>15544</td>
+<td>51000</td>
+<td>-56.5</td>
+<td>0.1091</td>
+<td>0.1451</td>
+<td>0.7947</td>
+<td>5.4773</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>15849</td>
+<td>52000</td>
+<td>-56.5</td>
+<td>0.104</td>
+<td>0.1383</td>
+<td>0.7947</td>
+<td>5.747</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>16154</td>
+<td>53000</td>
+<td>-56.5</td>
+<td>0.9909 E-1</td>
+<td>0.1318</td>
+<td>0.7947</td>
+<td>6.03</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>16459</td>
+<td>54000</td>
+<td>-56.5</td>
+<td>0.9444 E-1</td>
+<td>0.1256</td>
+<td>0.7947</td>
+<td>6.3268</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>16764</td>
+<td>55000</td>
+<td>-56.5</td>
+<td>0.9001 E-1</td>
+<td>0.1197</td>
+<td>0.7947</td>
+<td>6.6383</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>17068</td>
+<td>56000</td>
+<td>-56.5</td>
+<td>0.8579 E-1</td>
+<td>0.1141</td>
+<td>0.7947</td>
+<td>6.9652</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>17373</td>
+<td>57000</td>
+<td>-56.5</td>
+<td>0.8176 E-1</td>
+<td>0.1087</td>
+<td>0.7947</td>
+<td>7.3081</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>17678</td>
+<td>58000</td>
+<td>-56.5</td>
+<td>0.7793 E-1</td>
+<td>0.1036</td>
+<td>0.7947</td>
+<td>7.6679</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>17983</td>
+<td>59000</td>
+<td>-56.5</td>
+<td>0.7427 E-1</td>
+<td>0.9878 E-1</td>
+<td>0.7947</td>
+<td>8.0454</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>18288</td>
+<td>60000</td>
+<td>-56.5</td>
+<td>0.7079 E-1</td>
+<td>0.9414 E-1</td>
+<td>0.7947</td>
+<td>8.4416</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>18592</td>
+<td>61000</td>
+<td>-56.5</td>
+<td>0.6746 E-1</td>
+<td>0.8972 E-1</td>
+<td>0.7947</td>
+<td>8.8572</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>18897</td>
+<td>62000</td>
+<td>-56.5</td>
+<td>0.6430 E-1</td>
+<td>0.8551 E-1</td>
+<td>0.7947</td>
+<td>9.2932</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>19202</td>
+<td>63000</td>
+<td>-56.5</td>
+<td>0.6128 E-1</td>
+<td>0.8150 E-1</td>
+<td>0.7947</td>
+<td>9.7508</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>19507</td>
+<td>64000</td>
+<td>-56.5</td>
+<td>0.5841 E-1</td>
+<td>0.7768 E-1</td>
+<td>0.7947</td>
+<td>10.231</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>19812</td>
+<td>65000</td>
+<td>-56.5</td>
+<td>0.5566 E-1</td>
+<td>0.7403 E-1</td>
+<td>0.7947</td>
+<td>10.735</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>20116</td>
+<td>66000</td>
+<td>-56.5</td>
+<td>0.5305 E-1</td>
+<td>0.7056 E-1</td>
+<td>0.7947</td>
+<td>11.263</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>20421</td>
+<td>67000</td>
+<td>-56.5</td>
+<td>0.5056 E-1</td>
+<td>0.6725 E-1</td>
+<td>0.7947</td>
+<td>11.818</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>20726</td>
+<td>68000</td>
+<td>-56.5</td>
+<td>0.4819 E-1</td>
+<td>0.6409 E-1</td>
+<td>0.7947</td>
+<td>12.399</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td>21031</td>
+<td>69000</td>
+<td>-56.5</td>
+<td>0.4593 E-1</td>
+<td>0.6108 E-1</td>
+<td>0.7947</td>
+<td>13.01</td>
+<td>295.1</td>
+</tr>
+<tr>
+<td height="25">21336</td>
+<td>70000</td>
+<td>-56.5</td>
+<td>0.4377 E-1</td>
+<td>0.5822 E-1</td>
+<td>0.7947</td>
+<td>13.65</td>
+<td>295.1</td>
+</tr>
+</thead>
+</table>
+</td><tr></table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution">(c) 1995-2025 Auld</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>

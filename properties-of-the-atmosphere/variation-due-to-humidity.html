@@ -1,814 +1,897 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 5.2.7.2 (Linux)"/>
-	<meta name="created" content="2019-03-27T08:07:03.332614834"/>
-	<meta name="changed" content="2019-03-27T08:09:20.685149946"/>
-	<style type="text/css">
-		@page { margin: 2cm }
-		p { margin-bottom: 0.25cm; line-height: 120% }
-		h3.ctl { font-family: "FreeSans" }
-		td p { margin-bottom: 0cm }
-	</style>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="/jqmath/jqmath-0.4.3.css">
+<script src="/jqmath/jquery-1.4.3.min.js"></script>
+<script src="/jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
 </head>
-<body lang="en-AU" dir="ltr">
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
 
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a>
+   <ul class="sub-menu">
+   <li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="../properties-of-the-atmosphere/sea-level-conditions.html">Sea Level Conditions</a></li>
+   <li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="../properties-of-the-atmosphere/variation-with-altitude.html">Variation with Altitude</a></li>
+   <li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="../properties-of-the-atmosphere/variation-due-to-local-ground-conditions.html">Variation due to Local Ground Conditions</a></li>
+   <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230"><a href="../properties-of-the-atmosphere/variation-due-to-humidity.html">Variation due to Humidity</a></li>
+   <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231"><a href="../properties-of-the-atmosphere/variation-due-to-extremely-altitude.html">Variation Due to Extremely Altitude</a></li>
+   <li id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232"><a href="../properties-of-the-atmosphere/table-of-atmospheric-properties.html">Table of Atmospheric Properties</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>
+   <ul class="sub-menu">
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="../subsonic-aerofoil-and-wing-theory/aerofoil-section-2-d-geometry.html">Aerofoil Section 2-D Geometry</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="../subsonic-aerofoil-and-wing-theory/joukowski-aerofoils-and-flow-mapping.html">Joukowski Aerofoils and Flow Mapping</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="../subsonic-aerofoil-and-wing-theory/2-d-thin-aerofoil-theory.html">2-D Thin Aerofoil Theory</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="../subsonic-aerofoil-and-wing-theory/2d-panel-methods.html">2D Panel Methods</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="../subsonic-aerofoil-and-wing-theory/2d-boundary-layer-modelling.html">2D Boundary Layer Modelling</a></li>
+   <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../subsonic-aerofoil-and-wing-theory/3d-prandtl-lifting-line-theory.html">3D Prandtl Lifting Line Theory</a></li>
+   <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../subsonic-aerofoil-and-wing-theory/3d-vortex-lattice-method.html">3D Vortex Lattice Method</a></li>
+   <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../subsonic-aerofoil-and-wing-theory/subsonic-compressibility-corrections.html">Subsonic Compressibility Corrections</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a>
+   <ul class="sub-menu">
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="../propulsion/blade-element-propeller-theory.html">Blade Element Propeller Theory</a></li>
+   <li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="../propulsion/blade-element-rotor-theory.html">Blade Element Rotor Theory</a></li>
+   <li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="../propulsion/gas-turbine-analysis.html">Gas Turbine Analysis</a></li>
+   <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="../propulsion/simple-rocket-analysis.html">Simple Rocket Analysis</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>
+   <ul class="sub-menu">
+   <li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><a href="../wind-tunnel-simulation/admin-office.html">Admin Office</a></li>
+   <li id="menu-item-520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="../wind-tunnel-simulation/pattern-shop.html">Pattern Shop</a></li>
+   <li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="../wind-tunnel-simulation/wind-tunnel-laboratory.html">Wind Tunnel Laboratory</a></li>
+   </ul>
+   </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+  <h3>VARIATION IN DENSITY DUE TO HUMIDITY</h3>
+    <p align="left">The density of the air for a given level of
+    humidity can be found by applying a correction factor to the
+    above calculated perfect gas density.</p>
+<p>
+$$&rho;=&rho;_{PG}K_h\text"&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;"&rho;_{PG}=P/{RT}$$ 
 </p>
-<div id="pgc-70-0-1" dir="ltr">
-	<div id="panel-70-0-1-0" dir="ltr">
-		<h3 class="western" align="left"><a name="sites-page-title-header"></a><a name="sites-page-title"></a>
-		<font color="#800000">VARIATION IN DENSITY DUE TO HUMIDITY</font></h3>
-		<div id="sites-canvas-main" dir="ltr">
-			<div id="sites-canvas-main-content" dir="ltr">
-				<p align="left">The density of the air for a given level of
-				humidity can be found by applying a correction factor to the
-				above calculated perfect gas density.</p>
-				<p align="center" style="margin-bottom: 0cm"> 
-				<img src="variation-due-to-humidity_html_43c1584337c07f4b.gif" name="Object1" hspace="8" width="244" height="44"/>
-</p>
-				<p align="left">The correction factor, <strong>K</strong><strong><sub>h</sub></strong>,
-				can be found by using wet and dry bulb temperature measurements
-				to predict relative humidity as shown in the table below. The
-				relative humidity can be used to obtain the density correction
-				factor from the following graph. Note that the density correction
-				factor produced assumes approximately sea level pressure in the
-				application of these formula.</p>
-				<p align="left"><u>Table: Relative Humidity (%) based on measured
-				Temperature Difference</u></p>
-				<table width="642" cellpadding="4" cellspacing="0">
-					<tr>
-						<td colspan="13" width="632" height="22" valign="top" style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.11cm">
-							<p align="center">Relative Humidity (%)</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">Dry Bulb</p>
-						</td>
-						<td colspan="12" width="565" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">Temperature Difference,<sup>o</sup>C T<sub>DRY</sub>
-							- T<sub>WET</sub></p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center"><sup>o</sup>C</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">1</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">2</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">3</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">4</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">5</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">6</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">7</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">8</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">9</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">10</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">11</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">12</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">81</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">64</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">46</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">29</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">13</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">2</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">84</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">68</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">52</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">37</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">22</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">7</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">4</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">85</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">71</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">57</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">43</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">29</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">16</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">6</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">86</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">73</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">60</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">48</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">35</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">24</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">11</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">8</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">87</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">75</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">63</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">51</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">40</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">29</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">19</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">8</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">10</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">88</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">77</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">66</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">55</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">44</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">24</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">15</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">6</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">12</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">89</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">78</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">68</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">58</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">48</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">39</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">29</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">21</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">12</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">14</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">90</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">79</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">70</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">60</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">51</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">42</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">26</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">18</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">10</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">16</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">90</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">81</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">71</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">63</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">54</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">46</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">38</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">30</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">23</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">15</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">8</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">18</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">91</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">82</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">73</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">65</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">57</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">49</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">41</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">27</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">20</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">14</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">7</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">20</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">91</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">83</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">74</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">66</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">59</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">51</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">44</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">37</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">31</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">24</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">18</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">12</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">22</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">92</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">83</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">76</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">68</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">61</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">54</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">47</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">40</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">28</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">22</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">17</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">24</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">92</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">84</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">77</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">69</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">62</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">56</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">49</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">43</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">37</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">31</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">26</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">20</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">26</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">92</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">85</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">78</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">71</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">64</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">58</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">51</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">46</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">40</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">29</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">24</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">28</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">93</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">85</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">78</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">72</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">65</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">59</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">53</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">48</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">42</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">37</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">32</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">27</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">30</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">93</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">86</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">79</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">73</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">67</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">61</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">55</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">50</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">44</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">39</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">35</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">30</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">32</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">93</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">86</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">80</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">74</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">68</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">62</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">57</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">51</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">46</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">41</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">37</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">32</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">34</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">93</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">87</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">81</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">75</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">69</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">63</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">58</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">53</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">48</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">43</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">39</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">35</p>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td width="59" height="22" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">36</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">94</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">87</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">81</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">75</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">70</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">64</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">59</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">54</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">50</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">45</p>
-						</td>
-						<td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
-							<p align="center">41</p>
-						</td>
-						<td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
-							<p align="center">37</p>
-						</td>
-					</tr>
-				</table>
-				<p align="left">Reference: &quot;Handbook of Chemistry and
-				Physics&quot; Ed R.C.Weast, The Chemical Rubber Co., Ohio, 1964</p>
-				<p align="center"><img src="variation-due-to-humidity_html_f543f3cbb6d13e80.gif" name="graphics3" align="bottom" width="641" height="457" border="0"/>
-</p>
-				<p align="center"><u>Humidity Correction Factor.</u></p>
-			</div>
-		</div>
-	</div>
+    <p align="left">The correction factor, $ K_h $,
+    can be found by using wet and dry bulb temperature measurements
+    to predict relative humidity as shown in the table below. The
+    relative humidity can be used to obtain the density correction
+    factor from the following graph. Note that the density correction
+    factor produced assumes approximately sea level pressure in the
+    application of these formula.</p>
+    <p align="left"><u>Table: Relative Humidity (%) based on measured
+    Temperature Difference</u></p>
+    <table width="642" cellpadding="4" cellspacing="0">
+     <tr>
+      <td colspan="13" width="632" height="22" valign="top" style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding: 0.11cm">
+       <p align="center">Relative Humidity (%)</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">Dry Bulb</p>
+      </td>
+      <td colspan="12" width="565" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">Temperature Difference,<sup>o</sup>C T<sub>DRY</sub>
+       - T<sub>WET</sub></p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center"><sup>o</sup>C</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">1</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">2</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">3</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">4</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">5</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">6</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">7</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">8</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">9</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">10</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">11</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">12</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">81</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">64</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">46</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">29</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">13</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">2</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">84</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">68</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">52</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">37</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">22</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">7</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">4</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">85</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">71</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">57</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">43</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">29</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">16</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">6</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">86</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">73</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">60</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">48</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">35</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">24</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">11</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">8</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">87</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">75</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">63</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">51</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">40</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">29</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">19</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">8</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">10</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">88</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">77</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">66</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">55</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">44</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">24</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">15</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">6</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">12</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">89</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">78</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">68</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">58</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">48</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">39</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">29</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">21</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">12</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">14</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">90</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">79</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">70</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">60</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">51</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">42</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">26</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">18</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">10</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm"></td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">16</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">90</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">81</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">71</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">63</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">54</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">46</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">38</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">30</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">23</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">15</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">8</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm"></td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">18</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">91</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">82</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">73</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">65</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">57</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">49</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">41</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">27</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">20</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">14</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">7</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">20</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">91</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">83</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">74</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">66</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">59</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">51</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">44</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">37</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">31</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">24</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">18</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">12</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">22</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">92</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">83</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">76</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">68</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">61</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">54</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">47</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">40</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">28</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">22</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">17</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">24</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">92</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">84</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">77</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">69</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">62</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">56</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">49</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">43</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">37</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">31</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">26</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">20</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">26</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">92</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">85</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">78</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">71</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">64</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">58</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">51</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">46</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">40</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">29</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">24</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">28</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">93</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">85</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">78</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">72</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">65</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">59</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">53</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">48</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">42</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">37</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">32</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">27</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">30</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">93</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">86</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">79</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">73</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">67</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">61</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">55</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">50</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">44</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">39</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">35</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">30</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">32</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">93</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">86</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">80</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">74</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">68</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">62</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">57</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">51</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">46</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">41</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">37</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">32</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="23" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">34</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">93</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">87</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">81</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">75</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">69</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">63</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">58</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">53</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">48</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">43</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">39</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">35</p>
+      </td>
+     </tr>
+     <tr valign="top">
+      <td width="59" height="22" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">36</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">94</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">87</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">81</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">75</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">70</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">64</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">59</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">54</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">50</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">45</p>
+      </td>
+      <td width="40" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0cm">
+       <p align="center">41</p>
+      </td>
+      <td width="39" style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0cm; padding-bottom: 0.11cm; padding-left: 0.11cm; padding-right: 0.11cm">
+       <p align="center">37</p>
+      </td>
+     </tr>
+    </table>
+    <p align="left">Reference: &quot;Handbook of Chemistry and
+    Physics&quot; Ed R.C.Weast, The Chemical Rubber Co., Ohio, 1964</p>
+    <p align="center"><img src="variation-due-to-humidity.gif" name="graphics3" align="bottom" width="641" height="457" border="0"/></p>
+    <p align="center"><u>Humidity Correction Factor.</u></p>
+</td></tr></table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
 </div>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution">(c) 1995-2025 Auld</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
 
-</p>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
 </body>
 </html>

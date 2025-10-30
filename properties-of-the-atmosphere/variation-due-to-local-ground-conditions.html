@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -84,32 +83,14 @@
      <div class="entry-main">
      <div class="entry-content"> 
 
-
-  <h3>VARIATION OF DENSITY WITH EXTREME ALTITUDE</h3>
-  <p>The
-  formula in the previous sections and the tabulated data below give
-  accurate predictions for an ideal atmosphere in the lower portions
-  near the earth's surface, the troposphere and the lower
-  stratosphere. This covers the first 20km which is where almost all
-  aviation takes place. For variations in density beyond this level
-  to the edge of space, where continuous gas behaviour no longer
-  applies, a rough approximation can be used by assuming there is a
-  logarithmic decay from sea level to the edge of space.</p>
-<p>
-$$&rho;=10^{(-7h)\/150}$$
-</p>
-<p>where $h$ is
-    the altitude in kilometers.</p>
-  <p align="center"><img src="variation-due-to-extremely-altitude.gif" name="Image2" alt="atmosphere_html_m3ab8ba74" align="bottom" width="800"  border="0"/></p>
-    <p align="center"><u>High Altitude Density
-    Approximation</u></font></p>
-    <p>While this estimate is rather crude for
-    small changes over the atmosphere near the earth's surface, it is
-    a simple way to estimate density effects for drag on launch
-    vehicles that will rapidly go from surface to orbital altitudes
-    of 200 to 300km or more.</font></p>
+<h3>VARIATION DUE TO LOCAL GROUND CONDITIONS</h3>
+<p>On many occasions the ground temperature and pressure will not exactly be equal to ISA standard conditions. In these cases it is possible to adjust the atmosphere model to suit local conditions. As the depth of the atmosphere is very small (125Km-150Km) local variations in temperature and pressure will substantially effect the full depth of the atmosphere.</p>
+<p>Where local sea level temperature is above 15<sup>o</sup>C an ISA+ model is used. In this model the complete atmosphere is incremented by the temperature difference between the current sea level temperature and the standard value of 15<sup>o</sup>C. For example, on a 20<sup>o</sup>C day, an ISA + 5 model is used. Temperature at all levels of the atmosphere model are incremented by 5<sup>o</sup>C. With this adjustment, the previous formula for pressure, density, viscosity and speed of sound variation can still be used.</p>
+<p>No adjustments are made for ground surface altitude, all calculations are done based on model starting at sea level. If the local ground level locally is well above sea level then the atmospheric model will still be based on sea level and will start at the altitude of the ground compared to sea level.</p>
+<p><center><a href="ISA-plus.png"><img src="ISA-plus.png" alt="isa-plus" width="602" height="447" /></a></center>
 
 </td></tr></table>
+
 <center><a href="#top">Back to Top</a></center>
 
 
