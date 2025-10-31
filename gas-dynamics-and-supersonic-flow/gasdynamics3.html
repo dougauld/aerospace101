@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a>
+   <ul class="sub-menu">
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1.html">Compressible Flow</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1a.html">Equations of Motion for Compressible Flow</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics2.html">1-D Isentropic Relations</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics3.html">Wave Propogation</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics4.html">Flow through Nozzles and Ducts</a></li>
+   <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics5.html">2-D Compressible Flow</a></li>
+   <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics6.html">Prandtl-Meyer Expansions</a></li>
+   <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics7.html">Shock Interactions and Detached Shocks</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics8.html">Shock Expansion Techniques for Aerofoils</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9.html">Method of Characteristics</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9a.html">Unsteady Supersonic Flow</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics10.html">Compressible Flow Tables and Software</a></li>
+   </ul>
+   </li>   
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<H3>Wave Propagation</H3>
+<P>
+Information regarding flow properties propogates via waves. These waves travel at the local
+speed of sound. There is a noticable contrast between
+incompressible and compressible flows. For an incompressible fluid
+the speed of sound is infinite (Mach number is zero).
+Consequently, information in the form of pressure, density and
+velocity changes is conveyed to all parts of the flow
+instantaneously. The flow therefore changes instantaneously due to an intrduced disturbance.
+The stream lines of an incompressible flow are continuous and the flow changes
+smoothly to accommodate the presence of a body placed in the flow. Changes occur 
+far upstream of the body.This may not happen
+in compressible flows. In a compressible medium
+any disturbance travels only at finite speeds. Signals generated at
+a point in the flow take a finite time to reach other parts of the
+flow. The smooth streamline pattern noticed for incompressible
+flow may now be absent. </p><p>
+In this section an expression for the speed of sound is derived. 
+The difference between supersonic flow and subsonic flow responses to a disturbance 
+due to the presence of anobstacle in the flow will be investigated. Shock waves may be 
+formed in compressible flows.
+</p>
+<H2>Speed of Sound</H2>
+<p>
+Consider a sound wave propagating to the right as shown (<i>Fig. 11</i>)
+with a speed $a$. The medium to the right is at rest and
+has pressure, density and temperature $P, &rho;, T$ respectively.
+As a consequence of wave motion the medium gets compressed and the
+gas is set to motion. Let the speed of gas behind the wave be
+$du$. Pressure, Density and temperature will now be $P+dP, &rho;+d&rho;, T+dT$
+respectively.</p>
+<center>
+<img src="sndspeed.gif" width="614" height="367"><br />
+<u>Figure 11 :  Speed of Sound </u>
+</center>
+<p>
+For analysis it is easier to make the wave stationary, ie. choose a frame of reference that is moving with the wave.
+Accordingly,
+ an equal and opposite  speed $a$
+ (equal to the wave speed) is superimposed. This is shown in part (b)
+of <i>Fig. 11</i>.
+</p>
+<P>
+Applying the equations of mass and momentum to the control volume
+shown gives,
+</P><p>
+$$&rho;a=(&rho;+d&rho;)(a-du)$$<br />
+$$P+&rho;a^2=(P+dP)+(&rho;+d&rho;)(a-du)^2$$
+</p>
+<P>
+Simplifying the continuity equation and ignoring the small products
+such as $du.d&rho;$ gives,
+</P>
+<p>
+$$ad&rho;=&rho;du$$
+</p>
+<p>
+Replacing the term $(&rho;+d&rho;)(a-du)$
+ in the momentum equation, leads to </p><p>
+$$P+&rho;a^2=(P+dP)+(&rho;a)(a-du)$$</p><p>
+which simplifies to </p><p>$$dP=&rho;adu$$
+</p>
+<P>
+Combining Eqns.,
+</P><p>
+$$dp=a^2d&rho;$$<br />
+$$a^2={dP}/{d&rho;}$$
+</p>
+<P>
+If the propagation of a sound wave is considered to be an isentropic
+process, the above equation becomes,
+</P><p>
+$$a^2=({dP}/{d&rho;})_s$$
+</p>
+<P>
+For a perfect gas the above expression reduces to,
+</P><p>
+$$a^2=&gamma;RT\text"&nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;"a=&radic;{&gamma;RT}$$
+</p>
+<P>
+Any change in flow conditions is transmitted to
+other parts of the flow by means of waves travelling at the local
+speed of sound. The ratio of flow speed to the speed of sound ,
+called <i>Mach Number</i>, is an important parameter for a
+given flow. As an equation,
+</P><p>
+$$M=u/a$$
+</p>
+<P>
+Mach Number is a measure of the relative importance of
+compressibility effects for a given flow.
+</P>
+<H2>Propagation of a Source of Sound</H2>
+<P>
+A point source of sound will produce different disturbances in the flow if it moves at different speeds.
+</P><p>
+<B>Stationary Source
+</B>
+</p>
+<P>
+A stationary source emits a sound waves at regular intervals
+eg. every second. The waves travel in the form of a circle
+with the centre at the location of the source as shown in <i>Fig.
+ 12 (a)</i>. After 3 seconds there will be three concentric
+circles as shown. The effect of the sound source is felt at a point as the edge of a circle reaches that point.
+</p>
+<p><b>Source moving at Subsonic Speeds
+</b></P>
+<P>
+If the source moves to the left at half the speed of sound, i.e., $M = 0.5$ then the source will be at different positions as the waves are released as shown. 
+In this case the sound travels faster than the particle, but the particle moves
+ so that the origin of each circel is different and the waves produced are 
+ closer together on the side toward which the particle is moving. This gives 
+ rise to the <i>Doppler</i> effect where frequency of the waves to a stationary observer appears different if they are infront of the moving object or behind.
+</p>
+<CENTER>
+<img src="sndsource.gif" width="599" height="562"><A NAME="565"></A><br />
+<u>Figure 12: Propagation of a Source of Sound at different speeds</u>
+</center>
+<p>
+<b>Source moving at the Speed of Sound</b>
+<P>
+In the situation where the source moves at the speed of
+sound, i.e., <i>Fig 12(c)</i> then sound waves 
+travel with the particle speed and do not "<i>outrun</i>" it.
+Consequently, the circles representing wave motion touch each
+other as shown. A line which is tangential to each of
+these circles can be drawn such that any effect of the sound wave is felt only to the
+right of this line. In the region to the left of the line no
+effect of the source of the sources is detected until the particle reaches that point.
+These regions are designated "<i>Zone of Action</i>" and "<i>Zone of Silence</i>" respectively.
+</p>
+<p><b>Source moving at Supersonic Speeds</b>
+</p>
+<P>
+The situation becomes dramatic when the source moves at speeds
+greater than the speed of sound. The boundary between the Zone of
+Silence and the Zone of Action is not a single straight line, but
+two lines meeting at the current position of the source. In
+addition, the Zone of Action is now a more restricted region. A stationary
+observer does not hear any sound till they are within the Zone of Action. 
+This is a common experience when a supersonic aircraft flies past.  An observer on
+the ground first sees the aircraft but hears nothing. They have to wait
+till the aircraft flies past and "immerses" them in the Zone
+of Action. In case of a subsonic aircraft, the observer
+hears the sound as the aircraft approaches.</p>
+<P>
+The boundary between the two zones is called a <i>Shock Wave</i>
+It is a straight line where the sound disturbances have coalesed and where there will then be a 
+step change in gas properties. If the shock wave is relatively weak producing 
+only minimal changes in properties, then it is called a <i>Mach Wave</i>
+The half angle of the wedge produced at supersonic speeds by a weak wave is 
+called the <i>Mach Angle</i>, $&mu;$.
+</P><p>
+$$&mu;=\sin^{-1}(a/u)=\sin^{-1}(1/M)$$
+</p>
+<P>
+Mach Angle is a function of the Mach Number of the flow and is in
+ this sense a property of the flow. Values are listed in Tables at the end of this section.
+</p>
+<center>
+<a href="stationary.avi"><img src="stationary.png" width="180" border="0" cellpadding="0"></a>
+<a href="moving_subsonic.avi"><img src="moving_subsonic.png" width="180" border="0" cellpadding="0"></a>
+<a href="moving_sonic.avi"><img src="moving_sonic.png" width="180" border="0" cellpadding="0"></a>
+<a href="moving_supersonic.avi"><img src="moving_supersonic.png" width="180" border="0" cellpadding="0"></a><br />
+<b>Visualisations of Wave Propogation.</b> Stationary Object : Moving-Subsonic : Moving-Sonic : Moving-Supersonic
+</center>
+<H2>Response of Subsonic and Supersonic Flows to an Obstacle</H2>
+<P>
+If an obstacle placed in subsonic or supersonic then its presence produces disturbances moving at the speed of sound 
+and will have different effects upon the flow depending on Mach Number.
+</p>
+<CENTER>
+<img src="disturbance.gif" width="507" height="570"><br />
+<u>Figure 13 : A Body placed in Subsonic and Supersonic Flows </u>
+</center>
+<H3>Subsonic Flow
+</H3>
+<p>
+If a body is placed in a subsonic stream, any disturbances
+ propagate at the speed of sound. 
+ Since the incoming flow is slower than sound, these disturbances can
+ propagate upstream. As they propagate upstream, they modify the
+ incoming flow. Consequently the flow adjusts itself to the
+ presence of the body sufficiently upstream and flows past the
+ body smoothly. This is also what happens with incompressible
+ flows where the speed of sound is effectively infinite.
+</P>
+<H3>Supersonic Flow</H3>
+<P>
+With a supersonic flow disturbances are formed as a result of
+ flow interacting with the body. But now they cannot propagate
+ upstream because the incoming flow is faster. Any signal that
+ tries to go upstream is pushed back towards the body. These
+ signals, unable to go upstream, pile up closed to the body (<i>Fig. 13</i>).
+ The incoming flow is therefore not "warned" of the presence of
+ the body. It flows as if the body is absent until it encounters the
+ region where the disturbances have builtup up. Then the flow suddenly
+ modifies itself to accommodate the presence of the body. This
+ marks a sharp difference between subsonic and supersonic flows.
+</p>
+<P>
+The example indicates that in a supersonic flow disturbances
+ cannot propagate upstream. This technically stated as "<i>In a Supersonic
+ flow there is no upstream influence</i>". Further the region where
+ the disturbances have "piled up" is a <i>Shock Wave</i>. These are
+ regions of infinitesimally small thickness across
+ which flow properties such as pressure,
+ density and temperature can sometimes jump, orders of magnitude, depending upon the Mach Number of the flow.
+</p>
+<H3>Shock Waves
+</H3>
+<P>
+The analysis of shock waves for 1-D flow are considered in this section, 
+In a later section this will be expanded to cover two-dimensional flows.
+</P>
+<H2>Formation of a Shock Wave</H2>
+<P>
+A piston-cylinder arrangement is shown in <i>Fig. 14</i>. A gas is at
+ rest in front of the piston with pressure, density and
+ temperature given by $P, &rho;$ and $T$. The piston will start moving at 
+time, $t=0$. This start-up produces disturbances, compression waves in the flow. A weak wave is
+ emitted (<i>a</i> in the figure). The wave moves to  right at a speed $a$ , i.e., the speed
+ of sound. The wave as it propagates sets the gas into motion.
+ Accordingly behind the wave is a medium which is slightly
+ compressed. Its properties are given by $P+dP_1, &rho;+d&rho;_1$
+ and $T+dT_1$.</p>
+ <p>If the piston is given an increase in speed (<i>b</i> in the figure), 
+ then another disturbance wave is generated.
+ Its speed, however is not $a$ , but is $a + da_1$.
+ This wave has a higher speed because it is generated in a medium
+ of higher temperature. The second wave chasing the
+first will eventually catchup and merge with the
+ first one to produce a stronger wave. The pressure jump across
+ the stronger wave is not $dP_1$  but is $dP_1+dP_2$. This phenomenon where
+ the waves merge is called <i>Coalescence</i>.
+</p>
+<CENTER>
+<img src="shform.gif" width="602" height="419"><br />
+<u>Figure 14 : Formation of a Shock Wave </u>
+</center>
+<p>
+If the situation is one where the piston is accelerated over a period of time
+ (<i>a,b,c</i> and <i>d</i> in <i>Fig. 14</i>) or the piston is pushed continuously, then
+ there will be a train of
+ waves where each wave is stronger and faster than the one before.
+ Very soon these waves coalesce into a strong wave with a measurable pressure and temperature
+ jump across it. This is a <i>Shock
+ Wave</i>.</P>
+<H2>Normal Shock Waves</H2>
+<p>The formation of shock waves can occur in two different situations.</p>
+<OL>
+<LI>when a supersonic flow negotiates an obstacle and</li>
+<li>when a piston is pushed inside a cylinder.</li>
+</ol>
+<p> In order to analyse a shock and see how flow properties change, it is 
+easiest to choose a stationary frame of reference which moves with the wave. 
+This is applicable to both situations in 1-D flow. 
+The shock wave is assumed to be <i>normal</i> to the flow and across it 
+properties can jump by big magnitudes. 
+A <i>normal shock</i> in a flow with a Mach number of $3$ will have a pressure 
+which jumps $10.333$ times across it. This jump occurs in a distance of about 
+$10^{-6}$ cm. The shock thickness is so small that for all practical purposes it is a discontinuity. 
+</p>
+<center><img src="shockwave.gif" width="215" height="320"><br />
+<u>Figure 15 : Shock Wave</u>
+</center>
+<p>
+Consider a shock wave as shown, across which pressure, density,
+ temperature, velocity,etc, jump from $P_1, &rho;_1, T_1, u_$ ...
+ to $P_2, &rho;_2, T_2, u_2$ .
+ If a control volume is put around it, assuming no change in area between <i>1</i> and <i>2</i>
+then the governing equations are
+</p>
+<p>
+$$&rho;_1u_1=&rho;_2u_2$$<br />
+$$P_1+&rho;_1u_1^2=P_2+&rho;_2u_2^2$$<br />
+$$h_1+u_1^2/2=h_2+u_2^2/2$$
+</p><p>
+Noting that the term $&rho;u^2$ in the momentum equation is
+</P>
+<p>
+$$&rho;u^2=P/{RT}M^2a^2=P/{RT}M^2&gamma;RT=&gamma;PM^2$$
+</p>
+<P>
+The momentum equation now becomes,</P><p>
+$$P_1(1+&gamma;M_1^2)=P_2(1+&gamma;M_2^2)$$
+</p>
+<P>
+The energy equation requires that
+ total enthalpy, $h_0=h+u^2\/2$ is constant across the
+ shock. Accordingly, 
+</P><p>
+$$h_{01} = h_{02}$$</p> 
+<p>which for a perfect gas becomes, $T_{01}=T_{02}$, substituting gives,
+</P><p>
+$$T_1(1+{&gamma;-1}/2M_1^2)=T_2(1+{&gamma;-1}/2M_2^2)$$
+</p>
+<P>
+The expressions derived are for temperature and
+ pressure ratio across a shock wave. Density ratio follows from
+ the perfect gas equation,
+</P><p>
+$$&rho;_2/&rho;_1=P_2/{RT_2}{RT_1}/P_1=P_2/P_1 T_1/T_2$$
+</p>
+<P>
+Substituting for $&rho;u$ as $P/{RT}M&radic;{&gamma;RT}$
+ the continuity equation becomes,
+</P>
+<p>
+$$P_1/&radic;{T_1} M_1= P_2/&radic;{T_2} M_2$$
+</p>
+<P>
+Substituting for pressure ratio,
+</P><p>
+$$M_1/{&radic;{T_1}(1+&gamma;M_1^2)}=M_2/{&radic;{T_2}(1+&gamma;M_2^2)}$$
+</p>
+
+<P>
+Substituting for temperature ratio, 
+</P><p>
+$$M_1^2/{(1+&gamma;M_1^2)^2}(1+{&gamma;-1}/2M_1^2)=M_2^2/{(1+&gamma;M_2^2)^2}(1+{&gamma;-1}/2M_2^2)$$
+</p>
+<P>
+This equation connects Mach Numbers across a normal
+ shock. The Mach number downstream of the shock, $M_2$
+ is a function of Mach Number upstream of the shock, $M_1$
+ and ratio of specific heats, $&gamma;$.</p>
+<p> 
+The equation has two solutions given by,
+</P>
+<p>
+$$M_2^2=&plusmn;M_1^2$$<br />
+$$M_2^2=&plusmn;{1+{&gamma;-1}/2M_1^2}/{&gamma;M_1^2-{&gamma;-1}/2}$$
+</p>
+<P>
+Any imaginary solutions for these Eqns are ruled out. One of the possible 
+solutions, $M_1 = M_2$  is   trivial
+ telling that there is only an extremely weak shock.
+</P>
+<P>
+Once the relationship between $M_2$ and 
+ $M_1$ has been found, the relationships that
+ connect pressure, density, and other variables across the shock can be derived.
+ This is done by substituting for $M_2$ in the equations derived
+ above.</p><p>
+ The final form of the equations are,
+</P>
+<p>
+$$M_2^2={1+{&gamma;-1}/2M_1^2}/{&gamma;M_1^2-{&gamma;-1}/2}$$<br />
+$$P_2/P_1=1 + 2/{&gamma;+1}(M_1^2-1)$$<br />
+$$&rho;_2/&rho;_1=u_1/u_2={(&gamma;+1)M_1^2}/{(&gamma;-1)M_1^2+2}$$<br />
+$$T_2/T_1={(1+{&gamma;-1}/2M_1^2)({2&gamma;}/{&gamma;-1}M_1^2 -1)}/{M_1^2({2&gamma;}/{&gamma;-1}+{&gamma;-1}/2)}$$
+</p>
+<P>
+Considering now the "<i>Total</i>" properties,
+</P><p>
+$$T_{02}/T_{01}=1 $$<br />
+$$P_{02}/P_{01}=({1/2(&gamma;+1)M_1^2}/{1+1/2(&gamma;-1)M_1^2})^{&gamma;/{&gamma;-1}}(1/{{2&gamma;}/{&gamma;+1}M_1^2-{&gamma;-1}/{&gamma;+1}})^{1/{&gamma;-1}}$$
+</p>
+
+<P>
+Change in entropy across the shock is given by
+</P><p>
+$$s_2-s_1=c_p\ln(T_2/T_1)-R\ln(P_2/P_1)$$
+</p><p>
+and</p><p>
+$${s_2-s_1}/R= -ln(P_{02}/P_{01})$$
+</p><p>
+which in terms of $M_1$  alone becomes,
+</P><p>
+$${s_2-s_1}/R=1/{&gamma;-1}\ln({2&gamma;M_1^2}/{&gamma;-1}-{&gamma;-1}/{&gamma;+1})+&gamma;/{&gamma;-1}\ln({2+(&gamma;-1)M_1^2}/{(&gamma;+1)M_1^2})$$
+</p>
+<P>
+Tables and scripts at the end of this section have the values of the ratios of pressure,
+density, temperature, Mach Numbers etc tabulated for different
+inlet Mach Numbers, i.e. $M_1$.
+</p>
+<H2>Important Characteristics of a Normal Shock
+</H2>
+<P>
+Mach numbers are plotted in <i>Fig. 16</i> to reveal an
+important property of normal shocks. It can be seen from the plot
+that -
+</p>
+<ul>
+<li>If $M_1 > 1$  then $ M_2 &lt; 1$ , i.e, if the incoming flow
+is <i>supersonic </i>, the outgoing flow is <i>subsonic</i>. </li>
+<li>If $M_1 &lt; 1$ then $M_2 > 1$ , i.e, if the incoming flow is
+<i>subsonic</i>, the outgoing flow is <i>supersonic</i>.</li>
+</ul>
+<P>
+It appears that both the solutions are mathematically possible. But if the entropy change of the situation is investigated
+(<i>Fig 16(b)</i>) then a fundamental rule of thermodynamics is violated by one of the solutions.
+</p>
+<CENTER>
+<img src="shmach.gif" width="447" height="221"><br />
+<u> Figure 16 : Downstream Mach Number M<sub>2</sub>
+ and Entropy rise across a shock. </u>
+</center>
+<p>
+It comes out that if $M_1 &lt; 1$ then we have a decrease in
+entropy across the shock, which is a violation of the second law
+ and therefore a physical impossibility. This
+solution would give a shock  which tries to expand a flow and
+decrease pressure. Hence, it is clear that expansion shocks are ruled
+out.</p>
+<p>If $M_1 &gt; 1$ there is an increase in entropy, which
+is physically possible. This is a compressive shock across which
+pressure increases.  So the traffic rules for compressible flows
+are such that shocks are always compressive, incoming flow is
+always supersonic and the outgoing flow is always subsonic.
+</p>
+<CENTER>
+<img src="trafic.gif" width="502" height="336"><br />
+<u>Figure 17: Traffic Rules for Compressible Flow. </p>
+</center>
+<p><br /></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution">(c) 1995-2025 Auld</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>

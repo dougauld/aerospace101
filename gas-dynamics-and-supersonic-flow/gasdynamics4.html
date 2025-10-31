@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a>
+   <ul class="sub-menu">
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1.html">Compressible Flow</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1a.html">Equations of Motion for Compressible Flow</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics2.html">1-D Isentropic Relations</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics3.html">Wave Propogation</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics4.html">Flow through Nozzles and Ducts</a></li>
+   <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics5.html">2-D Compressible Flow</a></li>
+   <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics6.html">Prandtl-Meyer Expansions</a></li>
+   <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics7.html">Shock Interactions and Detached Shocks</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics8.html">Shock Expansion Techniques for Aerofoils</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9.html">Method of Characteristics</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9a.html">Unsteady Supersonic Flow</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics10.html">Compressible Flow Tables and Software</a></li>
+   </ul>
+   </li>   
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<H3>Flow through Nozzles and Ducts
+</H3>
+<p>
+<dir>Numerical Example : <a href="nozzlestart.php">Simulation of Experimental Supersonic Nozzle</a>
+</p>
+<P>
+A subsonic flow responds to area changes in a similar manner as an incompressible flow. A supersonic
+flow behaves in an opposite manner in that when there is an area
+decrease, Mach Number decreases, while for an area increase, Mach
+Number increases. It this supersonic case a sonic flow can occur
+only at a throat, a section where area is the minimum. With this theory
+it is possible to explore the properties of gas flow through
+nozzles.</p>
+</P>
+<H2>Flow through a Converging Nozzle
+</H2>
+<P>
+The first application of this theory is a converging nozzle connected to a reservoir where
+stagnation conditions prevail, $P = P_0, T = T_0 , u = 0$.  By
+definition reservoirs are such that no matter how much the fluid
+flows out of them, the conditions in them do not change. In the reservoir it is assumed that pressure, temperature, density etc. remain the same always.
+</p>
+<P>
+The pressure level $P_b$ at the exit of the nozzle is referred to as
+the Back Pressure and it is this pressure that determines the flow
+in the nozzle.</p>
+<P>
+When the Back Pressure, $P_b$  is equal to the reservoir pressure, $P_r = P_0$ there is no flow in the nozzle. 
+This is condition (<i>1</i>) in
+<i>Fig. 18</i>.  If $P_b$ is reduced slightly to $P_2$ (condition (<i>2</i>)), a flow is induced in the
+nozzle. For relatively high values of $P_b$ , the flow is subsonic
+throughout. A further reduction in Back Pressure still results in 
+a subsonic flow, but with a higher Mach Number at the exit
+(condition (<i>3</i>)). As $P_b$ is reduced we have an increased Mach Number at the exit along with
+an increased mass flow rate. This situation continues until a
+ Back Pressure value is reached where the flow reaches sonic conditions ( $>M=1$ )
+  at the exit
+(<i>4</i>). This value of Back pressure follows from the isentropic equations.
+For air it is given by
+</p><p>
+$$P_b^{\text"*"}/P_0=0.5283$$
+</p>
+<P>
+When the Back Pressure is further reduced (<i>5,6</i> etc.), the Mach Number 
+at the exit tries to increase.
+It demands an increased mass flow from the reservoir. But as the
+condition at the exit is sonic, signals do not propagate upstream.
+The Reservoir is unaware of the conditions downstream and it does
+not send any more mass flow. Consequently the flow pattern remains
+unchanged in the nozzle. Any adjustment to the Back Pressure takes
+place outside of the nozzle. The nozzle is now said to be
+<i>choked</i>. The mass flow rate through the nozzle has reached
+its maximum possible value, the choked value. From the <i>Fig.
+18</i> it can be seen that there is an increase in mass flow rate
+only till choking condition (<i>4</i>) is reached. Thereafter mass flow
+rate remains constant.
+</p>
+<CENTER>
+<img src="conv_noz.png" width="600"><br />
+<u>Figure 18 : Flow through a Converging Nozzle </u>
+</center>
+<p>
+Note that for a non-choked flow, the Back Pressure
+and the pressure of the flow at the exit plane are equal. But when the
+nozzle is choked the two are different. The flow will need to adjust out side the exit of the nozzle.
+Usually this take place by means of expansion waves which reduce the exit pressure until it eventually equals the back pressure at a point down stream.
+</P>
+<H3>Flow through a Converging-diverging nozzle</H3>
+
+<P>
+A converging-diverging nozzle is called a <i>de Laval</i> nozzle, it is an
+essential element of a supersonic wind tunnel. In this application,
+the nozzle draws air from a reservoir with a fixed stagnation pressure. It is assumed that the back pressure at the end of
+the diverging section is such that air reaches sonic conditions at
+throat. The flow Mach Number increases in the diverging section.
+The area ratio and the back pressure can be set so that a required Mach
+Number is obtained at the end of the diverging section. Different area ratios give different Mach
+Numbers.
+</p>
+<P>
+The effect of Back Pressure on the flow through a
+converging-diverging nozzle is somewhat more
+complicated than that for a converging nozzle. Flow configurations
+for various back pressures and the corresponding pressure and
+Mach Number distributions are given in <i>Fig. 19</i>. 
+</p>
+<ul>
+<li><i>Fig 19 (a)</i> Back Pressure is equal to the reservoir pressure, $P_b= P_0$.
+There is no flow through the nozzle.
+</li>
+<li><i>Fig 19 (b)</i> Back Pressure slightly reduced,$P_b&lt;P_0$ . A flow is
+initiated in the nozzle, but the condition at throat is still
+subsonic. The flow is subsonic and isentropic through out.
+</li>
+<li><i>Fig 19 (c)</i> The Back Pressure is reduced sufficiently to make the flow
+reach sonic conditions at the throat, $P_b = P_c$. The flow in the
+diverging section is still subsonic as the back pressure is still
+high. The nozzle has reached choking conditions. As the Back
+Pressure is further reduced, flow in the converging section
+remains unchanged.
+</li>
+<li><i>Fig 19 (d)</i> When the Back Pressure is $P_d$ , the flow at the start of 
+the divergent section becomes supersonic. But the Back Pressure is higher than $P_f$, the pressure value required so that a fully established supersonic 
+flow covers the full length of the divergent section.
+Consequently, the flow meets
+the external flow at the Back Pressure through a shock in
+the diverging section. The location and strength of the shock
+depends upon the Back Pressure. Decreasing the Back Pressure moves
+the shock downstream.
+</li>
+<li><i>Fig 19 (f)</i> Once a Back Pressure $P_f$ is reached, the shock 
+formed
+has moved to the exit plane. $P_f\/P_0$ is the smallest pressure
+ratio required for full supersonic flow in the divergent section of this nozzle.
+</li>
+<li>Fig 19 (g)</i> A further reduction in Back Pressure results in the shocks
+being formed outside of the nozzle. These are not Normal Shocks. The flow has become two-dimensional and 
+they are Oblique Shocks. The flow in the divergent section has reduced
+the pressure at the exit to values below the back pressure. Further shocks are required to
+compress the flow and bring it up to the back pressure. Such a nozzle is termed
+<i>Overexpanded</i>.
+</li>
+<li><i>Fig 19 (i)</i> The Back Pressure is reduced to be equal to the pressure of the 
+gas at the exit of the expansion. In this case no shocks are formed as exit and surrounding pressure are equal.
+</li>
+<li><i>Fig 19 (j)</i> The Back Pressure has been reduced to less than  $P_i$. The flow adjustment takes place outside
+of the nozzle, not through shocks, but through Expansion Waves.
+The flow could not expand to reach
+the back Pressure, so further expansion is required to finish the
+job. Such a nozzle is termed <i>Underexpanded</i>.
+</li></p>
+</ul>
+<CENTER>
+<img src="con-div.gif"  width="350" cellpadding="0">  
+<img src="con-div1.gif" width="350" cellpadding="0"><br />
+<u>Figure 19 : Pressure and Mach Number Distribution for the Flow through a Converging-Diverging Nozzle.</u>
+</center>
+<h2>Supersonic Nozzle Experiment</h2>
+
+<P>A typical method of familiarising students with the behaviour of supersonic gas flow is via the use of a supersonic nozzle experiment.
+The following section outlines a procedure for carrying out experiments to measure pressure ratio in a nozzle and observe flow patterns.
+</P>
+
+<CENTER>
+ <IMG SRC="super_nozzle_html_3d10f5a9.png" NAME="graphics1" WIDTH=703  BORDER=0><br />
+ <u>Figure 20 : 2-D Supersonic Flow Nozzle </u>
+</center>
+<h2>Experimental Equipment.</h2>
+<P>The set up of the apparatus is shown in  <i>Figs 20, 21 and 22</i>. The function of each piece of equipment is noted.
+A high-pressure gas supply line is
+attached to a reservior. The reservior is joined to the inlet of a converging-diverging nozzle. 
+Flow is controlled via a manually operated valve on the supply line to the reservior. In this case Back Pressure, $P_b$,
+ is constant and equal to the surrounding atmosphere pressure. Flow 
+is created by increasing the pressure in the reservoir, $P_0$.  Once the valve is open to give sufficient
+upstream stagnation pressure, the nozzle will choke giving Mach 1
+flow at the throat.
+</P>
+<P>Downstream
+of the throat (area $A^\text"*"$) the flow Mach number will depend primarily on
+the area ratio of the channel ($A\/A^\text"*"$) and a supersonic flow slightly
+above Mach 2 will be obtained.</P>
+<CENTER>
+<IMG SRC="super_nozzle_html_2bc84f28.png" NAME="graphics20" WIDTH=702  BORDER=0><BR />
+<u>Figure 21 : High Pressure Supply System.</u>
+</center>
+<p>
+A steel wall containing static pressure ports can be attached to the
+side of the nozzle. Using these ports, static pressure variation
+along the nozzle length can be determined. The static pressure to
+stagnation pressure ratio at any point along the channel can be used
+to predict local Mach number. This result can be compared to area
+ratio predictions and discrepancies due to boundary layer effects,
+shock waves or surface imperfections can be evaluated.
+</P>
+<P>A
+pitot pressure probe can be inserted into the flow at any station and
+can be used to predict upstream Mach number based on the stagnation
+pressure ratio change at that station.</P>
+
+<CENTER>
+<IMG SRC="super_nozzle_html_786ffcd5.png" NAME="graphics22" WIDTH=690 BORDER=0><br />
+<u>Figure 22 :  Schematic of Equipment Connections.</u>
+</center>
+<h2>Nozzle
+Geometry</h2>
+
+<P>Nozzle static pressure port
+stations are shown in the following table. They are measured as distances downstream from the throat.</P>
+
+<CENTER><B>Table : Nozzle Co-ordinates</B></P>
+<TABLE WIDTH="80%" BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+<TR VALIGN=TOP>
+ <TD WIDTH=50>
+ <P ALIGN=CENTER><B>Station No.</B></P>
+</TD>
+<TD WIDTH=35>
+ <P ALIGN=CENTER><B>0</B></P>
+</TD>
+<TD WIDTH=35>
+ <P ALIGN=CENTER><B>1</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>2</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>3</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>4</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>5</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>6</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>7</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>8</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>9</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>10</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>11</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>12</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER><B>13</B></P>
+		</TD>
+		<TD WIDTH=34>
+			<P ALIGN=CENTER><B>14</B></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50>
+			<P ALIGN=CENTER><B>Axial
+			Position (mm)</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>0</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>10</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>29</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>48</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>67</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>86</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>105</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>124</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>143</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>162</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>181</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>200</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>219</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>238</P>
+		</TD>
+		<TD WIDTH=34>
+			<P ALIGN=CENTER>257</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50>
+			<P ALIGN=CENTER><B>Height
+			(mm)</B></P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>14.5</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>19.7</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>30.0</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>35.3</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>38.1</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>39.1</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>39.5</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>39.8</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>40</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>40.3</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>40.5</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>40.6</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>40.8</P>
+		</TD>
+		<TD WIDTH=35>
+			<P ALIGN=CENTER>41.4</P>
+		</TD>
+		<TD WIDTH=34>
+			<P ALIGN=CENTER>43.2</P>
+		</TD>
+	</TR>
+</TABLE><br />
+Throat Height ($A^\text"*"$) = 14.5 mm. Nozzle is two-dimensional with a constant
+depth, 25.4 mm</center>
+
+<h2>Pressure measurement</h2>
+
+<P>Pressure
+measurement can be carried out using Piezo-electric transducers or
+conventional manometers.</P>
+<P>In this example mercury manometers are used to measure the pressures in the
+nozzle or upstream reservoir.
+</P>
+<center>
+<IMG SRC="super_nozzle_html_m579b50d5.png" NAME="graphics3" ALIGN=ABSMIDDLE WIDTH=380 HSPACE=13 BORDER=0></center>
+<p><br /></p><p>
+Stagnation pressure, $P_0$ is measured as the static pressure of the upstream reservoir
+where flow velocity is minimal. Since the stagnation pressure in this reservoir
+is quite high, a multi-column manometer has been used,
+rather than one very long single column.  The mercury columns are
+joined by incompressible water columns.</p><p>
+The
+final measure of stagnation pressure can be determined by addition of
+the mercury column heights and then subtracting the effect of the
+weight of water.</P>
+<p>
+$$P_0=(h_2-h_1)+(h_4-h_3)+(h_6-h_5)-{&rho;_{H_2O}}/&rho;_{Hg}((h2-h3)+(h_4-h_5))+Patm\text"&nbsp;&nbsp;&nbsp; cmHg &nbsp;&nbsp;&nbsp;"$$
+</p><center>
+<IMG SRC="man2.gif" NAME="graphics25" ALIGN=ABSMIDDLE HSPACE=13 WIDTH=343 BORDER=0></center>
+<p><br /></p><p>
+Static pressure along the nozzle is obtained using a multitube manometer.
+Individual ports are connected in sequence. The axial position of the
+static pressure measurement points is shown in the previous table
+</p><p>The first static port is located at station <i>1</i> which is
+downstream of the throat of the nozzle (station <i>0</i>).</p><p>
+Since the pressures drop below atmospheric then the values should be read
+from the manometer as follows.</p>
+<p>
+$$P=P_{atm}-h_i\text"&nbsp;&nbsp;&nbsp; cmHg &nbsp;&nbsp;&nbsp;"$$
+</p>
+<h3>Optical Measurement of Shock and Expansion Waves</h3>
+<center><IMG SRC="super_nozzle_html_m6288c12e.png" NAME="graphics19" WIDTH=634 BORDER=0></center>
+<p>
+A Schleiren optical system can be used to visualise flow in the nozzle.</p>
+<p>This system uses the deflection of parallel light rays by the flow density
+gradients to produce visual images of the shock and expansion waves.
+A point light source shines on a concave mirror with a focal length
+such that a parallel beam of light is produced to illuminate the
+nozzle.
+</P>
+<P>
+Light rays passing through areas of high or low density gradient in the
+nozzle will be bent away from parallel.  A matching pair concave
+mirror catches the light once it has gone through the nozzle and
+refocuses it onto a knife edge.  The knife edge is set to allow about
+½ of the light beam through to a viewing screen or camera.</P>
+<P>
+Light bent by expansions will be stopped at the knife edge. This missing
+light will cause dark areas on the screen where expansion waves
+occur. Light bent by compressions (shocks) will completely pass the
+knife edge and hence brighten these areas on the screen.</P>
+<P>
+ The system can thus be used to produce images of supersonic flow. Some examples can be found here in the <a href="gasdynamics4a.php">supersonic flow images</a> page.</P>
+
+<h3>Supersonic Nozzle Simulation</h3>
+<p>
+Note:
+If you do not have access to a supersonic nozzle, a high
+pressure gas line or any of the other equipment mentioned above, then you can use the <A HREF="nozzlestart.php">
+<u>Supersonic Nozzle Simulation Software</u></A> to carry out your experimental investigations.
+</P>
+<h3>Experimental Procedure</h3>
+<p>To carry out the experiments, follow the procedure outlined in the steps below.</p>
+<p><OL>
+	<LI>With
+	an empty test section, open the control valve and establish
+	supersonic flow in the channel. Measure the static pressure readings
+	along the length of the nozzle. Measure the total pressure reading
+	for the upstream flow. Measure the atmospheric pressure in the lab.
+	Recorded data can be written in the tables shown in sheets below.<BR>
+	
+	<LI>A pitot pressure probe can be inserted into the flow to measure
+	stagnation pressure behind a normal shock wave. This is another
+	technique for measuring the Mach number of the flow in the nozzle.
+	Record the Stagnation pressure using the probe at station 6 in the
+	nozzle.<br/>
+	<LI>With
+	glass walls on the side of the nozzle and by means of a Schlieren
+	optical system, the shock/expansion wave system produced by objects
+	placed in the flow can be seen. These flow patterns can be recorded
+	digitally. Install a test shape into the test section of the
+	channel. Again open the valve to establish supersonic flow. Record
+	the shock and expansion wave patterns using the Schlieren optical
+	system.<br />
+	<LI>With
+	an otherwise empty test section, if small step disturbances are
+	introduced at the walls, the resulting weak Mach waves can be
+	observed by the optical system. The angle of these waves will be
+	another measure of the Mach number of the flow in the nozzle.
+	<br />
+</OL></p>
+<h3>Experimental
+Results</h3>
+<p><OL>
+	<LI>
+	Plot
+	a graph of Mach number versus axial length from throat based on the
+	above experimental measurements. Include all methods, Mach number
+	predicted from nozzle area ratio and Mach number predicted from
+	static/stagnation pressure ratios.<br />
+	<LI>
+	Comment
+	on the differences in Mach number predicted by these methods. Give
+	explanations of the errors intrinsic to each technique to determine the most
+	accurate method.<br />
+	<LI>
+	Estimate
+	the flow Mach number in the uniform section of the channel section
+	into which objects are placed.<br />
+	<LI>
+	Compare
+	oblique shock wave angles and Prandtl-Meyer expansion fan angles for
+	the measured flow with perfect gas theory models. <BR />
+</OL></P>
+<h3>Data Recording</h3>
+<P>Use the following layout for recording manometer data for each nozzle run.
+</P>
+<p>
+<B>Static Pressure Recordings</B>.</P>
+<P> Static
+Pressure ports are located every 1/2 inch along the nozzle, starting
+with port <b>1</b> just downstream of the throat.</P>
+<p>
+Record Absolute Ambient Lab Pressure
+</P>
+<dir><TABLE WIDTH=300 BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<TR>
+<TD WIDTH=225 VALIGN=TOP>
+ <P><b>Atmospheric Pressure (Pa)</b></P>
+</TD>
+</TR>
+<TR>
+<TD WIDTH=225 VALIGN=TOP>
+ <P>&nbsp;<BR />
+</P>
+</TD>
+</TR>
+</TABLE>
+</dir>
+
+<center>
+Record
+Static Pressure Data for each nozzle station in the following table.<br />
+<TABLE WIDTH="80%" BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<TR VALIGN=TOP>
+ <TD WIDTH=64>
+ <P><b>Station</b></P>
+		</TD>
+		<TD WIDTH=34>
+			<P>0</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=35>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>6</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>7</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>8</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>9</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>10</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>11</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>12</P>
+		</TD>
+		<TD WIDTH=34>
+			<P>13</P>
+		</TD>
+		<TD WIDTH=33>
+			<P>14</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP>
+<TD WIDTH=64>
+ <P><b>Position (cm)</b></P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=35>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=33>
+			<P><BR>
+			</P>
+		</TD>
+</TR>
+<TR VALIGN=TOP>
+ <TD WIDTH=64>
+ <P><b>Pressure Height</b></P>
+ <P>(cm)</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=35>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=33>
+			<P><BR>
+			</P>
+		</TD>
+</TR>
+<TR VALIGN=TOP>
+<TD WIDTH=64>
+ <P><b>Pressure</b></P>
+ <P>(Pa)</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=35>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=33>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+</center>
+<P><br /></p><p>
+The Stagnation Pressure of the flow is recorded in the reservoir upstream
+of the nozzle. Record Stagnation Pressure Data in the following
+table.</P>
+</P>
+<center>
+<TABLE WIDTH="80%" BORDER=1 CELLPADDING=4 CELLSPACING=0>
+<TR VALIGN=TOP>
+<TD WIDTH=14%>
+ <P><b>Column No.</b></P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>1</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>2</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>3</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>4</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>5</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P>6</P>
+		</TD>
+</TR>
+<TR VALIGN=TOP>
+ <TD WIDTH=14%>
+ <P><b>Column Height (cm)</b></P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=14%>
+			<P><BR>
+			</P>
+		</TD>
+</TR>
+<TR VALIGN=TOP>
+ <TD WIDTH=14%>
+ <P><b>Stagnation Pressure (Pa)</b></P>
+		</TD>
+		<TD COLSPAN=6 WIDTH=86%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+</center>
+<P><BR><BR>
+</P>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution">(c) 1995-2025 Auld</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
