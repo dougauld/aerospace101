@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Propulsion | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a>
+   <ul class="sub-menu">
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="../propulsion/blade-element-propeller-theory.html">Blade Element Propeller Theory</a></li>
+   <li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="../propulsion/blade-element-rotor-theory.html">Blade Element Rotor Theory</a></li>
+   <li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="../propulsion/gas-turbine-analysis.html">Gas Turbine Analysis</a></li>
+   <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="../propulsion/simple-rocket-analysis.html">Simple Rocket Analysis</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+ <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+      <div class="entry-content"> 
+
+
+<h3>SIMPLE ROCKET ANALYSIS</h3>
+<h2>Internal Chemistry</h2>
+<p>A rocket motor is typically designed to convert internal chemical energy via compustion to kinetic energy of an exhaust gas. The momentum change due to expulsion of the exhaust gas will produce the trust required to propel a vehicle forward.</p>
+<p>There are two main types of rocket motor: <i>liquid</i> fueled and <i>solid</i> fueled.</p>
+<p>In the first case a <i>liquid fuel</i> is fed into a combustion chamber along with an oxider to produce a combustion reaction that produces high temperature and pressure in order to drive the exhaust products out through an exit nozzle.</p>
+<p>Alternately a <i>monopropellant</i> fuel may be passed through a catalyst plate to produce the required chemical reaction. In this class of motor separate fuel and oxidiser tanks are required along with turbine or similar pumps to generate required fuel flow rates. In many cases the fuel will need to be pressurised or stored in cyrogenic tanks as it is not liquid at room temperature. This adds significant weight to the system. For low gravity and extreme environment considerations these tanks and fuel lines may require additional anti-sloshing, pressurisation, heating/cooling or heat regeneration components. The big advantage of liquid fueled engines is the ability to control thrust by being able to vary fuel flow rates and to be shut down and then restarted as required.</p>
+<p>In the case of <i>solid fuel</i> rockets, fuel and oxidiser are pre-mixed into a solid material matrix. Once this material is ignited, combustion continues through the fuel/combustion chamber until all material is exhausted. The main advantage here is the lightness of required supporting structures and lack of a complex fuel storage, pumping system. The disadvantage is a greatly reduced amount of control of thrust variation for the motor.</p>
+<p>There are a large number of possible chemicals that can be used as fuel or oxidiser for rocket motors. For engineering purposes the critical parameter is the amount of thrust produced compared to the amount of fuel being consumed by the motor. The standard measure of performance is called <i>Specific Impulse</i> ($I_{sp}$). It can be defined as follows,</p>
+<p>
+$$I_{sp}={\text"Specific Impulse"}={\text"Total Impulse"}/{\text"Amount of Fuel Used"}$$
+</p>
+<p><i>Total Impulse</i> ($I$) is the force ($F$) produced for a given period of time.</p>
+<p>
+$$\text"Total Impulse"=I=F&Delta;t=&int;F.dt$$
+</p>
+<p align="LEFT">Therefore</p>
+<p>
+$$I_{sp}={F&Delta;t}/{g_0&Delta;m}={F.dt}/{g_0.dm}=F/{{dm}/{dt}g_0}$$
+</p>
+<p align="LEFT">Some sample values for $I_{sp}$ for some standard rocket motors are listed in the following table.</p>
+<p><center><u>Table : Rocket Motor values for Specific Impulse.</u></center><br />
+<table width="643" cellspacing="0" cellpadding="4" border="1">
+<colgroup>
+<col width="152" />
+<col width="181" />
+<col width="54" />
+<col width="222" /> </colgroup>
+<tbody>
+<tr valign="TOP">
+<td bgcolor="#e6e6e6" width="152">
+<p align="LEFT">Fuel</p>
+</td>
+<td bgcolor="#e6e6e6" width="181">
+<p align="LEFT">Oxidiser</p>
+</td>
+<td bgcolor="#e6e6e6" width="54">
+<p align="LEFT">$I_{sp}$ (vacuum)</p>
+<p align="LEFT">sec</sub></p>
+</td>
+<td bgcolor="#e6e6e6" width="222">
+<p align="LEFT">Properties</p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">Liquid H<sub>2</sub></p>
+</td>
+<td width="181">
+<p align="LEFT">Liquid O<sub>2</sub></p>
+</td>
+<td width="54">
+<p align="LEFT">440</p>
+</td>
+<td width="222">
+<p align="LEFT">Cryogenic storage needed</p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">RP-1 (Kerosene)</p>
+</td>
+<td width="181">
+<p align="LEFT">Liquid O<sub>2</sub></p>
+</td>
+<td width="54">
+<p align="LEFT">260</p>
+</td>
+<td width="222"> </td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">Hydrazine (N<sub>2</sub>H<sub>4</sub>)</p>
+</td>
+<td width="181">
+<p align="LEFT">Liquid O<sub>2</sub></p>
+</td>
+<td width="54">
+<p align="LEFT">360</p>
+</td>
+<td width="222"> </td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">Hydrazine</p>
+</td>
+<td width="181">
+<p align="LEFT">Nitrogen Tetroxide N<sub>2</sub>O<sub>4</sub></p>
+</td>
+<td width="54">
+<p align="LEFT">320</p>
+</td>
+<td width="222">
+<p align="LEFT">Hypergolic (self igniting)</p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">Hydrazine</p>
+</td>
+<td width="181"> </td>
+<td width="54">
+<p align="LEFT">227</p>
+</td>
+<td width="222">
+<p align="LEFT">Monopropellant</p>
+</td>
+</tr>
+<tr valign="TOP">
+<td width="152">
+<p align="LEFT">Aluminium+ composite propellant</p>
+</td>
+<td width="181">
+<p align="LEFT">Ammonium perchlorate</p>
+</td>
+<td width="54">
+<p align="LEFT">240</p>
+</td>
+<td width="222">
+<p align="LEFT">Solid</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2> Motor Performance</span></h2>
+<p>A rocket produces force or Thrust ($T$) by expelling high speed exhaust gas. In a vacuum, the momentum expelled in the exhaust will be equal to the thrust produced.</p>
+<center><img src="rocket_chemicals.png" width="965" height="358"/><br />
+$$T={dm}/{dt}V_e$$
+</center>
+<p align="LEFT">hence in a vacuum</p>
+<p>
+$$I_{sp}=V_e/g_0$$
+</p>
+<p align="LEFT">If the rocket is operating within an atmosphere then there will be additional force components due to a pressure imbalance. Drawing a <i>control volume</i> around the system and evaluation the net change in flow momentum and forces with be required in order to more accurately analyse the system.</p>
+<center><img src="rocket_cv.png" width="965" height="358" /></center>
+<p>
+$$&sum;F=T+(P_{atm}-P_e)A_e={dm}/{dt}V_e$$
+</p>
+<p align="LEFT">where $P_e$ is the pressure in the exhaust acting on an exhaust area, $A_e$, and $P_{atm}$ is the pressure of the surrounding atmosphere.</p>
+<p align="LEFT">Thrust will now be</p>
+<p>
+$$T={dm}/{dt}V_e=(P_{atm}-P_e)A_e$$
+</p>
+<p align="LEFT">It is common practice to include this pressure loss term as a reduction in velocity.</p>
+<p>
+$$T={dm}/{dt}V_e-{dm}/{dt}({(P_{atm}-P_e)A_e}/{{dm}/{dt}})={dm}/{dt}V_e-{dm}/{dt}&Delta;V={dm}/{dt}V_{equivalent}$$
+</p>
+<p align="LEFT">where $V_{equivalent}$ ($V_{eq}$) is defined as the equivalent exhaust velocity.</p>
+<p align="LEFT">In this case the specific impulse is</p>
+<p>
+$$I_{sp}=V_{eq}/g_0$$
+</p>
+<h2>Rocket Performance</h2>
+<p>A rocket operating in an atmosphere and under influence of gravity will be subject to the balance of Thrust ($T$) and Drag ($D$) forces and gravitational acceleration. The motion of the rocket can be predicted using a simple force balance.</p>
+<center><img src="rocket_flight.png" width="1266" height="666" /></center> 
+<p>In the direction of the flight path,</p>
+<p>
+$$&sum;F=Ma$$
+</p>
+<p>at any instant of time.</p>
+<p>where $M$ is the current mass of rocket and $a$ is its current acceleration.</p>
+<p>
+$$Ma=M {dV}/{dt}=T-D-Mg\sin(&theta;)$$
+</p>
+<p align="LEFT">Note, force components normal to the flight path are ignored in this simple approach but may be significant for long flights.</p>
+<p align="LEFT">To find the overall performance, the above equation is integrated over time.</p>
+<p>
+$$dV=&int;T/M .dt-&int;D/M .dt - &int; g \sin(&theta;).dt$$
+</p>
+<p align="LEFT">If velocity, altitude, and flight path angle are changing with time the above equation becomes exceedingly difficult to integrate directly. Numerical integration over small time steps for which properties are assumed constant and then updated for the next step is the usual approach used to solve the full equation.</p>
+<p align="LEFT">If the rocket is operating in a vacuum or in orbit such that drag and gravity has negligible component in the flight path direction then the equation can be solved by simple integration.</p>
+<p>
+$$dV=&int;T/M .dt$$
+</p>
+<p align="LEFT">Using the previous solution for motor thrust,</p>
+<p>
+$$dV= &int; {{dm}/{dt}V_e}/M .dt=&int;V_e/M {dm}/{dt} .dt=&int;V_e/M.dm$$
+</p>
+<p align="LEFT">where $m$ is the change in mass of exhaust gas (fuel) and $M$ is the mass of the rocket.</p>
+<p style="text-align: left;">The change in mass of the rocket ($dM$) will be equal but opposite to the amount of mass going out in the the exhaust ($dm$), $dm = - dM$.</p>
+<p>
+$$dV= -&int;V_e/M.dM$$
+</p>
+<p align="LEFT">For a given mass of fuel burnt ($m_b$) the rocket mass will go from an initial value of $M_i$ to a final value of $M_f = M_i – m_b$ and the rocket will be 
+accelerated from an initial velocity $V_i$ to a final velocity $V_f$ , so that $ΔV = V_f - V_i$.</p>
+<p>
+$$&int;_{V_i}^{V_f}dV=V_f-V_i=-V_e&int;_{M_i}^{M_f}1/M .dM$$<br />
+$$&Delta;V=-V_e(\ln(M_f)-\ln(M_i))=V_e(\ln(M_i)-ln(M_f))=V_e\ln(M_i/M_f)$$
+</p>
+<p style="text-align: left;">where it is assumed the system is operating at constant exhaust velocity and constant thrust.</p>
+<p style="text-align: left;">If the previous formula for $I_{sp}$ is used to replace exhaust velocity then the result is the ideal rocket performance equation.</p>
+<p>
+$$&Delta;V=I_{sp}g_o\ln(M_i/M_f)$$
+</p>
+<p>&nbsp;</p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution"><img border="0" src="../c-foot.png" /></div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>

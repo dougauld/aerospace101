@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Propulsion | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a>
+   <ul class="sub-menu">
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="../propulsion/blade-element-propeller-theory.html">Blade Element Propeller Theory</a></li>
+   <li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="../propulsion/blade-element-rotor-theory.html">Blade Element Rotor Theory</a></li>
+   <li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="../propulsion/gas-turbine-analysis.html">Gas Turbine Analysis</a></li>
+   <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="../propulsion/simple-rocket-analysis.html">Simple Rocket Analysis</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+ <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+      <div class="entry-content"> 
+
+<h3>Blade Element Theory for Propellers</h3>
+<p>A relatively simple method of predicting the performance of a propeller (as well as fans or windmills)
+ is the use of Blade Element Theory.</p>
+<p>In this method the propeller is divided into a number of independent sections along the length.
+ At each section a force balance is applied involving 2D section lift and drag with the thrust and torque produced
+  by the section. At the same time a balance of axial and angular momentum is applied. 
+  This produces a set of non-linear equations that can be solved by iteration for each blade section. 
+  The resulting values of section thrust and torque can be summed to predict the overall performance of the propeller.</p>
+<p>The theory does not include secondary effects such as 3-D flow velocities induced on the propeller by the shed tip 
+vortex or radial components of flow induced by angular acceleration due to the rotation of the propeller. 
+In comparison with real propeller results this theory will over-predict thrust and under-predict torque with a 
+resulting increase in theoretical efficiency of 5% to 10% over measured performance. Some of the 
+flow assumptions made also breakdown for extreme conditions when the flow on the blade becomes stalled or 
+there is a significant proportion of the propeller blade in windmilling configuration while other parts 
+are still thrust producing.</p>
+<p>The theory has been found very useful for comparative studies such as optimising blade pitch setting for a 
+given cruise speed or in determining the optimum blade solidity for a propeller. Given the above limitations 
+it is still the best tool available for getting good first order predictions of thrust, torque and efficiency for 
+propellers under a large range of operating conditions.</p>
+<h3>Blade Element Subdivision</h3>
+<center><img src="propeller1.png" width="720" height="368"/></center>
+<p>A propeller blade can be subdivided as shown into a discrete number of sections. For each section the flow 
+can be analysed independently if the assumption is made that for each there are only axial and angular velocity 
+components and that the induced flow input from other sections is negligible. 
+Thus at section AA (radius = $r$) shown above, the flow on the blade would consist of the following components.</p>
+<center><img src="propeller2.png" width="903" height="472" /></center>
+<p>where $V_0$ is the axial flow at propeller disk, $V_2$ is angular flow velocity vector and $V_1$ is section local flow velocity vector, the summation of vectors $V_0$ and $V_2$</p>
+<p>Since the propeller blade will be set at a given geometric pitch angle ($&theta;$) the local velocity vector 
+will create a flow angle of attack on the section. Lift and drag of the section can be calculated using standard 
+2-D aerofoil properties. (Note: propellers use a changed reference line : zero lift line not section chord line). 
+The lift and drag components normal to and parallel to the propeller disk can be calculated so that the contribution 
+to thrust and torque of the compete propeller from this single element can be found.</p>
+<p>The difference in angle between thrust and lift directions is defined as</p>
+<p>$$&phi;=&theta;-&alpha;$$</p>
+<p>The elemental thrust and torque of this blade element can thus be written as</p>
+<p>$$&Delta;T=&Delta;L\cos(&phi;)-&Delta;D\sin(&phi;)$$<br />
+$${&Delta;Q}/r=&Delta;D\cos(&phi;)+&Delta;L\sin(&phi;)$$</p>
+<p>Substituting section data (C<sub>L</sub> and C<sub>D</sub> for the given <b>$&alpha;$</b>) leads to the following equations.</p>
+<p>$$&Delta;L=C_L 1/2 &rho;V_1^2 c.dr$$<br />
+$$&Delta;D=C_D 1/2 &rho;V_1^2c.dr$$</p>
+<p>per blade, where $&rho;$ is the air density, $c$ is the blade chord so that the lift producing area of the blade element is $c.dr.$</p>
+<p>If the number of propeller blades is $B$ then,</p>
+<p>$$&Delta;T=1/2 &rho;V_1^2c(C_L\cos(&phi;)-C_D\sin(&phi;))B.dr\text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)"$$<br />
+$$&Delta;Q=1/2 &rho; V_1^2c(C_D\cos(&phi;)+C_L\sin(&phi;))B.r.dr\text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)"$$</p>
+<h3><span style="color: #800000;">Inflow Factors</span></h3>
+<p>A major complexity in applying this theory arises when trying to determine the magnitude of the two flow components $V_0$> and $V_2$. 
+$V_0$ is roughly equal to the aircraft's forward velocity ($V_∞$) but is increased by the propeller's own induced axial flow into a slipstream. 
+$V_2$ is roughly equal to the blade section's angular speed ($&Omega;r$) but is reduced slightly due to the swirling nature of the flow 
+induced by the propeller. To calculate $V_0$ and $V_2$ accurately both axial and angular momentum balances must be applied to predict the 
+induced flow effects on a given blade element. As shown in the following diagram, the induced components can be defined as factors 
+increasing or decreasing the major flow components.</p>
+<center><img src="prop_flow.png" alt="" width="800" name="graphics3" align="MIDDLE" border="0" /></center>
+<p>A typical streamtube of flow passing through section AA would have velocities</p>
+<p>$$V_{&theta;}=b&Omega;r\text"&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;"V_x=V_{&infin;}(1+a)$$</p>
+<p>So for the velocities $V_0$ and $V_2$ as shown in the previous section flow diagram,</p>
+<p>$$V_0=V_{&infin;}+aV_{&infin;}$$
+</p><p>where $a$ is the axial inflow factor and</p>
+<p>$$V_2 = &Omega;r-b&Omega;r$$</p><p>where $b$ is the angular inflow factor (swirl factor)</p>
+<p>The local flow velocity and the angle of attack for the blade section is thus</p>
+<p>$$V_1=&radic;{V_0^2+V_2^2}\text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)"$$<br />
+$$&alpha;=&theta;-\tan^{-1}(V_0/V_2)\text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)"$$</p>
+<h3><span style="color: #800000;">Axial and Angular Flow Conservation of Momentum</span></h3>
+<p>The governing principle of conservation of flow momentum can be applied for both axial and circumferential directions. For the axial direction, the change in flow momentum along a stream-tube starting upstream, passing through the propeller at section AA and then moving off into the slipstream, must equal the thrust produced by this element of the blade.</p>
+<p>To remove the unsteady effects due to the propeller's rotation, the stream-tube used is one covering the complete area of the propeller disk swept out by the 
+blade element and all variables are assumed to be time averaged values.</p>
+<p>
+\[ \table &Delta;T, =, \text "Change in Momemtum flow rate through tube at disk";
+                  , =, \text "Mass flow rate in tube x Change in velocity along tube";
+                  , =, &rho;.2&pi;r.dr.V_0&times;(V_s-V_{&infin;})\]
+</p>
+<p>By applying Bernoulli's equation and conservation of momentum, for the three separate components of the tube, 
+from freestream to face of disk, from rear of disk to slipstream far downstream and balancing pressure and area 
+versus thrust, it can be shown that the axial velocity at the disk will be the average of the freestream and 
+slipstream velocities.</p>
+<p>$$V_0={V_{&infin;}+V_s}/2$$</p><p>which means that</p>
+<p>$$V_s=V_{&infin;}(1+2a)$$</p><p>Therefore</p>
+<p>\[\table &Delta;T, =,2&pi;r&rho;V_{&infin;}(1+a)(V_{&infin;}(1+2a)-V_{&infin;}).dr;
+                         , =,4&pi;r&rho;V_{&infin;}^2(1+a)a.dr \text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5)"\]</p>
+<p style="text-align: left;">For angular momentum</p>
+<p>\[\table &Delta;Q, =,\text"Change in angular momentum rate of flow in tube x radius";
+                         , =,\text"Mass flow rate in tube x change in circumferential velocity x radius";
+                         , =,&rho;.2&pi;r.dr.V_0&times;(V_{&theta;(slipstream)}-V_{&theta;(freestream)})&times;r \]
+</p>
+<p style="text-align: left;">By considering conservation of angular momentum in conjunction with the axial velocity change, 
+it can be shown that the angular velocity in the slipstream will be twice the value at the propeller disk.</p>
+<p>$$V_{&theta;(slipstream)}=2b&Omega;r\text"&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;"V_{&theta;(freestream)}=0$$
+</p>
+<p style="text-align: left;">Thus</p>
+<p>\[\table &Delta;Q, =, 2&pi;r&rho;V_{&infin;}(1+a)(2b&Omega;r)r.dr;
+                         , =, 4&pi;r^3V_{&infin;}(1+a)b&Omega;.dr\text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(6)" \]
+                         </p>
+<p>Because these final forms of the momentum equation balance still contain the variables for element thrust and torque, they cannot be used 
+directly to solve for inflow factors. However there now exists a nonlinear system of equations (1),(2),(3),(4),(5) and (6) 
+containing the four primary unknown variables $ΔT, ΔQ, a, b$, so an iterative solution to this system is possible.</p>
+<h2>Iterative Solution procedure for Blade Element Theory.</h2>
+<p>The method of solution for the blade element flow will be to start with some initial guess of inflow factors 
+$a$ and $b$. Use these to find the flow angle on the blade (equations (3),(4)), then use blade section 
+properties to estimate the element thrust and torque (equations (1),(2)). With these approximate values of thrust and 
+torque equations (5) and (6) can be used to give improved estimates of the inflow factors $a$ and $b$.</p>
+<p>This process can be repeated until values for $a$ and $b$ have converged to within a specified tolerance.</p>
+<p>It should be noted that convergence for this nonlinear system of equations is not guaranteed. It is usually a 
+simple matter of applying some convergence enhancing techniques (ie Crank-Nicholson under-relaxation) to get a 
+result when linear aerofoil section properties are used. When non-linear properties are used, ie including 
+stall effects, then obtaining convergence will be significantly more difficult.</p>
+<p>For the final values of inflow factor $a$ and $b$ an accurate prediction of element thrust and torque will be obtained from equations (1) and (2).</p>
+<h2>Propeller Thrust and Torque Coefficients and Efficiency.</h2>
+<p>The overall propeller thrust and torque will be obtained by summing the results of all the radial blade element values.</p>
+<p>$$T=&Sigma;&Delta;T \text" (for all elements)&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;"Q=&Sigma;&Delta;Q \text" (for all elements)"$$
+</p><p>The non-dimensional thrust and torque coefficients can then be calculated along with the advance ratio at 
+which they have been calculated.</p>
+<p>$$C_T={T}/{&rho;n^2D^4}$$</p><p>and</p>
+<p>$$C_Q={Q}/{&rho;n^2D^5}$$</p><p>where <b>n</b> is the rotation speed of propeller in revs per second and $D$ is the propeller diameter.</p>
+<p>The efficiency of the propeller under these flight conditions will then be</p>
+<p>$$&eta;_{prop}={JC_T}/{2&pi;C_Q}$$</p><p>where advance ratio $J=V_{&infin;}\/{nD}$.</p>
+<h3><span style="color: #800000;">Software Implementation of Blade Element Theory</span></h3>
+<p>Two programming versions of this propeller analysis technique are available. 
+The first is a demonstration program which can be used to calculate thrust and torque coefficients and 
+efficiency for a relatively simple propeller design using standard linearised aerofoil section data. 
+The blade is assumed to have a constant pitch (<b>p</b>) so that the variation of <b>θ</b> with radius is calculated from the standard pitch 
+equation.</p>
+<p>$$p=2&pi;r\tan(&theta;)$$</p>
+<p>Click here to run the Propeller Analysis Program <a href="propel.php"><u>Propel</u></a></p>
+<p>Click here to download the Propeller Analysis Program <a href="propel.exe"><u>Propel.exe</u></a> (<i>MS Windows 32-bit Executable</i>)</p>
+<p>Click to download a MATLAB script file for the implementation of this method. The source code in this script is by default a simple propeller design with linear properties. However with the inclusion of your own propeller geometry and section data a more accurate analysis of the specific propeller design can be obtained.
+Propeller MATLAB script: <a href="propel.m"><u>Propel.m</u></a></p>
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+</div><!-- #footer-widgets -->
+<div id="theme-attribution"><img border="0" src="../c-foot.png" /></div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
+ 
