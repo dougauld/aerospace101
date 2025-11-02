@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<!--This script is part of the Aerodynamics4students suite and 
+    is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+                
+    Aerodynamics4students is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+                               
+    To obtain the details of the GNU General Public License
+    see <http://www.gnu.org/licenses/>.
+-->
+
+<center><table width='800' height='600' background='atmos.jpg'><tr><td> 
+<font face='Arial' size=2>
+<center><table width=760 border=1><tr><td colspan=2><font color=white>
+<B>Standard Atmosphere Computations</B><br>
+This form calculates properties related to the 1976
+standard atmosphere up to 230,000 ft.<br />  The code used is based on the original Javascript of
+Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
+</font></td></tr><tr><td>
+<form name="units" id="units">
+ <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" CHECKED="true" onClick="setEUnits()">English
+ <INPUT TYPE="radio" VALUE="radio" NAME="unitbut"  onClick="setMUnits()">Metric
+</form><br />
+<form name="inputs" id="units">
+<B>Inputs</B><br><table><tr><td>Altitude</td>
+<td><INPUT NAME='alt' TYPE="text" VALUE="0" SIZE="15"></td>
+<td><INPUT NAME='hunits' TYPE="text" SIZE="6" VALUE="m"></td></tr>
+<tr><td>Speed</td>
+<td><INPUT NAME='speed' TYPE="text"  VALUE="0" SIZE="15"></td><td>
+<INPUT NAME='vunits' TYPE="text" SIZE="6" VALUE="m/s"></td></tr>
+<tr><td>Reference Length</td>
+<td><INPUT NAME='rlength' TYPE="text"  VALUE="1" SIZE="15"></td>
+<td><INPUT NAME='lunits' TYPE="text" SIZE='6' VALUE="m"></td></tr>
+</table>
+<BR><center>";
+<INPUT NAME="name" TYPE="button" VALUE="Compute" onClick="Compute()">
+<INPUT NAME="name" TYPE="button" VALUE="Reset" onClick="ResetForm()">
+</form>
+<br>&nbsp;<br>
+<a href='../resources/index.html'>Tabulated Data and Downloads </a><br>
+</center></td><td>";
+<B>Results</B>";
+<form name='results' id='results'>";
+
+<table class="center">
+  <tr>
+    <td class="alignright">Temperature</td>
+    <td class="alignleft"><div id="temp" class="Result">&nbsp;</div>
+    <span id="tunits">deg R</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Density</td>
+    <td class="alignleft"><div id="rho" class="Result">&nbsp;</div>
+    <span id="runits">sl/ft^3</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Pressure</td>
+    <td class="alignleft"><div id="press" class="Result">&nbsp;</div>
+    <span id="punits">lb/ft^2</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Speed of Sound</td>
+    <td class="alignleft"><div id="ssound" class="Result">&nbsp;</div>
+    <span id="sunits">ft/sec</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Viscosity</td>
+    <td class="alignleft"><div id="visc" class="Result">&nbsp;</div>
+    <span id="muunits">lb sec/ft^2</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Mach Number</td>
+    <td class="alignleft"><div id="mach" class="Result">&nbsp;</div>
+  </tr>
+  <tr>
+    <td class="alignright">Dynamic Pressure</td>
+    <td class="alignleft"><div id="q" class="Result">&nbsp;</div>
+    <span id="qunits">lb/ft^2</span></td>
+  </tr>
+  <tr>
+    <td class="alignright">Critical Cp</td>
+    <td class="alignleft"><div id="cpstar" class="Result">&nbsp;</div>
+  </tr>
+  <tr>
+    <td class="alignright">Vacuum Cp</td>
+    <td class="alignleft"><div id="cpmin" class="Result">&nbsp;</div>
+  </tr>
+  <tr>
+    <td class="alignright">Reynolds Number</td>
+    <td class="alignleft"><div id="reno" class="Result">&nbsp;</div>
+  </tr>
+  <tr>
+    <td class="alignright">Laminar Cf</td>
+    <td class="alignleft"><div id="cfl" class="Result">&nbsp;</div>
+  </tr>
+  <tr>
+    <td class="alignright">Turbulent Cf</td>
+    <td class="alignleft"><div id="cft" class="Result">&nbsp;</div>
+  </tr>
+</table>
+</FORM>
+</td></tr>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function setEUnits() {
+  var DE1 = document.getElementById ( "inputs" );
+  var str = document.getElementById("hunits").innerHTML;
+  if ( str== "ft") {
+    alert("Already in English Units.");
+    return;
+  }
+  document.getElementById("hunits").innerHTML = "ft"
+  document.getElementById("vunits").innerHTML = "ft/sec"
+  document.getElementById("lunits").innerHTML = "ft"
+
+  var DE2 = document.getElementById( "results" );
+  document.getElementById('tunits').innerHTML = "deg R"
+  document.getElementById("runits").innerHTML = "sl/ft^3"
+  document.getElementById("punits").innerHTML = "lb/ft^2"
+  document.getElementById("sunits").innerHTML = "ft/sec"
+  document.getElementById("muunits").innerHTML = "lb sec/ft^2"
+  document.getElementById("qunits").innerHTML = "lb/ft^2";
+
+  var h = DE1.alt.value;
+  var v =DE1.speed.value;
+  var rl = DE1.rlength.value;
+  var tempVal = document.getElementById("temp").innerHTML 
+  var rhoVal =  document.getElementById("rho").innerHTML 
+  var pVal  = document.getElementById("press").innerHTML 
+  var soundVal  = document.getElementById("ssound").innerHTML 
+  var viscVal =  document.getElementById("visc").innerHTML 
+  var machVal = document.getElementById("mach").innerHTML 
+  var qVal  =document.getElementById("q").innerHTML 
+  var cpstarVal  = document.getElementById("cpstar").innerHTML 
+  var cpminVal  = document.getElementById("cpmin").innerHTML
+  var reynolds =  document.getElementById("reno").innerHTML
+  var cflam  = document.getElementById("cfl").innerHTML
+  var cfturb  =  document.getElementById("cft").innerHTML
+
+  DE1.alt.value = h*3.2808
+  DE1.speed.value = v*3.2808
+  DE1.rlength.value = rl*3.2808
+  document.getElementById("temp").innerHTML =tempVal*1.8
+  document.getElementById("rho").innerHTML = rhoVal * .068521  * .028317
+  document.getElementById("press").innerHTML = pVal * .020885
+  document.getElementById("ssound").innerHTML = soundVal*3.2808
+  document.getElementById("visc").innerHTML = viscVal*.22481*.092903
+  document.getElementById("mach").innerHTML = machVal
+  document.getElementById("q").innerHTML = qVal * .020885
+  document.getElementById("cpstar").innerHTML = cpstarVal
+  document.getElementById("cpmin").innerHTML = cpminVal
+  document.getElementById("reno").innerHTML = reynolds
+  document.getElementById("cfl").innerHTML = cflam
+  document.getElementById("cft").innerHTML = cfturb
+  roundAll();
+}
+function setMUnits() {
+  var DE1 = document.getElementById ( "inputs" );
+  var str = document.getElementById("hunits").innerHTML;
+  if ( str== "m") {
+    alert("Already in metric units.");
+    return;
+  }
+  Compute();
+  document.getElementById("hunits").innerHTML = "m"
+  document.getElementById("vunits").innerHTML = "m/sec"
+  document.getElementById("lunits").innerHTML = "m"
+  var DE2 = document.getElementById( "results" );
+  document.getElementById('tunits').innerHTML = "deg K"
+  document.getElementById("runits").innerHTML = "kg/m^3"
+  document.getElementById("punits").innerHTML = "N/m^2"
+  document.getElementById("sunits").innerHTML = "m/sec"
+  document.getElementById("muunits").innerHTML = "N sec/m^2"
+  document.getElementById("qunits").innerHTML = "N/m^2"
+  var h = DE1.alt.value;
+  var v = DE1.speed.value;
+  var rl = DE1.rlength.value;
+  //var tempVal = DE2.temp.value 
+  var tempVal = document.getElementById("temp").innerHTML 
+  var rhoVal =  document.getElementById("rho").innerHTML 
+  var pVal  = document.getElementById("press").innerHTML 
+  var soundVal  = document.getElementById("ssound").innerHTML 
+  var viscVal =  document.getElementById("visc").innerHTML 
+  var machVal = document.getElementById("mach").innerHTML 
+  var qVal  =document.getElementById("q").innerHTML 
+  var cpstarVal  = document.getElementById("cpstar").innerHTML 
+  var cpminVal  = document.getElementById("cpmin").innerHTML
+  var reynolds =  document.getElementById("reno").innerHTML
+  var cflam  = document.getElementById("cfl").innerHTML
+  var cfturb  =  document.getElementById("cft").innerHTML
+  DE1.alt.value = h/3.2808
+  DE1.speed.value = v/3.2808
+  DE1.rlength.value = rl/3.2808
+  document.getElementById("temp").innerHTML =tempVal/1.8
+  document.getElementById("rho").innerHTML = rhoVal / .068521  / .028317
+  document.getElementById("press").innerHTML = pVal / .020885
+  document.getElementById("ssound").innerHTML = soundVal/3.2808
+  document.getElementById("visc").innerHTML = viscVal/.22481/.092903
+  document.getElementById("mach").innerHTML = machVal
+  document.getElementById("q").innerHTML = qVal / .020885
+  document.getElementById("cpstar").innerHTML = cpstarVal
+  document.getElementById("cpmin").innerHTML = cpminVal
+  document.getElementById("reno").innerHTML = reynolds
+  document.getElementById("cfl").innerHTML = cflam
+  document.getElementById("cft").innerHTML = cfturb
+  roundAll();
+}
+function ResetForm() {
+  var DE1 = document.getElementById ( "inputs" );
+  DE1.alt.value = ""
+  DE1.speed.value = ""
+  DE1.rlength.value = ""
+}
+function Compute() {
+  var DE1 = document.getElementById ( "inputs" );
+  var DE2 = document.getElementById( "results" );
+  
+  // First set to English Units
+  var origUnits = "english";
+  var str = document.getElementById("hunits").innerHTML;
+  if ( str== "m") {
+    origUnits = "metric";
+    setEUnits();
+  }
+  var h = DE1.alt.value;
+  var v =DE1.speed.value;
+  var rl = DE1.rlength.value;
+  var TEMPSL = 518.67;
+  var RHOSL = 0.00237689;
+  var PRESSSL = 2116.22;
+  var saTheta = 1.0
+  var saSigma = 1.0
+  var saDelta = 1.0
+  if ( h<232940 ){
+    saTheta = 1.434843 - h/337634;
+    saSigma = Math.pow( 0.79899-h/606330, 11.20114 );
+    saDelta = Math.pow( 0.838263-h/577922, 12.20114 );
+  }
+  if ( h<167323 ){
+    saTheta = 0.939268;
+    saSigma = 0.00116533 * Math.exp( (h-154200)/-25992 );
+    saDelta = 0.00109456 * Math.exp( (h-154200)/-25992 );
+  }
+  if ( h<154199 ){
+    saTheta = 0.482561 + h/337634;
+    saSigma = Math.pow( 0.857003+h/190115, -13.20114 );
+    saDelta = Math.pow( 0.898309+h/181373, -12.20114 );
+  }
+  if ( h<104987 ){
+    saTheta = 0.682457 + h/945374;
+    saSigma = Math.pow( 0.978261+h/659515, -35.16319 );
+    saDelta = Math.pow( 0.988626+h/652600, -34.16319 );
+  }
+  if ( h<65617 ){
+    saTheta = 0.751865;
+    saSigma = 0.297076 * Math.exp( (36089-h)/20806 );
+    saDelta = 0.223361 * Math.exp( (36089-h)/20806 );
+  }
+  if ( h<36089 ){
+    saTheta = 1.0 - h/145442;
+    saSigma = Math.pow( 1.0-h/145442, 4.255876 );
+    saDelta = Math.pow( 1.0-h/145442, 5.255876 );
+  }
+  var tempVal = TEMPSL * saTheta;
+  var rhoVal = RHOSL * saSigma;
+  var pVal = PRESSSL * saDelta;
+  var viscVal = 0.0226968*Math.pow( tempVal, 1.5 ) / ((tempVal)+198.72) / 1000000.0;
+  var soundVal = Math.sqrt( 1.4*1716.56*(tempVal) );
+  var machVal = v/soundVal
+  var qVal = 0.7*pVal*machVal*machVal
+  var reynolds = v*rl*rhoVal/viscVal
+  var cfturb = 0.455/Math.pow((Math.log(reynolds)/Math.log(10)),2.58)
+  var cflam = 1.328/Math.sqrt(reynolds)
+  document.getElementById("temp").innerHTML = tempVal
+  document.getElementById("rho").innerHTML =  rhoVal
+  document.getElementById("press").innerHTML =  pVal
+  document.getElementById("ssound").innerHTML =  soundVal
+  document.getElementById("visc").innerHTML =  viscVal
+  document.getElementById("mach").innerHTML =  machVal
+  document.getElementById("q").innerHTML =  qVal
+  document.getElementById("cpstar").innerHTML =  (Math.pow((1/1.2 + machVal*machVal/6.0),3.5)-1)/(0.7*machVal*machVal)
+  document.getElementById("cpmin").innerHTML =  -1.0/(0.7*machVal*machVal)
+  document.getElementById("reno").innerHTML = reynolds
+  document.getElementById("cfl").innerHTML = cflam
+  document.getElementById("cft").innerHTML = cfturb
+  if (origUnits == "metric") {
+    setMUnits();          
+  }
+  roundAll();
+}
+// Rounding
+function roundAll(){
+  var DE1 = document.getElementById ( "inputs" );
+  DE1.alt.value = truncNum(  DE1.alt.value,9)
+  DE1.speed.value = truncNum(  DE1.speed.value,7)
+  DE1.rlength.value = truncNum(  DE1.rlength.value,7)
+  var DE2 = document.getElementById( "results" );
+  document.getElementById("temp").innerHTML =truncNum(  document.getElementById("temp").innerHTML,7)
+  document.getElementById("rho").innerHTML = truncNum(  document.getElementById("rho").innerHTML,7)
+  document.getElementById("press").innerHTML = truncNum(  document.getElementById("press").innerHTML,7)
+  document.getElementById("ssound").innerHTML = truncNum(  document.getElementById("ssound").innerHTML ,8)
+  document.getElementById("visc").innerHTML = truncNum(  document.getElementById("visc").innerHTML,10)
+  document.getElementById("mach").innerHTML = truncNum(  document.getElementById("mach").innerHTML,6)
+  document.getElementById("q").innerHTML = truncNum(  document.getElementById("q").innerHTML,7)
+  document.getElementById("cpstar").innerHTML = truncNum(  document.getElementById("cpstar").innerHTML,6)
+  document.getElementById("cpmin").innerHTML = truncNum(  document.getElementById("cpmin").innerHTML,6)
+  document.getElementById("reno").innerHTML = truncNum(  document.getElementById("reno").innerHTML,10)
+  document.getElementById("cfl").innerHTML = truncNum(  document.getElementById("cfl").innerHTML,7)
+  document.getElementById("cft").innerHTML = truncNum(  document.getElementById("cft").innerHTML,7)
+return;
+}
+function truncNum(inputVal, rsize) {
+  var instr = " " + inputVal
+  var inputlength = instr.length
+  if (inputlength<=rsize+1) return instr.substring(1, inputlength);
+  var epos = strpos(instr, "e")
+  if ( epos > rsize+1) {
+    var instr1 = instr.substring(1,rsize+1) + instr.substring(epos,inputlength);
+    return instr1;
+  }
+  var rounded = instr.substring(1, rsize+1);
+  return rounded;
+}
+function strpos(str, ch) {
+  for (var i = 0; i < str.length; i++)
+    if (str.substring(i, i+1) == ch) return i;
+  return -1;
+}
+
+</SCRIPT>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
+
