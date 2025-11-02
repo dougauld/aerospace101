@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.2.7.2 (Linux)"/>
+	<meta name="created" content="2019-02-13T08:38:03.595471815"/>
+	<meta name="changed" content="2019-02-13T15:40:23.906301772"/>
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 120% }
+		td p { margin-bottom: 0cm }
+		h3.ctl { font-family: "FreeSans" }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-AU" dir="ltr">
+<div id="sites-chrome-page-wrapper" dir="ltr">
+	<div id="sites-chrome-page-wrapper-inside" dir="ltr">
+		<div id="sites-chrome-main-wrapper" dir="ltr">
+			<div id="sites-chrome-main-wrapper-inside" dir="ltr">
+				<div id="sites-canvas" dir="ltr">
+					<h3 class="western" align="left"><a name="sites-page-title"></a><a name="sites-page-title-header"></a>
+					Blade-Element Analysis for Rotors 
+					</h3>
+					<div id="sites-canvas-main" dir="ltr">
+						<p><br/>
+
+						</p>
+						<div id="sites-canvas-main-content" dir="ltr">
+							<p style="margin-bottom: 0.5cm">A relatively simple method of
+							predicting the more detailed performance of a helicopter rotor
+							is the use of Blade Element Theory. In this method the rotor
+							is divided into a number of independent sections along the
+							length. At each section a force balance is applied involving
+							2D section lift and drag with the thrust and torque produced
+							by the section. At the same time a balance of axial momentum
+							is applied. This produces a set of non-linear equations that
+							can be solved for each blade section. The resulting values of
+							section thrust and torque can be summed to predict the overall
+							performance of the rotor.</p>
+							<p style="margin-bottom: 0.5cm">The theory does not include
+							secondary effects such as 3-D flow velocities induced on the
+							rotor by the shed tip vortex or radial components of flow
+							induced by angular acceleration due to the rotation of the
+							blades. Modifications to the flow due to cyclic loading, blade
+							flapping, rotor translation and coning angle are able to be
+							made in a relative simple fashion but again this may not
+							encompass all second order or phase-change effects.</p>
+							<p style="margin-bottom: 0.5cm">In comparison with real rotor
+							results this theory will over-predict thrust and under-predict
+							torque with a resulting increase in theoretical efficiency of
+							5% to 10% over measured performance. Some of the flow
+							assumptions made also breakdown for extreme conditions when
+							the flow on the blade becomes stalled or there is a
+							significant proportion of the rotor blade in windmilling
+							configuration while other parts are still thrust producing. 
+							</p>
+							<p style="margin-bottom: 0.5cm">This analysis can be used in
+							conjunction with momentum theory to give refined details on
+							the limits to ideal performance. It can be used to define
+							required collective angles, the areas of blade stall, moments
+							due to out-of-balance cyclic loading, etc. The theory has been
+							found very useful for comparative studies such as optimising
+							blade collective setting for a given cruise speed or in
+							determining the optimum blade solidity for a rotor. It is a
+							tool for getting good first order predictions of thrust,
+							torque and efficiency for rotors under a large range of
+							operating conditions without the computational expense of
+							having to go to complex solutions such as Vortex Theory or
+							full 3-D unsteady flow modelling. 
+							</p>
+							<h3 class="western"><a name="TOC-Blade-Element-Subdivision"></a>
+							<font color="#990000">Blade Element Subdivision</font></h3>
+							<p style="margin-bottom: 0.5cm">A rotor blade can be
+							subdivided as shown into a discrete number of sections.</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_a9915649423e75c0.png" name="graphics3" align="middle" width="528" height="263" border="0"/>
+
+														</p>
+							<p style="margin-bottom: 0.5cm">For each section the flow can
+							be analysed independently if the assumption is made that for
+							each there are only axial and angular velocity components and
+							that the induced flow input from other sections is negligible.
+							Thus at section <b>AA </b>(radius = <b>r</b>) shown above, the
+							flow on the blade would consist of the following components. 
+							</p>
+							<p style="margin-bottom: 0.5cm"><b>V</b><sub><b>0</b></sub>
+							--- axial flow at rotor disk</p>
+							<p style="margin-bottom: 0.5cm"><b>V</b><sub><b>2</b></sub>
+							--- tangential flow velocity vector</p>
+							<p style="margin-bottom: 0.5cm"><b>V</b><sub><b>1</b></sub>
+							--- section local flow velocity vector, summation of vectors
+							<b>V</b><sub><b>0</b></sub> and <b>V</b><sub><b>2</b></sub></p>
+							<p style="margin-bottom: 0.5cm">A rotor blade segment will be
+							set at a given geometric pitch angle (<b>θ</b>), which will
+							be a combination of collective, cyclic and blade twist. The
+							local velocity vector will create a flow angle of attack on
+							the section. Lift and drag of the section can be calculated
+							using standard 2-D aerofoil properties. (Note: blades use a
+							reference line = zero lift line, not section chord line). The
+							lift and drag components normal to and parallel to the rotor
+							disk can be calculated so that the contribution to thrust and
+							torque of the complete rotor from this single element can be
+							found.</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_316fe96737077f51.png" name="Image1" align="left" width="502" height="291" border="0"/>
+<br/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm">The difference in angle (<font face="Liberation Serif, serif"><b>φ</b></font>)
+							between thrust and lift directions compared to the setting
+							angle (<b>θ</b>) produces a local flow angle of attack (<b>α</b>)</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_575a26452b531270.gif" name="Object2" hspace="8" width="63" height="16"/>
+</p>
+							<p style="margin-bottom: 0.5cm">where</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_9199865782a73f87.gif" name="Object3" hspace="8" width="236" height="43"/>
+</p>
+							<p align="center"><br/>
+
+							</p>
+							<p align="left" style="margin-bottom: 0.5cm">Here, <b>V</b><sub><b>0</b></sub>
+							= <b>V</b><sub><b>i</b></sub> + <b>V</b><sub><b>c</b></sub> 
+							where <b>V</b><sub><b>i</b></sub> is the rotor induced flow
+							velocity and <b>V</b><sub><b>c</b></sub> is helicopter
+							vertical climb velocity. As the induced and climb velocities
+							are small in comparison to the rotor speed, 
+							<img src="blade_element_rotor_analysis_html_6171e39bff4f60ea.gif" name="Object4" hspace="8" width="89" height="20"/>
+
+														</p>
+							<p align="left" style="margin-bottom: 0.5cm">Note: hover and
+							vertical climb components are shown here, for forward flight
+							there will be additional velocity components due to rotor tilt
+							and forward speed. Forward speed will also produce variation
+							in velocity components at different angles around the disk
+							with blade sections heading in the direction of vehicle motion
+							at some points and then retreating from vehicle direction at
+							others. The modifications to <b>V</b><sub><b>0</b></sub> and
+							<b>V</b><sub><b>2</b></sub> due to forward flight effects is
+							shown later on in this section.</p>
+							<p>The elemental thrust of this blade element can thus be
+							written as 
+							</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_62216e7eee3b58a7.gif" name="Object5" hspace="8" width="251" height="38"/>
+</p>
+							<p style="margin-bottom: 0.5cm">where <b>ρ</b> is the air
+							density, <b>c</b> is the blade chord and small angle
+							approximations are used for <font face="Liberation Serif, serif"><b>φ</b></font>.</p>
+							<p style="margin-bottom: 0.5cm">The area generating the lift
+							will be the element area multiplied by the number of blades
+							(<b>B</b>) covering the circuit and the lift coefficient can
+							be assumed to be linear with angle of attack (<b>α</b>).</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_712b5d2177a6b8c7.gif" name="Object6" hspace="8" width="70" height="20"/>
+</p>
+							<p style="margin-bottom: 0.5cm">As the angular speed of the
+							rotor is much larger than the induced velocity component,</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_db33c1e3dcab3379.gif" name="Object7" hspace="8" width="157" height="24"/>
+</p>
+							<p style="margin-bottom: 0.5cm">thus, 
+							</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_b2e08eeb209aa0d7.gif" name="Object8" hspace="8" width="234" height="38"/>
+</p>
+							<p align="left">The thrust of the blade element may vary as it
+							travels around the disk so this elemental component will need
+							to be averaged along the blade path.</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_221ce798df54928.gif" name="Object1" hspace="8" width="157" height="38"/>
+</p>
+							<p align="left">where  <font face="Liberation Serif, serif">Ψ
+							</font>is angular position of blade elements around the rotor
+							disk.</p>
+							<p align="center" style="margin-bottom: 0.5cm">&nbsp;</p>
+							<h3 class="western"><a name="TOC-Induced-Velocity-Vi-"></a><font color="#990000">Induced
+							Velocity (V<sub>i</sub>)</font></h3>
+							<p style="margin-bottom: 0.5cm">A major complexity in applying
+							this theory arises when trying to determine the magnitude of
+							the induced velocity (<b>V</b><sub><b>i</b></sub>) . <b>V</b><sub><b>0</b></sub>
+							is equal to this rotor induced velocity (<b>V</b><sub><b>i</b></sub>)
+							with additional increments due to climb speed (<b>V</b><sub><b>c</b></sub>),
+							flapping velocity (<b>V</b><sub><b>f</b></sub>) and
+							rotor/vehicle forward speed (<b>U</b>). The induced velocity
+							is a function of the thrust produced which is in turn based on
+							the affects produced by the induced velocity itself, hence the
+							equations for <b>V</b><sub><b>0</b></sub> become non-linear.</p>
+							<p style="margin-bottom: 0.5cm"><b>V</b><sub><b>1</b></sub> is
+							roughly equal to the blade section's angular speed (<b>Ωr</b>)
+							but may will also  have increments due to advancing/retreating
+							blade speeds for forward flight . In the case of tangential
+							flow, the velocity is determined by known components, provided
+							minor swirling effects are ignored, so <b>V</b><sub><b>1 </b></sub>can
+							be calculated directly. 
+							</p>
+							<p style="margin-bottom: 0.5cm">To calculate <b>V</b><sub><b>0</b></sub>
+							accurately, an axial flow momentum balance must be applied to
+							predict the induced affects on a given blade element. As shown
+							in the following diagram for hover or vertical climb, the
+							axial flow components can be defined as a combination of
+							induced velocity <b>Vi</b> and climb speed <b>Vc</b>.</p>
+							<p style="margin-bottom: 0.5cm">A typical stream-tube of flow
+							passing through the radial element <b>dr</b> would have
+							velocities.</p><span class="sd-abs-pos" style="position: absolute; top: 2.12cm; left: 2.04cm; width: 349px">
+							<img src="blade_element_rotor_analysis_html_534da0139c225030.png" name="Image2" width="349" height="400" border="0"/>
+</span>
+							<p align="left" style="margin-left: 0.26cm; margin-right: 0.26cm; margin-top: 0.13cm; margin-bottom: 0.13cm">
+							<br/>
+<br/>
+
+							</p>
+							<p align="left" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_56bf9dded14bc7c1.gif" name="Object9" hspace="8" width="226" height="20"/>
+
+							   
+							</p>
+							<p style="margin-bottom: 0.5cm">with local flow velocity at
+							the blade section of 
+							<img src="blade_element_rotor_analysis_html_de563f4de21a8bb1.gif" name="Object10" hspace="8" width="93" height="24"/>
+</p>
+							<p>and an elemental mass flow rate through the disk section of
+														</p>
+							<p><br/>
+
+							</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_a614177b3ec10041.gif" name="Object11" hspace="8" width="165" height="38"/>
+</p>
+							<p style="margin-bottom: 0.5cm"><br/>
+<br/>
+
+							</p>
+							<h3 class="western" style="font-weight: normal"><font color="#000000"><font size="3" style="font-size: 12pt">Note:
+							It is assumed that the downstream presure in the slipstream
+							has equalised to be the same as the initial inlet area
+							pressure.</font></font></h3>
+							<h3 class="western"><br/>
+<br/>
+
+							</h3>
+							<h3 class="western"><br/>
+<br/>
+
+							</h3>
+							<h3 class="western"><a name="TOC-Conservation-of-Momentum"></a>
+							<font color="#990000">Conservation of Momentum</font></h3>
+							<p style="margin-bottom: 0.5cm">The governing principle of
+							conservation of momentum can be applied for the axial flow to
+							obtain a solution for <b>V</b><sub><b>i</b></sub>. 
+							</p>
+							<p style="margin-bottom: 0.5cm">For the axial direction, the
+							change in flow momentum along a stream-tube starting upstream,
+							passing through the rotor at section <b>dr</b> and then moving
+							off into the slipstream, must equal the thrust produced by
+							this element of the blade.</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_78555663f92ef197.png" name="Image3" align="left" width="468" height="395">
+  <br clear="left"/>
+</img>
+<br/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm">In general, to remove the
+							unsteady effects due to the rotor's cyclic motion, the
+							stream-tube used is one covering the complete area of the
+							rotor disk swept out by the blade element and all variables
+							are assumed to be time averaged values over one circuit. For
+							changes in flow as the blade moves around this cycle, a
+							further subdivisions into blade passage sectors will need to
+							be included.</p>
+							<p align="left">Change in moment of the flow for one elemental
+							segment due to the thrust created will be,</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_4848c84c8866401a.gif" name="Object12" hspace="8" width="244" height="18"/>
+
+														</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_d527dfb7047383da.gif" name="Object13" hspace="8" width="139" height="38"/>
+</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_fe082f7f9fc299b0.gif" name="Object14" hspace="8" width="203" height="22"/>
+</p>
+							<p align="center">                 
+							<img src="blade_element_rotor_analysis_html_6d5495447e60c1e0.gif" name="Object15" hspace="8" width="254" height="22"/>
+</p>
+							<p align="left">since mass flow is conserved from entry to
+							slipstream,</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_aa4f5cd2495cec98.gif" name="Object16" hspace="8" width="163" height="20"/>
+</p>
+							<p align="left"><br/>
+
+							</p>
+							<p align="left">Thus 
+							</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_a3ffe6613b5e33ee.gif" name="Object17" hspace="8" width="400" height="20"/>
+</p>
+							<p align="left">                               
+							<img src="blade_element_rotor_analysis_html_b31731908349d411.gif" name="Object18" hspace="8" width="150" height="20"/>
+</p>
+							<p align="left">Mass flow at disk will also be same as mass
+							flow at exit,</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_cb7c9cfe6710cee1.gif" name="Object19" hspace="8" width="199" height="20"/>
+</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_13f48e8526cd90ad.gif" name="Object20" hspace="8" width="152" height="20"/>
+</p>
+							<h3 class="western" align="left"><font color="#990000">Conservation
+							of Energy</font></h3>
+							<p style="margin-bottom: 0.5cm">By applying the conservation
+							of energy, the work done by the rotor can be related to the
+							kinetic energy change of the flow.  
+							</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_9187fd652fa23547.gif" name="Object21" hspace="8" width="214" height="18"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_2f0d9488032ab439.gif" name="Object22" hspace="8" width="235" height="20"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_62e6f7bdd90f6b30.gif" name="Object23" hspace="8" width="328" height="22"/>
+</p>
+							<p style="margin-bottom: 0.5cm"> Power can also be found by
+							evaluating kinetic energy change for the flow.</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_5648574a8ac14f6e.gif" name="Object24" hspace="8" width="180" height="38"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_62fe99928d552360.gif" name="Object25" hspace="8" width="356" height="38"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_3f00e85e61d54d5b.gif" name="Object26" hspace="8" width="196" height="38"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_d934c61827b418e6.gif" name="Object27" hspace="8" width="127" height="38"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm">therefore : 
+							</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_f60795f9b861cbe.gif" name="Object31" hspace="8" width="74" height="20"/>
+</p>
+							<p align="left" style="margin-bottom: 0.5cm">Thus</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_d9693b31bbf620fe.gif" name="Object28" hspace="8" width="333" height="20"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm"><br/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm">where <b>r.dΨ.dr</b> is the
+							area of the elemental stream tube at the disk plane.</p>
+							<p style="margin-bottom: 0.5cm">This can be integrated around
+							the disk ring shown above to get the total momentum change at
+							this radius.</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_fbbfeb0d5b10beed.gif" name="Object29" hspace="8" width="238" height="30"/>
+</p>
+							<p style="margin-bottom: 0.5cm">By equating the force balance
+							prediction of thrust against the momentum change prediction, a
+							non-linear equation containing the unknown variable (<b>V</b><sub><b>i</b></sub>)
+							can be formed. If there is no cyclic variation in <b>V</b><sub><b>i</b></sub>
+							such as occurs for hover then 
+							</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_b6c0b0a3ef899c93.gif" name="Object30" hspace="8" width="198" height="20"/>
+</p>
+							<p align="left" style="margin-bottom: 0.5cm">The torque
+							requirement to be overcome by the motor will be,</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_b8898c3795f5c8d8.gif" name="Object33" hspace="8" width="117" height="20"/>
+</p>
+							<h3 class="western"><a name="TOC-Iterative-Solution-procedure-for-Blade-Element-Theory."></a>
+							<font color="#990000">Iterative Solution procedure for Blade
+							Element Theory.</font></h3>
+							<p style="margin-bottom: 0.5cm">An iterative method of
+							solution for the elemental stream tube flow will be necessary
+							due to the non-linearity. If there are no cyclic variations
+							then this can be done on the average thrust and momentum
+							change equations for a radial location.  If there are cyclic
+							variations in thrust loading then the process will need to be
+							run on individual sector elements of the disk ring. 
+							</p>
+							<p style="margin-bottom: 0.5cm">To start an initial guess of
+							induced flow component <b>V</b><sub><b>i</b></sub> is
+							required. This is used to find the flow angle of attack on the
+							blade. Blade section properties can then be used to estimate
+							the element thrust and torque. With these approximate values
+							of thrust and torque, the force/ momentum change equilibrium
+							can be used to give improved estimates of the induced velocity
+							<b>V</b><sub><b>i .</b></sub> This process can be repeated
+							until value of <b>V</b><sub><b>i </b></sub>has converged to
+							within a specified tolerance.</p>
+							<p style="margin-bottom: 0.5cm">It should be noted that
+							convergence for this nonlinear system of equations is not
+							guaranteed. It is usually a simple matter of applying some
+							convergence enhancing techniques (ie Crank-Nicholson
+							under-relaxation) to get a result when linear aerofoil section
+							properties are used. When non-linear aerofoil properties are
+							used, ie including stall effects, then obtaining convergence
+							will be significantly more difficult.</p>
+							<h3 class="western"><a name="TOC-Rotor-Thrust-and-Torque-Coefficients-and-Efficiency."></a>
+							<font color="#990000">Rotor Thrust and Torque Coefficients and
+							Efficiency. </font>
+							</h3>
+							<p style="margin-bottom: 0.5cm">Once the converged value of <b>Vi</b>
+							is obtained, then the aerofoil section lift and drag can be
+							used to predict thrust and torque for the blade element
+							section. 
+							</p>
+							<p style="margin-bottom: 0.5cm">The overall rotor thrust and
+							torque will be obtained by summing the results of all the
+							radial and sector blade element values.</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_96e963e9f619058c.gif" name="Object32" hspace="8" width="303" height="20"/>
+</p>
+							<p align="center" style="margin-bottom: 0.5cm">(for all <b>dr</b>
+							elements)</p>
+							<p style="margin-bottom: 0.5cm">The non-dimensional thrust and
+							torque coefficients can then be calculated along with the
+							advance ratio at which they have been calculated.</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_f8e75cc242dcc771.gif" name="Object34" hspace="8" width="257" height="58"/>
+</p>
+							<p align="left">where <b>R</b> is the full radius of the
+							bladde, <b>ΩR</b> is the rotor tip velocity and <b>A</b> the
+							area of the rotor disk.</p>
+							<p align="left">Advance Ratio is</p>
+							<p align="center" style="margin-left: 0.26cm; margin-top: 0.13cm; margin-bottom: 0.5cm">
+							<img src="blade_element_rotor_analysis_html_55c469c11efc5615.gif" name="Object35" hspace="8" width="59" height="38"/>
+</p>
+							<p style="margin-bottom: 0.5cm">The rotor power coefficient
+							will be defined as,</p>
+							<p align="center"><img src="blade_element_rotor_analysis_html_f8f00b5d23fca4b5.gif" name="Object36" hspace="8" width="234" height="58"/>
+</p>
+							<p align="center"><br/>
+
+							</p>
+							<p>A measure of the efficiency of the rotor is the Figure of
+							Merit. This is the ratio of ideal induced power over actual
+							required rotor power. It is most conveniently defined for the
+							hover case where total rotor power is the sum of power (<b>P</b><sub><b>i</b></sub>)
+							used to create induced velocity (ie thrust) and blade drag
+							profile power (<b>P</b><sub><b>o</b></sub>). In the hover case
+							this sum is most closely approximating actual rotor power. 
+							</p>
+							<p align="center" style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_465335741e677bdb.gif" name="Object37" hspace="8" width="113" height="42"/>
+</p>
+							<h3 class="western"><a name="TOC-Cyclic-Effects-on-Blade-Aerofoil-Flow."></a>
+							<font color="#990000">Cyclic Effects on Blade Aerofoil Flow.</font></h3>
+							<img src="blade_element_rotor_analysis_html_5602dee048fae15f.png" name="Image4" align="left" width="399" height="381">
+  <br clear="left"/>
+</img>
+
+							<p align="center" style="margin-left: 0.26cm; margin-right: 0.26cm; margin-top: 0.13cm; margin-bottom: 0.13cm">
+							<br/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm">For forward flight,
+							maneuvering flight and when cyclic control inputs are applied,
+							the local flow angles on the blade will vary around the disk
+							path. In this case the thrust/momentum integration will need
+							to be done with differing flow angles at different positions
+							around the disk. Representative angle changes due to various
+							effects are shown in the following figures. The velocity
+							vectors are shown for limiting cases of 0<sup>o</sup>, 90<sup>o</sup>,
+							180<sup>o</sup> and 270<sup>o</sup> . Intermediate values can
+							be assumed to have a sinusoid variation between the limiting
+							(maximum/minimum) values shown.&nbsp;</p>
+							<img src="blade_element_rotor_analysis_html_1fa3086b5948d048.png" name="Image5" align="left" width="400" height="154">
+  <br clear="left"/>
+</img>
+
+							<p align="center" style="margin-right: 0.26cm; margin-top: 0.13cm; margin-bottom: 0.5cm">
+							<br/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm"><font color="#990000"><font size="3" style="font-size: 12pt"><b>Angle
+							changes due to forward speed.</b></font></font></p>
+							<p style="margin-bottom: 0.5cm">The dominant contribution to
+							local blade velocities is due to the in plane stream component
+							 <b>U.cos(α</b><sub><b>T</b></sub><b>).sin(Ψ).</b>
+							Additional velocity components are shown in the following
+							figure. All velocities are relative to the blade section. 
+							</p>
+							<p align="left"><img src="blade_element_rotor_analysis_html_75132a2df2ebe842.png" name="Image6" align="left" width="643" height="455" border="0"/>
+<br/>
+
+							</p>
+							<p style="margin-bottom: 0.5cm">If left unchecked the larger
+							section velocity at 90<sup>o</sup> (advancing blade) and the
+							reduced velocity at 270<sup>o</sup> (retreating blade) will
+							produce a thrust distribution giving a stong rolling moment .</p>
+							<p style="margin-bottom: 0.5cm">To counteract the problem all
+							blades are articulated by various mechanisms to allow the
+							blade to flap up and down as it travels oround the circuit.
+							Again flapping can be assumed to be a sinusoidal motion,
+							produced by this thrust imbalance. This results in additional
+							vertical velocity components due to the motion of the blade.
+							The exact magnitude of flapping requires a dynamic analysis of
+							the moving blade system but the required amount can be
+							estimated by assuming that the thrust distribution needs to be
+							balanced and no residual rolling moment exists.</p>
+							<p style="margin-bottom: 0.5cm"><img src="blade_element_rotor_analysis_html_e14171a83b0836e2.png" name="Image7" align="left" width="643" height="455" border="0"/>
+Assuming
+							a maximum flapping displacement of <b>F</b> at <b>180</b><sup><b>o</b></sup>
+							and <b>-F</b> at <b>0</b><sup><b>o</b></sup> then flapping
+							velocity at tip will be <b>V</b><sub><b>f</b></sub><b> sin(Ψ)</b>.
+							Maximum upward velocify of <b>V</b><sub><b>f</b></sub> will
+							occur at <b>90</b><sup><b>o</b></sup> and maximum downward
+							velocity at <b>270</b><sup><b>o</b></sup>. Note due to the
+							location of the blade hinge point and flexure of the blade
+							itself, the magnitude of the flapping velocity, <b>V</b><sub><b>f</b></sub>,
+							will vary with radial position. This could be assumed to be a
+							linear variation.</p>
+							<p style="margin-bottom: 0.5cm">A removal of the  rolling
+							moment is achieved by reduction in section angle for the
+							advancing blade and an increase in angle for the retreating
+							blade. One of the limiting factors in the forward speed of a
+							vehicle will be caused by the stalling of the retreating blade
+							due to excessive angle of attack.</p>
+							<p style="margin-bottom: 0.5cm"><font color="#990000"><font size="3" style="font-size: 12pt"><b>Software
+							Implementation of Blade Element Theory</b></font></font> 
+							</p>
+							<p style="margin-bottom: 0.5cm">A computer version of this
+							rotor analysis technique is available. This is a MATLAB script
+							file for the implementation of the method. The source code in
+							this script is by default a simple rotor design with linear
+							properties. However with the inclusion of your own rotor
+							geometry and section data a more accurate analysis of the
+							specific rotor design can be obtained.</p>
+							<p style="margin-bottom: 0.5cm">Click here to download rotor
+							Program: <a href="http://www.aerodynamics4students.com/rotor.m"><u>rotor.m</u></a></p>
+							<p style="margin-bottom: 0.5cm"><br/>
+<br/>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>
