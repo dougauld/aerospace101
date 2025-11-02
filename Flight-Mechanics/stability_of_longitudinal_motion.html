@@ -1,0 +1,145 @@
+<h2>Stability of Longitudinal Motion</h2>
+<p>The stability of an aircraft in level flight can be considered for two cases of response to a disturbance. The first is static stability. If the aircraft is disturbed from its trimmed flight condition, then if the forces attempt to restore it back to the trimmed state, the aircraft will be statically stable.
+If however after a disturbance the forces continue to move the vehicle away from its trimmed state then it will be unstable. A simple example of stability is obtained by observing the behaviour of a ball on curved or flat surfaces.
+In the concave case, gravity restores the ball to its initial, equilibrium, position so this is a statically 
+stable situation. In the convex case the disturbed ball will continue away from the initial position so it is an unstable situation.  For a ball on a flat surface, a disturbance will move the ball to a new position but as no forces apply it will simply retain the new position.</p>
+<table width="%" cellpadding="5" cellspacing="5"><tr>
+<td><img src="stability1.png" width="300"><br />Stable</td><td><img src="stability2.png" width="300"><br />Unstable</td><td><img src="stability3.png" width="300"><br />Neutral Stability</td>
+</tr></table></p>
+<h3>Static Longitudinal Stability</h3>
+<p>For an aircraft, static stability will mostly depend on the signs and magnitudes of the aerodynamic 
+derivatives 
+that produce the forcing functions for the equations of motion. In most cases the moment derivatives 
+due to a pitch or angle of attack change, eg. $M_q$, $M_w$, etc. will have the most contribution to the behaviour and will determine the static stability. For an aircraft with a standard tailplane configuration, 
+these derivatives are large and negative.</p>By carrying out a weight and balance calculation to ensure the center 
+of gravity is ahead of the aircraft's neutral point, static longitudinal stability is generally assured. 
+The steps for these calculations are shown in the previous Aircraft Performance section, <a href="../aircraft-performance/weight-and-balance.html">Weight and Balance Requirements</a>. 
+However, as there are two translational equations governing the motion as well as the pitching moment equation, there may be other positions in the flight envelope where static instability can occur. One other obvious situation is where the vehicle is attempting level flight
+below minimum drag speed.(see Aircraft Perfomance section: <a href="../aircraft-performance/drag-and-drag-coefficient.html">Drag and Drag Coefficient</a>). 
+If the aircraft slows slightly then the drag becomes greater and it will slow down further. This becomes a statically unstable situation for forward speed.</p>     
+<h3>Dynamic Longitudinal Stability</h3>
+<p>A second, more important consideration is the dynamic stability of the vehicle. As there are three coupled 
+state variables, the final time dependent motion may be erratic. Even though the force derivatives are initially restoring toward the initial position after a disturbance, the coupled motion may cause interactions which lead to overshoots and eventual instability.</p>
+<p>The dynamic motion of the aircraft can be found by time integration of the equations of motion after a force perturbation has been applied. However, the basic stability of the aircraft by looking at the free response to any type of disturbance. This is done by assuming that once a disturbance has occured the motion will be oscillatory and thus the equations can be solved in the frequency domain.</p>
+<p> If the aircraft motion is harmonic then the longitudinal perturbation state variables can be defined as,</p>
+<p>
+$$u=u&nwarr;{\^}e^{&lambda;t}\text"&nbsp;&nbsp;&nbsp; , &nbsp;&nbsp;&nbsp;"w=w&nwarr;{\^}e^{&lambda;t}\text"&nbsp;&nbsp;&nbsp; , &nbsp;&nbsp;&nbsp;"&theta;=&theta;&nwarr;{\^}e^{&lambda;t}$$</p>
+<p>where $u&nwarr;{\^}$, $w&nwarr;{\^}$ and $&theta;&nwarr;{\^}$ are the peak amplitudes of the motion and <b>&lambda;</b> is the <i>complex frequency</i></p>
+<p><u>Note</u>: The peak amplitudes can be complex values to allow for magnitude and phase variation, 
+ie. $u&nwarr;{\^}=u_R + i u_I$. Also $&lambda;=&sigma; + i&omega;$, a complex value, where $&sigma;$ is 
+the damping or expanding of the moption and $&omega;$ is the real frequency of the motion.</p>
+<p>The time derivative, rates of change of these state variables will be</p>
+<p>
+$$u&nwarr;{.}=&lambda;u&nwarr;{\^}e^{&lambda;t}\text"&nbsp;&nbsp;&nbsp; , &nbsp;&nbsp;&nbsp;"w&nwarr;{.}=&lambda;w&nwarr;{\^}e^{&lambda;t}\text"&nbsp;&nbsp;&nbsp; , &nbsp;&nbsp;&nbsp;"&theta;&nwarr;{.}=q=&lambda;&theta;&nwarr;{\^}e^{&lambda;t}\text"&nbsp;&nbsp;&nbsp; , &nbsp;&nbsp;&nbsp;"&theta;&nwarr;{..}=q&nwarr;{.}=&lambda;^2&theta;&nwarr;{\^}e^{&lambda;t}$$</p>
+<p>Substituting these harmonic variables into the longitudinal perturbation equations gives,</p> 
+<p>
+$$u&nwarr;{\^}e^{&lambda;t}(&lambda;-X_u)+w&nwarr;{\^}e^{&lambda;t}(-X_w-&lambda;X_{w&nwarr;{.}})+&theta;&nwarr;{\^}e^{&lambda;t}(g+&lambda;w_1-&lambda;X_q)=X_{&delta;_e}&delta;_e$$<br />
+$$u&nwarr;{\^}e^{&lambda;t}(-Z_u)+w&nwarr;{\^}e^{&lambda;t}(&lambda;-Z_w-&lambda;Z_{w&nwarr;{.}})+&theta;&nwarr;{\^}e^{&lambda;t}(-&lambda;u_1+g\sin(&theta;_1)-&lambda;Z_q)=Z_{&delta;_e}&delta;_e$$<br />
+$$u&nwarr;{\^}e^{&lambda;t}(-M_u)+w&nwarr;{\^}e^{&lambda;t}(-M_w-&lambda;M_{w&nwarr;{.}})+&theta;&nwarr;{\^}e^{&lambda;t}(&lambda;^2-&lambda;M_q)=M_{&delta;_e}&delta;_e$$
+</p>   
+<p>If we are considering the free response of this system of equations for any 
+disturbance then the perturbation control deflections can be set to zero. 
+Also the system can be simplified, without control inputs, by choosing a body axis which 
+aligns with the wind axes. Thus $&theta;_1=0$, $\sin(&theta;_1)=0$, $w_1=0$ and $u_1=U$, the aircraft's true airspeed.
+In this frame of reference higher order aerodynamic derivatives due to vertical flow tend to be neglegible except in the pitching moment case, so $X_{w&nwarr;{.}}&asymp;0$ and $Z_{w&nwarr;{.}}&asymp;0$</p>
+<p>Thus</p>
+<p>
+$$u&nwarr;{\^}e^{&lambda;t}(&lambda;-X_u)+w&nwarr;{\^}e^{&lambda;t}(-X_w)+&theta;&nwarr;{\^}e^{&lambda;t}(g-&lambda;X_q)=0$$<br />
+$$u&nwarr;{\^}e^{&lambda;t}(-Z_u)+w&nwarr;{\^}e^{&lambda;t}(&lambda;-Z_w)+&theta;&nwarr;{\^}e^{&lambda;t}(-&lambda;U-&lambda;Z_q)=0$$<br />
+$$u&nwarr;{\^}e^{&lambda;t}(-M_u)+w&nwarr;{\^}e^{&lambda;t}(-M_w-&lambda;M_{w&nwarr;{.}})+&theta;&nwarr;{\^}e^{&lambda;t}(&lambda;^2-&lambda;M_q)=0$$
+</p>
+<p>This system can be written in matrix format,</p>
+<p>
+<table style="width:50%; line-height:1; " cellpadding="0" cellspacing="0">
+<tr><td>[ ($&lambda; - X_u$)    </td><td> ($-X_w$)             </td><td> ($g-&lambda;X_q$)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]</td><td> { $u&nwarr;{\^}e^{&lambda;t}$ }      </td><td> &nbsp; </td><td>{ $0$ }</td></tr>
+<tr><td align="right">[ ($-Z_u$)</td><td> ($&lambda;-Z_w$)     </td><td> ($-&lambda;U-&lambda;Z_q$)&nbsp; ]                     </td><td> { $w&nwarr;{\^}e^{&lambda;t}$ }      </td><td>   =    </td><td>{ $0$ }</td></tr>
+<tr><td>[ ($-M_u$)              </td><td> ($-M_w-&lambda;M_w$) </td><td> ($&lambda;^2-&lambda;M_q$)&nbsp;&nbsp;&nbsp;  ]              </td><td> { $&theta;&nwarr;{\^}e^{&lambda;t}$ }</td><td> &nbsp; </td><td>{ $0$ }</td></tr>
+</table>
+</p>   
+<p>Two solutions are possible for this system. The first is the trivial undisturbed response of $u&nwarr;{\^}=w&nwarr;{\^}=&theta;&nwarr;{\^}=0$. The second is the natural frequency and damping response of the system to any disturbance, the determinant of the system matrix is zero, $| [.] |=0$.</p>
+<p>The determinant of the matrix can be written as,</p>
+<p>
+<table style="width:70%; line-height:1; " cellpadding="0" cellspacing="0">
+<tr><td>| ($&lambda; - X_u$)    </td><td> ($-X_w$)             </td><td> ($g-&lambda;X_q$)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</td><td> &nbsp;  </td><td> &nbsp; </td></tr>
+<tr><td align="right">| ($-Z_u$)</td><td> ($&lambda;-Z_w$)     </td><td> ($-&lambda;U-&lambda;Z_q$)&nbsp; |                     </td><td>  =      </td><td> $&lambda;^4+p_3&lambda;^3+p_2&lambda;^2+p_1&lambda;+ p_0$  </td></tr>
+<tr><td>| ($-M_u$)              </td><td> ($-M_w-&lambda;M_w$) </td><td> ($&lambda;^2-&lambda;M_q$)&nbsp;&nbsp;&nbsp;  |        </td><td> &nbsp;  </td><td> &nbsp; </td></tr>
+</table>
+</p>   
+<p>where the coefficents for the powers of &lambda; are</p>
+<p>
+$$p_3=(-M_q-Z_w-X_u-M_{w&nwarr;{.}}U-M_{w&nwarr;{.}}Z_q))$$<br />
+$$p_2=(Z_wM_q-UM_w-Z_qM_w+M_qX_u+Z_wX_u+UM_{w&nwarr;{.}}X_u+Z_qM_{w&nwarr;{.}}X_u-Z_uX_w-Z_uM_{w&nwarr;{.}}X_q-M_uX_q)$$<br />
+$$p_1=(-Z_wM_qX_u+UM_wX_u+Z_qM_wX_u+Z_uM_qX_w-UM_uX_w-M_uZ_qX_w+gZ_uM_{w&nwarr;{.}}+gM_u-Z_uM_wX_q+M_uZ_wX_q)$$<br />
+$$p_0=(gZ_uM_w-gM_uZ_w)$$
+</p>
+<p>The solution of this quartic equation for $&lambda;$ will produce 4 roots which are typically complex pairs.</p>
+<p>
+$$&lambda;=[{\table &sigma;_1 + i&omega;_1, &sigma;_1-i&omega;_1, &sigma;_2+i&omega;_2, &sigma;_2-i&omega;_2}]$$</p>
+<p>For a stable aircraft $&sigma;_1$ and $&sigma;_2$ will be negative, 
+indicating damped motion and the frequencies $&omega;_1$ and $&omega;_2$ will indicate the rate of 
+oscillary motion. Typically, $&sigma;_1&Lt;&sigma;_2$ and $&omega;_1&lt;&omega;_2$ so that the first mode of motion is labelled <i>short period</i> 
+and the second mode <i>phugoid</i>.
+A typical solution for a medium sized twin engine aircraft is seen in the following figure,</p>
+<center><img src="long-modes.png" width="500"><br />
+<u>Figure 1. Free response longitudinal modes of motion for a transport aircraft</u>
+</center>
+<h3>Short Period Mode</h3>
+The longitudinal short period mode is predominantly a quick moment equation response to a 
+disturbance in vertical velocity, $w$ and $q$. As $w$ directly affects any 
+change in angle of attack, $&Delta;&alpha;&asymp;w/U$, then the large adverse moments created by the 
+wing and the tailplane will quickly attempt to restore the vehicle to its 
+original trimmed condition, where pitching moment equals zero. There is 
+also a contribution from pitch rate, $q$, as this will generate 
+restoring moments due to the tail plane. In many cases the response has zero frequency and results in a highly damped motion. Otherwise the period is usually no more than a second or two. Where the period becomes long enough to be felt by a pilot then handling quatities may be affected as the rapid motion may induce a pilot to attempt a correction and this
+can lead to pilot induced oscillations.
+<h3>Phugoid Mode</h3>
+Phugoid mode is primarily an interaction between forward speed, $u$, and pitch attitude, $&theta;$ and is 
+an interaction of the two translational equations of motion.</p>
+<p>A pitch perturbation, $&theta;$ will lead to a small increase in angle 
+of attack, $&alpha;$ and thus a slight excess in lift causing the 
+aircraft to climb. There will be an associated small increase in drag so 
+forward speed, $U$ will decrease. An aircraft that is statically stable 
+will produce a negative pitching moment due to the disturbance and hence the 
+disturbance angle, $&theta;$ is reduced over time. Due to the pitch 
+inertia of the vehicle the reducing $&theta;$ will overshoot. 
+Once $&theta;&lt;0$ the lift and drag will be reduced and so the aircraft 
+will then start to descend and increase speed. As the pitch starts to increase again, the descent is halted and the aircraft starts to climb again.</p>  
+<p>This cycle of climbing/slowing then descending/accelerating will continue until damped out. The 
+period is usually quite long, anywhere between 15 and 100 seconds and the 
+damping rate is quite small. In some cases $&sigma;>0$ and the motion 
+will continue to grow over time, however as the period of this phugoid motion is relatively long, it is possible for the pilot or an autopilot to still maintain control of the aircraft.
+</P>  
+       
+<p>
+<br/>
+</p>
+</td></tr></table>
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
