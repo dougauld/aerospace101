@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a>   </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a>   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a>
+   <ul class="sub-menu">
+   <li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="./aircraft-weight-and-geometry.html">Aircraft Weight and Geometry</a></li>
+   <li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="./airspeed-measurement.html">Airspeed Measurement</a></li>
+   <li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="./lift-and-lift-coefficient.html">Lift and Lift Coefficient</a></li>
+   <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230"><a href="./drag-and-drag-coefficient.html">Drag and Drag Coefficient</a></li>
+   <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231"><a href="./engine-thrust-and-power.html">Engine Thrust and Power</a></li>
+   <li id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232"><a href=".flight-envelope.html">Flight Envelope</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="./take-off-and-landing.html">Take-Off and Landing</a></li>
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="./climb-and-descent.html">Climb and Descent</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="./range-and-endurance.html">Range and Endurance</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="./manoeuvres.html">Manoeuvres</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="./performance-envelopes.html">Performance Envelopes</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="./weight-and-balance.html">Weight and Balance Requirements</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>   </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h3>WEIGHT AND BALANCE</h3>
+<p>
+As well as having a maximum weight of an
+aircraft that determines performance, the location of the centre of
+the mass (center of gravity, c.g.) will also affect the performance
+of the vehicle. There will be a maximum aft position for the c.g., if
+the aircraft is loaded so that the c.g. is aft of this point the
+flight path will be unstable and diverge.  There will also be a
+limiting forward poistion. If the aircaft is loaded so that the c.g.
+is forward of this position then the pitch control (elevator, etc.)
+will not produce sufficient moment to maintain a balance for level
+flight or be able to produce sufficient moment to rotate the aircraft
+for take-off.
+</p>
+<p>
+<img src="weight_and_balance.png" name="Image1" align="center" width="643" height="386" border="0"/></p>
+<p>
+Both limiting c.g. positions will need to be determined relative to a
+datum position on the aircraft fuselage. Typically the zero datum
+location is the firewall or tip of nose cone. These limiting
+positions can be found by calculation of moment balances either on
+the ground or in flight.
+</p>
+<h2>MAXIMUM REAR C.G. LOCATION</h2>
+<p>
+Clearly the most rearward position cannot be
+behind the main undercarriage for a nose-wheel configuration, however
+the stability of moments in flight will be the most likely criteria
+determining this position.
+</p>
+<p>
+For steady level flight the moments about the
+c.g. of the aircraft must be zero.</font></p>
+<p>
+<img src="rear_cg1.png" name="Image2" align="center" width="643" height="193" border="0"/>
+</p>
+<p>
+$$M=0=L_w(x_{cg}-x_{cp})-L_t(x_{tail}-x_{cg})$$
+</p>
+<p>
+where $L_w$ is the lift
+of the wing and fuselage, $L_t$ is the lift of
+the tailplane, $x_{cp}$ is the position of the
+center of pressure due to wing lift,  $x_{tail}$
+is the position of the tailplane center of pressure and $x_{cg}$
+is the position of the centre of gravity. All positions being measure
+from the datum point.</p>
+<p>
+As center of pressure changes position as lift
+changes it is more convenient to use the aerodynamic centre for the
+wing lift point of application.
+</p>
+<p>
+<img src="rear_cg2.png" name="Image6" align="center" width="643" height="193" border="0"/>
+</p>
+<p>
+$$M=0=M_{ac}+L_w(x_{cg}-x_{ac})-L_t(x_{tail}-x_{cg})$$
+</p>
+<p>
+For stable flight any disturbance due to gusts
+must produce a restoring moment to rotate the aircraft back to its
+original position. Thus gusts that increase angle of attack or lift
+must also produce a negative moment. Thus,</p>
+<p>
+$${&part;M}/{&part;L}&lt;0\text"&nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;"{&part;M}/{&part;&alpha;}&lt;0$$
+</p>
+<p>
+As lift is directly proportional to angle of
+attack both conditions are interchangeable for stability.</p>
+<p>
+If a postive gradient occurs then the aircraft
+will be unstable and continue to diverge from its flight path. The
+limiting condition will be, ${&part;M}/{&part;&alpha;}=0$, or in non-dimensional notation, 
+${&part;C_M}/{&part;&alpha;}=0$,  
+where $C_M=M/{1/2&rho;V^2Sc&nwarr;{-}$ and $S$ is the planform area of the
+wing, $V$ is the aircraft speed, $ρ$ is the air density
+and <b>$c&nwarr;{-}$</b> is the wing mean aerodynamic chord.</p>
+<p>
+If the c.g. position is set so this zero
+gradient results then the aircraft will have neutral stability. This
+will be the limit c.g. position (Neutral Point). c.g forward of this
+position produces a negative gradient hence stability, c.g. aft of
+this position produces a positive gradient and instability.
+</p>
+<p>
+Writing the moment equation in non-dimensional
+terms gives,</p>
+<p>
+$$C_{Mac}+C_{Lw}{(x_{cg}-x_{ac})}/{c&nwarr;{-}}-C_{Lt}{S_{tail}}/S{(x_{tail}-x_{cg})}/{c&nwarr;{-}}=0$$
+</p>
+<p>
+where $S_{tail}$ is
+the planform area of the tailplane and $C_{Lt}$
+is the tailplane lift coefficent.</p>
+<p>
+Thus for stability
+</p>
+<p>
+$${&part;C_M}/{&part;&alpha;}={&part;C_{Mac}}/{&part;&alpha;}+{&part;C_{Lw}}/{&part;&alpha;}{(x_{cg}-x_{ac})}/{c&nwarr;{-}}-{&part;C_{Lt}}/{&part;&alpha;}{S_{tail}}/S{(x_{tail}-x_{cg})}/{c&nwarr;{-}}=0$$
+</p>
+<p>
+Assuming a linear variation of lift with angle </font>
+</p>
+<p>
+$$C_{Lw}&asymp;C_L={&part;C_L}/{&part;&alpha;}&alpha;+C_{L0}\text"&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;"C_{Lt}={&part;C_{Lt}}/{&part;&alpha;}&alpha;_{tail}+C_{L0tail}$$
+</p>
+<p>
+As the tailplane is behind the main wing it
+will be subject to the downwash from the main wing. Angle of attack
+at the tailplane will be reduced by a downwash angle.</p>
+<p>
+$$&alpha;_{tail}=&alpha;-&epsilon;$$
+</p>
+<p>
+and there will be an efficiency correction, <b>&eta;</b>, due
+to tailplane position and fuselage and wing wake influences</p>
+<p>
+$${&part;C_{Lt}}/{&part;&alpha;}={&part;C_{Lt}}/{&part;&alpha;_{tail}} {&part;&alpha;_{tail}}/{&part;&alpha;}={&part;C_{Lt}}/{&part;&alpha;_{tail}}(1-{&part;&epsilon;}/{&part;&alpha;})
+\text"&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;"{&part;C_{Lt}}/{&part;&alpha;_{tail}}=&eta;({&part;C_L}/&part;&alpha;)_{tail} $$
+</p>
+<p>
+as moment about the aerodynamic centre is constant</p>
+<p>
+$${&part;C_{Mac}}/{&part;&alpha;}=0$$
+</p>
+<p>
+and simplyfing notation is often introduced to the
+moment balance equation such that,</p>
+<p>
+\[\table l_t, \text"- distance from tailplane aerodynamic center";
+            , \text"&nbsp;&nbsp;&nbsp; to wing/fuselage aerodynamic center";
+l_t=(x_{tail}-x_{ac})&asymp;(x_{tail}-x_{cg}),\text" ";
+V_H=l_t/{c&nwarr;{-}}S_{tail}/S,\text"- Tail Volume coefficient";
+{&part;C_L}/{&part;&alpha;}=C_{L&alpha;}\text", "{&part;C_M}/{&part;&alpha;}=C_{M&alpha;}\text", "({&part;C_L}/{&part;&alpha;})_{tail}=C_{Lt&alpha;},
+\text"- Force, moment gradients." \]
+</p>
+<p>
+Therefore
+</p>
+<p>
+$$C_{M&alpha;}=C_{L&alpha;}{(x_{cg}-x_{ac})}/{c&nwarr;{-}}-&eta;C_{Lt&alpha;}V_H(1-{&part;&epsilon;}/{&part;&alpha;})=0$$
+</p>
+<p>
+The distance from the c.g. to the aerodynamic
+center can be found from the above equation once the  geometry and
+aerodynamic properties of the wing and tailplane are known.</p>
+<p>
+The location of x<sub>cg</sub> that gives 
+$C_{M&alpha;}=0$ and thus the stability limit is called the neutral point.</p>
+<p>
+$$x_{cg}/{c&nwarr;{-}}=x_{ac}/{c&nwarr;{-}}+{C_{Lt&alpha;}}/{C_{L&alpha;}}&eta;V_H(1-{&part;&epsilon;}/{&part;&alpha;})= x_{np}/{c&nwarr;{-}}$$
+</p>
+<p>
+If the c.g is forward of the neutral point the
+aircraft should be statically stable and a static margin can be found
+as</p>
+<p>
+$$K_n=x_{np}/c&nwarr;{-}-x_{cg}/c&nwarr;{-}$$
+</p>
+<p>
+Note that in most cases the c.g. is well
+forward of the neutral point and in front of the aerodynamic centre
+which promotes dynamic stability. Thus means a download on the
+tailplane is required to balance the moments.
+</p>
+<h2>STICK FREE EFFECTS</h2>
+<p>
+The above calculation of neutral point assumes
+a rigid position of the tailplane and is thus termed the stick fixed
+neutral point.  In practice the tailplane or elevator angle is
+changed depending on aircraft speed to trim the aircraft. As lift is
+a function of velocity then varing $C_L$ is
+required for varying velocities and hence variations in angle of
+attack, $α$, will occur.  To maintain $C_M=0$,
+ie. trimed flight at differing speeds,  then its is also required 
+that there be variations in tailplane lift.</p>
+<p>
+In order for the pilot to maintain the
+tailplane lift  directly a stick force would need to be applied to
+create the hinge moments required. </font>
+</p>
+<p>
+<img src="hinge_moment1.png" name="Image4" align="center" width="550" height="335" border="0"/>
+</p>
+<p>
+This is not practical for long duration flight,
+so trim tabs are added to maintain the elevator position but with
+stick force reduced to zero.</font></p>
+<p align="center" >
+<img src="hinge_moment2.png" name="Image5" align="center" width="486" height="296" border="0"/>
+</p>
+<p>The
+load on the tab will balance the elevator hinge moment but will also
+reduce the overall tailplane load. The amount of trim deflection required
+ will change with different aircraft speeds, so
+at different speeds $C_{Lt}$ will
+be reduced in proportion to the speed hence angle of attack. Flying with trim
+(stick free) rather than using
+direct stick force (stick fixed) will
+result in the following change in tailplane lift for
+a required elevator deflection, </p>
+<p>
+$$C_{Lt}=a_{tail}&alpha;_{tail}-b_{trim}&delta;_{trim}+C_{L0tail}+C_{Lte}$$
+</p>
+<p>
+where $a_{tail}=({&part;C_L}/{&part;&alpha;})_{tail}$ with no trim tab defelection.</p>
+<p>        
+$b_{trim}=({&part;C_L}/{&part;&delta;_{trim}})_{tail}$, rate of change of tailplane lift due to trim tab deflection</p>
+<p>
+$C_{L0tail}$ tailplane camber effect and $C_{Lte}$ elevator setting contribution to tailplane lift.</p>
+<p>
+Thus
+</p>
+<p>
+$$C_{Lt}=a_{tail}&alpha;_{tail}(1-b_{trim}/a_{tail} &delta;_{trim}/&alpha;_{tail})+C_{L0tail}+C_{Lte}$$
+</p>
+&nbsp;<br />
+<p>
+$$C_{Lt&alpha;}=a_{tail}(1-b_{trim}/a_{tail} &delta;_{trim}/&alpha;_{tail})$$
+</p>
+<p>
+For simplicity, the trim tab rate is assumed to
+be linear thus the ratios are assumed to be constant.
+</p>
+<p>
+$$(1-b_{trim}/a_{tail} &delta;_{trim}/&alpha;_{tail})=F=\text"constant"$$
+</p>
+&nbsp;<br />
+<p>
+$$C_{Lt&alpha;}=Fa_{tail}$$
+</p>
+<p>
+The constant ($F$) is called the
+stick-free factor with values ranging from 0 to 1. All moving
+tailplanes or stabilators have values of stick-free factor close to
+0.</p>
+<p>
+So for the stick-free condition the neutral
+point will be,</p>
+<p>
+$$x_{np}/c&nwarr;{-}=x_{ac}/c&nwarr;{-}+FC_{Lt&alpha;}/C_{L&alpha;}&eta;V_H(1-{&part;&epsilon;}/{&part;&alpha;})$$
+</p>
+<p>
+This stick free neutral point will be further
+forward, toward the front, of the aircraft as compared to the stick
+fixed point.</p>
+<p>
+Values of 
+$&eta;,&epsilon;,F$ are difficult to predict as they are produced by second order flow
+effects which may be non-linear. Flight testing may be required to
+identify these parameters.</p>
+<h2>MAXIMUM FORWARD C.G. LOCATION</h2>
+<p align="center">
+<img src="forward_cg.png" name="Image3" align="center" width="643" height="193" border="0"/></p>
+<p>The
+forward c.g. limit will be controlled by the effectiveness of the
+tailplane. Once a maximum tailplane lift is reached the $C_M=0$ balance cannot be maintained. 
+If a further forward location
+of the c.g. is used the tailplane lift will not be sufficient and the
+aircraft will nose dive.</p>
+<p>
+In flight this leads to the following
+situation,</p>
+<p>
+$$-M = L_w(x_{cp}-x_{cd(fwd)})+L_{t(max)}(x_{tail}-x_{cg(fwd)})=0$$
+</p>
+<p>
+For the tailplane $L_t(max)$ occurs
+when $C_{Lt}(max)$ is reached.</p>
+<p>
+Due to control deflections (<b>e</b>), ignoring trim, tailplane lift components are</p>
+<p>
+$$C_{Lt}=C_{Lt&alpha;}&alpha;_{tail}+C_{L0tail}+C_{Lte}$$
+</p>
+<p>
+where $C_{Lte}={&part;C_{Lt}}/{&part;e}e$
+</p>
+<p>
+In
+coefficient form the  moment equation becomes,</p>
+<p>
+$$-C_M=C_L(x_{cp}/c&nwarr;{-}-x_{cg(fwd)}/c&nwarr;{-})+C_{Lt(max)}S_{tail}/S(x_{tail}/c&nwarr;{-}-x_{cg(fwd)}/c&nwarr;{-}) = 0$$
+</p>
+<p>
+&nbsp;<br />
+$$-C_M=C_L(x_{cp}/c&nwarr;{-}-x_{cg(fwd)}/c&nwarr;{-})+C_{Lt(max)}V_H=0$$
+</p>
+<p>
+for normal
+tailplane arms $x_{cp}-x_{cg}&asymp;x_{ac}-x_{cg}&Lt;x_{tail}-x_{cg}$.
+</p>
+<p>
+As all the distances to the the C.G. are positive and
+if the aircraft is in level flight then a postive $C_L$ will be required so to
+obtain $C_M=0$ requires $C_{Lt}$ to be the largest negative lift coefficient available
+from the tailplane ($C_{Lt}(max)$).</p>
+<p>
+This c.g.
+position is speed dependent and the location will be at a maximum
+distance from the nose when the aircraft is at minimum speed, stall
+speed. At this speed $C_L=C_{L}(max)$.</p>
+<p>
+Thus
+maximum forward location to balance $C_M$ based
+on flight conditions is 
+</p>
+<p>
+$$x_{cg(fwd)}/c&nwarr;{-}=x_{ac}/c&nwarr;{-}-{&mid;C_{Lt(max)}&mid;}/{&mid;C_{L(max)}&mid;} V_H$$
+</p>
+<p>
+As well as
+the above requirement for balance in flight, there is also a
+requirement on the elevator effectiveness for take-off.</p>
+<p align="center" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<img src="take_off_moments.png" name="Image7" align="center" width="643" height="193" border="0"/>
+</p>
+<p>
+For take off, the elevator is required to
+produce sufficent moment to rotate the aircraft to a flying angle of
+attack. As the C.G. for standard nosewheel aircraft is infront of the
+main wheels this may be a more critical requirement on elevator
+effectiveness.</p>
+<p>
+In this case, ignoring the main wing lift
+contribution as the aircraft is on the ground undertaking a take-off
+roll,
+</p>
+<p>
+$$-M=W(x_w-x_{cg(fwd)})+L_{t(max)}(x_{tail}-x_w)=0$$
+</p>
+<p>
+where $x_w$ is the
+location of the main undercarriage measured from the datum.</p>
+<p>
+$$-C_M=W/{1/2&rho;V^2S}(x_w/c&nwarr;{-}-x_{cg(fwd)}/c&nwarr;{-})+C_{Lt(max)}(x__{tail}/c&nwarr;{-}-x_w/c&nwarr;{-}) =0$$
+</p>
+<p>
+here 
+$W/{1/2&rho;V^2S}$ is
+the required <b>C</b><sub><b>L</b></sub><b> </b>for take-off and
+again a maximum download is required on the tailplane, so that
+</p>
+<p>
+$$x_{cg(fwd)}/c&nwarr;{-} = x_w/c&nwarr;{-}=x_w/c&nwarr;{-}={&mid;C_{Lt(max)}&mid;}/C_{L(to)}(x_{tail}/c&nwarr;{-}-x_w/c&nwarr;{-})$$
+</p>
+<p>
+This forward C.G. location will depend on the
+take-off weight of the vehicle and will be furthest from the nose at
+MTOW. In most cases this condition will be the limiting case for
+forward C.G. position.</p>
+<h3><font color="#800000">CENTRE OF GRAVITY LIMITS</font></h3>
+<p>
+From the above calculations a graph can be
+constructed showing the envelope in which the centre of gravity of
+the vehicle must reside for all phases of flight.</p>
+<p>
+A typical centre of gravity chart is shown
+below,</p>
+<p>
+<img src="cessna_w_and_b1.png" name="Image8" align="center" width="607" height="757" border="0"/><br />
+Reference
+: Cessna 172 Pilots Operating Manual, Cessna Aircraft Co. Wichita,
+Kansas, USA.</p>
+<p>
+For each flight a pilot in command is required
+to determine the weights of passengers, luggage and fuel. These will
+be used in a moment calculation to find the take-off and landing C.G.
+positions. These can be plotted on the above graph to verify that C.G
+positions during flight will lie within the acceptable bounds of the
+envelope.</p>
+<p>
+<img src="cessna_w_and_b2.png" align="center" width="600"/>
+</p>
+<p>
+An estimate of total moments about datum will
+give
+</p>
+<p>
+$$W_{total}&times;x_{cg}=W_{empty}&times;x_{ew}+W_{pilot}&times;x_{p1}+W_{passenger}&times;x_{p2}+W_{luggage}&times;x_l+W_{fuel}&times;x_f$$
+</p>
+<p>
+so that
+</p>
+<p>
+$$x_{cg}={{&Sigma;&nwarr;N}&#8601;{i=1} W_i&times;x_i}/{{&Sigma;&nwarr;N}&#8601;{i=1} W_i$$
+</p>
+<p>
+<img src="cessna_w_and_b3.png" name="Image9" align="left" width="337" height="402" border="0"/></p>
+<p>A
+typical example with a pilot weighing 176 lb,
+<br />
+two rear seat passengers, 169lb and 120lb
+respectively and 100lbs of luggage
+stowed in baggage area 1 will be calculated</p>
+<p>
+* Pilot seat is adjustable, set at 37 in</p>
+<p>
+rear passenger location  73 in</p>
+<p>
+** Baggage area 1 limit 120lb</p>
+<p>
+located at 95 in</p>
+<p>
+<br/>
+
+</p>
+<p>
+baggage area 2  empty.</p>
+<p>
+<br/>&nbsp;<br />
+</p>
+<p>
+Aircraft basic empty weight 1642 lb  @ 38 in</p>
+<p>
+30 Gals of fuel  weighting 190 lb  @  47 in</p>
+<p>
+A typical load sheet and C.G. Chart would be as
+follows</p>
+<p>
+<img src="loading_chart1.png" name="Image10" align="center" width="643" height="475" border="0"/>
+</p>
+<p>
+<img src="loading_chart2.png" name="Image11" align="center" width="406" height="551" border="0"/>
+<br/>
+</p>
+
+<p align="center">GOOD TO GO<br /><br /></p>
+
+</td></tr></table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
