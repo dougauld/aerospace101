@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aeroelasticity | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
 
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+<p>&nbsp;</p>
+<h3 id="sites-page-title-header" align="left"><span id="sites-page-title" dir="ltr" style="color: #800000;" tabindex="-1">AEROELASTICITY</span></h3>
+<h3><span style="color: #800000;">Wing &#8211; Flutter and Divergence.</span></h3>
+<p>The dynamic interaction of airflow with a flight vehicle is one of the more complex problems to be solved in the aerospace field. Most aerodynamics deals with flow around rigid objects but, in fact, a flight vehicle is a relatively light weight structure and there is always a degree of flexibility that can lead to interesting modes of motion. Aerodynamic forces applied to a vehicle will not only cause it to change flight path according to the rules of aircraft performance and flight mechanics but will also cause flexure of aircraft components relative to each other. These forced structural modes of motion lead to a class of problems that fall under the heading of aeroelasticity.</p>
+<p>One of the simplest interactions that is found in a fixed wing aircraft is the flexure of the wing relative to the rigid fuselage. For aircraft with slender straight cantilever wings two typical modes of motion exist. The first is a bending mode where the wing tip flexes up and down relative to the fixed wing root. The second is a twisting mode where the wing rotates about its stiffness axis, which is typically the spar. Normally there is minimal effect of these two modes on structural behaviour, with only a slight vibration being seen for each motion. The bending mode shows up as a relatively low frequency flapping effect while twisting mode is found to be a much higher frequency vibration. However, with the application of high-speed airflow as a source of excitation energy, these two modes can produce motions with will severely distort or break the wing.</p>
+<p>The first effect is called <b>divergence</b>. In this case the moment produced by the air load is greater than the structural torsional stiffness of the wing and thus it will be twisted off the vehicle. The threshold speed for this type of failure to occur is called <b>divergence speed</b> and will hopefully be much higher than any normal operating speeds of the vehicle. Particular problems occur with swept forward wings as these have a relatively low divergence speed.</p>
+<p>The second effect is called <b>flutter</b>. In this case there is a synchronised interaction between both modes so that energy is absorbed from the airflow in one mode to increase the amplitude of the other. At this point the frequency of each mode has converged to the same value so that only one combined mode is possible. The wing will absorb energy from the airflow and will behave as an ever increasing bending and torsion flexure until sufficient displacement is reached and the wing breaks. When the airflow is increased to the critical point to cause this failure, it is called the <b>flutter speed</b>. Again flutter should only occur at speeds much higher than operating speeds of the aircraft, but may be induced by inappropriate ratio of wing torsion and bending stiffness, or by addition of wing mass at points a long way behind the wing spar.</p>
+<p>An estimate of the occurrence of these conditions and the interaction of airflow on a wing can be obtained using a simple 2-degree of freedom dynamic model of the wing. The following figure shows the idealised model of a straight cantilever wing.</p>
+<p>Bending stiffness of wing connected to the fuselage is approximated by a bending spring of stiffness (<b>K<sub>h</sub></b>). Torsion stiffness is similarly represented by a torsion spring of stiffness (<b>K<sub>α</sub></b>). This allows the generic wing section shown to move relative to the fuselage in bending, (heave direction, <b>h</b>) and torsion (angle rotation, <b>α</b>). The origin for these motions will be the wing&#8217;s elastic axis. It is assumed that the centre of gravity of the wing and the centre of lift act at the locations shown, with distances <b>x<sub>cg</sub></b> and <b>x<sub>ac</sub></b> from these points to the elastic axis. Second order effects due to aerodynamic drag and structural damping have been neglected.</p>
+<center><img src="twodof.png" width="551" height="343" /></center><p>By applying Newton&#8217;s laws for both motion components a pair of reaction equations can be defined. The general principle of &#8220;<b>F = ma</b>&#8221; can be applied, force produces acceleration moderated by inertia.</p>
+<p>In this case there are two equations, one for each mode of motion.</p>
+<p>
+$$-L-K_hh=m{d^2h}/{dt^2}+S_&alpha;{d^2&alpha;}/{dt^2}$$
+</p><p>for bending motion and</p>
+<p>
+$$Lx_{ac}-K_&alpha;&alpha;=I_&alpha;{d^2&alpha;}/{dt^2}+S_&alpha;{d^2h}/{dt^2}$$
+</p><p>for torsion motion,</p>
+<p>where <b>m</b> = mass of wing, <b>I<sub>α</sub></b> = polar inertia of wing ( $I_&alpha;=&int;r^2 .dm$ ) and due to the offset of center of gravity 
+from motion origin, a coupling is produced between each mode moderated by a coupling inertia <b>S<sub>α</sub></b>, ( $S_&alpha;=&int;r.dm&asymp;x_{cg}m$
+)</p>
+<p>The form of the vibration can be assumed to be simple harmonic motion such that $h=h_0 e^{i&omega;t}$ and $&alpha;=&alpha;_0e^{i&omega;t}$
+, where <b>h<sub>0</sub></b> and <b>&alpha;<sub>0</sub></b> are the amplitudes of the motion and <b>&omega;</b> is the frequency. Note that both amplitudes and frequency can be complex values to allow for phase shift between components and damping of motion.</p>
+<p>Also, if simple harmonic motion is assumed, then the stiffness of the wing for bending and torsion modes can be found from the known natural frequencies of its modes.</p>
+<p>
+$$K_h=&omega;_h^2m$$
+</p><p>and</p>
+<p>
+$$K_&alpha;=&omega;_&alpha;^2 I_&alpha;$$
+</p><p>On substitution of the assumed motion into the governing equations a linear pair of simultaneous equations are obtained.</p>
+<p>
+$$-L-K_hh_0e^{i&omega;t}=-m&omega;^2h_0e^{i&omega;t}-S_&alpha;&omega;^2&alpha;_0e^{i&omega;t}$$<br />
+$$Lx_{ac}-K_&alpha;&alpha;_0e^{i&omega;t}=-I_&alpha;&omega;^2&alpha;_0e^{i&omega;t}-S_&alpha;&omega;^2h_0e^{i&omega;t}$$
+</p><p>To simplify further, linear aerodynamic forcing functions need to be introduced. Assuming that the effect of camber and fixed angle of attack 
+are able to be calculated separately and superimposed later on any oscillatory solution, then the aerodynamic influence required at this point is just due 
+to the oscillatory motion of the chord line about 0 degrees. Assuming torsion effect dominates, as it has greatest influence on angle of attack, 
+and neglecting any second order acoustic and compressibility effects, then lift could be approximated as,</p>
+<p>
+$$L={dC_L}/{d&alpha;}&alpha;1/2&rho;V^2S=C_{L&alpha;}qS&alpha;=C_{L&alpha;}qS&alpha;_0e^{i&omega;t}$$
+</p><p>on substitution, a final linear system is obtained, with $e^{i&omega;t}$ cancelling out.</p>
+<p>
+$$-C_{L&alpha;}&alpha;_0qS-K_hh__0=-m&omega;^2h_0-S_&alpha;&omega;^2&alpha;_0$$<br />
+$$C_{L&alpha;}&alpha;_0qSx_{ac}-K_&alpha;&alpha;_0=-I_&alpha;&omega;^2&alpha;_0-S_&alpha;&omega;^2h_0$$
+</p><p>in matrix format this becomes,</p>
+<p>
+$$[{\table m.&omega;^2-K_h, S_&alpha;&omega;^2-C_{L&alpha;}qS;
+    S_&alpha;&omega;^2,     I_&alpha;&omega;^2-K_&alpha;+C_{L&alpha;}qSx_{ac}}] &times; ({\table h_0; &alpha;_0}) = ({\table 0; 0})$$
+</p>
+<p>Although not directly solvable due to the number of variables, this matrix system does give a large amount of information about the behaviour of the system.</p>
+<p align="left">Two classes of solution can be found:</p>
+<ol>
+<li>$[{\table a,b;c,d}] &times; ({\table h_0;&alpha;_0})=({\table 0;0})$ when $({\table h_0;&alpha;_0})=({\table 0;0})$
+.  The system is trivially stable and nothing happens. This is the dominant solution for the system.</li>
+<li>$[{\table a,b;c,d}] &times; ({\table h_0;&alpha;_0})=({\table 0;0})$ when $|{\table a,b;c,d}| = 0$ 
+.  This second form of solution may allow displacements to be unbounded and the wing behaviour will tend to be oscillatory, either stable or unstable depending on the value of <strong>ω</strong>.</li>
+</ol>
+<p>The equation $|{\table a,b;c,d}| = ad-bc =0$ gives solutions for <b>ω</b> which will define the motion. These solutions depend mainly on the speed of the vehicle and hence are 
+controlled by the value of dynamic pressure (<b>q</b>) as other components such as wing stiffness and lift gradient remain constant</p>
+<h3><span style="color: #800000;"> Simple Harmonic Motion</span></h3>
+<p>If <b>ω</b> has only complex solutions and no real valued solutions exist then the system behaviour will be oscillatory. Given initial disturbance values of <b>α<sub>0</sub></b> and <b>h<sub>0</sub></b>, subsequent motion will be simple harmonic and either damped (decreasing amplitude) or undamped (increasing amplitude) depending on the imaginary part of <b>ω</b>.</p>
+<p>Complex values of frequency (<b>ω = ω<sub>R</sub> + i.ω<sub>I</sub></b>) moderate the amplitude behaviour over time as</p>
+<p>
+$$e^{i&omega;t}=e^{i(&omega;_R+i&omega;_I)t}=e^{i&omega;_Rt}e^{i^2&omega;_It}=e^{-&omega;_It}e^{i&omega;_Rt}$$
+</p><p>The actual frequency of motion will be given by <b>ω<sub>R</sub></b> and the growth or decay of the motion will be determined by the sign of <b>ω<sub>I</sub></b>, leading to highly damped or growing amplitude solutions.</p>
+<p>At low values of dynamic pressure, <b>q</b>, the solution to this system matrix gives separate independent roots for <b>ω</b> which are typically real valued and close to the natural frequencies of the structural modes. This implies that any disturbances will cause the wing to oscillate at or near its structural modes with little or no damping. Second order damping effects which are not part of the above model will typically decrease the amplitude of oscillation in a real structure until it reaches zero and then obeys the trivial zero amplitude stable solution.</p>
+<p>Increasing dynamic pressure will eventually result in a solution in which <b>ω</b> has only one real value indicating the both modes are in synchronization. While there is no indication of a variation of amplitude at this point, any slight increase in <b>q</b> will then produce complex frequency solutions with negative imaginary components. So any increase in flight speed above this point causes coupling of the modes and a rapid increase in amplitude of the oscillation, that is, <b>flutter</b>. The speed at which a single real frequency is obtained is the starting point for undamped oscillatory solutions of the structure so that this will termed the <b>flutter speed</b> of the vehicle. Thus one significant aim is to solve the determinant equation above to find flutter speed.</p>
+<p>Firstly define the equation of the determinant,</p>
+<p>
+$$(m&omega;^2-K_h)(I_&alpha;&omega;^2-K_&alpha;+C_{L&alpha;}qSx_{ac})-S_&alpha;&omega;^2(S_&alpha;&omega;^2-C_{L&alpha;}qS)=0$$
+</p>
+<p>In order to solve for <b>ω</b> the equation is rearranged in powers of <b>ω</b></p>
+<p>
+$$A&omega;^4+B&omega;^2+C=0$$
+</p><p>where,</p>
+<p>
+$$\cl"ma-join-align"{\table A, = mI_&alpha;-S_&alpha;^2;
+         B, = S_&alpha;C_{L&alpha;}qS+mC_{L&alpha;}qSx_{ac}-mK_&alpha;+I_&alpha;K_h;
+         C, = K_hK_&alpha;-K_hC_{L&alpha;}qSx_{ac}}$$
+         </p>
+<p>The solution is</p>
+<p>
+$$&omega;^2={-B&plusmn;&radic;{B^2-4AC}}/{2A}$$
+</p><p>Based on the magnitudes of A, B and C , the solution will initially be purely real if $B^2&gt;4AC$. This gives two 
+roots which represent the independent stable modes of motion. For increasing speed, the magnitude of <b>q</b> will grow until 
+eventually $B^2=4AC$. At this point the solution for a single real frequency exists producing an unbounded amplitude solution. This will be the flutter point and the speed required to achieve this will be the flutter speed. Any further increase in <b>q</b> produces complex roots leading to unstable, increasing amplitude motion.</p>
+<h3><span style="color: #800000;">Non-Oscillatory Motion leading to Divergence</span></h3>
+<p>As well as flutter predictions the solution of the determinant equation can also indicate another non-oscillatory 
+increasing amplitude motion called <b>divergence</b>. If the real part of <b>ω</b> is zero then the motion could be either 
+exponentially increasing or decreasing. Again at low speed, the system tends to produce non-zero solutions for 
+<b>ω<sub>R</sub></b>. Then as speed is increased, <b>ω<sub>R</sub></b> may decrease for some modes. If <b>ω<sub>R</sub></b> 
+reaches zero for a mode before the onset of flutter, then subsequent increase in dynamic pressure will lead to a solution 
+which is purely imaginary and hence a physical divergence of the structure. <b>Divergence speed</b> can be defined as the 
+solution of the determinant equation for <b>ω = 0</b>. Substitution into the expanded equation above gives</p>
+<p>
+$$-K_h(-K_&alpha;+C_{L&alpha;}qSx_{ac})=0$$
+</p><p>or</p>
+<p>
+$$K_&alpha;=C_{L&alpha;}qSx_{ac}$$
+</p><p>As all terms are fixed for a fixed geometry except for <b>q</b>, then this solution will determine the divergence speed. This will be the air speed required to reach the point where the aerodynamic moment equals the torsional stiffness of the wing so there will be an unrestrained twist displacement.</p>
+<h3><span style="color: #800000;">Demonstration of Flutter</span></h3>
+<p>The following video shows a wind tunnel experiment using a scaled 3D wing in a low speed wind tunnel. The airspeed is slowly increased until the flutter speed is reached.</p>
+<p><span style="color: #064d99;"> </span></p>
+<table border="0" width="90%">
+<tbody>
+<tr>
+<td><span style="color: #064d99;">BEFORE</span><br />
+<img src="before.png" width="300" height="240" /></td>
+<td><span style="color: #064d99;">DURING</span><br />
+<img src="during.png" width="300" height="240" /></td>
+<td><span style="color: #064d99;">AFTER</span><br />
+<img src="after.png" width="300" height="240" /></td>
+</tr>
+<tr>
+<td colspan="3">Download : <a href="flutter.avi" rel="nofollow">Wing Flutter Movie</a></td>
+</tr>
+</tbody>
+</table>
+<h3><span style="color: #064d99;"> </span><span style="color: #800000;">SOFTWARE</span></h3>
+<p>The following server application calculates frequency responses for airflow applied over a range of velocities to a wing of given geometry, inertia and stiffness.<br />
+<a href="aeroecalc.php" rel="nofollow"><u>Wing bending-torsion interaction predictions</u></a>.</p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
