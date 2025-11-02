@@ -66,7 +66,6 @@
 -->
 
 <center><table width='800' height='600' background='atmos.jpg'><tr><td> 
-<font face='Arial' size=2>
 <center><table width=760 border=1><tr><td colspan=2><font color=white>
 <B>Standard Atmosphere Computations</B><br>
 This form calculates properties related to the 1976
@@ -97,10 +96,9 @@ Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
 </center></td><td>";
 <B>Results</B>";
 <form name='results' id='results'>";
-
 <table class="center">
   <tr>
-    <td class="alignright">Temperature</td>
+    <td>Temperature</td>
     <td class="alignleft"><div id="temp" class="Result">&nbsp;</div>
     <span id="tunits">deg R</span></td>
   </tr>
@@ -155,11 +153,17 @@ Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
   </tr>
 </table>
 </FORM>
-</td></tr>
+</td></tr></table></center>
 
 <SCRIPT LANGUAGE="JavaScript">
+ <!-- Original:  Ilan Kroo  kroo@leland.stanford.edu
 
-function setEUnits() {
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+
+ function setEUnits() {
   var DE1 = document.getElementById ( "inputs" );
   var str = document.getElementById("hunits").innerHTML;
   if ( str== "ft") {
