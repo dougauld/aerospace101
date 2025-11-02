@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerodynamics for Students</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a>   </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a>   </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a>   </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a>
+   <ul class="sub-menu">
+   <li id="menu-item-227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a href="./rotor-momentum-analysis.html">Rotor Momentum Analysis</a></li>
+   <li id="menu-item-228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a href="./blade-profile-drag.html">Blade Profile Drag</a></li>
+   <li id="menu-item-229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-229"><a href="./helicopter-forward-flight.html">Forward Flight Analysis</a></li>
+   <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230"><a href="./blade-element-rotor-theory.html">Blade Element Analysis for Rotors</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a>   </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h1><font color="800000">MOMEMTUM DISK ANALYSIS</font></h1>
+<p>The
+helicopter rotor can be idealised as a “momentum disk”. It
+imparts a uniform velocity (v<sub>i</sub>) to the airflow creating a
+change in momentum which will result in an upward thrust (T).</p>
+<h2><font color="800000">HOVER</font></h2>
+<p>For
+the hover case air is sucked in from all directions so the farfield
+inlet velocity is effectively zero, accelerated to v<sub>i</sub> at
+the disk and then propelled to a final slipstream velocity of v<sub>s</sub>
+below.</p>
+<p><img src="rotor_in_hover.png" name="graphics1" align="left" width="352" height="403" border="0"/>
+<br />
+</p>
+<p>If
+the area of the disk is A then the mass flow of air, <b>m</b>, being accelerated
+is</p>
+<center>
+$$ m = &rho; A v_i $$
+</center>
+<p>The
+change in momentum of the stream will be $ &Delta;M = m v_s $
+and
+this will be equal to the force produced, the thrust.</p>
+<center>
+$$ T = &rho; A v_i v_s $$
+</center>
+<p>The
+change in Energy per unit time of the stream will be </p>
+<center>
+$$ &Delta; E^' = 1/2 m v_s^2 $$
+</center>
+<p>The
+work done per unit time on the air by the rotor thrust is</p>
+<center>
+$$W^' = T {&Delta; s}/{&Delta;t} = T v_i $$
+</center>
+<p>&nbsp;<br />hence
+</p>
+<center>
+$$ &Delta;E^'=W^'$$ 
+<br />
+$$ 1/2 &rho; A v_i v_s^2 = T v_i = &rho; A v_i^2 v_s $$
+</center>
+<p>giving</p>
+<center>
+$$ v_s = 2 v_i $$
+</center>
+<p>Hence
+thrust of the ideal rotor in hover is
+</p>
+<center>
+$$ T = 2 &rho; A v_i^2 $$
+</center>
+<p>As
+the rotor thrust is required to be equal to the weight of the vehicle, it is
+possible to use this equation to predict the induced flow required to maintain hover,
+</p>
+<center>
+$$ v_i = √({{W}/{2 &rho; A}}) $$
+</center>
+<h2><font color="#800000">CLIMB</font></h2>
+<p>For
+the case where the helicopter is climbing, the rotor will capture
+flow from a fixed area above and accelerate this to a final
+slipstream velocity.   The momentum balance will be slightly
+different as the  incoming air has an initial momentum due to the
+helicopter climb speed and the rotor is just augmenting this.</p>
+<p>The
+mass flow rate through the disk will be,</p>
+<center>
+$$ m = &rho; A ( v_i + V_c) $$
+</center>
+<p>The
+thrust due to momentum change will be</p>
+<center>
+$$ T = m ((v_s+V_c) - V_c) = &rho; A (v_i+V_c) v_s $$
+</center>
+<p><img src="rotor_in_climb.png" name="graphics3" align="left" width="370" height="424" border="0"/>
+The
+variation of pressure will drop below atmospheric above the disk,
+increas due to the energy input of the disk and then drop bad to
+atmospheric in the slipstream.</p>
+<p>Applying
+and Energy balance will again lead to $ v_s = 2 v_i $ so
+that</p>
+<center>
+$$ T = 2 &rho; A (v_i+V_c) v_i $$
+</center>
+<p>Rearranging
+gives</p>
+<center>
+$$ v_i^2 + V_c v_i - T/{2 &rho; A} =0 $$
+</center>
+<p>Solving
+this quadratic equation for v<sub>i</sub> gives</p>
+<center>
+$$ v_i = {-V_c}/2 + {(V_c^2+ {2T}/{&rho; A})^{0.5}}/2 $$
+</center>
+<p>or</p>
+<center>
+$$ v_i = {-V_c}/2 + √((V_c/2)^2 + T/{2 &rho; A}) $$
+</center>
+<p>The
+required variation in induced velocity for climb is shown in the
+following figure</p>
+<p align="center"><img src="induced_velocity_for_climb.png" name="graphics2" align="center" width="436" height="312" border="0"/>
+</p>
+<p>Less
+induced velocity is required for climb as the momentum change applied
+to a higher initial velocity is more effective.</p>
+<h2><font color="#800000">DESCENT</font></h2>
+<p>Descent
+can be analysed by using a negative value of $V_c$ in the above
+equations. However there are physical limits on this approach due to
+the changing flow pattern.  As the capture area is now below,
+problems will arise as the rotor is now capturing its own wake an
+recirculating it to create momentum change.  Eventually at a higher
+rate of descent the system will become closed and the rotor will
+simply recycle its own wake ('ring state'). In this condition there
+is no momentum change and hence no thrust.</p>
+<p align="center">
+<img src="rotor_descent1.png" name="graphics4" align="center" width="299" height="343" border="0"/><br />
+A) slowly descending rotor. (Positive Thrust)</p>
+<p align="center">
+<img src="rotor_descent2.png" name="graphics5" align="center" width="336" height="313" border="0"/>
+<br/>
+B) moderate rate of descent (Ring State, no thrust).</p>
+<p align="center">
+<img src="rotor_descent3.png" name="graphics6" align="center" width="335" height="384" border="0"/>
+<br/>
+C) fast descent rate ( windmilling )</p>
+<p>If
+the above stable ring flow state can be avoided,  a fast descent can be
+achieved which puts the rotor in to a windmill state. Capture area is
+still below but rotor is absorbing momentum from the stream and a
+divergent slip stream appears above. This negative change in momentum
+will again produce a thrust (a vertical drag). This flow state can be
+used for autorotation of the blades.</font></font></p>
+<h2><font color="#800000">POWER REQUIRED</font></h2>
+<p>Engine
+power is required to be supplied to the disk in order to produce the
+required thrust.   There will be two components of power requirement
+in this simple analysis. Power is required to produce the momentum
+change ( $ P_1 = T v_i $ ) and power is required to make the helicopter climb 
+( $ P_2 = T V_c $ ).
+ Neglecting power losses in transmission, fuselage drag components, blade profile drag power,
+etc. The the power required for the operation of the ideal rotor will be</p>
+<center>
+$$ P_{required} = T(V_c - V_c/2 + √{((V_c/2)^2 + T/{2 &rho; A})}) = T( V_c/2 + √{((V_c/2)^2 + T/{ 2 &rho; A})} ) $$ 
+</center>
+<p>Again
+assuming climb rates are small so thrust approximately equals weight
+, the variation of power required for different climb rates is shown
+in the following figure.</font></font></p>
+<p align="center">
+<img src="rotor_power_required.png" name="graphics7" align="center" width="456" height="345" border="0"/>
+<br/>
+
+</p>
+</td><tr></table>
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
