@@ -35,14 +35,14 @@ function ComputeMach() {
   var M2 = Number(mach);                        // convert string to double
   if (isNaN(M2)) {alert("Mach is not a number."); return; }
  
-  if (M2<0.001) { M1 = 2.0; else M1 = M2; }
+  if (M2<0.001) { M1 = 2.0; } else { M1 = M2; } 
    
   var ga = Number(gamma);                      // convert string to double
   if (isNaN(ga)) {alert("Gamma is not a number."); return; }
 
   ga1 = ga+1.0;
   ga2 = ga-1.0;
-  if (M1 < 1.0 ) { region = "Subsonic"; else region = "Supersonic"; } 
+  if (M1 < 1.0 ) { region = "Subsonic"; } else { region = "Supersonic"; } 
   qonp = ga/2.0*M1*M1;
   tont0 = 1.0/(1.0 + (ga2)/2.0*M1*M1);
   ponp0 = Math.pow(tont0,(ga/ga2));
