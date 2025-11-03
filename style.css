@@ -408,7 +408,7 @@ input[type=text]:focus,
 input[type=email]:focus,
 input[type=password]:focus,
 textarea:focus {
-  color: #111;
+  color: #000;
 }
 input[type=text],
 input[type=email],
@@ -3739,3 +3739,4 @@ span.jwcontrols span button {
   /* Above WP toolbar. */
 
 }
+
