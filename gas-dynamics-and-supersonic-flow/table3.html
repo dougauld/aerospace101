@@ -25,7 +25,7 @@ function ComputeMach() {
   var qonp = 0;
   var ponp0 = 0;
   var ronr0 = 0;
-  var AonAstar = 0;
+  var AonA = 0;
   var aa1,aa2,ga1,ga2,M2
 
 
@@ -50,14 +50,14 @@ function ComputeMach() {
   ronr0 = tont0 ** (1.0/ga2);
   aa1 = ga1/ga2/2.0;
   aa2 = 2.0*(1.0+ga2/2.0*M1*M1)/ga1;
-  AonAstar = ($aa2 ** $aa1)/M1;
+  AonA = ($aa2 ** $aa1)/M1;
 
   document.getElementById("region").value = region;
   document.getElementById("qonp").value = qonp.toPrecision(5);
   document.getElementById("tont0").value = tont0.toPrecision(5);
   document.getElementById("ponp0").value = ponp0.toPrecision(5);
   document.getElementById("ronr0").value = ronr0.toPrecision(5);
-  document.getElementById("AonAstar").value = AonAstar.toPrecision(5);
+  document.getElementById("AonAstar").value = AonA.toPrecision(5);
 
   document.getElementById("results").style.visibility="visible";
 
