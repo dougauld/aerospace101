@@ -415,6 +415,13 @@ input[type=email],
 input[type=password] {
   padding: 3px;
 }
+.transparent-input {
+  background-color: transparent; /* Makes the background fully transparent */
+  border: none; /* Removes the default border */
+  outline: none; /* Removes the outline that appears on focus */
+  /* Optional: You might want to style the text color if it clashes with the background */
+  color: #000; /* Example text color */
+}
 textarea {
   /* Removes default vertical scrollbar in IE6/7/8/9 */
   overflow: auto;
@@ -3730,4 +3737,5 @@ span.jwcontrols span button {
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
+
 }
