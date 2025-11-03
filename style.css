@@ -402,7 +402,7 @@ textarea {
   box-sizing: border-box;
   color: #666;
   border: none;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -3739,6 +3739,7 @@ span.jwcontrols span button {
   /* Above WP toolbar. */
 
 }
+
 
 
 
