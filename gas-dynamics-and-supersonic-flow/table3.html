@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+}   // --------------------------------------------- End of function HideResults
+
+
+function ComputeMach() {
+
+  var M1 = 2.0;
+  var region = " "; 
+  var qonp = 0;
+  var ponp0 = 0;
+  var ronr0 = 0;
+  var AonAstar = 0;
+  var aa1,aa2,ga1,ga2,M2
+
+
+  var mach = document.getElementById("mach").value;
+  var gamma = document.getElementById("gamma").value;
+
+  var M2 = Number(mach);                        // convert string to double
+  if (isNaN(M2)) {alert("Mach is not a number."); return; }
+ 
+  if (M2<0.001) { M1 = 2.0; else M1=M2; }
+   
+  var ga = Number(gamma);                      // convert string to double
+  if (isNaN(mach)) {alert("Mach Number is not a number."); return; }
+
+ 
+  ga1 = ga+1.0;
+  ga2 = ga-1.0;
+  if (M1 < 1.0 ) { region = "Subsonic"; else region = "Supersonic"; } 
+  qonp = ga/2.0*M1*M1;
+  tont0 = 1.0/(1.0 + (ga2)/2.0*M1*M1);
+  ponp0 = tont0 ** (ga/ga2);
+  ronr0 = tont0 ** (1.0/ga2);
+  aa1 = ga1/ga2/2.0;
+  aa2 = 2.0*(1.0+ga2/2.0*M1*M1)/ga1;
+  AonAstar = ($aa2 ** $aa1)/M1;
+
+  document.getElementById("region").value = region;
+  document.getElementById("qonp").value = qonp.toPrecision(5);
+  document.getElementById("tont0").value = tont0.toPrecision(5);
+  document.getElementById("ponp0").value = ponp0.toPrecision(5);
+  document.getElementById("ronr0").value = ronr0.toPrecision(5);
+  document.getElementById("AonAstar").value = AonAstar.toPrecision(5);
+
+  document.getElementById("results").style.visibility="visible";
+
+}  // -------------------------------------------- End function ComputeMach
+
+ </script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<!--This script is part of the Aerodynamics4students suite and 
+    is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+                
+    Aerodynamics4students is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+                               
+    To obtain the details of the GNU General Public License
+    see <http://www.gnu.org/licenses/>.
+-->
+
+
+<h2><span style="color: #800000;">Compressible Flow Calculator</span></h2>
+
+This form calculates the properties of one-dimensional gas flow without losses
+(isentropic). <br />The required input is the Mach number of a point in the flow.<br />&nbsp;<br /> The gas
+can be changed by entering the value of Ratio of Specific Heats (<b>&gamma;</b>).
+<table border=1 cellpadding='5' bgcolor='#95b1d6'><tr><td>
+&nbsp;<br />&nbsp;<br />&nbsp;<br /><img align='right' src='compressible.gif'></td><td>";
+<B>Inputs</B><br>
+<form>
+<table><tr><td>
+<label for="mach"> Mach Number (M) </label>
+</td></tr>
+<tr>
+<td><INPUT NAME="mach" TYPE="text" VALUE="0" SIZE="15" onfocus = "HideResults();"  autofocus ></td></tr>
+<tr><td>
+<label for="gamma"> Ratio of Specific Heats (&gamma;) </label>
+</td></tr>
+<tr><td><INPUT NAME="gamma" TYPE="text" VALUE="1.4" SIZE="15" onfocus = "HideResults();" autofocus ><br>&nbsp;
+</td></tr></table><BR /><hr><center>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeMach();" > 
+</center></form></td><td valign=top>
+<fieldset id="results">
+<table><tr><td><B>Results</B></td>
+<td>
+<label for="region">&nbsp;</label></td><td>
+<input type="text" size="25" name="region" id="region" value=" " readonly="readonly"><br />
+</td></tr>";
+<tr><td>
+<label for="qonp">Dynamic Pressure/Static Pressure Ratio (q/p)</label></td><td>
+<input type="text" size="25" name="qonp" id="qonp" value=" " readonly="readonly"><br />
+</td></tr>
+<tr><td>
+<label for="tont0">Static Temperature/Total Temperature Ratio (T/T<sub>O</sub>)</label></td><td>
+<input type="text" size="25" name="tont0" id="tont0" value=" " readonly="readonly"></td></tr>
+<tr><td>
+<label for="ponp0">Static Pressure/Total Pressure Ratio (p/p<sub>O</sub>)</label></td><td>
+<input type="text" size="25" name="ponp0" id="ponp0" value=" " readonly="readonly"></td></tr>
+<tr><td>
+<label for="ronr0">Static Density/Total Density Ratio (&rho;/rho;<sub>O</sub>)</label></td><td>
+<input type="text" size="25" name="ronr0" id="ronr0" value=" " readonly="readonly"></td></tr>
+<tr><td>
+<label for="AonAstar">Local Area/Throat Area Ratio (A/A<sup>*</sup>)</label></td><td>
+<input type="text" size="25" name="AonAstar" id="AonAstar" value=" " readonly="readonly"></td></tr>
+</table>
+</fieldset></form>
+</td></tr></table></center><p><br /></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
