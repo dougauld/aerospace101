@@ -9,6 +9,237 @@
 <script src="../jqmath/jquery-1.4.3.min.js"></script>
 <script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
 <script>M.MathPlayer = false; M.trustHtml = true;</script>
+script>
+
+
+function ChangeUnits() {
+  const FT2METERS = 0.3048;                   // mult. ft. to get meters (exact)
+  var si = document.getElementById("unitsSi").checked;
+  
+  var oldAltField = document.getElementById("altfield").value;  
+//  alert("oldAltField "+oldAltField);
+  var alt = Number(oldAltField);
+//  alert("alt "+ alt.toPrecision(4));
+  if (si)
+    alt = alt*FT2METERS;
+  else  
+    alt = alt/FT2METERS;
+    
+//  alert("alt "+ alt.toPrecision(4));    
+
+  var newAltField = alt.toFixed();  
+//  alert("newAltField "+newAltField);
+    
+  document.getElementById("altfield").value = newAltField;
+  if (si)
+    document.getElementById("altunits").value = "meters";
+  else
+    document.getElementById("altunits").value = "feet";
+
+  ComputeAtmosphere();
+    
+}   // --------------------------------------------- End of function ChangeUnits
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+}   // --------------------------------------------- End of function HideResults
+
+function GetAtmosBand(htab,h) {
+  const TABLESIZE = 8;
+//  const htab = [0.0, 11.0, 20.0, 32.0, 47.0, 51.0, 71.0, 84.852];
+  var i,j,k;
+
+  i=0;
+  j=TABLESIZE-1;
+  while (true) {                               // binary search in ordered table 
+    k = Math.floor((i+j) / 2);             // integer division. OK since i+j > 0
+    if (h < htab[k])  j=k; else i=k;
+    if (j <= i+1) break;
+  }  
+//  alert("i " + i.toFixed() );
+  return i;
+}   // -------------------------------------------- End of function GetAtmosBand
+
+
+function Viscosity(theta) {                     // returns viscosity in SI units
+  const TZERO = 288.15;                      // temperature at sealevel, kelvins
+  const BETAVISC = 1.458E-6;              // viscosity term, N sec/(sq.m Sqrt(K)
+  const SUTH = 110.4;                          // Sutherland's constant, kelvins
+
+  var t=TZERO*theta;                                     // temperature, Kelvins
+  return BETAVISC*Math.sqrt(t*t*t)/(t+SUTH);             // Sutherland's formula
+}   // ----------------------------------------------- End of function Viscosity
+
+function Eq43(mach,gamma) {                                      // compute T/Tt
+  var compFactor = 1.0+0.5*(gamma-1.0)*mach*mach;
+  return Math.pow(compFactor, -1.0);
+}   // -------------------------------------------- End of NACA 1135 Function 43
+
+function Eq44(mach,gamma) {                                      // compute p/pt
+  var compFactor = 1.0+0.5*(gamma-1.0)*mach*mach;
+  return Math.pow(compFactor, -gamma/(gamma-1.0));
+}   // -------------------------------------------- End of NACA 1135 Function 44
+
+
+function ComputeAtmosphere() {
+  const TABLESIZE = 8;
+  const REARTH = 6369.0;         // polar radius of the Earth (km)
+  const GMR = 34.163195;         // hydrostatic constant 
+
+  const TZERO      = 288.15;                 // temperature at sealevel, kelvins
+  const PZERO      = 101325.0;             // pressure at sealevel, N/sq.m. = Pa
+  const RHOZERO    = 1.2250;                    // density at sealevel, kg/cu.m.
+  const ASOUNDZERO = 340.294;               // speed of sound at sealevel, m/sec
+
+  const FT2METERS = 0.3048;                   // mult. ft. to get meters (exact)
+  const KELVIN2RANKINE = 1.8;                         // mult deg K to get deg R
+  const PSF2NSM = 47.880258;                      // mult lb/sq.ft to get N/sq.m
+  const SCF2KCM = 515.379;                    // mult slugs/cu.ft to get kg/cu.m
+  const FT2KM = 0.0003048;                                // mult feet to get km
+  
+  const htab = [0.0, 11.0, 20.0, 32.0, 47.0, 51.0, 71.0, 84.852];
+  const ttab = [288.15, 216.65, 216.65, 228.65, 270.65,
+                       270.65, 214.65, 186.87 ];
+  const ptab = [1.0, 2.2336110E-1, 5.4032950E-2, 8.5666784E-3,
+                     1.0945601E-3, 6.6063531E-4, 3.9046834E-5, 3.685010E-6];
+  const gtab = [-6.5, 0.0, 1.0, 2.8, 0.0, -2.8, -2.0, 0.0];
+
+  var gamma = 1.4;
+  var i;
+  var h, tgrad, deltah, tbase, tlocal;
+
+  var sigma,delta,theta;
+  var xx,zz   // temporary buffers
+//  alert("Units");
+
+  var si = document.getElementById("unitsSi").checked;          // si is boolean
+//  alert("Units " + si);
+  var altfield = document.getElementById("altfield").value;
+//  alert("altitude " + altfield);
+  var machfield = document.getElementById("machfield").value;
+//  alert("mach " + machfield);
+
+  var alt = Number(altfield);                        // convert string to double
+  if (isNaN(alt)) {alert("Altitude is not a number."); return; }
+// if si is true, alt is in meters; if si is false, alt is in feet
+
+  var mach = Number(machfield);                      // convert string to double
+  if (isNaN(mach)) {alert("Mach Number is not a number."); return; }
+
+  var altkm;
+  if (si) altkm=alt/1000; else altkm=FT2KM*alt;
+   // Convert geometric to geopotential altitude (kilometers)
+  h=altkm*REARTH/(altkm+REARTH); 
+
+  if (altkm > 86) alert("Algorithm only correct to 86 km (282152 ft). "+
+                        "Only approximate above that altitude."); 
+
+
+//  alert("alt and mach " + alt.toPrecision(4) + " " + mach.toPrecision(4)
+//    + " " + altkm.toPrecision(4) + " " + h.toPrecision(4) );
+    
+  var iband = GetAtmosBand(htab,h);  
+//  alert("atmos band " + iband.toFixed() );
+  tgrad=gtab[iband];
+//  alert("tgrad " + tgrad.toPrecision(4) );
+  deltah=h-htab[iband];
+  tbase=ttab[iband];
+//  alert("tgrad,deltah,tbase " + tgrad.toPrecision(4) + " " +
+//     deltah.toPrecision(4) + " " + tbase.toPrecision(4) );
+
+  tlocal=tbase+tgrad*deltah;
+  theta=tlocal/ttab[0];                                // temperature ratio 
+  delta=1.0;
+  if (tgrad==0.0)                                         // pressure ratio 
+    delta=ptab[iband]*Math.exp(-GMR*deltah/tbase);
+  else
+    delta=ptab[iband]*Math.exp(Math.log(tbase/tlocal)*GMR/tgrad);
+  
+  sigma=delta/theta;
+
+  document.getElementById("thetafield").value = theta.toPrecision(5);
+  document.getElementById("deltafield").value = delta.toExponential(5);
+  document.getElementById("sigmafield").value = sigma.toExponential(5);
+
+//alert("qqqq");
+  xx = TZERO*theta;
+  if (!si) xx = xx*KELVIN2RANKINE;
+  zz = xx.toPrecision(5);
+  if (si) zz = zz + " K"; else zz = zz + " deg R";
+  document.getElementById("tempfield").value = zz;
+
+  xx = PZERO*delta;
+  if (!si) xx = xx/PSF2NSM;
+  zz = xx.toPrecision(5);
+  if (si) zz = zz + " Pascals"; else zz = zz + " lbs/sq.ft.";
+  document.getElementById("pressfield").value = zz;
+  
+  xx = RHOZERO*sigma;
+  if (!si) xx = xx/SCF2KCM;
+  zz = xx.toExponential(5);
+  if (si) zz = zz + " kg/m^3"; else zz = zz + " slugs/ft^3";
+  document.getElementById("denfield").value = zz;
+
+  xx=ASOUNDZERO*Math.sqrt(theta);   // speed of sound 
+  if (!si) xx=xx/FT2METERS;
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " m/s"; else zz = zz + " ft/s";
+  document.getElementById("asoundfield").value = zz;
+
+  var dynamicViscosity = Viscosity(theta);
+  xx = dynamicViscosity;
+  if (!si) xx=xx/PSF2NSM;
+  zz = xx.toExponential(6);
+  if (si) zz = zz + " kg / m-s  "; else zz = zz + " slugs / ft-sec"
+  document.getElementById("mufield").value = zz;
+ //alert("Viscosity " + dynamicViscosity.toPrecision(6) );
+
+  xx = dynamicViscosity/(RHOZERO*sigma);   // kinematic viscosity
+  if (!si) xx=xx*SCF2KCM/PSF2NSM;
+  zz = xx.toExponential(6);
+  if (si) zz = zz + " m^2/s"; else zz = zz + " ft/s";
+  document.getElementById("nufield").value = zz;
+
+  xx = ASOUNDZERO*Math.sqrt(theta)*mach*RHOZERO*sigma/dynamicViscosity; 
+  if (!si) xx=xx*FT2METERS;
+  xx = xx*1E-6;     // unit Reynolds number (in millions)
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " million 1/m"; else zz = zz + " million 1/ft";
+  document.getElementById("rnlfield").value = zz;
+
+  xx = ASOUNDZERO*Math.sqrt(theta)*mach;   // velocity 
+  if (!si) xx=xx/FT2METERS;
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " m/s"; else zz = zz + " ft/sec";
+  document.getElementById("velfield").value = zz;
+
+  xx = 0.5*gamma*PZERO*delta*mach*mach;   // dynamic pressure
+  if (!si) xx=xx/PSF2NSM;
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " Pascals"; else zz = zz + " lbs/ft^2";
+  document.getElementById("qfield").value = zz;
+
+  xx = TZERO*theta/Eq43(mach,gamma);   // total temperature
+  if (!si) xx=xx*KELVIN2RANKINE;
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " K"; else zz = zz + " deg R";
+  document.getElementById("ttfield").value = zz;
+
+  xx = PZERO*delta/Eq44(mach,gamma);   // total pressure 
+  if (!si) xx=xx/PSF2NSM;
+  zz = xx.toPrecision(6);
+  if (si) zz = zz + " Pascals"; else zz = zz + " lbs/ft^2";
+  document.getElementById("ptfield").value = zz;
+
+  document.getElementById("results").style.visibility="visible";
+
+}  // -------------------------------------------- End function ComputeAtmosphere
+
+
+
+</script>
+	
 </head>
 
 <body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
@@ -72,336 +303,64 @@ This form calculates properties related to the 1976
 standard atmosphere up to 230,000 ft.<br />  The code used is based on the original Javascript of
 Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
 </font></td></tr><tr><td>
-<center><form name="units" id="units">
- <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" onClick="setEUnits()">English
- <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" CHECKED="true" onClick="setMUnits()">Metric
-</form>
-<form name="inputs" id="inputs">
-<B>Inputs</B><br><table><tr><td>Altitude</td>
-<td><INPUT NAME='alt' TYPE="text" VALUE="0" SIZE="15"></td>
-<td><INPUT NAME='hunits' TYPE="text" SIZE="6" VALUE="m"></td></tr>
-<tr><td>Speed</td>
-<td><INPUT NAME='speed' TYPE="text"  VALUE="0" SIZE="15"></td><td>
-<INPUT NAME='vunits' TYPE="text" SIZE="6" VALUE="m/s"></td></tr>
-<tr><td>Reference Length</td>
-<td><INPUT NAME='rlength' TYPE="text"  VALUE="1" SIZE="15"></td>
-<td><INPUT NAME='lunits' TYPE="text" SIZE='6' VALUE="m"></td></tr>
-</table>
-<BR>
-<INPUT NAME="name" TYPE="button" VALUE="Compute" onClick="Compute()">
-<INPUT NAME="name" TYPE="button" VALUE="Reset" onClick="ResetForm()">
-</form>
-<br>&nbsp;<br>
-<a href='../resources/index.html'>Tabulated Data and Downloads </a><br>
+<form>
+<center><input type="radio" name="units" value="SI" id="unitsSi" checked="checked" onchange = "ChangeUnits();" > SI
+  <input type="radio" name="units" value="US" onchange = "ChangeUnits();" > US <br />
+  <input id="ComputeButton" type="button" value="Compute" onclick="ComputeAtmosphere();" > 
+  <br />
+  <label for="altfield"> Altitude</label>
+  <input type="text" name="altfield" id="altfield" size="7" onfocus = "HideResults();" value="0" autofocus>
+  <input type="text" size="6" name="altunits" value="meters" id="altunits" readonly="readonly" tabindex=0 > <br>
+  <label for="machfield"> Mach Number</label>
+  <input type="text" name="machfield" id="machfield" size="7" onfocus = "HideResults();" value="0" ><br>
 </center></td><td>
-<B>Results</B>
-<form name="results" id="results">
-<table class="center">
-  <tr>
-    <td>Temperature</td>
-    <td class="alignleft"><div id="temp" class="Result">&nbsp;</div>
-    <span id="tunits">deg R</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Density</td>
-    <td class="alignleft"><div id="rho" class="Result">&nbsp;</div>
-    <span id="runits">sl/ft^3</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Pressure</td>
-    <td class="alignleft"><div id="press" class="Result">&nbsp;</div>
-    <span id="punits">lb/ft^2</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Speed of Sound</td>
-    <td class="alignleft"><div id="ssound" class="Result">&nbsp;</div>
-    <span id="sunits">ft/sec</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Viscosity</td>
-    <td class="alignleft"><div id="visc" class="Result">&nbsp;</div>
-    <span id="muunits">lb sec/ft^2</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Mach Number</td>
-    <td class="alignleft"><div id="mach" class="Result">&nbsp;</div>
-  </tr>
-  <tr>
-    <td class="alignright">Dynamic Pressure</td>
-    <td class="alignleft"><div id="q" class="Result">&nbsp;</div>
-    <span id="qunits">lb/ft^2</span></td>
-  </tr>
-  <tr>
-    <td class="alignright">Critical Cp</td>
-    <td class="alignleft"><div id="cpstar" class="Result">&nbsp;</div>
-  </tr>
-  <tr>
-    <td class="alignright">Vacuum Cp</td>
-    <td class="alignleft"><div id="cpmin" class="Result">&nbsp;</div>
-  </tr>
-  <tr>
-    <td class="alignright">Reynolds Number</td>
-    <td class="alignleft"><div id="reno" class="Result">&nbsp;</div>
-  </tr>
-  <tr>
-    <td class="alignright">Laminar Cf</td>
-    <td class="alignleft"><div id="cfl" class="Result">&nbsp;</div>
-  </tr>
-  <tr>
-    <td class="alignright">Turbulent Cf</td>
-    <td class="alignleft"><div id="cft" class="Result">&nbsp;</div>
-  </tr>
-</table>
-</FORM>
-</td></tr></table></center></td></tr></table>
+  <fieldset id="results">
+  <label for="thetafield">temperature / sea level temperature = </label>
+  <input type="text" size="25" name="thetafield" id="thetafield" value=" " readonly="readonly" >
+  <br>
+  <label for="deltafield">pressure / sea level pressure = </label>
+  <input type="text" size="25" name="deltafield" id="deltafield" value=" " readonly="readonly" >
+  <br>
+  <label for="sigmafield">density / sea level density = </label>
+  <input type="text" size="25" name="sigmafield" id="sigmafield" value=" " readonly="readonly" >
+  <br>
+  <label for="tempfield">Temperature = </label>
+  <input type="text" size="25" name="tempfield" id="tempfield" value=" " readonly="readonly" >
+  <br>
+  <label for="pressfield">Pressure = </label>
+  <input type="text" size="25" name="pressfield" id="pressfield" value=" " readonly="readonly" >
+  <br>
+  <label for="denfield">Density = </label>
+  <input type="text" size="25" name="denfield" id="denfield" value=" " readonly="readonly" >
+  <br>
+  <label for="asoundfield">speed of sound = </label>
+  <input type="text" size="25" name="asoundfield" id="asoundfield" value=" " readonly="readonly" >
+  <br>
+  <label for="mufield">dynamic viscosity = </label>
+  <input type="text" size="25" name="mufield" id="mufield" value=" " readonly="readonly" >
+  <br>
+  <label for="nufield">kinematic viscosity = </label>
+  <input type="text" size="25" name="nufield" id="nufield" value=" " readonly="readonly" >
+  <br>
+  <label for="rnlfield">unit Reynolds Number = </label>
+  <input type="text" size="25" name="rnlfield" id="rnlfield" value=" " readonly="readonly" >
+  <br>
+  <label for="velfield">velocity = </label>
+  <input type="text" size="25" name="velfield" id="velfield" value=" " readonly="readonly" >
+  <br>
+  <label for="qfield">Dynamic Pressure = </label>
+  <input type="text" size="25" name="qfield" id="qfield" value=" " readonly="readonly" >
+  <br>
+  <label for="ttfield">total temperature = </label>
+  <input type="text" size="25" name="ttfield" id="ttfield" value=" " readonly="readonly" >
+  <br>
+  <label for="ptfield">total pressure = </label>
+  <input type="text" size="25" name="ptfield" id="ptfield" value=" " readonly="readonly" >
+  <br>
+  </fieldset>
+</form>
+</td></tr></table></td></tr></table>
 
-<SCRIPT LANGUAGE="JavaScript">
- <!-- Original:  Ilan Kroo  kroo@leland.stanford.edu
-
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://javascript.internet.com -->
-
-<!-- Begin
-
- function setEUnits() {
-  var DE1 = document.getElementById ( "inputs" );
-  var str = document.getElementById("hunits").innerHTML;
-  if ( str== "ft") {
-    alert("Already in English Units.");
-    return;
-  }
-  document.getElementById("hunits").innerHTML = "ft"
-  document.getElementById("vunits").innerHTML = "ft/sec"
-  document.getElementById("lunits").innerHTML = "ft"
-
-  var DE2 = document.getElementById( "results" );
-  document.getElementById('tunits').innerHTML = "deg R"
-  document.getElementById("runits").innerHTML = "sl/ft^3"
-  document.getElementById("punits").innerHTML = "lb/ft^2"
-  document.getElementById("sunits").innerHTML = "ft/sec"
-  document.getElementById("muunits").innerHTML = "lb sec/ft^2"
-  document.getElementById("qunits").innerHTML = "lb/ft^2";
-
-  var h = DE1.alt.value;
-  var v =DE1.speed.value;
-  var rl = DE1.rlength.value;
-  var tempVal = document.getElementById("temp").innerHTML 
-  var rhoVal =  document.getElementById("rho").innerHTML 
-  var pVal  = document.getElementById("press").innerHTML 
-  var soundVal  = document.getElementById("ssound").innerHTML 
-  var viscVal =  document.getElementById("visc").innerHTML 
-  var machVal = document.getElementById("mach").innerHTML 
-  var qVal  =document.getElementById("q").innerHTML 
-  var cpstarVal  = document.getElementById("cpstar").innerHTML 
-  var cpminVal  = document.getElementById("cpmin").innerHTML
-  var reynolds =  document.getElementById("reno").innerHTML
-  var cflam  = document.getElementById("cfl").innerHTML
-  var cfturb  =  document.getElementById("cft").innerHTML
-
-  DE1.alt.value = h*3.2808
-  DE1.speed.value = v*3.2808
-  DE1.rlength.value = rl*3.2808
-  document.getElementById("temp").innerHTML =tempVal*1.8
-  document.getElementById("rho").innerHTML = rhoVal * .068521  * .028317
-  document.getElementById("press").innerHTML = pVal * .020885
-  document.getElementById("ssound").innerHTML = soundVal*3.2808
-  document.getElementById("visc").innerHTML = viscVal*.22481*.092903
-  document.getElementById("mach").innerHTML = machVal
-  document.getElementById("q").innerHTML = qVal * .020885
-  document.getElementById("cpstar").innerHTML = cpstarVal
-  document.getElementById("cpmin").innerHTML = cpminVal
-  document.getElementById("reno").innerHTML = reynolds
-  document.getElementById("cfl").innerHTML = cflam
-  document.getElementById("cft").innerHTML = cfturb
-  roundAll();
-}
-function setMUnits() {
-  var DE1 = document.getElementById ( "inputs" );
-  var str = document.getElementById("hunits").innerHTML;
-  if ( str== "m") {
-    alert("Already in metric units.");
-    return;
-  }
-  Compute();
-  document.getElementById("hunits").innerHTML = "m"
-  document.getElementById("vunits").innerHTML = "m/sec"
-  document.getElementById("lunits").innerHTML = "m"
-  var DE2 = document.getElementById( "results" );
-  document.getElementById('tunits').innerHTML = "deg K"
-  document.getElementById("runits").innerHTML = "kg/m^3"
-  document.getElementById("punits").innerHTML = "N/m^2"
-  document.getElementById("sunits").innerHTML = "m/sec"
-  document.getElementById("muunits").innerHTML = "N sec/m^2"
-  document.getElementById("qunits").innerHTML = "N/m^2"
-  var h = DE1.alt.value;
-  var v = DE1.speed.value;
-  var rl = DE1.rlength.value;
-  //var tempVal = DE2.temp.value 
-  var tempVal = document.getElementById("temp").innerHTML 
-  var rhoVal =  document.getElementById("rho").innerHTML 
-  var pVal  = document.getElementById("press").innerHTML 
-  var soundVal  = document.getElementById("ssound").innerHTML 
-  var viscVal =  document.getElementById("visc").innerHTML 
-  var machVal = document.getElementById("mach").innerHTML 
-  var qVal  =document.getElementById("q").innerHTML 
-  var cpstarVal  = document.getElementById("cpstar").innerHTML 
-  var cpminVal  = document.getElementById("cpmin").innerHTML
-  var reynolds =  document.getElementById("reno").innerHTML
-  var cflam  = document.getElementById("cfl").innerHTML
-  var cfturb  =  document.getElementById("cft").innerHTML
-  DE1.alt.value = h/3.2808
-  DE1.speed.value = v/3.2808
-  DE1.rlength.value = rl/3.2808
-  document.getElementById("temp").innerHTML =tempVal/1.8
-  document.getElementById("rho").innerHTML = rhoVal / .068521  / .028317
-  document.getElementById("press").innerHTML = pVal / .020885
-  document.getElementById("ssound").innerHTML = soundVal/3.2808
-  document.getElementById("visc").innerHTML = viscVal/.22481/.092903
-  document.getElementById("mach").innerHTML = machVal
-  document.getElementById("q").innerHTML = qVal / .020885
-  document.getElementById("cpstar").innerHTML = cpstarVal
-  document.getElementById("cpmin").innerHTML = cpminVal
-  document.getElementById("reno").innerHTML = reynolds
-  document.getElementById("cfl").innerHTML = cflam
-  document.getElementById("cft").innerHTML = cfturb
-  roundAll();
-}
-function ResetForm() {
-  var DE1 = document.getElementById ( "inputs" );
-  DE1.alt.value = ""
-  DE1.speed.value = ""
-  DE1.rlength.value = ""
-}
-function Compute() {
-  var DE1 = document.getElementById ( "inputs" );
-  var DE2 = document.getElementById( "results" );
-  
-  // First set to English Units
-  var origUnits = "english";
-  var str = document.getElementById("hunits").innerHTML;
-  if ( str== "m") {
-    origUnits = "metric";
-    setEUnits();
-  }
-  var h = DE1.alt.value;
-  var v =DE1.speed.value;
-  var rl = DE1.rlength.value;
-  var TEMPSL = 518.67;
-  var RHOSL = 0.00237689;
-  var PRESSSL = 2116.22;
-  var saTheta = 1.0
-  var saSigma = 1.0
-  var saDelta = 1.0
-  if ( h<232940 ){
-    saTheta = 1.434843 - h/337634;
-    saSigma = Math.pow( 0.79899-h/606330, 11.20114 );
-    saDelta = Math.pow( 0.838263-h/577922, 12.20114 );
-  }
-  if ( h<167323 ){
-    saTheta = 0.939268;
-    saSigma = 0.00116533 * Math.exp( (h-154200)/-25992 );
-    saDelta = 0.00109456 * Math.exp( (h-154200)/-25992 );
-  }
-  if ( h<154199 ){
-    saTheta = 0.482561 + h/337634;
-    saSigma = Math.pow( 0.857003+h/190115, -13.20114 );
-    saDelta = Math.pow( 0.898309+h/181373, -12.20114 );
-  }
-  if ( h<104987 ){
-    saTheta = 0.682457 + h/945374;
-    saSigma = Math.pow( 0.978261+h/659515, -35.16319 );
-    saDelta = Math.pow( 0.988626+h/652600, -34.16319 );
-  }
-  if ( h<65617 ){
-    saTheta = 0.751865;
-    saSigma = 0.297076 * Math.exp( (36089-h)/20806 );
-    saDelta = 0.223361 * Math.exp( (36089-h)/20806 );
-  }
-  if ( h<36089 ){
-    saTheta = 1.0 - h/145442;
-    saSigma = Math.pow( 1.0-h/145442, 4.255876 );
-    saDelta = Math.pow( 1.0-h/145442, 5.255876 );
-  }
-  var tempVal = TEMPSL * saTheta;
-  var rhoVal = RHOSL * saSigma;
-  var pVal = PRESSSL * saDelta;
-  var viscVal = 0.0226968*Math.pow( tempVal, 1.5 ) / ((tempVal)+198.72) / 1000000.0;
-  var soundVal = Math.sqrt( 1.4*1716.56*(tempVal) );
-  var machVal = v/soundVal
-  var qVal = 0.7*pVal*machVal*machVal
-  var reynolds = v*rl*rhoVal/viscVal
-  var cfturb = 0.455/Math.pow((Math.log(reynolds)/Math.log(10)),2.58)
-  var cflam = 1.328/Math.sqrt(reynolds)
-  document.getElementById("temp").innerHTML = tempVal
-  document.getElementById("rho").innerHTML =  rhoVal
-  document.getElementById("press").innerHTML =  pVal
-  document.getElementById("ssound").innerHTML =  soundVal
-  document.getElementById("visc").innerHTML =  viscVal
-  document.getElementById("mach").innerHTML =  machVal
-  document.getElementById("q").innerHTML =  qVal
-  document.getElementById("cpstar").innerHTML =  (Math.pow((1/1.2 + machVal*machVal/6.0),3.5)-1)/(0.7*machVal*machVal)
-  document.getElementById("cpmin").innerHTML =  -1.0/(0.7*machVal*machVal)
-  document.getElementById("reno").innerHTML = reynolds
-  document.getElementById("cfl").innerHTML = cflam
-  document.getElementById("cft").innerHTML = cfturb
-  if (origUnits == "metric") {
-    setMUnits();          
-  }
-  roundAll();
-}
-// Rounding
-function roundAll(){
-  var DE1 = document.getElementById ( "inputs" );
-  DE1.alt.value = truncNum(  DE1.alt.value,9)
-  DE1.speed.value = truncNum(  DE1.speed.value,7)
-  DE1.rlength.value = truncNum(  DE1.rlength.value,7)
-  var DE2 = document.getElementById( "results" );
-  document.getElementById("temp").innerHTML =truncNum(  document.getElementById("temp").innerHTML,7)
-  document.getElementById("rho").innerHTML = truncNum(  document.getElementById("rho").innerHTML,7)
-  document.getElementById("press").innerHTML = truncNum(  document.getElementById("press").innerHTML,7)
-  document.getElementById("ssound").innerHTML = truncNum(  document.getElementById("ssound").innerHTML ,8)
-  document.getElementById("visc").innerHTML = truncNum(  document.getElementById("visc").innerHTML,10)
-  document.getElementById("mach").innerHTML = truncNum(  document.getElementById("mach").innerHTML,6)
-  document.getElementById("q").innerHTML = truncNum(  document.getElementById("q").innerHTML,7)
-  document.getElementById("cpstar").innerHTML = truncNum(  document.getElementById("cpstar").innerHTML,6)
-  document.getElementById("cpmin").innerHTML = truncNum(  document.getElementById("cpmin").innerHTML,6)
-  document.getElementById("reno").innerHTML = truncNum(  document.getElementById("reno").innerHTML,10)
-  document.getElementById("cfl").innerHTML = truncNum(  document.getElementById("cfl").innerHTML,7)
-  document.getElementById("cft").innerHTML = truncNum(  document.getElementById("cft").innerHTML,7)
-return;
-}
-function truncNum(inputVal, rsize) {
-  var instr = " " + inputVal
-  var inputlength = instr.length
-  if (inputlength<=rsize+1) return instr.substring(1, inputlength);
-  var epos = strpos(instr, "e")
-  if ( epos > rsize+1) {
-    var instr1 = instr.substring(1,rsize+1) + instr.substring(epos,inputlength);
-    return instr1;
-  }
-  var rounded = instr.substring(1, rsize+1);
-  return rounded;
-}
-function strpos(str, ch) {
-  for (var i = 0; i < str.length; i++)
-    if (str.substring(i, i+1) == ch) return i;
-  return -1;
-}
-
-</SCRIPT>
- 
-<style>
- .Result { display: inline-block;
-           width: 100px;
-	   border-width: thin;
-	   border-style: solid;
-	   border-color: black;
-	   background-color: white;
-	   text-align: right;
-	   padding-right: 1em;
-         }
-</style>
- 
 <center><a href="#top">Back to Top</a></center>
 
 
@@ -432,4 +391,402 @@ function strpos(str, ch) {
 </body>
 </html>
 
+<script type="JavaScript">
+	
+/*
+This is the calculation section of the Atmospheric Calculator by A. R. Wood
+The code is copyright and lives at aerotoolbox.com/atmcalc
+*/
+
+// Before doing anything else I need to determine what type of caclulation I am using
+var calcUnit = 2;
+
+specifyCalc = function(){
+
+var whichCalc = document.getElementById("calcType").selectedIndex;
+calcUnit = document.getElementsByTagName("option")[whichCalc].value;
+     
+    switch (calcUnit) {
+        case '1':
+            document.getElementsByName('Temp')[0].placeholder='Temperature';
+            //document.getElementById("summary").innerHTML = "US Std. Atm. + Air Temperature";
+            break;
+            
+        case '2':
+            document.getElementsByName('Temp')[0].placeholder='Temperature Offset';
+            //document.getElementById("summary").innerHTML = "US Std. Atm. + Temp. Offset ";	
+		    break;
+    }       
+        
+}
+convertToSi = function() {
+    
+    // Now pick up the values in the input boxes
+    var altRaw = +document.getElementById("Altitude").value;
+    var tempRaw = +document.getElementById("Temp").value;
+    
+    // now I need the units in the <select>
+    
+   var altUnitExtract = document.getElementById("altUnit").selectedIndex;
+    var altUnit = document.getElementsByTagName("option")[altUnitExtract+2].value; 
+    
+    var tempUnitExtract = document.getElementById("tempUnit").selectedIndex; //this is just returning the index number of the tempUnit index 
+    var tempUnit = document.getElementsByTagName("option")[tempUnitExtract+4].value; //bit messy but now i am referring to the correct index in the "option" set
+    
+    var altSI = altRaw*altUnit; // altitude in meters
+    
+    var calcMethod = document.getElementById("calcType").selectedIndex;
+    var methodUnit = document.getElementsByTagName("option")[calcMethod].value;
+	
+	var outputAltUnit;
+	if (altUnit==0.3048) {
+		outputAltUnit = "ft";
+	}
+	else {
+		outputAltUnit = "m";
+	}
+	var outputAlt = "Alt: "+ altRaw + " " + outputAltUnit;
+	document.getElementById("altOutput").innerHTML = outputAlt;
+	
+	var outputtempUnit;
+	var degreestr = "00B0";
+	var degreeSign = String.fromCharCode(parseInt(degreestr, 16));
+	
+	switch (tempUnitExtract) {
+        case 0: // degrees C			
+			if (calcUnit==1){
+				outputtempUnit = "Temp: "+ tempRaw + " "+degreeSign+"C";
+			}		
+			else {
+				outputtempUnit = "Temp. Dev: "+ tempRaw + " "+degreeSign+"C";
+			}            			
+        break;
+            
+        case 1: // kelvin            
+			if (calcUnit==1){
+				outputtempUnit = "Temp: "+ tempRaw +  " K";
+			}		
+			else {
+				outputtempUnit = "Temp. Dev: "+ tempRaw +  " K";
+			}			
+		break;
+		
+		case 2: // degrees F
+            
+			if (calcUnit==1){
+				outputtempUnit = "Temp: "+ tempRaw + " "+degreeSign+"F";
+			}		
+			else {
+				outputtempUnit = "Temp. Dev: "+ tempRaw + " "+degreeSign+"F";
+			}           			
+           			
+		break;
+    }       
+	
+	document.getElementById("tempOutput").innerHTML = outputtempUnit;
+		
+    //converting tempSI to tempRawSI to accomodate the offset case
+    //additional loop needed here to determine whether the value is a delta (offset) or actual (OAT)        
+    var tempRawSI;
+	
+    if (methodUnit < 2) { //methodUnit = 1 OAT case
+    
+        switch(tempUnitExtract) {
+            case 0:
+                tempRawSI = tempRaw+273.15;
+                break;
+            
+            case 1:
+                tempRawSI = tempRaw;
+                break;
+			
+			case 2:
+                tempRawSI = (tempRaw + 459.67)*(5/9);
+                break;
+        } 
+    }
+    else {
+        
+		switch(tempUnitExtract) {
+            case 0:
+                tempRawSI = tempRaw;
+                break;
+            
+            case 1:
+                tempRawSI = tempRaw;
+                break;
+			
+			case 2:
+                tempRawSI = (tempRaw-32)*(5/9);
+                break;
+        } 
+        
+		
+	}
+               
+    // define the various arrays required
+    
+    var altitudeArray = new Array(0, 11000, 20000, 32000, 47000, 51000, 71000, 84852);
+    var presRelsArray = new Array(1, 2.23361105092158e-1, 5.403295010784876e-2, 8.566678359291667e-3, 1.0945601337771144e-3, 6.606353132858367e-4, 3.904683373343926e-5, 3.6850095235747942e-6);
+    var tempsArray = new Array(288.15, 216.65, 216.65, 228.65, 270.65, 270.65, 214.65,186.946);
+    var tempGradArray = new Array(-6.5, 0, 1, 2.8, 0, -2.8, -2, 0);
+    
+    var i = 0;
+    while (altSI > altitudeArray[i+1]) {
+        i=i+1;
+    }
+    
+    // i now defines the array position that I require for the calc
+    var alts = altitudeArray[i];
+    var presRels = presRelsArray[i];
+    var temps = tempsArray[i];
+    var tempGrad = tempGradArray[i]/1000;
+    
+    var deltaAlt = altSI - alts;
+    var stdTemp = temps + (deltaAlt*tempGrad); // this is the standard temperature at STP
+    
+    // I need to account for the two cases: OAT and temp offset
+    // here I reintroduce tempSI   
+     
+    switch (methodUnit) {
+        case '1':
+               
+            var tempSI = tempRawSI;
+           
+            break;
+            
+        case '2':
+           var tempSI = tempRawSI + stdTemp;
+           break;
+    }       
+    
+        
+    // Now for the relative pressure calc:
+    //define constants
+    var airMol = 28.9644;
+    var rhoSL = 1.225; // kg/m3
+    var pSL = 101325; // Pa
+    var tSL = 288.15; //K
+    var gamma = 1.4; 
+    var g = 9.80665; // m/s2
+    var stdTempGrad = -0.0065; // deg K/m 
+    var rGas = 8.31432; //kg/Mol/K
+    var R = 287.053;
+    var gMR = g*airMol/rGas;
+    var dryMM = 0.0289644; //kg/mol
+    var adLapse = 0.00198; //K/ft
+ 
+        
+    if (Math.abs(tempGrad) < 1e-10) {
+        
+        var relPres = presRels * Math.exp(-1*gMR*deltaAlt/1000/temps);
+    }
+    else {
+        var relPres = presRels * Math.pow(temps/stdTemp,gMR/tempGrad/1000);
+    }
+    
+    // Now I can calculate the results:
+    
+    var sonicSI = Math.sqrt(gamma*R*tempSI);
+    var pressureSI = pSL*relPres;
+    var rhoSI = rhoSL*relPres*(tSL/tempSI);
+    var sigma = rhoSI/rhoSL;
+    
+    var denAltSIpow = 1- Math.pow(((pressureSI/pSL)/(tempSI/tSL)),-1*stdTempGrad*rGas/(g*dryMM+stdTempGrad*rGas));
+    
+    var denAltSI = tSL/(-1*stdTempGrad)*denAltSIpow; // density altitude in SI [m]
+    
+    var viscSI = 1.512041288*Math.pow(tempSI,1.5)/(tempSI+120)/1000000;
+    
+    // THIS WILL PROBABLY NEED TO BE MADE INTO A SEPERATE FUNCTION
+    // Now to output the results after converting to the selected units
+    
+    var outTempUnitExtract = document.getElementById("unitTempOut").selectedIndex;  
+    var outTempUnit = document.getElementsByTagName("option")[outTempUnitExtract+7].value
+   
+	var finalTempNoRound;
+    // temperature output cell
+    switch(outTempUnit) {
+            case '1':
+                finalTempNoRound = tempSI-273.15;
+            break;
+            
+            case '2':
+                finalTempNoRound = tempSI;
+            break;
+			
+			case '3':
+                finalTempNoRound = tempSI*(9/5) - 459.67;
+            break;
+        } 
+    
+    var tempSigFig = 1000;
+    var finalTemp = Math.round(finalTempNoRound*tempSigFig)/tempSigFig;
+    
+    //document.getElementById("tempOut").innerHTML = finalTemp+ " ";
+    document.getElementById("tempOut").value = finalTemp;
+    
+    var denAltUnitExtract = document.getElementById("unitDenAlt").selectedIndex;  
+    var outDenAltUnit = document.getElementsByTagName("option")[denAltUnitExtract+10].value
+    
+    var finalDenAlt = denAltSI/outDenAltUnit;    
+     
+    //document.getElementById("denAltOut").innerHTML = Math.round(finalDenAlt)+ " ";
+    document.getElementById("denAltOut").value = Math.round(finalDenAlt);
+    
+    var presUnitExtract = document.getElementById("outPresUnit").selectedIndex; 
+    var outpresUnit = document.getElementsByTagName("option")[presUnitExtract+12].value
+    
+    var presSigFig;
+    
+    switch (presUnitExtract) {
+            
+        case 0 :
+           presSigFig = 1;
+            break;
+            
+        case 1 :
+            presSigFig = 1000;
+                       
+            break;
+            
+        case 2 :
+            presSigFig = 100000;
+            break;
+            
+        case 3:
+            presSigFig = 100000;
+            break;
+		
+		case 4:
+            presSigFig = 100;
+            break;
+            
+        case 5:
+            presSigFig = 100000;
+            break;
+                        
+    }
+    
+     var finalPres = Math.round(pressureSI*outpresUnit*presSigFig)/presSigFig;    
+  
+    //document.getElementById("presOut").innerHTML = finalPres+ " ";
+    document.getElementById("presOut").value = finalPres;
+    
+    var rhoUnitExtract = document.getElementById("outrhoUnit").selectedIndex; 
+    var outRhoUnit = document.getElementsByTagName("option")[rhoUnitExtract+18].value;
+    
+    var rhoSigFig;
+    
+    switch (rhoUnitExtract) {
+            
+        case 0 :
+           rhoSigFig = 100000;
+            break;
+            
+        case 1 :
+            rhoSigFig = 10000000;
+                       
+            break;
+            
+        case 2 :
+            rhoSigFig = 1000000;
+            break;            
+                               
+    }
+    
+    var finalRho = Math.round(rhoSI*outRhoUnit*rhoSigFig)/rhoSigFig; 
+    
+    //document.getElementById("rhoOut").innerHTML = finalRho+ " ";
+    document.getElementById("rhoOut").value = finalRho;
+    
+    finalSigma = Math.round(sigma*1000000)/1000000;
+    
+    //document.getElementById("sigmaOut").innerHTML = finalSigma+ " ";
+    document.getElementById("sigmaOut").value = finalSigma;
+    
+    var sonicUnitExtract = document.getElementById("outSpeedUnit").selectedIndex;
+    var outSonicUnit = document.getElementsByTagName("option")[sonicUnitExtract+21].value;
+    
+    var sonicSigFig;
+    
+    switch (sonicUnitExtract) {
+            
+        case 0 :
+           sonicSigFig = 100;
+            break;
+            
+        case 1 :
+            sonicSigFig = 100;
+                       
+            break;
+            
+        case 2 :
+            sonicSigFig = 1000;
+            break;  
+            
+        case 3 :
+            sonicSigFig = 1000;
+            break;    
+            
+        case 4 :
+            sonicSigFig = 100;
+            break;    
+                               
+    }
+    
+    var finalSonic = Math.round(sonicSI*outSonicUnit*sonicSigFig)/sonicSigFig;      
+        //document.getElementById("soundOut").innerHTML = finalSonic+ " ";
+        document.getElementById("soundOut").value = finalSonic;
+    
+    var viscUnitExtract = document.getElementById("outViscUnit").selectedIndex;
+    var outViscUnit = document.getElementsByTagName("option")[viscUnitExtract+26].value;
+    
+    var viscSigFig;
+    
+    switch (viscUnitExtract) {
+            
+        case 0 :
+           viscSigFig = 1e8;
+            break;
+            
+        case 1 :
+            viscSigFig = 1e8;                       
+            break;
+            
+        case 2 :
+            viscSigFig = 1e8;
+            break;  
+            
+        case 3 :
+            viscSigFig = 1e10;
+            break;                                         
+    }
+    
+    
+     var finalVisc = Math.round(viscSI*outViscUnit*viscSigFig)/viscSigFig;     
+        //document.getElementById("viscOut").innerHTML =  finalVisc+ " ";
+        document.getElementById("viscOut").value =  finalVisc;
+        
+ 
+}; 
+
+	
+	function resetAll() {
+	document.getElementById('atmCalculator').reset();
+    specifyCalc(); 
+		
+    document.getElementById("tempOut").innerHTML = "-";    
+    document.getElementById("denAltOut").innerHTML = "-";
+    document.getElementById("presOut").innerHTML = "-";
+    document.getElementById("rhoOut").innerHTML = "-";
+    document.getElementById("sigmaOut").innerHTML = "-";
+    document.getElementById("soundOut").innerHTML = "-";
+    document.getElementById("viscOut").innerHTML = "-";
+	document.getElementById("altOutput").innerHTML = "";
+	document.getElementById("tempOutput").innerHTML = "";
+	}
+
+</script>
+	
 
