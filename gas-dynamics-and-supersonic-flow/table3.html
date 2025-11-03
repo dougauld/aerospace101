@@ -35,22 +35,21 @@ function ComputeMach() {
   var M2 = Number(mach);                        // convert string to double
   if (isNaN(M2)) {alert("Mach is not a number."); return; }
  
-  if (M2<0.001) { M1 = 2.0; else M1=M2; }
+  if (M2<0.001) { M1 = 2.0; else M1 = M2; }
    
   var ga = Number(gamma);                      // convert string to double
-  if (isNaN(mach)) {alert("Mach Number is not a number."); return; }
+  if (isNaN(ga)) {alert("Gamma is not a number."); return; }
 
- 
   ga1 = ga+1.0;
   ga2 = ga-1.0;
   if (M1 < 1.0 ) { region = "Subsonic"; else region = "Supersonic"; } 
   qonp = ga/2.0*M1*M1;
   tont0 = 1.0/(1.0 + (ga2)/2.0*M1*M1);
-  ponp0 = tont0 ** (ga/ga2);
-  ronr0 = tont0 ** (1.0/ga2);
+  ponp0 = Math.pow(tont0,(ga/ga2));
+  ronr0 = Math.pow(tont0,(1.0/ga2));
   aa1 = ga1/ga2/2.0;
   aa2 = 2.0*(1.0+ga2/2.0*M1*M1)/ga1;
-  aonAstar = ($aa2 ** $aa1)/M1;
+  aonAstar = (Math.pow($aa2,$aa1))/M1;
 
   document.getElementById("region").value = region;
   document.getElementById("qonp").value = qonp.toPrecision(5);
@@ -127,14 +126,12 @@ This form calculates the properties of one-dimensional gas flow without losses
 (isentropic). <br />The required input is the Mach number of a point in the flow.<br />&nbsp;<br /> The gas
 can be changed by entering the value of Ratio of Specific Heats (<b>&gamma;</b>).
 <table border=1 cellpadding='5' bgcolor='#95b1d6'><tr><td>
-&nbsp;<br />&nbsp;<br />&nbsp;<br /><img align='right' src='compressible.gif'></td><td>"
+&nbsp;<br />&nbsp;<br />&nbsp;<br /><img align='right' src='compressible.gif'></td><td>
 <B>Inputs</B><br>
 <form>
 <table><tr><td>
-<label for="mach"> Mach Number (M) </label>
-</td></tr>
-<tr>
-<td><INPUT NAME="mach" TYPE="text" VALUE="0" SIZE="15" onfocus = "HideResults();"  autofocus ></td></tr>
+<label for="mach"> Mach Number (M) </label><br />
+<INPUT NAME="mach" TYPE="text" VALUE="0" SIZE="15" onfocus = "HideResults();" autofocus ></td></tr>
 <tr><td>
 <label for="gamma"> Ratio of Specific Heats (&gamma;) </label>
 </td></tr>
