@@ -96,7 +96,7 @@ function ComputeAtmosphere() {
   const KELVIN2RANKINE = 1.8;                         // mult deg K to get deg R
   const PSF2NSM = 47.880258;                      // mult lb/sq.ft to get N/sq.m
   const SCF2KCM = 515.379;                    // mult slugs/cu.ft to get kg/cu.m
-  const FT2KM = 0.0003048;                                // mult feet to get km
+  const FT2KM = 0.0003048;                                // mult feet to get kmfeet
   
   const htab = [0.0, 11.0, 20.0, 32.0, 47.0, 51.0, 71.0, 84.852];
   const ttab = [288.15, 216.65, 216.65, 228.65, 270.65,
@@ -118,7 +118,7 @@ function ComputeAtmosphere() {
   var altfield = document.getElementById("altfield").value;
 //  alert("altitude " + altfield);
   var machfield = document.getElementById("machfield").value;
-//  alert("mach " + machfield);
+//  alert("mach " + machfield);feet
 
   var alt = Number(altfield);                        // convert string to double
   if (isNaN(alt)) {alert("Altitude is not a number."); return; }
@@ -306,11 +306,12 @@ standard atmosphere up to 230,000 ft.<br />  The code used is based on the origi
 <form>
   <input type="radio" name="units" value="SI" id="unitsSi" checked="checked" onchange = "ChangeUnits();" > SI
   <input type="radio" name="units" value="US" onchange = "ChangeUnits();" > US <br />
-  <label for="altfield"> Altitude :&nbsp;&nbsp;&nbsp;</label>
+  <label for="altfield"> Altitude :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
   <input type="text" name="altfield" id="altfield" size="7" onfocus = "HideResults();" value="0" autofocus>
   <input type="text" size="6" name="altunits" value="meters" id="altunits" readonly="readonly" tabindex=0 > <br />
   <label for="machfield"> Mach Number:</label>
   <input type="text" name="machfield" id="machfield" size="7" onfocus = "HideResults();" value="0" ><br />&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
   <input id="ComputeButton" type="button" value="Compute" onclick="ComputeAtmosphere();" > 
    </td><td>
   <fieldset id="results">
