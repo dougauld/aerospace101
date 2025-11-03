@@ -300,20 +300,19 @@ function ComputeAtmosphere() {
 <center><table width=760 border=1><tr><td colspan=2><font color=white>
 <B>Standard Atmosphere Computations</B><br>
 This form calculates properties related to the 1976
-standard atmosphere up to 230,000 ft.<br />  The code used is based on the original Javascript of
-Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
-</font></td></tr><tr><td>
+standard atmosphere up to 230,000 ft.<br />  The code used is based on the original Javascript code 
+	from <a href="http://www.pdas.com/index.html">Public Domain Computer Programs for the Aeronautical Engineer</a>
+</font></td></tr><tr><td><p &nbsp;<br /></p>
 <form>
 <center><input type="radio" name="units" value="SI" id="unitsSi" checked="checked" onchange = "ChangeUnits();" > SI
   <input type="radio" name="units" value="US" onchange = "ChangeUnits();" > US <br />
-  <input id="ComputeButton" type="button" value="Compute" onclick="ComputeAtmosphere();" > 
-  <br />
-  <label for="altfield"> Altitude</label>
+  <label for="altfield"> Altitude :&nbsp;&nbsp;&nbsp;</label>
   <input type="text" name="altfield" id="altfield" size="7" onfocus = "HideResults();" value="0" autofocus>
-  <input type="text" size="6" name="altunits" value="meters" id="altunits" readonly="readonly" tabindex=0 > <br>
-  <label for="machfield"> Mach Number</label>
-  <input type="text" name="machfield" id="machfield" size="7" onfocus = "HideResults();" value="0" ><br>
-</center></td><td>
+  <input type="text" size="6" name="altunits" value="meters" id="altunits" readonly="readonly" tabindex=0 > <br />
+  <label for="machfield"> Mach Number:</label>
+  <input type="text" name="machfield" id="machfield" size="7" onfocus = "HideResults();" value="0" ><br />&nbsp;<br />
+  <input id="ComputeButton" type="button" value="Compute" onclick="ComputeAtmosphere();" > 
+ </center></td><td>
   <fieldset id="results">
   <label for="thetafield">temperature / sea level temperature = </label>
   <input type="text" size="25" name="thetafield" id="thetafield" value=" " readonly="readonly" >
