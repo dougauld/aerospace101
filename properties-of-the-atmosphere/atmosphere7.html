@@ -72,11 +72,11 @@ This form calculates properties related to the 1976
 standard atmosphere up to 230,000 ft.<br />  The code used is based on the original Javascript of
 Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
 </font></td></tr><tr><td>
-<form name="units" id="units">
- <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" CHECKED="true" onClick="setEUnits()">English
- <INPUT TYPE="radio" VALUE="radio" NAME="unitbut"  onClick="setMUnits()">Metric
-</form><br />
-<form name="inputs" id="units">
+<center><form name="units" id="units">
+ <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" onClick="setEUnits()">English
+ <INPUT TYPE="radio" VALUE="radio" NAME="unitbut" CHECKED="true" onClick="setMUnits()">Metric
+</form>
+<form name="inputs" id="inputs">
 <B>Inputs</B><br><table><tr><td>Altitude</td>
 <td><INPUT NAME='alt' TYPE="text" VALUE="0" SIZE="15"></td>
 <td><INPUT NAME='hunits' TYPE="text" SIZE="6" VALUE="m"></td></tr>
@@ -87,15 +87,15 @@ Ilan Kroo (kroo@leland.stanford.edu)  31 Dec 95.
 <td><INPUT NAME='rlength' TYPE="text"  VALUE="1" SIZE="15"></td>
 <td><INPUT NAME='lunits' TYPE="text" SIZE='6' VALUE="m"></td></tr>
 </table>
-<BR><center>";
+<BR>
 <INPUT NAME="name" TYPE="button" VALUE="Compute" onClick="Compute()">
 <INPUT NAME="name" TYPE="button" VALUE="Reset" onClick="ResetForm()">
 </form>
 <br>&nbsp;<br>
 <a href='../resources/index.html'>Tabulated Data and Downloads </a><br>
-</center></td><td>";
-<B>Results</B>";
-<form name='results' id='results'>";
+</center></td><td>
+<B>Results</B>
+<form name="results" id="results">
 <table class="center">
   <tr>
     <td>Temperature</td>
