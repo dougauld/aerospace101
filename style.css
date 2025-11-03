@@ -156,7 +156,7 @@ button,
 input,
 select,
 textarea {
-  color: #333;
+  color: #000;
   font-family: Arial;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.5em;
@@ -3739,4 +3739,5 @@ span.jwcontrols span button {
   /* Above WP toolbar. */
 
 }
+
 
