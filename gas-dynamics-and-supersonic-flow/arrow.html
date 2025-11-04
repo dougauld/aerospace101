@@ -258,8 +258,8 @@ specified for cases of symmetric wing loading about the center-line.
 <INPUT NAME="alphad" id="alphad" TYPE="text" VALUE="0" SIZE="15" onfocus= "HideResults();"  autofocus></td>
 </tr></table><br><hr>
 </td><td valign=top width='60%' bgcolor='#FFFFFF'>
-<center><input id="ComputeButton" type="button" value="Compute" onclick="ComputeArrow();" > </center><br />
-<center><img src='arrow.jpg'></center><br />
+<center><input id="ComputeButton" type="button" value="Compute" onclick="ComputeArrow();" ><br />
+<img src='arrow.jpg'></center>
 <form>
 <fieldset id="results">
 AR = <input type="text" size="20" name="ar" id="ar" value=" " readonly="readonly"><br />
@@ -274,9 +274,9 @@ CLalpha (per rad.) = <input type="text" size="20" name="cla" id="cla" value=" " 
 CT/CL^2 = <input type="text" size="20" name="ctcl2" id="ctcl2" value=" " readonly="readonly"><br />
 kCD(0%) (1/CLalpha) = <input type="text" size="20" name="kCd0" id="kCd0" value=" " readonly="readonly"><br />
 kCD0(100%) = <input type="text" size="20" name="kCd100" id="kCd100" value=" " readonly="readonly"><br />&nbsp;<br />
-at CL = 0.10: <br /> CD(0%) = <input type="text" size="20" name="cd0p" id="cd0p" value=" " readonly="readonly"> counts<br />
-CD(100%) = <input type="text" size="20" name="cd100p" id="cd100p" value=" " readonly="readonly"> counts<br />
-Delta CD = <input type="text" size="20" name="deltacd" id="deltacd" value=" " readonly="readonly"> counts<br />&nbsp;<br />
+at CL = 0.10: <br /> CD(0%) (counts) = <input type="text" size="20" name="cd0p" id="cd0p" value=" " readonly="readonly"><br />
+CD(100%) (counts) = <input type="text" size="20" name="cd100p" id="cd100p" value=" " readonly="readonly"><br />
+&Delta;CD (counts) = <input type="text" size="20" name="deltacd" id="deltacd" value=" " readonly="readonly"><br />&nbsp;<br />
 Xbar  = <input type="text" size="20" name="xbar" id="xbar" value=" " readonly="readonly"><br />
 (the number of root chords the aerodynamic center is behind the wing apex)<br />&nbsp;<br />
 CL = <input type="text" size="20" name="cl" id="cl" value=" " readonly="readonly"><br />
