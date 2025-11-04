@@ -20,7 +20,6 @@ function HideResults() {
 
 function ComputeMach() {
 
-  var M1 = 2.0;
   var region = " "; 
   var qonp = 0;
   var ponp0 = 0;
@@ -32,10 +31,10 @@ function ComputeMach() {
   var mach = document.getElementById("mach").value;
   var gamma = document.getElementById("gamma").value;
 
-  var M2 = Number(mach);                        // convert string to double
+  var M1 = Number(mach);                        // convert string to double
   if (isNaN(M2)) {alert("Mach is not a number."); return; }
  
-  if (M2<0.001) { M1 = 2.0; } else { M1 = M2; } 
+  if (M1<0) { alert("Mach must be a positive number."); return; } 
    
   var ga = Number(gamma);                      // convert string to double
   if (isNaN(ga)) {alert("Gamma is not a number."); return; }
@@ -131,7 +130,7 @@ can be changed by entering the value of Ratio of Specific Heats (<b>&gamma;</b>)
 <form>
 <table><tr><td>
 <label for="mach"> Mach Number (M) </label><br />
-<INPUT NAME="mach" id="mach" TYPE="text" VALUE="0" SIZE="15" onfocus = "HideResults();" autofocus ></td></tr>
+<INPUT NAME="mach" id="mach" TYPE="text" VALUE="2.0" SIZE="15" onfocus = "HideResults();" autofocus ></td></tr>
 <tr><td>
 <label for="gamma"> Ratio of Specific Heats (&gamma;) </label>
 </td></tr>
