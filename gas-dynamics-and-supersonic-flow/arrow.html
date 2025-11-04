@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+
+<script>
+
+function HideResults() {
+  document.getElementById("results").style.visibility="hidden";
+}
+
+function ComputeMach() {
+
+const PI = 3.1415926;
+const A1= 0.44325141463;
+const A2= 0.06260601220;
+const A3= 0.04757383546;
+const A4= 0.01736506451;
+const B1= 0.24998368310;
+const B2= 0.09200180037;
+const B3= 0.04069697526;
+const B4= 0.00526449639;
+
+var notchratio,r,beta,lam,cotlam,n,nch,ar,mnLE,mnTE,teswp,teswpd;
+var region;
+var m2,m4,m6,m8,elp1,elp2,ellip,em,cla1,cla2,cla3,cla4,cla;
+var ctcl21,ctcl22,ctcl23,ctcl2;        
+var xbar1,xbar2,xbar3,xbar4,xbar5,xbar6,xbarnm,xbar7,xbar8,xbardn,xbar;
+var cl,cd0,cd100,mach2,mach3,mach4,mach5,rnstar,rn,cfstar,cf,cfroughstar,cfrough,cfavg,cdfriction;
+
+var spanfield = document.getElementById("span").value;
+var rcfield = document.getElementById("rc").value;
+var lesweepfield = document.getElementById("lesweep").value;
+var machfield = document.getElementById("mach").value;
+var alphafield = document.getElementById("alphad").value;
+var span = Number(spanfield);
+var rc = Number(rcfield);
+var lesweep = Number(lesweepfield);
+var mach = Number(machfield);
+var alphad = Number(alphadfield);
+
+ R= span/2.0*Math.tan(lesweep)*PI/180.0);
+ notchratio=(R-rc)/R;
+ beta = Math.sqrt(mach*mach - 1.0);
+ lam  = lesweep*(PI/180.0);
+ cotlam = 1.0/(Math.tan(lam));
+ m      = beta*cotlam;
+ nch    = notchratio;
+ ar     = 4.0/(Math.tan(lam)*(1.0 - nch));
+ mnLE   = mach*Math.cos(lam);
+ teswp  = Math.atan(nch*Math.tan(lam));
+ teswpd = 180.0/PI*teswp;
+ mnTE   = mach*Math.cos(teswp);
+ if (mnTE < 1.0) {alert("Subsonic trailing edge, theory invalid");
+  } else {    
+  if (m<=1.0) {
+//-- subsonic leading edge case
+//-- Clalpha Components --
+   region = "Subsonic Leading Edge.";             
+//      this is  from Abromowitz and Stegun, page 592, section 17.3.36
+   m2=m*m;
+   m4=m2*m2;
+   m6=m2*m4;
+   m8=m4*m4;
+   elp1 = 1.0 + A1*m2 + A2*m4 + A3*m6 + A4*m8;
+   elp2 = (B1*m2 + B2*m4 + B3*m6 + B4*m8)*Math.log(1.0/(m2));
+   ellip =  elp1 + elp2;
+   em = ellip;
+   cla1 = 4.0*m/(beta*em);
+   cla2 = nch/(1.0+nch);
+   cla3 = (1.0-nch)/Math.pow((1.0-nch*nch),1.5);
+   cla4 = Math.acos(-1.0*nch);
+   cla  = cla1*(cla2+cla3*cla4);
+ 
+//-- Ct/Cl^2 Components --
+   ctcl21 = PI*ar/4.0;
+   ctcl22 = Math.sqrt(1.0-m*m)/(em*em);
+   ctcl23 = 1.0/cla/cla;
+   ctcl2  = ctcl21*ctcl22*ctcl23;
+//-- aerodynamic center
+   xbar1 = Math.acos(nch)/Math.sqrt(1.0 - nch*nch);
+   xbar2 = nch*(4.0 - nch*nch) + (2.0 + nch*nch)*xbar1;
+   xbar3 = 3.0*(1.0 - nch*nch)*(nch + xbar1);
+   xbar  = xbar2/xbar3;
+   
+  } else {        
+   region = "Supersonic Leading Edge.";             
+//-- supersonic leading edge case
+   cla1 = 8.0*m/(beta*PI*(1.0+nch));
+   cla2 = Math.acos(-1.0*nch/m)/(Math.sqrt(m*m-nch*nch));
+   cla3 = Math.acos(1.0/m)*nch/(Math.sqrt(m*m-1.0));
+   cla  = cla1*($cla2+$cla3);
+   ctcl2 = 0.0;
+           
+//-- aerodynamic center
+   if (nch==0.0) {
+    xbar = 2.0/3.0;
+   } else {
+    xbar1 = Math.acos(-nch/m);
+    xbar2 = Math.acos(1.0/m);
+    xbar3 = 2.0 - Math.pow((nch/m),2) - nch*nch*nch*nch/m/m;
+    xbar4 = (1.0 - nch*nch)*Math.pow((1.0 - Math.pow((nch/m),2)),1.5);
+    xbar5 = nch*(3.0 - nch*nch)/(1.0 - nch*nch)/Math.sqrt(1.0 - 1.0/m/m);
+    xbar6 = nch*m/(m*m - nch*nch);
+    xbarnm= xbar3*xbar1/xbar4 + xbar5*xbar2 + xbar6;
+    xbar7 = xbar1/Math.sqrt(1.0 - Math.pow((nch/m),2));
+    xbar8 = nch*xbar2/Math.sqrt(1.0 - 1.0/m/m);
+    xbardn= xbar7 + $xbar8;
+    xbar  = xbarnm/xbardn/3.0;
+   }
+  }                       
+//-- 0% Leading edge suction polar
+  kCd0  = 1.0/cla;          
+//-- 100% Leading edge suction polar
+  kCd100  = (1.0/cla)-ctcl2;
+  BCLA    = beta*cla;
+  cdbcl20 = kCd0/beta;
+  cdbcl2100  = kCd100/beta;
+  CD0p    = 100.0*kCd0;
+  CD100p  = 100.0*kCd100;
+  deltacd = CD0p - CD100p;
+  $symb ="%";
+//  printf ("<br />betaCLalpha  = %10.4f",$BCLA);
+  alpha  = alphad*(PI/180.0);
+  cl     = cla * alpha;
+  cd0   = kCd0*cl*cl;
+  cd100 = kCd100*cl*cl;
+  mach2=mach*mach;
+  mach3=mach2*mach;
+  mach4=mach2*mach2;
+  mach5=mach4*mach;
+  rnstar=1116.4*mach*rc/0.3048/3.7372E-07*(1.0+0.0283*mach-0.043*mach2+0.2107*mach3-0.03829*mach4+0.002709*mach5);
+  rn=1116.4*mach*rc/0.3048/3.7372E-07;
+  cfstar=Math.pow(0.037036*rnstar,-0.155079);
+  cf=cfstar*(1.0+0.00798*mach-0.1813*mach2+0.0632*mach3-0.00933*mach4+0.000549*mach5);
+  cfroughstar=1.0/Math.pow(1.89+1.62*Math.log10(rc/0.00002),2.5);
+  cfrough=cfroughstar/(1.0+0.2044*mach2);
+  if (cfrough>cf) {
+   cf=cfrough;
+  }
+  cfavg=cf*(1.0 + 0.5646/Math.log10(rn));
+  cdfriction=cfavg*(1.000375 + 0.8*(1.0 + 5*0.5*0.5)*0.05);
+
+  document.getElementById("region").value = region;  
+  document.getElementById("ar").value = ar;  
+  document.getElementById("mnLE").value=mnLE;
+  document.getElementById("teswpd").value=teswpd;
+  document.getElementById("mnTE").value=mnTE;
+  document.getElementById("cdbcl20").value=cddcl20; 
+  document.getElementById("cdbcl2100").value=cdbcl2100;
+  document.getElementById("cla").value=cla;
+  document.getElementById("ctcl2").value=ctcl2;  
+  document.getElementById("kCd0").value=kCd0;
+  document.getElementById("kCd100").value=kCd100;
+  document.getElementById("cd0p").value=cd0p;
+  document.getElementById("cd100p").value=cd100p;
+  document.getElementById("deltacd").value=deltacd;
+  document.getElementById("xbar").value=xbar;
+  document.getElementById("cl").value=cl;
+  document.getElementById("cd0").value=cd0;
+  document.getElementById("cd100").value=cd100;
+  document.getElementById("rn").value=rn;
+  document.getElementById("cf").value=cf;
+  document.getElementById("cfavg").value=cfavg;
+  document.getElementById("cdfriction").value=cdfriction;
+  
+  document.getElementById("results").style.visibility="visible";
+  
+ }
+}               
+
+</script>
+
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<!--
+//       c     Arrow wing aerodynamics, at supersonic speeds
+//       c     analytic solution for Clalpha and Ct/CL^2    
+//       c     from R.T. Jones and Doris Cohen, High Speed Wing Theory
+//       c     Princeton University Press, 1960, pp.  198-202.
+//       c     Xbar is the distance from the apex
+//       c     to the aerodynamic center, in root chords,
+//       c     from Puckett and Stewart, JAS, Oct. 1947, pp. 567-578   
+//       c     Mod for Design Class by w h mason, Nov. 14, 1994
+//       c     Mod for Config Aero class, April 25, 2000
+//       
+-->
+
+<B>Delta Wing Drag due to Lift at Supersonic Speeds</B><br />&nbsp;<br />
+<center>
+<table width='100%' border=1 cellpadding=10 bgcolor='#95b1d6'>
+<tr><td colspan=2>
+This script calculates the lift induces drag properties of a three-dimensional wing
+arrow wing in potential flow.  The planform geometry of the wing can be
+specified for cases of symmetric wing loading about the center-line.
+</td></tr>
+<tr><td valign=top>
+<table><tr><td colspan=2>
+<B>Input Geometry</B></td></tr>
+<tr><td><label for="span">Wing Span (m)</label><br />";
+<INPUT NAME="span" id="span" TYPE="text" VALUE="1" SIZE="15" onfocus= "HideResults();"  autofocus></td>
+<td><label for="rc">Root Chord (m)</label><br>
+<INPUT NAME="rc" id="rc" TYPE="text" VALUE="0.866" SIZE="15" onfocus= "HideResults();"  autofocus></td></tr>
+<tr><td>&nbsp;<br />
+&nbsp;</td>
+<td><label for="lesweep">Leading Edge Sweep (deg)</label><br>
+<INPUT NAME="lesweep" id="lesweep" TYPE="text" VALUE="60" SIZE="15" onfocus= "HideResults();"  autofocus></td></tr>
+<tr><td><hr size="5"></td><td><hr size="5"></td></tr>
+<tr><td colspan=2><br><B>Stream Conditions<br /></td></tr><tr><td>
+<label for="mach">Mach Number (M)</label><br />
+<INPUT NAME="mach" id="mach" TYPE="text" VALUE="2" SIZE="15" onfocus= "HideResults();"  autofocus></td><td>
+<label for="alphad">Angle of Attack (deg)</label><br />
+<INPUT NAME="alphad" id="alphad" TYPE="text" VALUE="0" SIZE="15" onfocus= "HideResults();"  autofocus></td>
+</tr></table><br><hr>
+</td><td valign=top width='60%' bgcolor='#FFFFFF'>
+<center><input id="ComputeButton" type="button" value="Compute" onclick="ComputeArrow();" > </center><br />
+<center><img src='arrow.jpg'></center>< br />
+<form>
+<fieldset id="results">
+AR = <input type="text" size="20" name="ar" id="ar" value=" " readonly="readonly"><br />
+Mach No. LE = <input type="text" size="20" name="mnLE" id="mnLE" value=" " readonly="readonly"><br />
+TE Sweep = <input type="text" size="20" name="teswpd" id="teswpd" value=" " readonly="readonly"><br />
+Mach No. TE = <input type="text" size="20" name="mnTE" id="mnTE" value=" " readonly="readonly"><br />
+<br />&nbsp;<br />
+<input type="text" size="20" name="region" id="region" value=" " readonly="readonly"><br />
+CD/(beta CL^2) (0%s) = <input type="text" size="20" name="cdbcl20" id="cddcl20" value=" " readonly="readonly"><br /> 
+CD/(beta CL^2) (100%s) = <input type="text" size="20" name="cdbcl2100" id="cdbcl2100" value=" " readonly="readonly"><br />
+CLalpha (per rad.) = <input type="text" size="20" name="cla" id="cla" value=" " readonly="readonly"><br />
+CT/CL^2 = <input type="text" size="20" name="ctcl2" id="ctcl2" value=" " readonly="readonly"><br />
+kCD(0%s) (1/CLalpha) = <input type="text" size="20" name="kCd0" id="kCd0" value=" " readonly="readonly"><br />
+kCD0(100%s) = <input type="text" size="20" name="kCd100" id="kCd100" value=" " readonly="readonly"><br />&nbsp;<br />
+at CL = 0.10: <br /> CD(0%s) = <input type="text" size="20" name="cd0p" id="cd0p" value=" " readonly="readonly"> counts<br />
+CD(100%s) = <input type="text" size="20" name="cd100p" id="cd100p" value=" " readonly="readonly"> counts<br />
+Delta CD = <input type="text" size="20" name="deltacd" id="deltacd" value=" " readonly="readonly"> counts<br />&nbsp;<br />
+Xbar  = <input type="text" size="20" name="xbar" id="xbar" value=" " readonly="readonly"><br />
+(the number of root chords the aerodynamic center is behind the wing apex)<br />&nbsp;<br />
+CL = <input type="text" size="20" name="cl" id="cl" value=" " readonly="readonly"><br />
+CDi(0%s LES) = <input type="text" size="20" name="cd0" id="cd0" value=" " readonly="readonly"><br />
+CDi(100%s LES) = <input type="text" size="20" name="cd100" id="cd100" value=" " readonly="readonly"><br />
+Note: These are the drag due to lift values."
+<br />The actual drag due to lift falls between the 0% and 100% leading edge suction values, and the wave and skin friction drag
+must be added to get total drag<br />
+Ref:  R.T. Jones and Doris Cohen, High Speed Wing Theory<br />
+<i>Princeton University Press</i>, 1960, pp.  198-202.<br />&nbsp;<br />
+Reynolds No. = <input type="text" size="20" name="rn" id="rn" value=" " readonly="readonly"><br />
+Root Chord Skin Friction Coefficient = <input type="text" size="20" name="cf" id="cf" value=" " readonly="readonly"><br />
+Wing Average Skin Friction Coefficient = <input type="text" size="20" name="cfavg" id="cfavg" value=" " readonly="readonly"><br />
+Skin Friction Drag Coefficient, CDf= <input type="text" size="20" name="cdfriction" id="cdfriction" value=" " readonly="readonly"><br />
+</fieldset></form></td></tr></table>"
+
+
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
