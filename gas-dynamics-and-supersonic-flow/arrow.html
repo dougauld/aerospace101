@@ -28,13 +28,13 @@ const B2= 0.09200180037;
 const B3= 0.04069697526;
 const B4= 0.00526449639;
 
-var notchratio,R,beta,lam,cotlam,n,nch,ar,mnLE,mnTE,teswp,teswpd;
+var notchratio,r,beta,lam,cotlam,n,nch,ar,mnLE,mnTE,teswp,teswpd;
 var region;
 var m2,m4,m6,m8,elp1,elp2,ellip,em,cla1,cla2,cla3,cla4,cla;
 var ctcl21,ctcl22,ctcl23,ctcl2;        
 var xbar1,xbar2,xbar3,xbar4,xbar5,xbar6,xbarnm,xbar7,xbar8,xbardn,xbar;
 var cl,cd0,cd100,mach2,mach3,mach4,mach5,rnstar,rn,cfstar,cf,cfroughstar,cfrough,cfavg,cdfriction;
-var cd0p,cd100p;
+var cd0p,cd100p,kCd0,kCd100,bcla;
 
 var spanfield = document.getElementById("span").value;
 var rcfield = document.getElementById("rc").value;
@@ -47,8 +47,8 @@ var lesweep = Number(lesweepfield);
 var mach = Number(machfield);
 var alphad = Number(alphadfield);
 
- R= span/2.0*Math.tan(lesweep*PI/180.0);
- notchratio=(R-rc)/R;
+ r= span/2.0*Math.tan(lesweep*PI/180.0);
+ notchratio=(r-rc)/r;
  beta = Math.sqrt(mach*mach - 1.0);
  lam  = lesweep*(PI/180.0);
  cotlam = 1.0/(Math.tan(lam));
@@ -121,13 +121,12 @@ var alphad = Number(alphadfield);
   kCd0  = 1.0/cla;          
 //-- 100% Leading edge suction polar
   kCd100  = (1.0/cla)-ctcl2;
-  BCLA    = beta*cla;
+  bcla    = beta*cla;
   cddcl20 = kCd0/beta;
   cddcl2100  = kCd100/beta;
   cd0p    = 100.0*kCd0;
   cd100p  = 100.0*kCd100;
-  deltacd = CD0p - CD100p;
-  $symb ="%";
+  deltacd = cd0p - cd100p;
 //  printf ("<br />betaCLalpha  = %10.4f",$BCLA);
   alpha  = alphad*(PI/180.0);
   cl     = cla * alpha;
