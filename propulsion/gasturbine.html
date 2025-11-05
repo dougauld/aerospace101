@@ -25,11 +25,17 @@ function ComputeGT() {
  var spect,sfc,rho9,massflow,fuelflow,thrust;
 
  var bprfield = document.getElementById('BPR').value;
- if (bprfield==' ') { bpr = 0.0; }
-    else { bpr = Number(bprfield); }
+ if (bprfield==' ') { 
+   bpr = 0.0; 
+ } else { 
+   bpr = Number(bprfield); 
+ }
  var fprfield = document.getElementById('FPR').value;
- if (fprfield==' ') { fpr = 1.0; }
-    else { fpr = Number(fprfield); }
+ if (fprfield==' ')  { 
+   fpr = 1.0; 
+ } else { 
+   fpr = Number(fprfield); 
+ }
  var cprfield = document.getElementById('CPR').value;
  var cpr = Number(cprfield); 
  var fuelfield = document.getElementById('fuel').value;
@@ -41,7 +47,7 @@ function ComputeGT() {
  var altfield = document.getElementById('Alt').value;
  var alt = Number(altfield); 
 
- if ((bpr<0.0) || (bpr>20.0)) { bpr=0.0; }
+ if ((bpr<0.0) | (bpr>20.0)) { bpr=0.0; }
 
  constant tzero=288.0;
  constant lapse=0.0065;
@@ -81,7 +87,7 @@ function ComputeGT() {
  t05a=t04-(t03-t02);
  t05=t05a-bpr*(t03F-t02);
  if ($T05<288.0) {
-  $T05=288.0;
+  t05=288.0;
  }
  p05=Math.exp(Math.log(t05/t04)*3.5)*p04;
  p09=p05;
@@ -98,15 +104,19 @@ function ComputeGT() {
  if (v9F>0.0) { v9F=Math.sqrt(v9F);} 
  else { v9F=0.0; }
  spect=(1.0+fuel)*v9 + bpr*v9F - vinf*(1.0+bpr);
- if (spect<1.0) { sfc=1.0e6; } 
- else { sfc=fuel/spect*10.0*3600.0; } // lb/hr/lb 
+ if (spect<1.0) { 
+   sfc=1.0e6; 
+ } else { 
+   sfc=fuel/spect*10.0*3600.0; 
+ } 
+// lb/hr/lb 
  rho9=p9/(287.0*t9);
  massflow=rho9*v9*area9/(1.0+fuel);
  fuelflow=massflow*fuel;
 // Newtons
  thrust=spect*v9*area9*rho9/(1.0+fuel);
  
- if ($v9>100.0) { 
+ if (v9>100.0) { 
   document.getElementById("spect").value = spect.toPrecision(5);
   document.getElementById("thrust").value = thrust.toPrecision(1);
   document.getElementById("massflow").value = massflow.toPrecision(3);
@@ -122,8 +132,8 @@ function ComputeGT() {
  } else {
   alert("Core flow chocked."); return;  
  } 
- if ((bpr>0.0) && (fpr>1.0)) {
-  if ((v9F>100.0) && (v9>100.0)) {
+ if ((bpr>0.0) & (fpr>1.0)) {
+  if ((v9F>100.0) & (v9>100.0)) {
    bypass=massflow*bpr;
    document.getElementById("bypass").value = bypass.toPrecision(3);
    document.getElementById("v9F").value = v9F.toPrecision(3);
