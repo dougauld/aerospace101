@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeGT() {
+ var bpr,fpr; 
+ var tinf,tempratio,factor,pinf;
+ var ainf,vinf,t01,p01,t02,p02,t03,t03F,p03,p03F,t04,p04,t05,t05a,p05;
+ var t09,t09F,p09,p09F,p9,t9,t9F,v9,v9F;
+ var spect,sfc,rho9,massflow,fuelflow,thrust;
+
+ var bprfield = document.getElementById('BPR').value;
+ if (bprfield==' ') { bpr = 0.0; }
+    else { bpr = Number(bprfield); }
+ var fprfield = document.getElementById('FPR').value;
+ if (fprfield==' ') { fpr = 1.0; }
+    else { fpr = Number(fprfield); }
+ var cprfield = document.getElementById('CPR').value;
+ var cpr = Number(cprfield); 
+ var fuelfield = document.getElementById('fuel').value;
+ var fuel = Number(fuelfield); 
+ var areafield = document.getElementById('Area').value;
+ var area9 = Number(areafield); 
+ var machfield = document.getElementById('M').value;
+ var mach = Number(machfield); 
+ var altfield = document.getElementById('Alt').value;
+ var alt = Number(altfield); 
+
+ if ((bpr<0.0) || (bpr>20.0)) { bpr=0.0; }
+
+ constant tzero=288.0;
+ constant lapse=0.0065;
+ constant rate=287.0;
+ constant pzero=101300.0;
+ constant gamma=1.4;
+ constant jcal=44.0e6;
+ constant cp=1005.00;
+ if (alt<11000.0) {
+  tinf=tzero-lapse*alt;
+  tempratio=tinf/tzero;
+  factor=9.8/(lapse*rate);
+  pinf=pzero*Math.exp(Math.log(tempratio)*factor);
+ } else {
+  tinf=tzero-lapse*11000.0;
+  factor=9.8/(lapse*rate);
+  tempratio=tinf/tzero;
+  pinf=pzero*Math.exp(Math.log(tempratio)*factor);
+  pinf=Math.exp(9.8*(11000.0-alt)/rate/tinf)*pinf;
+ }
+ 
+ ainf=Math.sqrt(1.4*287.0*tinf);
+ vinf=mach*ainf;
+ t01=tinf*(1.0+(gamma-1.0)/2.0*mach*mach);
+ p01=pinf*(Math.exp(Math.log(t01/tinf)*3.5));
+ t02=t01;
+ p02=p01; 
+ p03=p02*cpr;
+ if (p03<p02) { p03=p02; }
+ p03F=p02*fpr;
+ if (p03F<p02) { p03F=p02; }
+ if (bpr<1.0e-5) { p03F=p02; }
+ t03=t02*Math.exp(Math.log(p03/p02)*(1.0/3.5));
+ t03F=t02*Math.exp(Math.log(p03F/p02)*(1.0/3.5));
+ t04=(fuel*jcal/cp+t03)/(1.0+fuel);
+ p04=p03;
+ t05a=t04-(t03-t02);
+ t05=t05a-bpr*(t03F-t02);
+ if ($T05<288.0) {
+  $T05=288.0;
+ }
+ p05=Math.exp(Math.log(t05/t04)*3.5)*p04;
+ p09=p05;
+ p09F=p03F;
+ t09=t05;
+ t09F=t03F;
+ p9=pinf;
+ t9=Math.exp(Math.log(p9/p09)*(1./3.5))*t09;
+ t9F=Math.exp(Math.log(p9/p09F)*(1./3.5))*t09F;
+ v9=2.0*1005.0*t09*(1.0-(t9/t09));
+ v9F=2.0*1005.0*t09F*(1.0-(t9F/t09F));
+ if (v9>0.0) { v9=Math.sqrt(v9); } 
+ else { v9=0.0; }
+ if (v9F>0.0) { v9F=Math.sqrt(v9F);} 
+ else { v9F=0.0; }
+ spect=(1.0+fuel)*v9 + bpr*v9F - vinf*(1.0+bpr);
+ if (spect<1.0) { sfc=1.0e6; } 
+ else { sfc=fuel/spect*10.0*3600.0; } // lb/hr/lb 
+ rho9=p9/(287.0*t9);
+ massflow=rho9*v9*area9/(1.0+fuel);
+ fuelflow=massflow*fuel;
+// Newtons
+ thrust=spect*v9*area9*rho9/(1.0+fuel);
+ 
+ if ($v9>100.0) { 
+  document.getElementById("spect").value = spect.toPrecision(5);
+  document.getElementById("thrust").value = thrust.toPrecision(1);
+  document.getElementById("massflow").value = massflow.toPrecision(3);
+  document.getElementById("fuelflow").value = fuelflow.toPrecision(3);
+  document.getElementById("sfc").value = sfc.toPrecision(5); 
+  document.getElementById("t04").value = t04.toPrecision(1);
+  if (t04>1600.0) {
+   document.getElementById("t04hot").value = "TET overheat failure";
+  } else {
+   document.getElementById("t04hot").value = " ";
+  } 
+  document.getElementById("v9").value = v9.toprecision(3);
+ } else {
+  alert("Core flow chocked."); return;  
+ } 
+ if ((bpr>0.0) && (fpr>1.0)) {
+  if ((v9F>100.0) && (v9>100.0)) {
+   bypass=massflow*bpr;
+   document.getElementById("bypass").value = bypass.toPrecision(3);
+   document.getElementById("v9F").value = v9F.toPrecision(3);
+  } else {
+   alert("Bypass flow chocked"); return;
+  } 
+ } else {
+   document.getElementById("bypass").value = "-----";
+   document.getElementById("v9F").value =  "-----";
+ }
+ document.getElementById("results").style.visibility="visible";
+}
+
+</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle siteorigin-panels responsive layout-full has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<table width="100%" border=1 cellpadding=10 bgcolor="#dfdfff">
+<tr><td colspan=2>
+<B>Ideal Cycle Gas Turbine Analysis</B><br>
+&nbsp;<br>
+This web application calculates the thrust and exhaust velocities of an ideal
+gas turbime using simple thermodynamic theory. As component losses are not part of the prediction, the  
+solver may overpredict performance by 5% to 10%.
+</td></tr>
+<tr><td valign=top>
+<B>Input Parameters</B><br>
+Bypass Ratio : <br />
+<INPUT Name='BPR' id='BPR' TYPE='text' VALUE='0.0' onfocus = "HideResults();" autofocus><br />
+Fan Pressure Ratio : <br />
+<INPUT Name='FPR' id='FPR' TYPE='text' VALUE='1.0' onfocus = "HideResults();" autofocus><br />
+Compressor Pressure Ratio : <br />
+<INPUT Name='CPR' id='CPR' TYPE='text' VALUE='20.0' onfocus = "HideResults();" autofocus><br />
+Fuel/Air Ratio : <br />
+<INPUT Name='Fuel' id='Fuel' TYPE='text' VALUE='0.015' onfocus = "HideResults();" autofocus><br />
+Core Exhaust Area (m^2) : <br />
+<INPUT Name='Area' id='Area' TYPE='text' VALUE='0.1' onfocus = "HideResults();" autofocus><br />
+<br />Flight Mach Number : <br />
+<INPUT Name='M' id='M' TYPE='text' VALUE='0.0' onfocus = "HideResults();" autofocus><br />
+Altitude (m) : <br />
+<INPUT Name='Alt' id='Alt' TYPE='text' VALUE='0.0' onfocus = "HideResults();" autofocus><br />
+<INPUT id="ComputeButton" type="button" value="Compute" onclick="ComputeGT();" > 
+<br />&nbsp;<br />&nbsp;<br />
+</td><td><img src="gas_turbine1.jpg"><br />
+<form>
+<fieldset id="results">
+Specific Thrust (N/Kg/s) = <input size="20" type="text" name="spect" id="spect" value=" " readonly="readonly"><br />
+Thrust (N) = <input type="text" size="20" name="thrust" id="thrust" value=" " readonly="readonly"><br />
+Core Mass Flow (Kg/s) = <input size="20" type="text" name="massflow" id="massflow" value=" " readonly="readonly"><br />
+Fuel Mass Flow (Kg/s) = <input Size="20" type="text" name="fuelflow" id="fuelflow" value=" " readonly="readonly"><br />
+TSFC (lbm/hr/lb) = <input size="20" type="text" name="sfc" id="sfc" value=" " readonly="readonly"><br />
+TET (Kelvin) = <input type="text" sixe="20" name="t04" id="t04" value=" " readonly="readonly">
+               <input type="text" size="20" name="t04hot" id="t04hot" value=" " readonly="readonly"><br />
+Core Exhaust (m/s) = <input type="text" size="20" name="v9" id="v9" value=" " readonly="readonly"><br />
+&nbsp;<br />
+Bypass Mass Flow (Kg/s)= <input type="text" size="20" name="bypass" id="bypass" value=" " readonly="readonly"><br />
+Fan Exhaust (m/s) = <input type="text" size="20" name="v9F" id="v9F" value=" " readonly="readonly"><br />
+</fieldset>
+</form>
+</td></tr>
+</table>
+</font>
+</center>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
