@@ -119,8 +119,8 @@ function ComputeGT() {
  if (v9>100.0) { 
   document.getElementById("spect").value = spect.toPrecision(5);
   document.getElementById("thrust").value = thrust.toPrecision(7);
-  document.getElementById("massflow").value = massflow.toPrecision(3);
-  document.getElementById("fuelflow").value = fuelflow.toPrecision(3);
+  document.getElementById("massflow").value = massflow.toPrecision(5);
+  document.getElementById("fuelflow").value = fuelflow.toPrecision(5);
   document.getElementById("sfc").value = sfc.toPrecision(5); 
   document.getElementById("t04").value = t04.toPrecision(5);
   if (t04>1600.0) {
@@ -128,15 +128,15 @@ function ComputeGT() {
   } else {
    document.getElementById("t04hot").value = " ";
   } 
-  document.getElementById("v9").value = v9.toPrecision(3);
+  document.getElementById("v9").value = v9.toPrecision(5);
  } else {
   alert("Core flow chocked."); return;  
  } 
  if ((bpr>0.0) & (fpr>0.999)) {
   if ((v9F>100.0) & (v9>100.0)) {
    bypass=massflow*bpr;
-   document.getElementById("bypass").value = bypass.toPrecision(3);
-   document.getElementById("v9F").value = v9F.toPrecision(3);
+   document.getElementById("bypass").value = bypass.toPrecision(5);
+   document.getElementById("v9F").value = v9F.toPrecision(5);
   } else {
    alert("Bypass flow chocked"); return;
   } 
