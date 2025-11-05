@@ -49,13 +49,13 @@ function ComputeGT() {
 
  if ((bpr<0.0) | (bpr>20.0)) { bpr=0.0; }
 
- constant tzero=288.0;
- constant lapse=0.0065;
- constant rate=287.0;
- constant pzero=101300.0;
- constant gamma=1.4;
- constant jcal=44.0e6;
- constant cp=1005.00;
+ var tzero=288.0;
+ var lapse=0.0065;
+ var rate=287.0;
+ var pzero=101300.0;
+ var gamma=1.4;
+ var jcal=44.0e6;
+ var cp=1005.00;
  if (alt<11000.0) {
   tinf=tzero-lapse*alt;
   tempratio=tinf/tzero;
