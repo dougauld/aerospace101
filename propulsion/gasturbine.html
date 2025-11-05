@@ -86,7 +86,7 @@ function ComputeGT() {
  p04=p03;
  t05a=t04-(t03-t02);
  t05=t05a-bpr*(t03F-t02);
- if ($T05<288.0) {
+ if (t05<288.0) {
   t05=288.0;
  }
  p05=Math.exp(Math.log(t05/t04)*3.5)*p04;
