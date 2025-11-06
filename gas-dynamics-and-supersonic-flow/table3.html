@@ -32,7 +32,7 @@ function ComputeMach() {
   var gamma = document.getElementById("gamma").value;
 
   var M1 = Number(mach);                        // convert string to double
-  if (isNaN(M2)) {alert("Mach is not a number."); return; }
+  if (isNaN(M1)) {alert("Mach is not a number."); return; }
  
   if (M1<0) { alert("Mach must be a positive number."); return; } 
    
