@@ -154,31 +154,24 @@ function ComputeAngle() {
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
- ctx.fillRect(1, 1, 499, 399);
+ ctx.fillRect(0, 0, 499, 399);
  if (fail==0) {
-//  var colorWhite=imagecolorallocate($image, 255, 255, 255);
-//  var colorRed=imagecolorallocate($image, 220, 0, 0);
-//  var colorGrey1=imagecolorallocate($image, 230, 230, 230);
-//  var colorGrey2=imagecolorallocate($image, 120, 120, 120);
-//  var colorBlue=imagecolorallocate($image, 150, 150, 255);
-//  var colorBlue2=imagecolorallocate($image, 200, 200, 255);
-//  var colorBlack=imagecolorallocate($image,0,0,0);
-  const solid = [ 0, 300, 200, 300, 500, 300, 500, 400, 0, 400 ];
+//  const solid = [ 0, 300, 200, 300, 500, 300, 500, 400, 0, 400 ];
   var thrad=theta/180.0*PI;
   var ix3,iy3;
-  var ix1= Math.round(200 + 350*Math.cos(thrad));
-  var iy1= Math.round(300 + 350*Math.sin(thrad));
-  solid[4]=ix1;
-  solid[5]=iy1;
+  var ix1= 350*Math.cos(thrad));
+  var iy1= 350*Math.sin(thrad));
+  var ix2= Math.Round(200+ix1*99/iy1);
+//  solid[4]=ix1;
+//  solid[5]=iy1;
   ctx.beginPath();
 // imagefilledpolygon($image,$solid,5,$colorGrey2);
   ctx.lineWidth=2;
-  ctx.moveTo(solid[0],solid[1]);
-  for (var i = 0; i < 3; i++) {
-   var j=2*i+2;
-   ctx.lineTo(solid[j],solid[j+1]);
-  }
-  ctx.lineTo(solid[8],solid[9]);
+  ctx.moveTo(0,300);
+  ctx.lineTo(200,300);
+  ctx.lineTo(ix2,399);
+  ctx.lineTo(0,399);
+  ctx.lineTo(0,300);
   ctx.closePath();
   ctx.fillstyle="green";
   ctx.fill();
