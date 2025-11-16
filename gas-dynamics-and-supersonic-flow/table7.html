@@ -104,7 +104,7 @@ function ComputeAngle() {
   theta=Number(thetafield);
   M1=Number(M1field);
   if (M1 < 1.0 ) {
-   M2 = "No Solution";
+   M2 = "No Solution" 
    theta = 0.0;
    fail=1;
   } else {
@@ -145,7 +145,11 @@ function ComputeAngle() {
    }
   }
  }
- document.getElementById("M2").value = M2.toPrecision(5);
+ if (fail==1) {
+  document.getElementById("M2").value = M2;
+ } else {
+  document.getElementById("M2").value = M2.toPrecision(5);
+ }
  
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
