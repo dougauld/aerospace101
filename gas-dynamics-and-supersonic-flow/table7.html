@@ -90,7 +90,7 @@ function HideResults() {
 function ComputeAngle() {
 
  var M1field = document.getElementById("M1").value;
- var thetafield = document.getElementById("theta").value;
+ var Thetafield = document.getElementById("theta").value;
  
  var M1,M2,theta,a1,a2,a3,pm,pm1,pm2,e1,e2,am1,count;
  var fail=0;
@@ -101,7 +101,7 @@ function ComputeAngle() {
   theta = 0.0;
   M2 = 2.0;
  } else { 
-  theta=Number(thetafield);
+  theta=Number(Thetafield);
   M1=Number(M1field);
   if (M1 < 1.0 ) {
    M2 = "No Solution" 
@@ -156,20 +156,26 @@ function ComputeAngle() {
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 499, 399);
  if (fail==0) {
-//  const solid = [ 0, 300, 200, 300, 500, 300, 500, 400, 0, 400 ];
   var thrad=theta/180.0*PI;
   var ix1,iy1,ix2,iy2,ix3,iy3;
-  ix1= 350*Math.cos(thrad));
+  ix1= 350*Math.cos(thrad)); 
   iy1= 350*Math.sin(thrad));
-  ix2= Math.Round(200+ix1*99/iy1);
-//  solid[4]=ix1;
-//  solid[5]=iy1;
+  ix2=ix1+200;
+  iy2=iy1+300;
+  if (ix2>499) {
+   ix2=499;
+   iy2=Math.Round(300+299/ix1*iy1);
+  }
+  if (iy2>399) {
+   iy2=399;
+   ix2=Math.Round(200+ix1*99/iy1);
+  } 
   ctx.beginPath();
-// imagefilledpolygon($image,$solid,5,$colorGrey2);
   ctx.lineWidth=2;
   ctx.moveTo(0,300);
   ctx.lineTo(200,300);
-  ctx.lineTo(ix2,399);
+  ctx.lineTo(ix2,iy2);
+  ctx.LineTo(ix2,399);
   ctx.lineTo(0,399);
   ctx.lineTo(0,300);
   ctx.closePath();
@@ -219,6 +225,7 @@ function ComputeAngle() {
  ctx.fillText("M1 -->",20,250);
  document.getElementById("results").style.visibility="visible";
 }
+
 </script>   
 
 <center><a href="#top">Back to Top</a></center>
