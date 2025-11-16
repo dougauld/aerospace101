@@ -74,10 +74,11 @@ Expansion angle for flow (&theta;)(deg)<br />
 Downstream Mach Number (M<sub>2</sub>) = 
 <input NAME="M2" id="M2" type="text" size="20" value=" " readonly="readonly"> 
 <br />&nbsp;<br />
+ <table><tr><td>
 <canvas id="imageout" width="500" height="400" style="border:1px solid grey"></canvas>
-Note: For results where M<sub>2</sub>=NAN -- indicates that expansion angle input is greater than
+ </td><td>Note: For results where M<sub>2</sub>=NAN -- indicates that expansion angle input is greater than
 the maximum permitted for upstream Mach number. Maximum turning angle shown in <font color='red'>red</font>.
-</fieldset></td></tr></table>
+ </td></tr></table></fieldset></td></tr></table>
 
 <script>
 
@@ -219,9 +220,9 @@ function ComputeAngle() {
   }
  } 
  ctx.font = "10px Arial";
- ctx.fillText("M1 -->",20,250); 
+ ctx.fillText("M1 -->",20,250);
+ document.getElementById("results").style.visibility="visible";
 }
-document.getElementById("results").style.visibility="visible";
 </script>   
 
 <center><a href="#top">Back to Top</a></center>
