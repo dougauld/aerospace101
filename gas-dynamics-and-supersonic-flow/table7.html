@@ -164,11 +164,11 @@ function ComputeAngle() {
   iy2=iy1+300;
   if (ix2>499) {
    ix2=499;
-   iy2=Math.Round(300+299/ix1*iy1);
+   iy2=Math.round(300+299/ix1*iy1);
   }
   if (iy2>399) {
    iy2=399;
-   ix2=Math.Round(200+ix1*99/iy1);
+   ix2=Math.round(200+ix1*99/iy1);
   } 
   ctx.beginPath();
   ctx.lineWidth=2;
