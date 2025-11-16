@@ -114,7 +114,7 @@ function ComputeAngle() {
    pm = pm1 + theta*3.1415926/180.0;
    e1 = pm - pm1;
    M2 = M1*2.0;
-   a1 = sqrt(2.4/0.4);  
+   a1 = Math.sqrt(2.4/0.4);  
    a2 = Math.atan(Math.sqrt(0.4*(M2*M2-1.0)/2.4));
    a3 = Math.atan(Math.sqrt(M2*M2-1.0));
    pm2 = (a1*a2 - a3);
@@ -196,10 +196,10 @@ function ComputeAngle() {
    ix1=200;
    iy1=300;
    var machb=Math.asin(1.0/M2)-thrad;
-   ix2=Math.round(200+500*Math.cos($macha));
-   iy2=Math.round(300-500*Math.sin($macha));
-   ix3=Math.round(200+500*Math.cos($machb));
-   iy3=Math.round(300-500*Math.sin($machb));
+   ix2=Math.round(200+500*Math.cos(macha));
+   iy2=Math.round(300-500*Math.sin(macha));
+   ix3=Math.round(200+500*Math.cos(machb));
+   iy3=Math.round(300-500*Math.sin(machb));
    ctx.strokeStyle = 'blue';
    ctx.moveTo(ix2,iy2);
    ctx.lineTo(ix3,iy3);
