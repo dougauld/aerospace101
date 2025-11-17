@@ -184,6 +184,7 @@ function ComputeAngle() {
  ctx.fill();
  var pmmax= PI/2.0*(Math.sqrt(2.4/0.4)-1.0);
  var thmax=pmmax-pm1;
+ var thmaxdeg=thmax*180/PI;
  document.getElementById("thmax").value = thmax.toPrecision(5);
  if (thrad>thmax) {
   ix1=200;
