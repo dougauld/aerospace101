@@ -47,7 +47,7 @@ function ComputeGT() {
  var altfield = document.getElementById('Alt').value;
  var alt = Number(altfield); 
 
- if ((bpr<0.0) | (bpr>60.0)) { bpr=0.0; }
+ if ((bpr<0.0) | (bpr>60.0)) { alert("Bypass Ratio not Realistic"); return; }
 
  var tzero=288.0;
  var lapse=0.0065;
@@ -137,6 +137,8 @@ function ComputeGT() {
    bypass=massflow*bpr;
    document.getElementById("bypass").value = bypass.toPrecision(5);
    document.getElementById("v9F").value = v9F.toPrecision(5);
+   if (bpr>20.0) {
+    document.getElementById("notes").value = "Unrealisitic answers due to excessive bypass ratio";
   } else {
    alert("Bypass flow chocked"); return;
   } 
@@ -229,6 +231,7 @@ Core Exhaust (m/s) = <input type="text" size="20" name="v9" id="v9" value=" " re
 &nbsp;<br />
 Bypass Mass Flow (Kg/s)= <input type="text" size="20" name="bypass" id="bypass" value=" " readonly="readonly"><br />
 Fan Exhaust (m/s) = <input type="text" size="20" name="v9F" id="v9F" value=" " readonly="readonly"><br />
+<input type="text" size="50" name="notes" id="notes" value=" " readonly="readonly"><br />
 </fieldset>
 </form>
 </td></tr>
