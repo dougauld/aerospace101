@@ -132,8 +132,8 @@ function ComputeGT() {
  } else {
   alert("Core flow chocked."); return;  
  } 
- if ((bpr>0.0) & (fpr>0.999)) {
-  if ((v9F>100.0) & (v9>100.0)) {
+ if ((bpr>0.0) && (fpr>0.999)) {
+  if ((v9F>100.0) && (v9>100.0)) {
    bypass=massflow*bpr;
    document.getElementById("bypass").value = bypass.toPrecision(5);
    document.getElementById("v9F").value = v9F.toPrecision(5);
