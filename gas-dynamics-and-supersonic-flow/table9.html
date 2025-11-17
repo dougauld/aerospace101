@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<h3>Oblique Shock Wave Calculations</h3>
+<p>This form calculates properties of gas flow through an oblique shock wave created by a small deflection.
+The required input is the Mach number of the upstream flow, ratio of specific heats of the gas 
+and the wedge angle.</p>
+<center>
+<table width="80%" border=1 cellpadding=10 bgcolor="#95b1d6">
+<tr><td valign=top align=center>
+&nbsp;<br>
+<B>Input Parameters</B><br>
+<table>
+<form>
+<tr><td>Mach Number <br>
+<INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.0' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
+<tr><td>Ratio of Specific Heats <br>
+<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
+<tr><td>Wedge Deflection Angle (Deg)<br>
+<INPUT NAME='deflect' id='deflect' TYPE='text' VALUE='0.0' SIZE='20'><br></td></tr>
+<tr><td align='center'><br \>&nbsp;<br \>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
+</form>
+</td></tr></table>
+
+</td><td align='center' valign='middle'>
+<fieldset id="results">
+Wave Angle (deg) = <input name="beta" id="beta" size="20" value=" " readonly="readonly"><br />
+Downstream Mach Number = <input name="M2" id="M2" size="20" value=" " readonly="readonly"><br />
+Pressure Ratio Across Shock Wave = <input name="p21" id="p21" size="20" value=" " readonly="readonly"><br />
+</td></tr>
+<tr><td>
+<canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
+</fieldset>
+</td></tr>
+</table>
+</td></tr></table>
+<p><br /></p>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var mach = 2.0;
+ var gamma = 1.4;
+ var deflect = 1.0;
+ var machfield = document.getElementById("mach").value;
+ mach=Number(machfield);
+ var gammafield = document.getElementById("gamma").value;
+ gamma=Number(gammafield);
+ var deflect = document.getElementById("deflect").value;
+ deflect=Number(deflectfield);
+ 
+ var ga1,ga2,msqr,b1,b2,t0,t1,t2,e1,e2,a1,a2,a3,a4,ix1,iy1
+ const PI = 3.1415926;
+ 
+ ga1 = gamma + 1;
+ ga2 = gamma - 1;
+ msqr = mach*mach;
+ b1 = 10.0/180.0*PI;
+ t0 = deflect/180.0*PI; 
+ a1 = 2.0*Math.cos(b1)/Math.sin(b1);
+ a2 = mach*mach*Math.sin(b1)*Math.sin(b1) - 1.0;
+ a4 = Math.cos(2.0*b1)*mach*mach + 2;
+ a3 = gamma*msqr+a4;
+ t1 = Math.atan(a1*a2/a3);
+ e1 = t0-t1;
+ b2 = 20.0/180.0*PI;
+ a1 = 2.0*Math.cos(b2)/Math.sin(b2);
+ a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
+ a4 = Math.cos(2.0*b2)*mach*mach + 2;
+ a3 = gamma*msqr+a4;
+ t2 = Math.atan(a1*a2/a3);
+ e2 = t0-t2;
+ var count = 1;
+ var detached=0;
+ var finished=0;
+ while (finished == 0) {
+  count = count+1;
+  a1 = (e2 - e1)/(b2 - b1);
+  a2 = e2 - a1*b2;
+  b1 = b2;
+  b2 = - a2/a1;
+  e1 = e2;
+  a1 = 2.0*Math.cos(b2)/Math.sin(b2);
+  a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
+  a4 = Math.cos(2.0*b2)*mach*mach + 2.0;
+  a3 = gamma*msqr+a4;
+  t2 = Math.atan(a1*a2/a3);
+  e2 = t0-t2;
+  if (Math.abs(e2) < 1.0e-5) {
+   finished = 1;
+  }
+  if (count > 100) {
+    detached =1;
+    finished=1;
+  }
+ }
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 500, 350);
+// Create image
+
+ var beta = b2*180.0/PI;
+ const imgWidth=500;
+ const imgHeight=350;
+ if ((beta > 89.9) || (b2<t0)) {
+  detached=1;
+ }
+ if ($detached==1) {
+  ctx.beginPath();
+  ctx.lineWidth=2;
+  ctx.moveTo(imgWidth*0.15,0);
+  ctx.lineTo(imgWidth*0.15+6,0);
+  ctx.lineTo(imgWidth*0.15+6,imgHeight);
+  ctx.lineTo(imgWidth*0.15,imgHeight);
+  ctx.lineTo(imgWidth*0.15,0);
+  ctx.closePath();
+  ctx.fillStyle="green";
+  ctx.fill();
+//  imageline($image,$pnts[0],$pnts[1],$pnts[6],$pnts[7],$colorBlack);
+//  imageline($image,$pnts[0]+3,$pnts[1],$pnts[6]+3,$pnts[7],$colorBlack);
+//  imageline($image,$pnts[0]-1,$pnts[1],$pnts[6]-1,$pnts[7],$colorWhite);
+  ctx.moveTo(imagWidth*0.2,0);
+  iy1=imgWidth*0.8*Math.atan(t0);
+  ctx.lineTo(imgWidth,iy1);
+  ctx.lineTo(imgWidth,0);
+  ctx.lineTo(imgWidth*0.2,0);
+  ctx.closePath();
+  ctx.fillStyle="red";
+  ctx.fill();
+ } else { 
+  a1 = mach*Math.sin(b2);
+  a2 = Math.sqrt((ga2*a1*a1 + 2.0)/(2.0*gamma*a1*a1 - ga2));
+  M2 = a2/(Math.sin(b2-t0));
+  p21 = (2*gamma*a1*a1 - ga2)/ga1;
+//  $pnts[0]=$imgWidth*0.2;
+//  $pnts[1]=0;
+//  $pnts[2]=$imgWidth*0.2 + $imgHeight/tan($b2);
+//  $pnts[3]=$imgHeight;
+//  $pnts[4]=$imgWidth;
+//  $pnts[5]=$pnts[3];
+//  $pnts[6]=$pnts[4];
+//  $pnts[7]=0;
+//  $pnts[8]=$pnts[1];
+//  $pnts[9]=$pnts[2]; 
+//  imagefilledpolygon($image, $pnts, 4, $colorGrey3);
+  ctx.moveTo(imgWidth*0.2,0);
+  iy1=imgWidth*0.8*Math.atan(t0);
+  ctx.lineTo(imgWidth*0.2+4,0);
+  ix1 = imgWidth*0.2 + imgHeigth/Math.tan(b2)+4;
+  ctx.lineTo(ix1,imgHeight);
+  ix1 = imgWidth*0.2 + imgHeigth/Math.tan(b2);
+  ctx.lineTo(ix1,imgHeight);
+  ctx.lineTo(imgWidth*0.2,0);
+  ctx.closePath();
+  ctx.fillStyle="green";
+  ctx.fill();
+  ctx.moveTo(imgWidth*0.2,0);
+  iy1=imgWidth*0.8*Math.atan(t0);
+  ctx.lineTo(imgWidth*0.2+4,iy1);
+  ctx.lineTo(imgWidth,0);
+  ctx.lineTo(0,imgWidth);
+  ctx.closePath();
+  ctx.fillStyle="red";
+  ctx.fill();
+ }
+ if (detached==1) {
+  document.getElementById("beta").value = "Detached Wave, no weak Oblique solution"
+  document.getElementById("M2").value = " "
+  document.getElementById("p21").value = " "
+ } else { 
+  document.getElementById("beta").value = beta.toPrecision(5);
+  document.getElementById("M2").value = M2.toPrecision(5);
+  document.getElementById("p21").value =p21.toPrecision(5);
+ }
+}
+
+</script>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
+
+
