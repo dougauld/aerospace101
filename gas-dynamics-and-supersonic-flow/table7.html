@@ -106,7 +106,7 @@ function ComputeAngle() {
   if (M1 < 1.0 ) {
    M2 = "No Solution" 
    theta = 0.0;
-   fail=1;
+   fail=2;
   } else {
    a1 = Math.sqrt(2.4/0.4);
    a2 = Math.atan(Math.sqrt(0.4*(M1*M1-1.0)/2.4));
@@ -145,7 +145,7 @@ function ComputeAngle() {
    }
   }
  }
- if (fail==1) {
+ if (fail>0) {
   document.getElementById("M2").value = M2;
  } else {
   document.getElementById("M2").value = M2.toPrecision(5);
@@ -155,43 +155,43 @@ function ComputeAngle() {
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 500, 400);
- if (fail==0) {
-  var thrad=theta/180.0*PI;
-  var ix1,iy1,ix2,iy2,ix3,iy3;
-  ix1= 350*Math.cos(thrad); 
-  iy1= 350*Math.sin(thrad);
-  ix2=ix1+200;
-  iy2=iy1+300;
-  if (ix2>499) {
-   ix2=499;
-   iy2=Math.round(300+299/ix1*iy1);
-  }
-  if (iy2>399) {
-   iy2=399;
-   ix2=Math.round(200+ix1*99/iy1);
-  } 
-  ctx.beginPath();
-  ctx.lineWidth=2;
-  ctx.moveTo(0,300);
-  ctx.lineTo(200,300);
+ var thrad=theta/180.0*PI;
+ var ix1,iy1,ix2,iy2,ix3,iy3;
+ ix1= 350*Math.cos(thrad); 
+ iy1= 350*Math.sin(thrad);
+ ix2=ix1+200;
+ iy2=iy1+300;
+ if (ix2>499) {
+  ix2=499;
+  iy2=Math.round(300+299/ix1*iy1);
+ }
+ if (iy2>399) {
+  iy2=399;
+  ix2=Math.round(200+ix1*99/iy1);
+ } 
+ ctx.beginPath();
+ ctx.lineWidth=2;
+ ctx.moveTo(0,300);
+ ctx.lineTo(200,300);
+ ctx.lineTo(ix2,iy2);
+ ctx.lineTo(ix2,399);
+ ctx.lineTo(0,399);
+ ctx.lineTo(0,300);
+ ctx.closePath();
+ ctx.fillStyle="green";
+ ctx.fill();
+ var pmmax= PI/2.0*(Math.sqrt(2.4/0.4)-1.0);
+ var thmax=pmmax-pm1;
+ if (thrad>thmax) {
+  ix1=200;
+  iy1=300;
+  ix2=Math.round(200+500*Math.cos(thmax));
+  iy2=Math.round(300+500*Math.sin(thmax));
+  ctx.strokeStyle = 'red';
+  ctx.moveTo(ix1,iy1);
   ctx.lineTo(ix2,iy2);
-  ctx.lineTo(ix2,399);
-  ctx.lineTo(0,399);
-  ctx.lineTo(0,300);
-  ctx.closePath();
-  ctx.fillStyle="green";
-  ctx.fill();
-  var pmmax= PI/2.0*(Math.sqrt(2.4/0.4)-1.0);
-  var thmax=pmmax-pm1;
-  if (thrad>thmax) {
-   ix1=200;
-   iy1=300;
-   ix2=Math.round(200+500*Math.cos(thmax));
-   iy2=Math.round(300+500*Math.sin(thmax));
-   ctx.strokeStyle = 'red';
-   ctx.moveTo(ix1,iy1);
-   ctx.lineTo(ix2,iy2);
-  } else {
+ } else {
+  if (fail==0) {
    if (theta>0.0 & M1>=1.0) {
     var macha=Math.asin(1.0/M1);
     ix1=200;
