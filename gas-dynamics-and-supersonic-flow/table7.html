@@ -77,7 +77,9 @@ Downstream Mach Number (M<sub>2</sub>) =
  <table><tr><td>
 <canvas id="imageout" width="500" height="400" style="border:1px solid grey"></canvas>
  </td><td>Note: For results where M<sub>2</sub>=NAN -- indicates that expansion angle input is greater than
-the maximum permitted for upstream Mach number. Maximum turning angle shown in <font color='red'>red</font>.
+the maximum permitted for upstream Mach number. <br />Maximum turning angle is <font color='red'>
+ <input id="thmax" NAME="thmax" type="text" size="20" value=" " readonly="readonly">
+</font>.
  </td></tr></table></fieldset></td></tr></table>
 
 <script>
@@ -182,6 +184,7 @@ function ComputeAngle() {
  ctx.fill();
  var pmmax= PI/2.0*(Math.sqrt(2.4/0.4)-1.0);
  var thmax=pmmax-pm1;
+ document.getElementById("thmax").value = thmax.toPrecision(5);
  if (thrad>thmax) {
   ix1=200;
   iy1=300;
