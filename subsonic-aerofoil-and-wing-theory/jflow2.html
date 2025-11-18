@@ -71,7 +71,7 @@ The geometry of various families of sections can be created; symmetric, cambered
 <tr><td>Number of Coordinates<br>
 <INPUT NAME='num' id='num' TYPE='text' VALUE='121' SIZE='20' onfocus="HideResults();" autofocus><br>
 <tr><td>Angle of Attack (Deg)<br>
-<INPUT NAME='alf' id='alf' TYPE='text' VALUE='0.0' SIZE='20'><br>
+<INPUT NAME='alf' id='alf' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br>
 </td><td>
 <INPUT type='checkbox' name='circ' id='circ' value='add' checked onfocus="HideResults();" autofocus>Add Circulation</td></tr>
 </center></td></tr></table>
@@ -82,7 +82,7 @@ The geometry of various families of sections can be created; symmetric, cambered
 -->
 </form>
 <fieldset id="results">
-<canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
+<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
 </fieldset>
 
 <script>
@@ -108,7 +108,7 @@ function ComputeFlow() {
  var num=Number(numfield);
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
- var circ = document.getElementById("circ").value;
+ var circ = document.getElementById("circ").checked;
 
  const PI = 3.1415926;
  var imgWidth = 600;
@@ -168,8 +168,9 @@ function ComputeFlow() {
  theta=0.0;
  dt=10.0/180.0*PI;
  dr=0.1;
- gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
- if (circ != "add") {
+ if (circ) {
+  gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
+ } else {
   gamma=0.0;
  }
 
