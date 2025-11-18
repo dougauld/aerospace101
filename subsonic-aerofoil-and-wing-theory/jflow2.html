@@ -76,10 +76,12 @@ The geometry of various families of sections can be created; symmetric, cambered
 <INPUT type='checkbox' name='circ' id='circ' value='add' checked onfocus="HideResults();" autofocus>Add Circulation</td></tr>
 </center></td></tr></table>
 <td valign='top'><center>
-<input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ><br />
-<input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ><br />
+ <table><tr>
+<td><input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ></td>
+<td><input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ></td>
 <!--<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
 -->
+</tr></table>  
 </form>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
