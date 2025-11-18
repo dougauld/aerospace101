@@ -554,7 +554,7 @@ function ComputePress() {
    k=0;
    while (k<5) {
     v1=Math.cos(at[k]-alpha)*(1.0-radius*radius/(ar[k]*ar[k]));
-    v2=Math.sin(at[k]-alpha)*(1.0+radius*radius/(ar[k]*ar[k]))-gamma/(2.0*pi()*ar[k]); 
+    v2=Math.sin(at[k]-alpha)*(1.0+radius*radius/(ar[k]*ar[k]))-gamma/(2.0*PI*ar[k]); 
     div=1.0+ak*ak/ar[k]/ar[k]*(1.0-2.0*Math.cos(2.0*at[k]));
     if (div<1.0e-10) {
      div=1.0e-10;
