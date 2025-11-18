@@ -155,11 +155,11 @@ function ComputeFlow() {
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
- ctx.fillRect(0, 0, 500, 350);
+ ctx.fillRect(0, 0, 600, 350);
 // Create image
 
  var beta = b2*180.0/PI;
- const imgWidth=500;
+ const imgWidth=600;
  const imgHeight=350;
  if ((beta > 89.9) || (b2<t0)) {
   detached=1;
@@ -205,9 +205,9 @@ function ComputeFlow() {
   ctx.moveTo(imgWidth*0.2,0);
   iy1=imgWidth*0.8*Math.atan(t0);
   ctx.lineTo(imgWidth*0.2+4,0);
-  ix1 = imgWidth*0.2 + imgHeigth/Math.tan(b2)+4;
+  ix1 = imgWidth*0.2 + imgHeight/Math.tan(b2)+4;
   ctx.lineTo(ix1,imgHeight);
-  ix1 = imgWidth*0.2 + imgHeigth/Math.tan(b2);
+  ix1 = imgWidth*0.2 + imgHeight/Math.tan(b2);
   ctx.lineTo(ix1,imgHeight);
   ctx.lineTo(imgWidth*0.2,0);
   ctx.closePath();
