@@ -123,7 +123,7 @@ function ComputeFlow() {
 
  theta1=PI;
  theta2=PI;
- numx=Math.int(num/2);
+ numx=Math.trunc(num/2);
  dt=PI/numx;
  xmax=0.0;
  xmin=0.0;
@@ -341,10 +341,10 @@ function ComputeFlow() {
       ay1=yp[1];
       xp[1]=ax1*Math.cos(-alpha)-ay1*Math.sin(-alpha);
       yp[1]=ay1*Math.cos(-alpha)+ax1*Math.sin(-alpha);
-      x1=300+Math.int(xp[0]*300.0/chord);
-      y1=225-Math.int(yp[0]*300.0/chord);
-      x2=300+Math.int(xp[1]*300.0/chord);
-      y2=225-Math.int(yp[1]*300.0/chord);
+      x1=300+Math.trunc(xp[0]*300.0/chord);
+      y1=225-Math.trunc(yp[0]*300.0/chord);
+      x2=300+Math.trunc(xp[1]*300.0/chord);
+      y2=225-Math.trunc(yp[1]*300.0/chord);
       ctx.beginPath();
       ctx.lineWidth=2;
       ctx.moveTo(x1,y1);
@@ -365,8 +365,8 @@ function ComputeFlow() {
 // draw section outline
  i=0; 
  while (i<numx) {
-  x1=300+Math.int((xu[i]*Math.cos(alpha)+yu[i]*Math.sin(alpha))*300.0/chord);
-  y1=225-Math.int((yu[i]*Math.cos(alpha)-xu[i]*Math.sin(alpha))*300.0/chord);
+  x1=300+Math.trunc((xu[i]*Math.cos(alpha)+yu[i]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.trunc((yu[i]*Math.cos(alpha)-xu[i]*Math.sin(alpha))*300.0/chord);
   if (i>0) {
    ctx.beginPath();
    ctx.lineWidth=2;
@@ -382,8 +382,8 @@ function ComputeFlow() {
  i=0;
  while (i<numx) {
   j=numx-1-i;
-  x1=300+Math.intval((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
-  y1=225-Math.intval((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
+  x1=300+Math.truncval((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.truncval((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
   ctx.beginPath();
   ctx.lineWidth=2;
   ctx.moveTo(x0,y0);
@@ -396,8 +396,8 @@ function ComputeFlow() {
  } 
  x1=imgWidth/2;
  y1=0;
- x2=300+Math.int(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
- y2=225-Math.int(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ x2=300+Math.trunc(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.trunc(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(300,225);
@@ -409,8 +409,8 @@ function ComputeFlow() {
  ctx.fillText("X2",x2-20,y2+10);
  x1=0;
  y1=imgHeight/2;
- x2=300+Math.int(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
- y2=225-Math.int(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ x2=300+Math.trunc(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.trunc(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(300,225);
