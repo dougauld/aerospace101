@@ -57,7 +57,7 @@
 The required input is the Mach number of the upstream flow, ratio of specific heats of the gas 
 and the wedge angle.</p>
 <center>
-<table width="80%" border=1 cellpadding=10 bgcolor="#95b1d6">
+<table width="90%" border=1 cellpadding=10 bgcolor="#95b1d6">
 <tr><td valign=top align=center>
 &nbsp;<br>
 <B>Input Parameters</B><br>
@@ -79,8 +79,6 @@ and the wedge angle.</p>
 Wave Angle (deg) = <input name="beta" id="beta" size="20" value=" " readonly="readonly"><br />
 Downstream Mach Number = <input name="M2" id="M2" size="20" value=" " readonly="readonly"><br />
 Pressure Ratio Across Shock Wave = <input name="p21" id="p21" size="20" value=" " readonly="readonly"><br />
-</td></tr>
-<tr><td>
 <canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
 </fieldset>
 </td></tr>
@@ -202,25 +200,23 @@ function ComputeFlow() {
 //  $pnts[8]=$pnts[1];
 //  $pnts[9]=$pnts[2]; 
 //  imagefilledpolygon($image, $pnts, 4, $colorGrey3);
+  ctx.beginPath();
+  ctx.lineWidth=2;
   ctx.moveTo(imgWidth*0.2,0);
-  iy1=imgWidth*0.8*Math.atan(t0);
-  ctx.lineTo(imgWidth*0.2+4,0);
-  ix1 = imgWidth*0.2 + imgHeight/Math.tan(b2)+4;
-  ctx.lineTo(ix1,imgHeight);
-  ix1 = imgWidth*0.2 + imgHeight/Math.tan(b2);
-  ctx.lineTo(ix1,imgHeight);
-  ctx.lineTo(imgWidth*0.2,0);
+  iy1=imgWidth*0.8*Math.tan(t0);
+  ctx.lineTo(imgWidth,iy1);
+  ctx.lineTo(imgWidth,0);
+  ctx.lineTo(imgwidth*0.2,0);
   ctx.closePath();
   ctx.fillStyle="green";
   ctx.fill();
-  ctx.moveTo(imgWidth*0.2,0);
-  iy1=imgWidth*0.8*Math.atan(t0);
-  ctx.lineTo(imgWidth*0.2+4,iy1);
-  ctx.lineTo(imgWidth,0);
-  ctx.lineTo(0,imgWidth);
-  ctx.closePath();
-  ctx.fillStyle="red";
-  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.MoveTo(imgWidth*0.2,0);
+  iy1 = imgWidth*0.8*Math.tan(b2);
+  ctx.lineTo(imgWidth,iy1);
+  ctx.lineColor="red";
+  ctx.stroke();
  }
  if (detached==1) {
   document.getElementById("beta").value = "Detached Wave, no weak Oblique solution"
