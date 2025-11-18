@@ -76,12 +76,9 @@ The geometry of various families of sections can be created; symmetric, cambered
 <INPUT type='checkbox' name='circ' id='circ' value='add' checked onfocus="HideResults();" autofocus>Add Circulation</td></tr>
 </center></td></tr></table>
 <td valign='top'><center>
- <table><tr>
-<td align="center"><input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ></td>
-<td align="center"><input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ></td>
-<!--<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
--->
-</tr></table>  
+<input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" >
+<input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" >
+<input id="Compute3" type="button" value="List Data" onclick="ComputeList();" >
 </form>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
@@ -771,6 +768,91 @@ function ComputePress() {
  ctx.fillText("Y2",x2+10,y2+10);
  document.getElementById("results").style.visibility="visible";
 }
+
+ function ComputeList() {
+
+ var xcent,ycent,ak,num,circ,alf
+ var radiusfield = document.getElementById("radius").value;
+ var radius=Number(radiusfield);
+ if (radius <= 0 ) { alert("Invalid Radius"); return; };
+ var xcentfield = document.getElementById("xcent").value;
+ var xcent=Number(xcentfield);
+ var ycentfield = document.getElementById("ycent").value;
+ var ycent=Number(ycentfield);
+ var akfield = document.getElementById("ak").value;
+ var ak=Number(akfield);
+ var numfield = document.getElementById("num").value;
+ var num=Number(numfield);
+ var alffield = document.getElementById("alf").value;
+ var alf=Number(alffield);
+ var circ = document.getElementById("circ").checked;
+
+ const PI = 3.1415926;
+ var imgWidth = 600;
+ var imgHeight = 450;
+ var theta1,theta2,numx,dt,dr,xmax,xmin,alpha,j,ax1,ay1,z1,ax2,ay2;
+ var theta,gamma;
+ 
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+
+ theta1=PI;
+ theta2=PI;
+ numx=Math.trunc(num/2);
+ dt=PI/numx;
+ xmax=0.0;
+ xmin=0.0;
+ alpha=alf*PI/180.0;
+ j=0;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ while (j<numx) {
+  ax1=radius*Math.cos(theta1)-xcent;
+  ay1=radius*Math.sin(theta1)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xu[j]=ax2;
+  yu[j]=ay2;
+  theta1=theta1-dt;
+  ax1=radius*Math.cos(theta2)-xcent;
+  ay1=radius*Math.sin(theta2)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xl[j]=ax2;
+  yl[j]=ay2;
+  theta2=theta2+dt;
+  if (xu[j]>xmax) {
+   xmax=xu[j];
+  } 
+  if (xu[j]<xmin) {
+   xmin=xu[j];
+  }
+  if (xl[j]>xmax) {
+   xmax=xl[j];
+  } 
+  if (xl[j]<xmin) {
+   xmin=xl[j];
+  }
+  j=j+1;
+ }  
+ var chord=xmax-xmin;
+ theta=0.0;
+ dt=10.0/180.0*PI;
+ dr=0.1;
+ if (circ) {
+  gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
+ } else {
+  gamma=0.0;
+ }
+ document.getElementById("results").style.visibility="visible";
+}
+
 </script>
 
 
