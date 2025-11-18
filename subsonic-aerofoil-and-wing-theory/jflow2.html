@@ -382,8 +382,8 @@ function ComputeFlow() {
  i=0;
  while (i<numx) {
   j=numx-1-i;
-  x1=300+Math.truncval((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
-  y1=225-Math.truncval((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
+  x1=300+Math.trunc((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.trunc((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
   ctx.beginPath();
   ctx.lineWidth=2;
   ctx.moveTo(x0,y0);
