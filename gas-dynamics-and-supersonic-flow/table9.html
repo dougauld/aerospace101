@@ -102,6 +102,7 @@ function ComputeFlow() {
  var deflect = 1.0;
  var machfield = document.getElementById("mach").value;
  mach=Number(machfield);
+ if (mach<1.0) { alert("Subsonic Flow, No Waves"); return; }
  var gammafield = document.getElementById("gamma").value;
  gamma=Number(gammafield);
  var deflectfield = document.getElementById("deflect").value;
