@@ -63,11 +63,11 @@ The geometry of various families of sections can be created; symmetric, cambered
 <tr><td>Cylinder Radius (a)<br>
 <INPUT NAME='radius' id='radius' TYPE='text' VALUE='1.0' SIZE='20' onfocus="HideResults();" autofocus ><br>
 <tr><td>X-Coord Center Shift (e)<br>
-<INPUT NAME='xcent' id='xcent' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br>
+<INPUT NAME='xcent' id='xcent' TYPE='text' VALUE='0.1' SIZE='20' onfocus="HideResults();" autofocus><br>
 <tr><td>Y-Coord Center Shift (f)<br>
 <INPUT NAME='ycent' id='ycent' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br>
 <tr><td>Transformation Constant (k)<br>
-<INPUT NAME='ak' id='ak' TYPE='text' VALUE='0.1' SIZE='20' onfocus="HideResults();" autofocus><br>
+<INPUT NAME='ak' id='ak' TYPE='text' VALUE='0.9' SIZE='20' onfocus="HideResults();" autofocus><br>
 <tr><td>Number of Coordinates<br>
 <INPUT NAME='num' id='num' TYPE='text' VALUE='121' SIZE='20' onfocus="HideResults();" autofocus><br>
 <tr><td>Angle of Attack (Deg)<br>
@@ -76,9 +76,9 @@ The geometry of various families of sections can be created; symmetric, cambered
 <INPUT type='checkbox' name='circ' id='circ' value='add' checked onfocus="HideResults();" autofocus>Add Circulation</td></tr>
 </center></td></tr></table>
 <td valign='top'><center>
-<input id="Compute1" type="button" value="Compute" onclick="ComputeFlow();" ><br />
-<!--<input id="Compute2" type="button" value="Compute" onclick="ComputePress();" ><br />
-<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
+<input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ><br />
+<input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ><br />
+<!--<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
 -->
 </form>
 <fieldset id="results">
@@ -174,9 +174,6 @@ function ComputeFlow() {
   gamma=0.0;
  }
 
-//draw streamlines
-//imagesetthickness($image,3);
-//$alpha=-$alpha;
  var sr,i,k,vmax,vmin,i1,n,vval,frac,ipnt,m,xnew,ynew,x1,y1,x2,y2,x0,y0,z1,a;
  i=0;
  var ax=[];
@@ -424,6 +421,354 @@ function ComputeFlow() {
  document.getElementById("results").style.visibility="visible";
 }
 
+function ComputePress() {
+
+ var xcent,ycent,ak,num,circ,alf
+ var radiusfield = document.getElementById("radius").value;
+ var radius=Number(radiusfield);
+ if (radius <= 0 ) { alert("Invalid Radius"); return; };
+ var xcentfield = document.getElementById("xcent").value;
+ var xcent=Number(xcentfield);
+ var ycentfield = document.getElementById("ycent").value;
+ var ycent=Number(ycentfield);
+ var akfield = document.getElementById("ak").value;
+ var ak=Number(akfield);
+ var numfield = document.getElementById("num").value;
+ var num=Number(numfield);
+ var alffield = document.getElementById("alf").value;
+ var alf=Number(alffield);
+ var circ = document.getElementById("circ").checked;
+
+ const PI = 3.1415926;
+ var imgWidth = 600;
+ var imgHeight = 450;
+ var theta1,theta2,numx,dt,dr,xmax,xmin,alpha,j,ax1,ay1,z1,ax2,ay2;
+ var theta,gamma;
+ 
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+
+ theta1=PI;
+ theta2=PI;
+ numx=Math.trunc(num/2);
+ dt=PI/numx;
+ xmax=0.0;
+ xmin=0.0;
+ alpha=alf*PI/180.0;
+ j=0;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ while (j<numx) {
+  ax1=radius*Math.cos(theta1)-xcent;
+  ay1=radius*Math.sin(theta1)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xu[j]=ax2;
+  yu[j]=ay2;
+  theta1=theta1-dt;
+  ax1=radius*Math.cos(theta2)-xcent;
+  ay1=radius*Math.sin(theta2)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xl[j]=ax2;
+  yl[j]=ay2;
+  theta2=theta2+dt;
+  if (xu[j]>xmax) {
+   xmax=xu[j];
+  } 
+  if (xu[j]<xmin) {
+   xmin=xu[j];
+  }
+  if (xl[j]>xmax) {
+   xmax=xl[j];
+  } 
+  if (xl[j]<xmin) {
+   xmin=xl[j];
+  }
+  j=j+1;
+ }  
+ var chord=xmax-xmin;
+ theta=0.0;
+ dt=10.0/180.0*PI;
+ dr=0.1;
+ if (circ) {
+  gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
+ } else {
+  gamma=0.0;
+ }
+
+ var sr,i,k,vmax,vmin,i1,n,vval,frac,ipnt,m,xnew,ynew,x1,y1,x2,y2,x0,y0,z1,a,v1,v2,div;
+ i=0;
+ var ax=[];
+ var ay=[];
+ var xp=[];
+ var yp=[];
+ var ar=[];
+ var at=[];
+ var phi=[];
+ var xtri=[];
+ var ytri=[];
+ var vt=[];
+ 
+ while (i<36) {
+  sr=radius;
+  j=0;
+  while (j<50) {
+   if (j==0) {
+    ax[0]=sr*Math.cos(theta);
+    ay[0]=sr*Math.sin(theta);
+    ar[0]=sr;
+    at[0]=theta; 
+    ax[3]=sr*Math.cos(theta+dt);
+    ay[3]=sr*Math.sin(theta+dt);
+    ar[3]=sr;
+    at[3]=theta+dt;
+   } else {
+    ax[0]=ax[1];
+    ay[0]=ay[1];
+    ar[0]=ar[1];
+    ax[3]=ax[2];
+    ay[3]=ay[2];
+    ar[3]=ar[2];
+   }
+   ax[1]=(sr+dr)*Math.cos(theta);
+   ay[1]=(sr+dr)*Math.sin(theta);
+   ar[1]=(sr+dr);
+   at[1]=theta;
+   ax[2]=(sr+dr)*Math.cos(theta+dt);
+   ay[2]=(sr+dr)*Math.sin(theta+dt);
+   ar[2]=(sr+dr);
+   at[2]=theta+dt;
+   ax[4]=0.25*(ax[0]+ax[1]+ax[2]+ax[3]);
+   ay[4]=0.25*(ay[0]+ay[1]+ay[2]+ay[3]);
+   ar[4]=0.25*(ar[0]+ar[1]+ar[2]+ar[3]);
+   at[4]=0.25*(at[0]+at[1]+at[2]+at[3]);
+   k=0;
+   while (k<5) {
+    v1=Math.cos(at[k]-alpha)*(1.0-radius*radius/(ar[k]*ar[k]));
+    v2=Math.sin(at[k]-alpha)*(1.0+radius*radius/(ar[k]*ar[k]))-gamma/(2.0*pi()*ar[k]); 
+    div=1.0+ak*ak/ar[k]/ar[k]*(1.0-2.0*Math.cos(2.0*at[k]));
+    if (div<1.0e-10) {
+     div=1.0e-10;
+    }
+    phi[k]=(v1*v1 + v2*v2)/div;
+    k=k+1;
+   }
+   xtri[2]=ax[4];
+   ytri[2]=ay[4];
+   vt[2]=phi[4];
+   k=0;
+   while (k<4) {
+    xtri[0]=ax[k];
+    ytri[0]=ay[k];
+    vt[0]=phi[k];
+    i1=k+1;
+    if (i1>3) {
+     i1=0;
+    } 
+    xtri[1]=ax[i1];
+    ytri[1]=ay[i1];
+    vt[1]=phi[i1];
+    vmax=vt[0];
+    vmin=vmax;
+    if (vt[1]>vmax) {
+     vmax=vt[1];
+    }
+    if (vt[2]>vmax) {
+     vmax=vt[2];
+    } 
+    if (vt[1]<vmin) {
+     vmin=vt[1];
+    }
+    if (vt[2]<vmin) {
+     vmin=vt[2];
+    }
+    n=0;
+    while (n<150) {
+     vval=n*0.16-4.0;
+     ipnt=0;
+     if ((vval>=vmin) && (vval<=vmax)) {
+      if ((vval<vt[0]) && (vval<vt[1])) {
+      } else {
+       if ((vval>vt[0]) && (vval>vt[1])) {
+       } else {
+        frac=vt[0]-vt[1];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[1])/frac;
+        }
+        ipnt=1;
+        xp[0]=frac*(xtri[0]-xtri[1])+xtri[1];
+        yp[0]=frac*(ytri[0]-ytri[1])+ytri[1]; 
+       }
+      } 
+      if ((vval<vt[1]) && (vval<vt[2])) {
+       m=0;
+      } else {
+       if ((vval>vt[1]) && (vval>vt[2])) {
+        m=0;
+       } else {
+        frac=vt[1]-vt[2];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[2])/frac;
+        } 
+        ipnt=ipnt+1;
+        xp[ipnt-1]=frac*(xtri[1]-xtri[2])+xtri[2];
+        yp[ipnt-1]=frac*(ytri[1]-ytri[2])+ytri[2];
+       }  
+      } 
+      if ((vval<vt[2]) && (vval<vt[0])) {
+       m=0;
+      } else {
+       if ((vval>vt[2]) && (vval>vt[0])) {
+        m=0;
+       } else {
+        frac=vt[2]-vt[0];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[0])/frac;
+        }
+        ipnt=ipnt+1;
+        if (ipnt>2) {
+         ipnt=2;
+        } 
+        xp[ipnt-1]=frac*(xtri[2]-xtri[0])+xtri[0];
+        yp[ipnt-1]=frac*(ytri[2]-ytri[0])+ytri[0];
+       }
+      }
+     }
+     if (ipnt==2) {
+      xnew=xp[0]-xcent;
+      ynew=yp[0]+ycent;
+      z1=xnew*xnew+ynew*ynew;
+      if (z1<1.0e-5) {
+       z1=1.0e-5;
+      }
+      xp[0]=xnew*(z1+ak*ak)/z1;
+      yp[0]=ynew*(z1-ak*ak)/z1;
+      xnew=xp[1]-xcent;
+      ynew=yp[1]+ycent;
+      z1=xnew*xnew+ynew*ynew;
+      if (z1<1.0e-5) {
+       z1=1.0e-5;
+      } 
+      xp[1]=xnew*(z1+ak*ak)/z1;
+      yp[1]=ynew*(z1-ak*ak)/z1;
+      if (xp[0]>xp[1]) {
+       a=xp[0];
+       xp[0]=xp[1];
+       xp[1]=a;
+       a=yp[0];
+       yp[0]=yp[1];
+       yp[1]=a;
+      }
+      ax1=xp[0];
+      ay1=yp[0];
+      xp[0]=ax1*Math.cos(-alpha)-ay1*Math.sin(-alpha);
+      yp[0]=ay1*Math.cos(-alpha)+ax1*Math.sin(-alpha);
+      ax1=xp[1];
+      ay1=yp[1];
+      xp[1]=ax1*Math.cos(-alpha)-ay1*Math.sin(-alpha);
+      yp[1]=ay1*Math.cos(-alpha)+ax1*Math.sin(-alpha);
+      x1=300+Math.trunc(xp[0]*300.0/chord);
+      y1=225-Math.trunc(yp[0]*300.0/chord);
+      x2=300+Math.trunc(xp[1]*300.0/chord);
+      y2=225-Math.trunc(yp[1]*300.0/chord);
+      ctx.beginPath();
+      ctx.lineWidth=2;
+      ctx.moveTo(x1,y1);
+      ctx.lineTo(x2,y2);
+      if (n>40) {
+       ctx.strokeStyle="black";
+      } elseif (n>30) {
+       ctx.strokeStyle="violet";
+      } elseif (n>20) {
+       ctx.strokeStyle="blue";
+      } elseif (n>10) {
+       ctx.strokeStyle="green";
+      } elseif (n>8) {
+       ctx.strokeStyle="yellow";
+      } elseif (n>5) {
+       ctx.strokeStyle="orange";
+      } else {
+       ctx.strokeStyle="red";
+      }
+      ctx.stroke();
+     } 
+     n=n+1;
+    }
+    k=k+1;    
+   } 
+   sr=sr+dr;
+   j=j+1;
+  } 
+  theta=theta+dt;
+  i=i+1;
+ }
+// draw section outline
+ i=0; 
+ while (i<numx) {
+  x1=300+Math.trunc((xu[i]*Math.cos(alpha)+yu[i]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.trunc((yu[i]*Math.cos(alpha)-xu[i]*Math.sin(alpha))*300.0/chord);
+  if (i>0) {
+   ctx.beginPath();
+   ctx.lineWidth=2;
+   ctx.moveTo(x0,y0);
+   ctx.lineTo(x1,y1);
+   ctx.strokeStyle="black";
+   ctx.stroke();
+  }
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ }
+ i=0;
+ while (i<numx) {
+  j=numx-1-i;
+  x1=300+Math.trunc((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.trunc((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
+  ctx.beginPath();
+  ctx.lineWidth=2;
+  ctx.moveTo(x0,y0);
+  ctx.lineTo(x1,y1);
+  ctx.strokeStyle="black";
+  ctx.stroke();
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ } 
+ x1=imgWidth/2;
+ y1=0;
+ x2=300+Math.trunc(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.trunc(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(300,225);
+ ctx.lineTo(x2,y2);
+ ctx.strokeStyle="green";
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle="black";
+ ctx.fillText("X2",x2-20,y2+10);
+ x1=0;
+ y1=imgHeight/2;
+ x2=300+Math.trunc(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.trunc(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(300,225);
+ ctx.lineTo(x2,y2);
+ ctx.strokeStyle="green";
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle="black";
+ ctx.fillText("Y2",x2+10,y2+10);
+ document.getElementById("results").style.visibility="visible";
+}
 </script>
 
 
