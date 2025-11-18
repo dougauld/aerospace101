@@ -77,8 +77,8 @@ The geometry of various families of sections can be created; symmetric, cambered
 </center></td></tr></table>
 <td valign='top'><center>
  <table><tr>
-<td align="middle"><input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ></td>
-<td align="middle"><input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ></td>
+<td align="center"><input id="Compute1" type="button" value="FlowField" onclick="ComputeFlow();" ></td>
+<td align="center"><input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" ></td>
 <!--<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
 -->
 </tr></table>  
@@ -685,19 +685,19 @@ function ComputePress() {
       ctx.moveTo(x1,y1);
       ctx.lineTo(x2,y2);
       if (n>40) {
-       ctx.strokeStyle="black";
-      } else if (n>30) {
-       ctx.strokeStyle="violet";
-      } else if (n>20) {
-       ctx.strokeStyle="blue";
-      } else if (n>10) {
-       ctx.strokeStyle="green";
-      } else if (n>8) {
-       ctx.strokeStyle="yellow";
-      } else if (n>5) {
-       ctx.strokeStyle="orange";
-      } else {
        ctx.strokeStyle="red";
+      } else if (n>30) {
+       ctx.strokeStyle="orange";
+      } else if (n>20) {
+       ctx.strokeStyle="yellow";
+      } else if (n>10) {
+       ctx.strokeStyle="violet";
+      } else if (n>8) {
+       ctx.strokeStyle="green";
+      } else if (n>5) {
+       ctx.strokeStyle="blue";
+      } else {
+       ctx.strokeStyle="black";
       }
       ctx.stroke();
      } 
