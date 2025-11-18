@@ -63,12 +63,12 @@ and the wedge angle.</p>
 <B>Input Parameters</B><br>
 <table>
 <form>
-<tr><td>Mach Number <br>
-<INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.0' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
+<tr><td>Mach Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.0' SIZE='40' onfocus="HideResults();" autofocus><br></td></tr>
 <tr><td>Ratio of Specific Heats <br>
-<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
+<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='40' onfocus="HideResults();" autofocus><br></td></tr>
 <tr><td>Wedge Deflection Angle (Deg)<br>
-<INPUT NAME='deflect' id='deflect' TYPE='text' VALUE='0.0' SIZE='20'><br></td></tr>
+<INPUT NAME='deflect' id='deflect' TYPE='text' VALUE='0.0' SIZE='40'><br></td></tr>
 <tr><td align='center'><br \>&nbsp;<br \>
 <input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
 </form>
@@ -165,25 +165,22 @@ function ComputeFlow() {
  if (detached==1) {
   ctx.beginPath();
   ctx.lineWidth=2;
-  ctx.moveTo(imgWidth*0.15,0);
-  ctx.lineTo(imgWidth*0.15+6,0);
-  ctx.lineTo(imgWidth*0.15+6,imgHeight);
-  ctx.lineTo(imgWidth*0.15,imgHeight);
-  ctx.lineTo(imgWidth*0.15,0);
-  ctx.closePath();
-  ctx.fillStyle="green";
-  ctx.fill();
-//  imageline($image,$pnts[0],$pnts[1],$pnts[6],$pnts[7],$colorBlack);
-//  imageline($image,$pnts[0]+3,$pnts[1],$pnts[6]+3,$pnts[7],$colorBlack);
-//  imageline($image,$pnts[0]-1,$pnts[1],$pnts[6]-1,$pnts[7],$colorWhite);
-  ctx.moveTo(imagWidth*0.2,0);
-  iy1=imgWidth*0.8*Math.atan(t0);
+  ctx.moveTo(imgWidth*0.2,0);
+  iy1=imgWidth*0.8*Math.tan(t0);
   ctx.lineTo(imgWidth,iy1);
   ctx.lineTo(imgWidth,0);
   ctx.lineTo(imgWidth*0.2,0);
   ctx.closePath();
-  ctx.fillStyle="red";
+  ctx.fillStyle="green";
   ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.lineWidth=6;
+  ctx.moveTo(imgWidth*0.15,0);
+  ctx.lineTo(imgWidth*0.15,imgHeight);
+  ctx.closePath();
+  ctx.lineStyle="red";
+  ctx.stroke();
  } else { 
   a1 = mach*Math.sin(b2);
   a2 = Math.sqrt((ga2*a1*a1 + 2.0)/(2.0*gamma*a1*a1 - ga2));
@@ -215,10 +212,10 @@ function ComputeFlow() {
   ctx.moveTo(imgWidth*0.2,0);
   iy1 = imgWidth*0.8*Math.tan(b2);
   ctx.lineTo(imgWidth,iy1);
-  ctx.lineColor="red";
+  ctx.lineStyle="red";
   ctx.stroke();
  }
- if (detached==1) {
+ if (detached == 1) {
   document.getElementById("beta").value = "Detached Wave, no weak Oblique solution"
   document.getElementById("M2").value = " "
   document.getElementById("p21").value = " "
