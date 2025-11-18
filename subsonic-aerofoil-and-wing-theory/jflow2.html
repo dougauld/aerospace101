@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h3>Joukowski Aerofoil Mapping</h3>
+This form calculates the geometric properties of two dimensional aerofoil sections based on Joukowski transformation of a circular cylinder.  
+The geometry of various families of sections can be created; symmetric, cambered, flat and curved.
+<p><table  border="1" cellpadding="10" bgcolor="#95b1d6">
+<tbody><tr><td valign="top" width="25%">
+<img src="jflow1.png"><br>
+<B>Input Parameters</B><br>
+<form>
+<table>
+<tr><td>Cylinder Radius (a)<br>
+<INPUT NAME='radius' id='radius' TYPE='text' VALUE='1.0' SIZE='20' onfocus="HideResults();" autofocus ><br>
+<tr><td>X-Coord Center Shift (e)<br>
+<INPUT NAME='xcent' id='xcent' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br>
+<tr><td>Y-Coord Center Shift (f)<br>
+<INPUT NAME='ycent' id='ycent' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br>
+<tr><td>Transformation Constant (k)<br>
+<INPUT NAME='ak' id='ak' TYPE='text' VALUE='0.1' SIZE='20' onfocus="HideResults();" autofocus><br>
+<tr><td>Number of Coordinates<br>
+<INPUT NAME='num' id='num' TYPE='text' VALUE='121' SIZE='20' onfocus="HideResults();" autofocus><br>
+<tr><td>Angle of Attack (Deg)<br>
+<INPUT NAME='alf' id='alf' TYPE='text' VALUE='0.0' SIZE='20'><br>
+</td><td>
+<INPUT type='checkbox' name='circ' id='circ' value='add' checked onfocus="HideResults();" autofocus>Add Circulation</td></tr>
+</center></td></tr></table>
+<td valign='top'><center>
+<input id="Compute1" type="button" value="Compute" onclick="ComputeFlow();" ><br />
+<!--<input id="Compute2" type="button" value="Compute" onclick="ComputePress();" ><br />
+<input id="Compute3" type="button" value="Compute" onclick="ComputeList();" ><br />
+-->
+</form>
+<fieldset id="results">
+<canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var xcent,ycent,ak,num,circ,alf
+ var radiusfield = document.getElementById("radius").value;
+ var radius=Number(radiusfield);
+ if (radius <= 0 ) { alert("Invalid Radius"); return; };
+ var xcentfield = document.getElementById("xcent").value;
+ var xcent=Number(xcentfield);
+ var ycentfield = document.getElementById("ycent").value;
+ var ycent=Number(ycentfield);
+ var akfield = document.getElementById("ak").value;
+ var ak=Number(akfield);
+ var numfield = document.getElementById("num").value;
+ var num=Number(numfield);
+ var alffield = document.getElementById("alf").value;
+ var alf=Number(alffield);
+ var circ = document.getElementById("circ").value;
+
+ const PI = 3.1415926;
+ const imgWidth = 600;
+ const imgHeight = 450;
+ var theta1,theta2,numx,dt,dr,xmax,xmin,alpha,j,ax1,ay1,z1,ax2,ay2;
+ var theta,gamma,
+ 
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+
+ theta1=PI;
+ theta2=PI;
+ numx=Math.int(num/2);
+ dt=PI/numx;
+ xmax=0.0;
+ xmin=0.0;
+ alpha=alf*PI/180.0;
+ j=0;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ while (j<numx) {
+  ax1=radius*Math.cos(theta1)-xcent;
+  ay1=radius*Math.sin(theta1)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xu[j]=ax2;
+  yu[j]=ay2;
+  theta1=theta1-dt;
+  ax1=radius*Math.cos(theta2)-xcent;
+  ay1=radius*Math.sin(theta2)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  xl[j]=ax2;
+  yl[j]=ay2;
+  theta2=theta2+dt;
+  if (xu[j]>xmax) {
+   xmax=xu[j];
+  } 
+  if (xu[j]<xmin) {
+   xmin=xu[j];
+  }
+  if (xl[j]>xmax) {
+   xmax=xl[j];
+  } 
+  if (xl[j]<xmin) {
+   xmin=xl[j];
+  }
+  j=j+1;
+ }  
+ var chord=xmax-xmin;
+ theta=0.0;
+ dt=10.0/180.0*PI;
+ dr=0.1;
+ gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
+ if (circ != "add") {
+  gamma=0.0;
+ }
+
+//draw streamlines
+//imagesetthickness($image,3);
+//$alpha=-$alpha;
+ var sr,i,k,vmax,vmin,i1,n,vval,frac,ipnt,m,xnew,ynew,x1,y1,x2,y2,x0,y0,z1,a;
+ i=0;
+ var ax=[];
+ var ay=[];
+ var xp=[];
+ var yp=[];
+ var ar=[];
+ var at=[];
+ var phi=[];
+ var xtri[];
+ var ytri[];
+ var vt[];
+ 
+ while (i<36) {
+  sr=radius;
+  j=0;
+  while (j<50) {
+   if (j==0) {
+    ax[0]=sr*Math.cos(theta);
+    ay[0]=sr*Math.sin(theta);
+    ar[0]=sr;
+    at[0]=theta; 
+    ax[3]=sr*Math.cos(theta+dt);
+    ay[3]=sr*Math.sin(theta+dt);
+    ar[3]=sr;
+    at[3]=theta+dt;
+   } else {
+    ax[0]=ax[1];
+    ay[0]=ay[1];
+    ar[0]=ar[1];
+    ax[3]=ax[2];
+    ay[3]=ay[2];
+    ar[3]=ar[2];
+   }
+   ax[1]=(sr+dr)*Math.cos(theta);
+   ay[1]=(sr+dr)*Math.sin(theta);
+   ar[1]=(sr+dr);
+   at[1]=theta;
+   ax[2]=(sr+dr)*Math.cos(theta+dt);
+   ay[2]=(sr+dr)*Math.sin(theta+dt);
+   ar[2]=(sr+dr);
+   at[2]=theta+dt;
+   ax[4]=0.25*(ax[0]+ax[1]+ax[2]+ax[3]);
+   ay[4]=0.25*(ay[0]+ay[1]+ay[2]+ay[3]);
+   ar[4]=0.25*(ar[0]+ar[1]+ar[2]+ar[3]);
+   at[4]=0.25*(at[0]+at[1]+at[2]+at[3]);
+   k=0;
+   while (k<5) {
+    phi[k]=ar[k]*Math.sin(at[k]-alpha)*(1.0-radius*radius/(ar[k]*ar[k]))-gamma/(2.0*PI)*Math.log(ar[k]);
+    k=k+1;
+   }
+   xtri[2]=ax[4];
+   ytri[2]=ay[4];
+   vt[2]=phi[4];
+   k=0;
+   while (k<4) {
+    xtri[0]=ax[k];
+    ytri[0]=ay[k];
+    vt[0]=phi[k];
+    i1=k+1;
+    if (i1>3) {
+     i1=0;
+    } 
+    xtri[1]=ax[i1];
+    ytri[1]=ay[i1];
+    vt[1]=phi[i1];
+    vmax=vt[0];
+    vmin=vmax;
+    if (vt[1]>vmax) {
+     vmax=vt[1];
+    }
+    if (vt[2]>vmax) {
+     vmax=vt[2];
+    } 
+    if (vt[1]<vmin) {
+     vmin=vt[1];
+    }
+    if (vt[2]<vmin) {
+     vmin=vt[2];
+    }
+    n=0;
+    while (n<50) {
+     vval=n*0.16-4.0;
+     ipnt=0;
+     if ((vval>=vmin) && (vval<=vmax)) {
+      if ((vval<vt[0]) && (vval<vt[1])) {
+      } else {
+       if ((vval>vt[0]) && (vval>vt[1])) {
+       } else {
+        frac=vt[0]-vt[1];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[1])/frac;
+        }
+        ipnt=1;
+        xp[0]=frac*(xtri[0]-xtri[1])+xtri[1];
+        yp[0]=frac*(ytri[0]-ytri[1])+ytri[1]; 
+       }
+      } 
+      if ((vval<vt[1]) && (vval<vt[2])) {
+       m=0;
+      } else {
+       if ((vval>vt[1]) && (vval>vt[2])) {
+        m=0;
+       } else {
+        frac=vt[1]-vt[2];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[2])/frac;
+        } 
+        ipnt=ipnt+1;
+        xp[ipnt-1]=frac*(xtri[1]-xtri[2])+xtri[2];
+        yp[ipnt-1]=frac*(ytri[1]-ytri[2])+ytri[2];
+       }  
+      } 
+      if ((vval<vt[2]) && (vval<vt[0])) {
+       m=0;
+      } else {
+       if ((vval>vt[2]) && (vval>vt[0])) {
+        m=0;
+       } else {
+        frac=vt[2]-vt[0];
+        if (Math.abs(frac)>1.0E-10) {
+         frac=(vval-vt[0])/frac;
+        }
+        ipnt=ipnt+1;
+        if (ipnt>2) {
+         ipnt=2;
+        } 
+        xp[ipnt-1]=frac*(xtri[2]-xtri[0])+xtri[0];
+        yp[ipnt-1]=frac*(ytri[2]-ytri[0])+ytri[0];
+       }
+      }
+     }
+     if (ipnt==2) {
+      xnew=xp[0]-xcent;
+      ynew=yp[0]+ycent;
+      z1=xnew*xnew+ynew*ynew;
+      if (z1<1.0e-5) {
+       z1=1.0e-5;
+      }
+      xp[0]=xnew*(z1+ak*ak)/z1;
+      yp[0]=ynew*(z1-ak*ak)/z1;
+      xnew=xp[1]-xcent;
+      ynew=yp[1]+ycent;
+      z1=xnew*xnew+ynew*ynew;
+      if (z1<1.0e-5) {
+       z1=1.0e-5;
+      } 
+      xp[1]=xnew*(z1+ak*ak)/z1;
+      yp[1]=ynew*(z1-ak*ak)/z1;
+      if (xp[0]>xp[1]) {
+       a=$xp[0];
+       xp[0]=xp[1];
+       xp[1]=a;
+       a=yp[0];
+       yp[0]=yp[1];
+       yp[1]=a;
+      }
+      ax1=xp[0];
+      ay1=yp[0];
+      xp[0]=ax1*Math.cos(-alpha)-ay1*Math.sin(-alpha);
+      yp[0]=ay1*Math.cos(-alpha)+ax1*Math.sin(-alpha);
+      ax1=xp[1];
+      ay1=yp[1];
+      xp[1]=ax1*Math.cos(-alpha)-ay1*Math.sin(-alpha);
+      yp[1]=ay1*Math.cos(-alpha)+ax1*Math.sin(-alpha);
+      x1=300+Math.int(xp[0]*300.0/chord);
+      y1=225-Math.int(yp[0]*300.0/chord);
+      x2=300+Math.int(xp[1]*300.0/chord);
+      y2=225-Math.int(yp[1]*300.0/chord);
+      ctx.beginPath();
+      ctx.lineWidth=2;
+      ctx.moveTo(x1,y1);
+      ctx.lineTo(x2,y2);
+      ctx.strokeStyle="blue";
+      ctx.stroke();
+     } 
+     n=n+1;
+    }
+    k=k+1;    
+   } 
+   sr=sr+dr;
+   j=j+1;
+  } 
+  theta=theta+dt;
+  i=i+1;
+ }
+// draw section outline
+ i=0; 
+ while (i<numx) {
+  x1=300+Math.int((xu[i]*Math.cos(alpha)+yu[i]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.int((yu[i]*Math.cos(alpha)-xu[i]*Math.sin(alpha))*300.0/chord);
+  if (i>0) {
+   ctx.beginPath();
+   ctx.lineWidth=2;
+   ctx.moveTo(x0,y0);
+   ctx.lineTo(x1,y1);
+   ctx.strokeStyle="black";
+   ctx.stroke();
+  }
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ }
+ i=0;
+ while (i<numx) {
+  j=numx-1-i;
+  x1=300+Math.intval((xl[j]*Math.cos(alpha)+yl[j]*Math.sin(alpha))*300.0/chord);
+  y1=225-Math.intval((yl[j]*Math.cos(alpha)-xl[j]*Math.sin(alpha))*300.0/chord);
+  ctx.beginPath();
+  ctx.lineWidth=2;
+  ctx.moveTo(x0,y0);
+  ctx.lineTo(x1,y1);
+  ctx.strokeStyle="black";
+  ctx.stroke();
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ } 
+ x1=imgWidth/2;
+ y1=0;
+ x2=300+Math.int(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.int(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(300,225);
+ ctx.lineTo(x2,y2);
+ ctx.strokeStyle="green";
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle="black";
+ ctx.fillText("X2",x2-20,y2+10);
+ x1=0;
+ y1=imgHeight/2;
+ x2=300+Math.int(x1*Math.cos(-alpha)-y1*Math.sin(-alpha));
+ y2=225-Math.int(y1*Math.cos(-alpha)+x1*Math.sin(-alpha));
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(300,225);
+ ctx.lineTo(x2,y2);
+ ctx.strokeStyle="green";
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle="black";
+ ctx.fillText("Y2",x2+10,y2+10);
+
+}
+
+</script>
+
+
+</center></td></tr></tbody></table></p>
+<p><a href='joukowski-aerofoils-and-flow-mapping.php'>Back to Joukowski Mapping Section</a></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
