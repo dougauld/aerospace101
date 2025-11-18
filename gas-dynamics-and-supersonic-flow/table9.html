@@ -63,12 +63,12 @@ and the wedge angle.</p>
 <B>Input Parameters</B><br>
 <table>
 <form>
-<tr><td>Mach Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-<INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.0' SIZE='40' onfocus="HideResults();" autofocus><br></td></tr>
+<tr><td>Mach Number <br/>
+<INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.0' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
 <tr><td>Ratio of Specific Heats <br>
-<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='40' onfocus="HideResults();" autofocus><br></td></tr>
+<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='20' onfocus="HideResults();" autofocus><br></td></tr>
 <tr><td>Wedge Deflection Angle (Deg)<br>
-<INPUT NAME='deflect' id='deflect' TYPE='text' VALUE='0.0' SIZE='40'><br></td></tr>
+<INPUT NAME='deflect' id='deflect' TYPE='text' VALUE='0.0' SIZE='20'><br></td></tr>
 <tr><td align='center'><br \>&nbsp;<br \>
 <input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
 </form>
@@ -76,9 +76,11 @@ and the wedge angle.</p>
 
 </td><td align='center' valign='middle'>
 <fieldset id="results">
-Wave Angle (deg) = <input name="beta" id="beta" size="20" value=" " readonly="readonly"><br />
-Downstream Mach Number = <input name="M2" id="M2" size="20" value=" " readonly="readonly"><br />
-Pressure Ratio Across Shock Wave = <input name="p21" id="p21" size="20" value=" " readonly="readonly"><br />
+<table>
+<tr><td>Wave Angle (deg) = </td><td><input name="beta" id="beta" size="30" value=" " readonly="readonly"></td></tr>
+<tr><td>Downstream Mach Number = </td><td><input name="M2" id="M2" size="30" value=" " readonly="readonly"></td></tr>
+<tr><td>Pressure Ratio Across Shock Wave = </td><td></td><input name="p21" id="p21" size="30" value=" " readonly="readonly"></td></tr>
+</table> 
 <canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
 </fieldset>
 </td></tr>
@@ -179,7 +181,7 @@ function ComputeFlow() {
   ctx.moveTo(imgWidth*0.15,0);
   ctx.lineTo(imgWidth*0.15,imgHeight);
   ctx.closePath();
-  ctx.lineStyle="red";
+  ctx.strokeStyle="red";
   ctx.stroke();
  } else { 
   a1 = mach*Math.sin(b2);
@@ -212,7 +214,7 @@ function ComputeFlow() {
   ctx.moveTo(imgWidth*0.2,0);
   iy1 = imgWidth*0.8*Math.tan(b2);
   ctx.lineTo(imgWidth,iy1);
-  ctx.lineStyle="red";
+  ctx.strokeStyle="blue";
   ctx.stroke();
  }
  if (detached == 1) {
