@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<center>
+<table width='95%' border=1 cellpadding=10 bgcolor='#95b1d6'>
+<tr><td colspan=2><b>Prandtl Lifting Line Solutions</b><br />
+This form calculates the lift distribution, downwash and total lift and induced drag of a simple unswept wing.<br />
+The geometry of the wing can be entered along with its aerofoil section properties.
+</td></tr><tr><td valign=top align=center>&nbsp;<br>
+<B>Input Parameters</B><br>
+<form>
+<font size=2>Wing span (b)(m)<br>
+<INPUT NAME='span' id='span' TYPE='text' VALUE='11.0' SIZE='20' onfocus="HideResults();" autofocus><br /></font>
+<font size=2>Wing root chord (c<sub>r</sub>)(m)<br>
+<INPUT NAME='rchord' id='rchord' TYPE='text' VALUE='1.5' SIZE='20' onfocus="HideResults();" autofocus><br /></font>
+<font size=2>Wing tip chord (c<sub>t</sub>)(m)<br>
+<INPUT NAME='tchord' id='tchord' TYPE='text' VALUE='1.5' SIZE='20' onfocus="HideResults();" autofocus><br /></font>
+<font size=2>Washout angle (Deg)<br>
+<INPUT NAME='wo' id='wo' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br></font>
+<font size=2>Flap (- = Aileron) % span<br>
+<INPUT NAME='percentf' id='percentf' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br></font>
+<font size=2>Angle of Attack (Deg)<br>
+<INPUT NAME='angle' id='angle' TYPE='text' VALUE='10.0' SIZE='20' onfocus="HideResults();" autofocus><br></font>
+<br /><b>Section Data</b><br/>
+<font size=2>WingRoot/Flap) dC<sub>L</sub>/d&alpha; (/rad)<br></font>
+<INPUT NAME='a0r' id='a0r' TYPE='text' VALUE='6.2' SIZE='20' onfocus="HideResults();" autofocus><br/>
+<font size=2>WingRoot/Flap) &alpha;<sub>o</sub> (Deg)<br></font>
+<INPUT NAME='alf0r' id='alf0r' TYPE='text' VALUE='-1.5' SIZE='20' onfocus="HideResults();" autofocus><br />
+<font size=2>WingTip/Aileron) dC<sub>L</sub>/d&alpha; (/rad)<br></font>
+<INPUT NAME='a0t' id='a0t' TYPE='text' VALUE='6.2' SIZE='20' onfocus="HideResults();" autofocus><br />
+<font size=2>WingTip/Aileron) &alpha;<sub>o</sub> (Deg)<br></font>
+<INPUT NAME='alf0t' id='alf0t' TYPE='text' VALUE='1.5' SIZE='20' onfocus="HideResults();" autofocus><br>
+</td><td>
+<br />&nbsp;<br />
+<INPUT id='Compute1' TYPE='button' VALUE='Solve' onclick="ComputeSolve();">
+//<INPUT id='Compute2' TYPE='button' VALUE='Loading' onclick="ComputeLoading();" >
+//<INPUT id='Compute3' TYPE='button' VALUE='Downwash' onclick="ComputeDownwash();">
+//<INPUT id='Compute4' TYPE='button' VALUE='List Data' onclick="ComputeList();">
+</center>
+</form>
+<p id='output'>  </p>
+<fieldset id="results">
+<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeSolve() {
+
+ var spanfield = document.getElementById("span").value;
+ var span=Number(spanfield);
+ var rchordfield = document.getElementById("rchord").value;
+ var rchord=Number(rchordfield);
+ var tchordfield = document.getElementById("tchord").value;
+ var tchord=Number(tchordfield);
+ var wofield = document.getElementById("wo").value;
+ var wo=Number(wofield);
+ var percentffield = document.getElementById("percentf").value;
+ var percentf=Number(percentffield);
+ var anglefield = document.getElementById("angle").value;
+ var angle=Number(anglefield);
+ var a0rfield = document.getElementById("a0r").value;
+ var a0r=Number(a0rfield);
+ var alf0rfield = document.getElementById("alf0r").value;
+ var alf0r=Number(alf0rfield);
+ var a0tfield = document.getElementById("a0t").value;
+ var a0t=Number(a0tfield);
+ var alf0tfield = document.getElementById("alf0t").value;
+ var alf0t=Number(alf0tfield);
+
+ var semi,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
+ var dt,theta,alpha,yf,i,j,k,y,chord,twist,dclda,alfo,amu,eps0,eps1;
+ var an,diag,col,sum1,sum2,fchord;
+ var amat = [][];
+ var rhs1 = [];
+ var rhs2 = [];
+ var nc=15;
+ const PI=3.1415926;
+ 
+ semi=span/2.0;
+ dcldar=a0r;
+ dcldat=a0t;
+ wash=-wo/180.0*PI;
+ alfor=alf0r/180.0*PI;
+ alfot=alf0t/180.0*PI;
+ area=(rchord + tchord)*semi;
+ aspect=span*span/area;
+ if (Math.abs(percentf)>100.0) {
+  percentf=100.0;
+ }
+ sflap=percentf/100.0;
+ cmean=(rchord+tchord)*0.5;
+ dt=PI/(nc+1);
+ theta=PI-$dt;
+ alpha=1.0/18.0*PI;
+ yf=Math.abs(sflap)*semi;
+ i=0;
+ while (i<nc) {
+  y=semi*Math.cos(theta);
+  chord=rchord-(rchord-tchord)*Math.abs(y)/semi;
+  twist=wash*Math.abs(y)/semi;
+  if (sflap>0.05) {
+   if (y>yf || y<(-yf)) {
+    dclda=dcldat;
+    alfo=alfot;
+   } else { 
+    dclda=dcldar;
+    alfo=alfor;
+   }
+  } else if (sflap<-0.01) {
+   if (y>semi-yf) {
+    dclda=dcldat;
+    alfo=alfot;
+   } else if (y<-semi+yf) {
+    dclda=dcldat;
+    alfo=alfor-(alfot-alfor);
+   } else {   
+    dclda=dcldar;
+    alfo=alfor;
+   }
+  } else { 
+   dclda=dcldar-(dcldar-dcldat)*Math.abs(y)/semi;
+   alfo=alfor-(alfor-alfot)*Math.abs(y)/semi;
+  }
+  amu=dclda*chord/8.0/semi;
+  eps0=twist-alfo;
+  eps1=alpha+twist-alfo;
+  j=0;
+  while (j<nc) {
+   an=j+1;
+   amat[i][j]=Math.sin(an*theta)*(Math.sin(theta)+an*amu);
+   j=j+1;
+  } 
+  rhs1[i]=amu*Math.sin(theta)*eps0;
+  rhs2[i]=amu*Math.sin(theta)*eps1;
+  theta=theta-dt;
+  i=i+1;
+ }
+ i=0;
+ while (i<nc-1) {
+  diag=amat[i][i];
+  if (Math.abs(diag)<1.0E-10) { alert("Unsolvable geometry"); return; } 
+  j=i;
+  while (j<nc) {
+   amat[i][j]=(amat[i][j])/diag;
+   j=j+1;
+  }
+  rhs1[i]=rhs1[i]/diag;
+  rhs2[i]=rhs2[i]/diag;
+  j=i+1;
+  while (j<nc) {
+   col=amat[j][i];
+   k=i;
+   while (k<nc) {
+    amat[j][k]=amat[j][k]-amat[i][k]*col;
+    k=k+1;
+   } 
+   rhs1[j]=rhs1[j]-rhs1[i]*col;
+   rhs2[j]=rhs2[j]-rhs2[i]*col;
+   j=j+1;
+  }
+  i=i+1;
+ }    
+ if (Math.abs(amat[nc-1][nc-1])<1.0E-10) { alert ("unsolveable geometry"); return; }
+ rhs1[nc-1]=rhs1[nc-1]/amat[nc-1][nc-1];
+ rhs2[nc-1]=rhs2[nc-1]/amat[nc-1][nc-1];
+ i=0;
+ while (i<nc-1) {
+  j=nc-i-2;
+  sum1=0.0;
+  sum2=0.0;
+  k=j+1;
+  while (k<nc) {
+   sum1=sum1+rhs1[k]*amat[j][k];
+   sum2=sum2+rhs2[k]*amat[j][k];
+   k=k+1;
+  }
+  rhs1[j]=rhs1[j]-sum1;
+  rhs2[j]=rhs2[j]-sum2;
+  i=i+1;
+  }
+ } 
+
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=450;
+
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+// Create a background
+
+ var scale=rchord*2;
+ if (tchord>rchord) {
+  scale=tchord*2.0;
+ }
+ if (span>scale) {
+  scale=span;
+ } 
+ scale=500.0/scale;
+ var xcent=imgWidth/2.0;
+ var pnts= [];
+ pnts[0]=xcent;
+ pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
+ pnts[2]=Math.trunc(semi*scale + xcent);
+ pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
+ pnts[4]=pnts[2];
+ pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+ pnts[6]=pnts[0];
+ pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
+ pnts[8]=pnts[0];
+ pnts[9]=pnts[1];
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(pnts[0],pnts[1]);
+ i=0;
+ while (i<4) {
+  j=i*2+2;
+  ctx.lineTo(pnts[j],pnts[j+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="blue";
+ ctx.lineStyle="red";
+ ctx.fill();
+ ctx.stroke();
+ 
+ pnts[0]=xcent;
+ pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
+ pnts[2]=Math.trunc(-semi*scale + xcent);
+ pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
+ pnts[4]=pnts[2];
+ pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+ pnts[6]=pnts[0];
+ pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
+ pnts[8]=pnts[0];
+ pnts[9]=pnts[1];
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(pnts[0],pnts[1]);
+ i=0;
+ while (i<4) {
+  j=i*2+2;
+  ctx.lineTo(pnts[j],pnts[j+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="blue";
+ ctx.lineStyle="red";
+ ctx.fill();
+ ctx.stroke();
+ if (percentf>2.0) {
+  pnts[0]=xcent;
+  pnts[1]=Math.trunc(imgHeight/2.0 + rchord/4.0*scale);
+  pnts[2]=Math.trunc(semi*percentf/100.0*scale + xcent);
+  fchord=rchord*(1.0-percentf/100.0)+tchord*percentf/100.0;
+  pnts[3]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
+  pnts[4]=pnts[2];
+  pnts[5]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*scale);
+  pnts[6]=pnts[0];
+  pnts[7]=intval($imgHeight/2.0 + $rchord/2.0*$scale);
+  pnts[8]=pnts[0];
+  pnts[9]=pnts[1];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.lineStyle="red";
+  ctx.fill();
+  ctx.stroke();
+
+  pnts[2]=Math.trunc(-$semi*percentf/100.0*scale + xcent);
+  pnts[4]=pnts[2];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.lineStyle="red";
+  ctx.fill();
+  ctx.stroke();
+ }
+ if (percentf<-0.5) {
+  pnts[0]=Math.trunc(semi*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  fchord=rchord*(Math.abs(percentf)/100.0)+tchord*(1.0-Math.abs(percentf)/100.0);
+  pnts[1]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
+  pnts[2]=Math.trunc(semi*scale + xcent);
+  pnts[3]=Math.trunc(imgHeight/2.0 + tchord/4.0*scale);
+  pnts[4]=pnts[2];
+  pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+  pnts[6]=pnts[0];
+  pnts[7]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*scale);
+  pnts[8]=pnts[0];
+  pnts[9]=pnts[1];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.lineStyle="red";
+  ctx.fill();
+  ctx.stroke();
+
+  pnts[0]=Math.trunc(-semi*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  pnts[2]=Math.trunc(-semi*scale + xcent);
+  pnts[4]=pnts[2];
+  pnts[6]=pnts[0];
+  pnts[8]=$pnts[0];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.lineStyle="red";
+  ctx.fill();
+  ctx.stroke();
+ }
+ var x0,y0,x1,y1;
+ x0=0;
+ y0=imgHeight/2.0 - rchord/4.0*scale;
+ x1=imgWidth;
+ y1=imgHeight/2.0 - rchord/4.0*scale;
+ ctx.beginPath();
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y1);
+ ctx.closePath();
+ ctx.lineStyle="red";
+ ctx.stroke();
+ x1=x1-50;
+ y1=y1-20;
+ ctx.font = "12px Arial";
+ ctx.fillText("1/4 c",x1,y1);
+ x0=xcent;
+ y0=imgHeight/2.0 - rchord*scale;
+ x1=xcent;
+ y1= imgHeight/2.0 + rchord*scale;
+ ctx.beginPath();
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y1);
+ ctx.closePath();
+ ctx.lineStyle="red";
+ ctx.stroke();
+ x1=x1-50;
+ y1=y1-20;
+
+ var cl0,cl10,cd0,cd10,cl00,bb1,bb2;
+ cl0=PI*aspect*rhs1[0];
+ cl10=PI*aspect*rhs2[0];
+ cd0=0.0;
+ cd10=0.0;
+ i=0;
+ while (i<nc) {
+  j=2*i+1;
+  cd0=cd0+PI*aspect*rhs1[i]*rhs1[i]*j;
+  cd10=cd10+PI*aspect*rhs2[i]*rhs2[i]*j;
+  i=i+1;
+ }
+ aa1=(cl10-cl0)/PI*18.0;
+ cl00=Math.abs(cl0);
+ if (cl0>=0) {
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x Alpha + " + cl0.toPrecision(3) + " ";
+ } else {
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x Alpha - " + cl00.toPrecision(3) + " ";
+ }
+ 
+ bb1=(cd10-cd0)/(cl10*cl10-cl0*cl0);
+ bb2=cd0-bb1*cl0*cl0;
+ strng1 = strng1 + "<br />";
+ strng1 = strng1 + "C<sub>D</sub> = " + bb1.toPrecision(5) + " x C<sub>L</sub><sup>2</sup> + " + bb2.toPrecision(5)+ " ";
+ strng1 = strng1 + "<br />";
+ strng1 = strng1 + "MAC = " + cmean.toPrecision(4) + " ";
+ strng1 = strng1 + "<br />" 
+ strng1 = strng1 + "AR  = " + aspect.toPrecision(2) + " ";
+ document.getElementById("output").innerHTML = strng1;
+
+</script>
+
+
+
+</td></tr></table>
+<p>&nbsp;</p>
+<p align='left'><a href='3d-prandtl-lifting-line-theory.html'>Return to Prandtl Lifting Line page</a></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
