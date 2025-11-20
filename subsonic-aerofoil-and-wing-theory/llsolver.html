@@ -128,7 +128,7 @@ function ComputeSolve() {
  var semi,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
  var dt,theta,alpha,yf,i,j,k,y,chord,twist,dclda,alfo,amu,eps0,eps1;
  var an,diag,col,sum1,sum2,fchord;
- var amat = Math.zeros(15,15);
+ var amat = math.zeros(15,15);
  var rhs1 = [];
  var rhs2 = [];
  var nc=15;
@@ -438,9 +438,9 @@ function ComputeSolve() {
  aa1=(cl10-cl0)/PI*18.0;
  cl00=Math.abs(cl0);
  if (cl0>=0) {
-  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x Alpha + " + cl0.toPrecision(3) + " ";
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x &alpha; + " + cl0.toPrecision(3) + " ";
  } else {
-  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x Alpha - " + cl00.toPrecision(3) + " ";
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x &alpha; - " + cl00.toPrecision(3) + " ";
  }
  
  bb1=(cd10-cd0)/(cl10*cl10-cl0*cl0);
