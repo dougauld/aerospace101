@@ -107,6 +107,7 @@ function ComputeFlow() {
  var ak=Number(akfield);
  var numfield = document.getElementById("num").value;
  var num=Number(numfield);
+ if (num>300) { alert("Too many data points (>300)... Try less"); return; }
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
  var circ = document.getElementById("circ").checked;
@@ -436,6 +437,7 @@ function ComputePress() {
  var ak=Number(akfield);
  var numfield = document.getElementById("num").value;
  var num=Number(numfield);
+ if (num>300) { alert("Too many data points (>300)... Try less"); return; }
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
  var circ = document.getElementById("circ").checked;
@@ -785,6 +787,7 @@ function ComputeList() {
  var ak=Number(akfield);
  var numfield = document.getElementById("num").value;
  var num=Number(numfield);
+ if (num>300) { alert("Too many data points (>300)... Try less"); return; }
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
  var circ = document.getElementById("circ").checked;
