@@ -90,6 +90,7 @@ The geometry of various families of sections can be created; symmetric, cambered
 function HideResults() {
 //  alert("Hiding results");
   document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
 }   // --------------------------------------------- End of function HideResults
 
 function ComputeFlow() {
@@ -604,7 +605,7 @@ function ComputePress() {
         }
         ipnt=1;
         xp[0]=frac*(xtri[0]-xtri[1])+xtri[1];
-        yp[0]=frac*(ytri[0]-ytri[1])+ytri[1]; 
+        yp[0]=frac*(ytri[0]-ytri[1])+ytri[1]; 5.0
        }
       } 
       if ((vval<vt[1]) && (vval<vt[2])) {
@@ -840,10 +841,10 @@ function ComputeList() {
  var  drag=0.0;
  var  lift=-2.0*gamma/(xmax-xmin);
  let listing = "<table><tr><td colspan='3'>CL = ";
- listing = listing + lift.toPrecision(2) + " &nbsp;&nbsp;&nbsp;CD = " + drag.toPrecision(4) + "</td></tr></table>"; 
+ listing = listing + lift.toPrecision(2) + " &nbsp;&nbsp;&nbsp;CD = " + drag.toPrecision(4) + "</td></tr>"; 
+ listing = listing + "<tr><td>X</td><td>Y</td><td>Cp</td></tr>";
+ listing = listing + "</table>" 
  document.getElementById("output").innerHTML = listing;
-// echo "<tr><td colspan='3'><br>CL = ".number_format($lift,2)."&nbsp;&nbsp;&nbsp;CD = ".number_format($drag,4)."<br
-// echo "<tr><td align='center'>X</td><td align='center'>Y</td><td align='center'>Cp</td></tr>";
  j=0;
  while (j<num) {
 // echo "<tr><td align='left'> ".number_format($x[$j],4)."</td>";
