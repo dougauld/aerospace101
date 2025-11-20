@@ -80,6 +80,7 @@ The geometry of various families of sections can be created; symmetric, cambered
 <input id="Compute2" type="button" value="Pressures" onclick="ComputePress();" >
 <input id="Compute3" type="button" value="List Data" onclick="ComputeList();" >
 </form>
+ <p id='output'>  </p>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
 </fieldset>
@@ -769,7 +770,7 @@ function ComputePress() {
  document.getElementById("results").style.visibility="visible";
 }
 
- function ComputeList() {
+function ComputeList() {
 
  var xcent,ycent,ak,num,circ,alf
  var radiusfield = document.getElementById("radius").value;
@@ -788,71 +789,69 @@ function ComputePress() {
  var circ = document.getElementById("circ").checked;
 
  const PI = 3.1415926;
- var imgWidth = 600;
- var imgHeight = 450;
  var theta1,theta2,numx,dt,dr,xmax,xmin,alpha,j,ax1,ay1,z1,ax2,ay2;
- var theta,gamma;
+ var theta,gamma,div;
  
- const c = document.getElementById("imageout");
- const ctx = c.getContext("2d");
- ctx.fillStyle = "white";
- ctx.fillRect(0, 0, 600, 450);
-
- theta1=PI;
- theta2=PI;
- numx=Math.trunc(num/2);
- dt=PI/numx;
- xmax=0.0;
- xmin=0.0;
+ theta=0.0;
+ dt=2.0*PI/(num-1);
  alpha=alf*PI/180.0;
  j=0;
- var xu = [];
- var yu = [];
- var xl = [];
- var yl = [];
- while (j<numx) {
-  ax1=radius*Math.cos(theta1)-xcent;
-  ay1=radius*Math.sin(theta1)+ycent;
-  z1=ax1*ax1+ay1*ay1;
-  ax2=ax1*(z1+ak*ak)/z1;
-  ay2=ay1*(z1-ak*ak)/z1;
-  xu[j]=ax2;
-  yu[j]=ay2;
-  theta1=theta1-dt;
-  ax1=radius*Math.cos(theta2)-xcent;
-  ay1=radius*Math.sin(theta2)+ycent;
-  z1=ax1*ax1+ay1*ay1;
-  ax2=ax1*(z1+ak*ak)/z1;
-  ay2=ay1*(z1-ak*ak)/z1;
-  xl[j]=ax2;
-  yl[j]=ay2;
-  theta2=theta2+dt;
-  if (xu[j]>xmax) {
-   xmax=xu[j];
-  } 
-  if (xu[j]<xmin) {
-   xmin=xu[j];
-  }
-  if (xl[j]>xmax) {
-   xmax=xl[j];
-  } 
-  if (xl[j]<xmin) {
-   xmin=xl[j];
-  }
-  j=j+1;
- }  
- var chord=xmax-xmin;
- theta=0.0;
- dt=10.0/180.0*PI;
- dr=0.1;
+ var x = [];
+ var y = [];
+ var v = [];
  if (circ) {
   gamma=4.0*PI*Math.sin(-alpha)*Math.sqrt(1.0+ycent*ycent)-4.0*PI*Math.cos(alpha)*ycent;
- } else {
+ else {
   gamma=0.0;
  }
- document.getElementById("results").style.visibility="visible";
+ while (j<num) {
+  ax1=radius*Math.cos(theta)-xcent;
+  ay1=radius*Math.sin(theta)+ycent;
+  z1=ax1*ax1+ay1*ay1;
+  ax2=ax1*(z1+ak*ak)/z1;
+  ay2=ay1*(z1-ak*ak)/z1;
+  vel=2.0*Math.sin(theta-alpha)-gamma/(2.0*PI*radius);
+  div=1.0+ak*ak/radius/radius*(1.0-2.0*Math.cos(2.0*theta));
+  if (Math.abs(div)<1.0e-10) {
+   div=1.0e-10;
+  }
+  v[j]=1.0-vel*vel/div;
+  x[j]=ax2;
+  y[j]=ay2;
+  theta=theta+dt;
+  j=j+1;
+ }
+ j=1;
+ var fx=0;
+ var fy=0;
+ xmin=x[0];
+ xmax=x[0];
+ while (j<num) {
+  fy=fy+0.5*(v[j]+v[j-1])*(x[j]-x[j-1]);
+  fx=fx+0.5*(v[j]+v[j-1])*(y[j-1]-y[j]);
+  if (x[j]>xmax) {
+   xmax=x[j];
+  }
+  if (x[j]<xmin) {
+   xmin=x[j];
+  }
+  j=j+1;
+ }
+ var  drag=0.0;
+ var  lift=-2.0*gamma/(xmax-xmin);
+ let listing = "<table><tr><td colspan='3'>CL = "+lift.toPrecision(2)+" &nbsp;&nbsp;&nbsp;CD = "+drag.toPrecision(4)"+"</td></tr></table>"; 
+ document.getElementById("p1").innerHTML = listing;
+// echo "<tr><td colspan='3'><br>CL = ".number_format($lift,2)."&nbsp;&nbsp;&nbsp;CD = ".number_format($drag,4)."<br
+// echo "<tr><td align='center'>X</td><td align='center'>Y</td><td align='center'>Cp</td></tr>";
+ j=0;
+ while (j<num) {
+// echo "<tr><td align='left'> ".number_format($x[$j],4)."</td>";
+//  echo "<td align='left'> ".number_format($y[$j],4)."</td>";
+//  echo "<td align='left'> ".number_format($v[$j],4)."</td></tr>";
+//  j=j+1;
+ }  
 }
-
+ 
 </script>
 
 
