@@ -110,7 +110,7 @@ function ComputeFlow() {
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
  var circ = document.getElementById("circ").checked;
-
+ document.getElementById("output").innerHTML = " ";
  const PI = 3.1415926;
  var imgWidth = 600;
  var imgHeight = 450;
@@ -439,7 +439,7 @@ function ComputePress() {
  var alffield = document.getElementById("alf").value;
  var alf=Number(alffield);
  var circ = document.getElementById("circ").checked;
-
+ document.getElementById("output").innerHTML = " ";
  const PI = 3.1415926;
  var imgWidth = 600;
  var imgHeight = 450;
@@ -843,15 +843,13 @@ function ComputeList() {
  let listing = "<table><tr><td colspan='3'>CL = ";
  listing = listing + lift.toPrecision(2) + " &nbsp;&nbsp;&nbsp;CD = " + drag.toPrecision(4) + "</td></tr>"; 
  listing = listing + "<tr><td>X</td><td>Y</td><td>Cp</td></tr>";
- listing = listing + "</table>" 
- document.getElementById("output").innerHTML = listing;
  j=0;
  while (j<num) {
-// echo "<tr><td align='left'> ".number_format($x[$j],4)."</td>";
-//  echo "<td align='left'> ".number_format($y[$j],4)."</td>";
-//  echo "<td align='left'> ".number_format($v[$j],4)."</td></tr>";
+  listing = listing + "<tr><td>" + x[j].toPrecision(4) + "</td><td>" + y[j].toPrecision(4) + "</td><td>" + v[j].toPrecision(4) + "</td></tr>";
   j=j+1;
  }  
+ listing = listing + "</table>" 
+ document.getElementById("output").innerHTML = listing;
 }
  
 </script>
