@@ -839,8 +839,9 @@ function ComputeList() {
  }
  var  drag=0.0;
  var  lift=-2.0*gamma/(xmax-xmin);
- let listing = "<table><tr><td colspan='3'>CL = "+lift.toPrecision(2)+" &nbsp;&nbsp;&nbsp;CD = "+drag.toPrecision(4)"+"</td></tr></table>"; 
- document.getElementById("p1").innerHTML = listing;
+ let listing = "<table><tr><td colspan='3'>CL = ";
+ listing = listing + lift.toPrecision(2) + " &nbsp;&nbsp;&nbsp;CD = " + drag.toPrecision(4) + "</td></tr></table>"; 
+ document.getElementById("output").innerHTML = listing;
 // echo "<tr><td colspan='3'><br>CL = ".number_format($lift,2)."&nbsp;&nbsp;&nbsp;CD = ".number_format($drag,4)."<br
 // echo "<tr><td align='center'>X</td><td align='center'>Y</td><td align='center'>Cp</td></tr>";
  j=0;
