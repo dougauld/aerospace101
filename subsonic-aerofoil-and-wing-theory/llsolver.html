@@ -428,7 +428,7 @@ function ComputeSolve() {
  x1=x1-50;
  y1=y1-20;
 
- var cl0,cl10,cd0,cd10,cl00,bb1,bb2;
+ var cl0,cl10,cd0,cd10,cl00,bb1,bb2,val;
  cl0=PI*aspect*rhs1[0];
  cl10=PI*aspect*rhs2[0];
  cd0=0.0;
@@ -460,6 +460,19 @@ function ComputeSolve() {
  strng1 = strng1 + "<br />" 
  strng1 = strng1 + "AR  = " + aspect.toPrecision(2) + " ";
  document.getElementById("output").innerHTML = strng1; 
+ strng1 =  "<table><tr><td>Fourier Coefficient&nbsp;&nbsp;&nbsp;</td><td>Coefficient Value</td></tr>";
+ j=0;
+ while (j<nc) {
+  i=j+1;
+  val=rhs1[j]+angle/10.0*(rhs2[j]-rhs1[j]);
+  if (Math.abs(val)<1.0e-10) {
+    val=0;
+  }
+  strng1 = strng1 + "<tr><td align='right'>&nbsp;&nbsp;&nbsp;A<sub>" + i + "</sub> </td><td>" + val.toPrecision(4) + "</td></tr>";
+  j=j+1;
+ } 
+ strng1 = strng1 + "</table>";
+ document.getElementById("output2").innerHTML = strng1; 
  document.getElementById("results").style.visibility="visible";
 }
  
