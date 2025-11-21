@@ -79,7 +79,7 @@ The geometry of the wing can be entered along with its aerofoil section properti
 <font size=2>WingTip/Aileron) dC<sub>L</sub>/d&alpha; (/rad)<br></font>
 <INPUT NAME='a0t' id='a0t' TYPE='text' VALUE='6.2' SIZE='20' onfocus="HideResults();" autofocus><br />
 <font size=2>WingTip/Aileron) &alpha;<sub>o</sub> (Deg)<br></font>
-<INPUT NAME='alf0t' id='alf0t' TYPE='text' VALUE='1.5' SIZE='20' onfocus="HideResults();" autofocus><br>
+<INPUT NAME='alf0t' id='alf0t' TYPE='text' VALUE='-1.5' SIZE='20' onfocus="HideResults();" autofocus><br>
 </td><td>
 <br />&nbsp;<br />
 <INPUT id='Compute1' TYPE='button' VALUE='Solve' onclick="ComputeSolve();">
@@ -451,12 +451,16 @@ function ComputeSolve() {
  bb1=(cd10-cd0)/(cl10*cl10-cl0*cl0);
  bb2=cd0-bb1*cl0*cl0;
  strng1 = strng1 + "<br />";
- strng1 = strng1 + "C<sub>D</sub> = " + bb1.toPrecision(5) + " x C<sub>L</sub><sup>2</sup> + " + bb2.toPrecision(5)+ " ";
+ strng1 = strng1 + "C<sub>D</sub> = " + bb1.toPrecision(5) + " x C<sub>L</sub><sup>2</sup>";
+ if (Math.abs(bb2)>1.0e-7) {
+  strng1 =strng1 + " + " + bb2.toPrecision(5)+ " ";
+ } 
  strng1 = strng1 + "<br />";
  strng1 = strng1 + "MAC = " + cmean.toPrecision(4) + " ";
  strng1 = strng1 + "<br />" 
  strng1 = strng1 + "AR  = " + aspect.toPrecision(2) + " ";
- document.getElementById("output").innerHTML = strng1;
+ document.getElementById("output").innerHTML = strng1; 
+ document.getElementById("results").style.visibility="visible";
 }
  
 </script>
