@@ -322,7 +322,7 @@ function ComputeSolve() {
   pnts[4]=pnts[2];
   pnts[5]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*scale);
   pnts[6]=pnts[0];
-  pnts[7]=intval($imgHeight/2.0 + $rchord/2.0*$scale);
+  pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
   pnts[8]=pnts[0];
   pnts[9]=pnts[1];
   ctx.beginPath();
