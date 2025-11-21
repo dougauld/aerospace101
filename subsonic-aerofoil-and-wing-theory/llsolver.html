@@ -125,7 +125,7 @@ function ComputeSolve() {
  var alf0tfield = document.getElementById("alf0t").value;
  var alf0t=Number(alf0tfield);
 
- var semi,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
+ var semispan,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
  var dt,theta,alpha,yf,i,j,k,y,chord,twist,dclda,alfo,amu,eps0,eps1;
  var an,diag,col,sum1,sum2,fchord;
  const amat = []; 
@@ -134,13 +134,13 @@ function ComputeSolve() {
  var nc=15;
  const PI=3.1415926;
  
- semi=span/2.0;
+ semispan=span/2.0;
  dcldar=a0r;
  dcldat=a0t;
  wash=-wo/180.0*PI;
  alfor=alf0r/180.0*PI;
  alfot=alf0t/180.0*PI;
- area=(rchord + tchord)*semi;
+ area=(rchord + tchord)*semispan;
  aspect=span*span/area;
  if (Math.abs(percentf)>100.0) {
   percentf=100.0;
@@ -148,14 +148,14 @@ function ComputeSolve() {
  sflap=percentf/100.0;
  cmean=(rchord+tchord)*0.5;
  dt=PI/(nc+1);
- theta=PI-$dt;
+ theta=PI-dt;
  alpha=1.0/18.0*PI;
- yf=Math.abs(sflap)*semi;
+ yf=Math.abs(sflap)*semispan;
  i=0;
  while (i<nc) {
-  y=semi*Math.cos(theta);
-  chord=rchord-(rchord-tchord)*Math.abs(y)/semi;
-  twist=wash*Math.abs(y)/semi;
+  y=semispan*Math.cos(theta);
+  chord=rchord-(rchord-tchord)*Math.abs(y)/semispan;
+  twist=wash*Math.abs(y)/semispan;
   if (sflap>0.05) {
    if (y>yf || y<(-yf)) {
     dclda=dcldat;
@@ -165,10 +165,10 @@ function ComputeSolve() {
     alfo=alfor;
    }
   } else if (sflap<-0.01) {
-   if (y>semi-yf) {
+   if (y>semispan-yf) {
     dclda=dcldat;
     alfo=alfot;
-   } else if (y<-semi+yf) {
+   } else if (y<-semispan+yf) {
     dclda=dcldat;
     alfo=alfor-(alfot-alfor);
    } else {   
@@ -176,10 +176,10 @@ function ComputeSolve() {
     alfo=alfor;
    }
   } else { 
-   dclda=dcldar-(dcldar-dcldat)*Math.abs(y)/semi;
-   alfo=alfor-(alfor-alfot)*Math.abs(y)/semi;
+   dclda=dcldar-(dcldar-dcldat)*Math.abs(y)/semispan;
+   alfo=alfor-(alfor-alfot)*Math.abs(y)/semispan;
   }
-  amu=dclda*chord/8.0/semi;
+  amu=dclda*chord/8.0/semispan;
   eps0=twist-alfo;
   eps1=alpha+twist-alfo;
   j=0;
@@ -261,7 +261,7 @@ function ComputeSolve() {
  var pnts= [];
  pnts[0]=xcent;
  pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
- pnts[2]=Math.trunc(semi*scale + xcent);
+ pnts[2]=Math.trunc(semispan*scale + xcent);
  pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
  pnts[4]=pnts[2];
  pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
@@ -286,7 +286,7 @@ function ComputeSolve() {
  
  pnts[0]=xcent;
  pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
- pnts[2]=Math.trunc(-semi*scale + xcent);
+ pnts[2]=Math.trunc(-semispan*scale + xcent);
  pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
  pnts[4]=pnts[2];
  pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
@@ -311,7 +311,7 @@ function ComputeSolve() {
  if (percentf>2.0) {
   pnts[0]=xcent;
   pnts[1]=Math.trunc(imgHeight/2.0 + rchord/4.0*scale);
-  pnts[2]=Math.trunc(semi*percentf/100.0*scale + xcent);
+  pnts[2]=Math.trunc(semispan*percentf/100.0*scale + xcent);
   fchord=rchord*(1.0-percentf/100.0)+tchord*percentf/100.0;
   pnts[3]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
   pnts[4]=pnts[2];
@@ -334,7 +334,7 @@ function ComputeSolve() {
   ctx.fill();
   ctx.stroke();
 
-  pnts[2]=Math.trunc(-$semi*percentf/100.0*scale + xcent);
+  pnts[2]=Math.trunc(-semispan*percentf/100.0*scale + xcent);
   pnts[4]=pnts[2];
   ctx.beginPath();
   ctx.moveTo(pnts[0],pnts[1]);
@@ -351,10 +351,10 @@ function ComputeSolve() {
   ctx.stroke();
  }
  if (percentf<-0.5) {
-  pnts[0]=Math.trunc(semi*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  pnts[0]=Math.trunc(semispan*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
   fchord=rchord*(Math.abs(percentf)/100.0)+tchord*(1.0-Math.abs(percentf)/100.0);
   pnts[1]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
-  pnts[2]=Math.trunc(semi*scale + xcent);
+  pnts[2]=Math.trunc(semispan*scale + xcent);
   pnts[3]=Math.trunc(imgHeight/2.0 + tchord/4.0*scale);
   pnts[4]=pnts[2];
   pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
@@ -376,8 +376,8 @@ function ComputeSolve() {
   ctx.fill();
   ctx.stroke();
 
-  pnts[0]=Math.trunc(-semi*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
-  pnts[2]=Math.trunc(-semi*scale + xcent);
+  pnts[0]=Math.trunc(-semispan*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  pnts[2]=Math.trunc(-semispan*scale + xcent);
   pnts[4]=pnts[2];
   pnts[6]=pnts[0];
   pnts[8]=$pnts[0];
