@@ -128,7 +128,13 @@ function ComputeSolve() {
  var semispan,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
  var dt,theta,alpha,yf,i,j,k,y,chord,twist,dclda,alfo,amu,eps0,eps1;
  var an,diag,col,sum1,sum2,fchord;
- var amat = []; 
+ var amat = [];
+ for (let i = 0; i < 15; i++) {
+  amat[i] = [];
+  for (let j = 0; j < 15; j++) {
+    amat[i][j] = j;
+  }
+ }
  var rhs1 = [];
  var rhs2 = [];
  var nc=15;
@@ -235,8 +241,8 @@ function ComputeSolve() {
   rhs1[j]=rhs1[j]-sum1;
   rhs2[j]=rhs2[j]-sum2;
   i=i+1;
-  }
- } 
+ }
+
 
 // Add values to the graph
  var imgWidth=600;
