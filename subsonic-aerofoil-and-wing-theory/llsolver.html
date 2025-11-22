@@ -458,14 +458,14 @@ function ComputeSolve() {
   ctx.moveTo(x1,yc);
   ctx.lineTo(x1,y1);
   ctx.closePath();
-  ctx.lineStyle="green";
+  ctx.strokeStyle="green";
   ctx.stroke();
   if (i>0) {
    ctx.beginPath();
    ctx.moveTo(x0,y0);
    ctx.lineTo(x1,y1);
    ctx.closePath();
-   ctx.lineStyle="green";
+   ctx.strokeStyle="green";
    ctx.stroke();
   }
   x0=x1;
