@@ -508,7 +508,7 @@ function ComputeSolve() {
  while (j<nc) {
   i=j+1;
   val=rhs1[j]+angle/10.0*(rhs2[j]-rhs1[j]);
-  if (Math.abs(val)<1.0e-10) {
+  if (Math.abs(val)<1.0e-5) {
     val=0;
   }
   strng1 = strng1 + "<tr><td align='right'>&nbsp;&nbsp;&nbsp;A<sub>" + i + "</sub> </td><td>" + val.toPrecision(4) + "</td></tr>";
