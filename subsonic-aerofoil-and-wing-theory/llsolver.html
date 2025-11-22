@@ -400,7 +400,7 @@ function ComputeSolve() {
   ctx.fill();
   ctx.stroke();
  }
- var x0,y0,x1,y1;
+ var x0,y0,x1,y1,x,dx;
  x0=0;
  y0=imgHeight/2.0 - rchord/4.0*scale;
  x1=imgWidth;
@@ -427,6 +427,51 @@ function ComputeSolve() {
  ctx.stroke();
  x1=x1-50;
  y1=y1-20;
+ 
+ var gamma = [];
+ var sum1,an,gscale,yc;
+ x=-1.0;
+ dx=2.0/167;
+ i=0;
+ yc=Math.trunc(imgHeight/2.0 - rchord/4.0*scale);
+ while (i<167) {
+  theta=Math.acos(x);
+  j=0;
+  sum1=0.0;
+  while (j<nc) {
+   an=j+1;
+   val=rhs1[j]+angle/10.0*(rhs2[j]-rhs1[j]);
+   sum1=sum1 + val*Math.sin(an*theta);
+   j=j+1;
+  }
+  gamma[i]=sum1;  
+  i++;
+  x=x+dx;
+ }
+ gamma[167]=0.0;
+ i=0;
+ gscale=2000.0;
+ while (i<168) {
+  x1=Math.trunc((span*i/167.0-semi)*scale + xcent);
+  y1=Math.trunc(yc-gamma[i]*gscale); 
+  ctx.beginPath();
+  ctx.moveTo(x1,yc);
+  ctx.lineTo(x1,y1);
+  ctx.closePath();
+  ctx.lineStyle="green";
+  ctx.stroke();
+  if (i>0) {
+   ctx.beginPath();
+   ctx.moveTo(x0,y0);
+   ctx.lineTo(x1,y1);
+   ctx.closePath();
+   ctx.lineStyle="green";
+   ctx.stroke();
+  }
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ }
 
  var cl0,cl10,cd0,cd10,cl00,bb1,bb2,val;
  cl0=PI*aspect*rhs1[0];
