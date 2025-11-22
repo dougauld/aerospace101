@@ -80,12 +80,10 @@ The geometry of the wing can be entered along with its aerofoil section properti
 <INPUT NAME='a0t' id='a0t' TYPE='text' VALUE='6.2' SIZE='20' onfocus="HideResults();" autofocus><br />
 <font size=2>WingTip/Aileron) &alpha;<sub>o</sub> (Deg)<br></font>
 <INPUT NAME='alf0t' id='alf0t' TYPE='text' VALUE='-1.5' SIZE='20' onfocus="HideResults();" autofocus><br>
-</td><td align='center'>
-<INPUT id='Compute1' TYPE='button' VALUE='Solve' onclick="ComputeSolve();">
-<!-- <INPUT id='Compute2' TYPE='button' VALUE='Loading' onclick="ComputeLoading();" >
- <INPUT id='Compute3' TYPE='button' VALUE='Downwash' onclick="ComputeDownwash();">
- <INPUT id='Compute4' TYPE='button' VALUE='List Data' onclick="ComputeList();">
--->
+</td><td><center>
+<INPUT id='Compute1' TYPE='button' VALUE='Solve with Span Loading' onclick="ComputeSolve();">
+<INPUT id='Compute2' TYPE='button' VALUE='Solve with Downwash Distribution' onclick="ComputeLoading();" >
+</center>
 </form>
 <p id='output'>  </p>
 <fieldset id="results">
@@ -521,6 +519,423 @@ function ComputeSolve() {
  document.getElementById("results").style.visibility="visible";
 }
  
+function ComputeDownwash() {
+
+ var spanfield = document.getElementById("span").value;
+ var span=Number(spanfield);
+ var rchordfield = document.getElementById("rchord").value;
+ var rchord=Number(rchordfield);
+ var tchordfield = document.getElementById("tchord").value;
+ var tchord=Number(tchordfield);
+ var wofield = document.getElementById("wo").value;
+ var wo=Number(wofield);
+ var percentffield = document.getElementById("percentf").value;
+ var percentf=Number(percentffield);
+ var anglefield = document.getElementById("angle").value;
+ var angle=Number(anglefield);
+ var a0rfield = document.getElementById("a0r").value;
+ var a0r=Number(a0rfield);
+ var alf0rfield = document.getElementById("alf0r").value;
+ var alf0r=Number(alf0rfield);
+ var a0tfield = document.getElementById("a0t").value;
+ var a0t=Number(a0tfield);
+ var alf0tfield = document.getElementById("alf0t").value;
+ var alf0t=Number(alf0tfield);
+
+ var semispan,dcldar,dcldat,wash,alfor,alfot,area,aspect,sflap,cmean;
+ var dt,theta,alpha,yf,i,j,k,y,chord,twist,dclda,alfo,amu,eps0,eps1;
+ var an,diag,col,sum1,sum2,fchord;
+ var amat = [];
+ for (let i = 0; i < 15; i++) {
+  amat[i] = [];
+  for (let j = 0; j < 15; j++) {
+    amat[i][j] = j;
+  }
+ }
+ var rhs1 = [];
+ var rhs2 = [];
+ var nc=15;
+ const PI=3.1415926;
+ 
+ semispan=span/2.0;
+ dcldar=a0r;
+ dcldat=a0t;
+ wash=-wo/180.0*PI;
+ alfor=alf0r/180.0*PI;
+ alfot=alf0t/180.0*PI;
+ area=(rchord + tchord)*semispan;
+ aspect=span*span/area;
+ if (Math.abs(percentf)>100.0) {
+  percentf=100.0;
+ }
+ sflap=percentf/100.0;
+ cmean=(rchord+tchord)*0.5;
+ dt=PI/(nc+1);
+ theta=PI-dt;
+ alpha=1.0/18.0*PI;
+ yf=Math.abs(sflap)*semispan;
+ i=0;
+ while (i<nc) {
+  y=semispan*Math.cos(theta);
+  chord=rchord-(rchord-tchord)*Math.abs(y)/semispan;
+  twist=wash*Math.abs(y)/semispan;
+  if (sflap>0.05) {
+   if (y>yf || y<(-yf)) {
+    dclda=dcldat;
+    alfo=alfot;
+   } else { 
+    dclda=dcldar;
+    alfo=alfor;
+   }
+  } else if (sflap<-0.01) {
+   if (y>semispan-yf) {
+    dclda=dcldat;
+    alfo=alfot;
+   } else if (y<-semispan+yf) {
+    dclda=dcldat;
+    alfo=alfor-(alfot-alfor);
+   } else {   
+    dclda=dcldar;
+    alfo=alfor;
+   }
+  } else { 
+   dclda=dcldar-(dcldar-dcldat)*Math.abs(y)/semispan;
+   alfo=alfor-(alfor-alfot)*Math.abs(y)/semispan;
+  }
+  amu=dclda*chord/8.0/semispan;
+  eps0=twist-alfo;
+  eps1=alpha+twist-alfo;
+  j=0;
+  while (j<nc) {
+   an=j+1;
+   amat[i][j]=Math.sin(an*theta)*(Math.sin(theta)+an*amu);
+   j=j+1;
+  } 
+  rhs1[i]=amu*Math.sin(theta)*eps0;
+  rhs2[i]=amu*Math.sin(theta)*eps1;
+  theta=theta-dt;
+  i=i+1;
+ }
+ i=0;
+ while (i<nc-1) {
+  diag=amat[i][i];
+  if (Math.abs(diag)<1.0E-10) { alert("Unsolvable geometry"); return; } 
+  j=i;
+  while (j<nc) {
+   amat[i][j]=(amat[i][j])/diag;
+   j=j+1;
+  }
+  rhs1[i]=rhs1[i]/diag;
+  rhs2[i]=rhs2[i]/diag;
+  j=i+1;
+  while (j<nc) {
+   col=amat[j][i];
+   k=i;
+   while (k<nc) {
+    amat[j][k]=amat[j][k]-amat[i][k]*col;
+    k=k+1;
+   } 
+   rhs1[j]=rhs1[j]-rhs1[i]*col;
+   rhs2[j]=rhs2[j]-rhs2[i]*col;
+   j=j+1;
+  }
+  i=i+1;
+ }    
+ if (Math.abs(amat[nc-1][nc-1])<1.0E-10) { alert ("unsolveable geometry"); return; }
+ rhs1[nc-1]=rhs1[nc-1]/amat[nc-1][nc-1];
+ rhs2[nc-1]=rhs2[nc-1]/amat[nc-1][nc-1];
+ i=0;
+ while (i<nc-1) {
+  j=nc-i-2;
+  sum1=0.0;
+  sum2=0.0;
+  k=j+1;
+  while (k<nc) {
+   sum1=sum1+rhs1[k]*amat[j][k];
+   sum2=sum2+rhs2[k]*amat[j][k];
+   k=k+1;
+  }
+  rhs1[j]=rhs1[j]-sum1;
+  rhs2[j]=rhs2[j]-sum2;
+  i=i+1;
+ }
+
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=450;
+
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+// Create a background
+
+ var scale=rchord*2;
+ if (tchord>rchord) {
+  scale=tchord*2.0;
+ }
+ if (span>scale) {
+  scale=span;
+ } 
+ scale=500.0/scale;
+ var xcent=imgWidth/2.0;
+ var pnts= [];
+ pnts[0]=xcent;
+ pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
+ pnts[2]=Math.trunc(semispan*scale + xcent);
+ pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
+ pnts[4]=pnts[2];
+ pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+ pnts[6]=pnts[0];
+ pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
+ pnts[8]=pnts[0];
+ pnts[9]=pnts[1];
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(pnts[0],pnts[1]);
+ i=0;
+ while (i<4) {
+  j=i*2+2;
+  ctx.lineTo(pnts[j],pnts[j+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="blue";
+ ctx.strokeStyle="red";
+ ctx.fill();
+ ctx.stroke();
+ 
+ pnts[0]=xcent;
+ pnts[1]=Math.trunc(imgHeight/2.0 - rchord/2.0*scale);
+ pnts[2]=Math.trunc(-semispan*scale + xcent);
+ pnts[3]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale);
+ pnts[4]=pnts[2];
+ pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+ pnts[6]=pnts[0];
+ pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
+ pnts[8]=pnts[0];
+ pnts[9]=pnts[1];
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(pnts[0],pnts[1]);
+ i=0;
+ while (i<4) {
+  j=i*2+2;
+  ctx.lineTo(pnts[j],pnts[j+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="blue";
+ ctx.strokeStyle="red";
+ ctx.fill();
+ ctx.stroke();
+ if (percentf>2.0) {
+  pnts[0]=xcent;
+  pnts[1]=Math.trunc(imgHeight/2.0 + rchord/4.0*scale);
+  pnts[2]=Math.trunc(semispan*percentf/100.0*scale + xcent);
+  fchord=rchord*(1.0-percentf/100.0)+tchord*percentf/100.0;
+  pnts[3]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
+  pnts[4]=pnts[2];
+  pnts[5]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*scale);
+  pnts[6]=pnts[0];
+  pnts[7]=Math.trunc(imgHeight/2.0 + rchord/2.0*scale);
+  pnts[8]=pnts[0];
+  pnts[9]=pnts[1];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.strokeStyle="red";
+  ctx.fill();
+  ctx.stroke();
+
+  pnts[2]=Math.trunc(-semispan*percentf/100.0*scale + xcent);
+  pnts[4]=pnts[2];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.strokeStyle="red";
+  ctx.fill();
+  ctx.stroke();
+ }
+ if (percentf<-0.5) {
+  pnts[0]=Math.trunc(semispan*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  fchord=rchord*(Math.abs(percentf)/100.0)+tchord*(1.0-Math.abs(percentf)/100.0);
+  pnts[1]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*3.0/4.0*scale);
+  pnts[2]=Math.trunc(semispan*scale + xcent);
+  pnts[3]=Math.trunc(imgHeight/2.0 + tchord/4.0*scale);
+  pnts[4]=pnts[2];
+  pnts[5]=Math.trunc(imgHeight/2.0 - tchord/2.0*scale + tchord*scale);
+  pnts[6]=pnts[0];
+  pnts[7]=Math.trunc(imgHeight/2.0 - fchord/2.0*scale + fchord*scale);
+  pnts[8]=pnts[0];
+  pnts[9]=pnts[1];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.strokeStyle="red";
+  ctx.fill();
+  ctx.stroke();
+
+  pnts[0]=Math.trunc(-semispan*(1.0 - Math.abs(percentf)/100.0)*scale + xcent);
+  pnts[2]=Math.trunc(-semispan*scale + xcent);
+  pnts[4]=pnts[2];
+  pnts[6]=pnts[0];
+  pnts[8]=pnts[0];
+  ctx.beginPath();
+  ctx.moveTo(pnts[0],pnts[1]);
+  i=0;
+  while (i<4) {
+   j=i*2+2;
+   ctx.lineTo(pnts[j],pnts[j+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="grey";
+  ctx.strokeStyle="red";
+  ctx.fill();
+  ctx.stroke();
+ }
+ var x0,y0,x1,y1,x,dx;
+ x0=0;
+ y0=imgHeight/2.0 - rchord/4.0*scale;
+ x1=imgWidth;
+ y1=imgHeight/2.0 - rchord/4.0*scale;
+ ctx.beginPath();
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y1);
+ ctx.closePath();
+ ctx.strokeStyle="red";
+ ctx.stroke();
+ x1=x1-40;
+ y1=y1-5;
+ ctx.font = "12px Arial";
+ ctx.fillText("1/4 c",x1,y1);
+ x0=xcent;
+ y0=imgHeight/2.0 - rchord*scale;
+ x1=xcent;
+ y1= imgHeight/2.0 + rchord*scale;
+ ctx.beginPath();
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y1);
+ ctx.closePath();
+ ctx.strokeStyle="red";
+ ctx.stroke();
+ x1=x1-50;
+ y1=y1-20;
+ 
+ var gamma = [];
+ var sum1,an,gscale,yc;
+ dx=1.0/40;
+ x=-1.0+dx;
+ i=0;
+ yc=Math.trunc(imgHeight/2.0 - rchord/4.0*scale);
+ while (i<79) {
+  theta=Math.acos(x);
+  j=0;
+  sum1=0.0;
+  while (j<nc) {
+   an=j+1;
+   val=rhs1[j]+angle/10.0*(rhs2[j]-rhs1[j]);
+   sum1=sum1 + an*val*Math.sin(an*theta);
+   j=j+1;
+  }
+  gamma[i]=-sum1/Math.sin(theta);  
+  i++;
+  x=x+dx;
+ }
+ i=0;
+ gscale=1000.0;
+ while (i<79) {
+  x1=Math.trunc((span*i/78.0-semispan)*scale + xcent);
+  y1=Math.trunc(yc-gamma[i]*gscale); 
+  ctx.beginPath();
+  ctx.moveTo(x1,yc);
+  ctx.lineTo(x1,y1);
+  ctx.closePath();
+  ctx.strokeStyle="red";
+  ctx.stroke();
+  if (i>0) {
+   ctx.beginPath();
+   ctx.moveTo(x0,y0);
+   ctx.lineTo(x1,y1);
+   ctx.closePath();
+   ctx.strokeStyle="red";
+   ctx.stroke();
+  }
+  x0=x1;
+  y0=y1;
+  i=i+1;
+ }
+
+ var cl0,cl10,cd0,cd10,cl00,bb1,bb2,val;
+ cl0=PI*aspect*rhs1[0];
+ cl10=PI*aspect*rhs2[0];
+ cd0=0.0;
+ cd10=0.0;
+ i=0;
+ while (i<nc) {
+  j=2*i+1;
+  cd0=cd0+PI*aspect*rhs1[i]*rhs1[i]*j;
+  cd10=cd10+PI*aspect*rhs2[i]*rhs2[i]*j;
+  i=i+1;
+ }
+ aa1=(cl10-cl0)/PI*18.0;
+ cl00=Math.abs(cl0);
+ if (cl0>=0) {
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x &alpha; + " + cl0.toPrecision(3) + " ";
+ } else {
+  strng1="C<sub>L</sub> = " + aa1.toPrecision(3) + " x &alpha; - " + cl00.toPrecision(3) + " ";
+ }
+ 
+ bb1=(cd10-cd0)/(cl10*cl10-cl0*cl0);
+ bb2=cd0-bb1*cl0*cl0;
+ strng1 = strng1 + "<br />";
+ strng1 = strng1 + "C<sub>D</sub> = " + bb1.toPrecision(5) + " x C<sub>L</sub><sup>2</sup>";
+ if (Math.abs(bb2)>1.0e-7) {
+  strng1 =strng1 + " + " + bb2.toPrecision(5)+ " ";
+ } 
+ strng1 = strng1 + "<br />";
+ strng1 = strng1 + "MAC = " + cmean.toPrecision(4) + " ";
+ strng1 = strng1 + "<br />" 
+ strng1 = strng1 + "AR  = " + aspect.toPrecision(2) + " ";
+ document.getElementById("output").innerHTML = strng1; 
+ strng1 =  "<table><tr><td>Fourier Coefficient&nbsp;&nbsp;&nbsp;</td><td>Coefficient Value</td></tr>";
+ j=0;
+ while (j<nc) {
+  i=j+1;
+  val=rhs1[j]+angle/10.0*(rhs2[j]-rhs1[j]);
+  if (Math.abs(val)<1.0e-10) {
+    val=0;
+  }
+  strng1 = strng1 + "<tr><td align='right'>&nbsp;&nbsp;&nbsp;A<sub>" + i + "</sub> </td><td>" + val.toPrecision(4) + "</td></tr>";
+  j=j+1;
+ } 
+ strng1 = strng1 + "</table>";
+ document.getElementById("output2").innerHTML = strng1; 
+ document.getElementById("results").style.visibility="visible";
+}
 </script>
 
 
