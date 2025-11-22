@@ -452,7 +452,7 @@ function ComputeSolve() {
  i=0;
  gscale=2000.0;
  while (i<168) {
-  x1=Math.trunc((span*i/167.0-semi)*scale + xcent);
+  x1=Math.trunc((span*i/167.0-semispan)*scale + xcent);
   y1=Math.trunc(yc-gamma[i]*gscale); 
   ctx.beginPath();
   ctx.moveTo(x1,yc);
