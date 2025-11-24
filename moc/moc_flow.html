@@ -176,7 +176,7 @@ function Compute2D() {
  var ang1,i,j,k;
  const rgas = 1716.0 ;
  const gc = 32.2 ;
- ang1 = 0.0 ;
+ var ang1 = 0.0 ;
  var nzar;
  const exht = 10.0 ;
  const nzht = 10.0 ;
@@ -222,7 +222,7 @@ function Compute2D() {
  var mcmach = [];
  var mcdefl = [];
  var mcturn = [];
- var mcpm = [];
+ var mcpm   = [];
  var mcmang = [];
  var mcmach = [];
  var mcQ    = [];
@@ -237,7 +237,6 @@ function Compute2D() {
   mcdefl[i] = [];
   mcpm[i]   = [];
   mcmang[i] = [];
-  mcmach[i] = [];
   mcQ[i]    = [];
   mcR[i]    = [];
   mcx[i]    = [];
@@ -279,7 +278,9 @@ function Compute2D() {
  tanb90 = Math.tan(convdr*betar90) ;
  x1max = - 2.0 * xrefl * tanb90 / (tanalf - tanb90) ;
  delxhi = x1max / (numray/2 -1) ;
- if (delx > delxhi) { delx = delxhi } ;
+ if (delx > delxhi) { 
+  delx = delxhi; 
+ } 
  var fl1,i1,thetmx,delthet;
  fl1 = Math.trunc(delx) ;
  i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
@@ -341,102 +342,101 @@ function Compute2D() {
   mcx[i][1] = mcx[i-1][1] + delx * icybgn[1] ;
   mcy[i][1] = mcy[i-1][1] + (mcx[i][1]-mcx[i-1][1])*Math.tan(convdr*mcturn[i-1][1]);
   for(k=2; k<=i; ++k) {
-    mcQ[i][k] = mcQ[i][k-1] ;
-    mcR[i][k] = mcR[i-1][k] ;
-    mcpm[i][k]   = 0.5*(mcQ[i][k] + mcR[i][k]) ;
-    mcturn[i][k] = 0.5*(mcQ[i][k] - mcR[i][k]) ;
-    mcdefl[i][k] = mcturn[i][k] - mcturn[i-1][k] ;
-    irow=i; icol=k; 
-    mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-    list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
-    mcmang[irow][icol] = mu ;
-    mcpp0[irow][icol] = poverpt * pref ;
-    mctt0[irow][icol] = tovertt * tref ;
-    mcal = (mcmang[i][k-1] - mcturn[i][k-1])*convdr ;
-    mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*convdr ;
-    mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal)+mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)+Math.tan(mcbe) );
-    mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
-   }
-//  plane of symmetry
-   mcturn[i][i+1] = 0.0 ;
-   mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
-   mcQ[i][i+1] = mcQ[i][i] ;
-   mcR[i][i+1] = mcQ[i][i+1] ;
-   mcpm[i][i+1]= mcQ[i][i+1] ;
-   irow=i; icol=i+1; 
-   mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-   list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
-   mcmang[irow][icol] = mu ;
-   mcpp0[irow][icol] = poverpt * pref ;
-   mctt0[irow][icol] = tovertt * tref ;
-   mcy[i][i+1] = 0.0;
-   mcx[i][i+1] = mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
-  }
-//  cancellation surface
-  i = numray/2 + 1 ;
-  mcdefl[i][1] = mcdefl[i-1][1] ;
-  mcturn[i][1] = mcturn[i-1][1] ;
-  mcR[i][1] = mcR[i-1][1] ;
-  mcpm[i][1] = mcpm[i-1][1] ;
-  mcQ[i][1] = mcQ[i-1][1] ;
-  mcmach[i][1] = mcmach[i-1][1] ;
-  list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
-  mcmang[i][1] = mcmang[i-1][1];
-  mcx[i][1] = mcx[i-1][1] ;
-  mcy[i][1] = mcy[i-1][1] ; 
-  mcpp0[i][1] = mcpp0[i-1][1] ;
-  mctt0[i][1] = mctt0[i-1][1] ;
-  for(k=2; k<=i; ++k) {
-   mcdefl[i][k] = -delthet ;
-   mcturn[i][k] = mcturn[i][k-1] + mcdefl[i][k] ;
+   mcQ[i][k] = mcQ[i][k-1] ;
    mcR[i][k] = mcR[i-1][k] ;
-   mcpm[i][k] = mcR[i][k] + mcturn[i][k] ;
-   mcQ[i][k] = mcpm[i][k] + mcturn[i][k] ;
+   mcpm[i][k]   = 0.5*(mcQ[i][k] + mcR[i][k]) ;
+   mcturn[i][k] = 0.5*(mcQ[i][k] - mcR[i][k]) ;
+   mcdefl[i][k] = mcturn[i][k] - mcturn[i-1][k] ;
    irow=i; icol=k; 
    mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-//   getIsen(mcmach[irow][icol], gamma) ;
    list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
    mcmang[irow][icol] = mu ;
    mcpp0[irow][icol] = poverpt * pref ;
    mctt0[irow][icol] = tovertt * tref ;
-   mcal = mcturn[i][k-1]*convdr ;
-   mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*condvr ;
-   mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(mcal)-mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)-Math.tan(mcbe));
-   mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
-  } 
+   mcal = (mcmang[i][k-1] - mcturn[i][k-1])*convdr ;
+   mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*convdr ;
+   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal)+mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)+Math.tan(mcbe) );
+   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
+  }
+//  plane of symmetry
+  mcturn[i][i+1] = 0.0 ;
+  mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
+  mcQ[i][i+1] = mcQ[i][i] ;
+  mcR[i][i+1] = mcQ[i][i+1] ;
+  mcpm[i][i+1]= mcQ[i][i+1] ;
+  irow=i; icol=i+1; 
+  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+  list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+  mcmang[irow][icol] = mu ;
+  mcpp0[irow][icol] = poverpt * pref ;
+  mctt0[irow][icol] = tovertt * tref ;
+  mcy[i][i+1] = 0.0;
+  mcx[i][i+1] = mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
+ }
+//  cancellation surface
+ i = numray/2 + 1 ;
+ mcdefl[i][1] = mcdefl[i-1][1] ;
+ mcturn[i][1] = mcturn[i-1][1] ;
+ mcR[i][1] = mcR[i-1][1] ;
+ mcpm[i][1] = mcpm[i-1][1] ;
+ mcQ[i][1] = mcQ[i-1][1] ;
+ mcmach[i][1] = mcmach[i-1][1] ;
+ list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
+ mcmang[i][1] = mcmang[i-1][1];
+ mcx[i][1] = mcx[i-1][1] ;
+ mcy[i][1] = mcy[i-1][1] ; 
+ mcpp0[i][1] = mcpp0[i-1][1] ;
+ mctt0[i][1] = mctt0[i-1][1] ;
+ for(k=2; k<=i; ++k) {
+  mcdefl[i][k] = -delthet ;
+  mcturn[i][k] = mcturn[i][k-1] + mcdefl[i][k] ;
+  mcR[i][k] = mcR[i-1][k] ;
+  mcpm[i][k] = mcR[i][k] + mcturn[i][k] ;
+  mcQ[i][k] = mcpm[i][k] + mcturn[i][k] ;
+  irow=i; icol=k; 
+  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+//   getIsen(mcmach[irow][icol], gamma) ;
+  list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+  mcmang[irow][icol] = mu ;
+  mcpp0[irow][icol] = poverpt * pref ;
+  mctt0[irow][icol] = tovertt * tref ;
+  mcal = mcturn[i][k-1]*convdr ;
+  mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*condvr ;
+  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(mcal)-mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)-Math.tan(mcbe));
+  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
+ } 
 //  wall geometry
-  for(j=2; j<=numray/2; ++j) {
-   icxbgn[j] = icxnd[j-1] ;
-   icybgn[j] = icynd[j-1] ;
-   icxnd[j]  = mcx[j][1] ;
-   icynd[j]  = mcy[j][1] ;
-  }
-  for(j=numray/2+1; j<=numray; ++j) {
-   icxbgn[j] = icxnd[j-1] ;
-   icybgn[j] = icynd[j-1] ;
-   k = j - numray/2 + 1 ;
-   icxnd[j]  = mcx[i][k] ;
-   icynd[j]  = mcy[i][k] ;
-  }
-  icxbgn[numray + 1] = icxnd[numray] ;
-  icybgn[numray + 1] = icynd[numray] ;
-  icxnd[j]  = icxbgn[numray+1] ;
-  icynd[j]  = icybgn[numray+1] ;
-  exthk = icxnd[numray+1]*Math.tan(convdr*ang1) ;
-  ecxbgn[1] = icxbgn[1] ;
-  ecybgn[1] = icynd[numray + 1] + exthk ;
-  ecxbgn[2] = ecxnd[1] = icxnd[1] ;
-  ecybgn[2] = ecynd[1] = ecybgn[1] ;
-  ecxnd[2] = icxnd[numray + 1] ;
-  ecynd[2] = icynd[numray + 1] ;
-  xexit = nzht*icxnd[numray + 1] ;
-  yexit = nzht*icynd[numray + 1] ;
+ for(j=2; j<=numray/2; ++j) {
+  icxbgn[j] = icxnd[j-1] ;
+  icybgn[j] = icynd[j-1] ;
+  icxnd[j]  = mcx[j][1] ;
+  icynd[j]  = mcy[j][1] ;
+ }
+ for(j=numray/2+1; j<=numray; ++j) {
+  icxbgn[j] = icxnd[j-1] ;
+  icybgn[j] = icynd[j-1] ;
+  k = j - numray/2 + 1 ;
+  icxnd[j]  = mcx[i][k] ;
+  icynd[j]  = mcy[i][k] ;
+ }
+ icxbgn[numray + 1] = icxnd[numray] ;
+ icybgn[numray + 1] = icynd[numray] ;
+ icxnd[j]  = icxbgn[numray+1] ;
+ icynd[j]  = icybgn[numray+1] ;
+ exthk = icxnd[numray+1]*Math.tan(convdr*ang1) ;
+ ecxbgn[1] = icxbgn[1] ;
+ ecybgn[1] = icynd[numray + 1] + exthk ;
+ ecxbgn[2] = ecxnd[1] = icxnd[1] ;
+ ecybgn[2] = ecynd[1] = ecybgn[1] ;
+ ecxnd[2] = icxnd[numray + 1] ;
+ ecynd[2] = icynd[numray + 1] ;
+ xexit = nzht*icxnd[numray + 1] ;
+ yexit = nzht*icynd[numray + 1] ;
 // output and plotting variables
-  for(i=0; i<=numray; ++i) {
-   for(j=0; j<=numray; ++j) {
-    mcpp0[i][j] = psth * mcpp0[i][j] ;
-    mctt0[i][j] = tsth * mctt0[i][j] ;
-   }
+ for(i=0; i<=numray; ++i) {
+  for(j=0; j<=numray; ++j) {
+   mcpp0[i][j] = psth * mcpp0[i][j] ;
+   mctt0[i][j] = tsth * mctt0[i][j] ;
   }
  }
 //calculate airflow and thrust and drag
@@ -446,18 +446,15 @@ function Compute2D() {
  mach = 1.0 ;      // throat mach  - choked
 //getAir(machthrt,gamma,aft,ptft,tto) ;     
 //function getAir($mach, $gam, $area, $pres, $temp) {
-//total pres in lb/sq ft .. total temp in Rankine .. area in feet^2 .. rgas in ft^2/s^2 / R
- 
+//total pres in lb/sq ft .. total temp in Rankine .. area in feet^2 .. rgas in ft^2/s^2 / R 
  temp = tto;
  gm1 = gamma -1.0 ;
  gp1 = gamma +1.0 ;
  fac1 = 1.0 + .5 * gm1 * mach * mach ;
  fac2 = gp1 / (2.0 * gm1) ;
  mflow = area * pres * Math.sqrt(gamma/(rgas * temp)) * mach * Math.pow(fac1,-fac2) ;
- wflow = mflow * gc ;      
-//}   
+ wflow = mflow * gc ;         
  var soundex,uexit,fgros,aboat,dragab,fnet;
- 
  soundex = Math.sqrt(gamma * rgas * texit) ; 
  uexit = soundex * machend ;
  aexit = aexit / 144. ;  // exit area in sq ft
@@ -466,7 +463,6 @@ function Compute2D() {
  dragab = aboat * (ps0 - plocal);
  fnet = fgros - dragab ;   
 //flow field in color based on Mach no.
- 
  var xorgn,yorgn,xmin,xmax,chord,amin,amax,temp;
  xorgn=25;
  yorgn=225;
