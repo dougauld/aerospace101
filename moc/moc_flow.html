@@ -182,12 +182,12 @@ function Compute2D() {
  const nzht = 10.0 ;
  var nzw = 10.0 ; 
  nzar = nzht * nzw;
- var nzarlo,nzarhi,nzlg,perint,perlo,perhi;
+ var nzarlo,nzarhi,nzlg,perint,perlo,perhi,nu,mu,poverpt,tovertt,arat;
  nzarlo = nzw ;
  nzarhi = 50.0*nzw ;
  nzlg = 1.0 ; 
 // $machend = 2.0 ;
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
+ [nu mu poverpt tovertt arat] =  getIsen(machend,gamma) ;
 
  var pexit,texit,aexit,delx,dslx0,delxhi,delxsav;
  pexit = pto * poverpt ;
