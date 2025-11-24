@@ -959,7 +959,7 @@ function getIsen (machin, gam) { // isentropic relations
  arat = machin*Math.pow(fac,-fac1)*Math.pow(gp1/2.0,fac1); /* EQ 80 */
  arat = 1.0/arat ;
  mu   = (Math.asin(1.0/machin))/convdr ;
- nu   = Math.sqrt(gp1/gm1)*Math.atan(sqrt(gm1*msm1/gp1))-Math.atan(Math.sqrt(msm1)) ;
+ nu   = Math.sqrt(gp1/gm1)*Math.atan(Math.sqrt(gm1*msm1/gp1))-Math.atan(Math.sqrt(msm1)) ;
  nu   = nu / convdr;
  return array(nu,mu,poverpt,tovertt,arat);
 }
