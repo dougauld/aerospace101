@@ -947,26 +947,28 @@ function Compute2D() {
 
 function getIsen (machin, gam) { // isentropic relations 
      // poverpt and tovertt are ratiod to total conditions
- convdr=3.1415926/180.0; 
- mach1s = machin*machin ; 
- gp1 = gam + 1.0 ;
- gm1 = gam - 1.0 ;
- msm1 = mach1s - 1.0;
- fac = 1.0 + 0.5*gm1*mach1s;
- poverpt = Math.pow(1.0/fac,gam/gm1) ;                      /* EQ 44 */
- tovertt = 1.0 / fac ;                                      /* EQ 43 */
- fac1 = gp1/(2.0*gm1) ;
- arat = machin*Math.pow(fac,-fac1)*Math.pow(gp1/2.0,fac1); /* EQ 80 */
- arat = 1.0/arat ;
- mu   = (Math.asin(1.0/machin))/convdr ;
- nu   = Math.sqrt(gp1/gm1)*Math.atan(Math.sqrt(gm1*msm1/gp1))-Math.atan(Math.sqrt(msm1)) ;
- nu   = nu / convdr;
- return array(nu,mu,poverpt,tovertt,arat);
+ const convdr=3.1415926/180.0; 
+ var mach1s = machin*machin ; 
+ var gp1 = gam + 1.0 ;
+ var gm1 = gam - 1.0 ;
+ var msm1 = mach1s - 1.0;
+ var fac = 1.0 + 0.5*gm1*mach1s;
+ var outputs = [];
+ outputs [2] = Math.pow(1.0/fac,gam/gm1) ;                      /* EQ 44 */
+ outputs [3] = 1.0 / fac ;                                      /* EQ 43 */
+ var fac1 = gp1/(2.0*gm1) ;
+ var arat = machin*Math.pow(fac,-fac1)*Math.pow(gp1/2.0,fac1); /* EQ 80 */
+ outputs [4] = 1.0/arat ;
+ outputs [1] = (Math.asin(1.0/machin))/convdr ;
+ var nu   = Math.sqrt(gp1/gm1)*Math.atan(Math.sqrt(gm1*msm1/gp1))-Math.atan(Math.sqrt(msm1)) ;
+ outputs [0] = nu / convdr;
+ return outputs; 
+//  array(nu,mu,poverpt,tovertt,arat);
 }
 
 function getMachpm(nuin, gam)  { /* get the Mach number */
                                  /* given the Prandtl-meyer angle */
- convdr = 3.1415926/180.0;
+ const convdr = 3.1415926/180.0;
  var nur = nuin*convdr ;
  var gm1 = gam - 1.0 ;
  var gp1 = gam + 1.0 ;
