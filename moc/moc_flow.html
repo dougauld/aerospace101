@@ -170,8 +170,7 @@ function Compute2D() {
 
                    
 */
- const PI = 3.1415926
- var convdr = PI/180.;
+ var convdr = 3.1415926/180.;
  var numray = 30 ;
  var ang1,i,j,k;
  const rgas = 1716.0 ;
@@ -251,7 +250,6 @@ function Compute2D() {
    mctt0[i][j] = 1.0 ;
    mcmach[i][j] = 1.0 ;
    mcturn[i][j] = 0.0 ;
-   mcdefl[i][j] = 0.0;
    mcpm[i][j]=0.0;
    mcmang[i][j]=0.0;
    mcQ[i][j] = 0.0;
@@ -296,7 +294,6 @@ function Compute2D() {
  fl1 = Math.trunc(delx) ;
  i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
 // list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
- nuexit = nu ;
  thetmx = nuexit / 2.0 ;
  delthet = nuexit / numray ;
  mcpm[0][0] = 0.0 ;
@@ -313,17 +310,17 @@ function Compute2D() {
  mcR[1][1] = mcpm[1][1] - mcturn[1][1] ;
  var irow=1; 
  var icol=1;
- mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+ mcmach[1][1] = getMachpm(mcpm[1][1],gamma);
  //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
- isoResult = getIsen(mcmach[irow][icol],gamma);
+ isoResult = getIsen(mcmach[1][1],gamma);
  poverpt = isoResult[2];
  tovertt = isoResult[3];
  arat = isoResult[4];
  nu = isoResult[0];
  mu = isoResult[1];
- mcmang[irow][icol] = mu ;
- mcpp0[irow][icol] = poverpt * pref ;
- mctt0[irow][icol] = tovertt * tref ;
+ mcmang[1][1] = mu ;
+ mcpp0[1][1] = poverpt * pref ;
+ mctt0[1][1] = tovertt * tref ;
  mcx[1][1] = 0.0 ;
  mcy[1][1] = icybgn[1] ;
 // 1-2  - plane of symmetry
@@ -332,19 +329,19 @@ function Compute2D() {
  mcQ[1][2] = mcQ[1][1] ;
  mcR[1][2] = mcQ[1][2] ;
  mcpm[1][2]= mcQ[1][2] ;
- irow=1; icol=2;;
- mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+ irow=1; icol=2;
+ mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
 // getIsen(mcmach[irow][icol], gamma) ;
- isoResult = getIsen(mcmach[irow][icol],gamma);
+ isoResult = getIsen(mcmach[1][2],gamma);
  poverpt = isoResult[2];
  tovertt = isoResult[3];
  arat = isoResult[4];
  nu = isoResult[0];
  mu = isoResult[1]; 
 //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
- mcmang[irow][icol] = mu ;
- mcpp0[irow][icol] = poverpt * pref ;
- mctt0[irow][icol] = tovertt * tref ;
+ mcmang[1][2] = mu ;
+ mcpp0[1][2] = poverpt * pref ;
+ mctt0[1][2] = tovertt * tref ;
  mcy[1][2] = 0.0;
  mcx[1][2] = mcx[1][1] + (mcy[1][1]-mcy[1][2]) / Math.tan(convdr*(mcmang[1][1]-mcturn[1][1])) ;
  for(i=2; i<=numray/2; ++i) {
@@ -354,66 +351,14 @@ function Compute2D() {
   mcQ[i][1] = mcpm[i][1] + mcturn[i][1] ;
   mcR[i][1] = mcpm[i][1] - mcturn[i][1] ;
   irow=i; icol=1;    
-  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-  isoResult = getIsen(mcmach[irow][icol],gamma);
+  mcmach[irow][1] = getMachpm(mcpm[irow][1],gamma);
+  isoResult = getIsen(mcmach[irow][1],gamma);
   poverpt = isoResult[2];
   tovertt = isoResult[3];
   arat = isoResult[4];
   nu = isoResult[0];
   mu = isoResult[1]; 
- // list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;   
- if (delx > delxhi) { 
-  delx = delxhi; 
- } 
- var fl1,i1,thetmx,delthet;
- fl1 = Math.trunc(delx) ;
- i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
-// list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
- nuexit = nu ;
- thetmx = nuexit / 2.0 ;
- delthet = nuexit / numray ;
- mcpm[0][0] = 0.0 ;
- mcmang[0][0] = 90.0 ;  
- mcmach[0][0] = 1.0 ;
- mcpp0[0][0] = 1.0 ;
- mctt0[0][0] = 1.0 ;
-//analysis by points 
-// 1-1  - solid boundary
- mcdefl[1][1] = delthet ;
- mcturn[1][1] = delthet ;
- mcpm[1][1]   = mcturn[1][1] ;
- mcQ[1][1] = mcpm[1][1] + mcturn[1][1] ;
- mcR[1][1] = mcpm[1][1] - mcturn[1][1] ;
- var irow=1; 
- var icol=1;
- mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
- //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
- isoResult = getIsen(mcmach[irow][icol],gamma);
- poverpt = isoResult[2];
- tovertt = isoResult[3];
- arat = isoResult[4];
- nu = isoResult[0];
- mu = isoResult[1];
- mcmang[irow][icol] = mu ;
- mcpp0[irow][icol] = poverpt * pref ;
- mctt0[irow][icol] = tovertt * tref ;
- mcx[1][1] = 0.0 ;
- mcy[1][1] = icybgn[1] ;
-// 1-2  - plane of symmetry
- mcturn[1][2] = 0.0 ;
- mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
- mcQ[1][2] = mcQ[1][1] ;
- mcR[1][2] = mcQ[1][2] ;
- mcpm[1][2]= mcQ[1][2] ;
- irow=1; icol=2;;
- mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-// getIsen(mcmach[irow][icol], gamma) ;
- isoResult = getIsen(mcmach[irow][icol],gamma);
- poverpt = isoResult[2];
- tovertt = isoResult[3];
- arat = isoResult[4];
- nu = isoResult[0];
-    
+  nu = isoResult[0];  
   mcmang[irow][icol] = mu ;
   mcpp0[irow][icol] = poverpt * pref ;
   mctt0[irow][icol] = tovertt * tref ;
