@@ -194,7 +194,7 @@ function Compute2D() {
  arat = isoResult[4];
 //  [nu mu poverpt tovertt arat] =  getIsen(machend,gamma) ;
 
- var pexit,texit,aexit,delx,dslx0,delxhi,delxsav,ts0,ps0,plocal;
+ var pexit,texit,aexit,delx,dslx0,delxhi,delxsav,ts0,ps0,plocal,pref,tref;
  pexit = pto * poverpt ;
  texit = tto * tovertt ;
  aexit = nzar * arat;
@@ -214,11 +214,14 @@ function Compute2D() {
   ps0 = 2116. *.02456 * Math.pow(ts0/389.98,-11.388) ;
  }
  ps0 = ps0 / 144.0;  
- plocal = ps0 ;
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(1.0,gamma) ;
+ plocal = ps0 ; 
+ isoResult = getIsen(1.0,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
  psth = pto * poverpt ;
  tsth = tto * tovertt ;
- 
+ pref = 1.0 / poverpt ;
+ tref = 1.0 / tovertt ; 
  var mcpp0  = [];
  var mctt0  = [];
  var mcmach = [];
@@ -268,7 +271,13 @@ function Compute2D() {
  xthrtx  = 0.0 ;
  xthrty  = 0.5 ;
 //  getIsen(machend,gamma) ;
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
+ isoResult = getIsen(machend,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+ nu = isoResult[0];
+ mu = isoResult[1];
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
  var nuexit,alfa,tanalf,betar,tanget,xrefl,betar90,tanb90,x1max,mcal,mcbe;
  nuexit = nu ;
  alfa =  nuexit / numray ;
@@ -293,10 +302,6 @@ function Compute2D() {
  mcpm[0][0] = 0.0 ;
  mcmang[0][0] = 90.0 ;  
  mcmach[0][0] = 1.0 ;
-//getIsen(mcmach[0][0], gamma) ;
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(1.0,gamma) ;
- pref = 1.0 / poverpt ;
- tref = 1.0 / tovertt ;
  mcpp0[0][0] = 1.0 ;
  mctt0[0][0] = 1.0 ;
 //analysis by points 
@@ -309,7 +314,13 @@ function Compute2D() {
  var irow=1; 
  var icol=1;
  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+ //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+ isoResult = getIsen(mcmach[irow][icol],gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+ nu = isoResult[0];
+ mu = isoResult[1];
  mcmang[irow][icol] = mu ;
  mcpp0[irow][icol] = poverpt * pref ;
  mctt0[irow][icol] = tovertt * tref ;
