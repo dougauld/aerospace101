@@ -382,10 +382,10 @@ function Compute2D() {
    mcmang[irow][icol] = mu ;
    mcpp0[irow][icol] = poverpt * pref ;
    mctt0[irow][icol] = tovertt * tref ;
-   mcal = (mcmang[i][k-1] - mcturn[i][k-1])*convdr ;
-   mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*convdr ;
-   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal)+mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)+Math.tan(mcbe) );
-   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
+   mcal = (mcmang[i][k-1] - mcturn[i][k-1]) ;
+   mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
+   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*condvr)+mcx[i-1][k]*Math.tan(mcbe*condvr))/(Math.tan(mcal*condvr)+Math.tan(mcbe*condvr) );
+   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*condvr);
   }
 //  plane of symmetry
   mcturn[i][i+1] = 0.0 ;
@@ -416,13 +416,13 @@ function Compute2D() {
  mcpm[i][1] = mcpm[i-1][1] ;
  mcQ[i][1] = mcQ[i-1][1] ;
  mcmach[i][1] = mcmach[i-1][1] ;
- isoResult = getIsen(mcmach[i][icol],gamma);
- poverpt = isoResult[2];
- tovertt = isoResult[3];
- arat = isoResult[4];
- nu = isoResult[0];
- mu = isoResult[1]; 
- // list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
+// isoResult = getIsen(mcmach[i][1],gamma);
+//poverpt = isoResult[2];
+//tovertt = isoResult[3];
+//arat = isoResult[4];
+//nu = isoResult[0];
+//mu = isoResult[1]; 
+// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
  mcmang[i][1] = mcmang[i-1][1];
  mcx[i][1] = mcx[i-1][1] ;
  mcy[i][1] = mcy[i-1][1] ; 
@@ -447,10 +447,10 @@ function Compute2D() {
   mcmang[irow][icol] = mu ;
   mcpp0[irow][icol] = poverpt * pref ;
   mctt0[irow][icol] = tovertt * tref ;
-  mcal = mcturn[i][k-1]*convdr ;
-  mcbe = (mcmang[i-1][k] + mcturn[i-1][k])*condvr ;
-  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(mcal)-mcx[i-1][k]*Math.tan(mcbe))/(Math.tan(mcal)-Math.tan(mcbe));
-  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal);
+  mcal = mcturn[i][k-1];
+  mcbe = (mcmang[i-1][k] + mcturn[i-1][k]);
+  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(condvr*mcal)-mcx[i-1][k]*Math.tan(condvr*mcbe))/(Math.tan(condvr*mcal)-Math.tan(condvr*mcbe));
+  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*condvr);
  } 
 //  wall geometry
  for(j=2; j<=numray/2; ++j) {
@@ -487,19 +487,19 @@ function Compute2D() {
   }
  }
 //calculate airflow and thrust and drag
- var area,pres,mach,gm1,gp1,temp,fac1,fac2,mflow,wflow;
+ var area,pres,mach,gm1,gp1,temp1,fac1,fac2,mflow,wflow;
  area = nzar / 144.0 ;   // throat area in sq ft
  pres = pto  * 144.0 ;  // throat total pressure in lb /sq ft
  mach = 1.0 ;      // throat mach  - choked
 //getAir(machthrt,gamma,aft,ptft,tto) ;     
 //function getAir($mach, $gam, $area, $pres, $temp) {
 //total pres in lb/sq ft .. total temp in Rankine .. area in feet^2 .. rgas in ft^2/s^2 / R 
- temp = tto;
+ temp1 = tto;
  gm1 = gamma -1.0 ;
  gp1 = gamma +1.0 ;
  fac1 = 1.0 + .5 * gm1 * mach * mach ;
  fac2 = gp1 / (2.0 * gm1) ;
- mflow = area * pres * Math.sqrt(gamma/(rgas * temp)) * mach * Math.pow(fac1,-fac2) ;
+ mflow = area * pres * Math.sqrt(gamma/(rgas * temp1)) * mach * Math.pow(fac1,-fac2) ;
  wflow = mflow * gc ;         
  var soundex,uexit,fgros,aboat,dragab,fnet;
  soundex = Math.sqrt(gamma * rgas * texit) ; 
