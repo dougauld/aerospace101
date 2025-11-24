@@ -950,6 +950,7 @@ function getIsen (machin, gam) { // isentropic relations
  convdr=3.1415926/180.0; 
  mach1s = machin*machin ; 
  gp1 = gam + 1.0 ;
+ gm1 = gam - 1.0 ;
  msm1 = mach1s - 1.0;
  fac = 1.0 + 0.5*gm1*mach1s;
  poverpt = Math.pow(1.0/fac,gam/gm1) ;                      /* EQ 44 */
