@@ -68,7 +68,7 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 <INPUT NAME='alt' id='alt' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
 <tr><td>Exhaust Ratio of Specific Heats (&gamma;)<br/>
-<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='20' onfocus="HideResults();" autofocus><br />";
+<INPUT NAME='gamma' id='gamma' TYPE='text' VALUE='1.4' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
 <tr><td>Throat Stagnation Pressure (P<sub>0</sub> psi)<br/>
 <INPUT NAME='pto' id='pto' TYPE='text' VALUE='50.0' SIZE='20' onfocus="HideResults();" autofocus><br />
@@ -520,7 +520,7 @@ function Compute2D() {
    n=Math.trunc(95.0*(temp-amin)/(amax-amin));
    if (n<0) {
     n=0;
-   } elseif (n>99) {
+   } else if (n>99) {
     n=99; 
    }
    ctx.beginPath();
@@ -554,7 +554,7 @@ function Compute2D() {
  n=Math.trunc(95.0*(temp-amin)/(amax-amin));
  if (n<0) {
   n=0;
- } elseif (n>99) {
+ } else if (n>99) {
   n=99; 
  }
  ctx.beginPath();
@@ -586,7 +586,7 @@ function Compute2D() {
  n=Math.trunc(95.0*(temp-amin)/(amax-amin));
  if (n<0) {
   n=0;
- } elseif (n>99) {
+ } else if (n>99) {
   n=99; 
  } 
  ctx.beginPath();
