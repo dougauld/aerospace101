@@ -187,9 +187,14 @@ function Compute2D() {
  nzarhi = 50.0*nzw ;
  nzlg = 1.0 ; 
 // $machend = 2.0 ;
- [nu mu poverpt tovertt arat] =  getIsen(machend,gamma) ;
+ var isoResult = [ 1.0  1.0  1.0  1.0  1.0]
+ isoResult = getIsen(machend,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+//  [nu mu poverpt tovertt arat] =  getIsen(machend,gamma) ;
 
- var pexit,texit,aexit,delx,dslx0,delxhi,delxsav;
+ var pexit,texit,aexit,delx,dslx0,delxhi,delxsav,ts0,ps0,plocal;
  pexit = pto * poverpt ;
  texit = tto * tovertt ;
  aexit = nzar * arat;
@@ -209,10 +214,7 @@ function Compute2D() {
   ps0 = 2116. *.02456 * Math.pow(ts0/389.98,-11.388) ;
  }
  ps0 = ps0 / 144.0;  
- gamex = 1.4 ;
  plocal = ps0 ;
- mlocal = 0.0;
- list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
  list (nu, mu, poverpt, tovertt, arat) =  getIsen(1.0,gamma) ;
  psth = pto * poverpt ;
  tsth = tto * tovertt ;
