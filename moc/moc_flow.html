@@ -506,7 +506,7 @@ function Compute2D() {
  dragab = aboat * (ps0 - plocal);
  fnet = fgros - dragab ;   
 //flow field in color based on Mach no.
- var xorgn,yorgn,xmin,xmax,chord,amin,amax,temp;
+ var xorgn,yorgn,xmin,xmax,chord,amin,amax,amin1,amax1,temp;
  xorgn=25;
  yorgn=225;
  xmin=icxbgn[1];
@@ -521,21 +521,18 @@ function Compute2D() {
  }
  chord=xmax-xmin;
 
- //if (vplot) {
-  amin=mcmach[1][1];
- //} else { 
- // amin=mcpp0[1][1];
- //}
+ amin=mcmach[1][1];
+ amin1=mcpp0[1][1];
  amax=amin;
+ amax1=amin1;
  for(i=1; i<=numray/2; ++i) {
   for (k=1; k<=i; ++k) {
- //  if (vplot) {
-    temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]);
-  // } else { 
-  //  temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]);
-  // } 
+   temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]);
    if (temp>amax) amax=temp;
    if (temp<amin) amin=temp;
+   temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]);
+   if (temp>amax1) amax1=temp;
+   if (temp<amin1) amin1=temp;
   }  
  } 
  var n,l;
@@ -724,7 +721,7 @@ function Compute2D() {
 // } else {
   temp = mcpp0[j-1][j];
 // } 
- n=(temp-amin)/(amax-amin);
+ n=(temp-amin1)/(amax1-amin1);
  if (n<0) {
   n=0;
  } else if ( n>1) {
@@ -761,7 +758,7 @@ function Compute2D() {
  //  } else {
     temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
  //  } 
-   n=(temp-amin)/(amax-amin);
+   n=(temp-amin1)/(amax1-amin1);
    if (n<0) {
     n=0;
    } else if (n>1) {
@@ -796,7 +793,7 @@ function Compute2D() {
 // } else {
  temp = mcpp0[i][i+2] ;
 // }
- n=(temp-amin)/(amax-amin);
+ n=(temp-amin1)/(amax1-amin1);
  if (n<0) {
   n=0;
  } else if (n>1) {
@@ -830,7 +827,7 @@ function Compute2D() {
  // } else {
    temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
  // } 
-  n=(temp-amin)/(amax-amin);
+  n=(temp1-amin1)/(amax1-amin1);
   if (n<0) {
    n=0;
   } else if (n>1) {
@@ -864,7 +861,7 @@ function Compute2D() {
 // } else {
   temp = mcpp0[j-1][j] ;
 // }
- n=(temp-amin)/(amax-amin);
+ n=(temp-amin1)/(amax1-amin1);
  if (n<0) { 
   n=0;
  } else if (n>1) {
