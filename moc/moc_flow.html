@@ -470,13 +470,6 @@ function Compute2D() {
  icybgn[numray + 1] = icynd[numray] ;
  icxnd[j]  = icxbgn[numray+1] ;
  icynd[j]  = icybgn[numray+1] ;
- exthk = icxnd[numray+1]*Math.tan(convdr*ang1) ;
- ecxbgn[1] = icxbgn[1] ;
- ecybgn[1] = icynd[numray + 1] + exthk ;
- ecxbgn[2] = ecxnd[1] = icxnd[1] ;
- ecybgn[2] = ecynd[1] = ecybgn[1] ;
- ecxnd[2] = icxnd[numray + 1] ;
- ecynd[2] = icynd[numray + 1] ;
  xexit = nzht*icxnd[numray + 1] ;
  yexit = nzht*icynd[numray + 1] ;
 // output and plotting variables
