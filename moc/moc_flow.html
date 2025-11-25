@@ -170,7 +170,7 @@ function Compute2D() {
 
                    
 */
- var condvr = 3.1415926/180.;
+ var convdr = 3.1415926/180.;
  var numray = 30 ;
  var ang1,i,j,k;
  const rgas = 1716.0 ;
@@ -384,8 +384,8 @@ function Compute2D() {
    mctt0[irow][icol] = tovertt * tref ;
    mcal = (mcmang[i][k-1] - mcturn[i][k-1]) ;
    mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
-   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*condvr)+mcx[i-1][k]*Math.tan(mcbe*condvr))/(Math.tan(mcal*condvr)+Math.tan(mcbe*condvr) );
-   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*condvr);
+   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*convdr)+mcx[i-1][k]*Math.tan(mcbe*convdr))/(Math.tan(mcal*convdr)+Math.tan(mcbe*convdr) );
+   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
   }
 //  plane of symmetry
   mcturn[i][i+1] = 0.0 ;
@@ -449,8 +449,8 @@ function Compute2D() {
   mctt0[irow][icol] = tovertt * tref ;
   mcal = mcturn[i][k-1];
   mcbe = (mcmang[i-1][k] + mcturn[i-1][k]);
-  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(condvr*mcal)-mcx[i-1][k]*Math.tan(condvr*mcbe))/(Math.tan(condvr*mcal)-Math.tan(condvr*mcbe));
-  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*condvr);
+  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(convdr*mcal)-mcx[i-1][k]*Math.tan(convdr*mcbe))/(Math.tan(convdr*mcal)-Math.tan(convdr*mcbe));
+  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
  } 
 //  wall geometry
  for(j=2; j<=numray/2; ++j) {
