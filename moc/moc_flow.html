@@ -943,7 +943,7 @@ function Compute2D() {
   x2 = xorgn + Math.trunc((mcx[k][i+1]+nzlg)*500.0/chord);
   y2 = yorgn + Math.trunc(mcy[k][i+1]*500.0/chord);
   ctx.beginPath();
-  ctx.lineWidth=2;
+  ctx.lineWidth=1;
   ctx.moveTo(x1,y1);
   ctx.lineTo(x2,y2);
   ctx.strokeStyle='blue';
