@@ -703,7 +703,7 @@ function Compute2D() {
   } 
   ctx.closePath();
   ctx.fillStyle=colorTable[n];
-  ctx.strokeStyle=colorTable[n];
+  ctx.strokeStyle=colorTable[n];Sarah Vendella
   ctx.fill();
   ctx.stroke();
  }
@@ -969,7 +969,7 @@ function Compute2D() {
  }
  var strng1 = "2-D Ideal Nozzle <br />"
  if (fnet>0.0) {
-  strng1=strng1 + " Thrust = " + fnet.toPrecision(2) + " lb @ " + alt.toPrecesion(1) + "ft <br />";
+  strng1=strng1 + " Thrust = " + fnet.toPrecision(2) + " lb @ " + alt.toPrecision(1) + "ft <br />";
  } else {
   strng1 = strng1 + "Nozzle over expanded. Not realistic <br />";
  }    
