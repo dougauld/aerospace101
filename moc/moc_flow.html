@@ -60,10 +60,6 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 <B>Input Parameters</B><br>
 <form>
 <table>
-<tr><td>Type of Solution<br />
-<INPUT id='Compute1' TYPE='button' VALUE='2-D Ideal Nozzle' onclick="Compute2D();"><br />
-<INPUT id='Compute2' TYPE='button' VALUE='Axi-Symmeric Ideal Nozzle' onclick="ComputeAxi();" >
-</td></tr>
 <tr><td>Pressure Altitude (ft)<br/>
 <INPUT NAME='alt' id='alt' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
@@ -79,10 +75,15 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 <tr><td>Required Exit Mach Number (M<sub>e</sub>)<br>
 <INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.5' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
-<tr><td>Plot Variables<br />
+<tr><td><br />Type of Solution<br />
+<INPUT id='Compute1' TYPE='button' VALUE='2-D Ideal Nozzle' onclick="Compute2D();"><br />
+<INPUT id='Compute2' TYPE='button' VALUE='Axi-Symmeric Ideal Nozzle' onclick="ComputeAxi();" >
+</td></tr>
+<!-- <tr><td>Plot Variables<br />
 <input type='radio' id='vplot' name='vplot' checked value='1'>Mach 
 <input type='radio' id='vplot' name='vplot' value='2'>Pressure 
 </td></tr>
+-->
 <tr><td>
 </center></td></tr></table></form></td><td valign='top'><center>
 <br />
@@ -108,7 +109,7 @@ function Compute2D() {
  var gamma=Number(gammafield);
  var machendfield = document.getElementById("mach").value;
  var machend=Number(machendfield);
- var vplot = document.getElementById("vplot");
+ //var vplot = document.getElementById("vplot");
  var altfield = document.getElementById("alt").value;
  var alt=Number(altfield);
  var ptofield = document.getElementById("pto").value;
@@ -123,18 +124,18 @@ function Compute2D() {
 // Create image and define colors
  var i=0;
  var k=0;
- var colorTable = [];
- while (i<100) {
-  k=i*2+54;
-  if (vplot) {
-   colorTable[i]="rgb(255,k,0)";
-  } else {
-   colorTable[i]="rgb(0,k,0)";
-  }
-  i=i+1;
- }
- colorTable[38]="green";
- // Create a background
+// var colorTable = [];
+// while (i<100) {
+//  k=i*2+54;
+//  if (vplot) {
+//   colorTable[i]="rgb(255,k,0)";
+//  } else {
+//   colorTable[i]="rgb(0,k,0)";
+//  }
+//  i=i+1;
+// }
+// colorTable[38]="green";
+// Create a background
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
@@ -520,19 +521,19 @@ function Compute2D() {
  }
  chord=xmax-xmin;
 
- if (vplot) {
+ //if (vplot) {
   amin=mcmach[1][1];
- } else { 
-  amin=mcpp0[1][1];
- }
+ //} else { 
+ // amin=mcpp0[1][1];
+ //}
  amax=amin;
  for(i=1; i<=numray/2; ++i) {
   for (k=1; k<=i; ++k) {
-   if (vplot) {
+ //  if (vplot) {
     temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]);
-   } else { 
-    temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]);
-   } 
+  // } else { 
+  //  temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]);
+  // } 
    if (temp>amax) amax=temp;
    if (temp<amin) amin=temp;
   }  
@@ -549,17 +550,17 @@ function Compute2D() {
    ivals[5] = yorgn - Math.trunc(mcy[i+1][k+1]*500.0/chord);
    ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
    ivals[7] = yorgn - Math.trunc(mcy[i+1][k]*500.0/chord);
-   if (vplot) {
+//   if (vplot) {
     temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
-   } else {
-    temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
-   } 
+  // } else {
+    //temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
+   //} 
    var n;
-   n=Math.floor(95.0*(temp-amin)/(amax-amin));
+   n=(temp-amin)/(amax-amin);
    if (n<0) {
     n=0;
-   } else if (n>99) {
-    n=99; 
+   } else if (n>1) {
+    n=1; 
    }
    ctx.beginPath();
    ctx.lineWidth=1;
@@ -571,10 +572,11 @@ function Compute2D() {
     j=j+1;
    } 
    ctx.closePath();
-   ctx.fillStyle=colorTable[n];
-   ctx.strokeStyle="green";
+   ctx.globalAlpha = n;
+   ctx.fillStyle="red";
+   // ctx.strokeStyle="green";
    ctx.fill();
-   ctx.stroke();
+   // ctx.stroke();
   }
  } 
  i=numray/2;
@@ -584,16 +586,16 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[i+1][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
  ivals[5] = yorgn;
- if (vplot) {
+// if (vplot) {
   temp = mcmach[i+1][i+1];
- } else {
-  temp = mcpp0[i+1][i+1];
- } 
- n=Math.floor(95.0*(temp-amin)/(amax-amin));
+// } else {
+//  temp = mcpp0[i+1][i+1];
+// } 
+ n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
- } else if (n>99) {
-  n=99; 
+ } else if (n>1) {
+  n=1; 
  }
  ctx.beginPath();
  ctx.lineWidth=1;
@@ -605,10 +607,11 @@ function Compute2D() {
   j=j+1;
  } 
  ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="red";
+ ctx.globalAlpha = n;
+ ctx.fillStyle="red";
+// ctx.strokeStyle="red";
  ctx.fill();
- ctx.stroke();
+// ctx.stroke();
  i = 1 ;
  ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
  ivals[1] = yorgn - Math.trunc(mcy[i][i]*500.0/chord);
@@ -616,16 +619,16 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[i][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
  ivals[5] = yorgn ;
- if (vplot) {
+// if (vplot) {
   temp = mcmach[i][i+2];
- } else {
-  temp = mcpp0[i][i+2];
- } 
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+// } else {
+//  temp = mcpp0[i][i+2];
+// } 
+ n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
- } else if (n>99) {
-  n=99; 
+ } else if (n>1) {
+  n=1; 
  }
  ctx.beginPath();
  ctx.lineWidth=1;
@@ -637,10 +640,11 @@ function Compute2D() {
   j=j+1;
  } 
  ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="orange";
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="orange";
  ctx.fill();
- ctx.stroke();
+// ctx.stroke();
  
  for (j=2; j<=numray/2; ++j) {
   ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -649,16 +653,16 @@ function Compute2D() {
   ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
   ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
   ivals[5] = yorgn - Math.trunc(mcy[j][j+1]*500.0/chord);
-  if (vplot) {
+//  if (vplot) {
    temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j]+mcmach[j][j+1]) ;
-  } else {
-   temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
-  } 
-  n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+//  } else {
+//   temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
+//  } 
+  n=(temp-amin)/(amax-amin);
   if (n<0) {
    n=0;
-  } else if (n>99) {
-   n=99; 
+  } else if (n>1) {
+   n=1; 
   }
   ctx.beginPath();
   ctx.lineWidth=1;
@@ -670,10 +674,11 @@ function Compute2D() {
    i=i+1;
   } 
   ctx.closePath();
-  ctx.fillStyle=colorTable[n];
-  ctx.strokeStyle="purple";
+  ctx.globalAlpga = n;
+  ctx.fillStyle="red";
+//  ctx.strokeStyle="purple";
   ctx.fill();
-  ctx.stroke();
+//  ctx.stroke();
  }
  j = numray/2+1 ;
  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -682,16 +687,16 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
  ivals[5] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
- if (vplot) {
+// if (vplot) {
   temp = mcmach[j-1][j];
- } else {
-  temp = mcpp0[j-1][j];
- } 
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+// } else {
+//  temp = mcpp0[j-1][j];
+// } 
+ n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
- } else if ( n>99) {
-  n=99; 
+ } else if ( n>1) {
+  n=1; 
  }
  ctx.beginPath();
  ctx.lineWidth=1;
@@ -703,10 +708,11 @@ function Compute2D() {
   i=i+1;
  } 
  ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="grey";
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="grey";
  ctx.fill();
- ctx.stroke();
+// ctx.stroke();
 
  for(i=1; i<=numray/2; ++i) {
   for (k=1; k<=i; ++k) {
@@ -718,16 +724,16 @@ function Compute2D() {
    ivals[5] = yorgn + Math.trunc(mcy[i+1][k+1]*500.0/chord);
    ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
    ivals[7] = yorgn + Math.trunc(mcy[i+1][k]*500.0/chord);
-   if (vplot) {
+  // if (vplot) {
     temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
-   } else {
-    temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
-   } 
-   n=Math.floor(95.0*(temp-amin)/(amax-amin));
+ //  } else {
+ //   temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
+ //  } 
+   n=(temp-amin)/(amax-amin);
    if (n<0) {
     n=0;
-   } else if (n>99) {
-    n=99; 
+   } else if (n>1) {
+    n=1; 
    }
    ctx.beginPath();
    ctx.lineWidth=1;
@@ -739,10 +745,11 @@ function Compute2D() {
     j=j+1;
    } 
    ctx.closePath();
-   ctx.fillStyle=colorTable[n];
-   ctx.strokeStyle="green";
+   ctx.fillStyle="red";
+   ctx.globalAlpha = n;
+  // ctx.strokeStyle="green";
    ctx.fill();
-   ctx.stroke();
+//   ctx.stroke();
   } 
  } 
  i = 1 ;
@@ -752,16 +759,16 @@ function Compute2D() {
  ivals[3] = yorgn + Math.trunc(mcy[i][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
  ivals[5] = yorgn;
- if (vplot==1) {
+ //if (vplot==1) {
   temp = mcmach[i][i+2] ;
- } else {
-  temp = mcpp0[i][i+2] ;
- }
- n=Math.floor(95.0*(temp-amin)/(amax-amin));
+// } else {
+//  temp = mcpp0[i][i+2] ;
+// }
+ n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
- } else if (n>99) {
-  n=99; 
+ } else if (n>1) {
+  n=1; 
  }
  ctx.beginPath();
  ctx.lineWidth=1;
@@ -773,10 +780,11 @@ function Compute2D() {
   j=j+1;
  } 
  ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="yellow";
+ ctx.globalAlpha = n;
+ ctx.fillStyle="red";
+// ctx.strokeStyle="yellow";
  ctx.fill();
- ctx.stroke();
+// ctx.stroke();
 
  for (j=2; j<=numray/2; ++j) {
   ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -785,16 +793,16 @@ function Compute2D() {
   ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
   ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
   ivals[5] = yorgn + Math.trunc(mcy[j][j+1]*500.0/chord);
-  if (vplot) {
+  //if (vplot) {
    temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j]+mcmach[j][j+1]) ;
-  } else {
-   temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
-  } 
-  n=Math.floor(95.0*(temp-amin)/(amax-amin));
+ // } else {
+ //  temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
+ // } 
+  n=(temp-amin)/(amax-amin);
   if (n<0) {
    n=0;
-  } else if (n>99) {
-   n=99; 
+  } else if (n>1) {
+   n=1; 
   }
   ctx.beginPath();
   ctx.lineWidth=1;
@@ -806,10 +814,11 @@ function Compute2D() {
    i=i+1;
   } 
   ctx.closePath();
-  ctx.fillStyle=colorTable[n];
-  ctx.strokeStyle="violet";
+  ctx.fillStyle="red";
+  ctx.globalAlpha = n;
+//  ctx.strokeStyle="violet";
   ctx.fill();
-  ctx.stroke();
+//  ctx.stroke();
  }
  j = numray/2+1 ;
  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -818,16 +827,16 @@ function Compute2D() {
  ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
  ivals[5] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
- if (vplot) {
+ //if (vplot) {
   temp = mcmach[j-1][j] ;
- } else {
-  temp = mcpp0[j-1][j] ;
- }
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+// } else {
+  //temp = mcpp0[j-1][j] ;
+// }
+ n=(temp-amin)/(amax-amin);
  if (n<0) { 
   n=0;
- } else if (n>99) {
-  n=99; 
+ } else if (n>1) {
+  n=1; 
  }
  ctx.beginPath();
  ctx.lineWidth=1;
@@ -839,10 +848,11 @@ function Compute2D() {
   i=i+1;
  } 
  ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="black";
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="black";
  ctx.fill();
- ctx.stroke();
+// ctx.stroke();
 
 //draw nozzle
  var x0,y0,x1,y1,x2,y2,y10,y20; 
