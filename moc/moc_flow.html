@@ -912,7 +912,7 @@ function Compute2D() {
  }
 
 //moc lines in blue lower half
- imagesetthickness($image,2);
+//imagesetthickness($image,2);
 
  for(i=1; i<=numray/2; ++i) {
   x1 = xorgn + Math.trunc((mcx[i][1]+nzlg)*500.0/chord);
@@ -977,7 +977,7 @@ function Compute2D() {
  var exith  = icybgn[numray+1]*2.0;
  var nlen =  icxbgn[numray+1]-icxbgn[1];
  strng1 = srtring1 + "Throat Height = " + throat.toPrecision(3) + " ft    Exit Height = " + exith.toPrecision(3) + " ft   Nozzle Length = " + nlen.toPrecision(2) + " ft <br />";
- imagestring($image,2,10,410,$strout,$colorBlack);
+// imagestring($image,2,10,410,$strout,$colorBlack);
  document.getElementById("output2").innerHTML = strng1; 
  document.getElementById("results").style.visibility="visible";
  
