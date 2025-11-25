@@ -652,7 +652,7 @@ function Compute2D() {
  } else {
   temp = mcpp0[i][i+2];
  } 
- n=floor(95.0*(temp-amin)/(amax-amin));
+ n=Math.trunc(95.0*(temp-amin)/(amax-amin));
  if (n<0) {
   n=0;
  } else if (n>99) {
