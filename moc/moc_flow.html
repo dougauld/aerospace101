@@ -122,20 +122,18 @@ function Compute2D() {
 
 // Create image and define colors
  var i=0;
- const colorTable = [];
+ var k=0;
+ var colorTable = [];
  while (i<100) {
   k=i*2+54;
   if (vplot) {
-//   colorTable[i]="rgb(255,k,0)";
-    colorTable[i] = "red";
+   colorTable[i]="rgb(255,k,0)";
   } else {
    colorTable[i]="rgb(0,k,0)";
   }
   i=i+1;
  }
- colorTable[0] = "green";
- colorTable[99] = "orange";
-// Create a background
+ // Create a background
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
