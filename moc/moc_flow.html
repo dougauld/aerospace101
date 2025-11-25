@@ -713,6 +713,38 @@ function Compute2D() {
 // ctx.strokeStyle="grey";
  ctx.fill();
 // ctx.stroke();
+ ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[1] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+ ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[5] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+// if (vplot) {
+  temp = mcmach[j-1][j];
+// } else {
+//  temp = mcpp0[j-1][j];
+// } 
+ n=(temp-amin)/(amax-amin);
+ if (n<0) {
+  n=0;
+ } else if ( n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ i=0;
+ while (i<2) {
+  l=i*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="grey";
+ ctx.fill();
+// ctx.stroke();
 
  for(i=1; i<=numray/2; ++i) {
   for (k=1; k<=i; ++k) {
@@ -898,7 +930,7 @@ function Compute2D() {
   x2 = xorgn + Math.trunc((mcx[i+1][1]+nzlg)*500.0/chord);
   y2 = yorgn + Math.trunc(mcy[i+1][1]*500.0/chord);
   ctx.beginPath();
-  ctx.lineWidth=2;
+  ctx.lineWidth=1;
   ctx.moveTo(x1,y1);
   ctx.lineTo(x2,y2);
   ctx.strokeStyle='blue';
@@ -924,7 +956,7 @@ function Compute2D() {
    x2= xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
    y2= yorgn + Math.trunc(mcy[i][k+1]*500.0/chord);
    ctx.beginPath();
-   ctx.lineWidth=2;
+   ctx.lineWidth=1;
    ctx.moveTo(x1,y1);
    ctx.lineTo(x2,y2);
    ctx.strokeStyle='blue';
@@ -938,7 +970,7 @@ function Compute2D() {
    x2 = xorgn + Math.trunc((mcx[k+1][i]+nzlg)*500.0/chord);
    y2 = yorgn + Math.trunc(mcy[k+1][i]*500.0/chord);
    ctx.beginPath();
-   ctx.lineWidth=2;
+   ctx.lineWidth=1;
    ctx.moveTo(x1,y1);
    ctx.lineTo(x2,y2);
    ctx.strokeStyle='blue';
