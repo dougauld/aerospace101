@@ -555,7 +555,7 @@ function Compute2D() {
     temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
    } 
    var n;
-   n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+   n=Math.floor(95.0*(temp-amin)/(amax-amin));
    if (n<0) {
     n=0;
    } else if (n>99) {
@@ -589,7 +589,7 @@ function Compute2D() {
  } else {
   temp = mcpp0[i+1][i+1];
  } 
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+ n=Math.floor(95.0*(temp-amin)/(amax-amin));
  if (n<0) {
   n=0;
  } else if (n>99) {
@@ -609,39 +609,6 @@ function Compute2D() {
  ctx.strokeStyle="red";
  ctx.fill();
  ctx.stroke();
- 
- ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
- ivals[1] = yorgn + Math.trunc(mcy[i][i]*500.0/chord);
- ivals[2] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
- ivals[3] = yorgn + Math.trunc(mcy[i+1][i+1]*500.0/chord);
- ivals[4] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
- ivals[5] = yorgn;
- if (vplot) {
-  temp = mcmach[i+1][i+1];
- } else {
-  temp = mcpp0[i+1][i+1];
- } 
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
- if (n<0) {
-  n=0;
- } else if (n>99) {
-  n=99; 
- } 
- ctx.beginPath();
- ctx.lineWidth=1;
- ctx.moveTo(ivals[0],ivals[1]);
- j=0;
- while (j<2) {
-  l=j*2+2;
-  ctx.lineTo(ivals[l],ivals[l+1]);
-  j=j+1;
- } 
- ctx.closePath();
- ctx.fillStyle=colorTable[n];
- ctx.strokeStyle="blue";
- ctx.fill();
- ctx.stroke();
- 
  i = 1 ;
  ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
  ivals[1] = yorgn - Math.trunc(mcy[i][i]*500.0/chord);
@@ -675,7 +642,6 @@ function Compute2D() {
  ctx.fill();
  ctx.stroke();
  
-
  for (j=2; j<=numray/2; ++j) {
   ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
   ivals[1] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
@@ -738,7 +704,7 @@ function Compute2D() {
  } 
  ctx.closePath();
  ctx.fillStyle=colorTable[n];
- ctx.strokeStyle=colorTable[n];
+ ctx.strokeStyle="grey";
  ctx.fill();
  ctx.stroke();
 
@@ -757,7 +723,7 @@ function Compute2D() {
    } else {
     temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
    } 
-   n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+   n=Math.floor(95.0*(temp-amin)/(amax-amin));
    if (n<0) {
     n=0;
    } else if (n>99) {
@@ -774,7 +740,7 @@ function Compute2D() {
    } 
    ctx.closePath();
    ctx.fillStyle=colorTable[n];
-   ctx.strokeStyle=colorTable[n];
+   ctx.strokeStyle="green";
    ctx.fill();
    ctx.stroke();
   } 
@@ -791,7 +757,7 @@ function Compute2D() {
  } else {
   temp = mcpp0[i][i+2] ;
  }
- n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+ n=Math.floor(95.0*(temp-amin)/(amax-amin));
  if (n<0) {
   n=0;
  } else if (n>99) {
@@ -808,7 +774,7 @@ function Compute2D() {
  } 
  ctx.closePath();
  ctx.fillStyle=colorTable[n];
- ctx.strokeStyle=colorTable[n];
+ ctx.strokeStyle="yellow";
  ctx.fill();
  ctx.stroke();
 
@@ -824,7 +790,7 @@ function Compute2D() {
   } else {
    temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
   } 
-  n=Math.trunc(95.0*(temp-amin)/(amax-amin));
+  n=Math.floor(95.0*(temp-amin)/(amax-amin));
   if (n<0) {
    n=0;
   } else if (n>99) {
@@ -841,7 +807,7 @@ function Compute2D() {
   } 
   ctx.closePath();
   ctx.fillStyle=colorTable[n];
-  ctx.strokeStyle=colorTable[n];
+  ctx.strokeStyle="violet";
   ctx.fill();
   ctx.stroke();
  }
@@ -874,7 +840,7 @@ function Compute2D() {
  } 
  ctx.closePath();
  ctx.fillStyle=colorTable[n];
- ctx.strokeStyle=colorTable[n];
+ ctx.strokeStyle="black";
  ctx.fill();
  ctx.stroke();
 
