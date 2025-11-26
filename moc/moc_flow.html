@@ -308,7 +308,7 @@ function HideResults() {
  var deriv;  
 //analysis by points 
 // R-K analysis
- while (Math.abs(machend-machold)>0.0001 && counter<100) {
+ while (Math.abs(machend-machold)>0.0001 && counter<500) {
   mcx[1][1] = 0.0;
   mcy[1][1] = icybgn[1];
   mcdefl[1][1] = delthet ;
@@ -422,7 +422,7 @@ function HideResults() {
   delold = delthet ;
   delthet = delold + (machend - machold)/deriv ;
   counter = counter + 1 ;
-  if (counter == 100 ) { alert ('Non Realist input parameters : Solution Not Found'); return; }
+  if (counter == 500 ) { alert ('Non Realist input parameters : Solution Not Found'); return; }
  }
 //  cancellation surface
  k = numray/2 + 1 ;
