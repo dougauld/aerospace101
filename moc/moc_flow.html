@@ -232,10 +232,9 @@ function HideResults() {
  var mcpm   = [];
  var mcmang = [];
  var mcmach = [];
- var mcQ    = [];
- var mcR    = [];
  var mcx    = [];
  var mcy    = [];
+ var mcaxil = []; 
  for(i=0; i<=numray; ++i) {
   mcpp0[i] = [];
   mctt0[i]  = [];
@@ -244,10 +243,9 @@ function HideResults() {
   mcdefl[i] = [];
   mcpm[i]   = [];
   mcmang[i] = [];
-  mcQ[i]    = [];
-  mcR[i]    = [];
   mcx[i]    = [];
   mcy[i]    = [];
+  mcaxil[i] = [];
   for(j=0; j<=numray; ++j) {
    mcpp0[i][j] = 1.0 ;
    mctt0[i][j] = 1.0 ;
@@ -255,10 +253,9 @@ function HideResults() {
    mcturn[i][j] = 0.0 ;
    mcpm[i][j]=0.0;
    mcmang[i][j]=0.0;
-   mcQ[i][j] = 0.0;
-   mcR[i][j] = 0.0;
    mcx[i][j] = 0.0;
    mcy[i][j] = 0.0;
+   mcaxil[i][j] = 0.0;
   }
  }  
  var icxbgn = [];
@@ -293,7 +290,7 @@ function HideResults() {
  if (delx > delxhi) { 
   delx = delxhi; 
  } 
- var fl1,i1,thetmx,delthet;
+ var fl1,i1,thetmx,delthet,delold,machold,machnew,counter,dell1,dell2;
  fl1 = Math.trunc(delx) ;
  i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
 // list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
@@ -304,76 +301,113 @@ function HideResults() {
  mcmach[0][0] = 1.0 ;
  mcpp0[0][0] = 1.0 ;
  mctt0[0][0] = 1.0 ;
-//analysis by points 
-// 1-1  - solid boundary
- mcdefl[1][1] = delthet ;
- mcturn[1][1] = delthet ;
- mcpm[1][1]   = mcturn[1][1] ;
- mcQ[1][1] = mcpm[1][1] + mcturn[1][1] ;
- mcR[1][1] = mcpm[1][1] - mcturn[1][1] ;
- var irow=1; 
+ delold=delthet + 0.1;
+ machold = machend + 0.05;
+ machnew = machend;
+ counter = 0; 
+ var irow=1;
  var icol=1;
- mcmach[1][1] = getMachpm(mcpm[1][1],gamma);
+ var deriv;  
+//analysis by points 
+// R-K analysis
+ while (Math.abs(machend-machold)>0.0001) && (counter<50) {
+  mcx[1][1] = 0.0;
+  mcy[1][1] = icybgn[1]'
+  mcdefl[1][1] = delthet ;
+  mcturn[1][1] = delthet ;
+  mcpm[1][1]   = mcturn[1][1] ;
+  mcQ[1][1] = mcpm[1][1] + mcturn[1][1] ;
+  mcR[1][1] = mcpm[1][1] - mcturn[1][1] ; 
+  mcmach[1][1] = getMachpm(mcpm[1][1],gamma);
  //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
- isoResult = getIsen(mcmach[1][1],gamma);
- poverpt = isoResult[2];
- tovertt = isoResult[3];
- arat = isoResult[4];
- nu = isoResult[0];
- mu = isoResult[1];
- mcmang[1][1] = mu ;
- mcpp0[1][1] = poverpt * pref ;
- mctt0[1][1] = tovertt * tref ;
- mcx[1][1] = 0.0 ;
- mcy[1][1] = icybgn[1] ;
+  isoResult = getIsen(mcmach[1][1],gamma);
+  poverpt = isoResult[2];
+  tovertt = isoResult[3];
+  arat = isoResult[4];
+  nu = isoResult[0];
+  mu = isoResult[1];
+  mcmang[1][1] = mu ;
+  mcpp0[1][1] = poverpt * pref ;
+  mctt0[1][1] = tovertt * tref ;
+  mcx[1][1] = 0.0 ;
+  mcy[1][1] = icybgn[1] ;
 // 1-2  - plane of symmetry
- mcturn[1][2] = 0.0 ;
- mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
- mcQ[1][2] = mcQ[1][1] ;
- mcR[1][2] = mcQ[1][2] ;
- mcpm[1][2]= mcQ[1][2] ;
- irow=1; icol=2;
- mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
+  mcy[1][2] = 0.0;
+  mcx[1][2] = mcx[1][1] + (mcy[1][1] - mcy[1][2])/Math.tan(convdr*(mcang[1][1]-mcturn[1][1]));
+  dell1 = Math.sqrt((mcx[1][2]-mcx[1][1])*(mcx[1][2]-mcx[1][1])+(mcy[1][2]-mcy[1][1])*(mcy[1][2]-mcy[1][1]));
+  mcturn[1][2] = 0.0 ;
+  mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
+  mcaxil[1][1] = (dell1 + Math.sin(convdr*mcmang[1][1])*Math.sin(convdr*mcturn[1][1]/mcy[1][1])/convdr;
+  mcpm[1][2]= mcpm[1][1] + mcturn[1][1] +mcaxil[1][1] ;
+  irow=1; icol=2;
+  mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
 // getIsen(mcmach[irow][icol], gamma) ;
- isoResult = getIsen(mcmach[1][2],gamma);
- poverpt = isoResult[2];
- tovertt = isoResult[3];
- arat = isoResult[4];
- nu = isoResult[0];
- mu = isoResult[1]; 
-//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
- mcmang[1][2] = mu ;
- mcpp0[1][2] = poverpt * pref ;
- mctt0[1][2] = tovertt * tref ;
- mcy[1][2] = 0.0;
- mcx[1][2] = mcx[1][1] + (mcy[1][1]-mcy[1][2]) / Math.tan(convdr*(mcmang[1][1]-mcturn[1][1])) ;
- for(i=2; i<=numray/2; ++i) {
-  mcdefl[i][1] = delthet ;
-  mcturn[i][1] = mcturn[i-1][1] + mcdefl[i][1] ;
-  mcpm[i][1]   = mcturn[i][1] ;
-  mcQ[i][1] = mcpm[i][1] + mcturn[i][1] ;
-  mcR[i][1] = mcpm[i][1] - mcturn[i][1] ;
-  irow=i; icol=1;    
-  mcmach[irow][1] = getMachpm(mcpm[irow][1],gamma);
-  isoResult = getIsen(mcmach[irow][1],gamma);
+  isoResult = getIsen(mcmach[1][2],gamma);
   poverpt = isoResult[2];
   tovertt = isoResult[3];
   arat = isoResult[4];
   nu = isoResult[0];
   mu = isoResult[1]; 
-  nu = isoResult[0];  
-  mcmang[irow][icol] = mu ;
-  mcpp0[irow][icol] = poverpt * pref ;
-  mctt0[irow][icol] = tovertt * tref ;
-  mcx[i][1] = mcx[i-1][1] + delx * icybgn[1] ;
-  mcy[i][1] = mcy[i-1][1] + (mcx[i][1]-mcx[i-1][1])*Math.tan(convdr*mcturn[i-1][1]);
-  for(k=2; k<=i; ++k) {
-   mcQ[i][k] = mcQ[i][k-1] ;
-   mcR[i][k] = mcR[i-1][k] ;
-   mcpm[i][k]   = 0.5*(mcQ[i][k] + mcR[i][k]) ;
-   mcturn[i][k] = 0.5*(mcQ[i][k] - mcR[i][k]) ;
-   mcdefl[i][k] = mcturn[i][k] - mcturn[i-1][k] ;
-   irow=i; icol=k; 
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+  mcmang[1][2] = mu ;
+  mcpp0[1][2] = poverpt * pref ;
+  mctt0[1][2] = tovertt * tref ;
+  for(i=2; i<=numray/2; ++i) {
+   mcx[i][1] = mcx[i-1][1] + delx*icybgn[1];
+   mcy[i][1] = mcy[i-1][1] +(mcx[i][1]-mcx[i-1][1])*Math.tan(convdr*mcturn[i-1][1]);
+   mcdefl[i][1] = delthet ;
+   mcturn[i][1] = mcturn[i-1][1] + mcdefl[i][1] ;
+   mcpm[i][1]   = mcturn[i][1] ;
+   irow=i; icol=1;    
+   mcmach[irow][1] = getMachpm(mcpm[irow][1],gamma);
+   isoResult = getIsen(mcmach[irow][1],gamma);
+   poverpt = isoResult[2];
+   tovertt = isoResult[3];
+   arat = isoResult[4];
+   nu = isoResult[0];
+   mu = isoResult[1]; 
+   nu = isoResult[0];  
+   mcmang[irow][icol] = mu ;
+   mcpp0[irow][icol] = poverpt * pref ;
+   mctt0[irow][icol] = tovertt * tref ;
+   for(k=2; k<=i; ++k) {
+    mcal = (mcmang[i][k-1] - mcturn[i][k-1]) ;
+    mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
+    mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*convdr)+mcx[i-1][k]*Math.tan(mcbe*convdr))/(Math.tan(mcal*convdr)+Math.tan(mcbe*convdr) );
+    mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
+    dell1 = Math.sqrt((mcx[i][k]-mcx[i][k-1])*(mcx[i][k]-mcx[i][k-1])+(mcy[i][k]-mcy[i][k-1])*(mcy[i][k]-mcy[i][k-1]));
+    dell2 = Math.sqrt((mcx[i][k]-mcx[i-1][k])*(mcx[i][k]-mcx[i-1][k])+(mcy[i][k]-mcy[i-1][k])*(mcy[i][k]-mcy[i-1][k]));
+    mcaxi1[i][k]=(dell1*Math.sin(convdr*mcmang[i][k-1])*Math.sin(convdr*mcturn[i][k-1])/mcy[i][k-1])/convdr ;
+    mcaxi2[i][k] = 0.0 ;
+    if (mcy[i-1][k] > 0.0) {
+     mcaxi2[i][k]=(dell2*Math.sin(convdr*mcmang[i-1][k])*Math.sin(convdr*mcturn[i-1][k])/mcy[i-1][k])/convdr ;
+    }  
+    mcpm[i][k]=0.5*(mcpm[i][k-1] + mcpm[i-1][k])+0.5*(mcturn[i][k-1]-mcturn[i-1][k])+0.5*(mcaxi1[i][k]+mcaxi2[i][k]) ;
+    mcturn[i][k]=0.5*(mcpm[i][k-1]-mcpm[i-1][k])+0.5*(mcturn[i][k-1]+mcturn[i-1][k])+0.5*(mcaxi1[i][k]-mcaxi2[i][k]) ;
+    mcdefl[i][k]=mcturn[i][k]-$mcturn[i-1][k] ;
+    irow=i; icol=k; 
+    mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+    isoResult = getIsen(mcmach[irow][icol],gamma);
+    poverpt = isoResult[2];
+    tovertt = isoResult[3];
+    arat = isoResult[4];
+    nu = isoResult[0];
+    mu = isoResult[1]; 
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+    mcmang[irow][icol] = mu ;
+    mcpp0[irow][icol] = poverpt * pref ;
+    mctt0[irow][icol] = tovertt * tref ;
+//  plane of symmetry
+   } 
+   mcy[i][i+1]=0.0;
+   mcx[i][i+1]=mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
+   mcturn[i][i+1] = 0.0 ;
+   dell1=Math.sqrt((mcx[i][i+1]-mcx[i][i])*(mcx[i][i+1]-mcx[i][i])+(mcy[i][i+1]-mcy[i][i])*(mcy[i][i+1]-mcy[i][i])) ;
+   mcaxi1[i][i]=(dell1*Math.sin(convdr*mcmang[i][i])*Math.sin(convdr*mcturn[i][i])/mcy[i][i])/convdr ;
+   mcpm[i][i+1]= mcpm[i][i] + mcturn[i][i] + mcaxi1[i][i] ;
+   //  plane of symmetry
+   mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
+   irow=i; icol=i+1; 
    mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
    isoResult = getIsen(mcmach[irow][icol],gamma);
    poverpt = isoResult[2];
@@ -381,44 +415,24 @@ function HideResults() {
    arat = isoResult[4];
    nu = isoResult[0];
    mu = isoResult[1]; 
-//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
    mcmang[irow][icol] = mu ;
    mcpp0[irow][icol] = poverpt * pref ;
    mctt0[irow][icol] = tovertt * tref ;
-   mcal = (mcmang[i][k-1] - mcturn[i][k-1]) ;
-   mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
-   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*convdr)+mcx[i-1][k]*Math.tan(mcbe*convdr))/(Math.tan(mcal*convdr)+Math.tan(mcbe*convdr) );
-   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
+   machnew = mcmach[i][i+1];
   }
-//  plane of symmetry
-  mcturn[i][i+1] = 0.0 ;
-  mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
-  mcQ[i][i+1] = mcQ[i][i] ;
-  mcR[i][i+1] = mcQ[i][i+1] ;
-  mcpm[i][i+1]= mcQ[i][i+1] ;
-  irow=i; icol=i+1; 
-  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
-  isoResult = getIsen(mcmach[irow][icol],gamma);
-  poverpt = isoResult[2];
-  tovertt = isoResult[3];
-  arat = isoResult[4];
-  nu = isoResult[0];
-  mu = isoResult[1]; 
-// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
-  mcmang[irow][icol] = mu ;
-  mcpp0[irow][icol] = poverpt * pref ;
-  mctt0[irow][icol] = tovertt * tref ;
-  mcy[i][i+1] = 0.0;
-  mcx[i][i+1] = mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
+  deriv = (machnew - machold)/(delthet - delold) ;
+  machold = machnew ;
+  delold = delthet ;
+  delthet = delold + (machend - machold)/deriv ;
+  counter = counter + 1 ;
  }
 //  cancellation surface
- i = numray/2 + 1 ;
- mcdefl[i][1] = mcdefl[i-1][1] ;
- mcturn[i][1] = mcturn[i-1][1] ;
- mcR[i][1] = mcR[i-1][1] ;
- mcpm[i][1] = mcpm[i-1][1] ;
- mcQ[i][1] = mcQ[i-1][1] ;
- mcmach[i][1] = mcmach[i-1][1] ;
+ k = numray/2 + 1 ;
+ mcdefl[k][1] = mcdefl[k-1][1] ;
+ mcturn[k][1] = mcturn[k-1][1] ;
+ mcpm[k][1] = mcpm[k-1][1] ;
+ mcmach[k][1] = mcmach[k-1][1] ;
 // isoResult = getIsen(mcmach[i][1],gamma);
 //poverpt = isoResult[2];
 //tovertt = isoResult[3];
@@ -426,18 +440,20 @@ function HideResults() {
 //nu = isoResult[0];
 //mu = isoResult[1]; 
 // list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
- mcmang[i][1] = mcmang[i-1][1];
- mcx[i][1] = mcx[i-1][1] ;
- mcy[i][1] = mcy[i-1][1] ; 
- mcpp0[i][1] = mcpp0[i-1][1] ;
- mctt0[i][1] = mctt0[i-1][1] ;
- for(k=2; k<=i; ++k) {
-  mcdefl[i][k] = -delthet ;
-  mcturn[i][k] = mcturn[i][k-1] + mcdefl[i][k] ;
-  mcR[i][k] = mcR[i-1][k] ;
-  mcpm[i][k] = mcR[i][k] + mcturn[i][k] ;
-  mcQ[i][k] = mcpm[i][k] + mcturn[i][k] ;
-  irow=i; icol=k; 
+ mcmang[k][1] = mcmang[k-1][1];
+ mcx[k][1] = mcx[k-1][1] ;
+ mcy[k][1] = mcy[k-1][1] ; 
+ mcpp0[k][1] = mcpp0[k-1][1] ;
+ mctt0[k][1] = mctt0[k-1][1] ;
+ for(i=2; i<=k; ++i) {
+  mcal =  mcturn[k][i-1] ;
+  mcbe = (mcmang[k-1][i] + mcturn[k-1][i]) ;
+  mcx[k][i] = (mcy[k-1][i]-mcy[k][i-1]+mcx[k][i-1]*Math.tan(convdr*mcal)-mcx[k-1][i]*Math.tan(convdr*mcbe))/(Math.tan(convdr*mcal)-Math.tan(convdr*mcbe))
+  mcy[k][i] = mcy[k][i-1]+(mcx[k][i]-mcx[k][i-1])*Math.tan(convdr*mcal[k][i-1]);
+  mcdefl[k][i] = -delthet ;
+  mcturn[k][i] = mcturn[k][i-1]+mcdefl[k][i] ;
+  mcpm[k][i] = $mcpm[k-1][i]  ;
+  irow=k; icol=i; 
   mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
 //   getIsen(mcmach[irow][icol], gamma) ;
   isoResult = getIsen(mcmach[irow][icol],gamma);
@@ -450,27 +466,26 @@ function HideResults() {
   mcmang[irow][icol] = mu ;
   mcpp0[irow][icol] = poverpt * pref ;
   mctt0[irow][icol] = tovertt * tref ;
-  mcal = mcturn[i][k-1];
-  mcbe = (mcmang[i-1][k] + mcturn[i-1][k]);
-  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(convdr*mcal)-mcx[i-1][k]*Math.tan(convdr*mcbe))/(Math.tan(convdr*mcal)-Math.tan(convdr*mcbe));
-  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
  } 
 //  wall geometry
- for(j=2; j<=numray/2; ++j) {
-  icxbgn[j] = icxnd[j-1] ;
-  icybgn[j] = icynd[j-1] ;
-  icxnd[j]  = mcx[j][1] ;
-  icynd[j]  = mcy[j][1] ;
+ for(i=2; i<=numray/2; ++i) {
+  icxbgn[i] = icxnd[i-1] ;
+  icybgn[i] = icynd[i-1] ;
+  icxnd[i]  = mcx[k][1] ;
+  icynd[i]  = mcy[k][1] ;
  }
- for(j=numray/2+1; j<=numray; ++j) {
-  icxbgn[j] = icxnd[j-1] ;
-  icybgn[j] = icynd[j-1] ;
-  k = j - numray/2 + 1 ;
-  icxnd[j]  = mcx[i][k] ;
-  icynd[j]  = mcy[i][k] ;
+ for(i=numray/2+1; i<=numray; ++i) {
+  icxbgn[i] = icxnd[i-1] ;
+  icybgn[i] = icynd[i-1] ;
+  j = i - numray/2 + 1 ;
+  icxnd[i]  = mcx[k][j] ;
+  icynd[i]  = mcy[k][j] ;
  }
  icxbgn[numray + 1] = icxnd[numray] ;
  icybgn[numray + 1] = icynd[numray] ;
+// icxnd[i]  = icxbgn[$numray+1] + (icxnd[$numray] - icxbgn[$numray]) ;
+ icxnd[i]  = icxbgn[numray+1] ;
+ icynd[i]  = icybgn[numray+1] ;
  icxnd[j]  = icxbgn[numray+1] ;
  icynd[j]  = icybgn[numray+1] ;
  xexit = nzht*icxnd[numray + 1] ;
