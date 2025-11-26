@@ -197,7 +197,7 @@ function HideResults() {
  aexit = nzar * arat;
  delx = .01 ; delxlo = .0001; delxhi = .25 ; 
  delxsav = delx;
- if (alt > 90000) || (alt<0) { alert("Altitude out of range (0 --> 90000)"); return; }
+ if (alt > 90000 || alt<0) { alert("Altitude out of range (0 --> 90000)"); return; }
  if (alt < 36152. ) {
   ts0 = 518.6 - 3.56 * alt / 1000. ;
   ps0 = 2116. * Math.pow(ts0/518.6, 5.256) ;
