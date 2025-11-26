@@ -337,7 +337,7 @@ function HideResults() {
   dell1 = Math.sqrt((mcx[1][2]-mcx[1][1])*(mcx[1][2]-mcx[1][1])+(mcy[1][2]-mcy[1][1])*(mcy[1][2]-mcy[1][1]));
   mcturn[1][2] = 0.0 ;
   mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
-  mcaxil[1][1] = (dell1 + Math.sin(convdr*mcmang[1][1])*Math.sin(convdr*mcturn[1][1]/mcy[1][1])/convdr;
+  mcaxi1[1][1] = (dell1 * Math.sin(convdr*mcmang[1][1])*Math.sin(convdr*mcturn[1][1])/mcy[1][1])/convdr;
   mcpm[1][2]= mcpm[1][1] + mcturn[1][1] +mcaxil[1][1] ;
   irow=1; icol=2;
   mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
