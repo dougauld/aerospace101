@@ -719,11 +719,7 @@ function Compute2D() {
    ivals[5] = yorgn + Math.trunc(mcy[i+1][k+1]*500.0/chord);
    ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
    ivals[7] = yorgn + Math.trunc(mcy[i+1][k]*500.0/chord);
-  // if (vplot) {
- //    temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
- //  } else {
-    temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
- //  } 
+   temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
    n=(temp-amin1)/(amax1-amin1);
    if (n<0) {
     n=0;
@@ -742,9 +738,7 @@ function Compute2D() {
    ctx.closePath();
    ctx.fillStyle="green";
    ctx.globalAlpha = n;
-  // ctx.strokeStyle="green";
    ctx.fill();
-//   ctx.stroke();
   } 
  } 
  i = 1 ;
@@ -754,11 +748,7 @@ function Compute2D() {
  ivals[3] = yorgn + Math.trunc(mcy[i][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
  ivals[5] = yorgn;
- //if (vplot==1) {
- // temp = mcmach[i][i+2] ;
-// } else {
  temp = mcpp0[i][i+2] ;
-// }
  n=(temp-amin1)/(amax1-amin1);
  if (n<0) {
   n=0;
@@ -984,15 +974,14 @@ function Compute2D() {
  }
  var strng1 = "2-D Ideal Nozzle <br />"
  if (fnet>0.0) {
-  strng1=strng1 + " Thrust = " + fnet.toPrecision(2) + " lb @ " + alt.toPrecision(1) + "ft <br />";
+  strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
   strng1 = strng1 + "Nozzle over expanded. Not realistic <br />";
  }    
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
  var nlen =  icxbgn[numray+1]-icxbgn[1];
- strng1 = strng1 + "Throat Height = " + throat.toPrecision(3) + " ft    Exit Height = " + exith.toPrecision(3) + " ft   Nozzle Length = " + nlen.toPrecision(2) + " ft <br />";
-// imagestring($image,2,10,410,$strout,$colorBlack);
+ strng1 = strng1 + "Throat Height = " + throat.toPrecision(5) + " ft    Exit Height = " + exith.toPrecision(5) + " ft   Nozzle Length = " + nlen.toPrecision(5) + " ft <br />";
  document.getElementById("output2").innerHTML = strng1; 
  document.getElementById("results").style.visibility="visible";
  
