@@ -450,10 +450,10 @@ function HideResults() {
   mcal =  mcturn[k][i-1] ;
   mcbe = (mcmang[k-1][i] + mcturn[k-1][i]) ;
   mcx[k][i] = (mcy[k-1][i]-mcy[k][i-1]+mcx[k][i-1]*Math.tan(convdr*mcal)-mcx[k-1][i]*Math.tan(convdr*mcbe))/(Math.tan(convdr*mcal)-Math.tan(convdr*mcbe))
-  mcy[k][i] = mcy[k][i-1]+(mcx[k][i]-mcx[k][i-1])*Math.tan(convdr*mcal[k][i-1]);
+  mcy[k][i] = mcy[k][i-1]+(mcx[k][i]-mcx[k][i-1])*Math.tan(convdr*mcal);
   mcdefl[k][i] = -delthet ;
   mcturn[k][i] = mcturn[k][i-1]+mcdefl[k][i] ;
-  mcpm[k][i] = $mcpm[k-1][i]  ;
+  mcpm[k][i] = mcpm[k-1][i]  ;
   irow=k; icol=i; 
   mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
 //   getIsen(mcmach[irow][icol], gamma) ;
