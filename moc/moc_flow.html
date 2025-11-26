@@ -639,9 +639,7 @@ function Compute2D() {
  ctx.closePath();
  ctx.fillStyle="red";
  ctx.globalAlpha = n;
-// ctx.strokeStyle="orange";
  ctx.fill();
-// ctx.stroke();
  
  for (j=2; j<=numray/2; ++j) {
   ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -810,10 +808,8 @@ function Compute2D() {
  } 
  ctx.closePath();
  ctx.globalAlpha = n;
- ctx.fillStyle="orange";
-// ctx.strokeStyle="yellow";
+ ctx.fillStyle="green";
  ctx.fill();
-// ctx.stroke();
 
  for (j=2; j<=numray/2; ++j) {
   ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -822,12 +818,8 @@ function Compute2D() {
   ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
   ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
   ivals[5] = yorgn + Math.trunc(mcy[j][j+1]*500.0/chord);
-  //if (vplot) {
-//   temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j]+mcmach[j][j+1]) ;
- // } else {
-   temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
- // } 
-  n=(temp1-amin1)/(amax1-amin1);
+  temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
+  n=(temp-amin1)/(amax1-amin1);
   if (n<0) {
    n=0;
   } else if (n>1) {
