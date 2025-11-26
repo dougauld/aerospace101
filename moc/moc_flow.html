@@ -493,7 +493,7 @@ function Compute2D() {
  temp1 = tto;
  gm1 = gamma -1.0 ;
  gp1 = gamma +1.0 ;
- fac1 = 1.0 + .5 * gm1 * mach * mach ;
+ fac1 = 1.0 + 0.5 * gm1 * mach * mach ;
  fac2 = gp1 / (2.0 * gm1) ;
  mflow = area * pres * Math.sqrt(gamma/(rgas * temp1)) * mach * Math.pow(fac1,-fac2) ;
  wflow = mflow * gc ;         
