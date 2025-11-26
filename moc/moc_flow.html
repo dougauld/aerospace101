@@ -547,11 +547,7 @@ function Compute2D() {
    ivals[5] = yorgn - Math.trunc(mcy[i+1][k+1]*500.0/chord);
    ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
    ivals[7] = yorgn - Math.trunc(mcy[i+1][k]*500.0/chord);
-//   if (vplot) {
-    temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
-  // } else {
-    //temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
-   //} 
+   temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
    var n;
    n=(temp-amin)/(amax-amin);
    if (n<0) {
@@ -571,9 +567,7 @@ function Compute2D() {
    ctx.closePath();
    ctx.globalAlpha = n;
    ctx.fillStyle="red";
-   // ctx.strokeStyle="green";
    ctx.fill();
-   // ctx.stroke();
   }
  } 
  i=numray/2;
@@ -583,11 +577,7 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[i+1][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
  ivals[5] = yorgn;
-// if (vplot) {
-  temp = mcmach[i+1][i+1];
-// } else {
-//  temp = mcpp0[i+1][i+1];
-// } 
+ temp = mcmach[i+1][i+1];
  n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
@@ -606,9 +596,7 @@ function Compute2D() {
  ctx.closePath();
  ctx.globalAlpha = n;
  ctx.fillStyle="red";
-// ctx.strokeStyle="red";
  ctx.fill();
-// ctx.stroke();
  i = 1 ;
  ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
  ivals[1] = yorgn - Math.trunc(mcy[i][i]*500.0/chord);
@@ -616,11 +604,7 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[i][i+1]*500.0/chord);
  ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
  ivals[5] = yorgn ;
-// if (vplot) {
-  temp = mcmach[i][i+2];
-// } else {
-//  temp = mcpp0[i][i+2];
-// } 
+ temp = mcmach[i][i+2];
  n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
@@ -648,11 +632,7 @@ function Compute2D() {
   ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
   ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
   ivals[5] = yorgn - Math.trunc(mcy[j][j+1]*500.0/chord);
-//  if (vplot) {
-   temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j]+mcmach[j][j+1]) ;
-//  } else {
-//   temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
-//  } 
+  temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j] + mcmach[j][j+1]) ;
   n=(temp-amin)/(amax-amin);
   if (n<0) {
    n=0;
@@ -669,11 +649,9 @@ function Compute2D() {
    i=i+1;
   } 
   ctx.closePath();
-  ctx.globalAlpga = n;
+  ctx.globalAlpha = n;
   ctx.fillStyle="red";
-//  ctx.strokeStyle="purple";
   ctx.fill();
-//  ctx.stroke();
  }
  j = numray/2+1 ;
  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
@@ -682,11 +660,7 @@ function Compute2D() {
  ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
  ivals[5] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
-// if (vplot) {
  temp = mcmach[j-1][j];
-// } else {
-//  temp = mcpp0[j-1][j];
-// } 
  n=(temp-amin)/(amax-amin);
  if (n<0) {
   n=0;
@@ -705,20 +679,14 @@ function Compute2D() {
  ctx.closePath();
  ctx.fillStyle="red";
  ctx.globalAlpha = n;
-// ctx.strokeStyle="grey";
  ctx.fill();
-// ctx.stroke();
  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
  ivals[1] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
  ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
  ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
  ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
  ivals[5] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
-// if (vplot) {
-//  temp = mcmach[j-1][j];
-// } else {
-  temp = mcpp0[j-1][j];
-// } 
+ temp = mcpp0[j-1][j];
  n=(temp-amin1)/(amax1-amin1);
  if (n<0) {
   n=0;
