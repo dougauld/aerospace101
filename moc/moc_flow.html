@@ -76,7 +76,7 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 <INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.5' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
 <tr><td><br />Type of Solution<br />
-<INPUT id='Compute1' TYPE='button' VALUE='    2-D Ideal Nozzle     ' onclick="Compute2D();"><br />&nbsp;<br />
+&nbsp;&nbsp;&nbsp;<INPUT id='Compute1' TYPE='button' VALUE='2-D Ideal Nozzle' onclick="Compute2D();"><br />&nbsp;<br />
 <INPUT id='Compute2' TYPE='button' VALUE='Axi-Symmeric Ideal Nozzle' onclick="ComputeAxi();" >
 </td></tr>
 <!-- <tr><td>Plot Variables<br />
@@ -103,6 +103,897 @@ function HideResults() {
   document.getElementById("output2").innerHTML = " ";
 }   // --------------------------------------------- End of function HideResults
 
+ function ComputeAxi() {
+
+ var gammafield = document.getElementById("gamma").value;
+ var gamma=Number(gammafield);
+ var machendfield = document.getElementById("mach").value;
+ var machend=Number(machendfield);
+ //var vplot = document.getElementById("vplot");
+ var altfield = document.getElementById("alt").value;
+ var alt=Number(altfield);
+ var ptofield = document.getElementById("pto").value;
+ var pto=Number(ptofield);
+ var ttofield = document.getElementById("tto").value;
+ var tto=Number(ttofield);
+ var mach0 = 2.0;
+
+ if (gamma<1.00) { alert ("Ratio of Specific Heats out of range (<1)"); return; }
+ if (machend>10) { alert ("Final Mach Number Out of Range (<10)"); return; }
+
+// Create image and define colors
+ var i=0;
+ var k=0;
+// var colorTable = [];
+// while (i<100) {
+//  k=i*2+54;
+//  if (vplot) {
+//   colorTable[i]="rgb(255,k,0)";
+//  } else {
+//   colorTable[i]="rgb(0,k,0)";
+//  }
+//  i=i+1;
+// }
+// colorTable[38]="green";
+// Create a background
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+/*
+                      Interactive Nozzle Program
+
+     Program to perform two dimensional analysis of supersonic flow
+         through nozzles using the method of characteristics
+       (derived from Supersonic Flows Version 1.6f - jmymoc)
+                     Version 1.15c   -14 Aug 14
+
+                         Written by Tom Benson
+                       NASA Glenn Research Center
+
+>                              NOTICE
+>This software is in the Public Domain.  It may be freely copied and used in
+>non-commercial products, assuming proper credit to the author is given.  IT
+>MAY NOT BE RESOLD.  If you want to use the software for commercial
+>products, contact the author.
+>No copyright is claimed in the United States under Title 17, U. S. Code.
+>This software is provided "as is" without any warranty of any kind, either
+>express, implied, or statutory, including, but not limited to, any warranty
+>that the software will conform to specifications, any implied warranties of
+>merchantability, fitness for a particular purpose, and freedom from
+>infringement, and any warranty that the documentation will conform to the
+>program, or any warranty that the software will be error free.
+>In no event shall NASA be liable for any damages, including, but not
+>limited to direct, indirect, special or consequential damages, arising out
+>of, resulting from, or in any way connected with this software, whether or
+>not based on warranty, contract, tort or otherwise, whether or not injury
+>was sustained by persons or property or otherwise, and whether or not loss
+>was sustained from, or arose out of the results of, or use of, the software
+>or services provided hereunder.
+
+                   
+*/
+ var convdr = 3.1415926/180.;
+ var numray = 30 ;
+ var i,j,k;
+ const rgas = 1716.0 ;
+ const gc = 32.2 ;
+ var ang1 = 0.0 ;
+ var nzar;
+ const exht = 10.0 ;
+ const nzht = 10.0 ;
+ var nzw = 10.0 ; 
+ nzar = nzht * nzw;
+ var nzarlo,nzarhi,nzlg,perint,perlo,perhi,nu,mu,poverpt,tovertt,arat;
+ nzarlo = nzw ;
+ nzarhi = 50.0*nzw ;
+ nzlg = 1.0 ; 
+// $machend = 2.0 ;
+ var isoResult = [];
+ isoResult = getIsen(machend,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+//  [nu mu poverpt tovertt arat] =  getIsen(machend,gamma) ;
+
+ var pexit,texit,aexit,delx,dslx0,delxhi,delxsav,ts0,ps0,plocal,pref,tref;
+ pexit = pto * poverpt ;
+ texit = tto * tovertt ;
+ aexit = nzar * arat;
+ delx = .01 ; delxlo = .0001; delxhi = .25 ; 
+ delxsav = delx;
+ 
+ if (alt < 36152. ) {
+  ts0 = 518.6 - 3.56 * alt / 1000. ;
+  ps0 = 2116. * Math.pow(ts0/518.6, 5.256) ;
+ }
+ if (alt >= 36152. && alt <= 82345.) {   // Stratosphere
+  ts0 = 389.98 ;
+  ps0 = 2116. * .2236 * Math.exp((36000.-alt)/(53.35*389.98)) ;
+ }
+ if (alt >= 82345.) {
+  ts0 = 389.98 + 1.645 * (alt-82345)/1000. ;
+  ps0 = 2116. *.02456 * Math.pow(ts0/389.98,-11.388) ;
+ }
+ ps0 = ps0 / 144.0;  
+ plocal = ps0 ; 
+ isoResult = getIsen(1.0,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ psth = pto * poverpt ;
+ tsth = tto * tovertt ;
+ pref = 1.0 / poverpt ;
+ tref = 1.0 / tovertt ; 
+ var mcpp0  = [];
+ var mctt0  = [];
+ var mcmach = [];
+ var mcdefl = [];
+ var mcturn = [];
+ var mcpm   = [];
+ var mcmang = [];
+ var mcmach = [];
+ var mcQ    = [];
+ var mcR    = [];
+ var mcx    = [];
+ var mcy    = [];
+ for(i=0; i<=numray; ++i) {
+  mcpp0[i] = [];
+  mctt0[i]  = [];
+  mcmach[i] = [];
+  mcturn[i] = [];
+  mcdefl[i] = [];
+  mcpm[i]   = [];
+  mcmang[i] = [];
+  mcQ[i]    = [];
+  mcR[i]    = [];
+  mcx[i]    = [];
+  mcy[i]    = [];
+  for(j=0; j<=numray; ++j) {
+   mcpp0[i][j] = 1.0 ;
+   mctt0[i][j] = 1.0 ;
+   mcmach[i][j] = 1.0 ;
+   mcturn[i][j] = 0.0 ;
+   mcpm[i][j]=0.0;
+   mcmang[i][j]=0.0;
+   mcQ[i][j] = 0.0;
+   mcR[i][j] = 0.0;
+   mcx[i][j] = 0.0;
+   mcy[i][j] = 0.0;
+  }
+ }  
+ var icxbgn = [];
+ var icybgn = [];
+ var icxnd = [];
+ var icynd = [];
+ icxbgn[1] = -nzlg ;
+ icybgn[1] = 1.0 ;
+ icxnd[1]  = 0.0 ;
+ icynd[1]  = 1.0 ;
+ xthrtx  = 0.0 ;
+ xthrty  = 0.5 ;
+//  getIsen(machend,gamma) ;
+ isoResult = getIsen(machend,gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+ nu = isoResult[0];
+ mu = isoResult[1];
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
+ var nuexit,alfa,tanalf,betar,tanget,xrefl,betar90,tanb90,x1max,mcal,mcbe;
+ nuexit = nu ;
+ alfa =  nuexit / numray ;
+ tanalf = Math.tan(convdr*alfa) ;
+ betar = mu ;
+ tanbet = Math.tan(convdr*betar);
+ xrefl = xthrty * tanbet ;
+ betar90 = 90.0 - betar;
+ tanb90 = Math.tan(convdr*betar90) ;
+ x1max = - 2.0 * xrefl * tanb90 / (tanalf - tanb90) ;
+ delxhi = x1max / (numray/2 -1) ;
+ if (delx > delxhi) { 
+  delx = delxhi; 
+ } 
+ var fl1,i1,thetmx,delthet;
+ fl1 = Math.trunc(delx) ;
+ i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
+// list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
+ thetmx = nuexit / 2.0 ;
+ delthet = nuexit / numray ;
+ mcpm[0][0] = 0.0 ;
+ mcmang[0][0] = 90.0 ;  
+ mcmach[0][0] = 1.0 ;
+ mcpp0[0][0] = 1.0 ;
+ mctt0[0][0] = 1.0 ;
+//analysis by points 
+// 1-1  - solid boundary
+ mcdefl[1][1] = delthet ;
+ mcturn[1][1] = delthet ;
+ mcpm[1][1]   = mcturn[1][1] ;
+ mcQ[1][1] = mcpm[1][1] + mcturn[1][1] ;
+ mcR[1][1] = mcpm[1][1] - mcturn[1][1] ;
+ var irow=1; 
+ var icol=1;
+ mcmach[1][1] = getMachpm(mcpm[1][1],gamma);
+ //list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+ isoResult = getIsen(mcmach[1][1],gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+ nu = isoResult[0];
+ mu = isoResult[1];
+ mcmang[1][1] = mu ;
+ mcpp0[1][1] = poverpt * pref ;
+ mctt0[1][1] = tovertt * tref ;
+ mcx[1][1] = 0.0 ;
+ mcy[1][1] = icybgn[1] ;
+// 1-2  - plane of symmetry
+ mcturn[1][2] = 0.0 ;
+ mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
+ mcQ[1][2] = mcQ[1][1] ;
+ mcR[1][2] = mcQ[1][2] ;
+ mcpm[1][2]= mcQ[1][2] ;
+ irow=1; icol=2;
+ mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
+// getIsen(mcmach[irow][icol], gamma) ;
+ isoResult = getIsen(mcmach[1][2],gamma);
+ poverpt = isoResult[2];
+ tovertt = isoResult[3];
+ arat = isoResult[4];
+ nu = isoResult[0];
+ mu = isoResult[1]; 
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+ mcmang[1][2] = mu ;
+ mcpp0[1][2] = poverpt * pref ;
+ mctt0[1][2] = tovertt * tref ;
+ mcy[1][2] = 0.0;
+ mcx[1][2] = mcx[1][1] + (mcy[1][1]-mcy[1][2]) / Math.tan(convdr*(mcmang[1][1]-mcturn[1][1])) ;
+ for(i=2; i<=numray/2; ++i) {
+  mcdefl[i][1] = delthet ;
+  mcturn[i][1] = mcturn[i-1][1] + mcdefl[i][1] ;
+  mcpm[i][1]   = mcturn[i][1] ;
+  mcQ[i][1] = mcpm[i][1] + mcturn[i][1] ;
+  mcR[i][1] = mcpm[i][1] - mcturn[i][1] ;
+  irow=i; icol=1;    
+  mcmach[irow][1] = getMachpm(mcpm[irow][1],gamma);
+  isoResult = getIsen(mcmach[irow][1],gamma);
+  poverpt = isoResult[2];
+  tovertt = isoResult[3];
+  arat = isoResult[4];
+  nu = isoResult[0];
+  mu = isoResult[1]; 
+  nu = isoResult[0];  
+  mcmang[irow][icol] = mu ;
+  mcpp0[irow][icol] = poverpt * pref ;
+  mctt0[irow][icol] = tovertt * tref ;
+  mcx[i][1] = mcx[i-1][1] + delx * icybgn[1] ;
+  mcy[i][1] = mcy[i-1][1] + (mcx[i][1]-mcx[i-1][1])*Math.tan(convdr*mcturn[i-1][1]);
+  for(k=2; k<=i; ++k) {
+   mcQ[i][k] = mcQ[i][k-1] ;
+   mcR[i][k] = mcR[i-1][k] ;
+   mcpm[i][k]   = 0.5*(mcQ[i][k] + mcR[i][k]) ;
+   mcturn[i][k] = 0.5*(mcQ[i][k] - mcR[i][k]) ;
+   mcdefl[i][k] = mcturn[i][k] - mcturn[i-1][k] ;
+   irow=i; icol=k; 
+   mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+   isoResult = getIsen(mcmach[irow][icol],gamma);
+   poverpt = isoResult[2];
+   tovertt = isoResult[3];
+   arat = isoResult[4];
+   nu = isoResult[0];
+   mu = isoResult[1]; 
+//list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+   mcmang[irow][icol] = mu ;
+   mcpp0[irow][icol] = poverpt * pref ;
+   mctt0[irow][icol] = tovertt * tref ;
+   mcal = (mcmang[i][k-1] - mcturn[i][k-1]) ;
+   mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
+   mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*convdr)+mcx[i-1][k]*Math.tan(mcbe*convdr))/(Math.tan(mcal*convdr)+Math.tan(mcbe*convdr) );
+   mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
+  }
+//  plane of symmetry
+  mcturn[i][i+1] = 0.0 ;
+  mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
+  mcQ[i][i+1] = mcQ[i][i] ;
+  mcR[i][i+1] = mcQ[i][i+1] ;
+  mcpm[i][i+1]= mcQ[i][i+1] ;
+  irow=i; icol=i+1; 
+  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+  isoResult = getIsen(mcmach[irow][icol],gamma);
+  poverpt = isoResult[2];
+  tovertt = isoResult[3];
+  arat = isoResult[4];
+  nu = isoResult[0];
+  mu = isoResult[1]; 
+// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+  mcmang[irow][icol] = mu ;
+  mcpp0[irow][icol] = poverpt * pref ;
+  mctt0[irow][icol] = tovertt * tref ;
+  mcy[i][i+1] = 0.0;
+  mcx[i][i+1] = mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
+ }
+//  cancellation surface
+ i = numray/2 + 1 ;
+ mcdefl[i][1] = mcdefl[i-1][1] ;
+ mcturn[i][1] = mcturn[i-1][1] ;
+ mcR[i][1] = mcR[i-1][1] ;
+ mcpm[i][1] = mcpm[i-1][1] ;
+ mcQ[i][1] = mcQ[i-1][1] ;
+ mcmach[i][1] = mcmach[i-1][1] ;
+// isoResult = getIsen(mcmach[i][1],gamma);
+//poverpt = isoResult[2];
+//tovertt = isoResult[3];
+//arat = isoResult[4];
+//nu = isoResult[0];
+//mu = isoResult[1]; 
+// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
+ mcmang[i][1] = mcmang[i-1][1];
+ mcx[i][1] = mcx[i-1][1] ;
+ mcy[i][1] = mcy[i-1][1] ; 
+ mcpp0[i][1] = mcpp0[i-1][1] ;
+ mctt0[i][1] = mctt0[i-1][1] ;
+ for(k=2; k<=i; ++k) {
+  mcdefl[i][k] = -delthet ;
+  mcturn[i][k] = mcturn[i][k-1] + mcdefl[i][k] ;
+  mcR[i][k] = mcR[i-1][k] ;
+  mcpm[i][k] = mcR[i][k] + mcturn[i][k] ;
+  mcQ[i][k] = mcpm[i][k] + mcturn[i][k] ;
+  irow=i; icol=k; 
+  mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
+//   getIsen(mcmach[irow][icol], gamma) ;
+  isoResult = getIsen(mcmach[irow][icol],gamma);
+  poverpt = isoResult[2];
+  tovertt = isoResult[3];
+  arat = isoResult[4];
+  nu = isoResult[0];
+  mu = isoResult[1]; 
+ // list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[irow][icol],gamma) ;       
+  mcmang[irow][icol] = mu ;
+  mcpp0[irow][icol] = poverpt * pref ;
+  mctt0[irow][icol] = tovertt * tref ;
+  mcal = mcturn[i][k-1];
+  mcbe = (mcmang[i-1][k] + mcturn[i-1][k]);
+  mcx[i][k]=(mcy[i-1][k]-mcy[i][k-1]+mcx[i][k-1]*Math.tan(convdr*mcal)-mcx[i-1][k]*Math.tan(convdr*mcbe))/(Math.tan(convdr*mcal)-Math.tan(convdr*mcbe));
+  mcy[i][k] = mcy[i][k-1]+(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
+ } 
+//  wall geometry
+ for(j=2; j<=numray/2; ++j) {
+  icxbgn[j] = icxnd[j-1] ;
+  icybgn[j] = icynd[j-1] ;
+  icxnd[j]  = mcx[j][1] ;
+  icynd[j]  = mcy[j][1] ;
+ }
+ for(j=numray/2+1; j<=numray; ++j) {
+  icxbgn[j] = icxnd[j-1] ;
+  icybgn[j] = icynd[j-1] ;
+  k = j - numray/2 + 1 ;
+  icxnd[j]  = mcx[i][k] ;
+  icynd[j]  = mcy[i][k] ;
+ }
+ icxbgn[numray + 1] = icxnd[numray] ;
+ icybgn[numray + 1] = icynd[numray] ;
+ icxnd[j]  = icxbgn[numray+1] ;
+ icynd[j]  = icybgn[numray+1] ;
+ xexit = nzht*icxnd[numray + 1] ;
+ yexit = nzht*icynd[numray + 1] ;
+// output and plotting variables
+ for(i=0; i<=numray; ++i) {
+  for(j=0; j<=numray; ++j) {
+   mcpp0[i][j] = psth * mcpp0[i][j] ;
+   mctt0[i][j] = tsth * mctt0[i][j] ;
+  }
+ }
+//calculate airflow and thrust and drag
+ var area,pres,mach,gm1,gp1,temp1,fac1,fac2,mflow,wflow;
+ area = nzar / 144.0 ;   // throat area in sq ft
+ pres = pto  * 144.0 ;  // throat total pressure in lb /sq ft
+ mach = 1.0 ;      // throat mach  - choked
+//getAir(machthrt,gamma,aft,ptft,tto) ;     
+//function getAir($mach, $gam, $area, $pres, $temp) {
+//total pres in lb/sq ft .. total temp in Rankine .. area in feet^2 .. rgas in ft^2/s^2 / R 
+ temp1 = tto;
+ gm1 = gamma -1.0 ;
+ gp1 = gamma +1.0 ;
+ fac1 = 1.0 + 0.5 * gm1 * mach * mach ;
+ fac2 = gp1 / (2.0 * gm1) ;
+ mflow = area * pres * Math.sqrt(gamma/(rgas * temp1)) * mach * Math.pow(fac1,-fac2) ;
+ wflow = mflow * gc ;         
+ var soundex,uexit,fgros,aboat,dragab,fnet;
+ soundex = Math.sqrt(gamma * rgas * texit) ; 
+ uexit = soundex * machend ;
+// aexft = aexit / 144. ;   exit area in sq ft
+ fgros = uexit * mflow + (pexit - ps0)*aexit ; 
+ aboat = xexit * nzw * Math.tan(convdr*ang1) ;
+ dragab = aboat * (ps0 - plocal);
+ fnet = fgros - dragab ;   
+//flow field in color based on Mach no.
+ var xorgn,yorgn,xmin,xmax,chord,amin,amax,amin1,amax1,temp;
+ xorgn=25;
+ yorgn=225;
+ xmin=icxbgn[1];
+ xmax=xmin;
+ for (i=1; i<numray+2; ++i) {
+  if (icxbgn[i]<xmin) {
+   xmin=icxbgn[i];
+  }
+  if (icxbgn[i]>xmax) {
+   xmax=icxbgn[i];
+  }
+ }
+ chord=xmax-xmin;
+
+ amin=mcmach[1][1];
+ amin1=mcpp0[1][1];
+ amax=amin;
+ amax1=amin1;
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]);
+   if (temp>amax) amax=temp;
+   if (temp<amin) amin=temp;
+   temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]);
+   if (temp>amax1) amax1=temp;
+   if (temp<amin1) amin1=temp;
+  }  
+ } 
+ var n,l;
+ var ivals = [];
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   ivals[0] = xorgn + Math.trunc((mcx[i][k]+nzlg)*500.0/chord);
+   ivals[1] = yorgn - Math.trunc(mcy[i][k]*500.0/chord);
+   ivals[2] = xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
+   ivals[3] = yorgn - Math.trunc(mcy[i][k+1]*500.0/chord);
+   ivals[4] = xorgn + Math.trunc((mcx[i+1][k+1]+nzlg)*500.0/chord);
+   ivals[5] = yorgn - Math.trunc(mcy[i+1][k+1]*500.0/chord);
+   ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
+   ivals[7] = yorgn - Math.trunc(mcy[i+1][k]*500.0/chord);
+   temp = 0.25 * (mcmach[i][k] + mcmach[i][k+1] + mcmach[i+1][k+1] + mcmach[i+1][k]) ;
+   var n;
+   n=(temp-amin)/(amax-amin);
+   if (n<0) {
+    n=0;
+   } else if (n>1) {
+    n=1; 
+   }
+   ctx.beginPath();
+   ctx.lineWidth=1;
+   ctx.moveTo(ivals[0],ivals[1]);
+   j=0;
+   while (j<3) {
+    l=j*2+2;
+    ctx.lineTo(ivals[l],ivals[l+1]);
+    j=j+1;
+   } 
+   ctx.closePath();
+   ctx.globalAlpha = n;
+   ctx.fillStyle="red";
+   ctx.fill();
+  }
+ } 
+ i=numray/2;
+ ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
+ ivals[1] = yorgn - Math.trunc(mcy[i][i]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
+ ivals[3] = yorgn - Math.trunc(mcy[i+1][i+1]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc((mcx[i+1][i+1]+nzlg)*500.0/chord);
+ ivals[5] = yorgn;
+ temp = mcmach[i+1][i+1];
+ n=(temp-amin)/(amax-amin);
+ if (n<0) {
+  n=0;
+ } else if (n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ j=0;
+ while (j<2) {
+  l=j*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  j=j+1;
+ } 
+ ctx.closePath();
+ ctx.globalAlpha = n;
+ ctx.fillStyle="red";
+ ctx.fill();
+ i = 1 ;
+ ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
+ ivals[1] = yorgn - Math.trunc(mcy[i][i]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[i][i+1]+nzlg)*500.0/chord);
+ ivals[3] = yorgn - Math.trunc(mcy[i][i+1]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
+ ivals[5] = yorgn ;
+ temp = mcmach[i][i+2];
+ n=(temp-amin)/(amax-amin);
+ if (n<0) {
+  n=0;
+ } else if (n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ j=0;
+ while (j<2) {
+  l=j*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  j=j+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+ ctx.fill();
+ 
+ for (j=2; j<=numray/2; ++j) {
+  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+  ivals[1] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
+  ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+  ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
+  ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
+  ivals[5] = yorgn - Math.trunc(mcy[j][j+1]*500.0/chord);
+  temp = 0.25*(mcmach[j-1][j] + 2.0*mcmach[j][j] + mcmach[j][j+1]) ;
+  n=(temp-amin)/(amax-amin);
+  if (n<0) {
+   n=0;
+  } else if (n>1) {
+   n=1; 
+  }
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ivals[0],ivals[1]);
+  i=0;
+  while (i<2) {
+   l=i*2+2;
+   ctx.lineTo(ivals[l],ivals[l+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.globalAlpha = n;
+  ctx.fillStyle="red";
+  ctx.fill();
+ }
+ j = numray/2+1 ;
+ ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[1] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+ ivals[3] = yorgn - Math.trunc(mcy[j][j]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[5] = yorgn - Math.trunc(mcy[j-1][j]*500.0/chord);
+ temp = mcmach[j-1][j];
+ n=(temp-amin)/(amax-amin);
+ if (n<0) {
+  n=0;
+ } else if ( n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ i=0;
+ while (i<2) {
+  l=i*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="red";
+ ctx.globalAlpha = n;
+ ctx.fill();
+ ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[1] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+ ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[5] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+ temp = mcpp0[j-1][j];
+ n=(temp-amin1)/(amax1-amin1);
+ if (n<0) {
+  n=0;
+ } else if ( n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ i=0;
+ while (i<2) {
+  l=i*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="green";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="grey";
+ ctx.fill();
+// ctx.stroke();
+
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   ivals[0] = xorgn + Math.trunc((mcx[i][k]+nzlg)*500.0/chord);
+   ivals[1] = yorgn + Math.trunc(mcy[i][k]*500.0/chord);
+   ivals[2] = xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
+   ivals[3] = yorgn + Math.trunc(mcy[i][k+1]*500.0/chord);
+   ivals[4] = xorgn + Math.trunc((mcx[i+1][k+1]+nzlg)*500.0/chord);
+   ivals[5] = yorgn + Math.trunc(mcy[i+1][k+1]*500.0/chord);
+   ivals[6] = xorgn + Math.trunc((mcx[i+1][k]+nzlg)*500.0/chord);
+   ivals[7] = yorgn + Math.trunc(mcy[i+1][k]*500.0/chord);
+   temp = 0.25 * (mcpp0[i][k] + mcpp0[i][k+1] + mcpp0[i+1][k+1] + mcpp0[i+1][k]) ;
+   n=(temp-amin1)/(amax1-amin1);
+   if (n<0) {
+    n=0;
+   } else if (n>1) {
+    n=1; 
+   }
+   ctx.beginPath();
+   ctx.lineWidth=1;
+   ctx.moveTo(ivals[0],ivals[1]);
+   j=0;
+   while (j<3) {
+    l=j*2+2;
+    ctx.lineTo(ivals[l],ivals[l+1]);
+    j=j+1;
+   } 
+   ctx.closePath();
+   ctx.fillStyle="green";
+   ctx.globalAlpha = n;
+   ctx.fill();
+  } 
+ } 
+ i = 1 ;
+ ivals[0] = xorgn + Math.trunc((mcx[i][i]+nzlg)*500.0/chord);
+ ivals[1] = yorgn + Math.trunc(mcy[i][i]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[i][i+1]+nzlg)*500.0/chord);
+ ivals[3] = yorgn + Math.trunc(mcy[i][i+1]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc(nzlg*500.0/chord);
+ ivals[5] = yorgn;
+ temp = mcpp0[i][i+2] ;
+ n=(temp-amin1)/(amax1-amin1);
+ if (n<0) {
+  n=0;
+ } else if (n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);1.83105
+ j=0;
+ while (j<2) {
+  l=j*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  j=j+1;
+ } 
+ ctx.closePath();
+ ctx.globalAlpha = n;
+ ctx.fillStyle="green";
+ ctx.fill();
+
+ for (j=2; j<=numray/2; ++j) {
+  ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+  ivals[1] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+  ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+  ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
+  ivals[4] = xorgn + Math.trunc((mcx[j][j+1]+nzlg)*500.0/chord);
+  ivals[5] = yorgn + Math.trunc(mcy[j][j+1]*500.0/chord);
+  temp = 0.25*(mcpp0[j-1][j] + 2.0*mcpp0[j][j]+mcpp0[j][j+1]) ;
+  n=(temp-amin1)/(amax1-amin1);
+  if (n<0) {
+   n=0;
+  } else if (n>1) {
+   n=1; 
+  }
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ivals[0],ivals[1]);
+  i=0;
+  while (i<2) {
+   l=i*2+2;
+   ctx.lineTo(ivals[l],ivals[l+1]);
+   i=i+1;
+  } 
+  ctx.closePath();
+  ctx.fillStyle="green";
+  ctx.globalAlpha = n;
+  ctx.fill();
+ }
+ j = numray/2+1 ;
+ ivals[0] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[1] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+ ivals[2] = xorgn + Math.trunc((mcx[j][j]+nzlg)*500.0/chord);
+ ivals[3] = yorgn + Math.trunc(mcy[j][j]*500.0/chord);
+ ivals[4] = xorgn + Math.trunc((mcx[j-1][j]+nzlg)*500.0/chord);
+ ivals[5] = yorgn + Math.trunc(mcy[j-1][j]*500.0/chord);
+ temp = mcpp0[j-1][j] ;
+ n=(temp-amin1)/(amax1-amin1);
+ if (n<0) { 
+  n=0;
+ } else if (n>1) {
+  n=1; 
+ }
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ivals[0],ivals[1]);
+ i=0;
+ while (i<2) {
+  l=i*2+2;
+  ctx.lineTo(ivals[l],ivals[l+1]);
+  i=i+1;
+ } 
+ ctx.closePath();
+ ctx.fillStyle="green";
+ ctx.globalAlpha = n;
+// ctx.strokeStyle="black";
+ ctx.fill();
+// ctx.stroke();
+
+//draw nozzle
+ var x0,y0,x1,y1,x2,y2,y10,y20,strng2; 
+ x0=25;
+ x1=525;
+ y0=225; 
+ strng2 = "<table width='200' align='center'><tr><td colspan='2' align='center'>Nozzle Geometry</td></tr><tr><td align='center'>X (ft)</td><td align='center'>Y (ft)</td></tr>";
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y0);
+ ctx.strokeStyle='black';
+ ctx.stroke();
+ x1=25+Math.trunc((icxbgn[1]-xmin)*500.0/chord);
+ y1=225-Math.trunc((icybgn[1])*500.0/chord);
+ y10=225+Math.trunc((icybgn[1])*500.0/chord);
+ strng2 = strng2 + "<tr><td align='center'>" + icxbgn[1].toPrecision(5) + "</td><td align='center'>" + icybgn[1].toPrecision(5) + "</td></tr>";
+ for (i=2; i<numray+2; ++i) {
+  x2=25+Math.trunc((icxbgn[i]-xmin)*500.0/chord);
+  y2=225-Math.trunc((icybgn[i])*500.0/chord);
+  strng2 = strng2 + "<tr><td>" + icxbgn[i].toPrecision(5) + "</td><td>" + icybgn[i].toPrecision(5) + "</td></tr>";
+  y20=225+Math.trunc((icybgn[i])*500.0/chord);
+  ctx.beginPath();
+  ctx.lineWidth=3;
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.globalAlpha = 1.0;
+  ctx.strokeStyle='black';
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.lineWidth=3;
+  ctx.moveTo(x1,y10);
+  ctx.lineTo(x2,y20);
+  ctx.strokeStyle='black';
+  ctx.stroke();
+  x1=x2;
+  y1=y2;
+  y10=y20;
+ }
+ strng2=strng2 + "</table>";
+
+// moc lines
+
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[i][1]+nzlg)*500.0/chord);
+  y1 = yorgn + Math.trunc(mcy[i][1]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[i+1][1]+nzlg)*500.0/chord);
+  y2 = yorgn + Math.trunc(mcy[i+1][1]*500.0/chord);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.globalAlpha=1;
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.strokeStyle='blue';
+  ctx.stroke();
+ }
+ k = numray/2 + 1 ;
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+  y1 = yorgn + Math.trunc(mcy[k][i]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[k][i+1]+nzlg)*500.0/chord);
+  y2 = yorgn + Math.trunc(mcy[k][i+1]*500.0/chord);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.globalAlpha = 1.0;
+  ctx.strokeStyle='blue';
+  ctx.stroke();
+ }
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   x1= xorgn + Math.trunc((mcx[i][k]+nzlg)*500.0/chord);
+   y1= yorgn + Math.trunc(mcy[i][k]*500.0/chord);
+   x2= xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
+   y2= yorgn + Math.trunc(mcy[i][k+1]*500.0/chord);
+   ctx.beginPath();
+   ctx.lineWidth=1;
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
+   ctx.strokeStyle='blue';
+   ctx.stroke();
+  } 
+ }
+ for(i=2; i<=numray/2+1; ++i) {
+  for (k=i-1; k<=numray/2; ++k) {
+   x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+   y1 = yorgn + Math.trunc(mcy[k][i]*500.0/chord);
+   x2 = xorgn + Math.trunc((mcx[k+1][i]+nzlg)*500.0/chord);
+   y2 = yorgn + Math.trunc(mcy[k+1][i]*500.0/chord);
+   ctx.beginPath();
+   ctx.lineWidth=1;
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
+   ctx.strokeStyle='blue';
+   ctx.stroke();
+  }
+ }
+
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[i][1]+nzlg)*500.0/chord);
+  y1 = yorgn - Math.trunc(mcy[i][1]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[i+1][1]+nzlg)*500.0/chord);
+  y2 = yorgn - Math.trunc(mcy[i+1][1]*500.0/chord);
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.stroke();
+ }
+ k = numray/2 + 1 ;
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+  y1 = yorgn - Math.trunc(mcy[k][i]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[k][i+1]+nzlg)*500.0/chord);
+  y2 = yorgn - Math.trunc(mcy[k][i+1]*500.0/chord);
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.stroke();
+ }
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   x1= xorgn + Math.trunc((mcx[i][k]+nzlg)*500.0/chord);
+   y1= yorgn - Math.trunc(mcy[i][k]*500.0/chord);
+   x2= xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
+   y2= yorgn - Math.trunc(mcy[i][k+1]*500.0/chord);
+   ctx.beginPath();
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
+   ctx.stroke();
+  } 
+ }
+ for(i=2; i<=numray/2+1; ++i) {
+  for (k=i-1; k<=numray/2; ++k) {
+   x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+   y1 = yorgn - Math.trunc(mcy[k][i]*500.0/chord);
+   x2 = xorgn + Math.trunc((mcx[k+1][i]+nzlg)*500.0/chord);
+   y2 = yorgn - Math.trunc(mcy[k+1][i]*500.0/chord);
+   ctx.beginPath();
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
+   ctx.stroke();
+  }
+ }
+ 
+ var strng1 = "2-D Ideal Nozzle  : &nbsp;&nbsp; "
+ if (fnet>0.0) {
+  strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
+ } else {
+  strng1 = strng1 + "Nozzle over expanded. Not realistic <br />";
+ }    
+ var throat =  icybgn[1]*2.0;
+ var exith  = icybgn[numray+1]*2.0;
+ var nlen =  icxbgn[numray+1]-icxbgn[1];
+ strng1 = strng1 + "Throat Height = " + throat.toPrecision(5) + " ft    Exit Height = " + exith.toPrecision(5) + " ft   Nozzle Length = " + nlen.toPrecision(5) + " ft <br />";
+ document.getElementById("output").innerHTML = strng1; 
+ document.getElementById("output2").innerHTML = strng2;
+ ctx.fillStyle = "red";
+ ctx.fillRect(50, 430, 10, 10);
+ ctx.font = "12px Arial";
+ ctx.fillText("Mach No.",50,410);
+ ctx.fillStyle = "green";
+ ctx.fillRect(400, 430, 10, 10);
+ ctx.font = "12px Arial";
+ ctx.fillText("Pressure",400,410);
+ document.getElementById("results").style.visibility="visible";
+ 
+}
 function Compute2D() {
 
  var gammafield = document.getElementById("gamma").value;
@@ -832,7 +1723,7 @@ function Compute2D() {
  x0=25;
  x1=525;
  y0=225; 
- strng2 = "<table width='200' align='center'><tr><td colspan='2'>Nozzle Geometry</td></tr><tr><td>X (ft)</td><td>Y (ft)</td></tr>";
+ strng2 = "<table width='200' align='center'><tr><td colspan='2' align='center'>Nozzle Geometry</td></tr><tr><td align='center'>X (ft)</td><td align='center'>Y (ft)</td></tr>";
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(x0,y0);
@@ -842,7 +1733,7 @@ function Compute2D() {
  x1=25+Math.trunc((icxbgn[1]-xmin)*500.0/chord);
  y1=225-Math.trunc((icybgn[1])*500.0/chord);
  y10=225+Math.trunc((icybgn[1])*500.0/chord);
- strng2 = strng2 + "<tr><td>" + icxbgn[1].toPrecision(5) + "</td><td>" + icybgn[1].toPrecision(5) + "</td></tr>";
+ strng2 = strng2 + "<tr><td align='center'>" + icxbgn[1].toPrecision(5) + "</td><td align='center'>" + icybgn[1].toPrecision(5) + "</td></tr>";
  for (i=2; i<numray+2; ++i) {
   x2=25+Math.trunc((icxbgn[i]-xmin)*500.0/chord);
   y2=225-Math.trunc((icybgn[i])*500.0/chord);
