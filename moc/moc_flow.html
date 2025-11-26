@@ -207,7 +207,7 @@ function Compute2D() {
   ts0 = 518.6 - 3.56 * alt / 1000. ;
   ps0 = 2116. * Math.pow(ts0/518.6, 5.256) ;
  }
- if (alt >= 36152. && $alt <= 82345.) {   // Stratosphere
+ if (alt >= 36152. && alt <= 82345.) {   // Stratosphere
   ts0 = 389.98 ;
   ps0 = 2116. * .2236 * Math.exp((36000.-alt)/(53.35*389.98)) ;
  }
