@@ -385,7 +385,7 @@ function HideResults() {
     }  
     mcpm[i][k]=0.5*(mcpm[i][k-1] + mcpm[i-1][k])+0.5*(mcturn[i][k-1]-mcturn[i-1][k])+0.5*(mcaxi1[i][k]+mcaxi2[i][k]) ;
     mcturn[i][k]=0.5*(mcpm[i][k-1]-mcpm[i-1][k])+0.5*(mcturn[i][k-1]+mcturn[i-1][k])+0.5*(mcaxi1[i][k]-mcaxi2[i][k]) ;
-    mcdefl[i][k]=mcturn[i][k]-$mcturn[i-1][k] ;
+    mcdefl[i][k]=mcturn[i][k]-mcturn[i-1][k] ;
     irow=i; icol=k; 
     mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
     isoResult = getIsen(mcmach[irow][icol],gamma);
