@@ -849,7 +849,7 @@ function HideResults() {
  x0=25;
  x1=525;
  y0=225; 
- strng2 = "<table width='200' align='center'><tr><td colspan='2' align='center'>Nozzle Geometry</td></tr><tr><td align='center'>X (ft)</td><td align='center'>Y (ft)</td></tr>";
+ strng2 = "<table width='200' align='center'><tr><td colspan='2' align='center'>Nozzle Geometry</td></tr><tr><td align='center'>X (ft)</td><td align='center'>R (ft)</td></tr>";
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(x0,y0);
@@ -988,7 +988,7 @@ function HideResults() {
   }
  }
  
- var strng1 = "2-D Ideal Nozzle  : &nbsp;&nbsp; "
+ var strng1 = "Axi-Symmetric Ideal Nozzle  : &nbsp;&nbsp; "
  if (fnet>0.0) {
   strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
@@ -1011,6 +1011,7 @@ function HideResults() {
  document.getElementById("results").style.visibility="visible";
  
 }
+ 
 function Compute2D() {
 
  var gammafield = document.getElementById("gamma").value;
@@ -1883,7 +1884,7 @@ function Compute2D() {
  if (fnet>0.0) {
   strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
-  strng1 = strng1 + "Nozzle over expanded. Not realistic <br />";
+  alert ("Nozzle Over Expanded. Flow Not Realistic. No Solution available."); return;
  }    
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
