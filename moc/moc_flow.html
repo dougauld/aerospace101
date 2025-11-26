@@ -293,7 +293,7 @@ function HideResults() {
  i1 = Math.trunc(((delx - delxlo)/(delxhi-delxlo))*1000.0) ;
 // list (nu, mu, poverpt, tovertt, arat) =  getIsen(machend,gamma) ;
  thetmx = nuexit / 2.0 ;
- delthet = nuexit / numray ;
+ delthet = Math.atan(Math.sqrt(arat)-1.0)/convdr/numray ;
  mcpm[0][0] = 0.0 ;
  mcmang[0][0] = 90.0 ;  
  mcmach[0][0] = 1.0 ;
