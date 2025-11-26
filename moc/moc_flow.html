@@ -234,7 +234,8 @@ function HideResults() {
  var mcmach = [];
  var mcx    = [];
  var mcy    = [];
- var mcaxil = []; 
+ var mcaxi1 = [];
+ var mcaxi2 = [];
  for(i=0; i<=numray; ++i) {
   mcpp0[i] = [];
   mctt0[i]  = [];
@@ -245,7 +246,8 @@ function HideResults() {
   mcmang[i] = [];
   mcx[i]    = [];
   mcy[i]    = [];
-  mcaxil[i] = [];
+  mcaxi1[i] = [];
+  mcaxi2[i] = [];
   for(j=0; j<=numray; ++j) {
    mcpp0[i][j] = 1.0 ;
    mctt0[i][j] = 1.0 ;
@@ -255,7 +257,8 @@ function HideResults() {
    mcmang[i][j]=0.0;
    mcx[i][j] = 0.0;
    mcy[i][j] = 0.0;
-   mcaxil[i][j] = 0.0;
+   mcaxi1[i][j] = 0.0;
+   mcaxi2[i][j] = 0.0;
   }
  }  
  var icxbgn = [];
@@ -336,7 +339,7 @@ function HideResults() {
   mcturn[1][2] = 0.0 ;
   mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
   mcaxi1[1][1] = (dell1 * Math.sin(convdr*mcmang[1][1])*Math.sin(convdr*mcturn[1][1])/mcy[1][1])/convdr;
-  mcpm[1][2]= mcpm[1][1] + mcturn[1][1] +mcaxil[1][1] ;
+  mcpm[1][2]= mcpm[1][1] + mcturn[1][1] +mcaxi1[1][1] ;
   irow=1; icol=2;
   mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
 // getIsen(mcmach[irow][icol], gamma) ;
