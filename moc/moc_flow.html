@@ -427,6 +427,7 @@ function HideResults() {
   delold = delthet ;
   delthet = delold + (machend - machold)/deriv ;
   counter = counter + 1 ;
+  if (counter == 50 ) { alert ('Non Realist input parameters : Solution Not Found'); return; }
  }
 //  cancellation surface
  k = numray/2 + 1 ;
