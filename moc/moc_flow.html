@@ -76,7 +76,7 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 <INPUT NAME='mach' id='mach' TYPE='text' VALUE='2.5' SIZE='20' onfocus="HideResults();" autofocus><br />
 </td></tr>
 <tr><td><br />Type of Solution<br />
-<INPUT id='Compute1' TYPE='button' VALUE='2-D Ideal Nozzle' onclick="Compute2D();"><br />
+<INPUT id='Compute1' TYPE='button' VALUE='    2-D Ideal Nozzle     ' onclick="Compute2D();"><br />&nbsp;<br />
 <INPUT id='Compute2' TYPE='button' VALUE='Axi-Symmeric Ideal Nozzle' onclick="ComputeAxi();" >
 </td></tr>
 <!-- <tr><td>Plot Variables<br />
@@ -832,7 +832,7 @@ function Compute2D() {
  x0=25;
  x1=525;
  y0=225; 
- strng2 = "<table width='400'><tr><td colspan='2'>Nozzle Geometry</td></tr><tr><td>X</td><td>Y</td></tr>";
+ strng2 = "<table width='200' align='center'><tr><td colspan='2'>Nozzle Geometry</td></tr><tr><td>X (ft)</td><td>Y (ft)</td></tr>";
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(x0,y0);
