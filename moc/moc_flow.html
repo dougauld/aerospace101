@@ -879,8 +879,7 @@ function Compute2D() {
   y10=y20;
  }
 
-//moc lines in blue lower half
-//imagesetthickness($image,2);
+// moc lines
 
  for(i=1; i<=numray/2; ++i) {
   x1 = xorgn + Math.trunc((mcx[i][1]+nzlg)*500.0/chord);
@@ -889,6 +888,7 @@ function Compute2D() {
   y2 = yorgn + Math.trunc(mcy[i+1][1]*500.0/chord);
   ctx.beginPath();
   ctx.lineWidth=1;
+  ctx.globalAlpha=1;
   ctx.moveTo(x1,y1);
   ctx.lineTo(x2,y2);
   ctx.strokeStyle='blue';
@@ -933,6 +933,52 @@ function Compute2D() {
    ctx.moveTo(x1,y1);
    ctx.lineTo(x2,y2);
    ctx.strokeStyle='blue';
+   ctx.stroke();
+  }
+ }
+
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[i][1]+nzlg)*500.0/chord);
+  y1 = yorgn - Math.trunc(mcy[i][1]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[i+1][1]+nzlg)*500.0/chord);
+  y2 = yorgn - Math.trunc(mcy[i+1][1]*500.0/chord);
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.stroke();
+ }
+ k = numray/2 + 1 ;
+ for(i=1; i<=numray/2; ++i) {
+  x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+  y1 = yorgn - Math.trunc(mcy[k][i]*500.0/chord);
+  x2 = xorgn + Math.trunc((mcx[k][i+1]+nzlg)*500.0/chord);
+  y2 = yorgn - Math.trunc(mcy[k][i+1]*500.0/chord);
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.stroke();
+ }
+ for(i=1; i<=numray/2; ++i) {
+  for (k=1; k<=i; ++k) {
+   x1= xorgn + Math.trunc((mcx[i][k]+nzlg)*500.0/chord);
+   y1= yorgn - Math.trunc(mcy[i][k]*500.0/chord);
+   x2= xorgn + Math.trunc((mcx[i][k+1]+nzlg)*500.0/chord);
+   y2= yorgn - Math.trunc(mcy[i][k+1]*500.0/chord);
+   ctx.beginPath();
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
+   ctx.stroke();
+  } 
+ }
+ for(i=2; i<=numray/2+1; ++i) {
+  for (k=i-1; k<=numray/2; ++k) {
+   x1 = xorgn + Math.trunc((mcx[k][i]+nzlg)*500.0/chord);
+   y1 = yorgn - Math.trunc(mcy[k][i]*500.0/chord);
+   x2 = xorgn + Math.trunc((mcx[k+1][i]+nzlg)*500.0/chord);
+   y2 = yorgn - Math.trunc(mcy[k+1][i]*500.0/chord);
+   ctx.beginPath();
+   ctx.moveTo(x1,y1);
+   ctx.lineTo(x2,y2);
    ctx.stroke();
   }
  }
