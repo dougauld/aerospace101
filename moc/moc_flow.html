@@ -828,10 +828,11 @@ function Compute2D() {
 // ctx.stroke();
 
 //draw nozzle
- var x0,y0,x1,y1,x2,y2,y10,y20; 
+ var x0,y0,x1,y1,x2,y2,y10,y20,strng2; 
  x0=25;
  x1=525;
  y0=225; 
+ strng2 = "<table width='400'><tr><td colspan='2'>Nozzle Geometry</td></tr><tr><td>X</td><td>Y</td></tr>";
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(x0,y0);
@@ -841,9 +842,11 @@ function Compute2D() {
  x1=25+Math.trunc((icxbgn[1]-xmin)*500.0/chord);
  y1=225-Math.trunc((icybgn[1])*500.0/chord);
  y10=225+Math.trunc((icybgn[1])*500.0/chord);
+ strng2 = strng2 + "<tr><td>" + icxbgn[1].toPrecision(5) + "</td><td>" + icybgn[1].toPrecision(5) + "</td></tr>";
  for (i=2; i<numray+2; ++i) {
   x2=25+Math.trunc((icxbgn[i]-xmin)*500.0/chord);
   y2=225-Math.trunc((icybgn[i])*500.0/chord);
+  strng2 = strng2 + "<tr><td>" + icxbgn[i].toPrecision(5) + "</td><td>" + icybgn[i].toPrecision(5) + "</td></tr>";
   y20=225+Math.trunc((icybgn[i])*500.0/chord);
   ctx.beginPath();
   ctx.lineWidth=3;
@@ -862,6 +865,7 @@ function Compute2D() {
   y1=y2;
   y10=y20;
  }
+ strng2=strng2 + "</table>";
 
 // moc lines
 
@@ -978,14 +982,13 @@ function Compute2D() {
  var nlen =  icxbgn[numray+1]-icxbgn[1];
  strng1 = strng1 + "Throat Height = " + throat.toPrecision(5) + " ft    Exit Height = " + exith.toPrecision(5) + " ft   Nozzle Length = " + nlen.toPrecision(5) + " ft <br />";
  document.getElementById("output").innerHTML = strng1; 
-// strng1 = aexit.toPrecision(6) + "..." + fgros.toPrecision(6);
-//document.getElementById("output").innerHTML = strng1;
+ document.getElementById("output2").innerHTML = strng2;
  ctx.fillStyle = "red";
- ctx.fillRect(50, 430, 60, 440);
+ ctx.fillRect(50, 430, 10, 10);
  ctx.font = "12px Arial";
  ctx.fillText("Mach No.",50,410);
  ctx.fillStyle = "green";
- ctx.fillRect(400, 430, 410, 440);
+ ctx.fillRect(400, 430, 10, 10);
  ctx.font = "12px Arial";
  ctx.fillText("Pressure",400,410);
  document.getElementById("results").style.visibility="visible";
