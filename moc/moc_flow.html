@@ -331,7 +331,7 @@ function HideResults() {
   mcy[1][1] = icybgn[1] ;
 // 1-2  - plane of symmetry
   mcy[1][2] = 0.0;
-  mcx[1][2] = mcx[1][1] + (mcy[1][1] - mcy[1][2])/Math.tan(convdr*(mcang[1][1]-mcturn[1][1]));
+  mcx[1][2] = mcx[1][1] + (mcy[1][1] - mcy[1][2])/Math.tan(convdr*(mcmang[1][1]-mcturn[1][1]));
   dell1 = Math.sqrt((mcx[1][2]-mcx[1][1])*(mcx[1][2]-mcx[1][1])+(mcy[1][2]-mcy[1][1])*(mcy[1][2]-mcy[1][1]));
   mcturn[1][2] = 0.0 ;
   mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
