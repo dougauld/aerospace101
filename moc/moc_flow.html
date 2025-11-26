@@ -79,11 +79,6 @@ This form allows the calcualtion or design of supersonic nozzle parameters for t
 &nbsp;&nbsp;&nbsp;<INPUT id='Compute1' TYPE='button' VALUE='2-D Ideal Nozzle' onclick="Compute2D();"><br />&nbsp;<br />
 <INPUT id='Compute2' TYPE='button' VALUE='Axi-Symmeric Ideal Nozzle' onclick="ComputeAxi();" >
 </td></tr>
-<!-- <tr><td>Plot Variables<br />
-<input type='radio' id='vplot' name='vplot' checked value='1'>Mach 
-<input type='radio' id='vplot' name='vplot' value='2'>Pressure 
-</td></tr>
--->
 <tr><td>
 </center></td></tr></table></form></td><td valign='top'><center>
 <br />
@@ -202,7 +197,7 @@ function HideResults() {
  aexit = nzar * arat;
  delx = .01 ; delxlo = .0001; delxhi = .25 ; 
  delxsav = delx;
- 
+ if (alt > 90000) || (alt<0) { alert("Altitude out of range (0 --> 90000)"); return; }
  if (alt < 36152. ) {
   ts0 = 518.6 - 3.56 * alt / 1000. ;
   ps0 = 2116. * Math.pow(ts0/518.6, 5.256) ;
