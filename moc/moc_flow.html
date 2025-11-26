@@ -992,7 +992,7 @@ function HideResults() {
  if (fnet>0.0) {
   strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
-  strng1 = strng1 + "Nozzle over expanded. Not realistic <br />";
+  alert ("Nozzle over expanded. Solution not Realistic "); return;
  }    
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
