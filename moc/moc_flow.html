@@ -298,7 +298,7 @@ function HideResults() {
  var deriv;  
 //analysis by points 
 // R-K analysis
- while (Math.abs(machend-machold)>0.0001 && counter<500) {
+ while (Math.abs(machend-machold)>0.0001 && counter<50) {
   mcx[1][1] = 0.0;
   mcy[1][1] = icybgn[1];
   mcdefl[1][1] = delthet ;
@@ -418,13 +418,6 @@ function HideResults() {
  mcturn[k][1] = mcturn[k-1][1] ;
  mcpm[k][1] = mcpm[k-1][1] ;
  mcmach[k][1] = mcmach[k-1][1] ;
-// isoResult = getIsen(mcmach[i][1],gamma);
-//poverpt = isoResult[2];
-//tovertt = isoResult[3];
-//arat = isoResult[4];
-//nu = isoResult[0];
-//mu = isoResult[1]; 
-// list (nu, mu, poverpt, tovertt, arat) =  getIsen(mcmach[i][1],gamma) ;
  mcmang[k][1] = mcmang[k-1][1];
  mcx[k][1] = mcx[k-1][1] ;
  mcy[k][1] = mcy[k-1][1] ; 
@@ -973,10 +966,11 @@ function HideResults() {
  
  var strng1 = "Axi-Symmetric Ideal Nozzle  : &nbsp;&nbsp; "
  if (fnet>0.0) {
-  strng1=strng1 + " Thrust = " + fgros.toPrecision(5) + " lb @ " + aexit.toPrecision(5) + "ft <br />";
+  strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
- // alert ("Nozzle over expanded. Solution not Realistic "); return;
- }    
+ // alert ("Nozzle over expanded. Solution not Realistic "); return; 
+  strng1=strng1 +  fgros.toPrecision(5) + " ... " + dragab.toPrecision(5) + " <br />";
+ } 
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
  var nlen =  icxbgn[numray+1]-icxbgn[1];
