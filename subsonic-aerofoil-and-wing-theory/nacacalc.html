@@ -750,9 +750,8 @@ function ComputeFlow() {
 //        echo $y."\n";
         return $y;
        }
-
-
-       function DIF($L,$M,$NP,$VARI,$VARD) {
+	
+     function DIF($L,$M,$NP,$VARI,$VARD) {
 //!     *** DOCUMENT DATE 08-01-68   SUBROUTINE REVISED 08-01-68 *********
 //!        THIS FUNCTION SUBPROGRAM FINDS THE DERIVATIVE AT A GIVEN POINT,
 //!        L, FOR THE DESIRED X AND Y IN A GIVEN TABLE.  THE N-POINT
@@ -814,12 +813,7 @@ function ComputeFlow() {
          }
         }  
         return $DIF;
-       }   
-
-?>
-	
-
-
+       }
 */ 
  i=0;
  xmax=xu[i];
@@ -964,7 +958,8 @@ function ComputeFlow() {
   echo "</td></tr></table>"; 
  }      
 */
- document.getElementById("results").style.visibility="visible";
+ document.getElementById("results").style.visibility="visible"
+}
 
 </script>
 
@@ -1000,5 +995,6 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
