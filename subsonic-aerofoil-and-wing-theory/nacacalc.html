@@ -868,6 +868,7 @@ function ComputeFlow() {
  ctx.stroke();
  ctx.beginPath();
  ctx.strokeStyle="blue";
+ i=0;	
  while (i<numx) {
   x1=150+Math.trunc(xl[i]*300.0/chord);
   y1=225-Math.trunc(yl[i]*300.0/chord);
@@ -888,19 +889,15 @@ function ComputeFlow() {
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fontStyle = "black";
- ctx.fillText("X",530,215);
- x1=0;
- y1=imgHeight/2;
- x1=150+Math.trunc(x1);
- y1=225-Math.trunc(y1);
+ ctx.fillText("X",500,215);
  ctx.beginPath();
  ctx.strokeStyle="red";
  ctx.moveTo(150,225);
- ctx.lineTo(x1,y1);
+ ctx.lineTo(150,0);
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fontStyle = "black";
- ctx.fillText("Y",x1+10,y1+10);
+ ctx.fillText("Y",150,20);
  var numout=numx-1;
  var strng = "Number of Data Points = " + numpoint.toPrecision(6);
  ctx.fillStyle="black";
@@ -998,6 +995,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
