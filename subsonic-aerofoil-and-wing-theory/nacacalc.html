@@ -83,7 +83,7 @@ Click here to run a <a href="./panel2d.html">2D Panel Method analysis</a> of an 
 <hr>
 <input id="Compute1" type="button" value="Create" onclick="ComputeFlow();" ><br />&nbsp;<br />
 </form>
-</td><td valign=top width="60%" bgcolor="#FFFFFF">
+</td><td>
 <p id='output'>  </p>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
@@ -145,9 +145,9 @@ function ComputeFlow() {
   dt=-PI/(numx-1);
   theta=PI;
   i=0;
-  var strng1 = " ";
-  strng1 = strng1 + am.toPrecision(6) + " .. " + ap.toPrecision(6) + " .. " + thick.toPrecision(6) + " ";
-  document.getElementById("output").innerHTML = strng1;
+//  var strng1 = " ";
+//  strng1 = strng1 + am.toPrecision(6) + " .. " + ap.toPrecision(6) + " .. " + thick.toPrecision(6) + " ";
+// document.getElementById("output").innerHTML = strng1;
   while (i<numx) {
    x0[i]=0.5+0.5*Math.cos(theta);
    if (x0[i]<ap) {
@@ -888,7 +888,7 @@ function ComputeFlow() {
  ctx.lineTo(550,225);
  ctx.stroke();
  ctx.font = "12px Arial";
- ctx.fontStyle = "black";
+ ctx.fillStyle = "black";
  ctx.fillText("X",500,215);
  ctx.beginPath();
  ctx.strokeStyle="red";
@@ -896,7 +896,7 @@ function ComputeFlow() {
  ctx.lineTo(150,0);
  ctx.stroke();
  ctx.font = "12px Arial";
- ctx.fontStyle = "black";
+ ctx.fillStyle = "black";
  ctx.fillText("Y",150,20);
  var numout=numx-1;
  var strng = "Number of Data Points = " + numpoint.toPrecision(6);
@@ -995,6 +995,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
