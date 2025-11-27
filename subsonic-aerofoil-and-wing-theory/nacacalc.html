@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+<h3>NACA Aerofoil Section Generator</h3>
+<center>
+<table border="1" cellpadding="10" bgcolor="#dfdfff">
+<tr><td colspan=2>
+<p>
+This form calculates the geometric properties of NACA two dimensional
+aerofoil sections.  The geometry of various families of sections can be
+created; 4-digit, 5-digit, 6-series and 6A-series families of sections.
+Click here to see <a href="./nacacalc_eg.html">NACA Aerofoil examples</a>.
+Click here to run a <a href="./panel2d.html">2D Panel Method analysis</a> of an aerofoil.
+</p>
+</td></tr>
+<tr><td valign=top>
+<B>Input Parameters</B><br>
+<form>
+<table>
+<tr><td>Section Family<br>
+<select NAME="family" id="family" onfocus="HideResults();" autofocus>
+<option value="4-digit">4-digit</option>
+<option value="5-digit">5-digit</option>
+<option value="6-series">6-series</option>
+</select>
+</td></tr>
+<tr><td>Section Designation<br>
+<INPUT NAME="sect" id='sect' TYPE="text" VALUE="0012" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+<tr><td>Number of Coordinates<br>
+<INPUT NAME="num" id='num' TYPE="text" VALUE="121" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+<tr><td>Chordwise Loading<br>
+<INPUT NAME="load" id='load' TYPE="text" VALUE="" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+</table>
+<hr>
+<input id="Compute1" type="button" value="Create" onclick="ComputeFlow();" ><br />&nbsp;<br />
+</form>
+</td><td valign=top width="60%" bgcolor="#FFFFFF">
+<p id='output'>  </p>
+<fieldset id="results">
+<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+</fieldset>
+</td>
+</tr>
+</table>
+</font>
+<br>
+</center>
+<p><a href="aerofoil-section-2-d-geometry.html">Back to NACA Aerofoil Sections</a></p> 
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var family = document.getElementById("family").value;
+ var series = document.getElementById("sect").value;
+ var numfield = document.getElementById("num").value;
+ var loadfield = document.getElementById("load").value;
+ var series = sectfield;
+ var numpoint  = Number(numfield);
+ var load = Number(loadfield);
+ 
+ let series=series.replace(" ","");
+ var section = Number(series);  
+ var limit  = 1.0e-5;
+ var dx = 0.01;
+ var PI=3.1415926;
+ var TWOPI=PI*2.0;
+ if (load<0.1 || load>0.9999) {
+  load=0.9999;
+ }
+ if (numpoint>121 || numpoint<12) {
+  numpoint=121;
+ } 
+ if ((numpoint % 2)==0) {
+  numpoint=numpoint-1;
+ }
+ var strlen,itemp,jtemp,am,ap,ak,ak2,thick,numx,dt,theta;
+ strlen = series.length;
+ if (strlen==4) {
+  itemp=Math.trunc(section);
+  am=Math.trunc(itemp/1000);
+  itemp=Math.trunc(section-am*1000.0);
+  ap=Math.trunc(itemp/100);
+  itemp=Math.trunc(itemp-ap*100.0);
+  thick=itemp*0.01;
+  numx=Math.floor(numpoint/2)+1;
+  dt=-PI/(numx-1);
+  theta=PI;
+  var i=0;
+  var x0 = [];
+  var y0 = [];
+  var dyc = [];
+  var yt = [];
+  while (i<numx) {
+   x0[i]=0.5+0.5*Math.cos(theta);
+   if (x0[i]<ap) {
+    y0[i]=am/(ap*ap)*(2.0*ap*x0[i]-x0[i]*x0[i]);
+    dyc[i]=am/(ap*ap)*(2.0*ap-2.0*x0[i]);
+   } else {
+    y0[i]=am/(1.0-ap)/(1.0-ap)*((1.0-2.0*ap)+2.0*ap*x0[i]-x0[i]*x0[i]);
+    dyc[i]=am/(1.0-ap)/(1.0-ap)*(2.0*ap-2.0*x0[i]);
+   }
+   yt[i]=thick/0.2*(0.29690*Math.sqrt(x0[i])-0.126*x0[i]-0.3516*x0[i]*x0[i]+0.2843*x0[i]*x0[i]*x0[i]-0.1015*x0[i]*x0[i]*x0[i]*x0[i]);
+   theta=theta-dt;
+   i=i+1;
+  }
+ }
+ if (strlen==5) {
+  itemp=Math.trunc(section/1000.0);
+  jtemp=Math.trunc((section - itemp*1000)/100);
+  ap=0.0;
+  am=0.0;
+  ak=0.0;
+  ak2=0.0;
+  if (itemp==21) { 
+   ap=0.05;
+   am=0.058;
+   ak=361.4;
+   ak2=0.0;
+  }
+  if (itemp==22) { 
+   ap=0.10;
+   am=0.126;
+   ak=51.64;
+   if (jtemp==1) {
+    am=0.130;
+    ak=51.99;
+    ak2=0.000764;
+   }
+  }
+  if (itemp==23) {
+   ap=0.15;
+   am=0.2025;
+   ak=15.957;
+   if (jtemp==1) {
+    am=0.2170;
+    ak=15.793;
+    ak2=0.006770;
+   }
+  }
+  if (itemp==24) { 
+   ap=0.20;
+   am=0.29;
+   ak=6.643;
+   if (jtemp==1) {
+    am=0.3180;
+    ak=6.520;
+    ak2=0.0303;
+   } 
+  }
+  if (itemp==25) { 
+   ap=0.25;
+   am=0.391;
+   ak=3.23;
+   if (jtemp==1) {
+    am=0.4410;
+    ak=3.191;
+    ak2=0.1355;
+   } 
+  }
+  itemp=Math.trunc(section/100);
+  thick=Math.trunc(section-itemp*100)*0.01;
+  numx=Math.floor(numpoint/2)+1;
+  dt=-PI/(numx-1.0);
+  theta=PI;
+  var j=0;
+  while (j<numx) {
+   x0[j]=0.5+0.5*Math.cos(theta);
+   theta=theta-dt;
+   if (x0[j]<ap) {
+    if (jtemp==0) {
+     y0[j]=1./6.*ak*(x0[j]*x0[j]*x0[j]-3.0*am*x0[j]*x0[j]+am*am*(3.0-am)*x0[j]);
+     dyc[j]=1./6.*ak*(3.0*x0[j]*x0[j]-6.0*am*x0[j]+am*am*(3.0-am));
+    } else {
+     y0[j]=(x0[j]-am)*(x0[j]-am)*(x0[j]-am);
+     y0[j]=y0[j]-ak2*(1.0-am)*(1.0-am)*(1.0-am)*x0[j]-am*am*am*x0[j]+am*am*am;
+     y0[j]=1./6.*ak*y0[j];
+     dyc[j]=3.0*(x0[j]-am)*(x0[j]-am);
+     dyc[j]=1./6.*ak*(dyc[j]-ak2*(1.0-am)*(1.0-am)*(1.0-am)-am*am*am);
+    }
+   } else { 
+    if (jtemp==0) {
+     y0[j]=1./6.*ak*am*am*am*(1.0-x0[j]);
+     dyc[j]=-1./6.*ak*am*am*am;
+    } else { 
+     y0[j]=ak2*(x0[j]-am)*(x0[j]-am)*(x0[j]-am);
+     y0[j]=y0[j]-ak2*(1.0-am)*(1.0-am)*(1.0-am)*x0[j]-am*am*am*x0[j]+am*am*am;
+     y0[j]=1./6.*ak*y0[j];
+     dyc[j]=ak2*3.0*(x0[j]-am)*(x0[j]-am);
+     dyc[j]=1./6.*ak*(dyc[j]-ak2*(1.0-am)*(1.0-am)*(1.0-am)-am*am*am);
+    }
+   }
+   yt[j]=thick/0.2*(0.29690*Math.sqrt(Math.abs(x0[j]))-0.126*x0[j]-0.3516*x0[j]*x0[j]+0.2843*x0[j]*x0[j]*x0[j]-0.1015*x0[j]*x0[j]*x0[j]*x0[j]);
+   j=j+1;
+  } 
+/*
+         $j=1;
+         while ($j<$numx-1) {
+          dx1=x0[$j]-x0[$j-1];
+          $DY1=$Y0[$j]-$Y0[$j-1];
+          dx2=x0[$j+1]-x0[$j];
+          $DY2=$Y0[$j+1]-$Y0[$j];
+          $DYC[$j]=($DY1/dx1 + $DY2/dx2)*0.5;
+          $j++;
+         }
+*/         
+ }
+ if (strlen==4 || strlen==5) {
+  j=0;
+  while (j<numx) {
+   theta=Math.atan(dyc[j]);
+   xu[j]=x0[j]-Math.sin(theta)*yt[j];
+   yu[j]=y0[j]+Math.cos(theta)*yt[j];
+   xl[j]=x0[j]+Math.sin(theta)*yt[j];
+   yl[j]=y0[j]-Math.cos(theta)*yt[j];
+   j=j+1;
+  }
+ }
+/* 
+        if ($series[0]=='6') {
+//       6 series sections from.....
+//       from NASA TM X-3069, September 1974
+//       by Ladson, C.L., and Brooks, C.W., Jr.
+//      ku ported to the Mac by W.H. Mason, March 1991
+//       ported to Linux D.Auld June 2006
+//       phped  D.Auld 2021
+         $TOC=0.01;
+         $A=load;
+         $numx=floor(numpoint/2)+1;         
+         if ($A<1.0e-5) {
+          $A=1.0;
+         } 
+         $i=0;
+//         echo " Section :".$section."\n";
+         $length=strlen($section);
+         while ($i<$length) {
+          $j=$length-$i-1;
+          if (($section[$j]>="0") && ($section[$j]<="9")) {
+           $TOC = intval($section[$j-1]);
+           $TOC = $TOC*10.0 + intval($section[$j]);
+           $TOC = $TOC/100.0;
+           $i=$length;
+          }
+          $i++;
+         } 
+//         echo " TOC : ".$TOC."\n";
+         $CLI=0.0;
+         $i=0;
+         while ($i<$length) {
+          if (($section[$i]=="-") || ($section[$i]=="A")) {
+           if ($section[$i+1]=="-") {
+            $temp=intval($section[$i+2]);
+           } else { 
+            $temp=intval($section[$i+1]);
+           }
+           $CLI=$temp*0.1;
+           $i=$length;
+          }
+          $i++;
+         }
+         $KF6XA = 0;
+         $FRAC  = 1.0;
+         $CLIS  = $CLI;
+         $AS    = $A;
+         $A1    = $A;
+         $CLI1  = $CLI;
+         $X     = 0.0;
+         $Y     = 0.0;
+         $XC    = 0.0;
+         $YC    = 0.0;
+         $XU0[0] = 0.0;
+         $YU0[0] = 0.0;
+         $XL0[0] = 0.0;
+         $YL0[0] = 0.0;
+         $U     = 0.005;
+         $V     = -($A1-$U)/abs($A1-$U);
+         $OMXL  = (1.0-$U)*log(1.0-$U);
+         $AMXL  = ($A1-$U)*log(abs($A1-$U));
+         $OMXL1 = -log(1.0-$U)-1.0;
+         $AMXL1 = -log(($A1-$U))+$V;
+         $OMXL2 = 1.0/(1.0-$U);
+         $AMXL2 = -$V/abs($A1-$U);
+         if (($A1>$limit) && (abs(1.0-$A1)>$limit)) {
+          $G  = -($A1*$A1*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
+          $Q  = 1.0;
+          $H  = (0.5*(1.0-$A1)^2*log(1.0-$A1)-0.25*(1.-$A1)^2)/(1.-$A1)+$G;
+          $Z  = 0.5*($A1-$U)*$AMXL-0.5*(1.0-$U)*$OMXL-0.25*($A1-$U)^2+0.25*(1.0-$U)^2;
+          $Z1 = 0.5*(($A1-$U)*$AMXL1-$AMXL-(1.0-$U)*$OMXL1+$OMXL+($A1-$U)-(1.0-$U));
+          $Z2 = 0.5*($A1-$U)*$AMXL2-$AMXL1-0.5*(1.0-$U)*$OMXL2+$OMXL1;
+         } 
+         if ($A1<$limit) {
+          $H  = -0.5;
+          $Q  = 1.0;
+          $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
+         } elseif (abs($A1-1.0)<$limit) { 
+          $H  = 0.0;
+          $Q  = $H;
+          $Z1 = -$OMXL1;
+         } else {
+          $H  = -0.5;
+          $Q  = 1.0;
+          $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
+         }
+//         echo "CLI1,A1,Q,H,U :".$CLI1.":".$A1.":".$Q.":".$H.":".$U."\n";
+         $TANTH0=$CLI1*($Z1/(1.0-$Q*$A1)-1.0-log($U)-$H)/pi()/($A1+1.0)/2.0;
+         $YP       = 10.^10;
+         $YPP      = 10.^10;
+//         $YUP      = -1.0/$TANTH0;
+//         $YLP      = -1.0/$TANTH0;
+         $i        = 0;
+         $X        = 0.00025;
+         $XMAX = 0.0;
+         $XMIN = 0.0;
+         while ($X<=1.0) {
+          if ($i==0) {
+//           SELECT SERIES
+           $partial=substr($section,1,2);
+           switch ($partial) {
+             case "3-" : $filename="PEP63.txt"; $numpnt=201; break;
+             case "4-" : $filename="PEP64.txt"; $numpnt=201; break;
+             case "5-" : $filename="PEP65.txt"; $numpnt=251; break;
+             case "6-" : $filename="PEP66.txt"; $numpnt=201; break;
+             case "7-" : $filename="PEP67.txt"; $numpnt=251; break;
+             case "3(" : $filename="PEP63.txt"; $numpnt=201; break;
+             case "4(" : $filename="PEP64.txt"; $numpnt=201; break;
+             case "5(" : $filename="PEP65.txt"; $numpnt=251; break;
+             case "6(" : $filename="PEP66.txt"; $numpnt=201; break;
+             case "7(" : $filename="PEP67.txt"; $numpnt=251; break;
+             case "3A" : $filename="PEP63A.txt"; $numpnt=251; break;
+             case "4A" : $filename="PEP64A.txt"; $numpnt=251; break;
+             case "5A" : $filename="PEP65A.txt"; $numpnt=251; break;
+           }
+           $file2=fopen($filename,"r");
+           $n=0;
+           while ($n<$numpnt) {
+            fscanf($file2," %f  %f ",$x00,$y00);
+            $PHI[$n]=$x00;
+            $EPS[$n]=$y00;
+//            echo " PHI[".$n."],EPS[".$n."] = ".$x00.", ".$y00."\n";
+            $n++;
+           }
+           fclose($file2);
+           switch ($partial) {
+             case "3-" : $filename="PPS63.txt"; break;
+             case "4-" : $filename="PPS64.txt"; break;
+             case "5-" : $filename="PPS65.txt"; break;
+             case "6-" : $filename="PPS66.txt"; break;
+             case "7-" : $filename="PPS67.txt"; break;
+             case "3(" : $filename="PPS63.txt"; break;
+             case "4(" : $filename="PPS64.txt"; break;
+             case "5(" : $filename="PPS65.txt"; break;
+             case "6(" : $filename="PPS66.txt"; break;
+             case "7(" : $filename="PPS67.txt"; break;
+             case "3A" : $filename="PPS63A.txt"; break;
+             case "4A" : $filename="PPS64A.txt"; break;
+             case "5A" : $filename="PPS65A.txt"; break;
+           }
+           $file2=fopen($filename,"r");
+           $n=0;
+           while ($n<$numpnt) {
+            fscanf($file2," %f  %f ",$x00,$y00);
+            $PHI0[$n]=$x00;
+            $PSI0[$n]=$y00;
+//            echo " PHI[".$n."],PSI[".$n."] = ".$x00.", ".$y00."\n";
+            $n++;
+           }
+           fclose($file2);
+           $n=0;
+           while ($n<$numpnt) {
+            $x00=$PHI[$n];
+            if (($PHI0[$n]-$x00)<$limit) {
+             $PSI[$n]=$PSI0[$n];
+            } else {
+             $PSI[$n]=FTLUP($numpnt,$x00,$PHI0,$PSI0);
+            }
+//            echo "PSI[".$n."] = ".$PSI[$n]; 
+//            echo " or ".$PSI[$n]."\n";
+            $n++;
+           }
+//           IF (section(1:3).EQ.'64A') CALL PEP64A (phi,EPS)
+//           IF (section(1:3).EQ.'65A') CALL PEP65A (phi,EPS)
+           $RAT= 1.0;
+           $IT = 0;
+//           LOOP START FOR THICKNESS ITERATION
+           while($IT<11) {
+            $IT=$IT+1;
+//           write(6,510) IT,RAT
+            $YMAX=0.0;
+            $XYM=0.0;
+            $j=0;
+            while ($j<$numpnt) {
+             $temp=$PSI[$j]*$RAT;
+             $COSH=0.5*(exp($temp)+exp(-$temp));
+             $XT[$j] = -2.0*$COSH*cos($PHI[$j]-$EPS[$j]*$RAT);
+             $SINH=0.5*(exp($temp)-exp(-$temp));
+             $YT[$j] = 2.0*$SINH*sin($PHI[$j]-$EPS[$j]*$RAT);
+//             echo " XT[".$j."],YT[".$j."] = ".$XT[$j].", ".$YT[$j]."\n";
+             if ($YT[$j]>$YMAX) {
+              $XYM = $XT[$j];
+              $YMAX = $YT[$j];
+             }
+             $j++;
+            } 
+            $XTP=1.0;
+            $j=1;
+            $YTP[0]=10.0**6;
+            while ($j<$numpnt) {
+             $YTP[$j] = DIF($j,5,$numpnt,$XT,$YT);
+//             echo " YTP[".$j."] = ".$YTP[$j]."\n";
+             if ($j>=2) {
+              if (($YTP[$j]<0.0) && ($YTP[$j-1]>0.0)) {
+               $XTP=$XT[$j-1]+$YTP[$j-1]*($XT[$j]-$XT[$j-1])/($YTP[$j-1]-$YTP[$j]);
+              }
+             }
+             $j++;
+            }
+            $YM=FTLUP($numpnt,$XTP,$XT,$YT);
+//            echo " XTP,YM ".$XTP.", ".$YM."\n";
+            $j=1;
+            while ($j<$numpnt) {
+             $YTPP[$j]  = DIF($j,5,$numpnt,$XT,$YTP);
+             $j++;   
+            } 
+            $YTPP[0] = 10.0**6;
+            $XO = $XT[0];
+            $XL201 = $XT[$numpnt-1];
+            $TR = 2.0*$YM/($XL201-$XO);
+            if ($TOC<$limit) {
+             $IT=20;
+            } else {
+//            TEST THICKNESS
+             $RAT = $TOC/$TR;
+             if (abs($RAT-1.0)<0.0001) {
+              $IT=20;
+             }
+            }
+           } 
+           $SF=$RAT;
+           if ($TOC<$limit) {
+            $SF=0.0;
+           }
+           if($i==0) {   
+            $j=0;
+            while ($j<$numpnt) {
+             $XT[$j] = ($XT[$j]-$XO)/($XL201-$XO);
+//            SCALE LINEARLY TO EXACT THICKNESS
+             $YT[$j]   = $SF*$YT[$j]/($XL201-$XO);
+             $YTP[$j]  = $SF*$YTP[$j];
+             $YTPP[$j] = $SF*$YTPP[$j]*($XL201-$XO);
+             $j++;
+            } 
+           }
+           $XTP     = ($XTP-$XO)/($XL201-$XO);
+           $YMAX    = $YMAX*$SF/($XL201-$XO);
+           $YM      = $YM*$SF/($XL201-$XO);
+           $XYM     = ($XYM-$XO)/($XL201-$XO);
+           $XL0[0]   = 0.0;
+           if ($TOC>$limit) {
+//                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
+            $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
+            $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
+            $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
+            $j=0;
+            while ($j<10) {
+             $YT[$j] = $BN*sqrt(1.0-($XT[$j]-$AN)**2/$AN**2)+$CN*$XT[$j];
+             if ($XT[$j]>$limit) {
+              $YTP[$j]   = $BN**2*($AN-$XT[$j])/$AN**2/($YT[$j]-$CN*$XT[$j])+$CN;
+              $YTPP[$j]  = -$BN**4/$AN**2/($YT[$j]-$CN*$XT[$j])**3;
+             }
+             $j++;
+            } 
+            $RNP=$BN**2/$AN;
+           }
+           $ALI = abs($CLI);
+           $X = 0.00025;
+           $XL0[0] = 0.0;
+          } 
+//          INTERPOLATE FOR THICKNESS AND DERIVATIVES AT DESIRED VALUES OF X
+          $Y=FTLUP($numpnt,$X,$XT,$YT);
+          $YP=FTLUP($numpnt,$X,$XT,$YTP);
+          $YPP=FTLUP($numpnt,$X,$XT,$YTPP);
+//          COMPUTE CAMBERLINE
+          $A   = $AS;
+          $CLI = $CLIS;
+          $A1  = $A;
+          $CLI1 = $CLI;
+          $XC   = $X;
+          $YC   = $Y;
+          $XLL  = $X*log($X);
+          $Q    = 1.0;
+          if ((abs(1.0-$A1)<$limit) && (abs(1.0-$X)<$limit)) {
+           $G  = 0.0;
+           $H  = $G;
+           $Q  = $G;
+           $Z  = 0.0;
+           $Z1 = -10.0**10;
+           $Z2 = -10.0**10;
+          } elseif (($A1<$limit) && ((1.0-$X)<$limit)) {
+           $G  = -0.25;
+           $H  = -0.5;
+           $Q  = 1.0;
+           $Z  = -0.25;
+           $Z1 = 0.0;
+           $Z2 = -10.0**10;
+          } elseif (abs($A1-$X)<$limit) {
+           $Z  = -0.5*(1.0-$X)**2*log(1.0-$X)+0.25*(1.0-$X)**2;
+           $Z1 = -0.5*(1.0-$X)*(-log(1.0-$X)-1.0)+0.5*(1.0-$X)*log(1.0-$X)-0.5*(1.0-$X);
+           $Z2 = -log(1.0-$X)-0.5;
+           $G  = -($A1**2*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
+           $H  = (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
+          } elseif (abs(1.0-$X)<$limit) {
+           $G  = -($A1**2*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
+           $H  =  (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
+           $Z  =  0.5*($A1-1.0)**2*log(abs($A1-1.0))-0.25*($A1-1.0)**2;
+           $Z1 = -($A1-1.0)*log(abs($A1-1.0));
+           $Z2 = -10.0**10;
+          } elseif (abs($A1-1.0)<$limit) {
+           $G  = 0.0;
+           $H  = G;
+           $Q  = G;
+           $Z  = -(1.0-$X)*log(1.0-$X);
+           $Z1 = log(1.0-$X)+1.0;
+           $Z2 = -1.0/(1.0-$X);
+          } else { 
+           $V     = -($A1-$X)/abs($A1-$X);
+           $OMXL  =  (1.0-$X)*log(1.0-$X);
+           $AMXL  =  ($A1-$X)*log(abs($A1-$X));
+           $OMXL1 = -log(1.0-$X)-1.0;
+           $AMXL1 = -log(abs($A1-$X))-1.0;
+           $OMXL2 =  1.0/(1.0-$X);
+           $AMXL2 =  1.0/($A1-$X);
+           $Z  = 0.5*($A1-$X)*$AMXL-0.5*(1.0-$X)*$OMXL-0.25*($A1-$X)**2+0.25*(1.0-$X)**2;
+           $Z1 = 0.5*(($A1-$X)*$AMXL1-$AMXL-(1.0-$X)*$OMXL1+$OMXL+($A1-$X)-(1.0-$X));
+           $Z2 = 0.5*($A1-$X)*$AMXL2-$AMXL1-0.5*(1.0-$X)*$OMXL2+$OMXL1;
+           if ($A1<=$limit) { 
+            $G  = -0.25;
+            $H  = -0.50;
+           } else {           
+            $G  = -($A1*$A1*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
+            $H  =  (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
+           } 
+          } 
+          $YCMB  = $CLI1*($Z/(1.0-$Q*$A1)-$XLL+$G-$H*$X)/pi()/($A1+1.0)/2.0;
+          $XSV   = $X;
+          if ($X<0.005) {
+           $X=0.005;
+          } 
+          $TANTH = $CLI1*($Z1/(1.0-$Q*$A1)-1.0-log($X)-$H)/pi()/($A1+1.0)/2.0;
+          $X=$XSV;
+          if ($KF6XA==1) {
+           $TANTH=-5.0;
+          }
+          if ($X<=0.005) {
+           $YCP2  = 0.0;
+          } else {
+           if (abs(1.0-$X)<=$limit) {
+            $YCP2 = 1.0/$limit;
+           } else {
+            $PIA= pi()*($A1+1.0)*2.0;
+            $YCP2 = $CLI1*($Z2/(1.0-$Q*$A1)-1.0/$X)/$PIA;
+           }
+          }  
+//        MODIFIED CAMBERLINE OPTION
+          $partial=substr($section,0,3);
+          if (($partial=="63A") || ($partial=="64A") || ($partial=="64A") || ($partial=="65A")) {
+           $YCMB=$YCMB*0.97948;
+           $TANTH=$TANTH*0.97948;
+           $YCP2=$YCP2*0.97948;
+           $A1 = 0.8;
+           $CLI1 = $CLI;
+//          WRITlimit (*,*) '<BR>MODIFIED CAMBERLINE ONLY FOR A=0.8<BR>'
+           if ($TANTH<=-0.24521*$CLI1) {
+            $YCMB  =  0.24521*$CLI1*(1.0-$X);
+            $YCP2  =  0.0;
+            $TANTH = -0.24521*$CLI1;
+            $KF6XA =  1;
+           }
+          }
+          $F = sqrt(1.0+$TANTH**2);
+          $THP = $YCP2/$F**2;
+          $SINTH = $TANTH/$F;
+          $COSTH = 1.0/$F;
+//          CAMBERLINE AND DERIVATIVES COMPUTED
+//          COMBINE THICKNESS DISTRIBUTION AND CAMBERLINE
+          $XU0[$i]  = $X - $Y*$SINTH;
+          if ($XU0[$i]>$XMAX) {
+           $XMAX=$XU0[$i];
+          }
+          if ($XU0[$i]<$XMIN) {
+           $XMIN=$XU0[$i];
+          }
+          $YU0[$i]  = $YCMB + $Y*$COSTH;
+          $XL0[$i]  = $X + $Y*$SINTH;
+          if ($XL0[$i]>$XMAX) {
+           $XMAX=$XU0[$i];
+          }
+          if ($XL0[$i]<$XMIN) {
+           $XMIN=$XU0[$i];
+          }
+          $YL0[$i]  = $YCMB - $Y*$COSTH;  
+          $i=$i+1;
+          if ($ALI>$limit) {
+//           FIND LOCAL SLOPE OF CAMBERED PROFILE
+//           $YUP=($TANTH*$F+$YP-$TANTH*$Y*$THP)/($F-$YP*$TANTH-$Y*$THP);
+//           $YLP=($TANTH*$F-$YP+$TANTH*$Y*$THP)/($F+$YP*$TANTH+$Y*$THP);
+          } 
+//           FIND X INCREMENT
+          if ($X<=0.09750) {
+           $FRAC = 0.250;
+          }
+          if ($X<=0.01225) {
+           $FRAC = 0.025;
+          }
+//         INCREMENT X AND RETURN TO START OF X LOOP
+          $X = $X + $FRAC*dx;
+          $FRAC = 1.0;
+         } 
+         $numtotal=$i;
+         $i=0;
+         $dt=-pi()/($numx-1);
+         $theta=-pi();
+         $CHORD=$XMAX-$XMIN;
+         $XCENTRE=($XMAX+$XMIN)*0.5;
+         while ($i<$numx) {
+          $X=$XCENTRE+$CHORD*0.5*cos($theta);
+          $Y=FTLUP($numtotal,$X,$XU0,$YU0);
+          $XU[$i]=$X;
+          $YU[$i]=$Y;
+          $Y=FTLUP($numtotal,$X,$XL0,$YL0);
+          $XL[$i]=$X;
+          $YL[$i]=$Y;
+          $theta=$theta+$dt;
+          $i++;
+         } 
+        }
+  
+//      create section file
+        $file2=fopen("./tmp/section1.tmp","w");
+        if ($file2) {
+         $outtext=2*$numx."\n";
+         fwrite($file2,$outtext);
+         $i=0;
+         while ($i<$numx) {
+          $outtext=$XU[$i]."  ".$YU[$i]."\n";
+          fwrite($file2,$outtext);
+          $i++;
+         }
+         $i=0;
+         while ($i<$numx) {
+          $j=$numx-$i-1;
+          $outtext=$XL[$j]."  ".$YL[$j]."\n";
+          fwrite($file2,$outtext);
+          $i++;
+         }
+         fclose($file2);
+        } else {
+         echo " Cannot OPEN output file \n";
+        } 
+       }
+
+       function FTLUP($n,$x,$vari,$vard) {
+//       implicit REAL*8 (A-H,O-Z)
+//       real*8 vari(n), vard(n), v(3), yy(2), unit
+//       integer*4 ii(43)
+ 
+//       initialize all interval pointers to -1.0  for monotonicity check
+//       data (ii(j),j=1,43)/43* -1/
+        $ma=1;
+        $unit=1.0;
+//       assign interval pointers for given vari table
+//       the same pointer will be used on a given vari table every time
+//        $n=201;
+        $i=0;
+        $j=0;
+        $found=0;
+        while ($i<($n-1)) {
+         $test=($vari[$i]-$x)*($vari[$i+1]-$x);
+         if ($test<0.0) { 
+          $found=1;
+          $j=$i;
+          $i=$n;
+         }
+         $i++;
+        }
+        if ($found==0) {    
+//         if x outside endpoints, extrapolate from end interval
+         if ($x<$vari[0]) {
+          $j=0;
+         } else {
+          $j=$n-2;
+         }
+        }      
+//        first order
+//        echo " ...j,x,xi,xd,y ".$j.", ".$x.", ".$vari[$j].", ".$vard[$j].", ";
+        $y = ($vard[$j]*($vari[$j+1]-$x)-$vard[$j+1]*($vari[$j]-$x))/($vari[$j+1]-$vari[$j]);
+//        echo $y."\n";
+        return $y;
+       }
+
+
+       function DIF($L,$M,$NP,$VARI,$VARD) {
+//!     *** DOCUMENT DATE 08-01-68   SUBROUTINE REVISED 08-01-68 *********
+//!        THIS FUNCTION SUBPROGRAM FINDS THE DERIVATIVE AT A GIVEN POINT,
+//!        L, FOR THE DESIRED X AND Y IN A GIVEN TABLE.  THE N-POINT
+//!        LAGRANGIAN FORMULA IS USED WHERE N IS ODD.
+//!        L = INTEGER, THE POINT OF X AND Y AT WHICH DERIVATIVE IS FOUND
+//!        M = INTEGER, 1-5, TO DETERMINE THE POINT FORMULA, N.  N=2*M+1
+//!        NP= INTEGER, THE NUMBER OF POINTS IN TABLE OF VARIABLES
+//!        VARI = ARRAY OF INDEPENDENT VARIABLE, X.  VARI(NP)
+//!        VARD = ARRAY OF DEPENDENT VARIABLE, Y.    VARD(NP)
+//      DIF=O17770000000000000000
+//!     FOR NOS SYSTEM, PREVIOUS CARD MUST BE REPLACED BY:
+        if ($M<1) {
+         $DIF=0.0;
+        } else {
+         $N=2*$M+1;
+         IF (($M>5) || ($N>$NP)) {
+          $DIF=0.0;
+         } else {
+          $M1=$M+1;
+          $M2=$NP-$M+1;
+          $K=$L;
+          if (($L>$M1) && ($N!=$NP)) { 
+           $K=$M1;
+           if ($L>=$M2) {
+            $K=$L-($NP-$N);
+           }
+          }  
+          $MX=$L-$K;
+          $j=0;
+          while ($j<$N) {
+           $MJ=$MX+$j;
+           $X[$j]=$VARI[$MJ];
+           $Y[$j]=$VARD[$MJ];
+           $j++;
+          }
+         
+          $A=1.0;
+          $B=0.0;
+          $C=0.0;
+          $j=0;
+          while ($j<$N) {
+           if ($j!=$K) {
+            $P=1.0;
+            $i=0;
+            while ($i<$N) {
+             if ($i!=$j) {
+              $P=$P*($X[$j]-$X[$i]);
+             } 
+             $i++;
+            }
+            $T=$X[$K]-$X[$j];
+            $B=$B+$Y[$j]/($P*$T);
+            $A=$A*$T;
+            $C=$C+1.0/$T;
+           } 
+           $j++;
+          } 
+          $DIF=$A*$B+$Y[$K]*$C;
+         }
+        }  
+        return $DIF;
+       }   
+
+?>
+	
+
+*/ 
+ i=0;
+ xmax=xu[i];
+ xmin=xu[i];
+ while (i<numx) {
+  if (xu[i]>xmax) {
+   xmax=xu[i];
+  } 
+  if (xu[i]<xmin) {
+   xmin=xu[i];
+  }
+  if (xl[i]>xmax) {
+   xmax=xl[i];
+  } 
+  if (xl[i]<xmin) {
+   xmin=xl[i];
+  }
+ i=i+1;
+ }  
+
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=450;
+
+// Create image and define colors
+// Create a background
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0,0,600,450);
+
+ var chord=xmax-xmin;
+// draw section outline
+ ctx.lineWidth=2;
+ i=0;
+ var x1,y1; 
+ ctx.beginPath();
+ ctx.strokeStyle="blue";
+ while (i<numx) {
+  x1=150+Math.trunc(xu[i]*300.0/chord);
+  y1=225-Math.trunc(yu[i]*300.0/chord);
+  if (i>0) {
+   ctx.lineTo(x1,y1); 
+  } else {
+   ctx.moveTo(x1,y1);
+  }   
+  i=i+1;
+ }
+ ctx.stroke();
+ ctx.beginPath();
+ ctx.strokeStyle="blue";
+ while (i<numx) {
+  x1=150+Math.trunc(xl[i]*300.0/chord);
+  y1=225-Math.trunc(yl[i]*300.0/chord);
+  if (i>0) {
+   ctx.lineTo(x1,y1); 
+  } else {
+   ctx.moveTo(x1,y1);
+  }   
+  i=i+1;
+ }
+ ctx.stroke();
+ 
+ ctx.lineWidth=1;
+ ctx.beginPath();
+ ctx.strokeStyle="red";
+ ctx.moveTo(150,225);
+ ctx.lineTo(550,225);
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle = "black";
+ ctx.fillText("X",530,215);
+ x1=0;
+ y1=imgHeight/2;
+ x1=150+Math.trunc(x1);
+ y1=225-Math.trunc(y1);
+ ctx.beginPath();
+ ctx.strokeStyle="red";
+ ctx.moveTo(150,225);
+ ctx.lineTo(x1,y1);
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fontStyle = "black";
+ ctx.fillText("Y",x1+10,y1+10);
+ var numout=numx-1;
+ var strng = "Number of Data Points = " + numout.toPrecision(6);
+ ctx.fillStyle="black";
+ ctx.fillText(strng,150,320);
+
+/*
+ } else {
+  echo "<table><tr><td>";
+  $file1 = fopen("./tmp/section1.tmp","ro");
+  fscanf($file1, " %d ",numpoint);
+  $i=0;
+  while ($i<numpoint) {
+   fscanf($file1," %f  %f ",$x0,$y0);
+   $x[$i]=$x0;
+   $y[$i]=$y0;
+   $i++;
+  }
+  fclose($file1);
+  echo " Upper Surface :<br />";
+  $numx=numpoint/2;
+  $i=0;
+  while ($i<$numx) {
+   echo " ".number_format($x[$i],5)." &nbsp;&nbsp; ".number_format($y[$i],5)." <br />";
+   $XU[$i]=$x[$i];
+   $YU[$i]=$y[$i];
+   $i++;
+  }     
+  echo "<br /> Lower Surface :<br />";
+  $i=0;
+  while ($i<$numx) {
+   $j=numpoint-$i-1;
+   echo " ".number_format($x[$j],5)." &nbsp;&nbsp; ".number_format($y[$j],5)." <br />";
+   $XL[$i]=$x[$j];
+   $YL[$i]=$y[$j];
+   $i++;
+  }
+  echo "</td><td valign='top'>";
+  if ($filename!="") {
+   $file2=fopen("./tmp/".$filename,"wt");
+   $newnum=($numx*2)-1;
+   fprintf($file2," NACA Aerofoil %s : %s \x0d\n ",$family,$sect);
+   fprintf($file2," %d    Data Points \x0d\n",$newnum);
+   $i=0;
+   while ($i<$numx) {
+    $j=$numx-$i-1;
+    fprintf($file2," %15.5f  %15.5f \x0d\n",$x[$j],$y[$j]);
+    $i++;
+   }
+   $i=0;
+   while ($i<$numx-1) {
+    $j=numpoint-$i-2;
+    fprintf($file2," %15.5f  %15.5f \x0d\n",$x[$j],$y[$j]);
+    $i++;
+   }
+   fclose($file2);
+   echo "Download Data : <a href='./tmp/".$filename."'>".$filename."</a>";
+  }
+  echo "</td></tr></table>"; 
+ }      
+*/
+ document.getElementById("results").style.visibility="visible";
+
+</script>
+
+</td></tr></table><br></center>
+<p><a href='aerofoil-section-2-d-geometry.html'>Back to NACA Aerofoil Sections</a></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
