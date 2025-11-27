@@ -913,7 +913,7 @@ function ComputeFlow() {
  i=0;
  while (i<numx) {
   j=numpoint-i-1;
-  strng = strng + xl[j].toPrecision(5) + " &nbsp;&nbsp; " + yl[j].toPrecision(5) + " <br />";
+  strng = strng + xl[i].toPrecision(5) + " &nbsp;&nbsp; " + yl[i].toPrecision(5) + " <br />";
   i=i+1;
  }
  document.getElementById("output2").innerHTML = strng;
@@ -954,6 +954,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
