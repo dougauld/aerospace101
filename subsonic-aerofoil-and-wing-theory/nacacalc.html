@@ -88,13 +88,6 @@ Click here to run a <a href="./panel2d.html">2D Panel Method analysis</a> of an 
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
 </fieldset>
-</td>
-</tr>
-</table>
-</font>
-<br>
-</center>
-<p><a href="aerofoil-section-2-d-geometry.html">Back to NACA Aerofoil Sections</a></p> 
 
 <script>
 
@@ -133,6 +126,11 @@ function ComputeFlow() {
  var yu = [];
  var xl = [];
  var yl = [];
+ var x0 = [];
+ var y0 = [];
+ var dyc = [];
+ var yt = [];
+ var i;	
  strlen = series.length;
  if (strlen==4) {
   itemp=Math.trunc(section);
@@ -144,11 +142,10 @@ function ComputeFlow() {
   numx=Math.floor(numpoint/2)+1;
   dt=-PI/(numx-1);
   theta=PI;
-  var i=0;
-  var x0 = [];
-  var y0 = [];
-  var dyc = [];
-  var yt = [];
+  i=0;
+  var strng1 = " ";
+  strng1 = strng1 + am.toPrecision(6) + " .. " + ap.toPrecision(6) + " .. " + thick.toPrecision(6) + " ";
+  document.getElementById("output").innerHTML = strng1;
   while (i<numx) {
    x0[i]=0.5+0.5*Math.cos(theta);
    if (x0[i]<ap) {
@@ -999,6 +996,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
