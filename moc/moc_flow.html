@@ -971,8 +971,8 @@ function HideResults() {
  if (fnet>0.0) {
   strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
  } else {
- // alert ("Nozzle over expanded. Solution not Realistic "); return; 
-  strng1=strng1 +  xexit.toPrecision(5) + " ... " + nzw.toPrecision(5) + " ... " + ang1.toPrecision(5) + " <br />";
+  alert ("Nozzle over expanded. Solution not Realistic "); return; 
+  // strng1=strng1 +  xexit.toPrecision(5) + " ... " + nzw.toPrecision(5) + " ... " + ang1.toPrecision(5) + " <br />";
  } 
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
