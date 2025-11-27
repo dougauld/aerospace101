@@ -119,17 +119,7 @@ function HideResults() {
 // Create image and define colors
  var i=0;
  var k=0;
-// var colorTable = [];
-// while (i<100) {
-//  k=i*2+54;
-//  if (vplot) {
-//   colorTable[i]="rgb(255,k,0)";
-//  } else {
-//   colorTable[i]="rgb(0,k,0)";
-//  }
-//  i=i+1;
-// }
-// colorTable[38]="green";
+
 // Create a background
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
@@ -325,16 +315,14 @@ function HideResults() {
   mcmang[1][1] = mu ;
   mcpp0[1][1] = poverpt * pref ;
   mctt0[1][1] = tovertt * tref ;
-  mcx[1][1] = 0.0 ;
-  mcy[1][1] = icybgn[1] ;
 // 1-2  - plane of symmetry
   mcy[1][2] = 0.0;
   mcx[1][2] = mcx[1][1] + (mcy[1][1] - mcy[1][2])/Math.tan(convdr*(mcmang[1][1]-mcturn[1][1]));
-  dell1 = Math.sqrt((mcx[1][2]-mcx[1][1])*(mcx[1][2]-mcx[1][1])+(mcy[1][2]-mcy[1][1])*(mcy[1][2]-mcy[1][1]));
+  dell1 = Math.sqrt(((mcx[1][2] - mcx[1][1]) * (mcx[1][2]-mcx[1][1]))+((mcy[1][2] - mcy[1][1])*(mcy[1][2]-mcy[1][1]))) ;
   mcturn[1][2] = 0.0 ;
   mcdefl[1][2] = mcturn[1][2] - mcturn[1][1] ;
   mcaxi1[1][1] = (dell1 * Math.sin(convdr*mcmang[1][1])*Math.sin(convdr*mcturn[1][1])/mcy[1][1])/convdr;
-  mcpm[1][2]= mcpm[1][1] + mcturn[1][1] +mcaxi1[1][1] ;
+  mcpm[1][2]= mcpm[1][1] + mcturn[1][1] + mcaxi1[1][1] ;
   irow=1; icol=2;
   mcmach[1][2] = getMachpm(mcpm[1][2],gamma);
 // getIsen(mcmach[irow][icol], gamma) ;
@@ -371,8 +359,8 @@ function HideResults() {
     mcbe = (mcmang[i-1][k] + mcturn[i-1][k]) ;
     mcx[i][k]=(mcy[i][k-1]-mcy[i-1][k]+mcx[i][k-1]*Math.tan(mcal*convdr)+mcx[i-1][k]*Math.tan(mcbe*convdr))/(Math.tan(mcal*convdr)+Math.tan(mcbe*convdr) );
     mcy[i][k]=mcy[i][k-1]-(mcx[i][k]-mcx[i][k-1])*Math.tan(mcal*convdr);
-    dell1 = Math.sqrt((mcx[i][k]-mcx[i][k-1])*(mcx[i][k]-mcx[i][k-1])+(mcy[i][k]-mcy[i][k-1])*(mcy[i][k]-mcy[i][k-1]));
-    dell2 = Math.sqrt((mcx[i][k]-mcx[i-1][k])*(mcx[i][k]-mcx[i-1][k])+(mcy[i][k]-mcy[i-1][k])*(mcy[i][k]-mcy[i-1][k]));
+    dell1 = Math.sqrt(((mcx[i][k]-mcx[i][k-1])*(mcx[i][k]-mcx[i][k-1]))+((mcy[i][k]-mcy[i][k-1])*(mcy[i][k]-mcy[i][k-1])));
+    dell2 = Math.sqrt(((mcx[i][k]-mcx[i-1][k])*(mcx[i][k]-mcx[i-1][k]))+((mcy[i][k]-mcy[i-1][k])*(mcy[i][k]-mcy[i-1][k])));
     mcaxi1[i][k]=(dell1*Math.sin(convdr*mcmang[i][k-1])*Math.sin(convdr*mcturn[i][k-1])/mcy[i][k-1])/convdr ;
     mcaxi2[i][k] = 0.0 ;
     if (mcy[i-1][k] > 0.0) {
@@ -398,11 +386,11 @@ function HideResults() {
    mcy[i][i+1]=0.0;
    mcx[i][i+1]=mcx[i][i]+(mcy[i][i]-mcy[i][i+1])/Math.tan(convdr*(mcmang[i][i]-mcturn[i][i])) ;
    mcturn[i][i+1] = 0.0 ;
-   dell1=Math.sqrt((mcx[i][i+1]-mcx[i][i])*(mcx[i][i+1]-mcx[i][i])+(mcy[i][i+1]-mcy[i][i])*(mcy[i][i+1]-mcy[i][i])) ;
+   mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
+   dell1=Math.sqrt(((mcx[i][i+1]-mcx[i][i])*(mcx[i][i+1]-mcx[i][i]))+((mcy[i][i+1]-mcy[i][i])*(mcy[i][i+1]-mcy[i][i]))) ;
    mcaxi1[i][i]=(dell1*Math.sin(convdr*mcmang[i][i])*Math.sin(convdr*mcturn[i][i])/mcy[i][i])/convdr ;
    mcpm[i][i+1]= mcpm[i][i] + mcturn[i][i] + mcaxi1[i][i] ;
    //  plane of symmetry
-   mcdefl[i][i+1] = mcturn[i][i+1]-mcturn[i][i] ;
    irow=i; icol=i+1; 
    mcmach[irow][icol] = getMachpm(mcpm[irow][icol],gamma);
    isoResult = getIsen(mcmach[irow][icol],gamma);
@@ -468,8 +456,8 @@ function HideResults() {
  for(i=2; i<=numray/2; ++i) {
   icxbgn[i] = icxnd[i-1] ;
   icybgn[i] = icynd[i-1] ;
-  icxnd[i]  = mcx[k][1] ;
-  icynd[i]  = mcy[k][1] ;
+  icxnd[i]  = mcx[i][1] ;
+  icynd[i]  = mcy[i][1] ;
  }
  for(i=numray/2+1; i<=numray; ++i) {
   icxbgn[i] = icxnd[i-1] ;
