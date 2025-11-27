@@ -136,8 +136,10 @@ function ComputeFlow() {
   itemp=Math.trunc(section);
   am=Math.trunc(itemp/1000);
   itemp=Math.trunc(section-am*1000.0);
+  am=am*0.01;
   ap=Math.trunc(itemp/100);
   itemp=Math.trunc(itemp-ap*100.0);
+  ap=ap*0.1;
   thick=itemp*0.01;
   numx=Math.floor(numpoint/2)+1;
   dt=-PI/(numx-1);
@@ -996,6 +998,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
