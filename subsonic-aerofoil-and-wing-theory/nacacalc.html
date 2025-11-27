@@ -66,27 +66,39 @@ Click here to run a <a href="./panel2d.html">2D Panel Method analysis</a> of an 
 <B>Input Parameters</B><br>
 <form>
 <table>
-<tr><td>Section Family<br>
-<select NAME="family" id="family" onfocus="HideResults();" autofocus>
-<option value="4-digit">4-digit</option>
-<option value="5-digit">5-digit</option>
-<option value="6-series">6-series</option>
-</select>
+<tr><td>Section Family : <br />
+4-digit<br />
+5-digit<br />
 </td></tr>
 <tr><td>Section Designation<br>
 <INPUT NAME="sect" id='sect' TYPE="text" VALUE="0012" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
 <tr><td>Number of Coordinates<br>
 <INPUT NAME="num" id='num' TYPE="text" VALUE="121" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
-<tr><td>Chordwise Loading<br>
-<INPUT NAME="load" id='load' TYPE="text" VALUE="" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
 </table>
 <hr>
 <input id="Compute1" type="button" value="Create" onclick="ComputeFlow();" ><br />&nbsp;<br />
 </form>
-</td><td>
+</td><td valign='top'>
+<B>Input Parameters</B><br>
+<form>
+<table>
+<tr><td>Section Family : <br />
+6-series<br />
+</td></tr>
+<tr><td>Section Designation<br>
+<INPUT NAME="sect6" id='sect6' TYPE="text" VALUE=" " SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+<tr><td>Number of Coordinates<br>
+<INPUT NAME="num1" id='num1' TYPE="text" VALUE="121" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+<tr><td>Chordwise Loading<br>
+<INPUT NAME="load" id='load' TYPE="text" VALUE="" SIZE='15' onfocus="HideResults();" autofocus></td></tr>
+</table>
+<hr>
+<input id="Compute2" type="button" value="Create" onclick="ComputeFlow2();" ><br />&nbsp;<br />
+</form>
+</td><td valign='top'>
 <p id='output'>  </p>
 <fieldset id="results">
-<canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
+<canvas id="imageout" width="400" height="250" style="border:1px solid grey"></canvas>
 </fieldset>
 <p id='output2'> </p>
 <script>
@@ -103,9 +115,7 @@ function ComputeFlow() {
  var family = document.getElementById("family").value;
  var series = document.getElementById("sect").value;
  var numfield = document.getElementById("num").value;
- var loadfield = document.getElementById("load").value;
  var numpoint  = Number(numfield);
- var load = Number(loadfield);
  
  series=series.replace(" ","");
  var section = Number(series);  
@@ -113,9 +123,6 @@ function ComputeFlow() {
  var dx = 0.01;
  var PI=3.1415926;
  var TWOPI=PI*2.0;
- if (load<0.1 || load>0.9999) {
-  load=0.9999;
- }
  if (numpoint>121 || numpoint<12) {
   numpoint=121;
  } 
@@ -839,7 +846,7 @@ function ComputeFlow() {
  }  
 
 // Add values to the graph
- var imgWidth=600;
+ var imgWidth=400;
  var imgHeight=250;
 
 // Create image and define colors
@@ -847,7 +854,7 @@ function ComputeFlow() {
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
- ctx.fillRect(0,0,600,250);
+ ctx.fillRect(0,0,400,250);
 
  var chord=xmax-xmin;
 // draw section outline
@@ -857,8 +864,8 @@ function ComputeFlow() {
  ctx.beginPath();
  ctx.strokeStyle="blue";
  while (i<numx) {
-  x1=50+Math.trunc(xu[i]*400.0/chord);
-  y1=125-Math.trunc(yu[i]*400.0/chord);
+  x1=50+Math.trunc(xu[i]*300.0/chord);
+  y1=125-Math.trunc(yu[i]*300.0/chord);
   if (i>0) {
    ctx.lineTo(x1,y1); 
   } else {
@@ -866,13 +873,16 @@ function ComputeFlow() {
   }   
   i=i+1;
  }
+ ctx.fillStyle="green"
+ ctx.closePath();
  ctx.stroke();
+ ctx.fill();
  ctx.beginPath();
  ctx.strokeStyle="blue";
  i=0;	
  while (i<numx) {
-  x1=50+Math.trunc(xl[i]*400.0/chord);
-  y1=125-Math.trunc(yl[i]*400.0/chord);
+  x1=50+Math.trunc(xl[i]*300.0/chord);
+  y1=125-Math.trunc(yl[i]*300.0/chord);
   if (i>0) {
    ctx.lineTo(x1,y1); 
   } else {
@@ -880,17 +890,20 @@ function ComputeFlow() {
   }   
   i=i+1;
  }
+ ctx.fillStyle="green"
+ ctx.closePath();
  ctx.stroke();
+ ctx.fill();
  
  ctx.lineWidth=1;
  ctx.beginPath();
  ctx.strokeStyle="red";
  ctx.moveTo(50,125);
- ctx.lineTo(550,125);
+ ctx.lineTo(400,125);
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fillStyle = "black";
- ctx.fillText("X",500,115);
+ ctx.fillText("X/C",380,115);
  ctx.beginPath();
  ctx.strokeStyle="red";
  ctx.moveTo(50,125);
@@ -898,7 +911,7 @@ function ComputeFlow() {
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fillStyle = "black";
- ctx.fillText("Y",54,20);
+ ctx.fillText("Y/C",54,20);
  var numout=numx-1;
  var strng = "Section : " + section + " Number of Data Points = " + numpoint.toPrecision(6) + "<br />";
 // ctx.fillStyle="black";
@@ -954,6 +967,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
