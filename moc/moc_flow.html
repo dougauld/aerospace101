@@ -298,7 +298,7 @@ function HideResults() {
  var deriv;  
 //analysis by points 
 // R-K analysis
- while (Math.abs(machend-machold)>0.0001 && counter<50) {
+ while (Math.abs(machend-machold)>0.001 && counter<50) {
   mcx[1][1] = 0.0;
   mcy[1][1] = icybgn[1];
   mcdefl[1][1] = delthet ;
