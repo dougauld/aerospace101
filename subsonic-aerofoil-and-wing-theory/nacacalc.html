@@ -86,15 +86,16 @@ Click here to run a <a href="./panel2d.html">2D Panel Method analysis</a> of an 
 </td><td>
 <p id='output'>  </p>
 <fieldset id="results">
-<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+<canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
 </fieldset>
-
+<p id='output2'> </p>
 <script>
 
 function HideResults() {
 //  alert("Hiding results");
   document.getElementById("results").style.visibility="hidden";
   document.getElementById("output").innerHTML = " ";
+  document.getElementById("output2").innerHTML = " ";
 }   // --------------------------------------------- End of function HideResults
 
 function ComputeFlow() {
@@ -839,14 +840,14 @@ function ComputeFlow() {
 
 // Add values to the graph
  var imgWidth=600;
- var imgHeight=450;
+ var imgHeight=250;
 
 // Create image and define colors
 // Create a background
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
- ctx.fillRect(0,0,600,450);
+ ctx.fillRect(0,0,600,250);
 
  var chord=xmax-xmin;
 // draw section outline
@@ -856,8 +857,8 @@ function ComputeFlow() {
  ctx.beginPath();
  ctx.strokeStyle="blue";
  while (i<numx) {
-  x1=150+Math.trunc(xu[i]*300.0/chord);
-  y1=225-Math.trunc(yu[i]*300.0/chord);
+  x1=50+Math.trunc(xu[i]*400.0/chord);
+  y1=125-Math.trunc(yu[i]*400.0/chord);
   if (i>0) {
    ctx.lineTo(x1,y1); 
   } else {
@@ -870,8 +871,8 @@ function ComputeFlow() {
  ctx.strokeStyle="blue";
  i=0;	
  while (i<numx) {
-  x1=150+Math.trunc(xl[i]*300.0/chord);
-  y1=225-Math.trunc(yl[i]*300.0/chord);
+  x1=50+Math.trunc(xl[i]*400.0/chord);
+  y1=125-Math.trunc(yl[i]*400.0/chord);
   if (i>0) {
    ctx.lineTo(x1,y1); 
   } else {
@@ -884,80 +885,38 @@ function ComputeFlow() {
  ctx.lineWidth=1;
  ctx.beginPath();
  ctx.strokeStyle="red";
- ctx.moveTo(150,225);
- ctx.lineTo(550,225);
+ ctx.moveTo(50,125);
+ ctx.lineTo(550,125);
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fillStyle = "black";
- ctx.fillText("X",500,215);
+ ctx.fillText("X",500,115);
  ctx.beginPath();
  ctx.strokeStyle="red";
- ctx.moveTo(150,225);
- ctx.lineTo(150,0);
+ ctx.moveTo(50,125);
+ ctx.lineTo(50,0);
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fillStyle = "black";
- ctx.fillText("Y",150,20);
+ ctx.fillText("Y",54,20);
  var numout=numx-1;
- var strng = "Number of Data Points = " + numpoint.toPrecision(6);
- ctx.fillStyle="black";
- ctx.fillText(strng,150,320);
-
-/*
- } else {
-  echo "<table><tr><td>";
-  $file1 = fopen("./tmp/section1.tmp","ro");
-  fscanf($file1, " %d ",numpoint);
-  $i=0;
-  while ($i<numpoint) {
-   fscanf($file1," %f  %f ",$x0,$y0);
-   $x[$i]=$x0;
-   $y[$i]=$y0;
-   $i++;
-  }
-  fclose($file1);
-  echo " Upper Surface :<br />";
-  $numx=numpoint/2;
-  $i=0;
-  while ($i<$numx) {
-   echo " ".number_format($x[$i],5)." &nbsp;&nbsp; ".number_format($y[$i],5)." <br />";
-   $XU[$i]=$x[$i];
-   $YU[$i]=$y[$i];
-   $i++;
-  }     
-  echo "<br /> Lower Surface :<br />";
-  $i=0;
-  while ($i<$numx) {
-   $j=numpoint-$i-1;
-   echo " ".number_format($x[$j],5)." &nbsp;&nbsp; ".number_format($y[$j],5)." <br />";
-   $XL[$i]=$x[$j];
-   $YL[$i]=$y[$j];
-   $i++;
-  }
-  echo "</td><td valign='top'>";
-  if ($filename!="") {
-   $file2=fopen("./tmp/".$filename,"wt");
-   $newnum=($numx*2)-1;
-   fprintf($file2," NACA Aerofoil %s : %s \x0d\n ",$family,$sect);
-   fprintf($file2," %d    Data Points \x0d\n",$newnum);
-   $i=0;
-   while ($i<$numx) {
-    $j=$numx-$i-1;
-    fprintf($file2," %15.5f  %15.5f \x0d\n",$x[$j],$y[$j]);
-    $i++;
-   }
-   $i=0;
-   while ($i<$numx-1) {
-    $j=numpoint-$i-2;
-    fprintf($file2," %15.5f  %15.5f \x0d\n",$x[$j],$y[$j]);
-    $i++;
-   }
-   fclose($file2);
-   echo "Download Data : <a href='./tmp/".$filename."'>".$filename."</a>";
-  }
-  echo "</td></tr></table>"; 
- }      
-*/
+ var strng = "Section : " + section + " Number of Data Points = " + numpoint.toPrecision(6) + "<br />";
+// ctx.fillStyle="black";
+// ctx.fillText(strng,150,320);
+ i=0;
+ strng = strng + " Upper Surface :<br />  X   &nbsp;&nbsp;&nbsp;&nbsp;  Y  <br />";
+ while (i<numx) {
+  strng = strng + xu[i].toPrecision(5) + " &nbsp;&nbsp; " + yu[i].toPrecision(5) + " <br />";
+  i=i+1;
+ }     
+ strng = strng + "<br /> Lower Surface :<br />";
+ i=0;
+ while (i<numx) {
+  j=numpoint-i-1;
+  strng = strng + xl[j].toPrecision(5) + " &nbsp;&nbsp; " + yl[j].toPrecision(5) + " <br />";
+  i=i+1;
+ }
+ document.getElementById("output2").innerHTML = strng;
  document.getElementById("results").style.visibility="visible"
 }
 
@@ -995,6 +954,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
