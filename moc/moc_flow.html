@@ -298,7 +298,7 @@ function HideResults() {
  var deriv;  
 //analysis by points 
 // R-K analysis
- while (Math.abs(machend-machold)>0.001 && counter<50) {
+ while (Math.abs(machend-machold)>0.0001 && counter<50) {
   mcx[1][1] = 0.0;
   mcy[1][1] = icybgn[1];
   mcdefl[1][1] = delthet ;
@@ -406,6 +406,9 @@ function HideResults() {
    machnew = mcmach[i][i+1];
   }
   deriv = (machnew - machold)/(delthet - delold) ;
+  if (Math.abs(deriv)<0.001) { 
+   deriv = 0.001;
+  }
   machold = machnew ;
   delold = delthet ;
   delthet = delold + (machend - machold)/deriv ;
@@ -1912,7 +1915,7 @@ function getMachpm(nuin, gam)  { /* get the Mach number */
  var nuo = Math.sqrt(gp1/gm1)*Math.atan(Math.sqrt(gm1*msm1o/gp1))-Math.atan(Math.sqrt(msm1o));
  var msm1n = msm1o+0.1;
  var counter=0;
- var deviv = 1.0;
+ var deriv = 1.0;
  while (Math.abs(nur-nuo) > 0.0001 && counter < 100) {
   nun = Math.sqrt(gp1/gm1)*Math.atan(Math.sqrt(gm1*msm1n/gp1))-Math.atan(Math.sqrt(msm1n));
   deriv = (nun-nuo)/(msm1n-msm1o);
