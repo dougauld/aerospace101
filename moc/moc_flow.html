@@ -973,9 +973,9 @@ function HideResults() {
  
  var strng1 = "Axi-Symmetric Ideal Nozzle  : &nbsp;&nbsp; "
  if (fnet>0.0) {
-  strng1=strng1 + " Thrust = " + fnet.toPrecision(5) + " lb @ " + alt.toPrecision(5) + "ft <br />";
+  strng1=strng1 + " Thrust = " + fgros.toPrecision(5) + " lb @ " + aexit.toPrecision(5) + "ft <br />";
  } else {
-  alert ("Nozzle over expanded. Solution not Realistic "); return;
+ // alert ("Nozzle over expanded. Solution not Realistic "); return;
  }    
  var throat =  icybgn[1]*2.0;
  var exith  = icybgn[numray+1]*2.0;
