@@ -120,255 +120,75 @@ function HideResults() {
 
 function ComputeFlow2() {
 
-      
-       $file1=fopen("./tmp/section.tmp","r");
-       if ($file1) {
-        $text=fgets($file1);
-        $series=$text;
-        $text=fgets($file1);
-        $section=$text;
-        $text=fgets($file1);
-        $numpoint=intval($text);
-        $text=fgets($file1);
-        $load=floatval($text);
-        fclose($file1);
-//      
-        $section=str_replace(" ","",$section);
-        $E  = 1.0e-5;
-        $DX = 0.01;
-        $TWOPI=pi()*2.0;
-        if (($load<0.1) || ($load>0.9999)) {
-         $load=0.9999;
-        }
-        if (($numpoint>121) || ($numpoint<12)) {
-         $numpoint=121;
-        } 
-        if (($numpoint % 2)==0) {
-         $numpoint=$numpoint-1;
-        }
-        $series=str_replace(" ","",$series);
-//        echo "series    = ".$series."\n";
-//        echo "series[0] = ".$series[0]."\n";          
-        if ($series[0]=='4') {
-         $itemp=intval($section[0]);
-         $am=$itemp*0.01;
-         $itemp=intval($section[1]);
-         $ap=$itemp*0.1;
-         $itemp=intval($section[2]);
-         $itemp=$itemp*10+intval($section[3]);
-         $thick=$itemp*0.01;
-         $numx=floor($numpoint/2)+1;
-         $dt=-pi()/($numx-1);
-         $theta=pi();
-//         echo "AM   : ".$am."\n";
-//         echo "AP   : ".$ap."\n";
-//         echo "Thick: ".$thick."\n";
-         $i=0;
-         while ($i<$numx) {
-          $X0[$i]=0.5+0.5*cos($theta);
-          if ($X0[$i]<$ap) {
-           $Y0[$i]=$am/($ap*$ap)*(2.0*$ap*$X0[$i]-$X0[$i]*$X0[$i]);
-           $DYC[$i]=$am/($ap*$ap)*(2.0*$ap-2.0*$X0[$i]);
-          } else {
-           $Y0[$i]=$am/(1.0-$ap)/(1.0-$ap)*((1.0-2.0*$ap)+2.0*$ap*$X0[$i]-$X0[$i]*$X0[$i]);
-           $DYC[$i]=$am/(1.0-$ap)/(1.0-$ap)*(2.0*$ap-2.0*$X0[$i]);
-          }
-          $YT[$i]=$thick/0.2*(0.29690*sqrt($X0[$i])-0.126*$X0[$i]-0.3516*$X0[$i]*$X0[$i]+0.2843*$X0[$i]*$X0[$i]*$X0[$i]-0.1015*$X0[$i]*$X0[$i]*$X0[$i]*$X0[$i]);
-          $theta=$theta-$dt;
-          $i++;
-         }
-        }   
-       
-        if ($series[0]=="5") {
-         $itemp=intval($section[0]);
-         $itemp=$itemp*10+intval($section[1]);
-         $jtemp=intval($section[2]);
-         $ap=0.0;
-         $am=0.0;
-         $ak=0.0;
-         $ak2=0.0;
-         if ($itemp==21) { 
-          $ap=0.05;
-          $am=0.058;
-          $ak=361.4;
-          $ak2=0.0;
-         }
-         if ($itemp==22) { 
-          $ap=0.10;
-          $am=0.126;
-          $ak=51.64;
-          if ($jtemp==1) {
-           $am=0.130;
-           $ak=51.99;
-           $ak2=0.000764;
-          }
-         }
-         if ($itemp==23) {
-          $ap=0.15;
-          $am=0.2025;
-          $ak=15.957;
-          if ($jtemp==1) {
-           $am=0.2170;
-           $ak=15.793;
-           $ak2=0.006770;
-          }
-         }
-         if ($itemp==24) { 
-          $ap=0.20;
-          $am=0.29;
-          $ak=6.643;
-          if ($jtemp==1) {
-           $am=0.3180;
-           $ak=6.520;
-           $ak2=0.0303;
-          } 
-         }
-         if ($itemp==25) { 
-          $ap=0.25;
-          $am=0.391;
-          $ak=3.23;
-          if ($jtemp==1) {
-           $am=0.4410;
-           $ak=3.191;
-           $ak2=0.1355;
-          } 
-         }
-         $itemp=intval($section[3]);
-         $itemp=$itemp*10+intval($section[4]);
-         $thick=$itemp*0.01;
-         $numx=floor($numpoint/2)+1;
-         $dt=-pi()/($numx-1.0);
-         $theta=pi();
-         $j=0;
-         while ($j<$numx) {
-          $X0[$j]=0.5+0.5*cos($theta);
-          $theta=$theta-$dt;
-          if ($X0[$j]<$ap) {
-           if ($jtemp==0) {
-            $Y0[$j]=1./6.*$ak*($X0[$j]*$X0[$j]*$X0[$j]-3.0*$am*$X0[$j]*$X0[$j]+$am*$am*(3.0-$am)*$X0[$j]);
-            $DYC[$j]=1./6.*$ak*(3.0*$X0[$j]*$X0[$j]-6.0*$am*$X0[$j]+$am*$am*(3.0-$am));
-           } else {
-            $Y0[$j]=($X0[$j]-$am)*($X0[$j]-$am)*($X0[$j]-$am);
-            $Y0[$j]=$Y0[$j]-$ak2*(1.0-$am)*(1.0-$am)*(1.0-$am)*$X0[$j]-$am*$am*$am*$X0[$j]+$am*$am*$am;
-            $Y0[$j]=1./6.*$ak*$Y0[$j];
-            $DYC[$j]=3.0*($X0[$j]-$am)*($X0[$j]-$am);
-            $DYC[$j]=1./6.*$ak*($DYC[$j]-$ak2*(1.0-$am)*(1.0-$am)*(1.0-$am)-$am*$am*$am);
-           }
-          } else { 
-           if ($jtemp==0) {
-            $Y0[$j]=1./6.*$ak*$am*$am*$am*(1.0-$X0[$j]);
-            $DYC[$j]=-1./6.*$ak*$am*$am*$am;
-           } else { 
-            $Y0[$j]=$ak2*($X0[$j]-$am)*($X0[$j]-$am)*($X0[$j]-$am);
-            $Y0[$j]=$Y0[$j]-$ak2*(1.0-$am)*(1.0-$am)*(1.0-$am)*$X0[$j]-$am*$am*$am*$X0[$j]+$am*$am*$am;
-            $Y0[$j]=1./6.*$ak*$Y0[$j];
-            $DYC[$j]=$ak2*3.0*($X0[$j]-$am)*($X0[$j]-$am);
-            $DYC[$j]=1./6.*$ak*($DYC[$j]-$ak2*(1.0-$am)*(1.0-$am)*(1.0-$am)-$am*$am*$am);
-           }
-          }
-          $YT[$j]=$thick/0.2*(0.29690*sqrt(abs($X0[$j]))-0.126*$X0[$j]-0.3516*$X0[$j]*$X0[$j]+0.2843*$X0[$j]*$X0[$j]*$X0[$j]-0.1015*$X0[$j]*$X0[$j]*$X0[$j]*$X0[$j]);
-          $j++;
-         } 
-/*
-         $j=1;
-         while ($j<$numx-1) {
-          $DX1=$X0[$j]-$X0[$j-1];
-          $DY1=$Y0[$j]-$Y0[$j-1];
-          $DX2=$X0[$j+1]-$X0[$j];
-          $DY2=$Y0[$j+1]-$Y0[$j];
-          $DYC[$j]=($DY1/$DX1 + $DY2/$DX2)*0.5;
-          $j++;
-         }
-*/         
-        }
-        if (($series[0]=='4') || ($series[0]=='5')) {
-         $j=0;
-         while ($j<$numx) {
-          $theta=atan($DYC[$j]);
-          $XU[$j]=$X0[$j]-SIN($theta)*$YT[$j];
-          $YU[$j]=$Y0[$j]+COS($theta)*$YT[$j];
-          $XL[$j]=$X0[$j]+SIN($theta)*$YT[$j];
-          $YL[$j]=$Y0[$j]-COS($theta)*$YT[$j];
-          $j++;
-         } 
-        }
+ var series = document.getElementById("sect6").value;
+ var numfield = document.getElementById("num").value;
+ var tocfield = document.getElementById("toc").value;
+ var clifield = document.getElementById("cli").value;
+ var loadfield = document.getElementById("load").value;
+ 
+ var numpoint  = Number(numfield);
+ var toc  = Number(tocfield);
+ var cli = Number(clifield);
+ var load = Number(loadfield)
+
+ var limit = 1.0e-5;
+ var dx = 0.01;
+ var PI = 3.1415926;
+ var TWOPI=PI*2.0;
+ if (load<0.0001 || load>0.9999) {
+  load=0.9999;
+ }
+ if ((numpoint>121) || (numpoint<12)) {
+  numpoint=121;
+ } 
+ if ((numpoint % 2)==0) {
+  numpoint=numpoint-1;
+ }
         
-        if ($series[0]=='6') {
 //       6 series sections from.....
 //       from NASA TM X-3069, September 1974
 //       by Ladson, C.L., and Brooks, C.W., Jr.
 //      ku ported to the Mac by W.H. Mason, March 1991
 //       ported to Linux D.Auld June 2006
 //       phped  D.Auld 2021
-         $TOC=0.01;
-         $A=$load;
-         $numx=floor($numpoint/2)+1;         
-         if ($A<1.0e-5) {
-          $A=1.0;
-         } 
-         $i=0;
-//         echo " Section :".$section."\n";
-         $length=strlen($section);
-         while ($i<$length) {
-          $j=$length-$i-1;
-          if (($section[$j]>="0") && ($section[$j]<="9")) {
-           $TOC = intval($section[$j-1]);
-           $TOC = $TOC*10.0 + intval($section[$j]);
-           $TOC = $TOC/100.0;
-           $i=$length;
-          }
-          $i++;
-         } 
-//         echo " TOC : ".$TOC."\n";
-         $CLI=0.0;
-         $i=0;
-         while ($i<$length) {
-          if (($section[$i]=="-") || ($section[$i]=="A")) {
-           if ($section[$i+1]=="-") {
-            $temp=intval($section[$i+2]);
-           } else { 
-            $temp=intval($section[$i+1]);
-           }
-           $CLI=$temp*0.1;
-           $i=$length;
-          }
-          $i++;
-         }
-         $KF6XA = 0;
-         $FRAC  = 1.0;
-         $CLIS  = $CLI;
-         $AS    = $A;
-         $A1    = $A;
-         $CLI1  = $CLI;
-         $X     = 0.0;
-         $Y     = 0.0;
-         $XC    = 0.0;
-         $YC    = 0.0;
-         $XU0[0] = 0.0;
-         $YU0[0] = 0.0;
-         $XL0[0] = 0.0;
-         $YL0[0] = 0.0;
-         $U     = 0.005;
-         $V     = -($A1-$U)/abs($A1-$U);
-         $OMXL  = (1.0-$U)*log(1.0-$U);
-         $AMXL  = ($A1-$U)*log(abs($A1-$U));
-         $OMXL1 = -log(1.0-$U)-1.0;
-         $AMXL1 = -log(($A1-$U))+$V;
-         $OMXL2 = 1.0/(1.0-$U);
-         $AMXL2 = -$V/abs($A1-$U);
-         if (($A1>$E) && (abs(1.0-$A1)>$E)) {
-          $G  = -($A1*$A1*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
+ var numx=Math.floor(numpoint/2)+1;         
+ var i=0;
+ var kf6xa = 0;
+ var frac  = 1.0;
+ var clis  = cli;
+ var as    = load;
+ var a1    = load;
+ var cli1  = cli;
+ var x     = 0.0;
+ var y     = 0.0;
+ var xc    = 0.0;
+ var yc    = 0.0;
+ var xu0   = [];
+ var yu0   = [];
+ var xl0   = [];
+ var yl0   = [];
+ var u     = 0.005;
+ var v     = -(a1-u)/Math.abs(a1-u);
+ var omxl  = (1.0-u)*Math.log(1.0-u);
+ var amxl  = (a1-u)*Math.log(math.abs(a1-u));
+ var omxl1 = -Math.log(1.0-u)-1.0;
+ var amxl1 = -Math.log((a1-u))+v;
+ var omxl2 = 1.0/(1.0-u);
+ var amxl2 = -v/Math.abs(a1-u);
+ var g,q,h,z,z1,z2
+ if (a1>limit && Math.abs(1.0-a1)>limit) {
+  G  = -(a1*a1*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
           $Q  = 1.0;
-          $H  = (0.5*(1.0-$A1)^2*log(1.0-$A1)-0.25*(1.-$A1)^2)/(1.-$A1)+$G;
-          $Z  = 0.5*($A1-$U)*$AMXL-0.5*(1.0-$U)*$OMXL-0.25*($A1-$U)^2+0.25*(1.0-$U)^2;
-          $Z1 = 0.5*(($A1-$U)*$AMXL1-$AMXL-(1.0-$U)*$OMXL1+$OMXL+($A1-$U)-(1.0-$U));
-          $Z2 = 0.5*($A1-$U)*$AMXL2-$AMXL1-0.5*(1.0-$U)*$OMXL2+$OMXL1;
+          $H  = (0.5*(1.0-a1)^2*log(1.0-a1)-0.25*(1.-a1)^2)/(1.-a1)+$G;
+          $Z  = 0.5*(a1-$U)*$AMXL-0.5*(1.0-$U)*$OMXL-0.25*(a1-$U)^2+0.25*(1.0-$U)^2;
+          $Z1 = 0.5*((a1-$U)*$AMXL1-$AMXL-(1.0-$U)*$OMXL1+$OMXL+(a1-$U)-(1.0-$U));
+          $Z2 = 0.5*(a1-$U)*$AMXL2-$AMXL1-0.5*(1.0-$U)*$OMXL2+$OMXL1;
          } 
-         if ($A1<$E) {
+         if (a1<limit) {
           $H  = -0.5;
           $Q  = 1.0;
           $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
-         } elseif (abs($A1-1.0)<$E) { 
+         } elseif (abs(a1-1.0)<limit) { 
           $H  = 0.0;
           $Q  = $H;
           $Z1 = -$OMXL1;
@@ -377,8 +197,8 @@ function ComputeFlow2() {
           $Q  = 1.0;
           $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
          }
-//         echo "CLI1,A1,Q,H,U :".$CLI1.":".$A1.":".$Q.":".$H.":".$U."\n";
-         $TANTH0=$CLI1*($Z1/(1.0-$Q*$A1)-1.0-log($U)-$H)/pi()/($A1+1.0)/2.0;
+//         echo "CLI1,A1,Q,H,U :".$CLI1.":".a1.":".$Q.":".$H.":".$U."\n";
+         $TANTH0=$CLI1*($Z1/(1.0-$Q*a1)-1.0-log($U)-$H)/pi()/(a1+1.0)/2.0;
          $YP       = 10.^10;
          $YPP      = 10.^10;
 //         $YUP      = -1.0/$TANTH0;
@@ -398,7 +218,7 @@ function ComputeFlow2() {
              case "6-" : $filename="PEP66.txt"; $numpnt=201; break;
              case "7-" : $filename="PEP67.txt"; $numpnt=251; break;
              case "3(" : $filename="PEP63.txt"; $numpnt=201; break;
-             case "4(" : $filename="PEP64.txt"; $numpnt=201; break;
+             case "4(" : $filename="Pa1EP64.txt"; $numpnt=201; break;
              case "5(" : $filename="PEP65.txt"; $numpnt=251; break;
              case "6(" : $filename="PEP66.txt"; $numpnt=201; break;
              case "7(" : $filename="PEP67.txt"; $numpnt=251; break;
@@ -444,7 +264,7 @@ function ComputeFlow2() {
            $n=0;
            while ($n<$numpnt) {
             $x00=$PHI[$n];
-            if (($PHI0[$n]-$x00)<$E) {
+            if (($PHI0[$n]-$x00)<limit) {
              $PSI[$n]=$PSI0[$n];
             } else {
              $PSI[$n]=FTLUP($numpnt,$x00,$PHI0,$PSI0);
@@ -501,7 +321,7 @@ function ComputeFlow2() {
             $XO = $XT[0];
             $XL201 = $XT[$numpnt-1];
             $TR = 2.0*$YM/($XL201-$XO);
-            if ($TOC<$E) {
+            if ($TOC<limit) {
              $IT=20;
             } else {
 //            TEST THICKNESS
@@ -512,7 +332,7 @@ function ComputeFlow2() {
             }
            } 
            $SF=$RAT;
-           if ($TOC<$E) {
+           if ($TOC<limit) {
             $SF=0.0;
            }
            if($i==0) {   
@@ -531,7 +351,7 @@ function ComputeFlow2() {
            $YM      = $YM*$SF/($XL201-$XO);
            $XYM     = ($XYM-$XO)/($XL201-$XO);
            $XL0[0]   = 0.0;
-           if ($TOC>$E) {
+           if ($TOC>limit) {
 //                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
             $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
             $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
@@ -539,7 +359,7 @@ function ComputeFlow2() {
             $j=0;
             while ($j<10) {
              $YT[$j] = $BN*sqrt(1.0-($XT[$j]-$AN)**2/$AN**2)+$CN*$XT[$j];
-             if ($XT[$j]>$E) {
+             if ($XT[$j]>limit) {
               $YTP[$j]   = $BN**2*($AN-$XT[$j])/$AN**2/($YT[$j]-$CN*$XT[$j])+$CN;
               $YTPP[$j]  = -$BN**4/$AN**2/($YT[$j]-$CN*$XT[$j])**3;
              }
@@ -558,39 +378,39 @@ function ComputeFlow2() {
 //          COMPUTE CAMBERLINE
           $A   = $AS;
           $CLI = $CLIS;
-          $A1  = $A;
+          a1  = $A;
           $CLI1 = $CLI;
           $XC   = $X;
           $YC   = $Y;
           $XLL  = $X*log($X);
           $Q    = 1.0;
-          if ((abs(1.0-$A1)<$E) && (abs(1.0-$X)<$E)) {
+          if ((abs(1.0-a1)<limit) && (abs(1.0-$X)<limit)) {
            $G  = 0.0;
            $H  = $G;
            $Q  = $G;
            $Z  = 0.0;
            $Z1 = -10.0**10;
            $Z2 = -10.0**10;
-          } elseif (($A1<$E) && ((1.0-$X)<$E)) {
+          } elseif ((a1<limit) && ((1.0-$X)<limit)) {
            $G  = -0.25;
            $H  = -0.5;
            $Q  = 1.0;
            $Z  = -0.25;
            $Z1 = 0.0;
            $Z2 = -10.0**10;
-          } elseif (abs($A1-$X)<$E) {
+          } elseif (abs(a1-$X)<limit) {
            $Z  = -0.5*(1.0-$X)**2*log(1.0-$X)+0.25*(1.0-$X)**2;
            $Z1 = -0.5*(1.0-$X)*(-log(1.0-$X)-1.0)+0.5*(1.0-$X)*log(1.0-$X)-0.5*(1.0-$X);
            $Z2 = -log(1.0-$X)-0.5;
-           $G  = -($A1**2*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
-           $H  = (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
-          } elseif (abs(1.0-$X)<$E) {
-           $G  = -($A1**2*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
-           $H  =  (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
-           $Z  =  0.5*($A1-1.0)**2*log(abs($A1-1.0))-0.25*($A1-1.0)**2;
-           $Z1 = -($A1-1.0)*log(abs($A1-1.0));
+           $G  = -(a1**2*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
+           $H  = (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
+          } elseif (abs(1.0-$X)<limit) {
+           $G  = -(a1**2*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
+           $H  =  (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
+           $Z  =  0.5*(a1-1.0)**2*log(abs(a1-1.0))-0.25*(a1-1.0)**2;
+           $Z1 = -(a1-1.0)*log(abs(a1-1.0));
            $Z2 = -10.0**10;
-          } elseif (abs($A1-1.0)<$E) {
+          } elseif (abs(a1-1.0)<limit) {
            $G  = 0.0;
            $H  = G;
            $Q  = G;
@@ -598,42 +418,42 @@ function ComputeFlow2() {
            $Z1 = log(1.0-$X)+1.0;
            $Z2 = -1.0/(1.0-$X);
           } else { 
-           $V     = -($A1-$X)/abs($A1-$X);
+           $V     = -(a1-$X)/abs(a1-$X);
            $OMXL  =  (1.0-$X)*log(1.0-$X);
-           $AMXL  =  ($A1-$X)*log(abs($A1-$X));
+           $AMXL  =  (a1-$X)*log(abs(a1-$X));
            $OMXL1 = -log(1.0-$X)-1.0;
-           $AMXL1 = -log(abs($A1-$X))-1.0;
+           $AMXL1 = -log(abs(a1-$X))-1.0;
            $OMXL2 =  1.0/(1.0-$X);
-           $AMXL2 =  1.0/($A1-$X);
-           $Z  = 0.5*($A1-$X)*$AMXL-0.5*(1.0-$X)*$OMXL-0.25*($A1-$X)**2+0.25*(1.0-$X)**2;
-           $Z1 = 0.5*(($A1-$X)*$AMXL1-$AMXL-(1.0-$X)*$OMXL1+$OMXL+($A1-$X)-(1.0-$X));
-           $Z2 = 0.5*($A1-$X)*$AMXL2-$AMXL1-0.5*(1.0-$X)*$OMXL2+$OMXL1;
-           if ($A1<=$E) { 
+           $AMXL2 =  1.0/(a1-$X);
+           $Z  = 0.5*(a1-$X)*$AMXL-0.5*(1.0-$X)*$OMXL-0.25*(a1-$X)**2+0.25*(1.0-$X)**2;
+           $Z1 = 0.5*((a1-$X)*$AMXL1-$AMXL-(1.0-$X)*$OMXL1+$OMXL+(a1-$X)-(1.0-$X));
+           $Z2 = 0.5*(a1-$X)*$AMXL2-$AMXL1-0.5*(1.0-$X)*$OMXL2+$OMXL1;
+           if (a1<=limit) { 
             $G  = -0.25;
             $H  = -0.50;
            } else {           
-            $G  = -($A1*$A1*(0.5*log($A1)-0.25)+0.25)/(1.0-$A1);
-            $H  =  (0.5*(1.0-$A1)**2*log(1.0-$A1)-0.25*(1.0-$A1)**2)/(1.0-$A1)+$G;
+            $G  = -(a1*a1*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
+            $H  =  (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
            } 
           } 
-          $YCMB  = $CLI1*($Z/(1.0-$Q*$A1)-$XLL+$G-$H*$X)/pi()/($A1+1.0)/2.0;
+          $YCMB  = $CLI1*($Z/(1.0-$Q*a1)-$XLL+$G-$H*$X)/pi()/(a1+1.0)/2.0;
           $XSV   = $X;
           if ($X<0.005) {
            $X=0.005;
           } 
-          $TANTH = $CLI1*($Z1/(1.0-$Q*$A1)-1.0-log($X)-$H)/pi()/($A1+1.0)/2.0;
+          $TANTH = $CLI1*($Z1/(1.0-$Q*a1)-1.0-log($X)-$H)/pi()/(a1+1.0)/2.0;
           $X=$XSV;
-          if ($KF6XA==1) {
+          if ($kf6xa==1) {
            $TANTH=-5.0;
           }
           if ($X<=0.005) {
            $YCP2  = 0.0;
           } else {
-           if (abs(1.0-$X)<=$E) {
-            $YCP2 = 1.0/$E;
+           if (abs(1.0-$X)<=limit) {
+            $YCP2 = 1.0/limit;
            } else {
-            $PIA= pi()*($A1+1.0)*2.0;
-            $YCP2 = $CLI1*($Z2/(1.0-$Q*$A1)-1.0/$X)/$PIA;
+            $PIA= pi()*(a1+1.0)*2.0;
+            $YCP2 = $CLI1*($Z2/(1.0-$Q*a1)-1.0/$X)/$PIA;
            }
           }  
 //        MODIFIED CAMBERLINE OPTION
@@ -642,14 +462,14 @@ function ComputeFlow2() {
            $YCMB=$YCMB*0.97948;
            $TANTH=$TANTH*0.97948;
            $YCP2=$YCP2*0.97948;
-           $A1 = 0.8;
+           a1 = 0.8;
            $CLI1 = $CLI;
 //          WRITE (*,*) '<BR>MODIFIED CAMBERLINE ONLY FOR A=0.8<BR>'
            if ($TANTH<=-0.24521*$CLI1) {
             $YCMB  =  0.24521*$CLI1*(1.0-$X);
             $YCP2  =  0.0;
             $TANTH = -0.24521*$CLI1;
-            $KF6XA =  1;
+            $kf6xa =  1;
            }
           }
           $F = sqrt(1.0+$TANTH**2);
@@ -675,7 +495,7 @@ function ComputeFlow2() {
           }
           $YL0[$i]  = $YCMB - $Y*$COSTH;  
           $i=$i+1;
-          if ($ALI>$E) {
+          if ($ALI>limit) {
 //           FIND LOCAL SLOPE OF CAMBERED PROFILE
 //           $YUP=($TANTH*$F+$YP-$TANTH*$Y*$THP)/($F-$YP*$TANTH-$Y*$THP);
 //           $YLP=($TANTH*$F-$YP+$TANTH*$Y*$THP)/($F+$YP*$TANTH+$Y*$THP);
@@ -1141,6 +961,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
