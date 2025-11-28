@@ -177,111 +177,109 @@ function ComputeFlow2() {
  var amxl2 = -v/Math.abs(a1-u);
  var g,q,h,z,z1,z2
  if (a1>limit && Math.abs(1.0-a1)>limit) {
-  G  = -(a1*a1*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
-          $Q  = 1.0;
-          $H  = (0.5*(1.0-a1)^2*log(1.0-a1)-0.25*(1.-a1)^2)/(1.-a1)+$G;
-          $Z  = 0.5*(a1-$U)*$AMXL-0.5*(1.0-$U)*$OMXL-0.25*(a1-$U)^2+0.25*(1.0-$U)^2;
-          $Z1 = 0.5*((a1-$U)*$AMXL1-$AMXL-(1.0-$U)*$OMXL1+$OMXL+(a1-$U)-(1.0-$U));
-          $Z2 = 0.5*(a1-$U)*$AMXL2-$AMXL1-0.5*(1.0-$U)*$OMXL2+$OMXL1;
-         } 
-         if (a1<limit) {
-          $H  = -0.5;
-          $Q  = 1.0;
-          $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
-         } elseif (abs(a1-1.0)<limit) { 
-          $H  = 0.0;
-          $Q  = $H;
-          $Z1 = -$OMXL1;
-         } else {
-          $H  = -0.5;
-          $Q  = 1.0;
-          $Z1 = $U*log($U)-0.5*$U-0.5*(1.0-$U)*$OMXL1+0.5*$OMXL-0.5;
-         }
+  G  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
+  Q  = 1.0;
+  H  = (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.-a1)+G;
+  Z  = 0.5*(a1-u)*amxl-0.5*(1.0-u)*omxl-0.25*(a1-u)*(a1-u)+0.25*(1.0-u)*(1.0-u);
+  Z1 = 0.5*((a1-u)*amxl1-amxl-(1.0-u)*omxl1+omxl+(a1-u)-(1.0-u));
+  Z2 = 0.5*(a1-u)*amxl2-amxl1-0.5*(1.0-u)*omxl2+omxl1;
+ } 
+ if (a1<limit) {
+  h  = -0.5;
+  q  = 1.0;
+  z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
+ } else if (abs(a1-1.0)<limit) { 
+  h  = 0.0;
+  q  = h;
+  z1 = -omxl1;
+ } else {
+  h  = -0.5;
+  q  = 1.0;
+  z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
+ }
 //         echo "CLI1,A1,Q,H,U :".$CLI1.":".a1.":".$Q.":".$H.":".$U."\n";
-         $TANTH0=$CLI1*($Z1/(1.0-$Q*a1)-1.0-log($U)-$H)/pi()/(a1+1.0)/2.0;
-         $YP       = 10.^10;
-         $YPP      = 10.^10;
-//         $YUP      = -1.0/$TANTH0;
-//         $YLP      = -1.0/$TANTH0;
-         $i        = 0;
-         $X        = 0.00025;
-         $XMAX = 0.0;
-         $XMIN = 0.0;
-         while ($X<=1.0) {
-          if ($i==0) {
+ var tanth0,yp,ypp,i,x,xmax,xmin,xx0;
+ tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
+ yp       = 10.^10;
+ ypp      = 10.^10;
+//         $YUP      = -1.0/$tanth0;
+//         $YLP      = -1.0/$tanth0;
+ i = 0;
+ x = 0.00025;
+ xmax = 0.0;
+ xmin = 0.0;
+ var phi = [];
+ var eps = [];
+ while (x<=1.0) {
+  if (i==0) {
 //           SELECT SERIES
-           $partial=substr($section,1,2);
-           switch ($partial) {
-             case "3-" : $filename="PEP63.txt"; $numpnt=201; break;
-             case "4-" : $filename="PEP64.txt"; $numpnt=201; break;
-             case "5-" : $filename="PEP65.txt"; $numpnt=251; break;
-             case "6-" : $filename="PEP66.txt"; $numpnt=201; break;
-             case "7-" : $filename="PEP67.txt"; $numpnt=251; break;
-             case "3(" : $filename="PEP63.txt"; $numpnt=201; break;
-             case "4(" : $filename="Pa1EP64.txt"; $numpnt=201; break;
-             case "5(" : $filename="PEP65.txt"; $numpnt=251; break;
-             case "6(" : $filename="PEP66.txt"; $numpnt=201; break;
-             case "7(" : $filename="PEP67.txt"; $numpnt=251; break;
-             case "3A" : $filename="PEP63A.txt"; $numpnt=251; break;
-             case "4A" : $filename="PEP64A.txt"; $numpnt=251; break;
-             case "5A" : $filename="PEP65A.txt"; $numpnt=251; break;
-           }
-           $file2=fopen($filename,"r");
-           $n=0;
-           while ($n<$numpnt) {
-            fscanf($file2," %f  %f ",$x00,$y00);
-            $PHI[$n]=$x00;
-            $EPS[$n]=$y00;
-//            echo " PHI[".$n."],EPS[".$n."] = ".$x00.", ".$y00."\n";
-            $n++;
-           }
-           fclose($file2);
-           switch ($partial) {
-             case "3-" : $filename="PPS63.txt"; break;
-             case "4-" : $filename="PPS64.txt"; break;
-             case "5-" : $filename="PPS65.txt"; break;
-             case "6-" : $filename="PPS66.txt"; break;
-             case "7-" : $filename="PPS67.txt"; break;
-             case "3(" : $filename="PPS63.txt"; break;
-             case "4(" : $filename="PPS64.txt"; break;
-             case "5(" : $filename="PPS65.txt"; break;
-             case "6(" : $filename="PPS66.txt"; break;
-             case "7(" : $filename="PPS67.txt"; break;
-             case "3A" : $filename="PPS63A.txt"; break;
-             case "4A" : $filename="PPS64A.txt"; break;
-             case "5A" : $filename="PPS65A.txt"; break;
-           }
-           $file2=fopen($filename,"r");
-           $n=0;
-           while ($n<$numpnt) {
-            fscanf($file2," %f  %f ",$x00,$y00);
-            $PHI0[$n]=$x00;
-            $PSI0[$n]=$y00;
-//            echo " PHI[".$n."],PSI[".$n."] = ".$x00.", ".$y00."\n";
-            $n++;
-           }
-           fclose($file2);
-           $n=0;
-           while ($n<$numpnt) {
-            $x00=$PHI[$n];
-            if (($PHI0[$n]-$x00)<limit) {
-             $PSI[$n]=$PSI0[$n];
-            } else {
-             $PSI[$n]=FTLUP($numpnt,$x00,$PHI0,$PSI0);
-            }
-//            echo "PSI[".$n."] = ".$PSI[$n]; 
-//            echo " or ".$PSI[$n]."\n";
-            $n++;
-           }
-//           IF (section(1:3).EQ.'64A') CALL PEP64A (phi,EPS)
-//           IF (section(1:3).EQ.'65A') CALL PEP65A (phi,EPS)
-           $RAT= 1.0;
-           $IT = 0;
+//
+//	  switch ($partial) {
+//             case "3-" : $filename="PEP63.txt"; $numpnt=201; break;
+//             case "4-" : $filename="PEP64.txt"; $numpnt=201; break;
+//             case "5-" : $filename="PEP65.txt"; $numpnt=251; break;
+//             case "6-" : $filename="PEP66.txt"; $numpnt=201; break;
+//             case "7-" : $filename="PEP67.txt"; $numpnt=251; break;
+//             case "3(" : $filename="PEP63.txt"; $numpnt=201; break;
+//             case "4(" : $filename="PEP64.txt"; $numpnt=201; break;
+//             case "5(" : $filename="PEP65.txt"; $numpnt=251; break;
+//             case "6(" : $filename="PEP66.txt"; $numpnt=201; break;
+//             case "7(" : $filename="PEP67.txt"; $numpnt=251; break;
+//             case "3A" : $filename="PEP63A.txt"; $numpnt=251; break;
+//             case "4A" : $filename="PEP64A.txt"; $numpnt=251; break;
+//             case "5A" : $filename="PEP65A.txt"; $numpnt=251; break;
+//           }
+
+   if (series == 1) {
+	numpnt = 201;
+	phi = [
+	eps = [
+	phi0 = [	 
+    eps0 = [
+//             case "3-" : $filename="PPS63.txt"; break;
+//             case "4-" : $filename="PPS64.txt"; break;
+//             case "5-" : $filename="PPS65.txt"; break;
+//             case "6-" : $filename="PPS66.txt"; break;
+//             case "7-" : $filename="PPS67.txt"; break;
+//             case "3(" : $filename="PPS63.txt"; break;
+//             case "4(" : $filename="PPS64.txt"; break;
+//             case "5(" : $filename="PPS65.txt"; break;
+//             case "6(" : $filename="PPS66.txt"; break;
+//             case "7(" : $filename="PPS67.txt"; break;
+//             case "3A" : $filename="PPS63A.txt"; break;
+//             case "4A" : $filename="PPS64A.txt"; break;
+//             case "5A" : $filename="PPS65A.txt"; break;
+   }
+   if (series == 2) {
+	numpnt = 201;
+	phi = [
+	eps = [
+	phi0 = [	 
+    eps0 = [
+   }
+	if (series == 3) {
+	 numpnt = 251;
+	 phi = [
+	 eps = [
+	 phi0 = [	 
+     eps0 = [
+	}
+    n=0;
+    while (n<numpnt) {
+     x00=phi[n];
+     if ((phi0[n]-x00)<limit) {
+      psi[n]=psi0[n];
+     } else {
+      psi[n]=FTLUP(numpnt,x00,phi0,psi0);
+     }
+     n=n+1;;
+    }
+    rat= 1.0;
+    it = 0;
 //           LOOP START FOR THICKNESS ITERATION
-           while($IT<11) {
-            $IT=$IT+1;
-//           write(6,510) IT,RAT
-            $YMAX=0.0;
+    while (it<11) {
+     it=it+1;
+     YMAX=0.0;
             $XYM=0.0;
             $j=0;
             while ($j<$numpnt) {
@@ -351,26 +349,26 @@ function ComputeFlow2() {
            $YM      = $YM*$SF/($XL201-$XO);
            $XYM     = ($XYM-$XO)/($XL201-$XO);
            $XL0[0]   = 0.0;
-           if ($TOC>limit) {
+ if ($TOC>limit) {
 //                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
-            $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
-            $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
-            $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
-            $j=0;
-            while ($j<10) {
-             $YT[$j] = $BN*sqrt(1.0-($XT[$j]-$AN)**2/$AN**2)+$CN*$XT[$j];
-             if ($XT[$j]>limit) {
-              $YTP[$j]   = $BN**2*($AN-$XT[$j])/$AN**2/($YT[$j]-$CN*$XT[$j])+$CN;
-              $YTPP[$j]  = -$BN**4/$AN**2/($YT[$j]-$CN*$XT[$j])**3;
-             }
-             $j++;
-            } 
-            $RNP=$BN**2/$AN;
-           }
-           $ALI = abs($CLI);
-           $X = 0.00025;
-           $XL0[0] = 0.0;
-          } 
+  $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
+  $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
+  $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
+  j=0;
+  while (j<10) {
+   yt[j] = $BN*sqrt(1.0-($XT[$j]-$AN)**2/$AN**2)+$CN*$XT[$j];
+   if ($XT[$j]>limit) {
+    $YTP[$j]   = $BN**2*($AN-$XT[$j])/$AN**2/($YT[$j]-$CN*$XT[$j])+$CN;
+    $YTPP[$j]  = -$BN**4/$AN**2/($YT[$j]-$CN*$XT[$j])**3;
+   }
+   j=j+1;
+  } 
+  $RNP=$BN**2/$AN;
+ }
+ $ALI = abs($CLI);
+ $X = 0.00025;
+ $XL0[0] = 0.0;
+ } 
 //          INTERPOLATE FOR THICKNESS AND DERIVATIVES AT DESIRED VALUES OF X
           $Y=FTLUP($numpnt,$X,$XT,$YT);
           $YP=FTLUP($numpnt,$X,$XT,$YTP);
@@ -508,9 +506,9 @@ function ComputeFlow2() {
            $FRAC = 0.025;
           }
 //         INCREMENT X AND RETURN TO START OF X LOOP
-          $X = $X + $FRAC*$DX;
-          $FRAC = 1.0;
-         } 
+ x = x + frac*dx;
+ frac = 1.0;
+ } 
          $numtotal=$i;
          $i=0;
          $dt=-pi()/($numx-1);
@@ -526,9 +524,9 @@ function ComputeFlow2() {
           $XL[$i]=$X;
           $YL[$i]=$Y;
           $theta=$theta+$dt;
-          $i++;
-         } 
-        }
+     i=i+1;
+   } 
+  }
   
 //      create section file
         $file2=fopen("./tmp/section1.tmp","w");
@@ -961,6 +959,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
