@@ -359,15 +359,15 @@ function ComputeFlow2() {
    h  = g;
    q  = g;
    z = 0.0;
-   z1 = -10.0**10;
-   z2 = -10.0**10;
+   z1 = -10000000.0;
+   z2 = -10000000.0;
   } else if (a1<limit && (1.0-x)<limit) {
    g  = -0.25;
    h  = -0.5;
    q  = 1.0;
    z  = -0.25;
    z1 = 0.0;
-   z2 = -10.0**10;
+   z2 = -10000000.0;
   } else if (Math.abs(a1-x)<limit) {
    z  = -0.5*(1.0-x)*(1.0-x)*Math.log(1.0-x)+0.25*(1.0-x)*(1.0-x);
    z1 = -0.5*(1.0-x)*(-Math.log(1.0-x)-1.0)+0.5*(1.0-x)*Math.log(1.0-x)-0.5*(1.0-x);
@@ -976,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
