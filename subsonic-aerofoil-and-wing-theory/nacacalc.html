@@ -170,7 +170,7 @@ function ComputeFlow2() {
  var u     = 0.005;
  var v     = -(a1-u)/Math.abs(a1-u);
  var omxl  = (1.0-u)*Math.log(1.0-u);
- var amxl  = (a1-u)*Math.log(math.abs(a1-u));
+ var amxl  = (a1-u)*Math.log(Math.abs(a1-u));
  var omxl1 = -Math.log(1.0-u)-1.0;
  var amxl1 = -Math.log((a1-u))+v;
  var omxl2 = 1.0/(1.0-u);
@@ -976,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
