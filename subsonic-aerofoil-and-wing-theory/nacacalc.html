@@ -379,7 +379,7 @@ function ComputeFlow2() {
    h  =  (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.0-a1)+g;
    z  =  0.5*(a1-1.0)*(a1-1.0)*Math.log(Math.abs(a1-1.0))-0.25*(a1-1.0)**(a1-1.0);
    z1 = -(a1-1.0)*Math.log(Math.abs(a1-1.0));
-   z2 = -10.0**10;
+   z2 = -1000000.0
   } else if (Math.abs(a1-1.0)<limit) {
    g  = 0.0;
    h  = g;
@@ -976,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
