@@ -198,7 +198,7 @@ function ComputeFlow2() {
   z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
  }
 //         echo "CLI1,A1,Q,H,U :".$CLI1.":".a1.":".$Q.":".$H.":".$U."\n";
- var tanth0,yp,ypp,i,x,xmax,xmin,xx0;
+ var tanth0,yp,ypp,i,j,x,xmax,xmin,xx0,ymax,xym,xtp,x0,xl201;
  tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
  yp       = 10.^10;
  ypp      = 10.^10;
@@ -209,47 +209,23 @@ function ComputeFlow2() {
  xmax = 0.0;
  xmin = 0.0;
  var phi = [];
+ var phi0 = [];	
  var eps = [];
+ var eps0 = [];
+ var psi = [];
+ var xt = [];
+ var ytp = [];	
+ var ytpp = [];
+ var rat,it,cosh,temp,tr,sf;	
  while (x<=1.0) {
   if (i==0) {
-//           SELECT SERIES
-//
-//	  switch ($partial) {
-//             case "3-" : $filename="PEP63.txt"; $numpnt=201; break;
-//             case "4-" : $filename="PEP64.txt"; $numpnt=201; break;
-//             case "5-" : $filename="PEP65.txt"; $numpnt=251; break;
-//             case "6-" : $filename="PEP66.txt"; $numpnt=201; break;
-//             case "7-" : $filename="PEP67.txt"; $numpnt=251; break;
-//             case "3(" : $filename="PEP63.txt"; $numpnt=201; break;
-//             case "4(" : $filename="PEP64.txt"; $numpnt=201; break;
-//             case "5(" : $filename="PEP65.txt"; $numpnt=251; break;
-//             case "6(" : $filename="PEP66.txt"; $numpnt=201; break;
-//             case "7(" : $filename="PEP67.txt"; $numpnt=251; break;
-//             case "3A" : $filename="PEP63A.txt"; $numpnt=251; break;
-//             case "4A" : $filename="PEP64A.txt"; $numpnt=251; break;
-//             case "5A" : $filename="PEP65A.txt"; $numpnt=251; break;
-//           }
-
    if (series == 1) {
 	numpnt = 201;
 	phi = [
 	eps = [
 	phi0 = [	 
     eps0 = [
-//             case "3-" : $filename="PPS63.txt"; break;
-//             case "4-" : $filename="PPS64.txt"; break;
-//             case "5-" : $filename="PPS65.txt"; break;
-//             case "6-" : $filename="PPS66.txt"; break;
-//             case "7-" : $filename="PPS67.txt"; break;
-//             case "3(" : $filename="PPS63.txt"; break;
-//             case "4(" : $filename="PPS64.txt"; break;
-//             case "5(" : $filename="PPS65.txt"; break;
-//             case "6(" : $filename="PPS66.txt"; break;
-//             case "7(" : $filename="PPS67.txt"; break;
-//             case "3A" : $filename="PPS63A.txt"; break;
-//             case "4A" : $filename="PPS64A.txt"; break;
-//             case "5A" : $filename="PPS65A.txt"; break;
-   }
+   }	
    if (series == 2) {
 	numpnt = 201;
 	phi = [
@@ -257,170 +233,166 @@ function ComputeFlow2() {
 	phi0 = [	 
     eps0 = [
    }
-	if (series == 3) {
-	 numpnt = 251;
-	 phi = [
-	 eps = [
-	 phi0 = [	 
-     eps0 = [
-	}
-    n=0;
-    while (n<numpnt) {
-     x00=phi[n];
-     if ((phi0[n]-x00)<limit) {
-      psi[n]=psi0[n];
-     } else {
-      psi[n]=FTLUP(numpnt,x00,phi0,psi0);
-     }
-     n=n+1;;
-    }
-    rat= 1.0;
-    it = 0;
-//           LOOP START FOR THICKNESS ITERATION
-    while (it<11) {
-     it=it+1;
-     YMAX=0.0;
-            $XYM=0.0;
-            $j=0;
-            while ($j<$numpnt) {
-             $temp=$PSI[$j]*$RAT;
-             $COSH=0.5*(exp($temp)+exp(-$temp));
-             $XT[$j] = -2.0*$COSH*cos($PHI[$j]-$EPS[$j]*$RAT);
-             $SINH=0.5*(exp($temp)-exp(-$temp));
-             $YT[$j] = 2.0*$SINH*sin($PHI[$j]-$EPS[$j]*$RAT);
-//             echo " XT[".$j."],YT[".$j."] = ".$XT[$j].", ".$YT[$j]."\n";
-             if ($YT[$j]>$YMAX) {
-              $XYM = $XT[$j];
-              $YMAX = $YT[$j];
-             }
-             $j++;
-            } 
-            $XTP=1.0;
-            $j=1;
-            $YTP[0]=10.0**6;
-            while ($j<$numpnt) {
-             $YTP[$j] = DIF($j,5,$numpnt,$XT,$YT);
-//             echo " YTP[".$j."] = ".$YTP[$j]."\n";
-             if ($j>=2) {
-              if (($YTP[$j]<0.0) && ($YTP[$j-1]>0.0)) {
-               $XTP=$XT[$j-1]+$YTP[$j-1]*($XT[$j]-$XT[$j-1])/($YTP[$j-1]-$YTP[$j]);
-              }
-             }
-             $j++;
-            }
-            $YM=FTLUP($numpnt,$XTP,$XT,$YT);
-//            echo " XTP,YM ".$XTP.", ".$YM."\n";
-            $j=1;
-            while ($j<$numpnt) {
-             $YTPP[$j]  = DIF($j,5,$numpnt,$XT,$YTP);
-             $j++;   
-            } 
-            $YTPP[0] = 10.0**6;
-            $XO = $XT[0];
-            $XL201 = $XT[$numpnt-1];
-            $TR = 2.0*$YM/($XL201-$XO);
-            if ($TOC<limit) {
-             $IT=20;
-            } else {
-//            TEST THICKNESS
-             $RAT = $TOC/$TR;
-             if (abs($RAT-1.0)<0.0001) {
-              $IT=20;
-             }
-            }
-           } 
-           $SF=$RAT;
-           if ($TOC<limit) {
-            $SF=0.0;
-           }
-           if($i==0) {   
-            $j=0;
-            while ($j<$numpnt) {
-             $XT[$j] = ($XT[$j]-$XO)/($XL201-$XO);
-//            SCALE LINEARLY TO EXACT THICKNESS
-             $YT[$j]   = $SF*$YT[$j]/($XL201-$XO);
-             $YTP[$j]  = $SF*$YTP[$j];
-             $YTPP[$j] = $SF*$YTPP[$j]*($XL201-$XO);
-             $j++;
-            } 
-           }
-           $XTP     = ($XTP-$XO)/($XL201-$XO);
-           $YMAX    = $YMAX*$SF/($XL201-$XO);
-           $YM      = $YM*$SF/($XL201-$XO);
-           $XYM     = ($XYM-$XO)/($XL201-$XO);
-           $XL0[0]   = 0.0;
- if ($TOC>limit) {
-//                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
-  $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
-  $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
-  $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
-  j=0;
-  while (j<10) {
-   yt[j] = $BN*sqrt(1.0-($XT[$j]-$AN)**2/$AN**2)+$CN*$XT[$j];
-   if ($XT[$j]>limit) {
-    $YTP[$j]   = $BN**2*($AN-$XT[$j])/$AN**2/($YT[$j]-$CN*$XT[$j])+$CN;
-    $YTPP[$j]  = -$BN**4/$AN**2/($YT[$j]-$CN*$XT[$j])**3;
+   if (series == 3) {
+	numpnt = 251;
+	phi = [
+	eps = [
+	phi0 = [	 
+    eps0 = [
    }
-   j=j+1;
+   n=0;
+   while (n<numpnt) {
+    x00=phi[n];
+    if ((phi0[n]-x00)<limit) {
+     psi[n]=psi0[n];
+    } else {
+     psi[n]=FTLUP(numpnt,x00,phi0,psi0);
+    }
+    n=n+1;;
+   }
+   rat= 1.0;
+   it = 0;
+//           LOOP START FOR THICKNESS ITERATION
+   while (it<11) {
+    it=it+1;
+    ymax=0.0;
+    xym=0.0;
+    j=0;
+    while (j<numpnt) {
+     temp=psi[j]*rat;
+     cosh=0.5*(Math.exp(temp)+Math.exp(-temp));
+     xt[j] = -2.0*cosh*Math.cos(phi[j]-eps[j]*rat);
+     sinh=0.5*(Math.exp(temp)-Math.exp(-temp));
+     yt[j] = 2.0*sinh*Math.sin(phi[j]-eps[j]*rat);
+     if (yt[j]>ymax) {
+      xym = xt[j];
+      ymax = yt[j];
+     }
+     j=j+1;
+    } 
+    xtp=1.0;
+    j=1;
+    ytp[0]=10.0**6;
+    while (j<numpnt) {
+     ytp[j] = DIF(j,5,numpnt,XT,YT);
+     if (j>=2) {
+      if (ytp[j]<0.0 && ytp[j-1]>0.0) {
+       xtp=xt[j-1]+ytp[j-1]*(xt[j]-xt[j-1])/(ytp[j-1]-ytp[j]);
+      }
+     }
+     j=j+1;
+    }
+    ym=FTLUP(numpnt,xtp,xt,yt);
+    j=1;
+    while (j<numpnt) {
+     ytpp[j]  = DIF(j,5,numpnt,xt,ytp);
+     j=j+1;   
+    } 
+    ytpp[0] = 10.0**6;
+    x0 = xt[0];
+    xl201 = xt[numpnt-1];
+    tr = 2.0*ym/(xl201-xO);
+    if (toc<limit) {
+     it=20;
+    } else {
+     rat = toc/tr;
+     if (Math.abs(rat-1.0)<0.0001) {
+      it=20;
+     }
+    }
+   } 
+   sf=rat;
+   if (toc<limit) {
+    sf=0.0;
+   }
+   if(i==0) {   
+    j=0;
+    while (j<numpnt) {
+     xt[j] = (xt[j]-x0)/(xl201-xO);
+//            SCALE LINEARLY TO EXACT THICKNESS
+     yt[j]   = sf*yt[j]/(xl201-xO);
+     ytp[j]  = sf*ytp[j];
+     ytpp[j] = sf*ytpp[j]*(xl201-xO);
+     j=j+1;
+    } 
+   }
+   xtp = (xtp-xO)/(xl201-xO);
+   ymax = ymax*sf/(xl201-xO);
+   ym  = ym*sf/(xl201-xO);
+   xym = (xym-xO)/(xl201-xO);
+   xlo[0]   = 0.0;
+   if (toc>limit) {
+//                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
+    $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
+    $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
+    $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
+    j=0;
+    while (j<10) {
+     yt[j] = $BN*sqrt(1.0-($XT[j]-$AN)**2/$AN**2)+$CN*$XT[j];
+     if ($XT[j]>limit) {
+      $YTP[j]   = $BN**2*($AN-$XT[j])/$AN**2/($YT[j]-$CN*$XT[j])+$CN;
+      $YTPP[j]  = -$BN**4/$AN**2/($YT[j]-$CN*$XT[j])**3;
+     }
+     j=j+1;
+    } 
+    $RNP=$BN**2/$AN;
+   }
+   ali = abs($CLI);
+   $X = 0.00025;
+   $XL0[0] = 0.0;
   } 
-  $RNP=$BN**2/$AN;
- }
- $ALI = abs($CLI);
- $X = 0.00025;
- $XL0[0] = 0.0;
- } 
 //          INTERPOLATE FOR THICKNESS AND DERIVATIVES AT DESIRED VALUES OF X
-          $Y=FTLUP($numpnt,$X,$XT,$YT);
-          $YP=FTLUP($numpnt,$X,$XT,$YTP);
-          $YPP=FTLUP($numpnt,$X,$XT,$YTPP);
+  y=FTLUP(numpnt,x,xt,yt);
+  yp=FTLUP(numpnt,x,xt,ytp);
+  ypp=FTLUP(numpnt,x,xt,ytpp);
 //          COMPUTE CAMBERLINE
-          $A   = $AS;
-          $CLI = $CLIS;
-          a1  = $A;
-          $CLI1 = $CLI;
-          $XC   = $X;
-          $YC   = $Y;
-          $XLL  = $X*log($X);
-          $Q    = 1.0;
-          if ((abs(1.0-a1)<limit) && (abs(1.0-$X)<limit)) {
-           $G  = 0.0;
-           $H  = $G;
-           $Q  = $G;
-           $Z  = 0.0;
-           $Z1 = -10.0**10;
-           $Z2 = -10.0**10;
-          } elseif ((a1<limit) && ((1.0-$X)<limit)) {
-           $G  = -0.25;
-           $H  = -0.5;
-           $Q  = 1.0;
-           $Z  = -0.25;
-           $Z1 = 0.0;
-           $Z2 = -10.0**10;
-          } elseif (abs(a1-$X)<limit) {
-           $Z  = -0.5*(1.0-$X)**2*log(1.0-$X)+0.25*(1.0-$X)**2;
-           $Z1 = -0.5*(1.0-$X)*(-log(1.0-$X)-1.0)+0.5*(1.0-$X)*log(1.0-$X)-0.5*(1.0-$X);
-           $Z2 = -log(1.0-$X)-0.5;
-           $G  = -(a1**2*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
-           $H  = (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
-          } elseif (abs(1.0-$X)<limit) {
-           $G  = -(a1**2*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
-           $H  =  (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
-           $Z  =  0.5*(a1-1.0)**2*log(abs(a1-1.0))-0.25*(a1-1.0)**2;
-           $Z1 = -(a1-1.0)*log(abs(a1-1.0));
-           $Z2 = -10.0**10;
-          } elseif (abs(a1-1.0)<limit) {
-           $G  = 0.0;
-           $H  = G;
-           $Q  = G;
-           $Z  = -(1.0-$X)*log(1.0-$X);
-           $Z1 = log(1.0-$X)+1.0;
-           $Z2 = -1.0/(1.0-$X);
-          } else { 
-           $V     = -(a1-$X)/abs(a1-$X);
-           $OMXL  =  (1.0-$X)*log(1.0-$X);
-           $AMXL  =  (a1-$X)*log(abs(a1-$X));
-           $OMXL1 = -log(1.0-$X)-1.0;
-           $AMXL1 = -log(abs(a1-$X))-1.0;
+  a   = as;
+  cli = clis;
+  a1  = a;
+  cli1 = cli;
+  xc   = x;
+  yc   = y;
+  xll  = x*Math.log(x);
+  q    = 1.0;
+  if (Math.abs(1.0-a1)<limit && Math.abs(1.0-x)<limit)) {
+   g = 0.0;
+   h  = g;
+   q  = g;
+   z = 0.0;
+   z1 = -10.0**10;
+   z2 = -10.0**10;
+  } else if (a1<limit && (1.0-x)<limit) {
+   g  = -0.25;
+   h  = -0.5;
+   q  = 1.0;
+   z  = -0.25;
+   z1 = 0.0;
+   z2 = -10.0**10;
+  } else if (Math.abs(a1-x)<limit) {
+   z  = -0.5*(1.0-x)*(1.0-x)*Math.log(1.0-x)+0.25*(1.0-x)*(1.0-x);
+   z1 = -0.5*(1.0-x)*(-Math.log(1.0-x)-1.0)+0.5*(1.0-x)*Math.log(1.0-x)-0.5*(1.0-x);
+   z2 = -Math.log(1.0-x)-0.5;
+   g  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
+   h  = (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.0-a1)+g;
+  } else if (Math.abs(1.0-x)<limit) {
+   g  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
+   h  =  (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.0-a1)+g;
+   z  =  0.5*(a1-1.0)*(a1-1.0)*Math.log(Math.abs(a1-1.0))-0.25*(a1-1.0)**(a1-1.0);
+   z1 = -(a1-1.0)*Math.log(Math.abs(a1-1.0));
+   z2 = -10.0**10;
+  } else if (Math.abs(a1-1.0)<limit) {
+   g  = 0.0;
+   h  = g;
+   q  = g;
+   z  = -(1.0-x)*Math.log(1.0-x);
+   z1 = Math.log(1.0-x)+1.0;
+   z2 = -1.0/(1.0-x);
+  } else { 
+   v     = -(a1-x)/Math.abs(a1-x);
+   omxl  =  (1.0-x)*Math.log(1.0-x);
+   amxl  =  (a1-x)*Math.log(Math.abs(a1-x));
+   omxl1 = -Math.log(1.0-x)-1.0;
+   amxl1 = -Math.log(Math.abs(a1-x))-1.0;
            $OMXL2 =  1.0/(1.0-$X);
            $AMXL2 =  1.0/(a1-$X);
            $Z  = 0.5*(a1-$X)*$AMXL-0.5*(1.0-$X)*$OMXL-0.25*(a1-$X)**2+0.25*(1.0-$X)**2;
@@ -541,8 +513,8 @@ function ComputeFlow2() {
          }
          $i=0;
          while ($i<$numx) {
-          $j=$numx-$i-1;
-          $outtext=$XL[$j]."  ".$YL[$j]."\n";
+          j=$numx-$i-1;
+          $outtext=$XL[j]."  ".$YL[j]."\n";
           fwrite($file2,$outtext);
           $i++;
          }
@@ -565,13 +537,13 @@ function ComputeFlow2() {
 //       the same pointer will be used on a given vari table every time
 //        $n=201;
         $i=0;
-        $j=0;
+        j=0;
         $found=0;
         while ($i<($n-1)) {
          $test=($vari[$i]-$x)*($vari[$i+1]-$x);
          if ($test<0.0) { 
           $found=1;
-          $j=$i;
+          j=$i;
           $i=$n;
          }
          $i++;
@@ -579,14 +551,14 @@ function ComputeFlow2() {
         if ($found==0) {    
 //         if x outside endpoints, extrapolate from end interval
          if ($x<$vari[0]) {
-          $j=0;
+          j=0;
          } else {
-          $j=$n-2;
+          j=$n-2;
          }
         }      
 //        first order
-//        echo " ...j,x,xi,xd,y ".$j.", ".$x.", ".$vari[$j].", ".$vard[$j].", ";
-        $y = ($vard[$j]*($vari[$j+1]-$x)-$vard[$j+1]*($vari[$j]-$x))/($vari[$j+1]-$vari[$j]);
+//        echo " ...j,x,xi,xd,y ".j.", ".$x.", ".$vari[j].", ".$vard[j].", ";
+        $y = ($vard[j]*($vari[j+1]-$x)-$vard[j+1]*($vari[j]-$x))/($vari[j+1]-$vari[j]);
 //        echo $y."\n";
         return $y;
        }
@@ -621,34 +593,34 @@ function ComputeFlow2() {
            }
           }  
           $MX=$L-$K;
-          $j=0;
-          while ($j<$N) {
-           $MJ=$MX+$j;
-           $X[$j]=$VARI[$MJ];
-           $Y[$j]=$VARD[$MJ];
-           $j++;
+          j=0;
+          while (j<$N) {
+           $MJ=$MX+j;
+           $X[j]=$VARI[$MJ];
+           $Y[j]=$VARD[$MJ];
+           j++;
           }
          
           $A=1.0;
           $B=0.0;
           $C=0.0;
-          $j=0;
-          while ($j<$N) {
-           if ($j!=$K) {
+          j=0;
+          while (j<$N) {
+           if (j!=$K) {
             $P=1.0;
             $i=0;
             while ($i<$N) {
-             if ($i!=$j) {
-              $P=$P*($X[$j]-$X[$i]);
+             if ($i!=j) {
+              $P=$P*($X[j]-$X[$i]);
              } 
              $i++;
             }
-            $T=$X[$K]-$X[$j];
-            $B=$B+$Y[$j]/($P*$T);
+            $T=$X[$K]-$X[j];
+            $B=$B+$Y[j]/($P*$T);
             $A=$A*$T;
             $C=$C+1.0/$T;
            } 
-           $j++;
+           j++;
           } 
           $DIF=$A*$B+$Y[$K]*$C;
          }
@@ -959,6 +931,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
