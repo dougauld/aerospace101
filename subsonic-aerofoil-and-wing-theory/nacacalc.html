@@ -197,7 +197,7 @@ function ComputeFlow2() {
   q  = 1.0;
   z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
  }
-//         echo "CLI1,A1,Q,H,U :".$CLI1.":".a1.":".$Q.":".$H.":".$U."\n";
+
  var tanth0,yp,ypp,i,j,x,xmax,xmin,xx0,ymax,xym,xtp,x0,xl201;
  tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
  yp       = 10.^10;
@@ -216,7 +216,7 @@ function ComputeFlow2() {
  var xt = [];
  var ytp = [];	
  var ytpp = [];
- var rat,it,cosh,temp,tr,sf;	
+ var z,rat,it,cosh,temp,tr,sf,an,bn,cn,rnp;	
  while (x<=1.0) {
   if (i==0) {
    if (series == 1) {
@@ -272,9 +272,9 @@ function ComputeFlow2() {
     } 
     xtp=1.0;
     j=1;
-    ytp[0]=10.0**6;
+    ytp[0]=1000000.0;
     while (j<numpnt) {
-     ytp[j] = DIF(j,5,numpnt,XT,YT);
+     ytp[j] = DIF(j,5,numpnt,xt,yt);
      if (j>=2) {
       if (ytp[j]<0.0 && ytp[j-1]>0.0) {
        xtp=xt[j-1]+ytp[j-1]*(xt[j]-xt[j-1])/(ytp[j-1]-ytp[j]);
@@ -288,7 +288,7 @@ function ComputeFlow2() {
      ytpp[j]  = DIF(j,5,numpnt,xt,ytp);
      j=j+1;   
     } 
-    ytpp[0] = 10.0**6;
+    ytpp[0] = 1000000.0;
     x0 = xt[0];
     xl201 = xt[numpnt-1];
     tr = 2.0*ym/(xl201-xO);
@@ -323,23 +323,23 @@ function ComputeFlow2() {
    xlo[0]   = 0.0;
    if (toc>limit) {
 //                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
-    $CN = 2.0*$YTP[10]-$YT[10]/$XT[10]+0.1;
-    $AN = $XT[10]*($YTP[10]*$XT[10]-$YT[10])/($XT[10]*(2.0*$YTP[10]-$CN)-$YT[10]);
-    $BN = sqrt(($YT[10]-$CN*$XT[10])**2/(1.0-($XT[10]-$AN)**2/$AN**2));
+    cn = 2.0*ytp[10]-yt[10]/xt[10]+0.1;
+    an = xt[10]*(ytp[10]*xt[10]-yt[10])/(xt[10]*(2.0*ytp[10]-cn)-yt[10]);
+    bn = Math.sqrt((yt[10]-cn*xt[10])*(yt[10]-cn*xt[10])/(1.0-(xt[10]-an)*(xt[10]-an)/an/an));
     j=0;
     while (j<10) {
-     yt[j] = $BN*sqrt(1.0-($XT[j]-$AN)**2/$AN**2)+$CN*$XT[j];
-     if ($XT[j]>limit) {
-      $YTP[j]   = $BN**2*($AN-$XT[j])/$AN**2/($YT[j]-$CN*$XT[j])+$CN;
-      $YTPP[j]  = -$BN**4/$AN**2/($YT[j]-$CN*$XT[j])**3;
+     yt[j] = bn*Math.sqrt(1.0-(xt[j]-an)*(xt[j]-an)/an/an)+cn*xt[j];
+     if (xt[j]>limit) {
+      ytp[j]   = bn*bn*(an-xt[j])/an/an/(yt[j]-cn*xt[j])+cn;
+      ytpp[j]  = -bn*bn*bn*bn/an/an/(yt[j]-cn*xt[j])/(yt[j]-cn*xt[j])/(yt[j]-cn*xt[j]);
      }
      j=j+1;
     } 
-    $RNP=$BN**2/$AN;
+    rnp=bn*bn/an;
    }
-   ali = abs($CLI);
-   $X = 0.00025;
-   $XL0[0] = 0.0;
+   ali = Math.abs(cli);
+   x = 0.00025;
+   xl0[0] = 0.0;
   } 
 //          INTERPOLATE FOR THICKNESS AND DERIVATIVES AT DESIRED VALUES OF X
   y=FTLUP(numpnt,x,xt,yt);
@@ -393,178 +393,227 @@ function ComputeFlow2() {
    amxl  =  (a1-x)*Math.log(Math.abs(a1-x));
    omxl1 = -Math.log(1.0-x)-1.0;
    amxl1 = -Math.log(Math.abs(a1-x))-1.0;
-           $OMXL2 =  1.0/(1.0-$X);
-           $AMXL2 =  1.0/(a1-$X);
-           $Z  = 0.5*(a1-$X)*$AMXL-0.5*(1.0-$X)*$OMXL-0.25*(a1-$X)**2+0.25*(1.0-$X)**2;
-           $Z1 = 0.5*((a1-$X)*$AMXL1-$AMXL-(1.0-$X)*$OMXL1+$OMXL+(a1-$X)-(1.0-$X));
-           $Z2 = 0.5*(a1-$X)*$AMXL2-$AMXL1-0.5*(1.0-$X)*$OMXL2+$OMXL1;
-           if (a1<=limit) { 
-            $G  = -0.25;
-            $H  = -0.50;
-           } else {           
-            $G  = -(a1*a1*(0.5*log(a1)-0.25)+0.25)/(1.0-a1);
-            $H  =  (0.5*(1.0-a1)**2*log(1.0-a1)-0.25*(1.0-a1)**2)/(1.0-a1)+$G;
-           } 
-          } 
-          $YCMB  = $CLI1*($Z/(1.0-$Q*a1)-$XLL+$G-$H*$X)/pi()/(a1+1.0)/2.0;
-          $XSV   = $X;
-          if ($X<0.005) {
-           $X=0.005;
-          } 
-          $TANTH = $CLI1*($Z1/(1.0-$Q*a1)-1.0-log($X)-$H)/pi()/(a1+1.0)/2.0;
-          $X=$XSV;
-          if ($kf6xa==1) {
-           $TANTH=-5.0;
-          }
-          if ($X<=0.005) {
-           $YCP2  = 0.0;
-          } else {
-           if (abs(1.0-$X)<=limit) {
-            $YCP2 = 1.0/limit;
-           } else {
-            $PIA= pi()*(a1+1.0)*2.0;
-            $YCP2 = $CLI1*($Z2/(1.0-$Q*a1)-1.0/$X)/$PIA;
-           }
-          }  
+   omxl2 =  1.0/(1.0-x);
+   amxl2 =  1.0/(a1-x);
+   z  = 0.5*(a1-x)*amxl-0.5*(1.0-x)*omxl-0.25*(a1-x)*(a1-x)+0.25*(1.0-x)*(1.0-x);
+   z1 = 0.5*((a1-x)*amxl1-amxl-(1.0-x)*omxl1+omxl+(a1-x)-(1.0-x));
+   z2 = 0.5*(a1-x)*amxl2-amxl1-0.5*(1.0-x)*omxl2+omxl1;
+   if (a1<=limit) { 
+    g  = -0.25;
+    h  = -0.50;
+   } else {           
+    g  = -(a1*a1*(0.5*.Math.log(a1)-0.25)+0.25)/(1.0-a1);
+    h  =  (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.0-a1)+g;
+   } 
+  } 
+  ycmb  = cli1*(z/(1.0-q*a1)-xLL+g-h*x)/PI/(a1+1.0)/2.0;
+  xsv   = x;
+  if (x<0.005) {
+   x=0.005;
+  } 
+  tanth = cli1*(z1/(1.0-q*a1)-1.0-Math.log(x)-h)/PI/(a1+1.0)/2.0;
+  x=xsv;
+  if (kf6xa==1) {
+   tanth=-5.0;
+  }
+  if (x<=0.005) {
+   ycp2  = 0.0;
+  } else {
+   if (Math.abs(1.0-x)<=limit) {
+    ycp2 = 1.0/limit;
+   } else {
+    pia= PI*(a1+1.0)*2.0;
+    ycp2 = cli1*(z2/(1.0-q*a1)-1.0/x)/pia;
+   }
+  }  
 //        MODIFIED CAMBERLINE OPTION
-          $partial=substr($section,0,3);
-          if (($partial=="63A") || ($partial=="64A") || ($partial=="64A") || ($partial=="65A")) {
-           $YCMB=$YCMB*0.97948;
-           $TANTH=$TANTH*0.97948;
-           $YCP2=$YCP2*0.97948;
-           a1 = 0.8;
-           $CLI1 = $CLI;
+//          $partial=substr($section,0,3);
+//          if (($partial=="63A") || ($partial=="64A") || ($partial=="64A") || ($partial=="65A")) {
+//           $YCMB=$YCMB*0.97948;
+//           $TANTH=$TANTH*0.97948;
+//           $YCP2=$YCP2*0.97948;
+//           a1 = 0.8;
+//           $CLI1 = $CLI;
 //          WRITE (*,*) '<BR>MODIFIED CAMBERLINE ONLY FOR A=0.8<BR>'
-           if ($TANTH<=-0.24521*$CLI1) {
-            $YCMB  =  0.24521*$CLI1*(1.0-$X);
-            $YCP2  =  0.0;
-            $TANTH = -0.24521*$CLI1;
-            $kf6xa =  1;
-           }
-          }
-          $F = sqrt(1.0+$TANTH**2);
-          $THP = $YCP2/$F**2;
-          $SINTH = $TANTH/$F;
-          $COSTH = 1.0/$F;
+//           if ($TANTH<=-0.24521*$CLI1) {
+//            $YCMB  =  0.24521*$CLI1*(1.0-x);
+//            $YCP2  =  0.0;
+//            $TANTH = -0.24521*$CLI1;
+//            $kf6xa =  1;
+//           }
+//          }
+  f = Math.sqrt(1.0+tanth*tanth);
+  thp = ycp2/f/f;
+  sinth = tanth/f;
+  costh = 1.0/f;
 //          CAMBERLINE AND DERIVATIVES COMPUTED
 //          COMBINE THICKNESS DISTRIBUTION AND CAMBERLINE
-          $XU0[$i]  = $X - $Y*$SINTH;
-          if ($XU0[$i]>$XMAX) {
-           $XMAX=$XU0[$i];
-          }
-          if ($XU0[$i]<$XMIN) {
-           $XMIN=$XU0[$i];
-          }
-          $YU0[$i]  = $YCMB + $Y*$COSTH;
-          $XL0[$i]  = $X + $Y*$SINTH;
-          if ($XL0[$i]>$XMAX) {
-           $XMAX=$XU0[$i];
-          }
-          if ($XL0[$i]<$XMIN) {
-           $XMIN=$XU0[$i];
-          }
-          $YL0[$i]  = $YCMB - $Y*$COSTH;  
-          $i=$i+1;
-          if ($ALI>limit) {
-//           FIND LOCAL SLOPE OF CAMBERED PROFILE
-//           $YUP=($TANTH*$F+$YP-$TANTH*$Y*$THP)/($F-$YP*$TANTH-$Y*$THP);
-//           $YLP=($TANTH*$F-$YP+$TANTH*$Y*$THP)/($F+$YP*$TANTH+$Y*$THP);
-          } 
-//           FIND X INCREMENT
-          if ($X<=0.09750) {
-           $FRAC = 0.250;
-          }
-          if ($X<=0.01225) {
-           $FRAC = 0.025;
-          }
-//         INCREMENT X AND RETURN TO START OF X LOOP
- x = x + frac*dx;
- frac = 1.0;
- } 
-         $numtotal=$i;
-         $i=0;
-         $dt=-pi()/($numx-1);
-         $theta=-pi();
-         $CHORD=$XMAX-$XMIN;
-         $XCENTRE=($XMAX+$XMIN)*0.5;
-         while ($i<$numx) {
-          $X=$XCENTRE+$CHORD*0.5*cos($theta);
-          $Y=FTLUP($numtotal,$X,$XU0,$YU0);
-          $XU[$i]=$X;
-          $YU[$i]=$Y;
-          $Y=FTLUP($numtotal,$X,$XL0,$YL0);
-          $XL[$i]=$X;
-          $YL[$i]=$Y;
-          $theta=$theta+$dt;
-     i=i+1;
-   } 
+  xu0[i]  = x - y*sinth;
+  if (xu0[i]>xmax) {
+   xmax=xu0[i];
   }
-  
-//      create section file
-        $file2=fopen("./tmp/section1.tmp","w");
-        if ($file2) {
-         $outtext=2*$numx."\n";
-         fwrite($file2,$outtext);
-         $i=0;
-         while ($i<$numx) {
-          $outtext=$XU[$i]."  ".$YU[$i]."\n";
-          fwrite($file2,$outtext);
-          $i++;
-         }
-         $i=0;
-         while ($i<$numx) {
-          j=$numx-$i-1;
-          $outtext=$XL[j]."  ".$YL[j]."\n";
-          fwrite($file2,$outtext);
-          $i++;
-         }
-         fclose($file2);
-        } else {
-         echo " Cannot OPEN output file \n";
-        } 
-       }
+  if (xu0[i]<xmin) {
+   xmin=xu0[i];
+  }
+  yu0[i]  = ycmb + y*costh;
+  xl0[i]  = x + y*sinth;
+  if (xl0[i]>xmax) {
+   xmax=xl0[i];
+  }
+  if (xl0[i]<xmin) {
+   xmin=xl0[i];
+  }
+  yl0[i]  = ycmb - y*costh;  
+  i=i+1;
+  if (x<=0.09750) {
+   frac = 0.250;
+  }
+  if (x<=0.01225) {
+   frac = 0.025;
+  }
+  x = x + frac*dx;
+  frac = 1.0;
+ } 
+ numtotal=i;
+ i=0;
+ dt=-PI/(numx-1);
+ theta=-PI;
+ chord=xmax-xmin;
+ xcentre=(xmax+xmin)*0.5;
+ while (i<numx) {
+  x=xcentre+chord*0.5*Math.cos(theta);
+  y=FTLUP(numtotal,x,xu0,yu0);
+  xu[i]=x;
+  yu[i]=y;
+  y=FTLUP(numtotal,x,xl0,yl0);
+  xl[i]=x;
+  yl[i]=y;
+  theta=theta+dt;
+  i=i+1;
+ } 
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=250;
 
-       function FTLUP($n,$x,$vari,$vard) {
-//       implicit REAL*8 (A-H,O-Z)
-//       real*8 vari(n), vard(n), v(3), yy(2), unit
-//       integer*4 ii(43)
+// Create image and define colors
+// Create a background
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0,0,600,250);
+
+ var chord=xmax-xmin;
+// draw section outline
+ ctx.lineWidth=2;
+ i=0;
+ var x1,y1; 
+ ctx.beginPath();
+ ctx.strokeStyle="blue";
+ while (i<numx) {
+  x1=50+Math.trunc(xu[i]*400.0/chord);
+  y1=125-Math.trunc(yu[i]*400.0/chord);
+  if (i>0) {
+   ctx.lineTo(x1,y1); 
+  } else {
+   ctx.moveTo(x1,y1);
+  }   
+  i=i+1;
+ }
+ ctx.fillStyle="green"
+ ctx.closePath();
+ ctx.stroke();
+ ctx.fill();
+ ctx.beginPath();
+ ctx.strokeStyle="blue";
+ i=0;	
+ while (i<numx) {
+  x1=50+Math.trunc(xl[i]*400.0/chord);
+  y1=125-Math.trunc(yl[i]*400.0/chord);
+  if (i>0) {
+   ctx.lineTo(x1,y1); 
+  } else {
+   ctx.moveTo(x1,y1);
+  }   
+  i=i+1;
+ }
+ ctx.fillStyle="green"
+ ctx.closePath();
+ ctx.stroke();
+ ctx.fill();
+ 
+ ctx.lineWidth=1;
+ ctx.beginPath();
+ ctx.strokeStyle="red";
+ ctx.moveTo(50,125);
+ ctx.lineTo(600,125);
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fillStyle = "black";
+ ctx.fillText("X/C",500,115);
+ ctx.beginPath();
+ ctx.strokeStyle="red";
+ ctx.moveTo(50,125);
+ ctx.lineTo(50,0);
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fillStyle = "black";
+ ctx.fillText("Y/C",54,20);
+ var numout=numx-1;
+ var strng = "Section : " + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "<br />";
+// ctx.fillStyle="black";
+// ctx.fillText(strng,150,320);
+ i=0;
+ strng = strng + " Upper Surface :<br />  X   &nbsp;&nbsp;&nbsp;&nbsp;  Y  <br />";
+ while (i<numx) {
+  strng = strng + xu[i].toPrecision(5) + " &nbsp;&nbsp; " + yu[i].toPrecision(5) + " <br />";
+  i=i+1;
+ }     
+ strng = strng + "<br /> Lower Surface :<br />";
+ i=0;
+ while (i<numx) {
+  j=numpoint-i-1;
+  strng = strng + xl[i].toPrecision(5) + " &nbsp;&nbsp; " + yl[i].toPrecision(5) + " <br />";
+  i=i+1;
+ }
+ document.getElementById("output2").innerHTML = strng;
+ document.getElementById("results").style.visibility="visible"
+}
+
+function FTLUP(n,x,vari,vard) {
  
 //       initialize all interval pointers to -1.0  for monotonicity check
-//       data (ii(j),j=1,43)/43* -1/
-        $ma=1;
-        $unit=1.0;
+ var ma=1;
+ var unit=1.0;
 //       assign interval pointers for given vari table
 //       the same pointer will be used on a given vari table every time
 //        $n=201;
-        $i=0;
-        j=0;
-        $found=0;
-        while ($i<($n-1)) {
-         $test=($vari[$i]-$x)*($vari[$i+1]-$x);
-         if ($test<0.0) { 
-          $found=1;
-          j=$i;
-          $i=$n;
-         }
-         $i++;
-        }
-        if ($found==0) {    
+ var i=0;
+ var j=0;
+ var found=0;
+ var test; 
+ while (i<(n-1)) {
+  test=(vari[i]-x)*(vari[i+1]-x);
+  if (test<0.0) { 
+   found=1;
+   j=i;
+   i=n;
+  }
+  i=i+1;
+ }
+ if (found==0) {    
 //         if x outside endpoints, extrapolate from end interval
-         if ($x<$vari[0]) {
-          j=0;
-         } else {
-          j=$n-2;
-         }
-        }      
+  if (x<vari[0]) {
+   j=0;
+  } else {
+   j=n-2;
+  }
+ }      
 //        first order
-//        echo " ...j,x,xi,xd,y ".j.", ".$x.", ".$vari[j].", ".$vard[j].", ";
-        $y = ($vard[j]*($vari[j+1]-$x)-$vard[j+1]*($vari[j]-$x))/($vari[j+1]-$vari[j]);
-//        echo $y."\n";
-        return $y;
-       }
+ y = (vard[j]*(vari[j+1]-x)-vard[j+1]*(vari[j]-x))/(vari[j+1]-vari[j]);
+ return y;
+}
 
-
-       function DIF($L,$M,$NP,$VARI,$VARD) {
+function DIF(l,m,np,vari,vard) {
 //!     *** DOCUMENT DATE 08-01-68   SUBROUTINE REVISED 08-01-68 *********
 //!        THIS FUNCTION SUBPROGRAM FINDS THE DERIVATIVE AT A GIVEN POINT,
 //!        L, FOR THE DESIRED X AND Y IN A GIVEN TABLE.  THE N-POINT
@@ -576,63 +625,59 @@ function ComputeFlow2() {
 //!        VARD = ARRAY OF DEPENDENT VARIABLE, Y.    VARD(NP)
 //      DIF=O17770000000000000000
 //!     FOR NOS SYSTEM, PREVIOUS CARD MUST BE REPLACED BY:
-        if ($M<1) {
-         $DIF=0.0;
-        } else {
-         $N=2*$M+1;
-         IF (($M>5) || ($N>$NP)) {
-          $DIF=0.0;
-         } else {
-          $M1=$M+1;
-          $M2=$NP-$M+1;
-          $K=$L;
-          if (($L>$M1) && ($N!=$NP)) { 
-           $K=$M1;
-           if ($L>=$M2) {
-            $K=$L-($NP-$N);
-           }
-          }  
-          $MX=$L-$K;
-          j=0;
-          while (j<$N) {
-           $MJ=$MX+j;
-           $X[j]=$VARI[$MJ];
-           $Y[j]=$VARD[$MJ];
-           j++;
-          }
-         
-          $A=1.0;
-          $B=0.0;
-          $C=0.0;
-          j=0;
-          while (j<$N) {
-           if (j!=$K) {
-            $P=1.0;
-            $i=0;
-            while ($i<$N) {
-             if ($i!=j) {
-              $P=$P*($X[j]-$X[$i]);
-             } 
-             $i++;
-            }
-            $T=$X[$K]-$X[j];
-            $B=$B+$Y[j]/($P*$T);
-            $A=$A*$T;
-            $C=$C+1.0/$T;
-           } 
-           j++;
-          } 
-          $DIF=$A*$B+$Y[$K]*$C;
-         }
-        }  
-        return $DIF;
-       }   
-
-?>
-	
-
-
-}
+ var n,m1,m2,k,mx,a,b,c,i,j,p;
+ var x = [];
+ var y = [];		
+ if (m<1) {
+  dif=0.0;
+ } else {
+  n=2*m+1;
+  if ((m>5) || (n>np)) {
+   dif=0.0;
+  } else {
+   m1=m+1;
+   m2=np-m+1;
+   k=l;
+   if (l>m1 && n!=np) { 
+    k=m1;
+    if (l>=m2) {
+     k=l-(np-n);
+    }
+   }  
+   mx=l-k;
+   j=0;
+   while (j<n) {
+    mj=mx+j;
+    x[j]=vari[mj];
+    y[j]=vard[mj];
+    j=j+1;
+   }
+   a=1.0;
+   b=0.0;
+   c=0.0;
+   j=0;
+   while (j<n) {
+    if (j!=k) {
+     p=1.0;
+     i=0;
+     while (i<n) {
+      if (i!=j) {
+       p=p*(x[j]-x[i]);
+      } 
+      i=i+1;
+     }
+     t=x[k]-x[j];
+     b=b+y[j]/(p*t);
+     a=a*t;
+     c=c+1.0/t;
+    } 
+    j=j+1;
+   } 
+   dif=a*b+y[k]*c;
+  }
+ }  
+ return dif;
+}   
  
 function ComputeFlow() {
 
@@ -931,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
