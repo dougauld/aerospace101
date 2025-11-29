@@ -188,7 +188,7 @@ function ComputeFlow2() {
   h  = -0.5;
   q  = 1.0;
   z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
- } else if (abs(a1-1.0)<limit) { 
+ } else if (Math.abs(a1-1.0)<limit) { 
   h  = 0.0;
   q  = h;
   z1 = -omxl1;
@@ -578,7 +578,6 @@ function ComputeFlow2() {
  document.getElementById("output2").innerHTML = strng;
  document.getElementById("results").style.visibility="visible"
 }
-
 function FTLUP(n,x,vari,vard) {
  
 //       initialize all interval pointers to -1.0  for monotonicity check
@@ -678,6 +677,7 @@ function DIF(l,m,np,vari,vard) {
  }  
  return dif;
 }   
+
  
 function ComputeFlow() {
 
@@ -976,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
