@@ -402,7 +402,7 @@ function ComputeFlow2() {
     g  = -0.25;
     h  = -0.50;
    } else {           
-    g  = -(a1*a1*(0.5*.Math.log(a1)-0.25)+0.25)/(1.0-a1);
+    g  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
     h  =  (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.0-a1)+g;
    } 
   } 
@@ -976,6 +976,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
