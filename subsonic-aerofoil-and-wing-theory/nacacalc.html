@@ -198,7 +198,7 @@ function ComputeFlow2() {
   z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
  }
 
- var tanth0,yp,ypp,i,j,x,xmax,xmin,xx0,ymax,xym,xtp,x0,xl201;
+ var tanth0,yp,ypp,i,j,x,xmax,xmin,x00,ymax,xym,xtp,xo,xl201;
  tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
  yp       = 10.^10;
  ypp      = 10.^10;
@@ -290,9 +290,9 @@ function ComputeFlow2() {
      j=j+1;   
     } 
     ytpp[0] = 1000000.0;
-    x0 = xt[0];
+    xo = xt[0];
     xl201 = xt[numpnt-1];
-    tr = 2.0*ym/(xl201-xO);
+    tr = 2.0*ym/(xl201-xo);
     if (toc<limit) {
      it=20;
     } else {
@@ -309,11 +309,11 @@ function ComputeFlow2() {
    if(i==0) {   
     j=0;
     while (j<numpnt) {
-     xt[j] = (xt[j]-x0)/(xl201-xO);
+     xt[j] = (xt[j]-xo)/(xl201-xo);
 //            SCALE LINEARLY TO EXACT THICKNESS
-     yt[j]   = sf*yt[j]/(xl201-xO);
+     yt[j]   = sf*yt[j]/(xl201-xo);
      ytp[j]  = sf*ytp[j];
-     ytpp[j] = sf*ytpp[j]*(xl201-xO);
+     ytpp[j] = sf*ytpp[j]*(xl201-xo);
      j=j+1;
     } 
    }
@@ -977,6 +977,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
