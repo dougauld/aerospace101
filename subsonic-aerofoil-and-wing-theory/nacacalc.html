@@ -956,22 +956,17 @@ function ComputeFlow() {
  ctx.fillStyle = "black";
  ctx.fillText("Y/C",54,20);
  var numout=numx-1;
- var strng = "Section : " + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "<br />";
+ var strng = "<table border='1'><tr><td colspan='4'>Section : " + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
 // ctx.fillStyle="black";
 // ctx.fillText(strng,150,320);
  i=0;
- strng = strng + " Upper Surface :<br />  X   &nbsp;&nbsp;&nbsp;&nbsp;  Y  <br />";
+ strng = strng + "<tr><td colspan='2'>Upper Surface</td><td colspan='2'>Lower Surface</td</tr>";
+ strng = strng + "<tr><td>X</td><td>Y</td><td>X</td><td>Y</td></tr>";
  while (i<numx) {
-  strng = strng + xu[i].toPrecision(5) + " &nbsp;&nbsp; " + yu[i].toPrecision(5) + " <br />";
+  strng = strng + "<tr><td>" + xu[i].toPrecision(5) + "</td><td>" + yu[i].toPrecision(5) + "</td><td>" + xl[i].toPrecision(5) + "</td><td>" + yl[i].toPrecision(5) + "</td></tr>";
   i=i+1;
  }     
- strng = strng + "<br /> Lower Surface :<br />";
- i=0;
- while (i<numx) {
-  j=numpoint-i-1;
-  strng = strng + xl[i].toPrecision(5) + " &nbsp;&nbsp; " + yl[i].toPrecision(5) + " <br />";
-  i=i+1;
- }
+ strng = strng + "</table>";
  document.getElementById("output2").innerHTML = strng;
  document.getElementById("results").style.visibility="visible"
 }
@@ -1010,6 +1005,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
