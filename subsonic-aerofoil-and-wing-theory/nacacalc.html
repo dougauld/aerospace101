@@ -321,7 +321,7 @@ function ComputeFlow2() {
    ymax = ymax*sf/(xl201-xo);
    ym  = ym*sf/(xl201-xo);
    xym = (xym-xo)/(xl201-xo);
-   xlo[0]   = 0.0;
+   xl0[0]   = 0.0;
    if (toc>limit) {
 //                FIT TILTED ELLIPSE AT ELEVENTH PROFILE POINT
     cn = 2.0*ytp[10]-yt[10]/xt[10]+0.1;
@@ -977,6 +977,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
