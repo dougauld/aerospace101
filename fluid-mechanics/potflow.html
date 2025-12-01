@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>Potential Flow Streamlines</h2>
+<table><tr><td width='50%'>
+<p> 
+Streamlines can be define by a streamfunction expression in cartesion coordinates.<br />
+Coordinates can be entered as follows:
+<pre>      x -- x ordinate, y -- y ordinate
+           Operators : * / + - ^
+           Functions : sin,cos,ln,atan,sqrt</pre>
+Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
+<form>
+Streamfunction Expression : <br />
+echo <input type='text' id='expr' name='expr' value='' size='80' onfocus="HideResults();" autofocus>
+<br />
+<INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
+<input type='submit' name='Draw' value='Draw'>
+</form></td><td>
+<fieldset id="results">
+<canvas id="imageout" width="600" height="600" style="border:1px solid grey"></canvas>
+<br /><p> id='output' </p>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+// include("evalmath.class.php");
+// var m = new EvalMath;
+
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=600;
+
+ var expression = document.getElementById("expr");
+ 
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 600);
+
+//
+ var xlow=-201.0;
+ var ylow=-201.0;
+// $m->evaluate($expressionf);
+//
+ var i,j,k,n,l,x,y,eval;
+ var xmesh = [];
+ var ymesh = [];
+ var zmesh = [];
+ for (let i = 0; i < 101; i++) {
+  zmesh[i] = [];
+  for (let j = 0; j < 101; j++) {
+    zmesh[i][j] = 0.0;
+  }
+ }
+ 
+ while (i<101) {
+  xmesh[i]=xlow;
+  ymesh[i]=ylow;
+  xlow=xlow+4.0; 
+  ylow=ylow+4.0;
+  i=i+1;
+ }
+ j=0;
+ while (j<101) {
+  y=ymesh[j];
+  k=0;
+  while (k<101) {
+   x=xmesh[k];
+   val = eval(expression);
+   zmesh[k][j]=val;
+   k=k+1;
+  }
+  j=j+1;
+ }
+//      write (*,*) 'Drawing Streamlines'
+ var zmax,zmin,vmin,vmax
+ zmax=zmesh[0][0]; 
+ zmin=zmax;
+ i=0;
+ while (i<101) {
+  j=0;
+  while (j<101) {
+   if (zmesh[i][j]>zmax) {
+    zmax=zmesh[i][j];
+   } 
+   if (zmesh[i][j]<zmin) {
+    zmin=zmesh[i][j];
+   }
+   j=j+1;
+  }
+  i=i+1;
+ } 
+ if (zmax>500000.0) {
+  zmax=500000.0;
+ }
+ if (zmin<-500000.0) {
+  zmin=-500000.0;
+ }
+ var cstep,x0;
+ cstep=(zmax-zmin)/50.0;
+ x0=zmin;
+ i=0;
+ var v = [];
+ while (i<50) {
+  v[i]=x0;
+  x0=x0+cstep;
+  i=i+1;
+ }
+ v[50]=0.0;
+//
+//      SUBROUTINE CONTOUR(X,Y,Z,V,IC1,IC2,IC3)
+
+ itri[0][0]=0;
+ itri[1][0]=1;
+ itri[2][0]=4;
+
+ itri[0][1]=1;
+ itri[1][1]=2;
+ itri[2][1]=4;
+
+ itri[0][2]=2;
+ itri[1][2]=3;
+ itri[2][2]=4;
+
+ itri[0][3]=3;
+ itri[1][3]=0;
+ itri[2][3]=4;
+
+ i=0;
+ var ipnt,found,frac,xint0,yint0,xint1,yint1;
+ var yr = [];
+ var xr = [];
+ var vr = [];
+ var vt = [];
+ var yt = [];
+ var vt = [];
+ var xp = [];
+ var yp = [];
+ while (i<100) {
+  yr[0]=ymesh[i];
+  yr[1]=ymesh[i];
+  yr[2]=ymesh[i+1];
+  yr[3]=ymesh[i+1];
+  yr[4]=0.25*(yr[0]+yr[1]+yr[2]+yr[3]);
+  j=0;
+  while (j<100) {
+   xr[0]=xmesh[j];
+   xr[1]=xmesh[j+1];
+   xr[2]=xmesh[j+1];
+   xr[3]=xmesh[j];
+   xr[4]=0.25*(xr[0]+xr[1]+xr[2]+xr[3]);
+   vr[0]=zmesh[j][i];
+   vr[1]=zmesh[j+1][i];
+   vr[2]=zmesh[j+1][i+1];
+   vr[3]=zmesh[j][i+1];
+   vr[4]=0.25*(vr[0]+vr[1]+vr[2]+vr[3]);
+   k=0;
+   while (k<4) {
+    n=0;
+    while (n<3) {
+     l=itri[n][k];
+     xt[n]=xr[l];
+     yt[n]=yr[l];
+     vt[n]=vr[l];
+     n=n+1;
+    }
+    vmax=vt[0];
+    vmin=vmax;
+    if (vt[1]>vmax) {
+     vmax=vt[1];
+    } 
+    if (vt[2]>vmax) {
+     vmax=vt[2];
+    } 
+    if (vt[1]<vmin) {
+     vmin=vt[1];
+    }
+    if (vt[2]<vmin) {
+     vmin=vt[2];
+    }
+    n=0;
+    found=0;
+    while (n<51) {
+     ipnt=0;
+     if (v[n]>=vmin && v[n]<=vmax) {
+      found=1;
+      if (v[n]<vt[0] && v[n]<vt[1]) {
+       found=0;
+      }
+      if (v[n]>vt[0] && v[n]>vt[1]) {
+       found=0;
+      }
+      if (found==1) {
+       frac=vt[0]-vt[1];
+       if (Math.abs(frac)>1.0E-10) {
+	frac=(v[n]-vt[1])/frac;
+       }
+       ipnt=1;
+       xp[0]=frac*(xt[0]-xt[1])+xt[1];
+       yp[0]=frac*(yt[0]-yt[1])+yt[1];
+      } 
+      found=1;
+      if (v[n]<vt[2] && v[n]<vt[1]) {
+       found=0;
+      }
+      if (v[n]>vt[2] && v[n]>vt[1]) {
+       found=0;
+      }
+      if (found==1) {
+       frac=vt[2]-vt[1];
+       if (Math.abs(frac)>1.0E-10) {
+	frac=(v[n]-vt[1])/frac;
+       }
+       ipnt=ipnt+1;
+       xp[ipnt-1]=frac*(xt[2]-xt[1])+xt[1];
+       yp[ipnt-1]=frac*(yt[2]-yt[1])+yt[1];
+      } 
+      if (ipnt<2) {
+       found=1;
+       if (v[n]<vt[2] && v[n]<vt[0]) {
+        found=0;
+       }
+       if (v[n]>vt[2] && v[n]>vt[0]) {
+        found=0;
+       }
+       if (found==1) {
+        frac=vt[2]-vt[0];
+        if (Math.abs(frac)>1.0E-10) {
+   	 frac=(v[n]-vt[0])/frac;
+        }
+        ipnt=ipnt+1;
+        xp[ipnt-1]=frac*(xt[2]-xt[0])+xt[0];
+        yp[ipnt-1]=frac*(yt[2]-yt[0])+yt[0];
+       }
+      }
+      if (ipnt==2) {
+       xint0=Math.floor(xp[0]+300.0);
+       yint0=Math.floor(300.0-yp[0]);
+       xint1=Math.floor(xp[1]+300.0);
+       yint1=Math.floor(300.0-yp[1]);
+       if (n==50) {
+        ctx.beginPath();
+        ctx.lineWidth=1;
+        ctx.strokeStyle='red';
+        ctx.moveTo(xint0,yint0);
+        ctx.lineTo(xint1,yint1);
+        ctx.stroke();
+       } else {
+        ctx.beginPath();
+        ctx.lineWidth=1;
+        ctx.strokeStyle='blue';
+        ctx.moveTo(xint0,yint0);
+        ctx.lineTo(xint1,yint1);
+        ctx.stroke();
+       } 
+      }
+     }  
+     n=n+1;
+    }
+    k=k+1;
+   }
+   j=j+1;
+  }
+  i=i+1;
+ }   
+ document.getElementById("output").innerHTML = expression; 
+ document.getElementById("results").style.visibility="visible";
+}
+
+</script>
+}
+</td></tr>";
+<tr><td colspan='2'>";
+E.Gs.<br /> <a href='potflow.php?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=ln(x^2%2By^2)&Draw=Draw'>Vortex Flow</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=atan(y%2F(x-100))-atan(y%2F(x%2B100))&Draw=Draw'>Source Sink Pair</a>,<br />
+<a href='potflow.php?expr=50*atan((y%2B50)%2Fx)%2B50*atan((y-50)%2Fx)%2By&Draw=Draw'>Imaged Source Pair in Stream (Close)</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=50*atan((y%2B100)%2Fx)%2B50*atan((y-100)%2Fx)%2By*1.365&Draw=Draw'>Imaged Source Pair in Stream(Far)</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=x*y&Draw=Draw'>Right Angle Corner Flow</a>&nbsp;,&nbsp;&nbsp;
+<a href='potflow.php?expr=y-0.1x&Draw=Draw'>Inclined Uniform Flow</a>&nbsp;,&nbsp;&nbsp;
+</td></tr></table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
