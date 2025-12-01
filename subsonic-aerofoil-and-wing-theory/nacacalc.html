@@ -182,12 +182,12 @@ function ComputeFlow2() {
  var amxl2 = -v/Math.abs(a1-u);
  var g,q,h,z,z1,z2
  if (a1>limit && Math.abs(1.0-a1)>limit) {
-  G  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
-  Q  = 1.0;
-  H  = (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.-a1)+G;
-  Z  = 0.5*(a1-u)*amxl-0.5*(1.0-u)*omxl-0.25*(a1-u)*(a1-u)+0.25*(1.0-u)*(1.0-u);
-  Z1 = 0.5*((a1-u)*amxl1-amxl-(1.0-u)*omxl1+omxl+(a1-u)-(1.0-u));
-  Z2 = 0.5*(a1-u)*amxl2-amxl1-0.5*(1.0-u)*omxl2+omxl1;
+  g  = -(a1*a1*(0.5*Math.log(a1)-0.25)+0.25)/(1.0-a1);
+  q  = 1.0;
+  h  = (0.5*(1.0-a1)*(1.0-a1)*Math.log(1.0-a1)-0.25*(1.0-a1)*(1.0-a1))/(1.-a1)+g;
+  z  = 0.5*(a1-u)*amxl-0.5*(1.0-u)*omxl-0.25*(a1-u)*(a1-u)+0.25*(1.0-u)*(1.0-u);
+  z1 = 0.5*((a1-u)*amxl1-amxl-(1.0-u)*omxl1+omxl+(a1-u)-(1.0-u));
+  z2 = 0.5*(a1-u)*amxl2-amxl1-0.5*(1.0-u)*omxl2+omxl1;
  } 
  if (a1<limit) {
   h  = -0.5;
@@ -205,8 +205,8 @@ function ComputeFlow2() {
 
  var tanth0,yp,ypp,i,j,x,xmax,xmin,x00,ymax,xym,xtp,xo,xl201,xll,section;
  tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
- yp       = 10.^10;
- ypp      = 10.^10;
+ yp       = 100000000.0;
+ ypp      = 100000000.0;
 //         $YUP      = -1.0/$tanth0;
 //         $YLP      = -1.0/$tanth0;
  i = 0;
@@ -1033,4 +1033,5 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
