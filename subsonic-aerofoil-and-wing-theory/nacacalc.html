@@ -203,12 +203,8 @@ function ComputeFlow2() {
   z1 = u*Math.log(u)-0.5*u-0.5*(1.0-u)*omxl1+0.5*omxl-0.5;
  }
 
- var tanth0,yp,ypp,i,j,x,xmax,xmin,x00,ymax,xym,xtp,xo,xl201,xll,section;
+ var tanth0,i,j,x,xmax,xmin,x00,ymax,xym,xtp,xo,xl201,xll,section;
  tanth0=cli1*(z1/(1.0-q*a1)-1.0-Math.log(u)-h)/PI/(a1+1.0)/2.0;
- yp       = 100000000.0;
- ypp      = 100000000.0;
-//         $YUP      = -1.0/$tanth0;
-//         $YLP      = -1.0/$tanth0;
  i = 0;
  x = 0.00025;
  xmax = 0.0;
@@ -400,14 +396,11 @@ function ComputeFlow2() {
     } 
     rnp=bn*bn/an;
    }
-   ali = Math.abs(cli);
-   x = 0.00025;201
+   x = 0.00025;
    xl0[0] = 0.0;
   } 
 //          INTERPOLATE FOR THICKNESS AND DERIVATIVES AT DESIRED VALUES OF X
   y=FTLUP(numpnt,x,xt,yt);
-  yp=FTLUP(numpnt,x,xt,ytp);
-  ypp=FTLUP(numpnt,x,xt,ytpp);
 //          COMPUTE CAMBERLINE
   a   = as;
   cli = clis;
@@ -1033,5 +1026,6 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
