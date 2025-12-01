@@ -597,7 +597,7 @@ function ComputeFlow2() {
  if (1.0-load<limit) {
   strng = strng + "<br />";
  } else {
-  strng =strng + "(a = " + load.to Precision(5) + ")<br />";
+  strng = strng + ",a = " + load.toPrecision(5) + "<br />";
  }
  strng = strng + "Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  }
@@ -1012,6 +1012,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
