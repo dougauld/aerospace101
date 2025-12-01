@@ -337,7 +337,7 @@ function ComputeFlow2() {
      }
      j=j+1;
     }
-    ym=FTLUP(numpnt,xtp,xt,yt);
+    var ym=FTLUP(numpnt,xtp,xt,yt);
     j=1;
     while (j<numpnt) {
      ytpp[j]  = DIF(j,5,numpnt,xt,ytp);
@@ -464,33 +464,20 @@ function ComputeFlow2() {
   if (kf6xa==1) {
    tanth=-5.0;
   }
-  if (x<=0.005) {
-   ycp2  = 0.0;
-  } else {
-   if (Math.abs(1.0-x)<=limit) {
-    ycp2 = 1.0/limit;
-   } else {
-    pia= PI*(a1+1.0)*2.0;
-    ycp2 = cli1*(z2/(1.0-q*a1)-1.0/x)/pia;
-   }
-  }  
-//        MODIFIED CAMBERLINE OPTION
+ //        MODIFIED CAMBERLINE OPTION
   if (series>=6) {
    ycmb=ycmb*0.97948;
    tanth=tanth*0.97948;
-   ycp2=ycp2*0.97948;
    a1 = 0.8;
    cli1 = cli;
 //          WRITE (*,*) '<BR>MODIFIED CAMBERLINE ONLY FOR A=0.8<BR>'
    if (tanth<=-0.24521*cli1) {
     ycmb  =  0.24521*cli1*(1.0-x);
-    ycp2  =  0.0;
     tanth = -0.24521*cli1;
     kf6xa =  1;
    }
   }
   f = Math.sqrt(1.0+tanth*tanth);
-  thp = ycp2/f/f;
   sinth = tanth/f;
   costh = 1.0/f;
 //          CAMBERLINE AND DERIVATIVES COMPUTED
@@ -606,7 +593,14 @@ function ComputeFlow2() {
  ctx.fillStyle = "black";
  ctx.fillText("Y/C",54,20);
  var numout=numx-1;
- var strng = "<table border='1'><tr><td colspan='4'>Section : " + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
+ var strng = "<table border='1'><tr><td colspan='4'>Section : " + section;
+ if (1.0-load<limit) {
+  strng = strng + "<br />";
+ } else {
+  strng =strng + "(a = " + load.to Precision(5) + ")<br />";
+ }
+ strng = strng + "Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
+ }
 // ctx.fillStyle="black";
 // ctx.fillText(strng,150,320);
  i=0;
@@ -1018,6 +1012,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
