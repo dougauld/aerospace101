@@ -395,7 +395,8 @@ function ComputeFlow2() {
    x = 0.00025;
    xl0[0] = 0.0;
   } 
-//          COMPUTE CAMBERLINE
+  y=FTLUP(numpnt,x,xt,yt);
+  // COMPUTE CAMBERLINE
   a   = as;
   cli = clis;
   a1  = a;
@@ -1011,6 +1012,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
