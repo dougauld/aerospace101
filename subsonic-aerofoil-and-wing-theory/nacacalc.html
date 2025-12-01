@@ -595,7 +595,7 @@ function ComputeFlow2() {
  ctx.fillText("Y/C",54,20);
  var numout=numx-1;
  var strng = "<table border='1'><tr><td colspan='4'>Section : " + section;
- if ((1.0-load)<limit) {
+ if (load>0.91) {
   strng = strng + "<br />";
  } else {
   strng = strng + ",a = " + load.toPrecision(5) + "<br />";
@@ -1012,6 +1012,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
