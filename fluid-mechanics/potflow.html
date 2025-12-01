@@ -62,7 +62,7 @@ Coordinates can be entered as follows:
 Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
 <form>
 Streamfunction Expression : <br />
-echo <input type='text' id='expr' name='expr' value='' size='80' onfocus="HideResults();" autofocus>
+<input type='text' id='expr' name='expr' value='' size='80' onfocus="HideResults();" autofocus>
 <br />
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 <input type='submit' name='Draw' value='Draw'>
@@ -330,7 +330,7 @@ function ComputeFlow() {
 </script>
 }
 </td></tr>";
-<tr><td colspan='2'>";
+<tr><td colspan='2'>
 E.Gs.<br /> <a href='potflow.php?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.php?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.php?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
