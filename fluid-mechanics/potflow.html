@@ -61,7 +61,8 @@ Coordinates can be entered as follows:
 <pre>      x -- x ordinate, y -- y ordinate
 	       Polar : r -- radius, T(&theta;) --angle 
            Operators : * / + - ^
-           Functions : Math.sin,Math.cos,Math.log,Math.atan,Math.sqrt</pre>
+           Functions : Math.sin,Math.cos,Math.log
+	                   Math.atan,Math.atan2,Math.sqrt</pre>
 Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
 <form>
 Streamfunction Expression : <br />
@@ -70,12 +71,11 @@ Streamfunction Expression : <br />
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 </form>
 E.Gs.<br /> Uniform Horizontal flow : y   &nbsp;&nbsp;&nbsp;&nbsp; Uniform Vertical Flow : x<br />
-Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : r &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
-<a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=ln(x^2%2By^2)&Draw=Draw'>Vortex Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=atan(y%2F(x-100))-atan(y%2F(x%2B100))&Draw=Draw'>Source Sink Pair</a>,<br />
+Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : Math.log(r) &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
+Source/Sink Pair :	Math.atan2(y,(x-0.5))-Math.atan2(y,(x+0.5)) &nbsp;&nbsp;&nbsp;&nbsp; Doublette : 20*Math.sin(T)/r<br />
+Circular Cylinder in Uniform Flow : 75*y-y/r/r     &nbsp;&nbsp;&nbsp;&nbsp; Rotating Cylinder Flow : 69.25*y-y/r/r +5*Math.log(r)<br />
+Imaged Source Pair : Math.atan((y-0.5)/x)+Math.atan((y+0.5)/x) &nbsp;&nbsp;&nbsp;&nbsp; Right Angle Corner : x*y<br />
+Im	
 <a href='potflow.html?expr=50*atan((y%2B50)%2Fx)%2B50*atan((y-50)%2Fx)%2By&Draw=Draw'>Imaged Source Pair in Stream (Close)</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=50*atan((y%2B100)%2Fx)%2B50*atan((y-100)%2Fx)%2By*1.365&Draw=Draw'>Imaged Source Pair in Stream(Far)</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=x*y&Draw=Draw'>Right Angle Corner Flow</a>&nbsp;,&nbsp;&nbsp;
@@ -148,7 +148,7 @@ function ComputeFlow() {
    if (val == "NAN" ) {	alert("Function Supplied is not a Valid Flow"); return; }  
    zmesh[k][j]= val;
   // console.log("  ...x " + x + "...y " + "... " + val + " ... ");	  
-   k=k+1;
+   k=k+1;Math.atan2(y,(x-0.5))-Math.atan2(y,(x+0.5))
   }
   j=j+1;
  }
