@@ -116,7 +116,7 @@ function ComputeFlow() {
  var ylow=-0.9999;
 // $m->evaluate($expressionf);
 //
- var i,j,k,n,l,x,y;
+ var i,j,k,n,l,x,y,r,T;
  var xmesh = [];
  var ymesh = [];
  var zmesh = [];
@@ -140,6 +140,8 @@ function ComputeFlow() {
   k=0;
   while (k<101) {
    x=xmesh[k];
+   r=Math.sqrt(x*x+y*y);
+   T=Math.atan2(y,x);	  
    val = eval(expression);
    if (val == "NAN" ) {	alert("Function Supplied is not a Valid Flow"); return; }  
    zmesh[k][j]= val;
