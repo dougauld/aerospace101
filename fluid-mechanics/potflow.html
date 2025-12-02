@@ -22,7 +22,9 @@
   <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
    <ul class="sub-menu">
-   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-223" class="menu-item menu-iif (i==0) {
+	 console.log("  ...vmin " + vmin + "...vmax " + vmax + " ... ");	 
+	}	tem-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
    <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
@@ -261,9 +263,7 @@ function ComputeFlow() {
     }
     n=0;
     found=0;
-	if (i==0) {
-	 console.log("  ...vmin " + vmin + "...vmax " + vmax + " ... ");	 
-	}	
+	
     while (n<51) {
      ipnt=0;
      if (v[n]>=vmin && v[n]<=vmax) {
@@ -317,6 +317,9 @@ function ComputeFlow() {
         yp[ipnt-1]=frac*(yt[2]-yt[0])+yt[0];
        }
       }
+	  if (i==0) {
+	   console.log("  ...ipnt " + ipnt + " ... ");	 
+	  }	
       if (ipnt==2) {
        xint0=Math.floor(xp[0]*300.0+300.0);
        yint0=Math.floor(300.0-yp[0]*300.0);
