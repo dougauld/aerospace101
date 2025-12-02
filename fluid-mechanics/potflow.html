@@ -178,8 +178,7 @@ function ComputeFlow() {
  var v = [];
  while (i<50) {
   v[i]=x0;
-  x0=x0+cstep;
-  console.log("  ...i " + i + "...v " + v[i] + " ... ");	   
+  x0=x0+cstep;   
   i=i+1;
  }
  v[50]=0.0;
@@ -262,6 +261,7 @@ function ComputeFlow() {
     }
     n=0;
     found=0;
+	console.log("  ...vmin " + vmin + "...vmax " + vmax + " ... ");	 
     while (n<51) {
      ipnt=0;
      if (v[n]>=vmin && v[n]<=vmax) {
