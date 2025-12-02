@@ -174,8 +174,8 @@ function ComputeFlow() {
  }
  var cstep,x0;
 
- cstep=(zmax-zmin)/50.0+0.01;
- x0=zmin;
+ cstep=(zmax-zmin)/50.0;
+ x0=zmin-cstep*0.5;
  i=0;
  var v = [];
  while (i<50) {
