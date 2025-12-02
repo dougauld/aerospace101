@@ -127,8 +127,9 @@ function ComputeFlow() {
   while (k<101) {
    x=xmesh[k];
    val = eval(expression);
+   if (val == NAN ) {	alert('Function Supplied is not a Valid Flow"); return; }  
    zmesh[k][j]= val;
-   console.log("  ...x " + x + "...y " + "... " + val + " ... ");	  
+  // console.log("  ...x " + x + "...y " + "... " + val + " ... ");	  
    k=k+1;
   }
   j=j+1;
