@@ -169,7 +169,13 @@ function ComputeFlow() {
  v[50]=0.0;
 //
 //      SUBROUTINE CONTOUR(X,Y,Z,V,IC1,IC2,IC3)
-
+ var itri = [];
+ for (i = 0; i < 3; i++) {
+  itri[i] = [];
+  for (j = 0; j < 4; j++) {
+   itri[i][j] = 0;
+  }
+ }
  itri[0][0]=0;
  itri[1][0]=1;
  itri[2][0]=4;
