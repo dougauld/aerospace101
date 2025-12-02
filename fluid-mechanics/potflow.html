@@ -66,7 +66,8 @@ Streamfunction Expression : <br />
 <br />
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 </form>
-E.Gs.<br /> <a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
+E.Gs.<br /> Uniform Horizontal flow : y   &nbsp;&nbsp;&nbsp;&nbsp; Uniform Vertical Flow : x<br />
+<a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=ln(x^2%2By^2)&Draw=Draw'>Vortex Flow</a>&nbsp;,&nbsp;&nbsp;
@@ -170,6 +171,7 @@ function ComputeFlow() {
   zmin=-500.0;
  }
  var cstep,x0;
+// console.log("  ...zmin " + zmin + "...zmax " + zmax + " ... ");	   
  cstep=(zmax-zmin)/50.0;
  x0=zmin;
  i=0;
@@ -349,19 +351,9 @@ function ComputeFlow() {
 </script>
 	
 </td></tr>
-<tr><td colspan='2'>
-E.Gs.<br /> <a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=ln(x^2%2By^2)&Draw=Draw'>Vortex Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=atan(y%2F(x-100))-atan(y%2F(x%2B100))&Draw=Draw'>Source Sink Pair</a>,<br />
-<a href='potflow.html?expr=50*atan((y%2B50)%2Fx)%2B50*atan((y-50)%2Fx)%2By&Draw=Draw'>Imaged Source Pair in Stream (Close)</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=50*atan((y%2B100)%2Fx)%2B50*atan((y-100)%2Fx)%2By*1.365&Draw=Draw'>Imaged Source Pair in Stream(Far)</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=x*y&Draw=Draw'>Right Angle Corner Flow</a>&nbsp;,&nbsp;&nbsp;
-<a href='potflow.html?expr=y-0.1x&Draw=Draw'>Inclined Uniform Flow</a>&nbsp;,&nbsp;&nbsp;
-</td></tr></table>
+</table>
 
-<center><a href="#top">Back to Top</a></center>
+	<center><a href="#top">Back to Top</a></center>
 
 
 </div><!-- .entry-content -->
