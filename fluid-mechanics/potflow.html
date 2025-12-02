@@ -59,8 +59,9 @@
 Streamlines can be define by a streamfunction expression in cartesion coordinates.<br />
 Coordinates can be entered as follows:
 <pre>      x -- x ordinate, y -- y ordinate
+	       Polar : r -- radius, T(&theta;) --angle 
            Operators : * / + - ^
-           Functions : sin,cos,ln,atan,sqrt</pre>
+           Functions : Math.sin,Math.cos,Math.log,Math.atan,Math.sqrt</pre>
 Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
 <form>
 Streamfunction Expression : <br />
@@ -69,6 +70,7 @@ Streamfunction Expression : <br />
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 </form>
 E.Gs.<br /> Uniform Horizontal flow : y   &nbsp;&nbsp;&nbsp;&nbsp; Uniform Vertical Flow : x<br />
+Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : r &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
 <a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)&Draw=Draw'>Circular Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=y-4000*y%2F(x^2%2By^2)+%2B40.58*ln(x^2+%2B+y^2)&Draw=Draw'>Rotating Cylinder Flow</a>&nbsp;,&nbsp;&nbsp;
 <a href='potflow.html?expr=atan(y%2Fx)&Draw=Draw'>Source Flow</a>&nbsp;,&nbsp;&nbsp;
