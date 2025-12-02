@@ -125,8 +125,8 @@ function ComputeFlow() {
   k=0;
   while (k<101) {
    x=xmesh[k];
-//   let val = eval(expression);
-   zmesh[k][j]= eval("x*y");
+   let val = eval(expression);
+   zmesh[k][j]= val;
    k=k+1;
   }
   j=j+1;
