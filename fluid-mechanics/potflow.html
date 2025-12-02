@@ -321,10 +321,10 @@ function ComputeFlow() {
 	   console.log("  ...ipnt " + ipnt + " ... ");	 
 	  }	
       if (ipnt==2) {
-       xint0=Math.floor(xp[0]*300.0+300.0);
-       yint0=Math.floor(300.0-yp[0]*300.0);
-       xint1=Math.floor(xp[1]*300.0+300.0);
-       yint1=Math.floor(300.0-yp[1]*300.0);
+       xint0=Math.trunc(xp[0]*300.0+300.0);
+       yint0=Math.trunc(300.0-yp[0]*300.0);
+       xint1=Math.trunc(xp[1]*300.0+300.0);
+       yint1=Math.trunc(300.0-yp[1]*300.0);
        if (n==50) {
         ctx.beginPath();
         ctx.lineWidth=1;
