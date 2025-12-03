@@ -97,14 +97,14 @@ function HideResults() {
 function ComputeFlow() {
 
  var diafield = document.getElementById("dia").value;
- var bfield = document.getElementById("B").value;
+ var bladefield = document.getElementById("B").value;
  var pitchfield = document.getElementById("pitch").value;
  var taperfield = document.getElementById("taper").value;
  var tcfield = document.getElementById("tc").value;
  var anglefield = document.getElementById("angle").value;
 
  var dia= Number(diafield);
- var b= Number(bfield);
+ var blade= Number(bladefield);
  var pitch= Number(pitchfield);
  var taper= Number(taperfield);
  var tc= Number(tcfield);
@@ -182,9 +182,9 @@ function ComputeFlow() {
 //     local velocity at blade
     vlocal=Math.sqrt(v0*v0+v2*v2);
 //     thrust grading
-    dtdr=0.5*rho*vlocal*vlocal*b*chord*(cl*Math.cos(phi)-cd*Math.sin(phi));
+    dtdr=0.5*rho*vlocal*vlocal*blade*chord*(cl*Math.cos(phi)-cd*Math.sin(phi));
 //     torque grading
-    dqdr=0.5*rho*vlocal*vlocal*b*chord*rad*(cd*Math.cos(phi)+cl*Math.sin(phi));
+    dqdr=0.5*rho*vlocal*vlocal*blade*chord*rad*(cd*Math.cos(phi)+cl*Math.sin(phi));
 //     momentum check on inflow and swirl factors
     tem1=dtdr/(4.0*PI*rad*rho*v*v*(1.0+a));
     tem2=dqdr/(4.0*PI*rad*rad*rad*rho*v*(1.0+a)*omega);
