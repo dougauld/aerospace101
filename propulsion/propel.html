@@ -264,7 +264,7 @@ function ComputeFlow() {
   ctx.font = "12px Arial";
   ctx.fillStyle = "black";
   strng = tval.toPrecision(1);
-  ctx.fillText(strng,8,iy0-20);  
+  ctx.fillText(strng,8,iy0-10);  
   iy0=iy0+40;
   tval=tval-0.1*400/y1scale; 
  }
@@ -287,57 +287,45 @@ function ComputeFlow() {
  }
  ix0=0;
  if (jmax<1.0) {
-  aval=0.0;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0+5,380);  
-  aval=0.5;
+  ctx.fillText("0.0",ix0+5,380);  
   ix0=200;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0-10,380);  
-  aval=1.0;
+  ctx.fillText("0.5",ix0-10,380);  
   ix0=400;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0-20,380);  
+  ctx.fillText("1.0",ix0-20,380);  
  } else {
-  aval=0.0;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0+5,380);  
-  aval=1.0;
+  ctx.fillText("0.0",ix0+5,380);  
   ix0=200;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0-10,380);  
-  aval=2.0;
+  ctx.fillText("1.0",ix0-10,380);  
   ix0=400;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(1);
-  ctx.fillText(strng,ix0-20,380);  
+  ctx.fillText("2.0",ix0-20,380);  
  }
  ctx.fillStyle="blue";
  ctx.fillText("C(T)",55,15);
- ctx.fillStyle="green";
+ ctx.fillStyle="red";
  ctx.fillText("C(Q)",55,35);
  ctx.fillStyle="black";
  ctx.fillText("J = V/(nD)",250,390);  
@@ -372,21 +360,17 @@ function ComputeFlow() {
   ix0=ix0+40;
  }
  ix0=410;
- aval=1.0;
  ctx.fillText("1.0",ix0,15);  
- aval=0.0;
  ctx.fillText("0.0",ix0,380);  
  var x1scale;
  if (jmax<1.0) {
   x1scale=400.0;
-  aval=0.5;
   ix0=600;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
   ctx.fillText("0.5",ix0-10,380);  
-  aval=1.0;
   ix0=800;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
@@ -394,7 +378,6 @@ function ComputeFlow() {
   ctx.stroke();
   ctx.fillText("1.0",ix0-20,380);  
  } else {
-  aval=1.0;
   ix0=600;
   x1scale=200.0;
   ctx.beginPath();
@@ -402,7 +385,6 @@ function ComputeFlow() {
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
   ctx.fillText("1.0",ix0-10,380);  
-  aval=2.0;
   ix0=800;
   ctx.fillText("J=V/(nD)",650,380);  
   ctx.beginPath();
@@ -411,6 +393,7 @@ function ComputeFlow() {
   ctx.stroke();
   ctx.fillText("2.0",ix0-20,380);  
  }
+ ctx.fillStyle="black";
  ctx.fillText("Efficiency",450,15);  
  ctx.fillText("J=V/(nD)",650,380);  
  ctx.beginPath();
@@ -426,7 +409,6 @@ function ComputeFlow() {
   iy1=400-Math.floor(t[i]*y1scale);
   ix1=Math.floor(je[i]*x1scale);
   ctx.beginPath();
-  ctx.strokeStyle="blue";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
   ctx.stroke();
@@ -437,7 +419,7 @@ function ComputeFlow() {
  i=1; 
  iy0=400-Math.floor(q[0]*y1scale);
  ix0=Math.floor(je[0]*x1scale);
- ctx.strokeStyle="green";
+ ctx.strokeStyle="red";
  while (i<kv) {
   iy1=400-Math.floor(q[i]*y1scale);
   ix1=Math.floor(je[i]*x1scale);
