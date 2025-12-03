@@ -221,6 +221,7 @@ function ComputeFlow() {
    tmax=t[kv];
   }
   eff[kv]=j[kv]/2.0/PI*t[kv]/q[kv];
+  console.log('...' + kv + ' ...eff...' + eff[kv];
   icheck[kv]=itercheck;
   v=v+1.0;
   kv=kv+1;
@@ -262,7 +263,7 @@ function ComputeFlow() {
   ctx.stroke();
   ctx.font = "12px Arial";
   ctx.fillStyle = "black";
-  strng = tval.toPrecision(2);
+  strng = tval.toPrecision(1);
   ctx.fillText(strng,8,iy0-15);  
   iy0=iy0+40;
   tval=tval-0.1*400/y1scale; 
@@ -291,7 +292,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(2);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0+5,380);  
   aval=0.5;
   ix0=200;
@@ -299,7 +300,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0-10,380);  
   aval=1.0;
   ix0=400;
@@ -307,7 +308,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0-20,380);  
  } else {
   aval=0.0;
@@ -315,7 +316,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0+5,380);  
   aval=1.0;
   ix0=200;
@@ -323,7 +324,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(2);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0-10,380);  
   aval=2.0;
   ix0=400;
@@ -331,15 +332,15 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(2);
+  strng = aval.toPrecision(1);
   ctx.fillText(strng,ix0-20,380);  
  }
  ctx.fillStyle="blue";
- ctx.fillText("C(T)",55,5);
+ ctx.fillText("C(T)",55,15);
  ctx.fillStyle="green";
- ctx.fillText("C(Q)",55,25);
+ ctx.fillText("C(Q)",55,35);
  ctx.fillStyle="black";
- ctx.fillText("J = V/(nD)",250,380);  
+ ctx.fillText("J = V/(nD)",250,390);  
  ix0=400;
  ix1=800;
  iy0=399;
