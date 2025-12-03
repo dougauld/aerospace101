@@ -97,14 +97,14 @@ function HideResults() {
 function ComputeFlow() {
 
  var diafield = document.getElementById("dia").value;
- var Bfield = document.getElementById("B").value;
+ var bfield = document.getElementById("B").value;
  var pitchfield = document.getElementById("pitch").value;
  var taperfield = document.getElementById("taper").value;
  var tcfield = document.getElementById("tc").value;
  var anglefield = document.getElementById("angle").value;
 
  var dia= Number(diafield);
- var b= Number(Bfield);
+ var b= Number(bfield);
  var pitch= Number(pitchfield);
  var taper= Number(taperfield);
  var tc= Number(tcfield);
@@ -142,7 +142,7 @@ function ComputeFlow() {
  var v0,v2,phi,alpha,cl,cd,vlocal,dtdr,dqdr,tem1,tem2,anew,bnew;
  var t=[];
  var q=[];
- var j=[];
+ var je=[];
  var eff = [];
  var icheck= [];
  while (v<100.5) {
@@ -213,14 +213,14 @@ function ComputeFlow() {
   }
   t[kv]=thrust/(rho*n*n*dia*dia*dia*dia);
   q[kv]=torque/(rho*n*n*dia*dia*dia*dia*dia);
-  j[kv]=v/(n*dia);
-  if (j[kv]>jmax) {
-   jmax=j[kv];
+  je[kv]=v/(n*dia);
+  if (je[kv]>jmax) {
+   jmax=je[kv];
   }
   if (t[kv]>tmax) {
    tmax=t[kv];
   }
-  eff[kv]=j[kv]/2.0/PI*t[kv]/q[kv];
+  eff[kv]=je[kv]/2.0/PI*t[kv]/q[kv];
   console.log('...' + kv + ' ...t..' + t[kv] + '...q..' + q[kv] + ' ');
   icheck[kv]=itercheck;
   v=v+1.0;
