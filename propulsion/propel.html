@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<table width="100%" border=1 cellpadding=10 bgcolor="#dfdfff">
+<tr><td colspan=2>
+<B>Blade Element Analysis for Propellers</B><br>
+&nbsp;<br>
+This web application calculates the thrust and torque properties of a simple
+propeller using a blade element theory. As Reynolds number and 3-D effects are not part of the prediction, the  
+solver may overpredict performance by 5% to 10%.
+</td></tr>
+<tr><td valign=top>
+<B>Input Parameters</B><br>
+<form>
+Diameter (m) : <br />
+<INPUT Name='dia' id='dia' TYPE='text' VALUE='1.0' onfocus="HideResults();" autofocus><br />
+<br />Number of Blades : <br />
+<INPUT Name='B' id='B' TYPE='text' VALUE='2' onfocus="HideResults();" autofocus><br />
+<br />Blade Pitch (m) : <br />
+<INPUT Name='pitch' id='pitch' TYPE='text' VALUE='0.5' onfocus="HideResults();" autofocus><br />
+<br />Taper Ratio : <br />
+<INPUT Name='taper' id='taper' TYPE='text' VALUE='0.5' onfocus="HideResults();" autofocus><br />
+<br />Tip Chord (m) : <br />
+<INPUT Name='tc' id='tc' TYPE='text' VALUE='0.05' onfocus="HideResults();" autofocus><br />
+<br />Variable Angle Setting (deg) : <br />
+<INPUT Name='angle' id='angle'  TYPE='text' VALUE='0.0' onfocus="HideResults();" autofocus><br />
+<INPUT id='Compute' TYPE='button' VALUE='Solve' onclick="ComputeFlow();">
+<br />&nbsp;<br />&nbsp;<br />
+</form>
+</td><td>
+<img src='propel_blank0.png'><br />
+
+<fieldset id="results">
+<canvas id="imageout" width="800" height="400" style="border:1px solid grey"></canvas>
+<br /><p id="output">  </p>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}
+// --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var diafield = document.getElementById("dia").value;
+ var Bfield = document.getElementById("B").value;
+ var pitchfield = document.getElementById("pitch").value;
+ var taperfield = document.getElementById("taper").value;
+ var tcfield = document.getElementById("tc").value;
+ var anglefield = document.getElementById("angle").value;
+
+ var dia= Number(diafield);
+ var b= Number(Bfield);
+ var pitch= Number(pitchfield);
+ var taper= Number(taperfield);
+ var tc= Number(tcfield);
+ var angle= Number(anglefield);
+
+// use 10 blade segments (starting at 10% R (hub) to R)
+ var jmax=0.0;
+ var tmax=0.0;
+ var r=dia/2.0;
+ var PI=3.1415926;
+ var rc=tc/taper;
+ var i=0;
+ var r1=[];
+ var c1=[];
+ while (i<11) {
+  r1[i]=r/10.0*i;
+  c1[i]=rc+(tc-rc)*i/10.0;
+  i=i+1;
+ }
+ var rstep,rpm,rho,n,omega
+ rstep=r/10.0;
+//    engine speed in RPM
+ rpm=2100.0;
+//    standard sea level atmosphere density (kg/m^3)
+ rho=1.225;
+//    RPM --> revs per sec
+ n=rpm/60.0;
+//    rps --> rads per sec
+ omega=n*2.0*PI;
+//    calculate results for a range of velocities from 1 to 100 m/s
+ var v=1.0;
+ var kv=0;
+ var jmax=0.0;
+ var thrust,torque,j,rad,chord,theta,sigma,a,b,finished,sum,itercheck;
+ var v0,v2,phi,alpha,cl,cd,vlocal,dtdr,dqdr,tem1,tem2,anew,bnew;
+ var t=[];
+ var q=[];
+ var j=[];
+ var eff = [];
+ var icheck= [];
+ while (v<100.5) {
+//     %initialise sums thrust (N) torque (Nm)
+  thrust=0.0;
+  torque=0.0;
+//     loop over each blade element starting at r=0.1*R;
+  j=1;
+  while (j<11) {
+   rad=r1[j];
+   chord=c1[j];
+//     calculate local blade element setting angle
+   theta=Math.atan(pitch/(2.0*PI*rad));
+//     calculate solidity
+   sigma=2.0*chord/(2.0*PI*rad);
+//     guess initial values of inflow and swirl factor
+   a=0.1;
+   b=0.01;
+//     set logical variable to control iteration
+   finished=0;
+//     set iteration count and check flag
+   sum=1;
+   itercheck=0;
+   while (finished==0) {
+//     axial velocity
+    v0=v*(1.0+a);
+//     disk plane velocity
+    v2=omega*rad*(1.0-b);
+//     flow angle
+    phi=Math.atan2(v0,v2);
+//     blade angle of attack
+    alpha=theta-phi;
+//     lift coefficient
+    cl=6.2*alpha;
+//     drag coefficient
+    cd=0.008-0.003*cl+0.01*cl*cl;
+//     local velocity at blade
+    vlocal=Math.sqrt(v0*v0+v2*v2);
+//     thrust grading
+    dtdr=0.5*rho*vlocal*vlocal*b*chord*(cl*Math.cos(phi)-cd*Math.sin(phi));
+//     torque grading
+    dqdr=0.5*rho*vlocal*vlocal*b*chord*rad*(cd*Math.cos(phi)+cl*Math.sin(phi));
+//     momentum check on inflow and swirl factors
+    tem1=dtdr/(4.0*PI*rad*rho*v*v*(1.0+a));
+    tem2=dqdr/(4.0*PI*rad*rad*rad*rho*v*(1.0+a)*omega);
+//    stabilise iteration
+    anew=0.5*(a+tem1);
+    bnew=0.5*(b+tem2);
+//   check for convergence
+    if (Math.abs(anew-a)<1.0e-5) {
+     if (Math.abs(bnew-b)<1.0e-5) {
+      finished=1;
+     }
+    }  
+    a=anew;
+    b=bnew;
+//   increment iteration count
+    sum=sum+1;
+//   check to see if iteration stuck
+    if (sum>100) {
+     finished=1;
+     itercheck=1;
+    }
+   } 
+   thrust=thrust+dtdr*rstep;
+   torque=torque+dqdr*rstep;
+   j=j+1;
+  }
+  t[kv]=thrust/(rho*n*n*dia*dia*dia*dia);
+  q[kv]=torque/(rho*n*n*dia*dia*dia*dia*dia);
+  j[kv]=v/(n*dia);
+  if (j[kv]>jmax) {
+   jmax=j[kv];
+  }
+  if (t[kv]>tmax) {
+   tmax=t[kv];
+  }
+  eff[kv]=j[kv]/2.0/PI*t[kv]/q[kv];
+  icheck[kv]=itercheck;
+  v=v+1.0;
+  kv=kv+1;
+  if (thrust<0.0 && v>10.0)  {
+   v=101.0;
+  } 
+ } 
+// Add values to the graph
+ var imgWidth=800;
+ var imgHeight=400;
+
+// Create image and define colors
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 800, 400);
+// Create a background
+ var y1scale=400.0;
+ if (tmax<0.1) {
+  y1scale=4000.0;
+ } 
+ if (tmax<0.01) {
+  y1scale=40000.0;
+ }
+ var iy0=0;
+ var ix0=0;
+ var ix1=400;
+ iy0=0;
+ var tval=1.0*400.0/y1scale;
+ var aval;
+ var strng;
+ while (iy0<=400) {
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix1,iy0);
+  ctx.stroke();
+  ctx.font = "12px Arial";
+  ctx.fillStyle = "black";
+  strng = tval.toPrecision(5);
+  ctx.fillText(strng,8,iy0-15);  
+  iy0=iy0+40;
+  tval=tval-0.1*400/y1scale; 
+ }
+ ix0=0;
+ ix1=400;
+ iy0=399;
+ ctx.beginPath();
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy0);
+ ctx.stroke();
+ ix0=0;
+ iy0=0;
+ iy1=400; 
+ while (ix0<401) {
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ix0=ix0+40;
+ }
+ ix0=0;
+ if (jmax<1.0) {
+  aval=0.0;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0+5,380);  
+  aval=0.5;
+  ix0=200;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0-10,380);  
+  aval=1.0;
+  ix0=400;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0-20,380);  
+ } else {
+  aval=0.0;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0+5,380);  
+  aval=1.0;
+  ix0=200;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0-10,380);  
+  aval=2.0;
+  ix0=400;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  strng = aval.toPrecision(5);
+  ctx.fillText(strng,ix0-20,380);  
+ }
+ ctx.fillText("C(T)",55,5);  
+ ctx.fillText("C(Q)",55,25);  
+ ctx.fillText("J = V/(nD)",250,380);  
+ ix0=400;
+ ix1=800;
+ iy0=399;
+ ctx.beginPath();
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy0);
+ ctx.stroke();
+ iy0=0;
+ while (iy0<401) {
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix1,iy0);
+  ctx.stroke();
+  iy0=iy0+40;
+ }
+ ix0=400;
+ iy0=0;
+ iy1=400;
+ ctx.beginPath();
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix0,iy1);
+ ctx.stroke();
+ ix0=440;
+ while (ix0<801) {
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ix0=ix0+40;
+ }
+ ix0=410;
+ aval=1.0;
+ ctx.fillText("1.0",ix0,15);  
+ aval=0.0;
+ ctx.fillText("0.0",ix0,380);  
+ var x1scale;
+ if (jmax<1.0) {
+  x1scale=400.0;
+  aval=0.5;
+  ix0=600;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ctx.fillText("0.5",ix0-10,380);  
+  aval=1.0;
+  ix0=800;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ctx.fillText("1.0",ix0-20,380);  
+ } else {
+  aval=1.0;
+  ix0=600;
+  x1scale=200.0;
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ctx.fillText("1.0",ix0-10,380);  
+  aval=2.0;
+  ix0=800;
+  ctx.fillText("J=V/(nD)",650,380);  
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0,iy1);
+  ctx.stroke();
+  ctx.fillText("2.0",ix0-20,380);  
+ }
+ ctx.fillText("Efficiency",450,5);  
+ ctx.fillText("J=V/(nD)",650,380);  
+ ctx.beginPath();
+ ctx.moveTo(800,0);
+ ctx.lineTo(800,400);
+ ctx.stroke();
+ i=1; 
+ iy0=400-Math.floor(t[0]*y1scale);
+ ix0=Math.floor(j[0]*x1scale);
+ ctx.lineWidth=2;
+ ctx.strokeStyle="black";
+ while (i<kv) {
+  iy1=400-Math.floor(t[i]*y1scale);
+  ix1=Math.floor(j[i]*x1scale);
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix1,iy1);
+  ctx.stroke();
+  ix0=ix1;
+  iy0=iy1;
+  i=i+1;
+ }
+ i=1; 
+ iy0=400-Math.floor(q[0]*y1scale);
+ ix0=Math.floor(j[0]*x1scale);
+ ctx.strokeStyle="red";
+ while (i<kv) {
+  iy1=400-Math.floor(q[i]*y1scale);
+  ix1=Math.floor(j[i]*x1scale);
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix1,iy1);
+  ctx.stroke();
+  ix0=ix1;
+  iy0=iy1;
+  i=i+1;
+ }
+ i=1; 
+ iy0=400-Math.floor(eff[0]*400.0);
+ ix0=400+Math.floor(j[0]*x1scale);
+ while (i<kv) {
+  iy1=400-Math.floor(eff[i]*400.0);
+  ix1=400+Math.floor(j[i]*x1scale);
+  if (icheck[i]==0) {
+   strokeStyle='black';
+  } else {
+   strokeStyle='red';
+  } 
+  ctx.beginPath();
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix1,iy1);
+  ctx.stroke();
+  ix0=ix1;
+  iy0=iy1;
+  i=i+1;
+ }
+
+}
+
+</script>
+</td></tr>
+</table>
+</font>
+</center>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
