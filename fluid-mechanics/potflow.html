@@ -68,6 +68,8 @@ Note : there is no guarantee that any chosen function is a valid potential flow.
 Streamfunction Expression : <br />
 <input type='text' id='expr' name='expr' value='' size='80' onfocus="HideResults();" autofocus>
 <br />
+Number of Contours : <input type='test' id='numc' name='numc' value='50' size='10' onfocus="HideResults();" autofocus>
+<br /> 	
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 </form>
 <br />&nbsp;<br />	
@@ -101,11 +103,11 @@ function ln(x) {
 	return lnx;
 }
 function atan(x) {
-	let tanx = Math.atan(x);
+	let atanx = Math.atan(x);
 	return atanx;
 }	
 function atan2(y,x) {
-	let tan2x = Math.atan2(y,x);
+	let atan2x = Math.atan2(y,x);
 	return atan2x;
 }	
 function pow(x,y) {
@@ -206,17 +208,18 @@ function ComputeFlow() {
   zmin=-500.0;
  }
  var cstep,x0;
-
- cstep=(zmax-zmin)/50.0;
+ var numcfield = document.getElementById("numc").value;
+ var numc = Number(numcfield);	
+ cstep=(zmax-zmin)/numc;
  x0=zmin-cstep*0.1;
  i=0;
  var v = [];
- while (i<50) {
+ while (i<numc) {
   v[i]=x0;
   x0=x0+cstep;   
   i=i+1;
  }
- v[50]=0.0;
+ v[numc]=0.0;
 //
 //      SUBROUTINE CONTOUR(X,Y,Z,V,IC1,IC2,IC3)
  var itri = [];
@@ -297,7 +300,7 @@ function ComputeFlow() {
     n=0;
     found=0;
 	
-    while (n<51) {
+    while (n<(numc+1)) {
      ipnt=0;
      if (v[n]>=vmin && v[n]<=vmax) {
       found=1;
@@ -355,7 +358,7 @@ function ComputeFlow() {
        yint0=Math.trunc(300.0-yp[0]*300.0);
        xint1=Math.trunc(xp[1]*300.0+300.0);
        yint1=Math.trunc(300.0-yp[1]*300.0);
-       if (n==50) {
+       if (n==numc) {
         ctx.beginPath();
         ctx.lineWidth=1;
         ctx.strokeStyle='red';
