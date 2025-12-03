@@ -61,8 +61,8 @@ Coordinates can be entered as follows:
 <pre>      x -- x ordinate, y -- y ordinate
 	       Polar : r -- radius, T(&theta;) --angle 
            Operators : * / + -
-           Functions : Math.sin,Math.cos,Math.log,Math.pow,
-	            Math.atan,Math.atan2,Math.sqrt</pre>
+           Functions : sin,cos,log,pow,
+	                  atan,atan2,sqrt</pre>
 Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
 <form>
 Streamfunction Expression : <br />
@@ -72,11 +72,11 @@ Streamfunction Expression : <br />
 </form>
 <br />&nbsp;<br />	
 E.Gs.<br /> Uniform Horizontal flow : y   &nbsp;&nbsp;&nbsp;&nbsp; Uniform Vertical Flow : x<br />
-Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : Math.log(r) &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
-Source/Sink Pair :	Math.atan2(y,(x-0.5))-Math.atan2(y,(x+0.5)) &nbsp;&nbsp;&nbsp;&nbsp; Doublette : 20*Math.sin(T)/r<br />
-Circular Cylinder in Uniform Flow : 75*y-y/r/r     &nbsp;&nbsp;&nbsp;&nbsp; Rotating Cylinder Flow : 69.25*y-y/r/r +5*Math.log(r)<br />
-Imaged Source Pair : Math.atan((y-0.5)/x)+Math.atan((y+0.5)/x) &nbsp;&nbsp;&nbsp;&nbsp; Right Angle Corner : x*y<br />
-Imaged Source Pair in Stream : 	Math.atan((y-0.5)/x)+Math.atan((y+0.5)/x) + 5.45*y &nbsp;&nbsp;&nbsp;&nbsp;<br />
+Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : log(r) &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
+Source/Sink Pair :	atan2(y,(x-0.5))-atan2(y,(x+0.5)) &nbsp;&nbsp;&nbsp;&nbsp; Doublette : 20*sin(T)/r<br />
+Circular Cylinder in Uniform Flow : 75*y-y/r/r     &nbsp;&nbsp;&nbsp;&nbsp; Rotating Cylinder Flow : 69.25*y-y/r/r +5*log(r)<br />
+Imaged Source Pair : atan((y-0.5)/x)+atan((y+0.5)/x) &nbsp;&nbsp;&nbsp;&nbsp; Right Angle Corner : x*y<br />
+Imaged Source Pair in Stream : 	atan((y-0.5)/x)+atan((y+0.5)/x) + 5.45*y &nbsp;&nbsp;&nbsp;&nbsp;<br />
 </td><td>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="600" style="border:1px solid grey"></canvas>
@@ -92,9 +92,37 @@ function HideResults() {
 }
 // --------------------------------------------- End of function HideResults
 // math functions
+function log(x) {
+	let logx = Math.log(x);
+	return logx;
+}
 function ln(x) {
 	let lnx = Math.log(x);
 	return lnx;
+}
+function tan(x) {
+	let tanx = Math.tan(x);
+	return tanx;
+}	
+function tan2(y,x) {
+	let tan2x = Math.tan2(y,x);
+	return tan2x;
+}	
+function pow(x,y) {
+	let powx = Math.pow(x,y);
+	return powx;
+}	
+function sin(x) {
+	let sinx = Math.sin(x);
+	return sinx;
+}	
+function cos(x) {
+	let cosx = Math.cos(x);
+	return cosx;
+}
+function sqrt(x) {
+	let sqrtx = Math.sqrt(x);
+	return sqrtx;
 }
 	
 function ComputeFlow() {
