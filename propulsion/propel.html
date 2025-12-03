@@ -255,12 +255,14 @@ function ComputeFlow() {
  var strng;
  while (iy0<=400) {
   ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.lineStyle="green";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy0);
   ctx.stroke();
   ctx.font = "12px Arial";
   ctx.fillStyle = "black";
-  strng = tval.toPrecision(5);
+  strng = tval.toPrecision(2);
   ctx.fillText(strng,8,iy0-15);  
   iy0=iy0+40;
   tval=tval-0.1*400/y1scale; 
@@ -289,7 +291,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(2);
   ctx.fillText(strng,ix0+5,380);  
   aval=0.5;
   ix0=200;
@@ -321,7 +323,7 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(2);
   ctx.fillText(strng,ix0-10,380);  
   aval=2.0;
   ix0=400;
@@ -329,11 +331,14 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  strng = aval.toPrecision(5);
+  strng = aval.toPrecision(2);
   ctx.fillText(strng,ix0-20,380);  
  }
- ctx.fillText("C(T)",55,5);  
- ctx.fillText("C(Q)",55,25);  
+ ctx.fillStyle="blue";
+ ctx.fillText("C(T)",55,5);
+ ctx.fillStyle="green";
+ ctx.fillText("C(Q)",55,25);
+ ctx.fillStyle="black";
  ctx.fillText("J = V/(nD)",250,380);  
  ix0=400;
  ix1=800;
@@ -415,7 +420,7 @@ function ComputeFlow() {
  iy0=400-Math.floor(t[0]*y1scale);
  ix0=Math.floor(j[0]*x1scale);
  ctx.lineWidth=2;
- ctx.strokeStyle="black";
+ ctx.strokeStyle="blue";
  while (i<kv) {
   iy1=400-Math.floor(t[i]*y1scale);
   ix1=Math.floor(j[i]*x1scale);
@@ -430,7 +435,7 @@ function ComputeFlow() {
  i=1; 
  iy0=400-Math.floor(q[0]*y1scale);
  ix0=Math.floor(j[0]*x1scale);
- ctx.strokeStyle="red";
+ ctx.strokeStyle="green";
  while (i<kv) {
   iy1=400-Math.floor(q[i]*y1scale);
   ix1=Math.floor(j[i]*x1scale);
