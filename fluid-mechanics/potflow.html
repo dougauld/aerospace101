@@ -76,9 +76,10 @@ Number of Contours : <input type='test' id='numc' name='numc' value='50' size='1
 E.Gs.<br /> Uniform Horizontal flow : y   &nbsp;&nbsp;&nbsp;&nbsp; Uniform Vertical Flow : x<br />
 Source Flow : T &nbsp;&nbsp;&nbsp;&nbsp;  Vortex Flow : log(r) &nbsp;&nbsp;&nbsp;&nbsp; Inclined Flow : y+0.1*x <br />
 Source/Sink Pair :	atan2(y,(x-0.5))-atan2(y,(x+0.5)) &nbsp;&nbsp;&nbsp;&nbsp; Doublette : 20*sin(T)/r<br />
-Circular Cylinder in Uniform Flow : 75*y-y/r/r     &nbsp;&nbsp;&nbsp;&nbsp; Rotating Cylinder Flow : 69.25*y-y/r/r +5*log(r)<br />
+Circular Cylinder in Uniform Flow : 75*y-y/r/r     &nbsp;&nbsp;&nbsp;&nbsp; Rotating Cylinder Flow : 38.5*y-y/r/r +5*log(r)<br />
 Imaged Source Pair : atan((y-0.5)/x)+atan((y+0.5)/x) &nbsp;&nbsp;&nbsp;&nbsp; Right Angle Corner : x*y<br />
 Imaged Source Pair in Stream : 	atan((y-0.5)/x)+atan((y+0.5)/x) + 5.45*y &nbsp;&nbsp;&nbsp;&nbsp;<br />
+Streamlined Shape : 20*y+atan2(y,(x+0.5))-atan2(y,x)*0.4-atan2(y,(x-0.25))*0.3-atan2(y,(x-0.5))*0.25-atan2(y,(x-0.75))*0.15<br />
 </td><td>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="600" style="border:1px solid grey"></canvas>
@@ -174,9 +175,16 @@ function ComputeFlow() {
   while (k<101) {
    x=xmesh[k];
    r=Math.sqrt(x*x+y*y);
-   T=Math.atan2(y,x);	  
-   val = eval(expression);
-   if (val == "NAN" ) {	alert("Function Supplied is not a Valid Flow"); return; }  
+   T=Math.atan2(y,x);
+   try {
+  // Code to be evaluated by eval()
+    val = eval(expression);
+  // console.log("Result:", result);
+   } catch (error) {
+    alert (" Function Supplied is not a Valid Flow:); return;
+   }
+   // val = eval(expression);
+   // if (val == "NAN" ) {	alert("Function Supplied is not a Valid Flow"); return; }  
    zmesh[k][j]= val;
    console.log("  ...x " + x + "...y " + y + "... " + val + " ... ");	  
    k=k+1;Math.atan2(y,(x-0.5))-Math.atan2(y,(x+0.5))
@@ -200,6 +208,7 @@ function ComputeFlow() {
    j=j+1;
   }
   i=i+1;
+
  } 
  if (zmax>500.0) {
   zmax=500.0;
