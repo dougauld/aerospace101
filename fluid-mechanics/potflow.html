@@ -23,7 +23,7 @@
    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
    <ul class="sub-menu">
    <li id="menu-item-223" class="menu-item menu-iif (i==0) {
-	 console.log("  ...vmin " + vmin + "...vmax " + vmax + " ... ");	 
+	 // console.log("  ...vmin " + vmin + "...vmax " + vmax + " ... ");	 
 	}	tem-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
@@ -62,13 +62,13 @@ Coordinates can be entered as follows:
 	       Polar : r -- radius, T(&theta;) --angle 
            Operators : * / + -
            Functions : sin,cos,log,pow,
-	                  atan,atan2,sqrt</pre>
+	                   atan,atan2</pre>
 Note : there is no guarantee that any chosen function is a valid potential flow. You need to verify all functions using the continuity equation.</p>           
 <form>
 Streamfunction Expression : <br />
 <input type='text' id='expr' name='expr' value='' size='80' onfocus="HideResults();" autofocus>
 <br />
-Number of Contours : <input type='test' id='numc' name='numc' value='50' size='10' onfocus="HideResults();" autofocus>
+Number of Streamlines : <input type='test' id='numc' name='numc' value='50' size='10' onfocus="HideResults();" autofocus>
 <br /> 	
 <INPUT id='Compute' TYPE='button' VALUE='Draw Flow' onclick="ComputeFlow();">
 </form>
@@ -123,11 +123,7 @@ function cos(x) {
 	let cosx = Math.cos(x);
 	return cosx;
 }
-function sqrt(x) {
-	let sqrtx = Math.sqrt(x);
-	return sqrtx;
-}
-	
+
 function ComputeFlow() {
 
 // include("evalmath.class.php");
