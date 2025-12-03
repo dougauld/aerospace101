@@ -221,7 +221,7 @@ function ComputeFlow() {
    tmax=t[kv];
   }
   eff[kv]=je[kv]/2.0/PI*t[kv]/q[kv];
-  console.log('...' + kv + ' ...t..' + thrust + '...q..' + torque + ' ');
+  console.log('...' + kv + ' ...t..' + t[kv] + '...eff..' + eff[kv] + ' ');
   icheck[kv]=itercheck;
   v=v+1.0;
   kv=kv+1;
