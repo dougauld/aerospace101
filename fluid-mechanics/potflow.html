@@ -148,7 +148,7 @@ function ComputeFlow() {
    val = eval(expression);
    if (val == "NAN" ) {	alert("Function Supplied is not a Valid Flow"); return; }  
    zmesh[k][j]= val;
-  // console.log("  ...x " + x + "...y " + "... " + val + " ... ");	  
+   console.log("  ...x " + x + "...y " + y + "... " + val + " ... ");	  
    k=k+1;Math.atan2(y,(x-0.5))-Math.atan2(y,(x+0.5))
   }
   j=j+1;
@@ -322,10 +322,7 @@ function ComputeFlow() {
         yp[ipnt-1]=frac*(yt[2]-yt[0])+yt[0];
        }
       }
-	  if (i==0) {
-	   console.log("  ...ipnt " + ipnt + " ... ");	 
-	  }	
-      if (ipnt==2) {
+	  if (ipnt==2) {
        xint0=Math.trunc(xp[0]*300.0+300.0);
        yint0=Math.trunc(300.0-yp[0]*300.0);
        xint1=Math.trunc(xp[1]*300.0+300.0);
