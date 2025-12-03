@@ -263,7 +263,11 @@ function ComputeFlow() {
   ctx.stroke();
   ctx.font = "12px Arial";
   ctx.fillStyle = "black";
-  strng = tval.toPrecision(1);
+  if (tval<1.0e-5) {
+   strng = "0.0";
+  } else {
+   strng = tval.toPrecision(1);
+  }
   ctx.fillText(strng,8,iy0-5);  
   iy0=iy0+40;
   tval=tval-0.1*400/y1scale; 
@@ -309,19 +313,19 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("0.0",ix0+5,380);  
+  ctx.fillText("0.0",ix0+5,390);  
   ix0=200;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("1.0",ix0-10,380);  
+  ctx.fillText("1.0",ix0-10,390);  
   ix0=400;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("2.0",ix0-20,380);  
+  ctx.fillText("2.0",ix0-20,390);  
  }
  ctx.fillStyle="blue";
  ctx.fillText("C(T)",55,15);
@@ -370,13 +374,13 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("0.5",ix0-10,380);  
+  ctx.fillText("0.5",ix0-10,300);  
   ix0=800;
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("1.0",ix0-20,380);  
+  ctx.fillText("1.0",ix0-20,300);  
  } else {
   ix0=600;
   x1scale=200.0;
@@ -384,18 +388,18 @@ function ComputeFlow() {
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("1.0",ix0-10,380);  
+  ctx.fillText("1.0",ix0-10,390);  
   ix0=800;
-  ctx.fillText("J=V/(nD)",650,380);  
+  ctx.fillText("J=V/(nD)",650,390);  
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0,iy1);
   ctx.stroke();
-  ctx.fillText("2.0",ix0-20,380);  
+  ctx.fillText("2.0",ix0-20,390);  
  }
  ctx.fillStyle="black";
  ctx.fillText("Efficiency",450,15);  
- ctx.fillText("J=V/(nD)",650,380);  
+ ctx.fillText("J=V/(nD)",650,390);  
  ctx.beginPath();
  ctx.moveTo(800,0);
  ctx.lineTo(800,400);
