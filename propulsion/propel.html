@@ -455,7 +455,15 @@ function ComputeFlow() {
   iy0=iy1;
   i=i+1;
  }
-// document.getElementById("output").innerHTML = expression; 
+ strng = "<table><tr><td>J=V/(nd)</td><td>C(T)</td><td>C(Q)</td><td>&eta;</td></tr>"
+ i=1;
+ while (i<kv) {
+  strng=strng + "<tr><td>";
+  strng=strng + je[i].toPrecision(3) + "</td><td>" + t[i].toPrecision(5) + "</td><td>" + q[i].toPrecision(5) + "</td><td>" + eff[i].toPrecision(4) + "</td></tr>"; 
+  i=i+1;
+ }
+ strng = strng + "</table>";
+ document.getElementById("output").innerHTML = strng; 
  document.getElementById("results").style.visibility="visible";
 }
 
