@@ -119,6 +119,7 @@ function ComputeFlow() {
  var i=0;
  var r1=[];
  var c1=[];
+ var angrad = angle*PI/180.0;
  while (i<11) {
   r1[i]=r/10.0*i;
   c1[i]=rc+(tc-rc)*i/10.0;
@@ -155,7 +156,7 @@ function ComputeFlow() {
    rad=r1[j];
    chord=c1[j];
 //     calculate local blade element setting angle
-   theta=Math.atan(pitch/(2.0*PI*rad));
+   theta=Math.atan(pitch/(2.0*PI*rad))+angrad;
 //     calculate solidity
    sigma=2.0*chord/(2.0*PI*rad);
 //     guess initial values of inflow and swirl factor
