@@ -146,6 +146,7 @@ function ComputeFlow() {
  var je=[];
  var eff = [];
  var icheck= [];
+ var clmax = 1.1;
  while (v<100.5) {
 //     %initialise sums thrust (N) torque (Nm)
   thrust=0.0;
@@ -224,6 +225,9 @@ function ComputeFlow() {
   eff[kv]=je[kv]/2.0/PI*t[kv]/q[kv];
   console.log('...' + kv + ' ...t..' + t[kv] + '...eff..' + eff[kv] + ' ');
   icheck[kv]=itercheck;
+  if (cl>clmax) {
+   icheck[kv]=2;
+  }
   v=v+1.0;
   kv=kv+1;
   if (thrust<0.0 && v>10.0)  {
@@ -231,6 +235,7 @@ function ComputeFlow() {
   } 
  } 
  eff[kv-1] = 0.0;
+ 
 // Add values to the graph
  var imgWidth=800;
  var imgHeight=400;
@@ -444,9 +449,9 @@ function ComputeFlow() {
   iy1=400-Math.floor(eff[i]*400.0);
   ix1=400+Math.floor(je[i]*x1scale);
   if (icheck[i]==0) {
-   strokeStyle='black';
+   ctx.strokeStyle='black';
   } else {
-   strokeStyle='red';
+   ctx.strokeStyle='red';
   } 
   ctx.beginPath();
   ctx.moveTo(ix0,iy0);
