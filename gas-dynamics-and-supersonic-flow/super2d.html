@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<h3>Flow around a Supersonic Wedge</h3>
+This form shows the flow for a supersonic wedge in two-dimensional flow.  
+<p><table  border="1" cellpadding="10" bgcolor="#95b1d6">
+<tr><td valign="top" width="25%">
+&nbsp;<br>
+<B>Input Parameters</B><br>
+<form>
+<table>
+<tr><td align='center'><img src='wedge_info.png'></td><tr>
+<tr><td>Stream Mach Number (M<sub>0</sub>)<br/>
+<INPUT NAME='mach0' id='mach0' TYPE='text' VALUE='2.0' SIZE='20' onfocus="HideResults();"  autofocus><br />
+</td></tr>
+<tr><td>Wedge Deflection Angle (&delta; <sup>o</sup>)<br/>
+<INPUT NAME='delta' id='delta' TYPE='text' VALUE='5.0' SIZE='20' onfocus="HideResults();"  autofocus><br />
+</td></tr>
+<tr><td>Section Angle of Attack (&alpha; <sup>o</sup>)<br/>
+<INPUT NAME='alpha' id='alpha' TYPE='text' VALUE='0.0' SIZE='20' onfocus="HideResults();"  autofocus><br />
+</td></tr>
+<tr><td>
+<br />&nbsp;<br /><center>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();">
+</form></center></td></tr></table></td><td valign='top'><center>
+<br />
+<fieldset id="results">
+<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+</fieldset>
+<p id='output2'> </p>      
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output2").innerHTML = " ";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var machfield = document.getElementById("mach0").value;
+ var mach0=Number(spanfield);
+ if (mach0<1.0001) {alert('Subsonic Flow'); return; }
+ if (mach0>15.0) {alert('Hypersonic Flow'); return; }
+ var deltafield = document.getElementById("delta").value;
+ var delta=Number(rchordfield);
+ if (delta<0.0001) {alert('Wedge Too Thin'); return; }
+ if (delta>20.0) {alert('Detached Flow'); return; }
+ var alphafield = document.getElementById("alpha").value;
+ var alpha=Number(tchordfield);
+ if (alpha<-10.0) {alert('Extreme Angle'); return; }
+ if (delta>10.0) {alert('Extreme Angle'); return; } 
+ var PI=3.1415926;
+ delta = delta/180.0*PI;
+ alpha = alpha/180.0*PI;
+
+//create graph
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+ var imgWidth=600;
+ var imgHeight=450;
+
+ var colortable = [];
+ var i,k;
+ 
+ i=0;
+ while (i<100) {
+  k=i*2+54;
+  colortable[i]=k;
+  i=i+1;
+ }
+
+// Create a background
+
+ var halfw=imgWidth/2;
+ var halfh=imgHeight/2;
+ var qw=imgWidth/4;
+ var xs=qw/2;
+ var dh=qw*Math.tan(delta);
+ var pxy = [];
+ pxy[0]=xs;
+ pxy[1]=halfh;
+ pxy[2]=xs+qw;
+ pxy[3]=halfh+dh;
+ pxy[4]=xs+halfw;
+ pxy[5]=halfh;
+ pxy[6]=xs+qw;
+ pxy[7]=halfh-dh;
+ pxy[8]=xs;
+ pxy[9]=halfh;
+ ctx.beginPath();
+ ctx.lineWidth=2;
+ ctx.moveTo(pxy[0],pxy[1]);
+ i=2;
+ while (i<10) {
+  ctx.lineTo(pxy[i],pxy[i+1]);
+  i=i+2;
+ }
+ ctx.closePath();
+ ctx.fillStyle="blue";
+ ctx.strokeStyle="black";
+ ctx.fill();
+ ctx.stroke(); 
+//imageline($image,$xs,$halfh,$xs+$qw,$halfh+$dh,$colorBlack);
+//imageline($image,$xs+$qw,$halfh+$dh,$xs+$halfw,$halfh,$colorBlack);
+//imageline($image,$xs+$halfw,$halfh,$xs+$qw,$halfh-$dh,$colorBlack);
+//imageline($image,$xs+$qw,$halfh-$dh,$xs,$halfh,$colorBlack);
+
+ var x0=halfw+xs;
+ var y0=halfh;
+ var x1=halfw+xs+imgWidth*Math.cos(alpha);
+ var y1=halfh-imgWidth*Math.sin(alpha);
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(x0,y0);
+ ctx.lineTo(x1,y1]);
+ ctx.closePath();
+ ctx.strokeStyle="green";
+ ctx.stroke(); 
+
+ var k=1;
+ var p1=1.0; 
+ var cp1=1.0; 
+ var cp2=cp1; 
+ var cp3=cp1; 
+ var cp4=cp1;
+ var sm1=1.0; 
+ var sm2=sm1; 
+ var sM3=sm1; 
+ var sm4=sm1;
+ var p0=1.0;
+ var gamma=1.4;
+ var ga1 = gamma + 1;
+ var ga2 = gamma - 1;
+ var pwr =(-1.4/0.4);
+ var m,msqr,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
+ var beta,p2,ang,sub1,ix0,iy0,p10,p20,pma,pma0,th,m,ix1,iy1;
+// leadng edge
+ while (k<3) {
+  m=mach0;
+  if (k==1) {
+   d1=alpha;
+  } else {
+   d1=-alpha;
+  } 
+  d2=delta-d1;
+  if (d2>=0.0) {
+// leading edge shock
+   x0=xs; y0=halfh;
+// oblique wave
+   msqr = m*m;
+   b1 = 10.0/180.0*PI;
+   t0 =  d2; 
+   a1 = 2.0*Math.cos(b1)/Math.sin(b1);
+   a2 = msqr*Math.sin(b1)*Math.sin(b1) - 1.0;
+   a4 = Math.cos(2.0*b1)*msqr + 2.0;
+   a3 = gamma*msqr+a4;
+   t1 = Math.atan(a1*a2/a3);
+   e1 = t0-t1;
+   b2 = 20.0/180.0*PI;
+   a1 = 2.0*Math.cos(b2)/Math.sin(b2);
+   a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
+   a4 = Math.cos(2.0*b2)*msqr + 2.0;
+   a3 = gamma*msqr+a4;
+   t2 = Math.atan(a1*a2/a3);
+   e2 = t0-t2;
+   count = 1;
+   detached=0;
+   finished=0;
+   while (finished == 0) {
+    count = count+1;
+    a1 = (e2 - e1)/(b2 - b1);
+    a2 = e2 - a1*b2;
+    b1 = b2;
+    b2 = - a2/a1;
+    e1 = e2;
+    a1 = 2.0*Math.cos(b2)/Math.sin(b2);
+    a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
+    a4 = Math.cos(2.0*b2)*msqr + 2.0;
+    ra3 = gamma*msqr+a4;
+    t2 = Math.atan(a1*a2/a3);
+    e2 = t0-t2;
+    if (Math.abs(e2) < 1.0e-6) {
+     finished = 1;
+    }
+    if (count > 100) {
+     detached=1;
+     finished=1;
+    }
+   }
+   beta = b2;
+   if (beta>PI/2.0 || beta < d2) {
+    detached=1;
+   } else {
+    p2=p0*(2.8*msqr*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
+   }
+// end oblique
+   if (detached==0) {
+    ang=beta+d1;
+    x1=imgWidth*Math.cos(ang)+x0;
+    if (k==1) {
+     y1=y0-imgWidth*Math.sin(ang);
+    } else {
+     y1=y0+imgWidth*Math.sin(ang);
+    }
+    ctx.beginPath();
+    ctx.lineWidth=2;
+    ctx.moveTo(x0,y0); 
+    ctx.closePath();
+    ctx.strokeStyle="red";
+    ctx.moveTo(x1,y1);
+    ctx.stroke();
+    ctx.lineWidth=1;
+    a1 = m*Math.sin(b2);
+    a2 = math.sqrt((ga2*a1*a1 + 2.0)/(2.0*gamma*a1*a1 - ga2));
+    m = a2/(Math.sin(b2-t0));
+   } else {
+    sub=1;
+    beta=0.0;
+   }
+  } else {
+   d2=Math.abs(d2);
+// leading expansion wave
+   ix0=xs; iy0=halfh;
+   p10=Math.pow(1.0+0.2*msqr,pwr);
+//   p10=Math.log(1.0+0.2*msqr)*(-1.4/0.4);
+//   p10=Math.exp(p10);
+   pma=prandtl(m);
+   pma0=pma;
+   i=1;
+   while (i<12) {
+    mu=Math.asin(1.0/m);
+    if (k==1) {
+     th=d1+mu;
+    } else {
+     th=d1-mu;
+    } 
+    ix1=ix0+1.2*imgWidth*Math.cos(th);
+    if (k==1) {
+     iy1=iy0-1.2*imgWidth*Math.sin(th);
+     d1=d1-d2/10.0;
+     ang=th+d2/20.0;
+    } else {
+     iy1=iy0-1.2*imgWidth*Math.sin(th);
+     d1=d1+d2/10.0;
+     ang=th-d2/20.0;
+    }
+    ctx.beginPath();
+    ctx.lineWidth=1;
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix1,iy1);
+    ctx.strokeStyle='blue';
+    ctx.stroke();
+    pma=pma+d2/10.0;
+    m=revPrandtl(pma);
+    i=i+1;
+   }
+   p20=Math.pow(1.0+0.2*msqr,pwr);
+//   p20=log(1.0+0.2*msqr)*(-1.4/0.4);
+//   p20=exp(p20);
+   p2= p20/ p10*p1;
+   beta=0.0;
+  }
+  p1=p2;
+  d2=2.0*delta;
+  d1=delta;
+ // expand(xs+qw,halfh-dh,1);
+ //procedure expand(ix0,iy0 : integer);
+  ix0=xs+qw; 
+  if (k==1) {
+   iy0=halfh-dh;
+//  $Cp1=2.0/1.4/$mach0/$mach0*($p2-1.0);
+   cp1=p1;
+   sm1=m;
+  } else {
+   iy0=halfh+dh;
+//  $Cp3=2.0/1.4/$mach0/$mach0*($p2-1.0);
+   cp3=p1;
+   sm3=m;
+  }   
+  p10=math.pow(1.0+0.2*mspr,pwr);
+//  p10=Math.log(1.0+0.2*msqr)*(-1.4/0.4);
+//  p10=Math.exp(p10);
+  pma=prandtl(m);
+  pma0=pma;
+  i=1;
+  while (i<12) {
+   mu=Math.asin(1.0/m);
+   if (k==1) {
+    th=d2+mu;
+   } else {
+    th=-d2-mu;
+   }
+   ix1=ix0+1.2*imgWidth*Math.cos(th);
+   if (k==1) {
+    iy1=iy0-1.2*imgWidth*Math.sin(th);
+    d1=d1-d2/10.0;
+    ang=th+d2/20.0;
+   } else {
+    iy1=iy0-1.2*imgWidth*Math.sin(th);
+    d1=d1+d2/10.0;
+    ang=th-d2/20.0;
+   }
+   ctx.beginPath();
+   ctx.lineWidth=1;
+   ctx.moveTo(ix0,iy0);
+   ctx.lineTo(ix1,iy1);
+   ctx.strokeStyle='blue';
+   ctx.stroke();
+   pma=pma+d2/10.0;
+   m=revPrandtl(pma);
+   i=i+1;
+  }
+  pma=pma0+d2;
+  m=revPrandtl(pma);
+  p20=Math.pow(1.0+0.2*msqr,pwr);
+// $p20=log(1.0+0.2*msqr)*(-1.4/0.4);
+// $p20=exp($p20);
+  p2=p20/p10*p1;
+ // end expand
+  if (k==1) {
+//  $Cp2=2.0/1.4/$mach0/$mach0*($p2-1.0);
+   cp2=p2;
+   sm2=m;
+  } else {
+//  $Cp4=2.0/1.4/$mach0/$mach0*($p2-1.0); 
+   cp4=p2;
+   sm4=m;
+  }
+  d1=-delta;
+  d2=delta+alpha;
+  if (d2>0.0) {
+// trailing shock
+   x0=xs+halfw; y0=halfh;
+   def=d2; mn=m;
+   beta=45.0/180.*PI;
+   finished=0;
+   tem0=0.0;
+   beta0=Math.asin(1.0/mn);
+   count=0;
+   while (finished==0) {
+    sb=Math.sin(beta);
+    cb=Math.cos(beta);
+    tem1=2.0*cb/sb*(mn*mn*sb*sb-1.0);
+    tem2=2.4*mn*mn-2.0*(mn*mn*sb*sb-1.0);
+    if (tem2<0.0) {
+     beta=-1.0;
+     finished=1;
+    } else {
+     tem3=Math.atan(tem1/tem2);
+     db=0.0;
+     if (abs(tem3-def)<1.0e-3) {
+      finished=1;
+     } else {
+      dt=tem3-tem0;
+      if (Math.abs(dt)<0.001) {
+       finished=1;
+      } else {
+       db=(beta-beta0)/dt*(def-tem0);
+      }
+      count=count+1;
+      betan=beta0+db;
+      beta0=beta;
+      beta=betan;
+      tem0=tem3;
+     }
+    }
+    if (count>200) {
+     finished=1;
+    }
+   }
+   if (beta>PI/2.0) {
+    beta=-1.0;
+   } else {
+    p2=p1*(2.8*msqr*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
+   }
+// end oblique
+   if (beta>0.0) {
+    ang=d1+beta;
+    x1=imgWidth*Math.cos(ang)+x0;
+    if (k==1) {
+     y1=y0-imgWidth*Math.sin(ang);
+    } else {
+     y1=y0+imgWidth*Math.sin(ang);
+    }
+    ctx.beginPath();
+    ctx.lineWidth=2;
+    ctx.moveTo(x0,y0);
+    ctx.lineTo(x1,y1);
+    ctx.strokeStyle='red';
+    ctx.stroke();
+    m=mDown(d1,beta);
+   } else {
+    sub=1;
+   }
+//end shock
+  } else {
+   d2=Math.abs(d2);
+// trailing expansion
+   ix0=xs+halfw; iy0=halfh;
+   p10=Math.pow(1.0+0.2*msqr,pwr);
+//  $p10=log(1.0+0.2*msqr)*(-1.4/0.4);
+//  $p10=exp($p10);
+   pma=prandtl(m);
+   i=1;
+   while (i<12) {
+    mu=Math.asin(1.0/m);
+    if (k==1) {
+     th=d1+mu;
+    } else {
+     th=d1-mu;
+    }
+    ix1=ix0+1.2*imgWidth*Math.cos(th);
+    if (k==1) {
+     iy1=iy0-1.2*imgWidth*Math.sin(th);
+     d1=d1-d2/10.0;
+     ang=th+d2/20.0;
+    } else {
+     iy1=iy0-1.2*imgWidth*Math.sin(th);
+     d1=d1+d2/10.0;
+     ang=th-d2/20.0;
+    }
+    ctx.beginPath();
+    ctx.lineWidth=1;
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix1,iy1);
+    ctx.strokeStyle='blue';
+    ctx.stroke();
+    pma=pma+d2/10.0;
+    m=revPrandtl(pma);
+    i=i+1;
+   }
+   p20=Math.pow(1.0+0.2*msqr,pwr);
+//  $p20=log(1.0+0.2*msqr)*(-1.4/0.4);
+//  $p20=exp($p20);
+   p2=p20/p10*p1;
+// end expand
+  }
+  k++;
+ }
+ var strout;
+ strout="Top : P1 = " + cp1.toPrecision(5) + " M1 = " + sm1.toPrecision(5) + "<br />";
+ strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P2 = " + cp2.toPrecision(5) + " M2 = " + sm2.toPrecision(5) + "<br />";
+ strout=strout + "Bottom : P3 = " + cp3.toPrecision(5) + " M3 = " + sm3.toPrecision(5) + "<br />";
+ strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P4 = " + cp4.toPrecision(5) + " M4 = " + sm4.toPrecision(5) + "<br />";
+ d1=-alpha;
+//$if (RadioButton2.checked=True) then
+//
+//  begin
+//
+//   d2=delta+alpha; 
+//
+//  end else
+//
+//  begin
+ d2=alpha;
+
+//  end;
+ m=mach0;
+ p1=1.0;
+ if (d2>=0.0) {
+//  shock(xs,halfh,2);
+ } else {
+  d2=-abs(d2);
+// expand(xs,halfh,2);
+ }
+//$Cp3=2.0/1.4/$mach0/$mach0*($p2-1.0);
+//$p1=$p2;
+/*  if (RadioButton2.checked=True) then
+
+  begin
+
+   d2=2.0*delta;
+
+   d1=-delta;
+
+   expand(xs+qw,halfh+dh,2);
+
+   Cp4=2.0/1.4/mach0/mach0*(p2-1.0);
+
+   d1=-delta;
+
+   d2=delta-alpha;
+
+  end else
+
+  begin
+*/
+// $Cp4=$Cp3;
+ d1=0.0;
+ d2=-alpha;
+//  end;
+ if (d2>0.0) {
+//   shock(xs+halfw,halfh,2);
+ } else {
+  d2=Math.abs(d2);
+//    expand(xs+halfw,halfh,2);
+ }
+
+//  if (RadioButton2.checked=True) then
+
+//  begin
+
+//   Cn=Cp3*0.5*cos(delta)-Cp1*0.5*cos(delta)+Cp4*0.5*cos(delta)-Cp2*0.5*cos(delta);
+
+//   Ct=Cp3*0.5*sin(delta)+Cp1*0.5*sin(delta)-Cp4*0.5*sin(delta)-Cp2*0.5*sin(delta);
+
+//  end else
+
+//  begin
+
+ cn=cp3-cp1*0.5*Math.cos(delta)-cp2*0.5*Math.cos(delta);
+ ct=cp1*0.5*Math.sin(delta)-cp2*0.5*Math.sin(delta);
+
+//  end;
+
+ cl=cn*cos(alpha)-ct*sin(alpha);
+ cd=cn*sin(alpha)+ct*cos(alpha);
+
+ strout = strout + "<br />&nbsp;<br />Cl = " + cl.toPrecision(5) + " Cd = " + cd.toPrecision(5) + "<br />";
+
+// Edit2.Text=' '+FloatToStrF(CL,ffFixed,12,5);
+// Edit3.Text=' '+FloatToStrF(CD,ffFixed,12,5);
+// Edit4.Text=' '+FloatToStrF(Cp1,ffFixed,12,5);
+// Edit5.Text=' '+FloatToStrF(Cp2,ffFixed,12,5);
+// Edit6.Text=' '+FloatToStrF(Cp3,ffFixed,12,5);
+// Edit7.Text=' '+FloatToStrF(Cp4,ffFixed,12,5);
+
+/*  if (sub=1) then
+
+  begin
+
+   ClearRect = Rect(0, 0, Width-1, Height-1);
+
+   Canvas.Brush.Color = clwhite;
+
+   Canvas.FillRect(ClearRect);
+
+   canvas.pen.color=clblack;
+
+   canvas.MoveTo(0,height-1);
+
+   canvas.LineTo(0,0);
+
+   canvas.LineTo(width-1,0);
+
+   canvas.pen.color=clbtnshadow;
+
+   canvas.LineTo(width-1,height-1);
+
+   canvas.LineTo(0,height-1);
+
+   halfw=width div 2;
+
+   halfh=height div 2;
+
+   qw=width div 4;
+
+   xs=qw div 2;
+
+   canvas.Moveto(xs,halfh);
+
+   canvas.Pen.Color=clblack;
+
+   dh=round(qw*sin(delta)/cos(delta));
+
+   if (RadioButton2.checked=True) then
+
+   begin
+
+    canvas.LineTo(xs+qw,halfh+dh);
+
+   end;
+
+   canvas.LineTo(xs+halfw,halfh);
+
+   canvas.LineTo(xs+qw,halfh-dh);
+
+   canvas.LineTo(xs,halfh);
+
+   if (delta>2.0/180.*pi) then
+
+   begin
+
+    canvas.brush.color=clsilver;
+
+    canvas.floodfill(halfw,halfh-1,clwhite,fsSurface);
+
+   end;
+
+   Canvas.Pen.Width=2;
+
+   Canvas.Pen.Color=clRed;
+
+   dx=round(xs-halfw*0.05);
+
+   dy=halfh;
+
+   Canvas.MoveTo(dx,dy);
+
+   for i=1 to 40 do
+
+   begin
+
+    ax=1./31.0*i;
+
+    ay=exp(ln(ax)*2.0);
+
+    jy=dy+round(ax*halfh);
+
+    jx=dx+round(ay*halfh);
+
+    Canvas.LineTo(jx,jy);
+
+   end;
+
+   Canvas.MoveTo(dx,dy);
+
+   for i=1 to 40 do
+
+   begin
+
+    ax=1./31.0*i;
+
+    ay=exp(ln(ax)*2.0);
+
+    jy=dy-round(ax*halfh);
+
+    jx=dx+round(ay*halfh);
+
+    Canvas.LineTo(jx,jy);
+
+   end;
+
+   dx=dx+2;
+
+   Canvas.Brush.Color=$00DFDFFF;
+
+   Canvas.FloodFill(dx,dy,clwhite,FsSurface);
+
+   Canvas.Pen.Width=1;
+
+   Edit4.Text=' ?';
+
+   Edit5.Text=' ?';
+
+   Edit6.Text=' ?';
+
+   Edit7.Text=' ?';
+
+   Edit2.Text=' ?';
+
+   Edit3.Text=' ?';
+
+  end;
+
+//  Canvas.Pen.Color=clBlack;
+  x0=width div 10;
+  y0=height div 10;
+  Canvas.Moveto(x0,y0);
+
+  dx=x0*2;
+
+  x1=round(x0+dx*cos(alpha));
+
+  y1=round(y0-dx*sin(alpha));
+
+  canvas.Lineto(x1,y1);
+
+  x0=x1;
+
+  y0=y1;
+
+  x1=round(x0+dx/5.*cos(165.0/180.*pi+alpha));
+
+  y1=round(y0-dx/5.*sin(165.0/180.*pi+alpha));
+
+  Canvas.Lineto(x1,y1);
+
+  Canvas.Moveto(x0,y0);
+
+  x1=round(x0+dx/5.*cos(-165.0/180.*pi+alpha));
+
+  y1=round(y0-dx/5.*sin(-165.0/180.*pi+alpha));
+
+  Canvas.Lineto(x1,y1);
+
+  Canvas.Brush.Style=bsclear;
+
+  canvas.textout(x0+5,y0,'M');
+
+ end;
+
+end;
+*/
+ 
+ document.getElementById("output2").innerHTML = strout; 
+ document.getElementById("results").style.visibility="visible";
+}
+
+function mDown(d1,beta) {
+ var csb=Math.cos(beta);
+ var snb=Math.sin(beta);
+ var csd=Math.cos(d1);
+ var snd=Math.sin(d1);
+ var tem1=csd*csd*(snb/csb-snd/csd);
+ var tem2=Math.sin(2.0*beta)+snd/csd*(1.4-Math.cos(2.0*beta));
+ var tem3=2.0/tem1/tem2;
+ tem3=Math.sqrt(tem3);
+ return tem3;
+}
+
+function prandtl(m) {
+ var ptl;
+ ptl=Math.sqrt(2.4/0.4)*Math.atan(Math.sqrt(0.4/2.4*(m*m-1.0)))-Math.atan(Math.sqrt(m*m-1.0));
+ return ptl;
+} 
+
+function revPrandtl(pma) {
+ var count=0;
+ var m=1.0;
+ var tem0,tem1,tem2,m0;
+ tem0=prandtl(m);
+ m0=m;
+ m=m+0.1;
+ while (count<1000) {
+  tem1=prandtl(m);
+  if (Math.abs(tem1-pma)<0.001) {
+   count=1001;
+   tem2=m;
+  } else {
+   tem2=m0+(m-m0)*(pma-tem0)/(tem1-tem0);
+   tem0=tem1;
+   m0=m;
+   m=tem2;
+  }
+  count=count+1;
+ }
+ return tem2;
+}
+
+</script>
+
+</center></td></tr></table></p>
+
+
+
+<p><a href='./index.html'>Back to Supersonic Flow Section</a></p>
+
+center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
