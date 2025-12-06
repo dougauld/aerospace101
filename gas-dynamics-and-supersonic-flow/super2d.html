@@ -133,7 +133,7 @@ function ComputeFlow() {
  pxy[8]=xs;
  pxy[9]=halfh;
  ctx.beginPath();
- ctx.lineWidth=2;
+ ctx.lineWidth=1;
  ctx.moveTo(pxy[0],pxy[1]);
  i=2;
  while (i<10) {
@@ -238,25 +238,41 @@ function ComputeFlow() {
 // end oblique
    if (detached==0) {
     ang=beta+d1;
-    x1=imgWidth*Math.cos(ang)+x0;
+    ix0=xs;
+    iy0=halfh;
+    ix1=imgWidth*Math.cos(ang)+ix0;
     if (k==1) {
-     y1=y0-imgWidth*Math.sin(ang);
+     iy1=iy0-imgWidth*Math.sin(ang);
     } else {
-     y1=y0+imgWidth*Math.sin(ang);
+     iy1=iy0+imgWidth*Math.sin(ang);
     }
     ctx.beginPath();
     ctx.lineWidth=2;
-    ctx.moveTo(x0,y0); 
+    ctx.moveTo(ix0,iy0); 
     ctx.strokeStyle="red";
-    ctx.moveTo(x1,y1);
+    ctx.moveTo(ix1,iy1);
     ctx.stroke();
-    ctx.lineWidth=1;
+
     a1 = m*Math.sin(b2);
     a2 = Math.sqrt((ga2*a1*a1 + 2.0)/(2.0*gamma*a1*a1 - ga2));
     m = a2/(Math.sin(b2-t0));
    } else {
-    sub=1;
-    beta=0.0;
+    beta=90.0;    
+    ang=beta+d1;
+    ix0=xs-20;
+    iy0=halfh;
+    ix1=imgWidth*Math.cos(ang)+ix0;
+    if (k==1) {
+     iy1=iy0-imgWidth*Math.sin(ang);
+    } else {
+     iy1=iy0+imgWidth*Math.sin(ang);
+    }
+    ctx.beginPath();
+    ctx.lineWidth=2;
+    ctx.moveTo(ix0,iy0); 
+    ctx.strokeStyle="red";
+    ctx.moveTo(ix1,iy1);
+    ctx.stroke();
    }
   } else {
    d2=Math.abs(d2);
@@ -479,11 +495,11 @@ function ComputeFlow() {
   k++;
  }
  var strout;
- console.log(".cp1.." + cp1 + ".p1.." + p1 + ".M1.." + sm1 )
- strout="Top : P1 = " + cp1.toPrecision(5) + " M1 = " + sm1.toPrecision(5) + "<br />";
- strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P2 = " + cp2.toPrecision(5) + " M2 = " + sm2.toPrecision(5) + "<br />";
- strout=strout + "Bottom : P3 = " + cp3.toPrecision(5) + " M3 = " + sm3.toPrecision(5) + "<br />";
- strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P4 = " + cp4.toPrecision(5) + " M4 = " + sm4.toPrecision(5) + "<br />";
+ //console.log(".cp1.." + cp1 + ".p1.." + p1 + ".M1.." + sm1 )
+ strout="Top : Cp1 = " + cp1.toPrecision(5) + " M1 = " + sm1.toPrecision(5) + "<br />";
+ strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; Cp2 = " + cp2.toPrecision(5) + " M2 = " + sm2.toPrecision(5) + "<br />";
+ strout=strout + "Bottom : Cp3 = " + cp3.toPrecision(5) + " M3 = " + sm3.toPrecision(5) + "<br />";
+ strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; Cp4 = " + cp4.toPrecision(5) + " M4 = " + sm4.toPrecision(5) + "<br />";
  d1=-alpha;
 //$if (RadioButton2.checked=True) then
 //
