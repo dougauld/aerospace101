@@ -151,7 +151,7 @@ function ComputeFlow() {
   i=i+2;
  }
  ctx.closePath();
- ctx.fillStyle="blue";
+ ctx.fillStyle="gray";
  ctx.strokeStyle="black";
  ctx.fill();
  ctx.stroke(); 
@@ -168,7 +168,6 @@ function ComputeFlow() {
  ctx.lineWidth=1;
  ctx.moveTo(x0,y0);
  ctx.lineTo(x1,y1);
- ctx.closePath();
  ctx.strokeStyle="green";
  ctx.stroke(); 
 
@@ -260,7 +259,6 @@ function ComputeFlow() {
     ctx.beginPath();
     ctx.lineWidth=2;
     ctx.moveTo(x0,y0); 
-    ctx.closePath();
     ctx.strokeStyle="red";
     ctx.moveTo(x1,y1);
     ctx.stroke();
