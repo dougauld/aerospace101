@@ -91,15 +91,15 @@ function HideResults() {
 function ComputeFlow() {
 
  var machfield = document.getElementById("mach0").value;
- var mach0=Number(spanfield);
+ var mach0=Number(machfield);
  if (mach0<1.0001) {alert('Subsonic Flow'); return; }
  if (mach0>15.0) {alert('Hypersonic Flow'); return; }
  var deltafield = document.getElementById("delta").value;
- var delta=Number(rchordfield);
+ var delta=Number(deltafield);
  if (delta<0.0001) {alert('Wedge Too Thin'); return; }
  if (delta>20.0) {alert('Detached Flow'); return; }
  var alphafield = document.getElementById("alpha").value;
- var alpha=Number(tchordfield);
+ var alpha=Number(alphafield);
  if (alpha<-10.0) {alert('Extreme Angle'); return; }
  if (delta>10.0) {alert('Extreme Angle'); return; } 
  var PI=3.1415926;
