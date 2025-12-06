@@ -403,7 +403,7 @@ function ComputeFlow() {
     } else {
      tem3=Math.atan(tem1/tem2);
      db=0.0;
-     if (abs(tem3-def)<1.0e-3) {
+     if (Math.abs(tem3-def)<1.0e-3) {
       finished=1;
      } else {
       dt=tem3-tem0;
