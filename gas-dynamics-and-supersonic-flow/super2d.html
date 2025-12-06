@@ -157,7 +157,6 @@ function ComputeFlow() {
  ctx.strokeStyle="green";
  ctx.stroke(); 
 
- var k=1;
  var p1=1.0; 
  var cp1=1.0; 
  var cp2=cp1; 
@@ -172,9 +171,10 @@ function ComputeFlow() {
  var ga1 = gamma + 1;
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
- var m,msqr,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
+ var m,k,msqr,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
  var beta,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1;
 // leadng edge
+ k=1;
  while (k<3) {
   m=mach0;
   if (k==1) {
@@ -185,8 +185,6 @@ function ComputeFlow() {
   d2=delta-d1;
   if (d2>=0.0) {
 // leading edge shock
-   x0=xs; 
-   y0=halfh;
 // oblique wave
    msqr = m*m;
    b1 = 10.0/180.0*PI;
@@ -240,9 +238,9 @@ function ComputeFlow() {
     ang=beta+d1;
     ix0=xs;
     iy0=halfh;
-    ix1=imgWidth*Math.cos(ang)+ix0;
+    ix1=ix0+0.5*imgWidth*Math.cos(ang);
     if (k==1) {
-     iy1=iy0-imgWidth*Math.sin(ang);
+     iy1=iy0-0.5*imgWidth*Math.sin(ang);
     } else {
      iy1=iy0+imgWidth*Math.sin(ang);
     }
@@ -263,9 +261,9 @@ function ComputeFlow() {
     iy0=halfh;
     ix1=imgWidth*Math.cos(ang)+ix0;
     if (k==1) {
-     iy1=iy0-imgWidth*Math.sin(ang);
+     iy1=iy0-0.5*imgWidth*Math.sin(ang);
     } else {
-     iy1=iy0+imgWidth*Math.sin(ang);
+     iy1=iy0+0.5*imgWidth*Math.sin(ang);
     }
     ctx.beginPath();
     ctx.lineWidth=2;
