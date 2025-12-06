@@ -173,7 +173,7 @@ function ComputeFlow() {
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
  var m,msqr,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
- var beta,p2,ang,sub,ix0,iy0,p1,p2,p10,p20,pma,pma0,th,m,ix1,iy1;
+ var beta,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1;
 // leadng edge
  while (k<3) {
   m=mach0;
@@ -231,6 +231,7 @@ function ComputeFlow() {
    beta = b2;
    if (beta>PI/2.0 || beta < d2) {
     detached=1;
+    p2=1.0;
    } else {
     p2=p0*(2.8*msqr*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
    }
