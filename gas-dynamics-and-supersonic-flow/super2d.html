@@ -568,8 +568,8 @@ function ComputeFlow() {
 
 //  end;
 
- cl=cn*cos(alpha)-ct*sin(alpha);
- cd=cn*sin(alpha)+ct*cos(alpha);
+ cl=cn*Math.cos(alpha)-ct*Math.sin(alpha);
+ cd=cn*Math.sin(alpha)+ct*Math.cos(alpha);
 
  strout = strout + "<br />&nbsp;<br />Cl = " + cl.toPrecision(5) + " Cd = " + cd.toPrecision(5) + "<br />";
 
