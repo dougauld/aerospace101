@@ -322,7 +322,7 @@ function ComputeFlow() {
  while(i<numtot+1) {
   if (i>num) {
    j=i-num;
-   irow=Math.floor((j-1)/nst)+1;
+   irow=Math.Math.trunc((j-1)/nst)+1;
    icol=j-(irow-1)*nst;
    yp1=(icol-1)*tailspan/nst*0.5;
    yp2=yp1;
@@ -337,7 +337,7 @@ function ComputeFlow() {
    zp3=zp1;
    zp4=zp2;
   } else {
-   irow=floor((i-1)/ns)+1;
+   irow=Math.trunc((i-1)/ns)+1;
    icol=i-(irow-1)*ns;
    yp1=ys[icol];
    yp2=yp1;
@@ -396,7 +396,7 @@ function ComputeFlow() {
   while (j<numtot+1) {
    if (j>num) {
     k=j-num;
-    irow=floor((k-1)/nst)+1;
+    irow=Math.trunc((k-1)/nst)+1;
     icol=k-(irow-1)*nst;
     yp1=(icol-1)*tailspan/nst*0.5;
     yp2=yp1;
@@ -411,7 +411,7 @@ function ComputeFlow() {
     zp3=zp1;
     zp4=zp2;
    } else {
-    irow=floor((j-1)/ns)+1;
+    irow=Math.trunc((j-1)/ns)+1;
     icol=j-(irow-1)*ns;
     yp1=ys[icol];
     yp2=yp1;
@@ -596,7 +596,7 @@ function ComputeFlow() {
  while (i<numtot+1) {
   if (i>num) {
    j=i-num;
-   irow=Math.floor((j-1)/nst)+1;
+   irow=Math.trunc((j-1)/nst)+1;
    icol=j-(irow-1)*nst;
    yp1=(icol-1)*tailspan/nst*0.5;
    yp2=yp1;
@@ -607,7 +607,7 @@ function ComputeFlow() {
    xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
    xp4=xp3+tailc*0.5;
   } else {
-   irow=Math.floor((i-1)/ns)+1;
+   irow=Math.trunc((i-1)/ns)+1;
    icol=i-(irow-1)*ns;
    yp1=ys[icol];
    yp2=yp1;
@@ -635,7 +635,7 @@ function ComputeFlow() {
   while (j<numtot+1) {
    if (j>num) {
     k=j-num;
-    irow=Math.floor((k-1)/nst)+1;
+    irow=Math.trunc((k-1)/nst)+1;
     icol=k-(irow-1)*nst;
     yp1=(icol-1)*tailspan/nst*0.5;
     yp2=yp1;
@@ -647,7 +647,7 @@ function ComputeFlow() {
     xp4=xp3+tailc*0.5;
 //   echo "<BR>",xp1,Xp2,Xp3,Xp4,yp1,YP2,yp3,YP4
    } else {
-    irow=Math.floor((j-1)/ns)+1;
+    irow=Math.trunc((j-1)/ns)+1;
     icol=j-(irow-1)*ns;
     yp1=ys[icol];
     yp2=yp1;
@@ -800,7 +800,7 @@ function ComputeFlow() {
  while (i<numtot+1) {
   if (i>num) {
    j=i-num;
-   irow=Math.floor((j-1)/nst)+1;
+   irow=Math.trunc((j-1)/nst)+1;
    icol=j-(irow-1)*nst;
    yp1=(icol-1)*tailspan/nst*0.5;
    yp2=yp1;
@@ -811,7 +811,7 @@ function ComputeFlow() {
    xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
    xp4=xp3+tailc*0.5;
  } else {
-   irow=Math.floor((i-1)/ns)+1;
+   irow=Math.trunc((i-1)/ns)+1;
    icol=i-(irow-1)*ns;
    yp1=ys[icol];
    yp2=yp1;
@@ -830,7 +830,7 @@ function ComputeFlow() {
     xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
    }
   }
-  k=Math.floor((rhs1[i]+rhs2[i]-amin)/(amax-amin));
+  k=Math.trunc((rhs1[i]+rhs2[i]-amin)/(amax-amin));
   if (k<0) {
    k=0;
   } else if (k>1) {
