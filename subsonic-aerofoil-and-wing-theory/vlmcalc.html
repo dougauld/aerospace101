@@ -444,8 +444,8 @@ function ComputeFlow() {
    ak=(yp3-yp1)*0.5;
    ah=(x2c-x1c)*0.5;
    coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
-   ar1=Math.sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
-   ar2=Math.sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   ar1=Math.((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
+   ar2=Math.((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
    if (ar1 < 1.0E-6) {
     ar1=1.0E-6;
    }
@@ -487,8 +487,8 @@ function ComputeFlow() {
    ak=(yp3-yp1)*0.5;
    ah=(x2c-x1c)*0.5;
    coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
-   ar1=Math.sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
-   ar2=Math.sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   ar1=Math.((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
+   ar2=Math.((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
    if (ar1 < 1.0E-6) {
     ar1=1.0E-6;
    }
@@ -672,8 +672,8 @@ function ComputeFlow() {
    ak=(yp3-yp1)*0.5;
    ah=(x2c-x1c)*0.5;
    coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
-   ar1=Math.sqrt(Math.abs((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak)));
-   ar2=Math.sqrt(Math.abs((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak)));
+   ar1=Math.(Math.abs((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak)));
+   ar2=Math.(Math.abs((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak)));
    if (ar1<1.0E-6) {
     ar1=1.0E-6;
    }
@@ -715,8 +715,8 @@ function ComputeFlow() {
    ak=(yp3-yp1)*0.5;
    ah=(x2c-x1c)*0.5;
    coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
-   ar1=sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
-   ar2=sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   ar1=Math.sqrt(Math.abs((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak)));
+   ar2=Math.sqrt(Math.abs((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak)));
    if (ar1<1.0E-6) {
     ar1=1.0E-6;
    } 
