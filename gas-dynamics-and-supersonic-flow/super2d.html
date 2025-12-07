@@ -262,20 +262,6 @@ function ComputeFlow() {
     } else {
      alert (" Detached flow Lower Surface "); return;
     } 
-    ix0=xs-20;
-    iy0=halfh;
-    ix1=imgWidth*Math.cos(ang)+ix0;
-    if (k==1) {
-     iy1=iy0-0.5*imgWidth*Math.sin(ang);
-    } else {
-     iy1=iy0+0.5*imgWidth*Math.sin(ang);
-    }
-    ctx.beginPath();
-    ctx.lineWidth=4;
-    ctx.moveTo(ix0,iy0); 
-    ctx.strokeStyle="red";
-    ctx.lineTo(ix1,iy1);
-    ctx.stroke();
    }
   } else {
    d2=Math.abs(d2);
@@ -569,8 +555,8 @@ function ComputeFlow() {
 
 //  begin
 
- cn=cp3-cp1*0.5*Math.cos(delta)-cp2*0.5*Math.cos(delta);
- ct=cp1*0.5*Math.sin(delta)-cp2*0.5*Math.sin(delta);
+ cn=cp3*0.5*Math.cos(delta)-cp1*0.5*Math.cos(delta)+cp4*0.5*Math.cos(delta)-cp2*0.5*Math.cos(delta);
+ ct=cp1*0.5*Math.sin(delta)-cp2*0.5*Math.sin(delta)+cp3*0.5*Math.sin(delta)-cp4*0.5*Math.sin(Delta);;
 
 //  end;
 
