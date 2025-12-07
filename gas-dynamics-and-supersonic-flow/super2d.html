@@ -171,7 +171,7 @@ function ComputeFlow() {
  var ga1 = gamma + 1;
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
- var m,k,msqr,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
+ var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
  var beta,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1;
 // leadng edge
  k=1;
@@ -186,20 +186,19 @@ function ComputeFlow() {
   if (d2>=0.0) {
 // leading edge shock
 // oblique wave
-   msqr = m*m;
    b1 = 10.0/180.0*PI;
    t0 =  d2; 
    a1 = 2.0*Math.cos(b1)/Math.sin(b1);
-   a2 = msqr*Math.sin(b1)*Math.sin(b1) - 1.0;
-   a4 = Math.cos(2.0*b1)*msqr + 2.0;
-   a3 = gamma*msqr+a4;
+   a2 = m*m*Math.sin(b1)*Math.sin(b1) - 1.0;
+   a4 = Math.cos(2.0*b1)*m*m + 2.0;
+   a3 = gamma*m*m+a4;
    t1 = Math.atan(a1*a2/a3);
    e1 = t0-t1;
    b2 = 20.0/180.0*PI;
    a1 = 2.0*Math.cos(b2)/Math.sin(b2);
-   a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
-   a4 = Math.cos(2.0*b2)*msqr + 2.0;
-   a3 = gamma*msqr+a4;
+   a2 = m*m*Math.sin(b2)*Math.sin(b2) - 1.0;
+   a4 = Math.cos(2.0*b2)*m*m + 2.0;
+   a3 = gamma*m*m+a4;
    t2 = Math.atan(a1*a2/a3);
    e2 = t0-t2;
    count = 1;
@@ -213,9 +212,9 @@ function ComputeFlow() {
     b2 = - a2/a1;
     e1 = e2;
     a1 = 2.0*Math.cos(b2)/Math.sin(b2);
-    a2 = msqr*Math.sin(b2)*Math.sin(b2) - 1.0;
-    a4 = Math.cos(2.0*b2)*msqr + 2.0;
-    ra3 = gamma*msqr+a4;
+    a2 = m*m*Math.sin(b2)*Math.sin(b2) - 1.0;
+    a4 = Math.cos(2.0*b2)*m*m + 2.0;
+    ra3 = gamma*m*m+a4;
     t2 = Math.atan(a1*a2/a3);
     e2 = t0-t2;
     if (Math.abs(e2) < 1.0e-6) {
@@ -231,7 +230,7 @@ function ComputeFlow() {
     detached=1;
     p2=1.0;
    } else {
-    p2=p0*(2.8*msqr*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
+    p2=p0*(2.8*m*m*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
    }
 // end oblique
    if (detached==0) {
@@ -266,10 +265,9 @@ function ComputeFlow() {
   } else {
    d2=Math.abs(d2);
 // leading expansion wave
-   ix0=xs; iy0=halfh;
-   p10=Math.pow(1.0+0.2*msqr,pwr);
-//   p10=Math.log(1.0+0.2*msqr)*(-1.4/0.4);
-//   p10=Math.exp(p10);
+   ix0=xs; 
+   iy0=halfh;
+   p10=Math.pow(1.0+0.2*m*m,pwr);
    pma=prandtl(m);
    pma0=pma;
    i=1;
@@ -300,9 +298,7 @@ function ComputeFlow() {
     m=revPrandtl(pma);
     i=i+1;
    }
-   p20=Math.pow(1.0+0.2*msqr,pwr);
-//   p20=log(1.0+0.2*msqr)*(-1.4/0.4);
-//   p20=exp(p20);
+   p20=Math.pow(1.0+0.2*m*m,pwr);
    p2=p20/p10*p1;
    beta=0.0;
   }
@@ -323,9 +319,7 @@ function ComputeFlow() {
    cp3=p1;
    sm3=m;
   }   
-  p10=Math.pow(1.0+0.2*msqr,pwr);
-//  p10=Math.log(1.0+0.2*msqr)*(-1.4/0.4);
-//  p10=Math.exp(p10);
+  p10=Math.pow(1.0+0.2*m*m,pwr);
   pma=prandtl(m);
   pma0=pma;
   i=1;
@@ -358,9 +352,7 @@ function ComputeFlow() {
   }
   pma=pma0+d2;
   m=revPrandtl(pma);
-  p20=Math.pow(1.0+0.2*msqr,pwr);
-// $p20=log(1.0+0.2*msqr)*(-1.4/0.4);
-// $p20=exp($p20);
+  p20=Math.pow(1.0+0.2*m*m,pwr);
   p2=p20/p10*p1;
  // end expand
   if (k==1) {
@@ -417,7 +409,7 @@ function ComputeFlow() {
    if (beta>PI/2.0) {
     beta=-1.0;
    } else {
-    p2=p1*(2.8*msqr*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
+    p2=p1*(2.8*m*m*Math.sin(beta)*Math.sin(beta)-0.4)/(2.4);
    }
 // end oblique
    if (beta>0.0) {
@@ -443,9 +435,7 @@ function ComputeFlow() {
    d2=Math.abs(d2);
 // trailing expansion
    ix0=xs+halfw; iy0=halfh;
-   p10=Math.pow(1.0+0.2*msqr,pwr);
-//  $p10=log(1.0+0.2*msqr)*(-1.4/0.4);
-//  $p10=exp($p10);
+   p10=Math.pow(1.0+0.2*m*m,pwr);
    pma=prandtl(m);
    i=1;
    while (i<12) {
@@ -475,9 +465,7 @@ function ComputeFlow() {
     m=revPrandtl(pma);
     i=i+1;
    }
-   p20=Math.pow(1.0+0.2*msqr,pwr);
-//  $p20=log(1.0+0.2*msqr)*(-1.4/0.4);
-//  $p20=exp($p20);
+   p20=Math.pow(1.0+0.2*m*m,pwr);
    p2=p20/p10*p1;
 // end expand
   }
