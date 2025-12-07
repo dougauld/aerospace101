@@ -769,7 +769,7 @@ function ComputeFlow() {
  cm10=4.0*cm10/area/cmean;
  var dclda=(cl10-cl0)/PI*18.0;
  strngout=strngout + "  CL  = " + dclda.toPrecision(4) + " * &alpha; + " +  cl0.toPrecision(4) + "br />";
- var dcmdA=(cm10-cm0)/PI*18.0;
+ var dcmda=(cm10-cm0)/PI*18.0;
  dcmda=dcmda + dclda*cg/cmean;
  cm1=cm0+cl0*cg/cmean;
  strngout = strngout + "  Cm  = " + dcmda.toPrecision(4) + " * &alpha; + " + cm1.toPrecision(4) + "<br />";
