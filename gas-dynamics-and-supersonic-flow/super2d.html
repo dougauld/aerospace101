@@ -256,7 +256,12 @@ function ComputeFlow() {
     m = a2/(Math.sin(b2-t0));
    } else {
     beta=90.0;    
-    ang=beta+d1;
+    ang=beta;
+    if (k==1) { 
+     alert (" Detached flow Upper Surface "); return;
+    } else {
+     alert (" Detached flow Lower Surface "); return;
+    } 
     ix0=xs-20;
     iy0=halfh;
     ix1=imgWidth*Math.cos(ang)+ix0;
@@ -266,7 +271,7 @@ function ComputeFlow() {
      iy1=iy0+0.5*imgWidth*Math.sin(ang);
     }
     ctx.beginPath();
-    ctx.lineWidth=2;
+    ctx.lineWidth=4;
     ctx.moveTo(ix0,iy0); 
     ctx.strokeStyle="red";
     ctx.lineTo(ix1,iy1);
