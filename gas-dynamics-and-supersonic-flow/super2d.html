@@ -168,14 +168,14 @@ function ComputeFlow() {
  ctx.fill();
  ctx.stroke(); 
 
- var x0=halfw+xs;
- var y0=halfh;
- var x1=halfw+xs+imgWidth*Math.cos(alpha);
- var y1=halfh-imgWidth*Math.sin(alpha);
+ var ix0=halfw+xs;
+ var iy0=halfh;
+ var ix1=halfw+xs+imgWidth*Math.cos(alpha);
+ var iy1=halfh-imgWidth*Math.sin(alpha);
  ctx.beginPath();
  ctx.lineWidth=1;
- ctx.moveTo(x0,y0);
- ctx.lineTo(x1,y1);
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy1);
  ctx.strokeStyle="green";
  ctx.stroke(); 
 
@@ -194,7 +194,7 @@ function ComputeFlow() {
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
  var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0,dt;
- var beta,beta0,betan,p2,ang,sub,ix0,iy0,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
+ var beta,beta0,betan,p2,ang,sub,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
 // leadng edge
  k=1;
  while (k<3) {
