@@ -67,9 +67,9 @@ Similarly if no tail location is input, this component will be dropped from
 the calculation.
 </td></tr>
 <tr><td valign=top>
-<img src="vlm_fig1.jpg"></td><td>
-<table>
-<tr><td colspan="2">
+<img src="vlm_fig1.jpg" width="200"></td>
+<td></td>
+<table><tr><td colspan="2">
 <B>Input Geometry</B><br />
 </td></tr>
 <form>
@@ -227,22 +227,22 @@ function ComputeFlow() {
   alert ("Tail Sweep to Large >75 Deg."); return;
  }
  var strngout;
- strngout="<pre>Span                    = " + span.toPrecision(4) + " (m)<br />";
- strngout=strngout + "Wing Root Chord         = " + tc.toPrecision(4) + " (m)<br />";
- strngout=strngout + "Root Section &alpha;<sub>0</sub>         = " + alf0r.toPrecision(4) +" (deg)<br />";
- strngout=strngout + "Initial LE Sweep        = " + sweep1.toPrecision(4) + " (deg)<br />";
+ strngout="Span = " + span.toPrecision(4) + " (m)<br />";
+ strngout=strngout + "Wing Root Chord = " + tc.toPrecision(4) + " (m)<br />";
+ strngout=strngout + "Root Section &alpha;<sub>0</sub> = " + alf0r.toPrecision(4) +" (deg)<br />";
+ strngout=strngout + "Initial LE Sweep = " + sweep1.toPrecision(4) + " (deg)<br />";
  strngout=strngout + "Semi-Span Section Location = " + secty.toPrecision(4) + " (m)<br />";
- strngout=strngout + "Semi-Span Chord         = " + sc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Semi-Span Chord = " + sc.toPrecision(3) + " (m)<br />";
  strngout=strngout + "Semi-Span Section &alpha;<sub>0</sub>    = " + alf0s.toPrecision(3) + " (deg)<br />";
- strngout=strngout + "Outboard LE Sweep       = " + sweep2.toPrecision(3) + " (deg)<br />";
- strngout=strngout + "Wing Tip Chord          = "  + tc.toPrecision(3) + " (m)<br />";
- strngout=strngout + "Wing Tip &alpha;<sub>0</sub>             = "  + alf0t.toPrecision(3) + " (deg)<br />";
- strngout=strngout + "Tailplane Location      = " + tailx.toPrecision(3) + " (m)<br />";
- strngout=strngout + "Tailplane Span          = " + tailspan.toPrecision(3) + " (m)<br />";
- strngout=strngout + "Tailplane Chord         = " + tailc.toPrecision(3) + " (m)<br />";
- strngout=strngout + "Tailplane Sweep         = " + tailsweep.toPrecision(3) + " (deg)<br />";
- strngout=strngout + "Tailplane Incidence     = " + tailinc.toPrecision(3) + " (deg)<br />";
- strngout=strngout + "A/C center of gravity   = " + cg.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Outboard LE Sweep = " + sweep2.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Wing Tip Chord = "  + tc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Wing Tip &alpha;<sub>0</sub> = "  + alf0t.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Tailplane Location = " + tailx.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Span = " + tailspan.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Chord = " + tailc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Sweep = " + tailsweep.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Tailplane Incidence = " + tailinc.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "A/C center of gravity = " + cg.toPrecision(3) + " (m)<br />";
 //
  var sweep1r=sweep1/180.*PI;
  var sweep2r=sweep2/180.*PI;
@@ -768,7 +768,7 @@ function ComputeFlow() {
  cm0=4.0*cm0/area/cmean;
  cm10=4.0*cm10/area/cmean;
  var dclda=(cl10-cl0)/PI*18.0;
- strngout=strngout + "  CL  = " + dclda.toPrecision(4) + " * &alpha; + " +  cl0.toPrecision(4) + "br />";
+ strngout=strngout + "  CL  = " + dclda.toPrecision(4) + " * &alpha; + " +  cl0.toPrecision(4) + "<br />";
  var dcmda=(cm10-cm0)/PI*18.0;
  dcmda=dcmda + dclda*cg/cmean;
  cm1=cm0+cl0*cg/cmean;
