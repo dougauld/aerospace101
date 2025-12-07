@@ -52,8 +52,8 @@
      <div class="entry-content"> 
 
 <center>
-<table width="100%" border=1 cellpadding=10 bgcolor="#95b1d6">
-<tr><td colspan=2><b>Vortex Lattice Method Calculations</b><br />
+<table border=1 cellpadding=10 bgcolor="#95b1d6">
+<tr><td colspan=3><b>Vortex Lattice Method Calculations</b><br />
 This script calculates the aerodynamic properties of a three-dimensional wing
 in potential flow.  The planform geometry of the wing and a tailplane can be 
 specified for cases of symmetric wing loading about the center-line.
@@ -67,10 +67,11 @@ Similarly if no tail location is input, this component will be dropped from
 the calculation.
 </td></tr>
 <tr><td valign=top>
+<img src="vlm_fig1.jpg"></td><td>
 <table>
-<tr><td colspan=2>
+<tr><td colspan="2">
 <B>Input Geometry</B><br />
-<img src="vlm_fig1.jpg"></td></tr>
+</td></tr>
 <form>
 <tr><td>Wing Span (m)<br>
 <INPUT NAME="span" id="span" TYPE="text" VALUE="11.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
@@ -112,7 +113,6 @@ the calculation.
 </form>
 </td><td valign=top width="60%">
 <center>
-<p id='output'>  </p>
 <fieldset id="results">
 <canvas id="imageout" width="640" height="640" style="border:1px solid grey"></canvas>
 </fieldset>
