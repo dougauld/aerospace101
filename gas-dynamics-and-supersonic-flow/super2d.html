@@ -171,8 +171,8 @@ function ComputeFlow() {
  var ga1 = gamma + 1;
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
- var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0;
- var beta,bet0,betn,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
+ var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0,dt;
+ var beta,beta0,betan,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
 // leadng edge
  k=1;
  while (k<3) {
@@ -430,7 +430,8 @@ function ComputeFlow() {
   } else {
    d2=Math.abs(d2);
 // trailing expansion
-   ix0=xs+halfw; iy0=halfh;
+   ix0=xs+halfw; 
+   iy0=halfh;
    p10=Math.pow(1.0+0.2*m*m,pwr);
    pma=prandtl(m);
    i=1;
@@ -465,7 +466,7 @@ function ComputeFlow() {
    p2=p20/p10*p1;
 // end expand
   }
-  k++;
+  k=k+1;
  }
  var strout;
  //console.log(".cp1.." + cp1 + ".p1.." + p1 + ".M1.." + sm1 )
@@ -473,23 +474,7 @@ function ComputeFlow() {
  strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P2/P<sub>&infin;</sub> = " + cp2.toPrecision(5) + " M2 = " + sm2.toPrecision(5) + "<br />";
  strout=strout + "Bottom : P3/P<sub>&infin;</sub> = " + cp3.toPrecision(5) + " M3 = " + sm3.toPrecision(5) + "<br />";
  strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P4/P<sub>&infin;</sub> = " + cp4.toPrecision(5) + " M4 = " + sm4.toPrecision(5) + "<br />";
- d1=-alpha;
- d2=alpha;
- m=mach0;
- p1=1.0;
- if (d2>=0.0) {
-//  shock(xs,halfh,2);
- } else {
-  d2=-abs(d2);
-// expand(xs,halfh,2);
- }
- d1=0.0;
- d2=-alpha;
- if (d2>0.0) {
-//   shock(xs+halfw,halfh,2);
- } else {
-  d2=Math.abs(d2);
- } 
+ 
  cn=cp3*0.5*Math.cos(delta)-cp1*0.5*Math.cos(delta)+cp4*0.5*Math.cos(delta)-cp2*0.5*Math.cos(delta);
  ct=cp1*0.5*Math.sin(delta)-cp2*0.5*Math.sin(delta)+cp3*0.5*Math.sin(delta)-cp4*0.5*Math.sin(delta);
 
