@@ -125,11 +125,6 @@ function ComputeFlow() {
  delta = delta/180.0*PI;
  alpha = alpha/180.0*PI;
 
-//create graph
- const c = document.getElementById("imageout");
- const ctx = c.getContext("2d");
- ctx.fillStyle = "white";
- ctx.fillRect(0, 0, 600, 450);
  if (badsoln==1 ) {
   return;
  }
@@ -137,47 +132,8 @@ function ComputeFlow() {
  var imgHeight=450;
  var i,k;
  
-// Create a background
- var halfw=imgWidth/2;
- var halfh=imgHeight/2;
- var qw=imgWidth/4;
- var xs=qw/2;
- var dh=qw*Math.tan(delta);
- var pxy = [];
- pxy[0]=xs;
- pxy[1]=halfh;
- pxy[2]=xs+qw;
- pxy[3]=halfh+dh;
- pxy[4]=xs+halfw;
- pxy[5]=halfh;
- pxy[6]=xs+qw;
- pxy[7]=halfh-dh;
- pxy[8]=xs;
- pxy[9]=halfh;
- ctx.beginPath();
- ctx.lineWidth=1;
- ctx.moveTo(pxy[0],pxy[1]);
- i=2;
- while (i<10) {
-  ctx.lineTo(pxy[i],pxy[i+1]);
-  i=i+2;
- }
- ctx.closePath();
- ctx.fillStyle="gray";
- ctx.strokeStyle="black";
- ctx.fill();
- ctx.stroke(); 
-
- var ix0=halfw+xs;
- var iy0=halfh;
- var ix1=halfw+xs+imgWidth*Math.cos(alpha);
- var iy1=halfh-imgWidth*Math.sin(alpha);
- ctx.beginPath();
- ctx.lineWidth=1;
- ctx.moveTo(ix0,iy0);
- ctx.lineTo(ix1,iy1);
- ctx.strokeStyle="green";
- ctx.stroke(); 
+//create graph
+  
 
  var p1=1.0; 
  var cp1=1.0; 
@@ -196,7 +152,26 @@ function ComputeFlow() {
  var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0,dt;
  var beta,beta0,betan,p2,ang,sub,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
 // leadng edge
- k=1;
+const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+ var halfw=imgWidth/2;
+ var halfh=imgHeight/2;
+ var qw=imgWidth/4;
+ var xs=qw/2;
+ var dh=qw*Math.tan(delta);
+ var pxy = [];
+ var ix0=halfw+xs;
+ var iy0=halfh;
+ var ix1=halfw+xs+imgWidth*Math.cos(alpha);
+ var iy1=halfh-imgWidth*Math.sin(alpha);
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy1);
+ ctx.strokeStyle="green";
+ ctx.stroke(); k=1;
  while (k<3) {
   m=mach0;
   if (k==1) {
@@ -504,7 +479,29 @@ function ComputeFlow() {
  cd=(cn*Math.sin(alpha)+ct*Math.cos(alpha))/(0.5*1.4*mach0*mach0);
 
  strout = strout + "<br />&nbsp;<br />Cl = " + cl.toPrecision(5) + " Cd = " + cd.toPrecision(5) + "<br />";
-
+ pxy[0]=xs;
+ pxy[1]=halfh;
+ pxy[2]=xs+qw;
+ pxy[3]=halfh+dh;
+ pxy[4]=xs+halfw;
+ pxy[5]=halfh;
+ pxy[6]=xs+qw;
+ pxy[7]=halfh-dh;
+ pxy[8]=xs;
+ pxy[9]=halfh;
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(pxy[0],pxy[1]);
+ i=2;
+ while (i<10) {
+  ctx.lineTo(pxy[i],pxy[i+1]);
+  i=i+2;
+ }
+ ctx.closePath();
+ ctx.fillStyle="gray";
+ ctx.strokeStyle="black";
+ ctx.fill();
+ ctx.stroke(); 
  document.getElementById("output2").innerHTML = strout; 
  document.getElementById("results").style.visibility="visible";
 }
