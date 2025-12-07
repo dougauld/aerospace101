@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<center>
+<table width="100%" border=1 cellpadding=10 bgcolor="#95b1d6">
+<tr><td colspan=2><b>Vortex Lattice Method Calculations</b><br />
+This script calculates the aerodynamic properties of a three-dimensional wing
+in potential flow.  The planform geometry of the wing and a tailplane can be 
+specified for cases of symmetric wing loading about the center-line.
+Aerofoil section CL properties are assumed to be linear with a d(CL)/d(&alpha;) 
+gradient of 2&pi;. Camber effects can be introduced by setting a zero lift angle, &alpha;<sub>0</sub>, for
+each section. <br />&nbsp;<br />The wing can be divided into two connected zones by including
+a mid-span location "y(section)". If this location is not specified (ie
+y=0.0) then a single
+zone is created from wing root to tip.
+Similarly if no tail location is input, this component will be dropped from
+the calculation.
+</td></tr>
+<tr><td valign=top>
+<table>
+<tr><td colspan=2>
+<B>Input Geometry</B><br />
+<img src="vlm_fig1.jpg"></td></tr>
+<form>
+<tr><td>Wing Span (m)<br>
+<INPUT NAME="span" id="span" TYPE="text" VALUE="11.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
+<td>Root Chord (m)<br>
+<INPUT NAME="rc" id="rc" TYPE="text" VALUE="1.5" SIZE="15" onfocus="HideResults();"  autofocus></td></tr>
+<tr><td>&alpha;<sub>0</sub> Root (deg)<br>
+<INPUT NAME="alf0r" id="alf0r" TYPE="text" VALUE="-1.5" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td>
+<td>Initial Sweep (deg)<br>
+<INPUT NAME="sweep1" id="sweep1" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td></tr>
+<tr><td>Mid-Span Location (m)<br>
+<INPUT NAME="secty" id="secty" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
+<td>Mid-Span Chord (m)<br>
+<INPUT NAME="sc" id="sc" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td></tr>
+<tr><td>&alpha;<sub>0</sub> Mid-Span (deg)<br>
+<INPUT NAME="alf0s" id="alf0s" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td>
+<td>Final Sweep (deg)<br>
+<INPUT NAME="sweep2" id="sweep2" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td></tr>
+<tr><td>Tip Chord (m)<br>
+<INPUT NAME="tc" id="tc" TYPE="text" VALUE="1.5" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td>
+<td>&alpha;<sub>0</sub> Tip (deg)<br>
+<INPUT NAME="alf0t" id="alf0t" TYPE="text" VALUE="-1.5" SIZE="15" onfocus="HideResults();"  autofocus><hr size="5"></td></tr>
+<tr><td>Tail Location(m)<br>
+<INPUT NAME="tailx" id="tailx" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
+<td>Tail Span (m)<br>
+<INPUT NAME="tailspan" id="tailspan" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td></tr>
+<tr><td>Tail Chord (m)<br>
+<INPUT NAME="tailc" id="tailc" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
+<td>Tail Sweep (deg)<br>
+<INPUT NAME="tailsweep" id="tailsweep" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td></tr>
+<tr><td>Tail Incidence (deg)<br>
+<INPUT NAME="tailinc" id="tailinc" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td>
+<td>Aircraft CG location (m)<br>
+<INPUT NAME="cg" id="cg" TYPE="text" VALUE="0.0" SIZE="15" onfocus="HideResults();"  autofocus></td></tr>
+<tr><td colspan="2"><hr>
+<center>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
+</center>
+</td></tr></table>
+</form>
+</td><td valign=top width="60%">
+<center>
+<p id='output'>  </p>
+<fieldset id="results">
+<canvas id="imageout" width="640" height="640" style="border:1px solid grey"></canvas>
+</fieldset>
+<p id='output'>  </p>
+</center>
+</td>
+</tr>
+</table>
+</font>
+</center>
+<p>&nbsp;</p>
+<p align="left"><a href="3d-vortex-lattice-method.html">Return to 3-D Vortex Lattice Method page</a></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}   // --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var zref=[];
+ zref[1]=0.0;
+ zref[2]=0.0097;
+ zref[3]=0.00971;
+ zref[4]=0.0087;
+ zref[5]=0.0066;
+ zref[6]=0.0038;
+ zref[7]=0.0;
+ var PI=3.1415926;
+ var twopi=PI*2.0;
+//inputs
+ var spanfield = document.getElementById("span").value;
+ var span=Number(spanfield);
+ var rcfield = document.getElementById("rc").value;
+ var rc=Number(rcfield);
+ var alf0rfield = document.getElementById("alf0r").value;
+ var alf0r=Number(alf0rfield);
+ var sweep1field = document.getElementById("sweep1").value;
+ var sweep1=Number(sweep1field);
+ var sectyfield = document.getElementById("secty").value;
+ var secty=Number(sectyfield);
+ var scfield = document.getElementById("sc").value;
+ var sc=Number(scfield);
+ var alf0sfield = document.getElementById("alf0s").value;
+ var alf0s=Number(alf0sfield);
+ var sweep2field = document.getElementById("sweep2").value;
+ var sweep2=Number(sweep2field);
+ var tcfield = document.getElementById("tc").value;
+ var tc=Number(tcfield);
+ var alf0tfield = document.getElementById("alf0t").value;
+ var alf0t=Number(alf0tfield);
+ var tailxfield = document.getElementById("tailx").value;
+ var tailx=Number(tailxfield);
+ var tailspanfield = document.getElementById("tailspan").value;
+ var tailspan=Number(tailspanfield);
+ var tailcfield = document.getElementById("tailc").value;
+ var tailc=Number(tailcfield);
+ var tailsweepfield = document.getElementById("tailsweep").value;
+ var tailsweep=Number(tailsweepfield);
+ var tailincfield = document.getElementById("tailinc").value;
+ var tailinc=Number(tailincfield);
+ var cgfield = document.getElementById("cg").value;
+ var cg=Number(cgfield);
+//
+ var semi=span*0.5;
+ var xmax=semi;
+ var ymax=semi;
+ if (secty<0.0 || secty>semi) {
+  alert ("Error in Data Entry for Mid-Span Location"); return;
+ }
+
+ var ns1,ns2;
+ if (secty<span*0.05) {
+  ns1=0;
+  ns2=20;
+  sc=rc;
+  sweep2=sweep1;
+  alf0s=alf0r;
+ } else {
+  ns1=Math.round(20.0*secty/semi);
+  if (ns1<1) {
+   ns1=1;
+  }
+  ns2=20-ns1;
+  if (ns2<0) {
+   ns2=0;
+  }
+ }
+ var nc=6;
+ var nct=2;
+ var nst=6;
+ var ns=ns1+ns2;
+ var num=(ns1+ns2)*nc;
+ var numtail;
+ if (tailx>rc) {
+  numtail=12;
+ } else {
+  numtail=0;
+ }
+ if (sweep1>75) {
+  alert ("Initial Sweep to Large >75 Deg."); return;
+ }
+ if (sweep2>75) {
+  alert ("Outer Sweep to Large >75 Deg."); return;
+ }
+ if (tailsweep>75) {
+  alert ("Tail Sweep to Large >75 Deg."); return;
+ }
+ var strngout;
+ strngout="<pre>Span                    = " + span.toPrecision(4) + " (m)<br />";
+ strngout=strngout + "Wing Root Chord         = " + tc.toPrecision(4) + " (m)<br />";
+ strngout=strngout + "Root Section &alpha;<sub>0</sub>         = " + alf0r.toPrecision(4) +" (deg)<br />";
+ strngout=strngout + "Initial LE Sweep        = " + sweep1.toPrecision(4) + " (deg)<br />";
+ strngout=strngout + "Semi-Span Section Location = " + secty.toPrecision(4) + " (m)<br />";
+ strngout=strngout + "Semi-Span Chord         = " + sc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Semi-Span Section &alpha;<sub>0</sub>    = " + alf0s.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Outboard LE Sweep       = " + sweep2.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Wing Tip Chord          = "  + tc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Wing Tip &alpha;<sub>0</sub>             = "  + alf0t.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Tailplane Location      = " + tailx.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Span          = " + tailspan.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Chord         = " + tailc.toPrecision(3) + " (m)<br />";
+ strngout=strngout + "Tailplane Sweep         = " + tailsweep.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "Tailplane Incidence     = " + tailinc.toPrecision(3) + " (deg)<br />";
+ strngout=strngout + "A/C center of gravity   = " + cg.toPrecision(3) + " (m)<br />";
+//
+ var sweep1r=sweep1/180.*PI;
+ var sweep2r=sweep2/180.*PI;
+ var tailsweepr=tailsweep/180.*PI;
+ var tailincr=tailinc/180.0*PI;
+ var area=(rc+sc)*secty+(sc+tc)*(semi-secty);
+ var aspect=span*span/area;
+ var cmean=(rc+tc)*0.5;
+ var tipd1=secty*Math.sin(sweep1r)/Math.cos(sweep1r);
+ var tipd2=tipd1+(semi-secty)*Math.sin(sweep2r)/Math.cos(sweep2r);
+ var tiptail=tailx+0.5*tailspan*Math.sin(tailsweepr)/Math.cos(tailsweepr);
+ var i;
+ var xr = [];
+ var zr = [];
+ var xs = [];
+ var zs1 = [];
+ var zs2 = [];
+ var xt = [];
+ var zt = [];
+ var amat = [];
+ var nsize = num + numtail + 1; 
+ for (let i = 0; i < nsize; i++) {
+  amat[i] = [];
+  for (let j = 0; j < nsize; j++) {
+    amat[i][j] = j;
+  }
+ } 
+ var rhs1 = [];
+ var rhs2 = [];
+ 
+ i=1;
+ while(i<nc+2) {
+  xr[i]=rc*(i-1)/nc;
+  zr[i]=zref[i]*rc*alf0r/(-0.8);
+  xs[i]=sc*(i-1)/nc + tipd1;
+  zs1[i]=zref[i]*sc*alf0s/(-0.8);
+  zs2[i]=zs1[i];
+  if (secty<0.01*semi) {
+   zs1[i]=zr[i];
+   zs2[i]=zr[i];
+  }
+  xt[i]=tc*(i-1)/nc + tipd2;
+  zt[i]=zref[i]*tc*alf0t/(-0.8);
+  i=i+1;
+ }
+ var zta = []
+ if (tailx>rc) {
+  zta[1]=0.0;
+  zta[2]=-tailc*Math.sin(tailincr)*0.5;
+  zta[3]=zta[2]*2.0;
+ }
+ var k=1;
+ var ys = [];
+ if (ns1>0) {
+  i=1;
+  while (i<ns1+2) {
+   ys[k]=secty*(i-1)/ns1;
+   k=k+1;
+   i=i+1;
+  } 
+  k=k-1;
+ }
+ if (ns2>0) {
+  i=1;
+  while (i<ns2+2) {
+   ys[k]=(semi-secty)*(i-1)/ns2 + secty;
+   k=k+1;
+   i=i+1;
+  }
+ }
+//echo "...Solving..assembly\n";
+//   solver
+ var numtot=num+numtail;
+ var j,irow,icol,yp1,yp2,yp3,yp4,xp1,xp2,xp3,xp4,zp1,zp2,zp3,zp4,x1c,x2c,xc0,yc0,dzdx;
+ var xv,yv,ak,ah,coef1,coef2,coef3,ar1,ar2,tmp;
+ i=1;
+ while(i<numtot+1) {
+  if (i>num) {
+   j=i-num;
+   irow=Math.floor((j-1)/nst)+1;
+   icol=j-(irow-1)*nst;
+   yp1=(icol-1)*tailspan/nst*0.5;
+   yp2=yp1;
+   yp3=icol*tailspan/nst*0.5;
+   yp4=yp3;
+   xp1=(icol-1)*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp2=xp1+tailc*0.5;
+   xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp4=xp3+tailc*0.5;
+   zp1=zta[irow];
+   zp2=zta[irow+1];
+   zp3=zp1;
+   zp4=zp2;
+  } else {
+   irow=floor((i-1)/ns)+1;
+   icol=i-(irow-1)*ns;
+   yp1=ys[icol];
+   yp2=yp1;
+   yp3=ys[icol+1];
+   yp4=yp3;
+   if (yp1<(secty-0.01*semi)) {
+    xp1=xr[irow]+yp1/secty*(xs[irow]-xr[irow]);
+    xp2=xr[irow+1]+yp1/secty*(xs[irow+1]-xr[irow+1]);
+    xp3=xr[irow]+yp3/secty*(xs[irow]-xr[irow]);
+    xp4=xr[irow+1]+yp3/secty*(xs[irow+1]-xr[irow+1]);
+    zp1=zr[irow]+yp1/secty*(zs1[irow]-zr[irow]);
+    zp2=zr[irow+1]+yp1/secty*(zs1[irow+1]-zr[irow+1]);
+    zp3=zr[irow]+yp3/secty*(zs1[irow]-zr[irow]);
+    zp4=zr[irow+1]+yp3/secty*(zs1[irow+1]-zr[irow+1]);
+   } else {
+    xp1=xs[irow]+(yp1-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp2=xs[irow+1]+(yp1-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+    xp3=xs[irow]+(yp3-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+    zp1=zs2[irow]+(yp1-secty)/(semi-secty)*(zt[irow]-zs2[irow]);
+    zp2=zs2[irow+1]+(yp1-secty)/(semi-secty)*(zt[irow+1]-zs2[irow+1]);
+    zp3=zs2[irow]+(yp3-secty)/(semi-secty)*(zt[irow]-zs2[irow]);
+    zp4=zs2[irow+1]+(yp3-secty)/(semi-secty)*(zt[irow+1]-zs2[irow+1]);
+   }
+  }
+  if (xp1>xmax) {
+   xmax=xp1;
+  } 
+  if (xp2>xmax) {
+   xmax=xp2;
+  } 
+  if (xp3>xmax) {
+   xmax=xp3;
+  } 
+  if (xp4>xmax) {
+   xmax=xp4;
+  } 
+  if (yp1>xmax) {
+   ymax=yp1;
+  } 
+  if (yp2>ymax) {
+   ymax=yp2;
+  } 
+  if (yp3>ymax) {
+   ymax=yp3;
+  } 
+  if (yp4>ymax) {
+   ymax=yp4;
+  } 
+  x1c=xp1+0.75*(xp2-xp1);
+  x2c=xp3+0.75*(xp4-xp3);
+  xc0=(x1c+x2c)*0.5;
+  yc0=(yp3+yp1)*0.5;
+  dzdx=0.5*((zp2-zp1)/(xp2-xp1)+(zp4-zp3)/(xp4-xp3));
+  j=1;
+  while (j<numtot+1) {
+   if (j>num) {
+    k=j-num;
+    irow=floor((k-1)/nst)+1;
+    icol=k-(irow-1)*nst;
+    yp1=(icol-1)*tailspan/nst*0.5;
+    yp2=yp1;
+    yp3=icol*tailspan/nst*0.5;
+    yp4=yp3;
+    xp1=(icol-1)*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+    xp2=xp1+tailc*0.5;
+    xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+    xp4=xp3+tailc*0.5;
+    zp1=zta[irow];
+    zp2=zta[irow+1];
+    zp3=zp1;
+    zp4=zp2;
+   } else {
+    irow=floor((j-1)/ns)+1;
+    icol=j-(irow-1)*ns;
+    yp1=ys[icol];
+    yp2=yp1;
+    yp3=ys[icol+1];
+    yp4=yp3;
+    if (yp1<(secty-0.01*semi)) {
+     xp1=xr[irow]+yp1/secty*(xs[irow]-xr[irow]);
+     xp2=xr[irow+1]+yp1/secty*(xs[irow+1]-xr[irow+1]);
+     xp3=xr[irow]+yp3/secty*(xs[irow]-xr[irow]);
+     xp4=xr[irow+1]+yp3/secty*(xs[irow+1]-xr[irow+1]);
+     zp1=zr[irow]+yp1/secty*(zs1[irow]-zr[irow]);
+     zp2=zr[irow+1]+yp1/secty*(zs1[irow+1]-zr[irow+1]);
+     zp3=zr[irow]+yp3/secty*(zs1[irow]-zr[irow]);
+     zp4=zr[irow+1]+yp3/secty*(zs1[irow+1]-zr[irow+1]);
+    } else {
+     xp1=xs[irow]+(yp1-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+     xp2=xs[irow+1]+(yp1-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+     xp3=xs[irow]+(yp3-secty)/(semi-secty)*(xt[ irow]-xs[irow]);
+     xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+     zp1=zs2[irow]+(yp1-secty)/(semi-secty)*(zt[irow]-zs2[irow]);
+     zp2=zs2[irow+1]+(yp1-secty)/(semi-secty)*(zt[irow+1]-zs2[irow+1]);
+     zp3=zs2[irow]+(yp3-secty)/(semi-secty)*(zt[irow]-zs2[irow]);
+     zp4=zs2[irow+1]+(yp3-secty)/(semi-secty)*(zt[irow+1]-zs2[irow+1]);
+    }
+   }
+   x1c=xp1+0.25*(xp2-xp1);
+   x2c=xp3+0.25*(xp4-xp3);
+   xv=xc0-(x1c+x2c)*0.5;
+   yv=yc0-(yp3+yp1)*0.5;
+   ak=(yp3-yp1)*0.5;
+   ah=(x2c-x1c)*0.5;
+   coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
+   ar1=Math.sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
+   ar2=Math.sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   if (ar1 < 1.0E-6) {
+    ar1=1.0E-6;
+   }
+   if (ar2 < 1.0E-6) {
+    ar2=1.0E-6;
+   }
+   coef2=(2.0*ah*(xv+ah)+2.0*ak*(yv+ak))/ar1;
+   coef3=(2.0*ah*(xv-ah)+2.0*ak*(yv-ak))/ar2;
+   if (Math.abs(coef1) < 1.0E-6) {
+    coef1=0.0;
+   } else {
+    coef1=(coef2-coef3)/coef1;
+   }
+   if (Math.abs(yv+ak) < 1.0e-6) {
+    coef2=0.0;
+   } else {
+    coef2=(1.0+(xv+ah)/ar1)/(yv+ak);
+   }
+   if (Math.abs(yv-ak) < 1.0e-6) {
+    coef3=0.0;
+   } else {
+    coef3=(1.0+(xv-ah)/ar2)/(yv-ak);
+   }
+   amat[i][j]=(coef1-coef2+coef3)/4.0/PI;
+   yp1=-yp3;
+   yp3=-yp2;
+   yp2=yp1;
+   yp4=yp3;
+   tmp=xp1;
+   xp1=xp3;
+   xp3=tmp;
+   tmp=xp2;
+   xp2=xp4;
+   xp4=tmp;
+   x1c=xp1+0.25*(xp2-xp1);
+   x2c=xp3+0.25*(xp4-xp3);
+   xv=xc0-(x1c+x2c)*0.5;
+   yv=yc0-(yp3+yp1)*0.5;
+   ak=(yp3-yp1)*0.5;
+   ah=(x2c-x1c)*0.5;
+   coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
+   ar1=Math.sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
+   ar2=Math.sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   if (ar1 < 1.0E-6) {
+    ar1=1.0E-6;
+   }
+   if (ar2 < 1.0E-6) {
+    ar2=1.0E-6;
+   }
+   coef2=(2.0*ah*(xv+ah)+2.0*ak*(yv+ak))/ar1;
+   coef3=(2.0*ah*(xv-ah)+2.0*ak*(yv-ak))/ar2;
+   if (Math.abs(coef1) < 1.0E-6) {
+    coef1=0.0;
+   } else {
+    coef1=(coef2-coef3)/coef1;
+   }
+   coef2=(1.0+(xv+ah)/ar1)/(yv+ak);
+   coef3=(1.0+(xv-ah)/ar2)/(yv-ak);
+   amat[i][j]=amat[i][j]+(coef1-coef2+coef3)/4.0/PI;
+   j=j+1;
+  }
+  rhs1[i]=dzdx;
+  rhs2[i]=dzdx-1.0/18.0*PI;
+  i=i+1;
+ }
+ var errorflag=0;
+//echo " Solving ...decomposition.\n";
+ i=1;
+ var diag,col;
+ while (i<numtot) {
+  diag=amat[i][i];
+  if (abs(diag)<1.0E-6) {
+   errorflag=1;
+  }
+  if (errorflag==0) {
+   j=1;
+   while (j<numtot+1) {
+    amat[i][j]=amat[i][j]/diag;
+    j++;
+   }
+   rhs1[i]=rhs1[i]/diag;
+   rhs2[i]=rhs2[i]/diag;
+   j=i+1;
+   while (j<numtot+1) {
+    col=amat[j][i];
+    k=i;
+    while (k<numtot+1) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k++;
+    }
+    rhs1[j]=rhs1[j]-rhs1[i]*col;
+    rhs2[j]=rhs2[j]-rhs2[i]*col;
+    j=j+1;
+   }
+  }
+  i=i+1;
+ }
+ var sum1,sum2
+//echo " Solving ...Backsubstitution.\n";
+ if (Math.abs(amat[numtot][numtot])<1.0E-6) {
+  errorflag=1;
+ } else {
+  rhs1[numtot]=rhs1[numtot]/amat[numtot][numtot];
+  rhs2[numtot]=rhs2[numtot]/amat[numtot][numtot];
+// echo "rhs 1 ".rhs2[numtot]." \n";
+  i=1;
+  while (i<numtot) {
+   j=numtot-i;
+   sum1=0.0;
+   sum2=0.0;
+   k=j+1;
+   while (k<numtot+1) {
+    sum1=sum1+rhs1[k]*amat[j][k];
+    sum2=sum2+rhs2[k]*amat[j][k];
+    k=k+1;
+   }
+   rhs1[j]=rhs1[j]-sum1;
+   rhs2[j]=rhs2[j]-sum2;
+   i++;
+  }
+ }
+ var iso=1;
+ var cl0=0.0;
+ var cl10=0.0;
+ var cd0=0.0;
+ var cd10=0.0;
+ var cm0=0.0;
+ var cm10=0.0;
+ var amax=rhs1[1]+rhs2[1];
+ var amin=amax;
+ var temp,aw;
+ i=2;
+ while (i<numtot+1) {
+  temp=rhs1[i]+rhs2[i];
+  if (temp>amax) {
+   amax=temp;
+  }
+  if (temp<amin) {
+   amin=temp;
+  }
+  i=i+1;
+ } 
+ if (amax-amin<0.01) {
+  amax=amin+0.01; 
+ } 
+//
+ i=1;
+ while (i<numtot+1) {
+  if (i>num) {
+   j=i-num;
+   irow=Math.floor((j-1)/nst)+1;
+   icol=j-(irow-1)*nst;
+   yp1=(icol-1)*tailspan/nst*0.5;
+   yp2=yp1;
+   yp3=icol*tailspan/nst*0.5;
+   yp4=yp3;
+   xp1=(icol-1)*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp2=xp1+tailc*0.5;
+   xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp4=xp3+tailc*0.5;
+  } else {
+   irow=Math.floor((i-1)/ns)+1;
+   icol=i-(irow-1)*ns;
+   yp1=ys[icol];
+   yp2=yp1;
+   yp3=ys[icol+1];
+   yp4=yp3;
+   aw=yp3-yp1;
+   if (yp1<(secty-0.01*semi)) {
+    xp1=xr[irow]+yp1/secty*(xs[irow]-xr[irow]);
+    xp2=xr[irow+1]+yp1/secty*(xs[irow+1]-xr[irow+1]);
+    xp3=xr[irow]+yp3/secty*(xs[irow]-xr[irow]);
+    xp4=xr[irow+1]+yp3/secty*(xs[irow+1]-xr[irow+1]);
+   } else {
+    xp1=xs[irow]+(yp1-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp2=xs[irow+1]+(yp1-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+    xp3=xs[irow]+(yp3-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+   }
+  }
+  temp=(rhs1[i]+rhs2[i]-amin)/(amax-amin);
+  x1c=xp1+0.25*(xp2-xp1);
+  x2c=xp3+0.25*(xp4-xp3);
+  xc0=(x1c+x2c)*0.5;
+  yc0=(yp3+yp1)*0.5;
+  j=1;
+  while (j<numtot+1) {
+   if (j>num) {
+    k=j-num;
+    irow=Math.floor((k-1)/nst)+1;
+    icol=k-(irow-1)*nst;
+    yp1=(icol-1)*tailspan/nst*0.5;
+    yp2=yp1;
+    yp3=icol*tailspan/nst*0.5;
+    yp4=yp3;
+    xp1=(icol-1)*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+    xp2=xp1+tailc*0.5;
+    xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+    xp4=xp3+tailc*0.5;
+//   echo "<BR>",xp1,Xp2,Xp3,Xp4,yp1,YP2,yp3,YP4
+   } else {
+    irow=Math.floor((j-1)/ns)+1;
+    icol=j-(irow-1)*ns;
+    yp1=ys[icol];
+    yp2=yp1;
+    yp3=ys[icol+1];
+    yp4=yp3;
+    if (yp1<(secty-0.01*semi)) {
+     xp1=xr[irow]+yp1/secty*(xs[irow]-xr[irow]);
+     xp2=xr[irow+1]+yp1/secty*(xs[irow+1]-xr[irow+1]);
+     xp3=xr[irow]+yp3/secty*(xs[irow]-xr[irow]);
+     xp4=xr[irow+1]+yp3/secty*(xs[irow+1]-xr[irow+1]);
+    } else {
+     xp1=xs[irow]+(yp1-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+     xp2=xs[irow+1]+(yp1-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+     xp3=xs[irow]+(yp3-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+     xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+    }
+   }
+   x1c=xp1+0.25*(xp2-xp1);
+   x2c=xp3+0.25*(xp4-xp3);
+   xv=xc0-(x1c+x2c)*0.5;
+   yv=yc0-(yp3+yp1)*0.5;
+   ak=(yp3-yp1)*0.5;
+   ah=(x2c-x1c)*0.5;
+   coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
+   ar1=sqrt(abs((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak)));
+   ar2=sqrt(abs((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak)));
+   if (ar1<1.0E-6) {
+    ar1=1.0E-6;
+   }
+   if (ar2<1.0E-6) {
+    ar2=1.0E-6;
+   } 
+   coef2=(2.0*ah*(xv+ah)+2.0*ak*(yv+ak))/ar1;
+   coef3=(2.0*ah*(xv-ah)+2.0*ak*(yv-ak))/ar2;
+   if (abs(coef1)<1.0E-6) {
+    coef1=1.0E-6;
+   } else {
+    coef1=(coef2-coef3)/coef1;
+   } 
+   if (abs(yv+ak)<1.0e-6) {
+    coef2=0.0;
+   } else {
+    coef2=(1.0+(xv+ah)/ar1)/(yv+ak);
+   }
+   if (abs(yv-ak)<1.0e-6) {
+    coef3=0.0;
+   } else {
+     coef3=(1.0+(xv-ah)/ar2)/(yv-ak);
+   }
+   amat[i][j]=(coef1-coef2+coef3)/4.0/PI;
+   yp1=-yp3;
+   yp3=-yp2;
+   yp2=yp1;
+   yp4=yp3;
+   tmp=xp1;
+   xp1=xp3;
+   xp3=tmp;
+   tmp=xp2;
+   xp2=xp4;
+   xp4=tmp;
+   x1c=xp1+0.25*(xp2-xp1);
+   x2c=xp3+0.25*(xp4-xp3);
+   xv=xc0-(x1c+x2c)*0.5;
+   yv=yc0-(yp3+yp1)*0.5;
+   ak=(yp3-yp1)*0.5;
+   ah=(x2c-x1c)*0.5;
+   coef1=(xv+ah)*(yv-ak)-(xv-ah)*(yv+ak);
+   ar1=sqrt((xv+ah)*(xv+ah)+(yv+ak)*(yv+ak));
+   ar2=sqrt((xv-ah)*(xv-ah)+(yv-ak)*(yv-ak));
+   if (ar1<1.0E-6) {
+    ar1=1.0E-6;
+   } 
+   if (ar2<1.0E-6) {
+    ar2=1.0E-6;
+   }
+   coef2=(2.0*ah*(xv+ah)+2.0*ak*(yv+ak))/ar1;
+   coef3=(2.0*ah*(xv-ah)+2.0*ak*(yv-ak))/ar2;
+   if (abs(coef1)<1.0E-6) {
+    coef1=1.0E-6;
+   } else {
+    coef1=(coef2-coef3)/coef1;
+   }
+   if (abs(yv+ak)<1.0e-6) {
+    coef2=0.0;
+   } else {
+    coef2=(1.0+(xv+ah)/ar1)/(yv+ak);
+   }
+   if (abs(yv-ak)<1.0e-6) {
+    coef3=0.0;
+   } else {
+    coef3=(1.0+(xv-ah)/ar2)/(yv-ak);
+   }
+   amat[i][j]=amat[i][j]+(coef1-coef2+coef3)/4.0/PI;
+   j=j+1;
+  } 
+  sum1=0.0;
+  sum2=0.0;
+  j=1;
+  while (j<numtot+1) {
+   sum1=sum1+amat[i][j]*rhs1[j];
+   sum2=sum2+amat[i][j]*rhs2[j];
+   j=j+1;
+  }
+  amat[i][1]=sum1;
+  amat[i][2]=sum2;
+  cl0=cl0+rhs1[i]*aw;
+  cl10=cl10+rhs2[i]*aw;
+  cd0=cd0-rhs1[i]*aw*sum1;
+  cd10=cd10-rhs2[i]*aw*sum2;
+  cm0=cm0-rhs1[i]*aw*xc0;
+  cm10=cm10-rhs2[i]*aw*xc0;
+  i=i+1;
+ }
+ cl0=4.0*cl0/area;
+ cl10=4.0*cl10/area;
+ cd0=4.0*cd0/area;
+ cd10=4.0*cd10/area;
+ cm0=4.0*cm0/area/cmean;
+ cm10=4.0*cm10/area/cmean;
+ var dclda=(cl10-cl0)/PI*18.0;
+ strngout=strngout + "  CL  = " + dclda.toPrecision(4) + " * &alpha; + " +  cl0.toPrecision(4) + "br />";
+ var dcmdA=(cm10-cm0)/PI*18.0;
+ dcmda=dcmda + dclda*cg/cmean;
+ cm1=cm0+cl0*cg/cmean;
+ strngout = strngout + "  Cm  = " + dcmda.toPrecision(4) + " * &alpha; + " + cm1.toPrecision(4) + "<br />";
+ dclda=(cd10-cd0)/(cl10*cl10-cl0*cl0);
+ strngout = strngout + "  Cd  = " + dclda.toPrecision(4) + " * cl<sup>2</sup>  + " + cd0.toPrecision(4) + " <br />";
+ strngout = strngout + " MAC  =  " + cmean.toPrecision(3) + "<br />";
+ strngour = strngout + " AR   =  " + aspect.toPrecision(4) + "<br />";
+ strngout = strngout + " Area =  " + area.toPrecision(3) + "<br />";
+
+ if (ymax>xmax) {
+  xmax=ymax;
+ }
+ var scale=600/xmax;
+ //set image
+ var imgWidth=640;
+ var imgHeight=640;
+ 
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 640, 640);
+
+  var ivals=[];
+ 
+ // Create a background
+ i=1;
+ while (i<numtot+1) {
+  if (i>num) {
+   j=i-num;
+   irow=Math.floor((j-1)/nst)+1;
+   icol=j-(irow-1)*nst;
+   yp1=(icol-1)*tailspan/nst*0.5;
+   yp2=yp1;
+   yp3=icol*tailspan/nst*0.5;
+   yp4=yp3;
+   xp1=(icol-1)*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp2=xp1+tailc*0.5;
+   xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
+   xp4=xp3+tailc*0.5;
+ } else {
+   irow=Math.floor((i-1)/ns)+1;
+   icol=i-(irow-1)*ns;
+   yp1=ys[icol];
+   yp2=yp1;
+   yp3=ys[icol+1];
+   yp4=yp3;
+   aw=yp3-yp1;
+   if (yp1<(secty-0.01*semi)) {
+    xp1=xr[irow]+yp1/secty*(xs[irow]-xr[irow]);
+    xp2=xr[irow+1]+yp1/secty*(xs[irow+1]-xr[irow+1]);
+    xp3=xr[irow]+yp3/secty*(xs[irow]-xr[irow]);
+    xp4=xr[irow+1]+yp3/secty*(xs[irow+1]-xr[irow+1]);
+   } else {
+    xp1=xs[irow]+(yp1-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp2=xs[irow+1]+(yp1-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+    xp3=xs[irow]+(yp3-secty)/(semi-secty)*(xt[irow]-xs[irow]);
+    xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
+   }
+  }
+  k=Math.floor((rhs1[i]+rhs2[i]-amin)/(amax-amin));
+  if (k<0) {
+   k=0;
+  } elseif (k>1) {
+   k=1; 
+  }
+  ivals[0]=20+Math.round(yp1*scale);
+  ivals[1]=20+Math.round(xp1*scale);
+  ivals[2]=20+Math.round(yp3*scale);
+  ivals[3]=20+Math.round(xp3*scale);
+  ivals[4]=20+Math.round(yp4*scale);
+  ivals[5]=20+Math.round(xp4*scale);
+  ivals[6]=20+Math.round(yp2*scale);
+  ivals[7]=20+Math.round(xp2*scale);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ivals[0],ivals[1]);
+  j=0;
+  while (j<3) {
+   l=j*2+2;
+   ctx.lineTo(ivals[l],ivals[l+1]);
+   j=j+1;
+  } 
+  ctx.closePath();
+  ctx.globalAlpha = k;
+  ctx.fillStyle="red";
+  ctx.fill();
+//  format(' 1.0 ',F5.2,' 0.0 setrgbcolor')
+  i=i+1;
+ }
+// outline
+ var ix0=20;
+ var iy0=20;
+ globalAlpha = 1.0;
+ var ix1=20+Math.round(secty*scale);
+ var iy1=20+Math.round(secty*scale*Math.tan(sweep1));
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy1);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ var ix2=20+Math.round(semi*scale);
+ var iy2=iy1+Math.round((semi-secty)*scale*Math.tan(sweep2)); 
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix1,iy1);
+ ctx.lineTo(ix2,iy2);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ var iy3=iy2+Math.round(tc*scale);
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix2,iy2);
+ ctx.lineTo(ix2,iy3);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ iy2=iy1+Math.round(sc*scale);
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix2,iy3);
+ ctx.lineTo(ix1,iy2);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ var iy4=iy0+Math.round(rc*scale);
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix1,iy2);
+ ctx.lineTo(ix0,iy4);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ if (secty>0.01*semi) {
+  iy1=20+Math.round(secty*scale*Math.tan(sweep1));
+  ix1=20-Math.round(secty*scale);
+ } else {
+  iy1=20+Math.round(semi*scale*Math.tan(sweep1));
+  ix1=20-Math.round(semi*scale);
+ } 
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix0,iy0);
+ ctx.lineTo(ix1,iy1);
+ ctx.strokeStyle="black";
+ ctx.stroke(); 
+ iy2=iy1+Math.round(sc*scale); 
+ ctx.beginPath();
+ ctx.lineWidth=1;
+ ctx.moveTo(ix0,iy4);
+ ctx.lineTo(ix1,iy2);
+ ctx.strokeStyle="black";
+ ctx.stroke();
+ if (tailx>rc) {
+  iy1=iy0+Math.round(tailx*scale);
+  iy2=iy1+Math.round(tailspan/2.0*scale*Math.tan(tailsweep));
+  ix2=ix0+Math.round(tailspan/2.0*scale);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ix0,iy1);
+  ctx.lineTo(ix2,iy2);
+  ctx.strokeStyle="black";
+  ctx.stroke();
+  iy3=iy2+Math.round(tailc*scale);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ix2,iy2);
+  ctx.lineTo(ix2,iy3);
+  ctx.strokeStyle="black";
+  ctx.stroke();
+  iy4=iy1+Math.round(tailc*scale);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ix2,iy3);
+  ctx.lineTo(ix0,iy4);
+  ctx.strokeStyle="black";
+  ctx.stroke(); 
+  ix2=ix0-Math.round(tailspan/2.0*scale);
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ix0,iy1);
+  ctx.lineTo(ix2,iy2);
+  ctx.strokeStyle="black";
+  ctx.stroke(); 
+  ctx.beginPath();
+  ctx.lineWidth=1;
+  ctx.moveTo(ix0,iy4);
+  ctx.lineTo(ix2,iy3);
+  ctx.strokeStyle="black";
+  ctx.stroke(); 
+ }
+ document.getElementById("output").innerHTML = strngout; 
+ document.getElementById("results").style.visibility="visible";
+}
+ 
+</script>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
