@@ -54,7 +54,7 @@
 
 <h3>Flow around a Supersonic Wedge</h3>
 This form shows the flow for a supersonic wedge in two-dimensional flow.  
-<p><table  border="1" cellpadding="10" bgcolor="#95b1d6">
+<p><table>
 <tr><td valign="top" width="25%">
 &nbsp;<br>
 <B>Input Parameters</B><br>
@@ -73,12 +73,13 @@ This form shows the flow for a supersonic wedge in two-dimensional flow.
 <tr><td>
 <br />&nbsp;<br /><center>
 <input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();">
-</form></center></td></tr></table></td><td valign='top'><center>
-<br />
+</form></center>
+</td></tr></table></td><td>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid white"></canvas>
 </fieldset>
 <p id='output2'> </p>      
+</td></tr></table>
 
 <script>
 
@@ -547,10 +548,6 @@ function revPrandtl(pma) {
 }
 
 </script>
-
-</center></td></tr></table></p>
-
-
 
 <p><a href='./index.html'>Back to Supersonic Flow Section</a></p>
 
