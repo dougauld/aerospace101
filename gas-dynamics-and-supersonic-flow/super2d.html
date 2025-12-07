@@ -92,16 +92,35 @@ function ComputeFlow() {
 
  var machfield = document.getElementById("mach0").value;
  var mach0=Number(machfield);
- if (mach0<1.0001) {alert('Subsonic Flow'); return; }
- if (mach0>15.0) {alert('Hypersonic Flow'); return; }
+ var badsoln = 0;
+ if (mach0<1.0001) {
+   alert('Subsonic Flow'); 
+   badsoln=1;
+ }
+ if (mach0>15.0) {
+  alert('Hypersonic Flow');
+  badsoln=1;
+ }
  var deltafield = document.getElementById("delta").value;
  var delta=Number(deltafield);
- if (delta<0.0001) {alert('Wedge Too Thin'); return; }
- if (delta>20.0) {alert('Detached Flow'); return; }
+ if (delta<0.0001) { 
+  alert('Wedge Too Thin'); 
+  badsoln=1;
+ }
+ if (delta>20.0) {
+  alert('Detached Flow'); 
+  badsoln = 1;
+ }
  var alphafield = document.getElementById("alpha").value;
  var alpha=Number(alphafield);
- if (alpha<-10.0) {alert('Extreme Angle'); return; }
- if (delta>10.0) {alert('Extreme Angle'); return; } 
+ if (alpha<-10.0) {
+  alert('Extreme Angle');
+  badsoln = 1;
+ }
+ if (delta>10.0) {
+  alert('Extreme Angle');
+  badsoln = 1;
+ } 
  var PI=3.1415926;
  delta = delta/180.0*PI;
  alpha = alpha/180.0*PI;
@@ -111,6 +130,9 @@ function ComputeFlow() {
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 600, 450);
+ if (badsoln==1 ) {
+  return;
+ }
  var imgWidth=600;
  var imgHeight=450;
  var i,k;
@@ -172,7 +194,7 @@ function ComputeFlow() {
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
  var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0,dt;
- var beta,beta0,betan,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
+ var beta,beta0,betan,p2,ang,sub,ix0,iy0,p10,p20,pma,pma0,th,mu,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
 // leadng edge
  k=1;
  while (k<3) {
@@ -469,7 +491,6 @@ function ComputeFlow() {
   k=k+1;
  }
  var strout;
- //console.log(".cp1.." + cp1 + ".p1.." + p1 + ".M1.." + sm1 )
  strout="Top : P1/P<sub>&infin;</sub> = " + cp1.toPrecision(5) + " M1 = " + sm1.toPrecision(5) + "<br />";
  strout=strout + " &nbsp;&nbsp;&nbsp;&nbsp; P2/P<sub>&infin;</sub> = " + cp2.toPrecision(5) + " M2 = " + sm2.toPrecision(5) + "<br />";
  strout=strout + "Bottom : P3/P<sub>&infin;</sub> = " + cp3.toPrecision(5) + " M3 = " + sm3.toPrecision(5) + "<br />";
