@@ -238,9 +238,9 @@ function ComputeFlow() {
     ang=beta+d1;
     ix0=xs;
     iy0=halfh;
-    ix1=ix0+0.5*imgWidth*Math.cos(ang);
+    ix1=ix0+imgWidth*Math.cos(ang);
     if (k==1) {
-     iy1=iy0-0.5*imgWidth*Math.sin(ang);
+     iy1=iy0-imgWidth*Math.sin(ang);
     } else {
      iy1=iy0+imgWidth*Math.sin(ang);
     }
