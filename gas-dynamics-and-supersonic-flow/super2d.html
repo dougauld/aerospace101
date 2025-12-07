@@ -164,15 +164,15 @@ function ComputeFlow() {
  var cp4=cp1;
  var sm1=1.0; 
  var sm2=sm1; 
- var sM3=sm1; 
+ var sm3=sm1; 
  var sm4=sm1;
  var p0=1.0;
  var gamma=1.4;
  var ga1 = gamma + 1;
  var ga2 = gamma - 1;
  var pwr =(-1.4/0.4);
- var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished;
- var beta,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1;
+ var m,k,d1,d2,b1,b2,t0,t1,t2,a1,a2,a3,a4,e1,e2,count,detached,finished,tem0;
+ var beta,bet0,betn,p2,ang,sub,ix0,iy0,p1,p10,p20,pma,pma0,th,m,ix1,iy1,sb,cb,def,db,tem1,tem2,tem3;
 // leadng edge
  k=1;
  while (k<3) {
@@ -305,17 +305,14 @@ function ComputeFlow() {
   p1=p2;
   d2=2.0*delta;
   d1=delta;
- // expand(xs+qw,halfh-dh,1);
- //procedure expand(ix0,iy0 : integer);
+// expand
   ix0=xs+qw; 
   if (k==1) {
    iy0=halfh-dh;
-//  $Cp1=2.0/1.4/$mach0/$mach0*($p2-1.0);
    cp1=p1;
    sm1=m;
   } else {
    iy0=halfh+dh;
-//  $Cp3=2.0/1.4/$mach0/$mach0*($p2-1.0);
    cp3=p1;
    sm3=m;
   }   
@@ -356,11 +353,9 @@ function ComputeFlow() {
   p2=p20/p10*p1;
  // end expand
   if (k==1) {
-//  $Cp2=2.0/1.4/$mach0/$mach0*($p2-1.0);
    cp2=p2;
    sm2=m;
   } else {
-//  $Cp4=2.0/1.4/$mach0/$mach0*($p2-1.0); 
    cp4=p2;
    sm4=m;
   }
@@ -368,18 +363,19 @@ function ComputeFlow() {
   d2=delta+alpha;
   if (d2>0.0) {
 // trailing shock
-   x0=xs+halfw; y0=halfh;
-   def=d2; mn=m;
+   ix0=xs+halfw; 
+   iy0=halfh;
+   def=d2; 
    beta=45.0/180.*PI;
    finished=0;
    tem0=0.0;
-   beta0=Math.asin(1.0/mn);
+   beta0=Math.asin(1.0/m);
    count=0;
    while (finished==0) {
     sb=Math.sin(beta);
     cb=Math.cos(beta);
-    tem1=2.0*cb/sb*(mn*mn*sb*sb-1.0);
-    tem2=2.4*mn*mn-2.0*(mn*mn*sb*sb-1.0);
+    tem1=2.0*cb/sb*(m*m*sb*sb-1.0);
+    tem2=2.4*m*m-2.0*(m*m*sb*sb-1.0);
     if (tem2<0.0) {
      beta=-1.0;
      finished=1;
@@ -414,16 +410,16 @@ function ComputeFlow() {
 // end oblique
    if (beta>0.0) {
     ang=d1+beta;
-    x1=imgWidth*Math.cos(ang)+x0;
+    ix1=imgWidth*Math.cos(ang)+ix0;
     if (k==1) {
-     y1=y0-imgWidth*Math.sin(ang);
+     iy1=iy0-imgWidth*Math.sin(ang);
     } else {
-     y1=y0+imgWidth*Math.sin(ang);
+     iy1=iy0+imgWidth*Math.sin(ang);
     }
     ctx.beginPath();
     ctx.lineWidth=2;
-    ctx.moveTo(x0,y0);
-    ctx.lineTo(x1,y1);
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix1,iy1);
     ctx.strokeStyle='red';
     ctx.stroke();
     m=mDown(d1,beta);
