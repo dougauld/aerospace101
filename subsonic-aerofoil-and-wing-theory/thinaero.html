@@ -144,20 +144,25 @@ function ComputeFlow() {
  var i,j,k,l,m,n,found;
  strng = flines.textContent;
  i = strng.length;
- console.log(i);
+ //console.log(i);
  j=0;
  k=0;
  words[0] = "";
  found = 0;
  while (j<i) {
-  if (strng[j]==" " || strng[j]=="\x08") {
+  if (strng[j]==" " || strng[j]=="\t") {
    if (found==1) {
     k=k+1;
     found=0;
    } 
   } else {
-   found=1;
-   words[k]=words[k] + strng[j];
+   char1=strng[j];
+   if (char1<'0' || char1>'z') {
+    found=1;
+   } else { 
+    found=1;
+    words[k]=words[k] + char1;
+   } 
   }
   j=j+1;
  } 
