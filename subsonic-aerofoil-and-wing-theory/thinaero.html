@@ -133,12 +133,6 @@ function ComputeFlow() {
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
 
-// uploadedfile = basename( $_FILES['uploadedfile']['name']);
-//$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
-//$ok=0;
-//if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-// $ok=1;
-//} 
  var strng;
  var words = [];
  var i,j,k,l,m,n,found;
@@ -177,7 +171,7 @@ function ComputeFlow() {
  var numpoint = Number(words[8]);
  var num = Math.trunc(numpoint/2) + 1;
  var test=words[16];
- console.log(test);
+ // console.log(test);
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
@@ -206,211 +200,151 @@ function ComputeFlow() {
   } 
   i=i+1;
  }  
- console.log(xl);
+// console.log(xl);
 // Add values to the graph
  var imgWidth=600;
  var imgHeight=450;
-/*
+
 // Create image and define colors
-$image=imagecreate($imgWidth, $imgHeight);
-$colorWhite=imagecolorallocate($image, 255, 255, 255);
-$colorGrey1=imagecolorallocate($image, 220, 220, 220);
-$colorGrey2=imagecolorallocate($image, 120, 120, 120);
-$colorBlue=imagecolorallocate($image, 0, 0, 192);
-$colorRed=imagecolorallocate($image, 240, 0, 0);
-$colorBlack=imagecolorallocate($image,0,0,0);
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
 
-// Create a background
-imagefilledrectangle($image,0,0,$imgWidth,$imgHeight,$colorWhite);
-
-$chord=$xmax-$xmin;
- if ($option=="Model") {
-// draw section outline
- imagesetthickness($image,1);
- $i=0; 
- while ($i<$num) {
-  $x1=150+intval($x[$i]*300.0/$chord);
-  $y1=225-intval($y[$i]*300.0/$chord);
-  if ($i>0) {
-   imageline($image,$x0,$y0,$x1,$y1,$colorBlack);
+ var chord=xmax-xmin;
+ // draw section outline
+ i=num-1;
+ ctx.beginPath();
+ ctx.fillStyle="green";
+ ctx.strokeStyle="black;
+ ctx.lineWidth=1;
+ var x1,y1;
+ while (i>=0) {
+  x1=150+Math.trunc(xu[i]*300.0/chord);
+  y1=225-Math.trunc(yu[i]*300.0/chord);
+  if (i==(num-1)) {
+   ctx.moveTo(x1,y1);
+  } else {
+   ctx.lineTo(x1,y1);
   }
-  $x0=$x1;
-  $y0=$y1;
-  $i++;
+  i=i-1;
  }
- $x1=150;
- $y1=0;
- $x2=550;
- $y2=225;
- imagesetthickness($image,1);
- imageline($image,150,225,550,225,$colorGrey2);
- imagestring($image,5,$x2-20,$y2+10,"X",$colorBlack);
- $x1=0;
- $y1=$imgHeight/2;
- $x2=150+intval($x1);
- $y2=225-intval($y1);
- imageline($image,150,225,$x2,$y2,$colorGrey2);
- imagestring($image,5,$x2+10,$y2+10,"Y",$colorBlack);
+ i=0
+ while (i<num) {
+  x1=150+Math.trunc(xl[i]*300.0/chord);
+  y1=225-Math.trunc(yl[i]*300.0/chord);
+  if (i==(num-1)) {
+   ctx.moveTo(x1,y1);
+  } else {
+   ctx.lineTo(x1,y1);
+  }
+  i=i+1;
+ }
+ ctx.closePath();
+ ctx.stroke();
+ ctx.fill();
+ x1=150;
+ y1=0;
+ var x2=550;
+ var y2=225;
+ ctx.beginPath();
+ ctx.strokeStyle="grey;
+ ctx.moveTo(150,225);
+ ctx.lineTo(550,225);
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fillStyle = "black";
+ ctx.fillText("X",530,235);
+ x1=0;
+ y1=imgHeight/2;
+ x2=150;
+ y2=225-y1;
+ ctx.beginPath();
+ ctx.strokeStyle="grey;
+ ctx.moveTo(150,225);
+ ctx.lineTo(x2,y2);
+ ctx.stroke();
+ ctx.fillStyle = "black";
+ ctx.fillText("Y",160,y2+10);
+
+ i=0;
+ var xc = [];
+ var yc = [];
+ ctx.lineWidth=2;
+ ctx.strokeStyle="red";
+ while (i<num) {
+  xc[i]=(xu[i]+xl[i])*0.5;
+  yc[i]=(yu[i]+yl[i])*0.5;
+  x1=150+Math.trunc(xc[i]*300.0/chord);
+  y1=225-Math.trunc(yc[i]*300.0/chord);
+  if (i==0) {
+   ctx.moveTo(x1,y1);
+  } else {
+   ctx.lineTo(x1,y1);
+  } 
+  i=i+1;
+ }
+ j=0;
+ var sum =[];
+ while (j<10) {
+  sum[j]=0;
+  j=j+1;
+ } 
+ i=1;
+ var PI=3.1415926;
+ var x0,y0,dydx,cs,th0,th1,an;
+ while (i<num) {
+  x0=xc[i-1];
+  y0=yc[i-1];
+  x1=xc[i];
+  y1=yc[i];
+  if (Math.abs(x0-x1)<1.0E-10) {
+   dydx=0.0;
+  } else {
+   dydx=(y1-y0)/(x1-x0);
+  }
+  cs=(1.0-2.0*x0/chord);
+  if (cs<(-0.999999)) {
+   cs=-0.999999;
+  } 
+  if  (cs>0.999999) {
+   cs=0.999999;
+  }
+  th0=Math.acos(cs);
+  cs=(1.0-2.0*x1/chord);
+  if (cs<-0.999999) {
+   cs=-0.999999;
+  } 
+  if (cs>0.999999) {
+   cs=0.999999;
+  }
+  th1=Math.acos(cs);
+  sum[0]=sum[0]+dydx*(th1-th0);
+  j=1;
+  while (j<10) {
+   an=j;
+   sum[j]=sum[j]+dydx/an*(Math.sin(an*th1)-Math.sin(an*th0));
+   j=j+1;
+  }
+  i=i+1; 
+ }
+ j=1;
+ while (j<10) {
+  sum[j]=-sum[j]/PI*2.0;
+  j=j+1;
+ } 
+ var alf=-10.0/180.0*PI;
+ var cl0=2.0*PI*(alf-sum[0]/PI-sum[1]/2.0);
+ var cl00=2.0*PI*(-sum[0]/PI-sum[1]/2.0);
+ alf=20.0/180.*PI;
+ var cl1=2.0*PI*(alf-sum[0]/PI-sum[1]/2.0);
+ var cm=PI/4.0*(sum[1]-sum[2]);
+ y0=50.0;
+ i=0;
+ var coeff="Cl = 2*&pi;&alpha; + cl00.toPrecision(4) + " <br />";
+ coeff=coeff + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />"
  
- $numhalf=$num/2;
- $i=0;
- imagesetthickness($image,2);
- while ($i<$numhalf) {
-  $j=($num-$i-1);
-  $xc=($x[$i]+$x[$j])*0.5;
-  $yc=($y[$i]+$y[$j])*0.5;
-  $x1=150+intval($xc*300.0/$chord);
-  $y1=225-intval($yc*300.0/$chord);
-  if ($i>0) {
-   imageline($image,$x0,$y0,$x1,$y1,$colorRed);
-  }
-  $x0=$x1;
-  $y0=$y1;
-  $i++;
- }
-} else {
- $numhalf=$num/2;
- $i=0;
- while ($i<$numhalf) {
-  $j=($num-$i-1);
-  $k=$numhalf-$i;
-  $xc[$k]=($x[$i]+$x[$j])*0.5;
-  $yc[$k]=($y[$i]+$y[$j])*0.5;
-  $i++;
- }
- $xc[0]=$x[$i];
- $yc[0]=$y[$i];
- $chord=$xc[$numhalf]-$xc[0];
- $j=0;
- while ($j<10) {
-  $sum[$j]=0;
-  $j++;
- } 
- $i=1;
- while ($i<$numhalf+1) {
-  $x0=$xc[$i-1];
-  $y0=$yc[$i-1];
-  $x1=$xc[$i];
-  $y1=$yc[$i];
-  if (abs($x0-$x1)<1.0E-10) {
-   $dydx=0.0;
-  } else {
-   $dydx=($y1-$y0)/($x1-$x0);
-  }
-  $cs=(1.0-2.0*$x0/$chord);
-  if ($cs<(-0.999999)) {
-   $cs=-0.999999;
-  } 
-  if  ($cs>0.999999) {
-   $cs=0.999999;
-  }
-  $th0=acos($cs);
-  $cs=(1.0-2.0*$x1/$chord);
-  if ($cs<-0.999999) {
-   $cs=-0.999999;
-  } 
-  if ($cs>0.999999) {
-   $cs=0.999999;
-  }
-  $th1=acos($cs);
-  $sum[0]=$sum[0]+$dydx*($th1-$th0);
-  $j=1;
-  while ($j<10) {
-   $an=$j;
-   $sum[$j]=$sum[$j]+$dydx/$an*(sin($an*$th1)-sin($an*$th0));
-   $j++;
-  }
-  $i++; 
- }
- $j=1;
- $pi=3.1415026;
- while ($j<10) {
-  $sum[$j]=-$sum[$j]/$pi*2.0;
-  $j++;
- } 
- $alf=-10.0/180.0*$pi;
- $cl0=2.0*$pi*($alf-$sum[0]/$pi-$sum[1]/2.0);
- $cl00=2.0*$pi*(-$sum[0]/$pi-$sum[1]/2.0);
- $alf=20.0/180.*$pi;
- $cl1=2.0*$pi*($alf-$sum[0]/$pi-$sum[1]/2.0);
- $cm=$pi/4.0*($sum[1]-$sum[2]);
- $y0=50.0;
- $i=0;
- while ($i<8) {
-  if ($i==5) {
-   imageline($image,100,$y0,500,$y0,$colorBlack);
-  } else {
-   imageline($image,100,$y0,500,$y0,$colorGrey1);
-  }
-  $y0=$y0+50;
-  $i++;
- }  
- $x0=100.0;
- $i=0;
- while ($i<9) {
-  if ($i==4) {
-   imageline($image,$x0,50,$x0,400,$colorBlack);
-  } else {
-   imageline($image,$x0,50,$x0,400,$colorGrey1);
-  }
-  $x0=$x0+50;
-  $i++;
- }  
- $x0=-10.0;
- $x1=20.0;
- if ($cl0<-1.0) {
-  $a=($cl1-$cl0)/($x1-$x0);
-  $b=$cl0-$x0*$a;
-  $cl0=-1.0;
-  $x0=($cl0-$b)/$a;
- }
- if ($cl1>2.5) {
-  $a=($cl1-$cl0)/($x1-$x0);
-  $b=$cl0-$x0*$a;
-  $cl1=2.5;
-  $x1=($cl1-$b)/$a;
- }
- $x0=300.0+$x0*400.0/40.0;
- $cl0=300.0-$cl0*100.0;
- $x1=300.0+$x1*400.0/40.0;
- $cl1=300.0-$cl1*100.0;
- imagesetthickness($image,2);
- imageline($image,$x0,$cl0,$x1,$cl1,$colorRed);
- $cm0=300.0-($pi/4.0*($sum[1]-$sum[2]))/0.1*50.0;
- imageline($image,100,$cm0,500,$cm0,$colorBlue);
- $coeff="Cl = 2*pi*alfa + ".number_format($cl00,2);
- imagestring($image,4,250,10,$coeff,$colorRed);
- $coeff="Cm(1/4c) = ".number_format($cm,4);
- imagestring($image,4,250,30,$coeff,$colorBlue);
- imagestring($image,2,450,300,"alfa (deg)",$colorBlack);
- imagestring($image,3,100,285,"-20",$colorBlack);
- imagestring($image,3,200,285,"-10",$colorBlack);
- imagestring($image,3,305,285,"0",$colorBlack);
- imagestring($image,3,400,285,"10",$colorBlack);
- imagestring($image,3,500,285,"20",$colorBlack);
- imagestring($image,2,325,50,"Cl",$colorBlack);
- imagestring($image,3,305,400,"-1",$colorBlack);
- imagestring($image,3,305,350,"-0.5",$colorBlack);
- imagestring($image,3,305,250,"0.5",$colorBlack);
- imagestring($image,3,305,200,"1",$colorBlack);
- imagestring($image,3,305,150,"1.5",$colorBlack);
- imagestring($image,3,305,100,"2.0",$colorBlack);
- imagestring($image,2,125,50,"Cm(1/4c)",$colorBlack);
- imagestring($image,3,105,400,"-0.2",$colorBlack);
- imagestring($image,3,105,350,"-0.1",$colorBlack);
- imagestring($image,3,105,250,"0.1",$colorBlack);
- imagestring($image,3,105,200,"0.2",$colorBlack);
- imagestring($image,3,105,150,"0.3",$colorBlack);
- imagestring($image,3,105,100,"0.4",$colorBlack);
-}
-// Output graph and clear image from memory
-header("Content-type: image/png");
-imagepng($image);
-imagedestroy($image);
-
-?>
-
-*/
+ flines.textContent=coeff;
  document.getElementById("results").style.visibility="visible";
 }
  
