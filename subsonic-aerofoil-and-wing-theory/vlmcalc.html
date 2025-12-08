@@ -524,7 +524,7 @@ function ComputeFlow() {
    j=1;
    while (j<numtot+1) {
     amat[i][j]=amat[i][j]/diag;
-    j++;
+    j=j+1;
    }
    rhs1[i]=rhs1[i]/diag;
    rhs2[i]=rhs2[i]/diag;
@@ -534,7 +534,7 @@ function ComputeFlow() {
     k=i;
     while (k<numtot+1) {
      amat[j][k]=amat[j][k]-amat[i][k]*col;
-     k++;
+     k=k+1;
     }
     rhs1[j]=rhs1[j]-rhs1[i]*col;
     rhs2[j]=rhs2[j]-rhs2[i]*col;
@@ -564,7 +564,7 @@ function ComputeFlow() {
    }
    rhs1[j]=rhs1[j]-sum1;
    rhs2[j]=rhs2[j]-sum2;
-   i++;
+   i=i+1;
   }
  }
  var iso=1;
@@ -793,9 +793,8 @@ function ComputeFlow() {
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 640, 640);
 
-  var ivals=[];
- 
- // Create a background
+ var ivals=[];
+ var m,l;
  i=1;
  while (i<numtot+1) {
   if (i>num) {
@@ -810,7 +809,7 @@ function ComputeFlow() {
    xp2=xp1+tailc*0.5;
    xp3=icol*(tiptail-tailx)/nst+tailx+(irow-1)*tailc*0.5;
    xp4=xp3+tailc*0.5;
- } else {
+  } else {
    irow=Math.trunc((i-1)/ns)+1;
    icol=i-(irow-1)*ns;
    yp1=ys[icol];
@@ -847,23 +846,22 @@ function ComputeFlow() {
   ctx.beginPath();
   ctx.lineWidth=1;
   ctx.moveTo(ivals[0],ivals[1]);
-  j=0;
-  while (j<3) {
-   l=j*2+2;
+  m=0;
+  while (m<3) {
+   l=m*2+2;
    ctx.lineTo(ivals[l],ivals[l+1]);
-   j=j+1;
+   m=m+1;
   } 
   ctx.closePath();
   ctx.globalAlpha = k;
   ctx.fillStyle="red";
   ctx.fill();
-//  format(' 1.0 ',F5.2,' 0.0 setrgbcolor')
   i=i+1;
  }
 // outline
  var ix0=20;
  var iy0=20;
- globalAlpha = 1.0;
+ ctx.globalAlpha = 1.0;
  var ix1=20+Math.round(secty*scale);
  var iy1=20+Math.round(secty*scale*Math.tan(sweep1));
  ctx.beginPath();
