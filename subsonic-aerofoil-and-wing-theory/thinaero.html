@@ -68,7 +68,7 @@ server to start the analysis process.
 <tr><td>Aerofoil Section Data File<br>
 <form>
 <input type='hidden' name='max_file_size' id='max_file_size' value='1000000' />
-<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus><br />
+<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus><br /> 
 </td></tr>
 </table><br>
 <hr>
@@ -102,28 +102,39 @@ function ComputeFlow() {
 
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
+ const flines = document.getElementById("output");
 
- var fileInput = document.getElementById('upfile');
+ const fileInput = document.getElementById("upfile");
+ 
+ fileInput.addEventListener("change", handleFileSelection);
 
- fileInput.addEventListener('change', function(e) {
-    var file = fileInput.files[0];
-    var textType = /text.*/;
-    
-    if (file.type.match(textType)) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-            var flines = reader.result;
-            //Here the content has been read successfuly
-            //console.log(content);
-        }
-        
-        reader.readAsText(file);	
-    } else {
-        alert ("File not supported!"); return;
-    }
- });
+ function handleFileSelection(event) {
 
+  const file = event.target.files[0];
+  flines.textContent = ""; // Clear previous file content
+
+  // Validate file existence and type
+  if (!file) {
+    alert("No file selected. Please choose a file.");
+    return;
+  }
+
+  if (!file.type.startsWith("text")) {
+    alert("Unsupported file type. Please select a text file.");
+    return;
+  }
+
+  // Read the file
+  const reader = new FileReader();
+  reader.onload = () => {
+   flines.textContent = reader.result;
+  };
+  reader.onerror = () => {
+    alert ("Error reading the file. Please try again.");
+  };
+  reader.readAsText(file);
+ }  
+  
 
 // uploadedfile = basename( $_FILES['uploadedfile']['name']);
 //$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
@@ -131,8 +142,6 @@ function ComputeFlow() {
 //if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 // $ok=1;
 //} 
- 
- console.log(flines);
  
 /*
  var i=0;
@@ -359,6 +368,7 @@ imagedestroy($image);
 ?>
 
 */
+ document.getElementById("results").style.visibility="visible";
 }
  
 </script>
