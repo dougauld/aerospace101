@@ -172,32 +172,44 @@ function ComputeFlow() {
   }
   j=j+1;
  } 
- console.log(words);
-/*
- var i=0;
- while ($i<$num) {
-  fscanf($file1, " %f  %f ",$x0,$y0);
-  $x[$i]=$x0;
-  $y[$i]=$y0;
-  if ($i==0) {
-   $xmax=$x0;
-   $xmin=$x0;
+ // console.log(words);
+ i=0;
+ var numpoint = Number(words[8]);
+ var num = Math.trunc(numpoint/4) + 1;
+ var test=Number(words[16]);
+ if (test!='Y') {
+   alert('Corrupt Data File'); return;
+ } 
+ j=17;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ var xmax,xmin;
+ while (i<num) {
+  xu[i]=Number(words[j]);
+  yu[i]=Number(words[j+1];
+  xl[i]=Number(words[j+2]);
+  yl[i]=Number(words[j+3];
+  j=j+4;
+  if (i==0) {
+   xmax=xu[i];
+   xmin=xu[i];
   } else {
-   if ($x[$i]>$xmax) {
-    $xmax=$x[$i];
+   if (xu[i]>xmax) {
+    xmax=xu[i];
    } 
-   if ($x[$i]<$xmin) {
-    $xmin=$x[$i];
+   if (xu[i]<xmin) {
+    xmin=xu[i];
    }
   } 
   $i++;
  }  
- fclose($file1);
-
+ console.log(xl);
 // Add values to the graph
-$imgWidth=600;
-$imgHeight=450;
-
+ var imgWidth=600;
+ var imgHeight=450;
+/*
 // Create image and define colors
 $image=imagecreate($imgWidth, $imgHeight);
 $colorWhite=imagecolorallocate($image, 255, 255, 255);
