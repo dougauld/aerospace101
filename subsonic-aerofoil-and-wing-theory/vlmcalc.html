@@ -130,8 +130,31 @@ the calculation.
 
 function HideResults() {
 //  alert("Hiding results");
+ const canvas = document.getElementById('imageout');
+ const ctx = canvas.getContext('2d');
+
+// Create a new Image object
+ const img = new Image();
+
+// Set the source of the image (replace 'path/to/your/image.jpg' with the actual path)
+ img.src = 'vlm_fig1.jpg';
+
+// Ensure the image is fully loaded before drawing it to avoid errors
+ img.onload = () => {
+    // Draw the image onto the canvas
+    // The drawImage method can take various arguments for positioning and scaling:
+    // ctx.drawImage(image, dx, dy); // Draw at (dx, dy) with original size
+    // ctx.drawImage(image, dx, dy, dWidth, dHeight); // Draw at (dx, dy) with specified width and height
+    // ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight); // Crop and draw
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height); // Example: Draw to fill the entire canvas
+ };
+
+// Handle potential errors if the image fails to load
+ img.onerror = () => {
+    console.error('Error loading image.');
+ };
   document.getElementById("results").style.visibility="hidden";
-  document.getElementById("output").innerHTML = " <img src='vlm_fig1.jpg'> ";
+  document.getElementById("output").innerHTML = "  ";
 }   // --------------------------------------------- End of function HideResults
 
 function ComputeFlow() {
