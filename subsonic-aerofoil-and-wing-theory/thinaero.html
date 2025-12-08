@@ -56,7 +56,7 @@
 <tr><td colspan=2>
 This form calculates the lift and pitching moment properties of a two dimensional
 aerofoil section using the mean line, thin aerofoil theory.  The section data can be
-loaded from file (see <a href="nacacalc.php">nacacalc.php</a> for required format).<br />
+loaded from file (see <a href="nacacalc.html">nacacalc.html</a> for required format).<br />
 &nbsp;<br />
 In order to analyse a section you need to first select an Aerofoil Section Data File that you have 
 saved on your computer. Use "Browse..." to find and select a file.  Then Click "Upload" to send the file to the
@@ -76,6 +76,10 @@ server to start the analysis process.
 <br />&nbsp;<br />
 </form>
 </td><td valign=top width="60%" bgcolor="#FFFFFF">
+<fieldset id="results">
+<canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
+</fieldset>
+<p id='output'> </p>
 </td>
 </tr>
 </table>
@@ -134,7 +138,6 @@ function ComputeFlow() {
 // $ok=1;
 //} 
            
- var flines = [];
  let flines = content.split("\x0a");
  
  console.log(flines);
