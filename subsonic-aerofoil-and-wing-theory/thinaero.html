@@ -118,7 +118,7 @@ function handleFileSelection(event) {
  // Read the file
  const reader = new FileReader();
  reader.onload = () => {
-  flines = reader.result;
+  flines.textContent = reader.result;
   console.log(flines);
  };
  reader.onerror = () => {
