@@ -95,7 +95,8 @@ server to start the analysis process.
 <p><br /></p>
 
 <script>
- const flines = document.getElementById("output");
+// const flines = document.getElementById("output");
+ const flines;
  const fileInput = document.getElementById("upfile");
  fileInput.addEventListener("change", handleFileSelection);
  
@@ -118,7 +119,8 @@ function handleFileSelection(event) {
  // Read the file
  const reader = new FileReader();
  reader.onload = () => {
-  flines.textContent = reader.result;
+  //flines.textContent = reader.result;
+  flines = reader.result;
   //console.log(flines);
  };
  reader.onerror = () => {
