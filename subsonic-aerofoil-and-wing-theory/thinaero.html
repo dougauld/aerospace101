@@ -126,7 +126,8 @@ function ComputeFlow() {
   // Read the file
   const reader = new FileReader();
   reader.onload = () => {
-   flines.textContent = reader.result;
+   flines = reader.result;
+   console.log(flines);
   };
   reader.onerror = () => {
     alert ("Error reading the file. Please try again.");
