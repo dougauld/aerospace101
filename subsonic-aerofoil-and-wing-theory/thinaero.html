@@ -113,7 +113,7 @@ function ComputeFlow() {
         var reader = new FileReader();
         
         reader.onload = function(e) {
-            var content = reader.result;
+            var flines = reader.result;
             //Here the content has been read successfuly
             //console.log(content);
         }
@@ -131,8 +131,6 @@ function ComputeFlow() {
 //if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 // $ok=1;
 //} 
-           
- var flines = content;
  
  console.log(flines);
  
