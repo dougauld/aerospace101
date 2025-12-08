@@ -79,7 +79,7 @@ server to start the analysis process.
 <fieldset id="results">
 <canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
 </fieldset>
-<p id='output'> </p>
+<pre id='output'> </pre>
 </td>
 </tr>
 </table>
@@ -103,7 +103,6 @@ function ComputeFlow() {
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
  const flines = document.getElementById("output");
-
  const fileInput = document.getElementById("upfile");
  
  fileInput.addEventListener("change", handleFileSelection);
@@ -111,7 +110,7 @@ function ComputeFlow() {
  function handleFileSelection(event) {
 
   const file = event.target.files[0];
-  flines.textContent = ""; // Clear previous file content
+  flines.textContent = "....."; // Clear previous file content
 
   // Validate file existence and type
   if (!file) {
