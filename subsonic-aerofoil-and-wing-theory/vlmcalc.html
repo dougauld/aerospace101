@@ -861,7 +861,7 @@ function ComputeFlow() {
  var iy0=20;
  ctx.globalAlpha = 1.0;
  var ix1=20+Math.round(secty*scale);
- var iy1=20+Math.round(secty*scale*Math.tan(sweep1));
+ var iy1=20+Math.round(secty*scale*Math.tan(sweep1r));
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(ix0,iy0);
@@ -869,7 +869,7 @@ function ComputeFlow() {
  ctx.strokeStyle="black";
  ctx.stroke();
  var ix2=20+Math.round(semi*scale);
- var iy2=iy1+Math.round((semi-secty)*scale*Math.tan(sweep2)); 
+ var iy2=iy1+Math.round((semi-secty)*scale*Math.tan(sweep2r)); 
  ctx.beginPath();
  ctx.lineWidth=1;
  ctx.moveTo(ix1,iy1);
@@ -898,10 +898,10 @@ function ComputeFlow() {
  ctx.strokeStyle="black";
  ctx.stroke();
  if (secty>0.01*semi) {
-  iy1=20+Math.round(secty*scale*Math.tan(sweep1));
+  iy1=20+Math.round(secty*scale*Math.tan(sweep1r));
   ix1=20-Math.round(secty*scale);
  } else {
-  iy1=20+Math.round(semi*scale*Math.tan(sweep1));
+  iy1=20+Math.round(semi*scale*Math.tan(sweep1r));
   ix1=20-Math.round(semi*scale);
  } 
  ctx.beginPath();
