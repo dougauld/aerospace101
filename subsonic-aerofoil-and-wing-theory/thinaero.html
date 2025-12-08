@@ -102,14 +102,8 @@ function ComputeFlow() {
 
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
-// Where the file is going to be placed 
-//$target_path = "../tmp/";
-
-// Add the original filename to our target path.  
-//Result is "uploads/filename.extension"
 
  var fileInput = document.getElementById('upfile');
-//var fileDisplayArea = document.getElementById('fileDisplayArea');
 
  fileInput.addEventListener('change', function(e) {
     var file = fileInput.files[0];
@@ -121,7 +115,7 @@ function ComputeFlow() {
         reader.onload = function(e) {
             var content = reader.result;
             //Here the content has been read successfuly
-            console.log(content);
+            //console.log(content);
         }
         
         reader.readAsText(file);	
@@ -138,7 +132,7 @@ function ComputeFlow() {
 // $ok=1;
 //} 
            
- let flines = content.split("\x0a");
+ var flines = content;
  
  console.log(flines);
  
