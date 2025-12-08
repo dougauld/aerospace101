@@ -827,7 +827,7 @@ function ComputeFlow() {
     xp4=xs[irow+1]+(yp3-secty)/(semi-secty)*(xt[irow+1]-xs[irow+1]);
    }
   }
-  k=Math.trunc((rhs1[i]+rhs2[i]-amin)/(amax-amin));
+  k=(rhs1[i]+rhs2[i]-amin)/(amax-amin);
   if (k<0) {
    k=0;
   } else if (k>1) {
