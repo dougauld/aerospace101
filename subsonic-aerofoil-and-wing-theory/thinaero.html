@@ -143,6 +143,9 @@ function ComputeFlow() {
  var i,j,k,l,m,n,found;
  strng = flines.textContent;
  i = strng.length;
+ if (i>maxsize) {
+  alert ('File Size too Large'); return;
+ }
  //console.log(i);
  j=0;
  k=0;
