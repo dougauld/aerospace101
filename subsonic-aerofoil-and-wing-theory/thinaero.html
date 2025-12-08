@@ -80,6 +80,7 @@ server to start the analysis process.
 <canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
 <p id='output'> </p>
 </fieldset>
+<p id='output2'> </p> 
 </td>
 </tr>
 </table>
@@ -126,6 +127,7 @@ function handleFileSelection(event) {
   
 function HideResults() {
   document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output2").innerHTML=" "
 }
 
 function ComputeFlow() {
@@ -346,7 +348,8 @@ function ComputeFlow() {
  var coeff="Cl = 2*&pi;&alpha; " + cl00.toPrecision(4) + " <br />";
  coeff=coeff + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />"
  
- flines.textContent=coeff;
+ flines.textContent=" ";
+ document.getElementById("output2").innerHTML = coeff;
  document.getElementById("results").style.visibility="visible";
 }
  
