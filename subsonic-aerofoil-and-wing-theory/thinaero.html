@@ -150,14 +150,14 @@ function ComputeFlow() {
  words[0] = "";
  found = 0;
  while (j<i) {
-  if (strng[j]==" " || strng[j]=="\t") {
+  char1 = strng[j];
+  if (char1==" " || char1=="\t" || char1=="\n") {
    if (found==1) {
     k=k+1;
     found=0;
     words[k]="";
    } 
   } else {
-   char1=strng[j];
    if (char1<'0' || char1>'z') {
     found=1;
    } else { 
