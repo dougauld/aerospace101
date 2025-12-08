@@ -68,9 +68,7 @@ server to start the analysis process.
 <tr><td>Aerofoil Section Data File<br>
 <form>
 <input type='hidden' name='max_file_size' id='max_file_size' value='1000000' />
-<input name='upfile' id='upfile' type='file'> 
- <!-- onfocus="HideResults();"  autofocus><br /> 
- -->
+<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus><br /> 
 </td></tr>
 </table><br>
 <hr>
@@ -80,8 +78,8 @@ server to start the analysis process.
 </td><td valign=top width="60%" bgcolor="#FFFFFF">
 <fieldset id="results">
 <canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
-</fieldset>
 <p id='output'> </p>
+</fieldset>
 </td>
 </tr>
 </table>
@@ -95,8 +93,7 @@ server to start the analysis process.
 <p><br /></p>
 
 <script>
-// const flines = document.getElementById("output");
- const flines = "......";
+ const flines = document.getElementById("output");
  const fileInput = document.getElementById("upfile");
  fileInput.addEventListener("change", handleFileSelection);
  
@@ -119,9 +116,7 @@ function handleFileSelection(event) {
  // Read the file
  const reader = new FileReader();
  reader.onload = () => {
-  //flines.textContent = reader.result;
-  flines = reader.result;
-  //console.log(flines);
+  flines.textContent = reader.result;
  };
  reader.onerror = () => {
   alert ("Error reading the file. Please try again.");
