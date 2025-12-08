@@ -68,7 +68,9 @@ server to start the analysis process.
 <tr><td>Aerofoil Section Data File<br>
 <form>
 <input type='hidden' name='max_file_size' id='max_file_size' value='1000000' />
-<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus><br /> 
+<input name='upfile' id='upfile' type='file'> 
+ <!-- onfocus="HideResults();"  autofocus><br /> 
+ -->
 </td></tr>
 </table><br>
 <hr>
@@ -79,7 +81,7 @@ server to start the analysis process.
 <fieldset id="results">
 <canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
 </fieldset>
-<pre id='output'> </pre>
+<p id='output'> </p>
 </td>
 </tr>
 </table>
@@ -93,7 +95,38 @@ server to start the analysis process.
 <p><br /></p>
 
 <script>
+ const flines = document.getElementById("output");
+ const fileInput = document.getElementById("upfile");
+ fileInput.addEventListener("change", handleFileSelection);
+ 
+function handleFileSelection(event) {
 
+ const file = event.target.files[0];
+ flines.textContent = "....."; // Clear previous file content
+
+  // Validate file existence and type
+ if (!file) {
+  alert("No file selected. Please choose a file.");
+  return;
+ }
+
+ if (!file.type.startsWith("text")) {
+  alert("Unsupported file type. Please select a text file.");
+  return;
+ }
+
+ // Read the file
+ const reader = new FileReader();
+ reader.onload = () => {
+  flines = reader.result;
+  console.log(flines);
+ };
+ reader.onerror = () => {
+  alert ("Error reading the file. Please try again.");
+ };
+ reader.readAsText(file);
+}  
+  
 function HideResults() {
   document.getElementById("results").style.visibility="hidden";
 }
@@ -102,39 +135,6 @@ function ComputeFlow() {
 
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
- const flines = document.getElementById("output");
- const fileInput = document.getElementById("upfile");
- 
- fileInput.addEventListener("change", handleFileSelection);
-
- function handleFileSelection(event) {
-
-  const file = event.target.files[0];
-  flines.textContent = "....."; // Clear previous file content
-
-  // Validate file existence and type
-  if (!file) {
-    alert("No file selected. Please choose a file.");
-    return;
-  }
-
-  if (!file.type.startsWith("text")) {
-    alert("Unsupported file type. Please select a text file.");
-    return;
-  }
-
-  // Read the file
-  const reader = new FileReader();
-  reader.onload = () => {
-   flines = reader.result;
-   console.log(flines);
-  };
-  reader.onerror = () => {
-    alert ("Error reading the file. Please try again.");
-  };
-  reader.readAsText(file);
- }  
-  
 
 // uploadedfile = basename( $_FILES['uploadedfile']['name']);
 //$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
