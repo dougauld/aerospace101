@@ -158,11 +158,16 @@ function ComputeFlow() {
     words[k]="";
    } 
   } else {
-   if (char1<'0' || char1>'z') {
-    found=1;
-   } else { 
-    found=1;
+   if (char1=='-' || char1=='.') {
+    found = 1;
     words[k]=words[k] + char1;
+   } else { 
+    if (char1<'0' || char1>'z') {
+     found=1;
+    } else { 
+     found=1;
+     words[k]=words[k] + char1;
+    } 
    } 
   }
   j=j+1;
