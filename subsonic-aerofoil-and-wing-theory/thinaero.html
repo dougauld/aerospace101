@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h3>Thin Aerofoil Theory</h3>
+<table width="100%" border=1 cellpadding=10 bgcolor="#dfdfff">
+<tr><td colspan=2>
+This form calculates the lift and pitching moment properties of a two dimensional
+aerofoil section using the mean line, thin aerofoil theory.  The section data can be
+loaded from file (see <a href="nacacalc.php">nacacalc.php</a> for required format).<br />
+&nbsp;<br />
+In order to analyse a section you need to first select an Aerofoil Section Data File that you have 
+saved on your computer. Use "Browse..." to find and select a file.  Then Click "Upload" to send the file to the
+server to start the analysis process. 
+</td></tr>
+<tr><td valign=top>
+<B>Input Parameters</B><br>
+<table>
+<tr><td>Aerofoil Section Data File<br>
+<form>
+<input type='hidden' name='max_file_size' id='max_file_size' value='1000000' />
+<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus><br />
+</td></tr>
+</table><br>
+<hr>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
+<br />&nbsp;<br />
+</form>
+</td><td valign=top width="60%" bgcolor="#FFFFFF">
+</td>
+</tr>
+</table>
+</font>
+<br>
+</center>
+<p><a href="2-d-thin-aerofoil-theory.html">Back to Thin Aerofoil Theory Section</a></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+
+<script>
+
+function HideResults() {
+  document.getElementById("results").style.visibility="hidden";
+}
+
+function ComputeFlow() {
+
+ var maxfile = document.getElementById("max_file_size").value;
+ var maxsize = Number(maxfile);
+// Where the file is going to be placed 
+//$target_path = "../tmp/";
+
+// Add the original filename to our target path.  
+//Result is "uploads/filename.extension"
+
+ var fileInput = document.getElementById('upfile');
+//var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+ fileInput.addEventListener('change', function(e) {
+    var file = fileInput.files[0];
+    var textType = /text.*/;
+    
+    if (file.type.match(textType)) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            var content = reader.result;
+            //Here the content has been read successfuly
+            //console.log(content);
+        }
+        
+        reader.readAsText(file);	
+    } else {
+        alert ("File not supported!"); return;
+    }
+ });
+
+
+// uploadedfile = basename( $_FILES['uploadedfile']['name']);
+//$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
+//$ok=0;
+//if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
+// $ok=1;
+//} 
+           
+ var flines = [];
+ let flines = content.split("\x0a");
+ 
+ console.log(flines);
+ 
+/*
+ var i=0;
+ while ($i<$num) {
+  fscanf($file1, " %f  %f ",$x0,$y0);
+  $x[$i]=$x0;
+  $y[$i]=$y0;
+  if ($i==0) {
+   $xmax=$x0;
+   $xmin=$x0;
+  } else {
+   if ($x[$i]>$xmax) {
+    $xmax=$x[$i];
+   } 
+   if ($x[$i]<$xmin) {
+    $xmin=$x[$i];
+   }
+  } 
+  $i++;
+ }  
+ fclose($file1);
+
+// Add values to the graph
+$imgWidth=600;
+$imgHeight=450;
+
+// Create image and define colors
+$image=imagecreate($imgWidth, $imgHeight);
+$colorWhite=imagecolorallocate($image, 255, 255, 255);
+$colorGrey1=imagecolorallocate($image, 220, 220, 220);
+$colorGrey2=imagecolorallocate($image, 120, 120, 120);
+$colorBlue=imagecolorallocate($image, 0, 0, 192);
+$colorRed=imagecolorallocate($image, 240, 0, 0);
+$colorBlack=imagecolorallocate($image,0,0,0);
+
+// Create a background
+imagefilledrectangle($image,0,0,$imgWidth,$imgHeight,$colorWhite);
+
+$chord=$xmax-$xmin;
+ if ($option=="Model") {
+// draw section outline
+ imagesetthickness($image,1);
+ $i=0; 
+ while ($i<$num) {
+  $x1=150+intval($x[$i]*300.0/$chord);
+  $y1=225-intval($y[$i]*300.0/$chord);
+  if ($i>0) {
+   imageline($image,$x0,$y0,$x1,$y1,$colorBlack);
+  }
+  $x0=$x1;
+  $y0=$y1;
+  $i++;
+ }
+ $x1=150;
+ $y1=0;
+ $x2=550;
+ $y2=225;
+ imagesetthickness($image,1);
+ imageline($image,150,225,550,225,$colorGrey2);
+ imagestring($image,5,$x2-20,$y2+10,"X",$colorBlack);
+ $x1=0;
+ $y1=$imgHeight/2;
+ $x2=150+intval($x1);
+ $y2=225-intval($y1);
+ imageline($image,150,225,$x2,$y2,$colorGrey2);
+ imagestring($image,5,$x2+10,$y2+10,"Y",$colorBlack);
+ 
+ $numhalf=$num/2;
+ $i=0;
+ imagesetthickness($image,2);
+ while ($i<$numhalf) {
+  $j=($num-$i-1);
+  $xc=($x[$i]+$x[$j])*0.5;
+  $yc=($y[$i]+$y[$j])*0.5;
+  $x1=150+intval($xc*300.0/$chord);
+  $y1=225-intval($yc*300.0/$chord);
+  if ($i>0) {
+   imageline($image,$x0,$y0,$x1,$y1,$colorRed);
+  }
+  $x0=$x1;
+  $y0=$y1;
+  $i++;
+ }
+} else {
+ $numhalf=$num/2;
+ $i=0;
+ while ($i<$numhalf) {
+  $j=($num-$i-1);
+  $k=$numhalf-$i;
+  $xc[$k]=($x[$i]+$x[$j])*0.5;
+  $yc[$k]=($y[$i]+$y[$j])*0.5;
+  $i++;
+ }
+ $xc[0]=$x[$i];
+ $yc[0]=$y[$i];
+ $chord=$xc[$numhalf]-$xc[0];
+ $j=0;
+ while ($j<10) {
+  $sum[$j]=0;
+  $j++;
+ } 
+ $i=1;
+ while ($i<$numhalf+1) {
+  $x0=$xc[$i-1];
+  $y0=$yc[$i-1];
+  $x1=$xc[$i];
+  $y1=$yc[$i];
+  if (abs($x0-$x1)<1.0E-10) {
+   $dydx=0.0;
+  } else {
+   $dydx=($y1-$y0)/($x1-$x0);
+  }
+  $cs=(1.0-2.0*$x0/$chord);
+  if ($cs<(-0.999999)) {
+   $cs=-0.999999;
+  } 
+  if  ($cs>0.999999) {
+   $cs=0.999999;
+  }
+  $th0=acos($cs);
+  $cs=(1.0-2.0*$x1/$chord);
+  if ($cs<-0.999999) {
+   $cs=-0.999999;
+  } 
+  if ($cs>0.999999) {
+   $cs=0.999999;
+  }
+  $th1=acos($cs);
+  $sum[0]=$sum[0]+$dydx*($th1-$th0);
+  $j=1;
+  while ($j<10) {
+   $an=$j;
+   $sum[$j]=$sum[$j]+$dydx/$an*(sin($an*$th1)-sin($an*$th0));
+   $j++;
+  }
+  $i++; 
+ }
+ $j=1;
+ $pi=3.1415026;
+ while ($j<10) {
+  $sum[$j]=-$sum[$j]/$pi*2.0;
+  $j++;
+ } 
+ $alf=-10.0/180.0*$pi;
+ $cl0=2.0*$pi*($alf-$sum[0]/$pi-$sum[1]/2.0);
+ $cl00=2.0*$pi*(-$sum[0]/$pi-$sum[1]/2.0);
+ $alf=20.0/180.*$pi;
+ $cl1=2.0*$pi*($alf-$sum[0]/$pi-$sum[1]/2.0);
+ $cm=$pi/4.0*($sum[1]-$sum[2]);
+ $y0=50.0;
+ $i=0;
+ while ($i<8) {
+  if ($i==5) {
+   imageline($image,100,$y0,500,$y0,$colorBlack);
+  } else {
+   imageline($image,100,$y0,500,$y0,$colorGrey1);
+  }
+  $y0=$y0+50;
+  $i++;
+ }  
+ $x0=100.0;
+ $i=0;
+ while ($i<9) {
+  if ($i==4) {
+   imageline($image,$x0,50,$x0,400,$colorBlack);
+  } else {
+   imageline($image,$x0,50,$x0,400,$colorGrey1);
+  }
+  $x0=$x0+50;
+  $i++;
+ }  
+ $x0=-10.0;
+ $x1=20.0;
+ if ($cl0<-1.0) {
+  $a=($cl1-$cl0)/($x1-$x0);
+  $b=$cl0-$x0*$a;
+  $cl0=-1.0;
+  $x0=($cl0-$b)/$a;
+ }
+ if ($cl1>2.5) {
+  $a=($cl1-$cl0)/($x1-$x0);
+  $b=$cl0-$x0*$a;
+  $cl1=2.5;
+  $x1=($cl1-$b)/$a;
+ }
+ $x0=300.0+$x0*400.0/40.0;
+ $cl0=300.0-$cl0*100.0;
+ $x1=300.0+$x1*400.0/40.0;
+ $cl1=300.0-$cl1*100.0;
+ imagesetthickness($image,2);
+ imageline($image,$x0,$cl0,$x1,$cl1,$colorRed);
+ $cm0=300.0-($pi/4.0*($sum[1]-$sum[2]))/0.1*50.0;
+ imageline($image,100,$cm0,500,$cm0,$colorBlue);
+ $coeff="Cl = 2*pi*alfa + ".number_format($cl00,2);
+ imagestring($image,4,250,10,$coeff,$colorRed);
+ $coeff="Cm(1/4c) = ".number_format($cm,4);
+ imagestring($image,4,250,30,$coeff,$colorBlue);
+ imagestring($image,2,450,300,"alfa (deg)",$colorBlack);
+ imagestring($image,3,100,285,"-20",$colorBlack);
+ imagestring($image,3,200,285,"-10",$colorBlack);
+ imagestring($image,3,305,285,"0",$colorBlack);
+ imagestring($image,3,400,285,"10",$colorBlack);
+ imagestring($image,3,500,285,"20",$colorBlack);
+ imagestring($image,2,325,50,"Cl",$colorBlack);
+ imagestring($image,3,305,400,"-1",$colorBlack);
+ imagestring($image,3,305,350,"-0.5",$colorBlack);
+ imagestring($image,3,305,250,"0.5",$colorBlack);
+ imagestring($image,3,305,200,"1",$colorBlack);
+ imagestring($image,3,305,150,"1.5",$colorBlack);
+ imagestring($image,3,305,100,"2.0",$colorBlack);
+ imagestring($image,2,125,50,"Cm(1/4c)",$colorBlack);
+ imagestring($image,3,105,400,"-0.2",$colorBlack);
+ imagestring($image,3,105,350,"-0.1",$colorBlack);
+ imagestring($image,3,105,250,"0.1",$colorBlack);
+ imagestring($image,3,105,200,"0.2",$colorBlack);
+ imagestring($image,3,105,150,"0.3",$colorBlack);
+ imagestring($image,3,105,100,"0.4",$colorBlack);
+}
+// Output graph and clear image from memory
+header("Content-type: image/png");
+imagepng($image);
+imagedestroy($image);
+
+?>
+
+*/
+}
+ 
+</script>
+
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
