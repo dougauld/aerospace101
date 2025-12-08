@@ -102,7 +102,7 @@ server to start the analysis process.
 function handleFileSelection(event) {
 
  const file = event.target.files[0];
- flines.textContent = "....."; // Clear previous file content
+ flines.textContent = " "; // Clear previous file content
 
   // Validate file existence and type
  if (!file) {
@@ -142,7 +142,25 @@ function ComputeFlow() {
 //if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 // $ok=1;
 //} 
-    console.log(flines.textContent);
+ var words = [];
+ var i,j,k,l,m,n,found;
+ i = flines.length;
+ j=0;
+ k=0;
+ words[0] = "";
+ found = 0;
+ while (j<i) {
+  if (flines[j]==" " || flines[j]=="\x08") {
+   if (found==1) {
+    k=k+1;
+   } 
+  } else {
+   found=1;
+   words[k]=words[k] + flines[j];
+  }
+  j=j+1;
+ } 
+ console.log(words);
 /*
  var i=0;
  while ($i<$num) {
