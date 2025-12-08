@@ -351,7 +351,13 @@ function ComputeFlow() {
  y0=50.0;
  i=0;
  var coeff="Cl = 2&pi;&alpha; + " + cl00.toPrecision(4) + " <br />";
- coeff=coeff + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />"
+ coeff=coeff + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />&nbsp;<br />"
+ coeff=coeff + "Coefficients : ";
+ while (i<10) {
+  coeff=coeff + "A<sub>" + i.toPrecision(1) + "</sub> = " + sum[i].toPrecision(5) + ", ";
+  i=i+1;
+ }
+ coeff=coeff + "<br />";
  
  document.getElementById("output2").innerHTML = coeff;
  document.getElementById("results").style.visibility="visible";
