@@ -78,9 +78,12 @@ server to start the analysis process.
 </td><td valign=top width="60%" bgcolor="#FFFFFF">
 <fieldset id="results">
 <canvas id="imageout" width="600" height="250" style="border:1px solid grey"></canvas>
-<p id='output'> </p>
 </fieldset>
 <p id='output2'> </p> 
+<fieldset id="datafile">
+<p id='output'> </p>
+</fieldset>
+
 </td>
 </tr>
 </table>
@@ -127,6 +130,7 @@ function handleFileSelection(event) {
   
 function HideResults() {
   document.getElementById("results").style.visibility="hidden";
+  document.getElementById("datafile").style.visibility="hidden";
   document.getElementById("output2").innerHTML=" "
 }
 
@@ -349,7 +353,6 @@ function ComputeFlow() {
  var coeff="Cl = 2&pi;&alpha; + " + cl00.toPrecision(4) + " <br />";
  coeff=coeff + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />"
  
- flines.textContent=" ";
  document.getElementById("output2").innerHTML = coeff;
  document.getElementById("results").style.visibility="visible";
 }
