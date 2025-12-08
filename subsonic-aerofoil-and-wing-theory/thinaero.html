@@ -139,22 +139,25 @@ function ComputeFlow() {
 //if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 // $ok=1;
 //} 
+ var strng;
  var words = [];
  var i,j,k,l,m,n,found;
- i = flines.length;
+ strng = flines.textContent;
+ i = strng.length;
+ console.log(i);
  j=0;
  k=0;
  words[0] = "";
  found = 0;
  while (j<i) {
-  if (flines[j]==" " || flines[j]=="\x08") {
+  if (strng[j]==" " || strng[j]=="\x08") {
    if (found==1) {
     k=k+1;
     found=0;
    } 
   } else {
    found=1;
-   words[k]=words[k] + flines[j];
+   words[k]=words[k] + strng[j];
   }
   j=j+1;
  } 
