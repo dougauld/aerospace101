@@ -176,7 +176,8 @@ function ComputeFlow() {
  i=0;
  var numpoint = Number(words[8]);
  var num = Math.trunc(numpoint/4) + 1;
- var test=Number(words[16]);
+ var test=words[16];
+ console.log(test);
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
