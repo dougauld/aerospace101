@@ -242,6 +242,7 @@ function ComputeFlow() {
  }
  ctx.closePath();
  ctx.stroke();
+ ctx.globalAlpha=0.5;
  ctx.fill();
  x1=150;
  y1=0;
@@ -251,6 +252,7 @@ function ComputeFlow() {
  ctx.strokeStyle="grey;
  ctx.moveTo(150,225);
  ctx.lineTo(550,225);
+ ctx.globalAlpha=1;
  ctx.stroke();
  ctx.font = "12px Arial";
  ctx.fillStyle = "black";
