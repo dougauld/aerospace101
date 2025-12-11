@@ -315,8 +315,9 @@ function ComputeFlow() {
  var reyflag=0;
  var rey = 0;
  var rex;
- if (reyfield == 'infiinite') {
+ if (reyfield == 'infinite') {
   reflag=1;
+  rey = 0.0;
  } else {
   rey = Number(reyfield);
  }
@@ -350,6 +351,7 @@ function ComputeFlow() {
   dx=x[i+1]-x[i];
   dy=y[i+1]-y[i];
   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+  console.log(al);
   sni=dy/al;
   csi=dx/al;
   j=0;
@@ -1124,6 +1126,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
