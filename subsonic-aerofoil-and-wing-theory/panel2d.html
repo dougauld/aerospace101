@@ -343,6 +343,8 @@ function ComputeFlow() {
  }
  var rhs = [];
  i=0;
+ console.log(x);
+ console.log(y);
  var xt,yt,xc0,yc0,dx,dy,al,sni,csi,sn,cs,csm,snm,r1,r2,th1,th2;
  var u1l,u2l,w1l,w2l,u1,u2,w1,w2,holda;
  while (i<numpan) {
@@ -351,7 +353,7 @@ function ComputeFlow() {
   dx=x[i+1]-x[i];
   dy=y[i+1]-y[i];
   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
-  console.log(al);
+  // console.log(al);
   sni=dy/al;
   csi=dx/al;
   j=0;
@@ -397,7 +399,7 @@ function ComputeFlow() {
     amat[i][j]=-u1*sni+w1*csi+holda;
     holda=-u2*sni+w2*csi;
    }
-   console.log(holda);
+   // console.log(holda);
    j=j+1;
   }
   rhs[i]=Math.cos(alf)*sni-Math.sin(alf)*csi;
@@ -444,7 +446,7 @@ function ComputeFlow() {
  }
 //       BACKSUBSTITUTE
  i=0;
- console.log(rhs);
+ // console.log(rhs);
  var sum1;
  while (i<(numpoint-1)) {
   j=numpoint-i-2;
@@ -459,7 +461,7 @@ function ComputeFlow() {
  }
 //       LEAST SQUARES INTERPOLATE TO TRAILING EDGE
  i=0;
- console.log(rhs);
+// console.log(rhs);
  while (i<3) {
   j=0;
   while (j<5) {
@@ -571,7 +573,7 @@ function ComputeFlow() {
  sumy=0.0;
  summ=0.0;
  cpmax=1.0;
- console.log(rhs);
+ // console.log(rhs);
  i=0;
  while (i<numpan) {
   ax1=x[i];
@@ -1126,6 +1128,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
