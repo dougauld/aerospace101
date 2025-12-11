@@ -156,7 +156,6 @@ function ComputeFlow() {
  if (i>maxsize) {
   alert ('File Size too Large'); return;
  }
- //console.log(i);
  j=0;
  k=0;
  words[0] = "";
@@ -184,12 +183,10 @@ function ComputeFlow() {
   }
   j=j+1;
  } 
- // console.log(words);
  i=0;
  var numpoint = Number(words[8]);
  var num = Math.trunc(numpoint/2) + 1;
  var test=words[16];
- // console.log(test);
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
@@ -218,7 +215,6 @@ function ComputeFlow() {
   } 
   i=i+1;
  }  
-// console.log(xl);
 // Add values to the graph
  var imgWidth=600;
  var imgHeight=450;
@@ -406,7 +402,7 @@ function ComputeFlow() {
  }
 //        SET Kutta condition
  j=0;
- // console.log(amat);
+ console.log(amat);
  while (j<numpoint) {
   amat[numpan][j]=0.0;
   j=j+1;
@@ -1127,6 +1123,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
