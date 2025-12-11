@@ -352,7 +352,7 @@ function ComputeFlow() {
   yc0=(y[i]+y[i+1])*0.5;
   dx=x[i+1]-x[i];
   dy=y[i+1]-y[i];
-  al=Math.sqrt(abs(dx*dx+dy*dy));
+  al=Math.sqrt(Math.abs(dx*dx+dy*dy));
   sni=dy/al;
   csi=dx/al;
   j=0;
@@ -361,7 +361,7 @@ function ComputeFlow() {
    yt=yc0-y[j];
    dx=x[j+1]-x[j];
    dy=y[j+1]-y[j];
-   al=sqrt(abs(dx*dx+dy*dy));
+   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
    cs=dx/al;
    dn=dy/al;
    csm=dx/al;
@@ -484,7 +484,7 @@ function ComputeFlow() {
  i=0;
  while (i<3) {
   diag=amat[i][i];
-  if (abs(diag)<1.0E-10) {
+  if (Math.abs(diag)<1.0E-10) {
    alert ("Least Squares Diagonal Zero Lower Surface... bad trailing edge shape") ;
    return;
   }
@@ -537,7 +537,7 @@ function ComputeFlow() {
  i=0;
  while (i<3) {
   diag=amat[i][i];
-  if (abs(diag)<1.0E-10) {
+  if (Math.abs(diag)<1.0E-10) {
    alert ("Least Squares Diagonal Zero Lower Surface ... bad trailing edge shape");
    return;
   }
@@ -657,7 +657,7 @@ function ComputeFlow() {
   jcntl=1;
   fract=0.0;
   j=istag+1;
-  if (abs(cp2s-cp1s)>1.0e-10) {
+  if (Math.abs(cp2s-cp1s)>1.0e-10) {
    fract=cp2s/(cp2s-cp1s);
    dx=x[istag+1] - x[istag];
    dy=y[istag+1] - y[istag];
@@ -665,7 +665,7 @@ function ComputeFlow() {
    sumxl=fract*alen;
    if (sumxl>(1.0E-5*alen)) {
     lowerx[jcntl]=sumxl;
-    lowerv[jcntl]=abs(cp2s)*uscale;
+    lowerv[jcntl]=Math.abs(cp2s)*uscale;
     jcntl=jcntl + 1;
    } 
   }
@@ -699,7 +699,7 @@ function ComputeFlow() {
    sumxu=fract*alen;
    if (sumxu>(1.0E-5*alen)) {
     upperx[jcntu]=sumxu;
-    upperv[jcntu]=abs(cp1s)*uscale;
+    upperv[jcntu]=Math.abs(cp1s)*uscale;
     jcntu=jcntu+1;
    } 
   }
@@ -767,7 +767,7 @@ function ComputeFlow() {
   while (i<jcntl) {
    v1=lowerv[i]/uscale;
    sss=(lowerx[i]-lowerx[i-1])/chord;
-   if (abs(sss)<1.0e-7) {
+   if (Math.abs(sss)<1.0e-7) {
     iflagl=i;
    }
    aintsum=aintsum + (v1*v1*v1*v1*v1 + v0*v0*v0*v0*v0)*0.5*sss;
@@ -815,7 +815,7 @@ function ComputeFlow() {
    }
    i=i+1;
   }  
-  itrans=abs(itrans);
+  itrans=Math.abs(itrans);
   if (h0<=1.6) {
    h1=3.3+0.8234*Math.pow(h0-1.1,-1.287);
   } else {
@@ -829,7 +829,7 @@ function ComputeFlow() {
   i=itrans+1;
   while (i<jcntl) {
    sss=(lowerx[i]-lowerx[i-1])/chord;
-   if (abs(sss)<1.0e-7) {
+   if (Math.abs(sss)<1.0e-7) {
     iflagl=i;
    }
    v1=lowerv[i]/uscale;
@@ -954,7 +954,7 @@ function ComputeFlow() {
   i=itrans+1;
   while (i<jcntu) {
    sss=(upperx[i]-upperx[i-1])/chord;
-   if (abs(sss)<1.0e-7) {
+   if (Math.abs(sss)<1.0e-7) {
     iflagu=i;
    }
    v1=upperv[i]/uscale;
@@ -1122,6 +1122,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
