@@ -1052,8 +1052,8 @@ function ComputeFlow() {
  while (i>cpbottom) {
   y0=Math.trunc(i*150.0/cpmax)+225;  
   ctx.beginPath();
-  ctx.MoveTo(x0,y0);
-  ctx.LineTo(x1,y0);
+  ctx.moveTo(x0,y0);
+  ctx.lineTo(x1,y0);
   ctx.stroke();
   strng = i.toPrecision(2);
   ctx.fillText(strng,110,y0);
@@ -1061,12 +1061,12 @@ function ComputeFlow() {
  }
  y1=Math.trunc(150.0/cpmax)+225;  
  ctx.beginPath();
- ctx.MoveTo(150,50);
- ctx.LineTo(150,y1);
+ ctx.moveTo(150,50);
+ ctx.lineTo(150,y1);
  ctx.stroke();
  ctx.beginPath();
- ctx.MoveTo(450,50);
- ctx.LineTo(450,y1);
+ ctx.moveTo(450,50);
+ ctx.lineTo(450,y1);
  ctx.stroke();
  ctx.fillText("Cp",120,50);
  // draw pressure distribution
@@ -1077,7 +1077,7 @@ function ComputeFlow() {
   x1=150+Math.trunc(x[i]*300.0/chord);
   y1=Math.trunc(cpp[i]*150.0/cpmax)+225;
   if (i>0) {
-   ctx.LineTo(x1,y1);
+   ctx.lineTo(x1,y1);
   } else {
    ctx.moveTo(x1,y1);
   }
@@ -1122,6 +1122,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
