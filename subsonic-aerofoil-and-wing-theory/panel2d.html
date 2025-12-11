@@ -80,7 +80,7 @@ Reynolds Number for Flow : <br />
 </form>
 </td><td valign=top width="60%" bgcolor="#FFFFFF">
 <fieldset id="results">
-<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+<canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
 </fieldset>
 <p id='output2'> </p> 
 <fieldset id="datafile">
@@ -217,13 +217,13 @@ function ComputeFlow() {
  }  
 // Add values to the graph
  var imgWidth=600;
- var imgHeight=450;
+ var imgHeight=350;
 
 // Create image and define colors
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
- ctx.fillRect(0, 0, 600, 450);
+ ctx.fillRect(0, 0, 600, 350);
 
  var dxmax=xmax-xmin;
  var chord=dxmax;
@@ -281,7 +281,7 @@ function ComputeFlow() {
  ctx.fillStyle = "black";
  ctx.fillText("X",530,235);
  x1=0;
- y1=imgHeight/2;
+ y1=2*imgHeight/3;
  x2=150;
  y2=225-y1;
  ctx.beginPath();
@@ -1130,6 +1130,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
