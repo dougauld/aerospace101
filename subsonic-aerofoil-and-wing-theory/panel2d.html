@@ -903,7 +903,7 @@ function ComputeFlow() {
    ak0=ak;
    if (ak>0.1) {
     ak=0.1;
-   } elseif (ak<-0.1) {
+   } else if (ak<-0.1) {
     ak=-0.1;
    }
    if (ak>0.0) {
@@ -986,7 +986,7 @@ function ComputeFlow() {
    h1=fn;
    if (h1<3.3) {
     h0=3.0;
-   } elseif (h1>=5.3) {
+   } else if (h1>=5.3) {
     h0=1.1+0.86*Math.pow(h1-3.3,-0.777);
    } else {
     h0=0.6778+1.1536*Math.pow(h1-3.3,-0.326);
@@ -1122,3 +1122,4 @@ function ComputeFlow() {
 
 </body>
 </html>
+
