@@ -67,7 +67,7 @@ The section data can be loaded from file (see <a href="nacacalc_eg.html">"nacaca
 Aerofoil Section Data File<br />
 <form>
 <input type='hidden' name='MAX_FILE_SIZE' id='MAX_FILE_SIZE' value='100000' />
-<input name='upfile' type='file'  /><br />
+<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus /><br />
 Angle of Incidence for Flow : <br />
 <INPUT Name='angle' id='angle' TYPE='text' VALUE='0.0' onfocus="HideResults();"  autofocus /><br />
 Reynolds Number for Flow : <br />
@@ -1122,5 +1122,6 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
