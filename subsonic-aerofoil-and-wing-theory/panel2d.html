@@ -363,8 +363,9 @@ function ComputeFlow() {
    dx=x[j+1]-x[j];
    dy=y[j+1]-y[j];
    al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+   console.log(al);
    cs=dx/al;
-   dn=dy/al;
+   sn=dy/al;
    csm=dx/al;
    snm=(-dy)/al;
    x1= xt*cs+yt*sn;
@@ -1129,6 +1130,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
