@@ -333,6 +333,7 @@ function ComputeFlow() {
  var PI = 3.1415926;
  var TWOPI=PI*2.0;
 //        ASSEMBLE PANEL BY PANEL
+
  var numpan=numpoint-1;
  var alf=angle/180.0*PI;
  var amat = [];
@@ -860,7 +861,7 @@ function ComputeFlow() {
    h1=fn;
    if (h1<3.3) {
     h0=3.0;
-   } elseif (h1>=5.3) {
+   } else if (h1>=5.3) {
     h0=1.1+0.86*Math.Pow(h1-3.3,-0.777);
    } else {
     h0=0.6778+1.1536*Math.pow(h1-3.3,-0.326);
