@@ -395,6 +395,7 @@ function ComputeFlow() {
     amat[i][j]=-u1*sni+w1*csi+holda;
     holda=-u2*sni+w2*csi;
    }
+   console.log(holda);
    j=j+1;
   }
   rhs[i]=Math.cos(alf)*sni-Math.sin(alf)*csi;
@@ -402,7 +403,7 @@ function ComputeFlow() {
  }
 //        SET Kutta condition
  j=0;
- console.log(amat);
+ // console.log(amat);
  while (j<numpoint) {
   amat[numpan][j]=0.0;
   j=j+1;
@@ -1123,6 +1124,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
