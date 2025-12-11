@@ -343,8 +343,8 @@ function ComputeFlow() {
  }
  var rhs = [];
  i=0;
- console.log(x);
- console.log(y);
+ // console.log(x);
+ // console.log(y);
  var xt,yt,xc0,yc0,dx,dy,al,sni,csi,sn,cs,csm,snm,r1,r2,th1,th2;
  var u1l,u2l,w1l,w2l,u1,u2,w1,w2,holda;
  while (i<numpan) {
@@ -353,7 +353,7 @@ function ComputeFlow() {
   dx=x[i+1]-x[i];
   dy=y[i+1]-y[i];
   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
-  console.log(al);
+  // console.log(al);
   sni=dy/al;
   csi=dx/al;
   j=0;
@@ -374,6 +374,7 @@ function ComputeFlow() {
    r2=Math.sqrt(Math.abs((x1-x2)*(x1-x2)+y1*y1));
    th1=Math.atan2(y1,x1);
    th2=Math.atan2(y1,(x1-x2));
+   console.log(th1,th2);
    if (i==j) {
     u1l=-0.5*(x1-x2)/x2;
     u2l=0.5*x1/x2;
@@ -1128,6 +1129,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
