@@ -266,7 +266,7 @@ function ComputeFlow() {
   i=i+1;
   j=j+1;
  }
- ctx.closePath();
+ ctx.osePath();
  ctx.stroke();
  ctx.globalAlpha=0.5;
  ctx.fill();
@@ -568,6 +568,7 @@ function ComputeFlow() {
  sumy=0.0;
  summ=0.0;
  cpmax=1.0;
+ console.log(rhs);
  i=0;
  while (i<numpan) {
   ax1=x[i];
@@ -1122,6 +1123,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
