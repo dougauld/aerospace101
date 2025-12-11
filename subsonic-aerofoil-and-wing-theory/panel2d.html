@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<p><br /></p>
+<table width="100%" border=1 cellpadding=10 bgcolor="#dfdfff">
+<tr><td colspan=2>
+<B>2-D Panel Method Aerofoil Analysis </B><br>
+&nbsp;<br>
+This web application calculates the lift, pitching moment and drag properties of a two dimensional
+aerofoil section using a vortex/source panel aerofoil model, incorporating a 1-D boundary layer analysis. 
+The section data can be loaded from file (see <a href="nacacalc_eg.html">"nacacalc examples"</a> for required format).
+</td></tr>
+<tr><td valign=top>
+<B>Input Parameters</B><br />
+<table>
+Aerofoil Section Data File<br />
+<form>
+<input type='hidden' name='MAX_FILE_SIZE' id='MAX_FILE_SIZE' value='100000' />
+<input name='upfile' type='file'  /><br />
+Angle of Incidence for Flow : <br />
+<INPUT Name='angle' id='angle' TYPE='text' VALUE='0.0' onfocus="HideResults();"  autofocus /><br />
+Reynolds Number for Flow : <br />
+<INPUT Name='reynolds' id='reynolds' TYPE='text' VALUE='infinite' onfocus="HideResults();"  autofocus><br />
+</td></tr>
+</table><br>
+<hr>
+<input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
+<br />&nbsp;<br />
+</form>
+</td><td valign=top width="60%" bgcolor="#FFFFFF">
+<fieldset id="results">
+<canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
+</fieldset>
+<p id='output2'> </p> 
+<fieldset id="datafile">
+<p id='output' hidden> </p>
+</fieldset>
+<br />&nbsp;<br />
+
+</td>
+</tr>
+</table>
+</font>
+<br>
+</center>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p> 
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+
+<script>
+
+ const flines = document.getElementById("output");
+ const fileInput = document.getElementById("upfile");
+ fileInput.addEventListener("change", handleFileSelection);
+ 
+function handleFileSelection(event) {
+
+ const file = event.target.files[0];
+ flines.textContent = " "; // Clear previous file content
+
+  // Validate file existence and type
+ if (!file) {
+  alert("No file selected. Please choose a file.");
+  return;
+ }
+
+ if (!file.type.startsWith("text")) {
+  alert("Unsupported file type. Please select a text file.");
+  return;
+ }
+
+ // Read the file
+ const reader = new FileReader();
+ reader.onload = () => {
+  flines.textContent = reader.result;
+ };
+ reader.onerror = () => {
+  alert ("Error reading the file. Please try again.");
+ };
+ reader.readAsText(file);
+}  
+  
+function HideResults() {
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("datafile").style.visibility="hidden";
+  document.getElementById("output2").innerHTML=" "
+}
+
+function ComputeFlow() {
+
+ var maxfile = document.getElementById("MAX_FILE_SIZE").value;
+ var maxsize = Number(maxfile);
+ var strng;
+ var words = [];
+ var i,j,k,l,m,n,found;
+ strng = flines.textContent;
+ i = strng.length;
+ if (i>maxsize) {
+  alert ('File Size too Large'); return;
+ }
+ //console.log(i);
+ j=0;
+ k=0;
+ words[0] = "";
+ found = 0;
+ while (j<i) {
+  char1 = strng[j];
+  if (char1==" " || char1=="\t" || char1=="\n") {
+   if (found==1) {
+    k=k+1;
+    found=0;
+    words[k]="";
+   } 
+  } else {
+   if (char1=='-' || char1=='.') {
+    found = 1;
+    words[k]=words[k] + char1;
+   } else { 
+    if (char1<'0' || char1>'z') {
+     found=1;
+    } else { 
+     found=1;
+     words[k]=words[k] + char1;
+    } 
+   } 
+  }
+  j=j+1;
+ } 
+ // console.log(words);
+ i=0;
+ var numpoint = Number(words[8]);
+ var num = Math.trunc(numpoint/2) + 1;
+ var test=words[16];
+ // console.log(test);
+ if (test!='Y') {
+   alert('Corrupt Data File'); return;
+ } 
+ j=17;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ var xmax,xmin;
+ while (i<num) {
+  xu[i]=Number(words[j]);
+  yu[i]=Number(words[j+1]);
+  xl[i]=Number(words[j+2]);
+  yl[i]=Number(words[j+3]);
+  j=j+4;
+  if (i==0) {
+   xmax=xu[i];
+   xmin=xu[i];
+  } else {
+   if (xu[i]>xmax) {
+    xmax=xu[i];
+   } 
+   if (xu[i]<xmin) {
+    xmin=xu[i];
+   }
+  } 
+  i=i+1;
+ }  
+// console.log(xl);
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=450;
+
+// Create image and define colors
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 600, 450);
+
+ var dxmax=xmax-xmin;
+ var chord=dxmax;
+// draw section outline
+
+ i=num-1;
+ j=0;
+ ctx.beginPath();
+ ctx.fillStyle="green";
+ ctx.strokeStyle="black";
+ ctx.lineWidth=1;
+ var x1,y1,x2,y2;
+ var x = [];
+ var y = [];
+ while (i>=0) {
+  x1=150+Math.trunc(xu[i]*300.0/chord);
+  y1=225-Math.trunc(yu[i]*300.0/chord);
+  x[j]=xu[i];
+  y[j]=yu[i];
+  if (i==(num-1)) {
+   ctx.moveTo(x1,y1);
+  } else {
+   ctx.lineTo(x1,y1);
+  }
+  i=i-1;
+  j=j+1;
+ }
+ i=0
+ j=j-1;
+ while (i<num) {
+  x1=150+Math.trunc(xl[i]*300.0/chord);
+  y1=225-Math.trunc(yl[i]*300.0/chord);
+  x[j]=x1;
+  y[j]=y1;
+  ctx.lineTo(x1,y1);
+  i=i+1;
+  j=j+1;
+ }
+ ctx.closePath();
+ ctx.stroke();
+ ctx.globalAlpha=0.5;
+ ctx.fill();
+ x1=150;
+ y1=0;
+ x2=550;
+ y2=225;
+ ctx.beginPath();
+ ctx.strokeStyle="grey";
+ ctx.moveTo(150,225);
+ ctx.lineTo(550,225);
+ ctx.globalAlpha=1;
+ ctx.stroke();
+ ctx.font = "12px Arial";
+ ctx.fillStyle = "black";
+ ctx.fillText("X",530,235);
+ x1=0;
+ y1=imgHeight/2;
+ x2=150;
+ y2=225-y1;
+ ctx.beginPath();
+ ctx.strokeStyle="grey";
+ ctx.moveTo(150,225);
+ ctx.lineTo(x2,y2);
+ ctx.stroke();
+ ctx.fillStyle = "black";
+ ctx.fillText("Y",160,y2+10);
+
+ i=0;
+ var xc = [];
+ var yc = [];
+ ctx.beginPath();
+ ctx.lineWidth=2;
+ ctx.strokeStyle="red";
+ while (i<num) {
+  xc[i]=(xu[i]+xl[i])*0.5;
+  yc[i]=(yu[i]+yl[i])*0.5;
+  x1=150+Math.trunc(xc[i]*300.0/chord);
+  y1=225-Math.trunc(yc[i]*300.0/chord);
+  if (i==0) {
+   ctx.moveTo(x1,y1);
+  } else {
+   ctx.lineTo(x1,y1);
+  } 
+  i=i+1;
+ }
+ ctx.stroke(); 
+ var reyfield = document.getElementById("reynolds").value;
+ var reyflag=0;
+ var rey = 0;
+ var rex;
+ if (reyfield == 'infiinite') {
+  reflag=1;
+ } else {
+  rey = Number(reyfield);
+ }
+ var alphafield = document.getElementById("angle").value;
+ var angle = Number(alphafield);
+//
+//      PROGRAM PANEL2D
+// 2-D Panel Method Aerofoil Solver
+// based on LINEAR STRENGTH vortex panel method
+//
+ var PI = 3.1415926;
+ var TWOPI=PI*2.0;
+//        ASSEMBLE PANEL BY PANEL
+ var numpan=numpoint-1;
+ var alf=angle/180.0*PI;
+ var amat = [];
+ for (let i = 0; i < numpoint+1; i++) {
+  amat[i] = [];
+  for (let j = 0; j < numpoint+1; j++) {
+    amat[i][j] = 0;
+  }
+ }
+ var rhs = [];
+ i=0;
+ var xt,yt,xc0,yc0,dx,dy,al,sni,csi,sn,cs,csm,snm,r1,r2,th1,th2;
+ var u1l,u2l,w1l,w2l,u1,u2,w1,w2,holda;
+ while (i<numpan) {
+  xc0=(x[i]+x[i+1])*0.5;
+  yc0=(y[i]+y[i+1])*0.5;
+  dx=x[i+1]-x[i];
+  dy=y[i+1]-y[i];
+  al=Math.sqrt(abs(dx*dx+dy*dy));
+  sni=dy/al;
+  csi=dx/al;
+  j=0;
+  while (j<numpan) {
+   xt=xc0-x[j];
+   yt=yc0-y[j];
+   dx=x[j+1]-x[j];
+   dy=y[j+1]-y[j];
+   al=sqrt(abs(dx*dx+dy*dy));
+   cs=dx/al;
+   dn=dy/al;
+   csm=dx/al;
+   snm=(-dy)/al;
+   x1= xt*cs+yt*sn;
+   y1=-xt*sn+yt*cs;
+   x2= dx*cs+dy*sn;
+   r1=Math.sqrt(Math.abs(x1*x1+y1*y1));
+   r2=Math.sqrt(Math.abs((x1-x2)*(x1-x2)+y1*y1));
+   th1=Math.atan2(y1,x1);
+   th2=Math.atan2(y1,(x1-x2));
+   if (i==j) {
+    u1l=-0.5*(x1-x2)/x2;
+    u2l=0.5*x1/x2;
+    w1l=-0.15916;
+    w2l=0.15916;
+   } else {
+    u1l=-(y1*Math.log(r2/r1)+x1*(th2-th1)-x2*(th2-th1))/(TWOPI*x2);
+    u2l= (y1*Math.log(r2/r1)+x1*(th2-th1))/(TWOPI*x2);
+    w1l=-((x2-y1*(th2-th1))-x1*Math.log(r1/r2)+x2*Math.log(r1/r2))/(TWOPI*x2);
+    w2l= ((x2-y1*(th2-th1))-x1*Math.log(r1/r2))/(TWOPI*x2);
+   }
+   u1= u1l*csm+w1l*snm;
+   u2= u2l*csm+w2l*snm;
+   w1=-u1l*snm+w1l*csm;
+   w2=-u2l*snm+w2l*csm;
+   if (j==0) {
+    amat[i][0]=-u1*sni+w1*csi;
+    holda=-u2*sni+w2*csi;
+   } else if (j==(numpan-1)) {
+    amat[i][numpan-1]=-u1*sni+w1*csi+holda;
+    amat[i][numpan]=-u2*sni+w2*csi;
+   } else { 
+    amat[i][j]=-u1*sni+w1*csi+holda;
+    holda=-u2*sni+w2*csi;
+   }
+   j=j+1;
+  }
+  rhs[i]=Math.cos(ALF)*sni-Math.sin(alf)*csi;
+  i=i+1;
+ }
+//        SET Kutta condition
+ j=0;
+ while (j<numpoint) {
+  amat[numpan][j]=0.0;
+  j=j+1;
+ }
+ rhs[numpan] = 0.0;
+ amat[numpan][0]=1.0;
+ amat[numpan][numpan]=1.0;
+//     reduce matrix        
+ i=0;
+ var diag,col;
+ while (i<numpoint) {
+  diag=amat[i][i];
+  if (Math.abs(diag)<1.0E-7) {
+   alert ("Zero diagonal ... unsolveable shape"); return;
+  }
+  j=i;
+  while (j<numpoint) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  }
+  rhs[i]=rhs[i]/diag;
+  if (i<(numpoint-1)) {
+   j=i+1;
+   while (j<numpoint) {
+    col=amat[j][i];
+    k=i;
+    while (k<numpoint) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k=k+1;
+    }
+    rhs[j]=rhs[j]-rhs[i]*col;
+    j=j+1;
+   }
+  }
+  i=i+1;
+ }
+//       BACKSUBSTITUTE
+ i=0;
+ var sum1;
+ while (i<(numpoint-1)) {
+  j=numpoint-i-2;
+  sum1=0.0;
+  k=j+1;
+  while (k<numpoint) {
+   sum1=sum1+rhs[k]*amat[j][k];
+   k=k+1;
+  }
+  rhs[j]=rhs[j]-sum1;
+  i=i+1;
+ }
+//       LEAST SQUARES INTERPOLATE TO TRAILING EDGE
+ i=0;
+ while (i<3) {
+  j=0;
+  while (j<5) {
+   amat[i][j]=0.0;
+   j=j+1;
+  }
+  i=i+1;
+ } 
+ i=2;
+ while (i<9) {
+  amat[0][0]=amat[0][0]+1.0;
+  amat[0][1]=amat[0][1]+x[i];
+  amat[0][2]=amat[0][2]+x[i]*x[i];
+  amat[0][3]=amat[0][3]+rhs[i];
+  amat[1][0]=amat[1][0]+x[i];
+  amat[1][1]=amat[1][1]+x[i]*x[i];
+  amat[1][2]=amat[1][2]+x[i]*x[i]*x[i];
+  amat[1][3]=amat[1][3]+rhs[i]*x[i];
+  amat[2][0]=amat[2][0]+x[i]*x[i];
+  amat[2][1]=amat[2][1]+x[i]*x[i]*x[i];
+  amat[2][2]=amat[2][2]+x[i]*x[i]*x[i]*x[i];
+  amat[2][3]=amat[2][3]+rhs[i]*x[i]*x[i];
+  i=i+1;
+ } 
+ i=0;
+ while (i<3) {
+  diag=amat[i][i];
+  if (abs(diag)<1.0E-10) {
+   alert ("Least Squares Diagonal Zero Lower Surface... bad trailing edge shape") ;
+   return;
+  }
+  j=i;
+  while (j<4) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  }
+  j=0;
+  while (j<3) {
+   if (i!=j) {
+    col=amat[j][i];
+    k=i;
+    while (k<4) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k=k+1;
+    }
+   }
+   j=j+1;
+  }
+  i=i+1;
+ }
+ rhs[0]=amat[0][3]+amat[1][3]*x[0]+amat[2][3]*x[0]*x[0];
+ rhs[1]=amat[0][3]+amat[1][3]*x[1]+amat[2][3]*x[1]*x[1];
+ i=0;
+ while (i<3) {
+  j=0;
+  while (j<5) {
+   amat[i][j]=0.0;
+   j=j+1;
+  }
+  i=i+1;
+ }
+ i=numpoint-9;
+ while (i<numpoint-2) {
+  amat[0][0]=amat[0][0]+1.0;
+  amat[0][1]=amat[0][1]+x[i];
+  amat[0][2]=amat[0][2]+x[i]*x[i];
+  amat[0][3]=amat[0][3]+rhs[i];
+  amat[1][0]=amat[1][0]+x[i];
+  amat[1][1]=amat[1][1]+x[i]*x[i];
+  amat[1][2]=amat[1][2]+x[i]*x[i]*x[i];
+  amat[1][3]=amat[1][3]+rhs[i]*x[i];
+  amat[2][0]=amat[2][0]+x[i]*x[i];
+  amat[2][1]=amat[2][1]+x[i]*x[i]*x[i];
+  amat[2][2]=amat[2][2]+x[i]*x[i]*x[i]*x[i];
+  amat[2][3]=amat[2][3]+rhs[i]*x[i]*x[i];
+  i=i+1;
+ }
+ i=0;
+ while (i<3) {
+  diag=amat[i][i];
+  if (abs(diag)<1.0E-10) {
+   alert ("Least Squares Diagonal Zero Lower Surface ... bad trailing edge shape");
+   return;
+  }
+  j=i;
+  while (j<4) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  }
+  j=0;
+  while (j<3) {
+   if (i!=j) {
+    col=amat[j][i];
+    k=i;
+    while (k<4) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k=k+1;
+    }
+   }
+   j=j+1;
+  }
+  i=i+1;
+ }
+ rhs[numpoint-1]=amat[0][3]+amat[1][3]*x[numpoint-1]+amat[2][3]*x[numpoint-1]*x[numpoint-1];
+ rhs[numpoint-2]=amat[0][3]+amat[1][3]*x[numpoint-2]+amat[2][3]*x[numpoint-2]*x[numpoint-2]; 
+ var sumx,sumy,summ,cpmax,cpbottom,ax1,ax2,ay1,ay2,v1,v2,cp;
+ var cpp =[];
+ sumx=0.0;
+ sumy=0.0;
+ summ=0.0;
+ cpmax=1.0;
+ i=0;
+ while (i<numpan) {
+  ax1=x[i];
+  ay1=y[i];
+  v1=rhs[i];
+  v1=1.0-v1*v1;
+  cpp[i]=v1;
+  if (v1<cpmax) {
+   cpmax=v1;
+  } 
+  ax2=x[i+1];
+  ay2=y[i+1];
+  v2=rhs[i+1];
+  v2=1.0-v2*v2;
+  cpp[i+1]=v2;
+  if (v2<cpmax) {
+   cpmax=v2;
+  } 
+  cp=(v1+v2)*0.5;
+  sumy=sumy + cp*(ax2-ax1);
+  sumx=sumx - cp*(ay2-ay1);
+  summ=summ + cp*(ax1-ax2)*((ax2+ax1)/2.0 - xmin);
+  summ=summ - cp*(ay2-ay1)*(ay2+ay1)/2.0;
+  i=i+1;
+ }
+ if (cpmax<-3) {
+  cpmax=-3;
+ }
+ var cl=sumy/chord*Math.cos(alf);
+ var cm=summ/chord/chord + cl/4.0;
+ var disp = [];
+ var momt = [];
+ for (i=0; i<numpoint; i++) {
+  disp[i]=0.0;
+  momt[i]=0.0;
+ }
+ var
+ sumxu,lsep,usep,alen,fract,visc,isep,uscale,istag,cp1s,cp2s,sumxl,jcntl,jcntu,d1u,d2u,uu;
+ var v0,aintsum,isepcnt,sss,iflagl,iflagu,rd2,rd2crit,ak,ak0,h0,h1,itrans,fn,fndash,fnhalf,fnplus;
+ var ul;
+ var lowerx = [];
+ var lowerv = [];
+ var upperx = [];
+ var upperv = [];
+ var lowerd = [];
+ var lowerm = [];
+ var upperd = [];
+ var upperm = [];
+ var lgrad = [];
+ var ugrad = [];
+ if (rey>1000) {
+  visc=1.455e-5;
+  isep=0;
+  uscale=rey*visc/chord;
+  i=0;
+  istag=0;
+  while (i<numpan) {
+   x1=x[i];
+   x2=x[i+1];
+   y1=y[i];
+   y2=y[i+1];
+   cp1s=rhs[i];
+   cp2s=rhs[i+1];
+   if (Math.abs(cp1s)<1.0e-7) {
+    istag=i;
+    i=numpan;
+   } else if (cp1s<0.0) {
+    if (cp2s>=0.0) {
+     istag=i;
+     i=numpan+1;
+    }
+   } else {
+    if (cp2s<=0.0) {
+     istag=i;
+     i=numpan;
+    }
+   } 
+   i=i+1;
+  }
+
+  lowerx[0]=0.0;
+  lowerv[0]=0.0;
+  upperx[0]=0.0;
+  upperv[0]=0.0;
+// LOWER SURFACE DISTANCES AND VELOCITIES
+  sumxl=0.0;
+  jcntl=1;
+  fract=0.0;
+  j=istag+1;
+  if (abs(cp2s-cp1s)>1.0e-10) {
+   fract=cp2s/(cp2s-cp1s);
+   dx=x[istag+1] - x[istag];
+   dy=y[istag+1] - y[istag];
+   alen=sqrt(dx*dx+dy*dy);
+   sumxl=fract*alen;
+   if (sumxl>(1.0E-5*alen)) {
+    lowerx[jcntl]=sumxl;
+    lowerv[jcntl]=abs(cp2s)*uscale;
+    jcntl=jcntl + 1;
+   } 
+  }
+  j+j+1;
+  while (j<numpoint) {
+   x1=x[j-1];
+   y1=y[j-1];
+   x2=x[j];
+   y2=y[j];
+   cp2=rhs[j];
+   dx=x2-x1;
+   dy=y2-y1;
+   alen=Math.sqrt(dx*dx+dy*dy);
+   sumxl=sumxl+alen;
+   lowerx[jcntl]=sumxl;
+   lowerv[jcntl]=Math.abs(cp2)*uscale;
+   jcntl=jcntl+1;
+   j=j+1;
+  }
+  lsep=jcntl;
+//   UPPER SURFACE DISTANCES AND VELOCITIES
+  jcntu=1;
+  j=istag;
+  sumxu=0.0;
+  fract=0.0;
+  if (Math.abs(cp2s-cp1s)>1.0e-10) {
+   fract=Math.abs(cp1s/(cp2s-cp1s));
+   dx=x[j+1]-x[j];
+   dy=y[j+1]-y[j];
+   alen=Math.sqrt(dx*dx+dy*dy);
+   sumxu=fract*alen;
+   if (sumxu>(1.0E-5*alen)) {
+    upperx[jcntu]=sumxu;
+    upperv[jcntu]=abs(cp1s)*uscale;
+    jcntu=jcntu+1;
+   } 
+  }
+  j=j-1;
+  while (j>=0) {
+   x2=x[j];
+   y2=y[j];
+   x1=x[j+1];
+   y1=y[j+1];
+   cp2=rhs[j];
+   dx=x2-x1;
+   dy=y2-y1;
+   alen=sqrt(dx*dx+dy*dy);
+   sumxu=sumxu+alen;
+   upperx[jcntu]=sumxu;
+   upperv[jcntu]=Math.abs(cp2)*uscale;
+   jcntu=jcntu+1;
+   j=j-1;
+  }
+//  write (*,*) '224 complete'
+  usep=jcntu;
+//  Calculate Gradients (LOWER SURFACE)
+  lgrad[0]=(lowerv[1]-lowerv[0])/lowerx[1];
+  x0=lowerx[0];
+  x1=lowerx[1];
+  v0=lowerv[0];
+  v1=lowerv[1];
+  i=1;
+  while (i<jcntl-1) {
+   v2=lowerv[i+1];
+   x2=lowerx[i+1];
+   fract=(x0-x1)/(x2-x1);
+   lgrad[i]=((v2-v1)*fract-(v0-v1)/fract)/(x0-x1);
+   x0=x1;
+   v0=v1;
+   x1=x2;
+   v1=v2;
+   i=i+1;
+  }
+  lgrad[jcntl-1]=(lowerv[jcntl-1]-lowerv[jcntl-2])/(lowerx[jcntl-1]-lowerx[jcntl-2]);
+//   Calculate Gradients (UPPER SURFACE)
+  ugrad[0]=(upperv[1]-upperv[0])/upperx[1];
+  x0=upperx[0];
+  x1=upperx[1];
+  v0=upperv[0];
+  v1=upperv[1];
+  i=1;
+  while (i<jcntu-1) {
+   v2=upperv[i+1];
+   x2=upperx[i+1];
+   fract=(x0-x1)/(x2-x1);
+   ugrad[i]=((v2-v1)*fract-(v0-v1)/fract)/(x0-x1);
+   x0=x1;
+   v0=v1;
+   x1=x2;
+   v1=v2;
+   i=i+1;
+  }
+  ugrad[jcntu-1]=(upperv[jcntu-1]-upperv[jcntu-2])/(upperx[jcntu-1]-upperx[jcntu-2]);
+//   LOWER SURFACE boundary layer, laminar boundary layer
+  aintsum=0.0;
+  v0=0.0;
+  i=1;
+  k=istag+2;
+  while (i<jcntl) {
+   v1=lowerv[i]/uscale;
+   sss=(lowerx[i]-lowerx[i-1])/chord;
+   if (abs(sss)<1.0e-7) {
+    iflagl=i;
+   }
+   aintsum=aintsum + (v1*v1*v1*v1*v1 + v0*v0*v0*v0*v0)*0.5*sss;
+   rd2=Math.sqrt(rey*0.47/(v1*v1*v1*v1)*aintsum);
+   lowerm[i]=rd2*visc/lowerv[i];
+   momt[k]=lowerm[i];
+   ak=lowerm[i]*lowerm[i]/visc*lgrad[i];
+   ak0=ak;
+   if (ak>0.1) {
+    ak=0.1;
+   } else if (ak<-0.1) {
+    ak=-0.1;
+   }
+   if (ak>0.0) {
+    h0=2.61 - 3.75*ak + 5.24*ak*ak;
+   } else {
+    h0= 2.088 + 0.0731/(ak+0.14);
+   } 
+   lowerd[i]=lowerm[i]*h0;
+   disp[k]=lowerd[i];
+   if (i==1) {
+    lowerd[0]=lowerd[1];
+    lowerm[0]=lowerm[1];
+    disp[k-1]=disp[k];
+    momt[k-1]=momt[k];
+   }
+   v0=v1;
+   k=k+1;
+   if (k>=numpoint) {
+    k=numpoint-1;
+   }
+   if (ak0<(-0.15673)) {
+    itrans=(-i);
+//   POSSIBLE LAMINAR BUBBLE
+    i=jcntl+1;
+   }
+   rex=lowerx[i]*lowerv[i]/visc;
+   if (rex>0.0) {
+    rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(rex,0.46);
+    if (rd2>rd2crit) {
+     itrans=i;
+     i=jcntl+1;
+//    NATURAL TRANSITION
+    }
+   }
+   i=i+1;
+  }  
+  itrans=abs(itrans);
+  if (h0<=1.6) {
+   h1=3.3+0.8234*Math.pow(h0-1.1,-1.287);
+  } else {
+   h1=3.3+1.5501*Math.pow(h0-0.6778,-3.064);
+  }
+  fn=h1;
+  isepcnt=0;
+  aintsum=0.0;
+  ak0=Math.pow(rd2,6.0/5.0);
+//    turbulent boundary layer IntegratION (LOWER SURFACE)
+  i=itrans+1;
+  while (i<jcntl) {
+   sss=(lowerx[i]-lowerx[i-1])/chord;
+   if (abs(sss)<1.0e-7) {
+    iflagl=i;
+   }
+   v1=lowerv[i]/uscale;
+   aintsum=aintsum + (v1*v1*v1*v1 + v0*v0*v0*v0)*0.5*sss;
+   v0=v1;
+   rd2=aintsum*rey*0.0106/(v1*v1*v1) + ak0;
+   rd2=Math.pow(rd2,5.0/6.0);
+   lowerm[i]=rd2*visc/lowerv[i];
+   momt[k]=lowerm[i];
+   fndash=fn;
+   h1=fndash;
+   if (h1<=3.0001) {
+    h1=3.0001;
+   } 
+   sss=sss*chord;
+   fnplus=(lowerm[i]-lowerm[i-1])/sss;
+   fnplus= -h1*(lgrad[i]/lowerv[i] + fnplus/lowerm[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];
+   fndash= fn + sss*fnplus;
+   fnhalf= fn + 0.5*sss*fnplus;
+   h1=fndash;
+   if (h1>=3.0001) {
+    h1=3.0001;
+   }
+   fnplus=(lowerm[i]-lowerm[i-1])/sss;
+   fnplus= -h1*(lgrad[i]/lowerv[i] + fnplus/lowerm[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];
+   fn= fnhalf + 0.5*sss*fnplus;
+   h1=fn;
+   if (h1<3.3) {
+    h0=3.0;
+   } elseif (h1>=5.3) {
+    h0=1.1+0.86*Math.Pow(h1-3.3,-0.777);
+   } else {
+    h0=0.6778+1.1536*Math.pow(h1-3.3,-0.326);
+   }
+   lowerd[i]=lowerm[i]*h0;
+   disp[k]=lowerd[i];
+   if ((h0>2.0) && (angle<0.0)) {
+    if (isep==0) {
+     lsep=i;
+    } 
+    isep=1;
+    h0=2.0;
+   } 
+   k=k+1;
+   if (k>=numpoint) {
+    k=numpoint-1;
+   } 
+   i=i+1;
+  }
+  d1l=lowerd[jcntl-1];
+  d2l=lowerm[jcntl-1];
+  ul=lowerv[jcntl-1];
+//  UPPER SURFACE boundary layer, laminar boundary layer
+  k=istag-1;
+  aintsum=0.0;
+  v0=0.0;
+  i=1;
+  while (i<jcntu) {
+   v1=upperv[i]/uscale;
+   sss=(upperx[i]-upperx[i-1])/chord;
+   if (Math.abs(sss)<1.0e-7) {
+    iflagu=i;
+   }
+   aintsum=aintsum + (v1*v1*v1*v1*v1 + v0*v0*v0*v0*v0)*0.5*sss;
+   rd2=Math.sqrt(rey*0.47/(v1*v1*v1*v1)*aintsum);
+   upperm[i]=rd2*visc/upperv[i];
+   momt[k]=upperm[i];
+   ak=upperm[i]*upperm[i]/visc*ugrad[i];
+   ak0=ak;
+   if (ak>0.1) {
+    ak=0.1;
+   } elseif (ak<-0.1) {
+    ak=-0.1;
+   }
+   if (ak>0.0) {
+    h0=2.61 - 3.75*ak + 5.24*ak*ak;
+   } else {
+    h0= 2.088 + 0.0731/(ak+0.14);
+   } 
+   upperd[i]=upperm[i]*h0;
+   disp[k]=upperd[i];
+   if (i==1) {
+    upperd[0]=upperd[1];
+    upperm[0]=upperm[1];
+    disp[k-1]=disp[k];
+    momt[k-1]=momt[k];
+   }
+   v0=v1;
+   k=k-1;
+   if (k<0) {
+    k=0;
+   }
+   if (ak0<(-0.15673)) {
+    itrans=(-i);
+//   POSSIBLE LAMINAR BUBBLE
+    i=jcntu+1;
+   }
+   rex=upperx[i]*upperv[i]/visc;
+   if (rex>0.0) {
+    rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(REX,0.46);
+    if (rd2>rd2crit) {
+     itrans=i;
+     i=jcntu+1;
+//    NATURAL TRANSITION
+    }
+   }
+   i=i+1;
+  }  
+  itrans=Math.abs(itrans);
+  if (h0<=1.6) {
+   h1=3.3+0.8234*Math.pow(h0-1.1,-1.287);
+  } else {
+   h1=3.3+1.5501*Math.Pow(h0-0.6778,-3.064);
+  }
+  fn=h1;
+  isepcnt=0;
+  aintsum=0.0;
+  ak0=Math.pow(rd2,6.0/5.0);
+//    turbulent boundary layer IntegratION (UPPER SURFACE)
+  i=itrans+1;
+  while (i<jcntu) {
+   sss=(upperx[i]-upperx[i-1])/chord;
+   if (abs(sss)<1.0e-7) {
+    iflagu=i;
+   }
+   v1=upperv[i]/uscale;
+   aintsum=aintsum + (v1*v1*v1*v1 + v0*v0*v0*v0)*0.5*sss;
+   v0=v1;
+   rd2=aintsum*rey*0.0106/(v1*v1*v1) + ak0;
+   rd2=Math.pow(rd2,5.0/6.0);
+   upperm[i]=rd2*visc/upperv[i];
+   momt[k]=upperm[i];
+   fndash=fn;
+   h1=fndash;
+   if (h1<=3.0001) {
+    h1=3.0001;
+   }
+   sss=sss*chord;
+   fnplus=(upperm[i]-upperm[i-1])/sss;
+   fnplus= -h1*(ugrad[i]/upperv[i] + fnplus/upperm[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/upperm[i];
+   fndash= fn + sss*fnplus;
+   fnhalf= fn + 0.5*sss*fnplus;
+   h1=fndash;
+   if (h1>=3.0001) {
+    h1=3.0001;
+   }
+   fnplus=(upperm[i]-upperm[i-1])/sss;
+   fnplus= -h1*(ugrad[i]/upperv[i] + fnplus/upperm[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/upperm[i];
+   fn= fnhalf + 0.5*sss*fnplus;
+   h1=fn;
+   if (h1<3.3) {
+    h0=3.0;
+   } elseif (h1>=5.3) {
+    h0=1.1+0.86*Math.pow(h1-3.3,-0.777);
+   } else {
+    h0=0.6778+1.1536*Math.pow(h1-3.3,-0.326);
+   }
+   upperd[i]=upperm[i]*h0;
+   disp[k]=upperd[i];
+   if (h0>2.0 && angle<0.0) {
+    if (isep==0) {
+     lsep=i;
+    } 
+    isep=1;
+    h0=2.0;
+   } 
+   k=k-1;
+   if (k<0) {
+    k=0;
+   }
+   i=i+1;
+  }
+  d1u=upperd[jcntu-1];
+  d2u=upperm[jcntu-1];
+  uu=upperv[jcntu-1];
+//     CALCULATE CL,CD,CM FOR VISCOUS FLOW
+  sumx=0.0;
+  sumy=0.0;
+  summ=0.0;
+  i=0;
+  while (i<numpan) {
+   x1=x[i];
+   y1=y[i];
+   v1=rhs[i];
+   v1=1.0-v1*v1;
+   x2=x[i+1];
+   y2=y[i+1];
+   v2=rhs[i+1];
+   v2=1.0-v2*v2;
+   cp=(v1+v2)*0.5;
+   sumy=sumy+cp*(x2-x1);
+   sumx=sumx-cp*(y2-y1);
+   summ=summ+cp*(x1-x2)*((x2+x1)/2.0 - xmin);
+   summ=summ-cp*(y2-y1)*(y2+y1)/2.0;
+   i=i+1;
+  } 
+  cl=sumy/chord*Math.cos(angle/180.0*PI);
+  cm=summ/chord/chord + cl/4.0;
+  da=0.5*(d1u-d1l)/chord;
+  a1=angle/180.0*PI+da;
+  cd=2.0*(d2u+d2l)/chord*Math.pow((ul+uu)/(2.0*uscale)),7.0/2.0);
+ } else {
+  cd=0.0;
+ }
+ i=0;
+ var strng;
+ cpmax=1.0-cpmax;
+ cpbottom=1.0-cpmax-0.5;
+ i=1;
+ x0=150;
+ x1=450;
+ ctx.lineWidth=1;
+ ctx.strokeStyle="black";
+ ctx.fillStyle="black";
+ ctx.font = "12px Arial";
+ while (i>cpbottom) {
+  y0=Math.trunc(i*150.0/cpmax)+225;  
+  ctx.beginPath();
+  ctx.MoveTo(x0,y0);
+  ctx.LineTo(x1,y0);
+  ctx.stroke();
+  strng = i.toPrecision(2);
+  ctx.fillText(strng,110,y0);
+  i=i-1;
+ }
+ y1=Math.trunc(150.0/cpmax)+225;  
+ ctx.beginPath();
+ ctx.MoveTo(150,50);
+ ctx.LineTo(150,y1);
+ ctx.stroke();
+ ctx.beginPath();
+ ctx.MoveTo(450,50);
+ ctx.LineTo(450,y1);
+ ctx.stroke();
+ ctx.fillText("Cp",120,50);
+ // draw pressure distribution
+ i=0; 
+ ctx.strokeStyle="red";
+ ctx.beginPath();
+ while (i<numpoint) {
+  x1=150+Math.trunc(x[i]*300.0/chord);
+  y1=Math.trunc(cpp[i]*150.0/cpmax)+225;
+  if (i>0) {
+   ctx.LineTo(x1,y1);
+  } else {
+   ctx.moveTo(x1,y1);
+  }
+  i=i+1;
+ }
+ ctx.stroke();
+ strng="Cl = " + cl.toPrecision(4) + "<br />";
+ strng=strng + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />";
+ srtng=strng + "CD = " + cd.toPrecision(4) + "<br />";
+ document.getElementById("output").innerHTML = strng; 
+ document.getElementById("results").style.visibility="visible";
+}
+</script>
+</td></tr></table></font><br></center>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
