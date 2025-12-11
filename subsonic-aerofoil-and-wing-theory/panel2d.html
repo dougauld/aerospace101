@@ -400,7 +400,7 @@ function ComputeFlow() {
    }
    j=j+1;
   }
-  rhs[i]=Math.cos(ALF)*sni-Math.sin(alf)*csi;
+  rhs[i]=Math.cos(alf)*sni-Math.sin(alf)*csi;
   i=i+1;
  }
 //        SET Kutta condition
@@ -1030,10 +1030,10 @@ function ComputeFlow() {
    summ=summ-cp*(y2-y1)*(y2+y1)/2.0;
    i=i+1;
   } 
-  cl=sumy/chord*Math.cos(angle/180.0*PI);
+  cl=sumy/chord*Math.cos(alf);
   cm=summ/chord/chord + cl/4.0;
   da=0.5*(d1u-d1l)/chord;
-  a1=angle/180.0*PI+da;
+  a1=alf+da;
   cd=2.0*(d2u+d2l)/chord*Math.pow((ul+uu)/(2.0*uscale),7.0/2.0);
  } else {
   cd=0.0;
@@ -1122,6 +1122,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
