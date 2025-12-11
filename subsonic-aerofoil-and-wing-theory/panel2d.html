@@ -256,8 +256,8 @@ function ComputeFlow() {
  while (i<num) {
   x1=150+Math.trunc(xl[i]*300.0/chord);
   y1=225-Math.trunc(yl[i]*300.0/chord);
-  x[j]=x1;
-  y[j]=y1;
+  x[j]=xl[i];
+  y[j]=yl[i];
   ctx.lineTo(x1,y1);
   i=i+1;
   j=j+1;
@@ -1128,6 +1128,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
