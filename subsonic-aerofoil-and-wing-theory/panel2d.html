@@ -359,7 +359,7 @@ function ComputeFlow() {
    dx=x[j+1]-x[j];
    dy=y[j+1]-y[j];
    al=Math.sqrt(Math.abs(dx*dx+dy*dy));
-   console.log(al);
+   // console.log(al);
    cs=dx/al;
    sn=dy/al;
    csm=dx/al;
@@ -371,7 +371,7 @@ function ComputeFlow() {
    r2=Math.sqrt(Math.abs((x1-x2)*(x1-x2)+y1*y1));
    th1=Math.atan2(y1,x1);
    th2=Math.atan2(y1,(x1-x2));
-   console.log(th1,th2);
+   // console.log(th1,th2);
    if (i==j) {
     u1l=-0.5*(x1-x2)/x2;
     u2l=0.5*x1/x2;
@@ -413,7 +413,7 @@ function ComputeFlow() {
  amat[numpan][0]=1.0;
  amat[numpan][numpan]=1.0;
 //     reduce matrix        
- console.log(amat[numpan]);
+ // console.log(amat[numpan]);
  i=0;
  var diag,col;
  while (i<numpoint) {
@@ -665,7 +665,7 @@ function ComputeFlow() {
    fract=cp2s/(cp2s-cp1s);
    dx=x[istag+1] - x[istag];
    dy=y[istag+1] - y[istag];
-   alen=sqrt(dx*dx+dy*dy);
+   alen=Math.sqrt(dx*dx+dy*dy);
    sumxl=fract*alen;
    if (sumxl>(1.0E-5*alen)) {
     lowerx[jcntl]=sumxl;
@@ -716,7 +716,7 @@ function ComputeFlow() {
    cp2=rhs[j];
    dx=x2-x1;
    dy=y2-y1;
-   alen=sqrt(dx*dx+dy*dy);
+   alen=Math.sqrt(dx*dx+dy*dy);
    sumxu=sumxu+alen;
    upperx[jcntu]=sumxu;
    upperv[jcntu]=Math.abs(cp2)*uscale;
@@ -1126,6 +1126,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
