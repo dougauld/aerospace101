@@ -73,6 +73,7 @@ Angle of Incidence for Flow : <br />
 Reynolds Number for Flow : <br />
 <INPUT Name='reynolds' id='reynolds' TYPE='text' VALUE='infinite' onfocus="HideResults();"  autofocus><br />
 </td></tr>
+<tr><td><INPUT type='checkbox' name='rslt' id='rslt' value='show' onfocus="HideResults();" autofocus>Show Full Results</td></tr>
 </table><br>
 <hr>
 <input id="ComputeButton" type="button" value="Compute" onclick="ComputeFlow();" >
@@ -82,7 +83,7 @@ Reynolds Number for Flow : <br />
 <fieldset id="results">
 <canvas id="imageout" width="600" height="350" style="border:1px solid grey"></canvas>
 </fieldset>
-<p id='output2'> </p> 
+<p id='output2'> </p>  
 <fieldset id="datafile">
 <p id='output' hidden> </p>
 </fieldset>
@@ -850,7 +851,7 @@ function ComputeFlow() {
    sss=sss*chord;
    fnplus=(lowerm[i]-lowerm[i-1])/sss;
    fnplus= -h1*(lgrad[i]/lowerv[i] + fnplus/lowerm[i]);
-   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];var circ = document.getElementById("circ").checked;
    fndash= fn + sss*fnplus;
    fnhalf= fn + 0.5*sss*fnplus;
    h1=fndash;
@@ -1090,6 +1091,21 @@ function ComputeFlow() {
  strng="Cl = " + cl.toPrecision(4) + "<br />";
  strng=strng + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />";
  strng=strng + "Cd = " + cd.toPrecision(5) + "<br />";
+ var rslt = document.getElementById("rslt").checked;
+ if (rslt) {
+  strng = strng + "  X  Y  Cp  &delta; &theta; <br />"
+  i=0;
+  while (i<numpoint) {
+   x1=x[i];
+   y1=y[i];
+   v1=rhs[i];
+   v1=1.0-v1*v1;
+   th1=disp[i];
+   th2=momt[i];
+   strng = strng + x.toPrecision(4) + " " + y.toPrecision(4) + " " + v1.toPrecision(4) + " " + th1.toPrecision(5) + " " + th2.toPrecision(5) + "<br />";
+   i=i+1;
+  }
+ } 
  document.getElementById("output2").innerHTML = strng; 
  document.getElementById("results").style.visibility="visible";
 }
@@ -1125,6 +1141,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
