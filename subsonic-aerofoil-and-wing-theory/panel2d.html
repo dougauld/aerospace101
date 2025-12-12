@@ -935,7 +935,7 @@ function ComputeFlow() {
    }
    rex=upperx[i]*upperv[i]/visc;
    if (rex>0.0) {
-    rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(REX,0.46);
+    rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(rex,0.46);
     if (rd2>rd2crit) {
      itrans=i;
      i=jcntu+1;
@@ -1126,6 +1126,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
