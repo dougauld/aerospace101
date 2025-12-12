@@ -1093,7 +1093,7 @@ function ComputeFlow() {
  strng=strng + "Cd = " + cd.toPrecision(5) + "<br />";
  var rslt = document.getElementById("rslt").checked;
  if (rslt) {
-  strng = strng + "  X  Y  Cp  &delta; &theta; <br />"
+  strng = strng + "<table><tr><td>X</td><td>Y</td><td>Cp</td><td>&delta;</td><td>&theta;</td></tr>"
   i=0;
   while (i<numpoint) {
    x1=x[i];
@@ -1102,9 +1102,10 @@ function ComputeFlow() {
    v1=1.0-v1*v1;
    th1=disp[i];
    th2=momt[i];
-   strng = strng + x1.toPrecision(4) + " " + y1.toPrecision(4) + " " + v1.toPrecision(4) + " " + th1.toPrecision(5) + " " + th2.toPrecision(5) + "<br />";
+   strng = strng + "<tr><td>x1.toPrecision(4) + "</td><td>" + y1.toPrecision(4) + "</td<td>" + v1.toPrecision(4) + "</td><td>" + th1.toPrecision(5) + "</td><td>" + th2.toPrecision(5) + "</td></tr>";
    i=i+1;
   }
+  strng = strng + "</table>";
  } 
  document.getElementById("output2").innerHTML = strng; 
  document.getElementById("results").style.visibility="visible";
@@ -1141,6 +1142,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
