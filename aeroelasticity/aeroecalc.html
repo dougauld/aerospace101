@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Resources | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<table width='95%' border=1 cellpadding=10 bgcolor='#dfdfff'>
+<tr><td colspan=2>
+<B>Wing Bending-Torsion Flutter Predictions</B><br>
+&nbsp;<br>
+This form calculates the frequency solution for a 2 DoF bending/torsion model of a straight, high aspect ratio wing.
+The geometry of the wing along with its natural frequency and mass components is required so that airflow forced frequency may be computed. The solution may be purely real, indicating a stable oscillating solution
+or a complex root indicating an unstable solution.
+</td></tr><tr><td valign=top><B>Input Parameters</B><br>
+<form>
+2 DoF Model Parameters<br>&nbsp;<br />
+Wing Area(S)<br>"
+<INPUT NAME='area' id='area' TYPE='text' VALUE="0.045" SIZE="25" onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Wing Mass(m)<br>
+<INPUT NAME='mass' id='mass' TYPE='text' VALUE="0.486" SIZE="25" onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Wing Polar Inertia (I<sub>&alpha;</sub>)<br>
+<INPUT NAME='inertia' id="inertia" TYPE='text' VALUE="0.0000705" SIZE="25" onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Distance to CG (x<sub>cg</sub>)<br>
+<INPUT NAME='xcg' id='xcg' TYPE='text' VALUE="0.01" SIZE=25 onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Distance to AC (x<sub>ac</sub>)<br>
+<INPUT NAME='xac' id='xac' TYPE='tex't VALUE="0.025" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Bending Natural Frequency (Hz)<br>
+<INPUT NAME='wh' id='wh' TYPE='text' VALUE="8.0" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Torsion Natural Frequency (Hz)<br>
+<INPUT NAME='wa' id='wa' TYPE='text' VALUE="60.0" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Maximum Airspeed (V)<br>
+<INPUT NAME='vel' id='vel' TYPE='text' VALUE="90.0" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
+Air Density (&rho;)<br>
+<INPUT NAME='rho' id='rho' TYPE='text' VALUE="1.225" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
+<INPUT id='Compute' TYPE='button' VALUE='Solve' onclick="ComputeFlow();">
+</form>
+</td><td valign='top' width='60%' bgcolor='#FFFFFF'><center>
+<img src='twodof.png'><br />
+<fieldset id="results">
+<canvas id="imageout" width="800" height="400" style="border:1px solid grey"></canvas>
+<br /><p id="output">  </p>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}
+// --------------------------------------------- End of function HideResults
+
+function ComputeFlow() {
+
+ var areafield = document.getElementById("area").value;
+ var massfield = document.getElementById("mass").value;
+ var inertiafield = document.getElementById("inertia").value;
+ var xcgfield = document.getElementById("xcg").value;
+ var xacfield = document.getElementById("xac").value;
+ var whfield = document.getElementById("wh").value;
+ var wafield = document.getElementById("wa").value;
+ var velfield = document.getElementById("vel").value;
+ var rhofield = document.getElementById("rho").value;
+
+ var area= Number(areafield);
+ var mass= Number(massfield);
+ var inertia= Number(inertiafield);
+ var xcg= Number(xcgfield);
+ var xac= Number(xacfield);
+ var wh= Number(whfield);
+ var wa= Number(wafield);
+ var vel= Number(velfield);
+ var rho= Number(rhofield);
+
+ var PI = 3.1415926;
+ var TWOPI = PI*2.0;
+ var dv=vel/20.0;
+ var newvel=0;
+ var dclda=6.2;
+ var warad=2.0*PI*wa;
+ var whrad=2.0*PI*wh;
+ var salpha= xcg*mass;
+ var ak=warad*warad*inertia;
+ var ah=whrad*whrad*mass;
+ var qdiv=warad*warad*inertia/dclda/area/xac;
+ var vdiv,strng;
+ if (qdiv>0.0) {
+  vdiv=Math.sqrt(qdiv*2.0/rho);
+  strng = "<br>Predicted divergence speed = " + vdiv.toPrecision(4) + " m/s <br />";
+ } else {
+  strng = "<br>Divergence not predicted. <br />";
+ }
+ strng = strng + "<br>&nbsp;<br>Predicted airflow forced frequency response<br>&nbsp;<br><p align=center>";
+ strng = strng + "<table width=600 border=1><tr><td>&nbsp;</td><td colspan=2>Mode 1 (rad/s)</td><td colspan=2>Mode 2 (rad/s)</td></tr>";
+ strng = strng + "<tr><td><b>Velocity<br>m/s</b></td>";
+ strng = strng + "<td><b>&omega;<sub>Real</sub></b></td><td><b>&omega;<sub>Imaginary</sub></b></td>";
+ strng = strng + "<td><b>&omega;<sub>Real</sub></b></td><td><b>&omega;<sub>Imaginary</sub></b></td></tr>";
+ var i=0;
+ var q,aa,bb,cc,tem1,w1i,w2i,w1r,w2r,r2,omega1r,omega1i,omega2r,omega2i;
+ while (i<21) {
+    strng = strng +  "<tr><td>";
+    q=newvel*newvel*0.5*rho;
+    aa=mass*inertia - salpha*salpha;
+    bb=salpha*dclda*q*area + mass*dclda*q*area*xac - mass*ak - inertia*ah;
+    cc=ak*ah - ah*dclda*q*area*xac;
+    tem1 = bb*bb - 4.0*aa*cc;
+    if (tem1<0) {
+     w1i = Math.sqrt(Math.abs(tem1))/2.0/aa;
+     w2i = -w1i;
+     w1r = -bb/2.0/aa;
+     w2r = w1r;
+    } else {
+     w1i = 0.0;
+     w2i = 0.0;
+     w1r=(Math.sqrt(tem1)-bb)/2.0/aa;
+     w2r=(-bb - Math.sqrt(tem1))/2.0/aa;
+    } 
+    r2=1/Math.sqrt(2);
+    omega1r = r2 * Math.sqrt( Math.sqrt(w1r*w1r + w1i*w1i) + w1r);
+    omega1i = r2 * Math.sqrt( Math.sqrt(w1r*w1r + w1i*w1i) - w1r);
+//    if ($w1i<0) {
+//     $omega1i=-$omega1i;
+//    }
+    omega2r = r2 * Math.sqrt( Math.sqrt(w2r*w2r + w2i*w2i) + w2r);
+    omega2i = r2 * Math.sqrt( Math.sqrt(w2r*w2r + w2i*w2i) - w2r);
+//    if ($w2i<0) {
+//     $omega2i=-$omega2i;
+//    }
+    strng = strng + newvel.toPrecision(3) + "</td><td>" + omega1r.toPrecision(4) + "</td><td>";
+    strng = strng + omega1i.topPrecision(4) + "</td><td>" + omega2r.toPrecision(4) + "</td><td>" + omega2i.toPrecision(4) + "</td></tr>";
+    newvel=newvel+dv;
+    i=i+1;
+ }
+ strng = strng + "</table></p>";
+ document.getElementById("output").innerHTML = strng; 
+}  
+
+</script>
+
+</center></td></tr></table></font><br></center>
+<p><br /></p>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
