@@ -608,8 +608,7 @@ function ComputeFlow() {
   disp[i]=0.0;
   momt[i]=0.0;
  }
- var
- sumxu,lsep,usep,alen,fract,visc,isep,uscale,istag,cp1s,cp2s,sumxl,jcntl,jcntu,d1u,d2u,uu;
+ var sumxu,lsep,usep,alen,fract,visc,isep,uscale,istag,cp1s,cp2s,sumxl,jcntl,jcntu,d1u,d2u,uu;
  var v0,aintsum,isepcnt,sss,iflagl,iflagu,rd2,rd2crit,ak,ak0,h0,h1,itrans,fn,fndash,fnhalf,fnplus;
  var ul;
  var lowerx = [];
@@ -1090,7 +1089,7 @@ function ComputeFlow() {
  ctx.stroke();
  strng="Cl = " + cl.toPrecision(4) + "<br />";
  strng=strng + "Cm(1/4c) = " + cm.toPrecision(4) + "<br />";
- srtng=strng + "CD = " + cd.toPrecision(4) + "<br />";
+ strng=strng + "CD = " + cd.toPrecision(5) + "<br />";
  document.getElementById("output2").innerHTML = strng; 
  document.getElementById("results").style.visibility="visible";
 }
@@ -1126,6 +1125,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
