@@ -85,7 +85,7 @@
 
 <h3>2D PANEL METHODS</h3>
 <p>The prediction of aerodynamic properties of streamlined aerofoil sections can be obtained relatively quickly and accurately using two dimensional panel method analysis. The solutions will be initially inviscid flow predictions. This will give lift and pitching moment properties. Then, with the introduction of some simple one-dimensional boundary layer theory, the viscous component of the solution can be predicted and drag calculated.</p>
-<p>The solution is obtained by combining two separate calculations, an inviscid panel method prediction of flow velocities and pressures and a <a href="/subsonic-aerofoil-and-wing-theory/2d-boundary-layer-modelling.php">viscous boundary layer theory</a> prediction of surface flow displacement and momentum loss due to friction.</p>
+<p>The solution is obtained by combining two separate calculations, an inviscid panel method prediction of flow velocities and pressures and a <a href="/subsonic-aerofoil-and-wing-theory/2d-boundary-layer-modelling.html">viscous boundary layer theory</a> prediction of surface flow displacement and momentum loss due to friction.</p>
 <p>Because the presence of a boundary layer does modify the aerofoil's displacement effect on the freestream, it is more accurate to iterate between the results of these two solutions and obtain a final, converged solution. However in many cases, numerical problems may arise due to the number of iterations required and the possibility of an unstable iteration.</p>
 <p>In the Reynolds number range that is the case for small to large aircraft, the boundary layer is very thin and a reasonable result is generally obtained by just using a single pass of each solution component. The solution software below does just one inviscid flow solution for velocities and then one boundary layer integration pass to obtain a solution. More complex panel method solutions are available in the reference material listed below.</p>
 <h2>Inviscid Panel Method</h2>
@@ -188,7 +188,9 @@ $$C_{M 1/4 c}= &sum;_{i=1}^N Cp_i {(x_i-x_{i+1})}/c ({(x_i+x_{i+1})}/{2c} - 1/4)
 <footer id="colophon" class="site-footer" role="contentinfo">
 <div id="footer-widgets" class="full-container">
 </div><!-- #footer-widgets -->
-<div id="theme-attribution">(c) 1995-2025 Auld</div>
+<div id="theme-attribution">
+ <a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</div>
 </footer><!-- #colophon .site-footer -->
 </div><!-- #page-wrapper -->
 
