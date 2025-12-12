@@ -851,7 +851,7 @@ function ComputeFlow() {
    sss=sss*chord;
    fnplus=(lowerm[i]-lowerm[i-1])/sss;
    fnplus= -h1*(lgrad[i]/lowerv[i] + fnplus/lowerm[i]);
-   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];var circ = document.getElementById("circ").checked;
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lowerm[i];
    fndash= fn + sss*fnplus;
    fnhalf= fn + 0.5*sss*fnplus;
    h1=fndash;
@@ -1141,6 +1141,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
