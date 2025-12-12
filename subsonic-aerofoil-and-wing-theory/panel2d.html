@@ -866,7 +866,7 @@ function ComputeFlow() {
    if (h1<3.3) {
     h0=3.0;
    } else if (h1>=5.3) {
-    h0=1.1+0.86*Math.Pow(h1-3.3,-0.777);
+    h0=1.1+0.86*Math.pow(h1-3.3,-0.777);
    } else {
     h0=0.6778+1.1536*Math.pow(h1-3.3,-0.326);
    }
@@ -948,7 +948,7 @@ function ComputeFlow() {
   if (h0<=1.6) {
    h1=3.3+0.8234*Math.pow(h0-1.1,-1.287);
   } else {
-   h1=3.3+1.5501*Math.Pow(h0-0.6778,-3.064);
+   h1=3.3+1.5501*Math.pow(h0-0.6778,-3.064);
   }
   fn=h1;
   isepcnt=0;
@@ -1126,6 +1126,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
