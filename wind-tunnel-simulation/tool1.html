@@ -361,9 +361,9 @@ function ComputeFlow() {
   strng = strng + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  }
  if (span>=10.0) {
-  strng = strng + "<tr><td>Span = 2D</td><tr>";
+  strng = strng + "<tr><td colspan='4'>Span = 2D</td><tr>";
  } else {
-  strng = strng + "<tr><td>Span = " + span.toPrecision(3) + "</td></tr>";
+  strng = strng + "<tr><td colspan='4'>Span = " + span.toPrecision(3) + "</td></tr>";
  }   
  i=0;
  strng = strng + "<tr><td colspan='2'>Upper Surface</td><td colspan='2'>Lower Surface</td</tr>";
