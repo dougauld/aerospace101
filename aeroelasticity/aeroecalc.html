@@ -51,7 +51,7 @@
      <div class="entry-main">
      <div class="entry-content"> 
 
-<table width='95%' border=1 cellpadding=10 bgcolor='#dfdfff'>
+<table width='100%' border=1 cellpadding=10 bgcolor='#dfdfff'>
 <tr><td colspan=2>
 <B>Wing Bending-Torsion Flutter Predictions</B><br>
 &nbsp;<br>
@@ -81,7 +81,7 @@ Air Density (&rho;)<br>
 <INPUT NAME='rho' id='rho' TYPE='text' VALUE="1.225" SIZE='25' onfocus="HideResults();" autofocus><br />&nbsp;<br />
 <INPUT id='Compute' TYPE='button' VALUE='Solve' onclick="ComputeFlow();">
 </form>
-</td><td valign='top' width='60%' bgcolor='#FFFFFF'><center>
+</td><td valign='top' bgcolor='#FFFFFF'><center>
 <img src='twodof.png'><br />
 <fieldset id="results">
 <canvas id="imageout" width="800" height="400" style="border:1px solid grey"></canvas>
@@ -138,7 +138,7 @@ function ComputeFlow() {
   strng = "<br>Divergence not predicted. <br />";
  }
  strng = strng + "<br>&nbsp;<br>Predicted airflow forced frequency response<br>&nbsp;<br><p align=center>";
- strng = strng + "<table width=600 border=1><tr><td>&nbsp;</td><td colspan=2>Mode 1 (rad/s)</td><td colspan=2>Mode 2 (rad/s)</td></tr>";
+ strng = strng + "<table border=1><tr><td>&nbsp;</td><td colspan=2>Mode 1 (rad/s)</td><td colspan=2>Mode 2 (rad/s)</td></tr>";
  strng = strng + "<tr><td><b>Velocity<br>m/s</b></td>";
  strng = strng + "<td><b>&omega;<sub>Real</sub></b></td><td><b>&omega;<sub>Imaginary</sub></b></td>";
  strng = strng + "<td><b>&omega;<sub>Real</sub></b></td><td><b>&omega;<sub>Imaginary</sub></b></td></tr>";
