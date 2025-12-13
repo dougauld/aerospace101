@@ -354,7 +354,7 @@ function ComputeFlow() {
  ctx.fillStyle = "black";
  ctx.fillText("Y/C",54,20);
  var numout=numx-1;
- var strng = "<table border='1'><tr><td colspan='4'>Section: ";
+ var strng = "<table border='1'><tr><td colspan='4'>Section : ";
  if (am<0.0001) {
   strng = strng + "00" + Math.trunc(thick*100) + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  } else {
@@ -363,7 +363,7 @@ function ComputeFlow() {
  if (span>=10.0) {
   strng = strng + "<tr><td>Span= 2D</td><tr>";
  } else {
-  strng = strng + "<tr><td>Span= " + span.toPrecision(3) + "</td></tr>";
+  strng = strng + "<tr><td>Span = " + span.toPrecision(3) + "</td></tr>";
  }   
  i=0;
  strng = strng + "<tr><td colspan='2'>Upper Surface</td><td colspan='2'>Lower Surface</td</tr>";
