@@ -601,6 +601,7 @@ function ComputeFlow2() {
   strng = strng + ",a = " + load.toPrecision(5) + "<br />";
  }
  strng = strng + "Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
+ strng = strng + "<tr><td colspan='4'> Span = 2D </td></tr>"; 
 // ctx.fillStyle="black";
 // ctx.fillText(strng,150,320);
  i=0;
@@ -965,7 +966,8 @@ function ComputeFlow() {
   strng = strng + "00" + Math.trunc(thick*100) + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  } else {
   strng = strng + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
- }
+ } 
+ strng = strng + "<tr><td colspan='4'> Span = 2D </td></tr>"; 
  i=0;
  strng = strng + "<tr><td colspan='2'>Upper Surface</td><td colspan='2'>Lower Surface</td</tr>";
  strng = strng + "<tr><td>X</td><td>Y</td><td>X</td><td>Y</td></tr>";
@@ -1012,6 +1014,7 @@ function ComputeFlow() {
 
 </body>
 </html>
+
 
 
 
