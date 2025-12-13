@@ -1,6 +1,7 @@
 Section : 65-618
 Number of Data Points = 61.0000
 Upper Surface	Lower Surface
+Span = 2D
 X	          Y	          X	          Y
 -0.000567	0.0044245	-0.000567 	0.00035765
 0.0021725	0.015371	0.0021725	-0.0050506
