@@ -80,7 +80,7 @@ this machine are 1m chord. A more modern section milling machine is available at
   </td></tr>
   <tr><td> 
    <b>Span of Wing:</b><br> (max 10, minimum 1.5) Units are in meters.<br>
-   <input type='text' name="span" id='span' size='50' value="1.0" onfocus="HideResults();" autofocus>
+   <input type='text' name="span" id='span' size='50' value="10.0" onfocus="HideResults();" autofocus>
    <br>
   </td></tr>
   <tr><td> 
@@ -358,10 +358,10 @@ function ComputeFlow() {
  if (am<0.0001) {
   strng = strng + "00" + Math.trunc(thick*100) + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  } else {
-  strng = strng + section + "<br />Number of Data Points= " + numpoint.toPrecision(6) + "</td></tr>";
+  strng = strng + section + "<br />Number of Data Points = " + numpoint.toPrecision(6) + "</td></tr>";
  }
  if (span>=10.0) {
-  strng = strng + "<tr><td>Span= 2D</td><tr>";
+  strng = strng + "<tr><td>Span = 2D</td><tr>";
  } else {
   strng = strng + "<tr><td>Span = " + span.toPrecision(3) + "</td></tr>";
  }   
