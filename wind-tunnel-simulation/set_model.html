@@ -170,7 +170,6 @@ function ComputeLoad() {
  if (i>maxsize) {
   alert ('File Size too Large'); return;
  }
- //console.log(i);
  j=0;
  k=0;
  words[0] = "";
@@ -198,20 +197,19 @@ function ComputeLoad() {
   }
   j=j+1;
  } 
- //console.log(words);
  i=0;
  var numpoint = Number(words[8]);
  var spanstrng = words[11];
- console.log(spanstrng);
+ // console.log(spanstrng);
  var span;
  if (spanstrng='2D') {
   span=10.0;
  } else { 
   span = Number(spanstrng);
  }
+ console.log(span);
  var num = Math.trunc(numpoint/2) + 1;
  var test=words[19];
- // console.log(test);
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
@@ -248,7 +246,6 @@ function ComputeLoad() {
   } 
   i=i+1;
  }  
-// console.log(xl);
 // Add values to the graph
  var imgWidth=300;
  var imgHeight=150;
@@ -350,6 +347,7 @@ function ComputeLoad() {
  y1=75+thick/5.0*300.0;
  x2=150+span/20.0*300.0;
  y2=75-thick/5.0*300.0;
+ console.log(x1,y1,x2,y2);
  dtx.moveTo(x1,y1);
  dtx.lineTo(x2,y1);
  dtx.lineTo(x2,y2);
