@@ -202,6 +202,7 @@ function ComputeLoad() {
  i=0;
  var numpoint = Number(words[8]);
  var spanstrng = words[11];
+ console.log(spanstrng);
  var span;
  if (spanstrng='2D') {
   span=10.0;
@@ -359,14 +360,15 @@ function ComputeLoad() {
  dtx.fill();
  dtx.beginPath();
  dtx.strokeStyle="black";
- dtx.moveTo(70,75+thick);
- dtx.lineTo(70,0);
+ dtx.lineWidth=2;
+ dtx.moveTo(80,75+thick);
+ dtx.lineTo(80,0);
  dtx.globalAlpha=1;
  dtx.stroke();
  dtx.beginPath();
  dtx.strokeStyle="black";
- dtx.moveTo(230,75+thick);
- dtx.lineTo(230,0);
+ dtx.moveTo(220,75+thick);
+ dtx.lineTo(220,0);
  dtx.stroke();
  dtx.fillStyle = "black";
  
