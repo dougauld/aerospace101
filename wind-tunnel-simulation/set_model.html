@@ -103,7 +103,7 @@
   Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button <br />
   <hr>
   <center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
-  &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Load" onclick="ComputeFlow();" >
+  &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
   </center>
   <fieldset id="results2">
   <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
@@ -155,6 +155,104 @@ function HideResults() {
   document.getElementById("results2").style.visibility="hidden";
   document.getElementById("datafile").style.visibility="hidden";
   document.getElementById("output").innerHTML=" "
+}
+
+function ComputeFlow() {
+
+ var maxfile = document.getElementById("max_file_size").value;
+ var maxsize = Number(maxfile);
+
+ var strng;
+ var words = [];
+ var i,j,k,l,m,n,found;
+ strng = flines.textContent;
+ i = strng.length;
+ if (i>maxsize) {
+  alert ('File Size too Large'); return;
+ }
+ j=0;
+ k=0;
+ words[0] = "";
+ found = 0;
+ while (j<i) {
+  char1 = strng[j];
+  if (char1==" " || char1=="\t" || char1=="\n") {
+   if (found==1) {
+    k=k+1;
+    found=0;
+    words[k]="";
+   } 
+  } else {
+   if (char1=='-' || char1=='.') {
+    found = 1;
+    words[k]=words[k] + char1;
+   } else { 
+    if (char1<'0' || char1>'z') {
+     found=1;
+    } else { 
+     found=1;
+     words[k]=words[k] + char1;
+    } 
+   } 
+  }
+  j=j+1;
+ } 
+ i=0;
+ var numpoint = Number(words[8]);
+ var spanstrng = words[11];
+ // console.log(spanstrng);
+ var span;
+ if (spanstrng=='2D') {
+  span=10.0;
+ } else { 
+  span = Number(spanstrng);
+ }
+ console.log(span);
+ var num = Math.trunc(numpoint/2) + 1;
+ var test=words[19];
+ if (test!='Y') {
+   alert('Corrupt Data File'); return;
+ } 
+ j=20;
+ var xu = [];
+ var yu = [];
+ var xl = [];
+ var yl = [];
+ var xmax,xmin,ymin,ymax;
+ while (i<num) {
+  xu[i]=Number(words[j]);
+  yu[i]=Number(words[j+1]);
+  xl[i]=Number(words[j+2]);
+  yl[i]=Number(words[j+3]);
+  j=j+4;
+  if (i==0) {
+   xmax=xu[i];
+   ymax=yu[i];
+   xmin=xu[i];
+   ymin=yu[i];
+  } else {
+   if (xu[i]>xmax) {
+    xmax=xu[i];
+   } 
+   if (xu[i]<xmin) {
+    xmin=xu[i];
+   } 
+   if (yu[i]>ymax) {
+    ymax=yu[i];
+   } 
+   if (yu[i]<ymin) {
+    ymin=yu[i];
+   }
+  } 
+  i=i+1;
+ }  
+
+ 
+ 
+ 
+ 
+ document.getElementById("results").style.visibility="visible";
+ document.getElementById("results1").style.visibility="visible";
 }
 
 function ComputeLoad() {
