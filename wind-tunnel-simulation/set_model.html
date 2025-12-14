@@ -121,7 +121,6 @@ Front View</center></span>
 <tr><td colspan='2'>
 <fieldset id="results2">
 <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
-<p id='output' hidden> </p>
 </fieldset>
 <fieldset id='datafile'>
 <p id='output' hidden> </p>
@@ -167,7 +166,7 @@ function HideResults() {
   document.getElementById("results1").style.visibility="hidden";
   document.getElementById("results2").style.visibility="hidden";
   document.getElementById("datafile").style.visibility="hidden";
-  document.getElementById("output2").innerHTML=" "
+  document.getElementById("output").innerHTML=" "
 }
 
 function ComputeFlow() {
