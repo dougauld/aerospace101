@@ -53,67 +53,68 @@
 
 <center>
 <table  width="100%" background="windt.jpg" border=0 cellpadding=0 cellspacing=0>
-<tr><td>
-<table  cellpadding=10 cellspacing=10><tr><td valign=top align=left>
-<h3> 10m x 8m Wind Tunnel</h3>
-<font color='#0000FF'>Model (Text Data File) :
-<form>
-<input type='hidden' name='MAX_FILE_SIZE' id='max_file_size' value='100000' />
-<input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus /><br />
-<b>Set up for Force Balance Measurements</b></font><br />
-Select a model, enter atmospheric data, set tunnel
-conditions and then start measurement run.<br />
-<b>Operating Procedure :</b><br />
-<a href='pressure.html'>
-<b>1.</b> Input ambient pressure</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lab Pressure (KPa)<br />
-<input type='text' name='p' id='p' size='20' value='101.3' onfocus="HideResults();"  autofocus /><br>
-<a href='temperature.html'>
-<b>2.</b> Input tunnel air temperature</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Air Temperature (Kelvin)<br />
-<input type='text' name='t' id='t' size='20' value='288' onfocus="HideResults();"  autofocus /><br>
-<a href='angles.html'>
-<b>3.</b>Set angle of attack range for traverse</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Angle of Attack (Deg)<br />
-<input type='text' name='as' id='as' size='20' value='0.0' onfocus="HideResults();"  autofocus /><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final Angle of Attack (Deg)<br />
-<input type='text' name='af' id='af' size='20' value='1.0' onfocus="HideResults();"  autofocus /><br>
-<a href='velocity.html'>
-<b>4.</b> Select Wind velocity for run</a><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tunnel Wind Speed (m/s)<br />
-<input type='text' name='v' id='v' size='20' value='30.0'><br />
-</td><td valign=top>
-<center><span style='line-height:0'>
-<img src='mounted.jpg' width='300' />
-<fieldset id="results">
-<canvas id="imageout" width="300" height="150"></canvas>
-</fieldset>
-<img src='mounted0.jpg' width='300'/>
-<font color='white'>Side View</font></center></span></td>
-<td valign=top>
-<center><span style='line-height:0'>
-<img src='mountedb.jpg' width='300' />
-<fieldset id="results1">
-<canvas id="imageout1" width="300" height="150"></canvas>
-</fieldset>
-<img src='mountedc.jpg' width='300' />
-<font color='white'>Front View</font></center></span>
-</td></tr>
-<tr><td colspan='2'>
-</td>
-Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button <br />
-<hr>
-<center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
-&nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Load" onclick="ComputeFlow();" >
-</center>
-<fieldset id="results2">
-<canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
-</fieldset>
-<fieldset id='datafile'>
-<p id='output' hidden> </p>
-</fieldset></td></tr> 
-</table></td></tr></table>
-</fieldset>
+ <tr><td>
+ <table  cellpadding=10 cellspacing=10><tr><td valign=top align=left>
+  <h3> 10m x 8m Wind Tunnel</h3>
+  <font color='#0000FF'>Model (Text Data File) :
+  <form>
+  <input type='hidden' name='MAX_FILE_SIZE' id='max_file_size' value='100000' />
+  <input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus /><br />
+  <b>Set up for Force Balance Measurements</b></font><br />
+  Select a model, enter atmospheric data, set tunnel
+  conditions and then start measurement run.<br />
+  <b>Operating Procedure :</b><br />
+  <a href='pressure.html'>
+  <b>1.</b> Input ambient pressure</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lab Pressure (KPa)<br />
+  <input type='text' name='p' id='p' size='20' value='101.3' onfocus="HideResults();"  autofocus /><br>
+  <a href='temperature.html'>
+  <b>2.</b> Input tunnel air temperature</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Air Temperature (Kelvin)<br />
+  <input type='text' name='t' id='t' size='20' value='288' onfocus="HideResults();"  autofocus /><br>
+  <a href='angles.html'>
+  <b>3.</b>Set angle of attack range for traverse</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Angle of Attack (Deg)<br />
+  <input type='text' name='as' id='as' size='20' value='0.0' onfocus="HideResults();"  autofocus /><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final Angle of Attack (Deg)<br />
+  <input type='text' name='af' id='af' size='20' value='1.0' onfocus="HideResults();"  autofocus /><br>
+  <a href='velocity.html'>
+  <b>4.</b> Select Wind velocity for run</a><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tunnel Wind Speed (m/s)<br />
+  <input type='text' name='v' id='v' size='20' value='30.0'><br />
+  </td><td valign=top>
+  <center><span style='line-height:0'>
+  <img src='mounted.jpg' width='300' />
+  <fieldset id="results">
+  <canvas id="imageout" width="300" height="150"></canvas>
+  </fieldset>
+  <img src='mounted0.jpg' width='300'/>
+  <font color='white'>Side View</font></center></span></td>
+  <td valign=top>
+  <center><span style='line-height:0'>
+  <img src='mountedb.jpg' width='300' />
+  <fieldset id="results1">
+  <canvas id="imageout1" width="300" height="150"></canvas>
+  </fieldset>
+  <img src='mountedc.jpg' width='300' />
+  <font color='white'>Front View</font></center></span>
+  </td></tr>
+  <tr><td colspan='3'>
+  Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button <br />
+  <hr>
+  <center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
+  &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Load" onclick="ComputeFlow();" >
+  </center>
+  <fieldset id="results2">
+  <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
+  </fieldset>  
+  </td></tr>
+ </table>
+ </center>
+ <fieldset id='datafile'>
+ <p id='output' hidden> </p>
+ </fieldset></td></tr> 
+</table>
 
 <script>
 
