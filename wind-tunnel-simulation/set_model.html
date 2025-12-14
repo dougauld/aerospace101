@@ -337,7 +337,7 @@ function ComputeLoad() {
  const d = document.getElementById("imageout1");
  const dtx = c.getContext("2d");
  dtx.fillStyle = "white";
- ctx.fillRect(0, 0, 300, 150);
+ dtx.fillRect(0, 0, 300, 150);
 
  // draw section outline
  i=num-1;
@@ -357,18 +357,18 @@ function ComputeLoad() {
  dtx.stroke();
  dtx.globalAlpha=0.5;
  dtx.fill();
- ctx.beginPath();
- ctx.strokeStyle="black";
- ctx.moveTo(70,75+thick);
- ctx.lineTo(70,0);
- ctx.globalAlpha=1;
- ctx.stroke();
- ctx.beginPath();
- ctx.strokeStyle="black";
- ctx.moveTo(230,75+thick);
- ctx.lineTo(230,0);
- ctx.stroke();
- ctx.fillStyle = "black";
+ dtx.beginPath();
+ dtx.strokeStyle="black";
+ dtx.moveTo(70,75+thick);
+ dtx.lineTo(70,0);
+ dtx.globalAlpha=1;
+ dtx.stroke();
+ dtx.beginPath();
+ dtx.strokeStyle="black";
+ dtx.moveTo(230,75+thick);
+ dtx.lineTo(230,0);
+ dtx.stroke();
+ dtx.fillStyle = "black";
  
  document.getElementById("results").style.visibility="visible";
 }
