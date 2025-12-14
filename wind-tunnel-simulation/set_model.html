@@ -66,53 +66,46 @@ conditions and then start measurement run.<br />
 <b>Operating Procedure :</b><br />
 <a href='pressure.html'>
 <b>1.</b> Input ambient pressure</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lab Pressure (KPa)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lab Pressure (KPa)<br />
 <input type='text' name='p' id='p' size='20' value='101.3' onfocus="HideResults();"  autofocus /><br>
 <a href='temperature.html'>
 <b>2.</b> Input tunnel air temperature</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Air Temperature (Kelvin)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Air Temperature (Kelvin)<br />
 <input type='text' name='t' id='t' size='20' value='288' onfocus="HideResults();"  autofocus /><br>
 <a href='angles.html'>
 <b>3.</b>Set angle of attack range for traverse</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Angle of Attack (Deg)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Angle of Attack (Deg)<br />
 <input type='text' name='as' id='as' size='20' value='0.0' onfocus="HideResults();"  autofocus /><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final Angle of Attack (Deg)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final Angle of Attack (Deg)<br />
 <input type='text' name='af' id='af' size='20' value='1.0' onfocus="HideResults();"  autofocus /><br>
 <a href='velocity.html'>
-<b>4.</b> Select Wind velocity for run</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tunnel Wind Speed (m/s)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type='text' name='v' id='v' size='20' value='30.0'><br>&nbsp;<br>
-Once you have correctly set all inputs
-then click the 'Start' button</p><p>
-<hr>
-<input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
-<!--
- <input type='image' src='operate.gif' onclick="ComputeFlow();">
---> 
-</form>
-</p>
+<b>4.</b> Select Wind velocity for run</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tunnel Wind Speed (m/s)<br />
+<input type='text' name='v' id='v' size='20' value='30.0'><br />
 </td><td valign=top>
-<center><span style='line-height:0'><img src='mounted.jpg' width='300' />
+<center><span style='line-height:0'>
+<img src='mounted.jpg' width='300' />
 <fieldset id="results">
-<canvas id="imageout" width="300" height="150" style="border:0"></canvas>
+<canvas id="imageout" width="300" height="150"></canvas>
 </fieldset>
-<img src='mounted0.jpg' width='300'/><br /> 
-Side View</center></span></td>
+<img src='mounted0.jpg' width='300'/>
+<font color='white'>Side View</font></center></span></td>
 <td valign=top>
 <center><span style='line-height:0'>
 <img src='mountedb.jpg' width='300' />
 <fieldset id="results1">
-<canvas id="imageout1" width="300" height="150" style="border:0"></canvas>
+<canvas id="imageout1" width="300" height="150"></canvas>
 </fieldset>
-<img src='mountedc.jpg' width='300' /><br /> 
-Front View</center></span>
+<img src='mountedc.jpg' width='300' />
+<font color='white'>Front View</font></center></span>
 </td></tr>
 <tr><td colspan='2'>
+</td>
+Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button <br />
+<hr>
+<center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
+&nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Load" onclick="ComputeFlow();" >
+</center>
 <fieldset id="results2">
 <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
 </fieldset>
@@ -163,7 +156,7 @@ function HideResults() {
   document.getElementById("output").innerHTML=" "
 }
 
-function ComputeFlow() {
+function ComputeLoad() {
 
  var maxfile = document.getElementById("max_file_size").value;
  var maxsize = Number(maxfile);
@@ -225,7 +218,7 @@ function ComputeFlow() {
  var yu = [];
  var xl = [];
  var yl = [];
- var xmax,xmin;
+ var xmax,xmin,ymin,ymax;
  while (i<num) {
   xu[i]=Number(words[j]);
   yu[i]=Number(words[j+1]);
@@ -234,13 +227,21 @@ function ComputeFlow() {
   j=j+4;
   if (i==0) {
    xmax=xu[i];
+   ymax=yu[i];
    xmin=xu[i];
+   ymin=yu[i];
   } else {
    if (xu[i]>xmax) {
     xmax=xu[i];
    } 
    if (xu[i]<xmin) {
     xmin=xu[i];
+   } 
+   if (yu[i]>ymax) {
+    ymax=yu[i];
+   } 
+   if (yu[i]<ymin) {
+    ymin=yu[i];
    }
   } 
   i=i+1;
@@ -257,6 +258,7 @@ function ComputeFlow() {
  ctx.fillRect(0, 0, 300, 150);
 
  var chord=xmax-xmin;
+ var thick=ymax-ymin;
  // draw section outline
  i=num-1;
  ctx.beginPath();
@@ -331,6 +333,42 @@ function ComputeFlow() {
  if (span>10.0) {
   span=10.0;
  }
+ const d = document.getElementById("imageout1");
+ const dtx = c.getContext("2d");
+ dtx.fillStyle = "white";
+ ctx.fillRect(0, 0, 300, 150);
+
+ // draw section outline
+ i=num-1;
+ dtx.beginPath();
+ dtx.fillStyle="green";
+ dtx.strokeStyle="black";
+ dtx.lineWidth=1;
+ x1=150-span/20.0*300.0;
+ y1=75+thick/10.0*300.0;
+ x2=150+span/20.0*300.0;
+ y2=75-thick/10.0*300.0;
+ dtx.moveTo(x1,y1);
+ dtx.lineTo(x2,y1);
+ dtx.lineTo(x2,y2);
+ dtx.lineTo(x1,y2);
+ dtx.closePath();
+ dtx.stroke();
+ dtx.globalAlpha=0.5;
+ dtx.fill();
+ ctx.beginPath();
+ ctx.strokeStyle="black";
+ ctx.moveTo(70,75+thick);
+ ctx.lineTo(70,0);
+ ctx.globalAlpha=1;
+ ctx.stroke();
+ ctx.beginPath();
+ ctx.strokeStyle="black";
+ ctx.moveTo(230,75+thick);
+ ctx.lineTo(230,0);
+ ctx.stroke();
+ ctx.fillStyle = "black";
+ 
  document.getElementById("results").style.visibility="visible";
 }
 
