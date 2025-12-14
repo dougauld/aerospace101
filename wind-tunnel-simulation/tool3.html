@@ -57,10 +57,10 @@
 <img src="deliver.gif" border=0>
 </td><TD width="70%">
 <p>
-With this tool you can create an aerofoil geometry that has been constructed
+With a manual editing tool you can create an aerofoil geometry that has been constructed
 elsewhere. The required input
 for the process is the name of the section file containing the coordinates of the aerofoil
-that you have already produced. This should be an ASCII data file with the
+that you have already produced. This should be an ASCII data file with the extension
 ".txt". Store the section in a relevant location for
 later use in the wind tunnel.<BR>&nbsp;<br>
 <table width="300" align="center"><tr><td>Sample of Required Format : <br /><hr>
@@ -69,20 +69,20 @@ Section : 0012
 Number of Data Points = 61.0000
 Span = 10.0
 Upper Surface	Lower Surface
-X	Y	X	Y
-0		0		0		0
-0.0027390	0.0091145	0.0027390	-0.0091145
-0.010926	0.017770	0.010926	-0.017770
-0.024472	0.025893	0.024472	-0.025893
-0.043227	0.033389	0.043227	-0.033389
-0.066987	0.040145	0.066987	-0.040145
+X	         Y         	X	         Y
+0		       0		       0		        0
+0.002739 	0.0091145	0.002739	-0.0091145
+0.010926	 0.017770	 0.010926	-0.017770
+0.024472	 0.025893	 0.024472	-0.025893
+0.043227	 0.033389	 0.043227	-0.033389
+0.066987	 0.040145	 0.066987	-0.040145
             .....
-0.98907		0.0027828	0.98907		-0.0027828
-0.99726		0.0016437	0.99726		-0.0016437
-1.0000		0.0012600	1.0000		-0.0012600
+0.98907		 0.0027828	0.98907		-0.0027828
+0.99726		 0.0016437	0.99726		-0.0016437
+1.0000		  0.0012600	1.0000	 	-0.0012600
 </pre><br /><hr>
 </td></tr></table>
-<b><i>Notes</i></b> : Section name should contain letters and numbers only (no spaces).
+<b><i>Notes</i></b> : Section name should contain letters and numbers only (no spaces). <br />
 File must contain span of wing in metres on line 3 or the text "Span = 2D" <br />
 Must contain number of surface data points supplied on line 2<br />
 Section surface data points (meters) are listed as X,Y cordinates, starting at leading edge 
