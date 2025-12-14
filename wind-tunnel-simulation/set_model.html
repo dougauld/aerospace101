@@ -103,30 +103,29 @@ then click the 'Start' button</p><p>
 </form>
 </p>
 </td><td valign=top>
-<p><span style='line-height:0'><img src='mounted.jpg' width='300' />
+<center><span style='line-height:0'><img src='mounted.jpg' width='300' />
 <fieldset id="results">
 <canvas id="imageout" width="300" height="150" style="border:0"></canvas>
 </fieldset>
-<img src='mounted0.jpg' width='300'/> 
-</span></p><p>Side View</p></td>
+<img src='mounted0.jpg' width='300'/><br /> 
+Side View</center></span></td>
 <td valign=top>
-<p><span style='line-height:0'>
+<center><span style='line-height:0'>
 <img src='mountedb.jpg' width='300' />
 <fieldset id="results1">
-<canvas id="imageout1" width="300" height="150" style="border:0px"></canvas>
+<canvas id="imageout1" width="300" height="150" style="border:0"></canvas>
 </fieldset>
-<img src='mountedc.jpg' width='300' /> 
-</span></p><p>Front View</p></span>
-<br />&nbsp;<br />
-<br />&nbsp;<br />
+<img src='mountedc.jpg' width='300' /><br /> 
+Front View</center></span>
 </td></tr>
 <tr><td colspan='2'>
 <fieldset id="results2">
-<canvas id="imageout2" width="800" height="450" style="border:1px solid_grey"></canvas>
+<canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
 <p id='output' hidden> </p>
 </fieldset>
 <fieldset id='datafile'>
 <p id='output' hidden> </p>
+</fieldset></td></tr> 
 </table></td></tr></table>
 </fieldset>
 
@@ -322,8 +321,8 @@ function ComputeFlow() {
  while (i<num) {
   xc[i]=(xu[i]+xl[i])*0.5;
   yc[i]=(yu[i]+yl[i])*0.5;
-  x1=150+Math.trunc(xc[i]*300.0/chord);
-  y1=225-Math.trunc(yc[i]*300.0/chord);
+  x1=50+Math.trunc(xc[i]*150.0/chord);
+  y1=75-Math.trunc(yc[i]*150.0/chord);
   if (i==0) {
    ctx.moveTo(x1,y1);
   } else {
