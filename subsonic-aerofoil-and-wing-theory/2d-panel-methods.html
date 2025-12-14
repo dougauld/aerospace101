@@ -164,12 +164,13 @@ $$C_{M 1/4 c}= &sum;_{i=1}^N Cp_i {(x_i-x_{i+1})}/c ({(x_i+x_{i+1})}/{2c} - 1/4)
  ...<br />
  X(N)  Y(N)</p>
 <p>There is an initial header line, followed by a line giving the number of data points used to describe the aerofoil and then pairs of surface coordinate points (x,y). The order of surface points is anti-clockwise, starting at the trailing edge, going back over the upper surface around the nose and then forward along the underside back to the trailing edge. Data files for other aerofoil sections can be created using a spreadsheet or text editor to give a data file in the correct format.</p>
-<p>Some sample section files are <a href="naca0012.dat" rel="nofollow">NACA 0012</a>, <a href="naca4412.dat" rel="nofollow"> NACA 4412</a> and <a href="naca64012.dat" rel="nofollow">NACA 64-012</a>.</p>
+<p>Some sample section files are <a href="NACA0012.txt" rel="nofollow">NACA 0012</a>, <a href="NACA4412.txt"> NACA 4412</a> and <a href="NACA64-012.txt">NACA 64-012</a>.</p>
 <p>From the surface coordinate data file, the program calculates an inviscid flow solution. The 1-D momentum integration is run to predict the boundary layer near the aerofoil surface. The program can predict C<sub>L</sub>, C<sub>m(1/4c)</sub> and C<sub>D</sub> for the specified aerofoil section at a given angle and Reynolds number.</p>
 <ul>
-<li>Executable Program : <a href="panel2d.exe" rel="nofollow">2-D Panel Method Solution</a> MS Windows downloadable</li>
-<li>Executable Program : <a href="naca.exe" rel="nofollow">2-D NACA Aerofoil Section Generator</a> MS Windows downloadable</li>
-<li>Virtual Wind Tunnel System : <a href="/wind-tunnel-simulation/">Program Suite to allow a number of different solutions</a></li>
+<li>Old Executable Program : <a href="panel2d.exe">2-D Panel Method Solution</a> MS Windows downloadable</li>
+<li>Old Executable Program : <a href="naca.exe">2-D NACA Aerofoil Section Generator</a> MS Windows downloadable</li>
+<li>Executable Program : <a href="nacacalc.html">2-D Aerofoil Section Analysis</a></li>
+<li>Virtual Wind Tunnel System : <a href="../wind-tunnel-simulation/index.html">Program Suite to allow a number of different solutions</a></li>
 <li>Alternately for a more elaborate section solver try the XFOIL program, visit the Marc Drela GPL Aerofoil Solution System site at <a href="http://web.mit.edu/drela/Public/web/xfoil/" rel="nofollow">MIT XFOIL site.</a></li>
 </ul>
 
