@@ -331,7 +331,7 @@ function ComputeFlow() {
   rhs[i][0]=0.0;
   rhs[i][1]=0.0;
  }
- numpan=num-1;
+ numpan=numpoint-1;
  // reset coordinates
  i=num-1;
  j=0;
@@ -415,34 +415,34 @@ function ComputeFlow() {
  } 
 // SET Kutta condition
  j=0;
- while (j<num) {
-  amat[num-1][j]=0.0;
+ while (j<numpoint) {
+  amat[numpoint-1][j]=0.0;
   j=j+1;
  }
- rhs[num-1][0] = 0.0;
- rhs[num-1][1] = 0.0;
- amat[num-1][0]=1.0;
- amat[num-1][num-1]=1.0;
+ rhs[numpoint-1][0] = 0.0;
+ rhs[numpoint-1][1] = 0.0;
+ amat[numpoint-1][0]=1.0;
+ amat[numpoint-1][numpoint-1]=1.0;
  var diag,col;
  i=0;
- while (i<num) {
+ while (i<numpoint) {
   diag=amat[i][i];
   if (Math.abs(diag)<1.0e-7) {
    alert ('Very strange section geometry (Flow broke model)'); return;
   } 
   j=i;
-  while (j<num) {
+  while (j<numpoint) {
    amat[i][j]=amat[i][j]/diag;
    j=j+1;
   }  
   rhs[i][0]=rhs[i][0]/diag;
   rhs[i][1]=rhs[i][1]/diag;
-  if (i<num-1) {
+  if (i<numpoint-1) {
    j=i+1;
-   while (j<num) {
+   while (j<numpoint) {
     col=amat[j][i];
     k=i;
-    while (k<num) {
+    while (k<numpoint) {
      amat[j][k]=amat[j][k]-amat[i][k]*col;
      k++;
     }
@@ -456,12 +456,12 @@ function ComputeFlow() {
  var sum1,sum2; 
 // BACKSUBSTITUTE
  i=0;
- while (i<num-1) {
+ while (i<(numpoint-1)) {
   j=num-i-2;
   sum1=0.0;
   sum2=0.0;
   k=j+1;
-  while (k<num) {
+  while (k<numpoint) {
    sum1=sum1+rhs[k][0]*amat[j][k];
    sum2=sum2+rhs[k][1]*amat[j][k];
    k=k+1;
@@ -537,8 +537,8 @@ function ComputeFlow() {
   }
   i++;
  } 
- i=num-9;
- while (i<num-2) {
+ i=numpoint-9;
+ while (i<numpoint-2) {
   amat[0][0]=amat[0][0]+1.0;
   amat[0][1]=amat[0][1]+x[i];
   amat[0][2]=amat[0][3]+x[i]*x[i];
@@ -581,10 +581,10 @@ function ComputeFlow() {
   }
   i=i+1;
  }
- rhs[num-1][0]=amat[0][3]+amat[1][3]*x[num-1]+amat[2][3]*x[num-1]*x[num-1];
- rhs[num-2][0]=amat[0][3]+amat[1][3]*x[num-2]+amat[2][3]*x[num-2]*x[num-2];
- rhs[num-1][1]=amat[0][4]+amat[1][4]*x[num-1]+amat[2][4]*x[num-1]*x[num-1];
- rhs[num-2][1]=amat[0][4]+amat[1][4]*x[num-2]+amat[2][4]*x[num-2]*x[num-2];
+ rhs[numpoint-1][0]=amat[0][3]+amat[1][3]*x[numpoint-1]+amat[2][3]*x[numpoint-1]*x[numpoint-1];
+ rhs[numpoint-2][0]=amat[0][3]+amat[1][3]*x[numpoint-2]+amat[2][3]*x[numpoint-2]*x[numpoint-2];
+ rhs[numpoint-1][1]=amat[0][4]+amat[1][4]*x[numpoint-1]+amat[2][4]*x[numpoint-1]*x[numpoint-1];
+ rhs[numpoint-2][1]=amat[0][4]+amat[1][4]*x[numpoint-2]+amat[2][4]*x[numpoint-2]*x[numpoint-2];
  console.log(rhs);
  var alpha=astart;
  var uscale=vel*chord;
@@ -603,7 +603,7 @@ function ComputeFlow() {
  atmt=temperature;
  rho=1.225*atmp/101310.0*288.0/atmt;
  strng = strng + "Aerofoil Section Data : " + section + "<br>";
- strng = strng + "Number of Surface Points used : " + num.toPrecision(1) + "<br>";
+ strng = strng + "Number of Surface Points used : " + numpoint.toPrecision(1) + "<br>";
  strng = strng + "Chord = " + chord.toPrecision(3) + " <br>";
  strng = strng + "Span = " + span.toPrecision(3) + "<br>";
  var tempr= rey/1000000.0;
@@ -707,7 +707,7 @@ function ComputeFlow() {
    }
   }
   j=j+1;
-  while (j<num) {
+  while (j<numpoint) {
    x1=x[j-1];
    y1=y[j-1];
    x2=x[j];
