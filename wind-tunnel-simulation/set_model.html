@@ -105,15 +105,21 @@
   <center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
   &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
   </center>
+  </td></tr>
+ </table>
+ <table><tr><td>
+  <p id="output2"> </p> 
+  </td><td>
   <fieldset id="results2">
   <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
   </fieldset>  
   </td></tr>
- </table>
- </center>
- <fieldset id='datafile'>
- <p id='output' hidden> </p>
- </fieldset></td></tr> 
+  <tr><td colspan="2">
+  <fieldset id='datafile'>
+  <p id='output' hidden> </p>
+  </fieldset>
+  </td></tr> 
+ </table></center></td></tr>  
 </table>
 
 <script>
@@ -1075,7 +1081,7 @@ function ComputeFlow() {
 
 //  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
  
- document.getElementById("output").innerHTML=strng;
+ document.getElementById("output2").innerHTML=strng;
 }
 
 function ComputeLoad() {
