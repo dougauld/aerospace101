@@ -213,12 +213,13 @@ function ComputeFlow() {
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
+ var section = words[3];
  j=20;
  var xu = [];
  var yu = [];
  var xl = [];
  var yl = [];
- var xmax,xmin,ymin,ymax;
+ var xmax,xmin,ymax,ymin;
  while (i<num) {
   xu[i]=Number(words[j]);
   yu[i]=Number(words[j+1]);
@@ -227,9 +228,9 @@ function ComputeFlow() {
   j=j+4;
   if (i==0) {
    xmax=xu[i];
-   ymax=yu[i];
    xmin=xu[i];
-   ymin=yu[i];
+   ymax=yu[i];
+   ymin=yl[i];
   } else {
    if (xu[i]>xmax) {
     xmax=xu[i];
@@ -240,19 +241,841 @@ function ComputeFlow() {
    if (yu[i]>ymax) {
     ymax=yu[i];
    } 
-   if (yu[i]<ymin) {
-    ymin=yu[i];
-   }
+   if (yl[i]<ymin) {
+    ymin=yl[i];
+   } 
   } 
   i=i+1;
  }  
 
+ var portion=0.5;
+ var PI=3.1415926;
+ var twopi=PI*2.0;
+ var pfield = document.getElementById("p").value;
+ var pressure = Number(pfield); 
+ var chord = xmax-xmin;
+ var area = chord * span;
+ var tfield = document.getElementById("t").value;
+ var temperature = Number(tfield); 
+ var asfield = document.getElementById("as").value;
+ var astart = Number(asfield); 
+ var affield = document.getElementById("af").value;
+ var afin = Number(affield); 
+ var vfield = document.getElementById("v").value;
+ var vel = Number(vfield); 
+ if (pressure>105.0) {
+  alert('Air Pressure too High.  Tunnel Exploded.'); return;
+ }
+ if (pressure<90.0) {
+  alert('Air Pressure too Low.  Tunnel Imploded.'); return;
+ } 
+ if (temperature>350.0) {
+  alert('Air Temperature too High.  Tunnel Melted.'); return;
+ }
+ if (temperature<273.0) {
+  alert('Air Temperature too Low.  Tunnel Frozen.'); return;
+ } 
+ if (area<1.0e-3) {
+  alert('Model too Small. Broke...Fell off balance.'); return;
+ }
+ if (area>10.1) {
+  alert('Model too Large. Too much Blockage...Tunnel cannot attain required speed.'); return;
+ }
+ if (chord<0.01) {
+  alert('Model too Small. Broke...Fell off balance.'); return;
+ }
+ if (chord>2.0) {
+  alert('Model too Large. Too much Blockage...Tunnel cannot attain required speed.'); return;
+ }
+ if (astart<-30.0 || $astart>30.0) {
+  alert('Angle setting out of Range (-30 Deg to +30 Deg).'); return;
+ } 
+ if (afin<astart) {
+  alert('Angle Start > Angle Finish... Balance cannot run Backward.'); return;
+ }
+ if (afin>30.0) {
+  alert('Angle setting out of Range (-30 Deg to +30 Deg).'); return;
+ }
+ if (vel<3.0) {
+  alert('Velocity setting too Low. Unstable motor run.'); return;
+ }
+ if (vel>100.0) {
+  alert('Velocity setting too High. Max 100 m/s.'); return;
+ }
+ if (afin<0.0) {
+  afin=0.0;
+ }
+ if (num>181) { 
+  alert ("Section TOO BIG (too many data points)"); return;
+ } 
+ i=0;
+ if ((ymax-ymin)/(xmax-xmin)>0.25) {
+ }
+ var j,k,xc,yc,dx,dy,al,sni,csi,xt,yt,cs,sn,csm,snm,x1,x2,y1,r1,r2,th1,th2;
+ var u1l,u2l,w1l,w2l,u1,u2,w1,w2,holda,fn,fndash,fnplus,fnhalf;
+ var alf=10.0/180.0*PI;
+ var amat = [];
+ var rhs =  [];
+ for (let i = 0; i < numpoint+1; i++) {
+  amat[i] = [];
+  rhs[i]  = [];
+  for (let j = 0; j < numpoint+1; j++) {
+    amat[i][j] = 0;
+  }
+  rhs[i][0]=0.0;
+  rhs[i][1]=0.0;
+ }
+ numpan=num-1;
+// ASSEMBLE PANEL BY PANEL
+// Calculate two surface vorticity (gamma) distributions
+// for alpha = 0, 10  degrees.
+ i=0;
+ while (i<numpan) {
+  xc=(x[i]+x[i+1])*0.5;
+  yc=(y[i]+y[i+1])*0.5;
+  dx=x[i+1]-x[i];
+  dy=y[i+1]-y[i];
+  al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+  sni=dy/al;
+  csi=dx/al;
+  j=0;
+  while (j<$numpan) { 
+   xt=xc-x[j];
+   yt=yc-y[j];
+   dx=x[j+1]-x[j];
+   dy=y[j+1]-y[j];
+   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+   cs=dx/al;	
+   sn=dy/al;
+   csm=dx/al;
+   snm=(-dy)/al;
+   x1= xt*cs+yt*sn;
+   y1=-xt*sn+yt*cs;
+   x2=dx*cs+dy*sn;
+   r1=Math.sqrt(Math.abs(x1*x1+y1*y1));
+   r2=Math.sqrt(Math.abs((x1-x2)*(x1-x2)+y1*y1));
+   th1=Math.atan2(y1,x1);
+   th2=Math.atan2(y1,(x1-x2));
+   if (i==j) {
+    u1l=-0.5*(x1-x2)/x2;
+    u2l=0.5*x1/x2;
+    w1l=-0.15916;
+    w2l=0.15916;
+   } else {
+    u1l=-(y1*Math.log(r2/r1)+x1*(th2-th1)-x2*(th2-th1))/(twopi*x2);
+    u2l=(y1*Math.log(r2/r1)+x1*(th2-th1))/(twopi*x2);
+    w1l=-((x2-y1*(th2-th1))-x1*Math.log(r1/r2)+x2*Math.log(r1/r2))/(twopi*x2);
+    w2l=((x2-y1*(th2-th1))-x1*Math.log(r1/r2))/(twopi*x2);
+   }
+   u1= u1l*csm+w1l*snm;
+   u2= u2l*csm+w2l*snm;
+   w1=-u1l*snm+w1l*csm;
+   w2=-u2l*snm+w2l*csm;
+   if (j==0) {
+    amat[i][0]=-u1*sni+w1*csi;
+    holda=-u2*sni+w2*csi;
+   } elseif (j==(numpan-1)) {
+    amat[i][numpan-1]=-u1*sni+w1*csi+holda;
+    amat[i][num-1]=-u2*sni+w2*csi;
+   } else {	 
+    amat[i][j]=-u1*sni+w1*csi+holda;
+    holda=-u2*sni+w2*csi;
+   }
+   j++;
+  }
+  rhs[i][0]=sni;
+  rhs[i][1]=Math.cos(alf)*sni-Math.sin(alf)*csi;
+  i=i+1;
+ } 
+// SET Kutta condition
+ j=0;
+ while (j<num) {
+  amat[num-1][j]=0.0;
+  j=j+1;
+ }
+ rhs[num-1][0] = 0.0;
+ rhs[num-1][1] = 0.0;
+ amat[num-1][0]=1.0;
+ amat[num-1][num-1]=1.0;
+ var diag,col;
+ i=0;
+ while (i<num) {
+  diag=amat[i][i];
+  if (abs(diag)<1.0e-7) {
+   alert ('Very strange section geometry (Flow broke model)'); return;
+  } 
+  j=i;
+  while (j<num) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  }  
+  rhs[i][0]=rhs[i][0]/diag;
+  rhs[i][1]=rhs[i][1]/diag;
+  if (i<num-1) {
+   j=i+1;
+   while (j<num) {
+    col=amat[j][i];
+    k=i;
+    while (k<num) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k++;
+    }
+    rhs[j][0]=rhs[j][0]-rhs[i][0]*col;
+    rhs[j][1]=rhs[j][1]-rhs[i][1]*col;
+    j=j+1;
+   }
+  }  
+  i=i+1;
+ }
+ var sum1,sum2; 
+// BACKSUBSTITUTE
+ i=0;
+ while (i<num-1) {
+  j=num-i-2;
+  sum1=0.0;
+  sum2=0.0;
+  k=j+1;
+  while (k<num) {
+   sum1=sum1+rhs[k][0]*amat[j][k];
+   sum2=sum2+rhs[k][1]*amat[j][k];
+   k=k+1;
+  } 
+  rhs[j][0]=rhs[j][0]-sum1;
+  rhs[j][1]=rhs[j][1]-sum2;
+  i=i+1;
+ } 
+// LEAST SQUARES INTERPOLATE TO TRAILING EDGE
+ i=0;
+ while (i<3) {
+  j=0;
+  while (j<5) {
+   amat[i][j]=0.0;
+   j=j+1;
+  }
+  i=i+1;
+ }
+ i=2;
+ while (i<9) {
+  amat[0][0]=amat[0][0]+1.0;
+  amat[0][1]=amat[0][1]+x[i];
+  amat[0][2]=amat[0][2]+x[i]*x[i];
+  amat[0][3]=amat[0][3]+rhs[i][0];
+  amat[0][4]=amat[0][4]+rhs[i][1];
+  amat[1][0]=amat[1][0]+x[i];
+  amat[1][1]=amat[1][1]+x[i]*x[i];
+  amat[1][2]=amat[1][2]+x[i]*x[i]*x[i];
+  amat[1][3]=amat[1][3]+rhs[i][0]*x[i];
+  amat[1][4]=amat[1][4]+rhs[i][1]*x[i];
+  amat[2][0]=amat[2][0]+x[i]*x[i];
+  amat[2][1]=amat[2][1]+x[i]*x[i]*x[i];
+  amat[2][2]=amat[2][2]+x[i]*x[i]*x[i]*x[i];
+  amat[2][3]=amat[2][3]+rhs[i][0]*x[i]*x[i];
+  amat[2][4]=amat[2][4]+rhs[i][1]*x[i]*x[i];
+  i=i+1;
+ }
+ i=0;
+ while (i<3) {
+  diag=amat[i][i];
+  if (Math.abs(diag)<1.0E-10) {
+   alert ("Bad trailing edge shape. Model broke up in flow"); return;
+  }
+  j=i;
+  while (j<5) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  }
+  j=0;
+  while (j<3) {
+   if (i!=j) {
+    col=amat[j][i];
+    k=i;
+    while (k<5) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k=k+1;
+    }
+   }
+   j=j+1;
+  }
+  i=i+1;
+ } 
+ rhs[0][0]=amat[0][3]+amat[1][3]*x[0]+amat[2][3]*x[0]*x[0];
+ rhs[1][0]=amat[0][3]+amat[1][3]*x[1]+amat[2][3]*x[1]*x[1];
+ rhs[0][1]=amat[0][4]+amat[1][4]*x[0]+amat[2][4]*x[0]*x[0];
+ rhs[1][1]=amat[0][4]+amat[1][4]*x[1]+amat[2][4]*x[1]*x[1];
+ i=0;
+ while (i<3) {
+  j=0;
+  while (j<5) {
+   amat[i][j]=0.0;
+   j++;
+  }
+  i++;
+ } 
+ i=num-9;
+ while (i<num-2) {
+  amat[0][0]=amat[0][0]+1.0;
+  amat[0][1]=amat[0][1]+x[i];
+  amat[0][2]=amat[0][3]+x[i]*x[i];
+  amat[0][3]=amat[0][4]+rhs[i][0];
+  amat[0][4]=amat[0][5]+rhs[i][1];
+  amat[1][0]=amat[1][0]+x[i];
+  amat[1][1]=amat[1][1]+x[i]*x[i];
+  amat[1][2]=amat[1][2]+x[i]*x[i]*x[i];
+  amat[1][3]=amat[1][3]+rhs[i][0]*x[i];
+  amat[1][4]=amat[1][4]+rhs[i][1]*x[i];
+  amat[2][0]=amat[2][0]+x[i]*x[i];
+  amat[2][1]=amat[2][1]+x[i]*x[i]*x[i];
+  amat[2][2]=amat[2][2]+x[i]*x[i]*x[i]*x[i];
+  amat[2][3]=amat[2][3]+rhs[i][0]*x[i]*x[i];
+  amat[2][4]=amat[2][4]+rhs[i][1]*x[i]*x[i];
+  i=i+1;
+ }
+ i=0;
+ while (i<3) {
+  diag=amat[i][i];
+  if (abs(diag)<1.0E-10) {
+   alert("Bad trailing edge shape. Model broke up in Flow"); return;
+  } 
+  j=i;
+  while (j<5) {
+   amat[i][j]=amat[i][j]/diag;
+   j=j+1;
+  } 
+  j=0;
+  while (j<3) {
+   if (i!=j) {
+    col=amat[j][i];
+    k=i;
+    while (k<5) {
+     amat[j][k]=amat[j][k]-amat[i][k]*col;
+     k=k+1;
+    } 
+   }
+   j=j+1;
+  }
+  i=i+1;
+ }
+ rhs[num-1][0]=amat[0][3]+amat[1][3]*x[num-1]+amat[2][3]*x[num-1]*x[num-1];
+ rhs[num-2][0]=amat[0][3]+amat[1][3]*x[num-2]+amat[2][3]*x[num-2]*x[num-2];
+ rhs[num-1][1]=amat[0][4]+amat[1][4]*x[num-1]+amat[2][4]*x[num-1]*x[num-1];
+ rhs[num-2][1]=amat[0][4]+amat[1][4]*x[num-2]+amat[2][4]*x[num-2]*x[num-2];
+ var alpha=astart;
+ var uscale=vel*chord;
+ var visc=1.445e-5;
+ var rey=chord*vel/visc;
+ var strng = "<dir><H2>SNR Wind Tunnel Test Results</H2>";
+ strng = strng + "<H3>----------------------------</H3>";
+ strng = strng + "Tunnel Conditions<br>";
+ strng = strng + "Pressure = " + pressure.toPrecision(3) + " KPa<br>";
+ var atmp=pressure*1000.0;
+ strng = strng + "Temperature = " + temperature.toPrecision(3) + " K<br>";
+ strng = strng + "Tunnel Velocity = " + vel.toPrecision(3) + " m/s<br>";
+ if (vel<5.000001) {
+  strng = strng + "<font color=red>WARNING : Results not stable in this range<br></font>";
+ }
+ atmt=temperature;
+ rho=1.225*atmp/101310.0*288.0/atmt;
+ strng = strng + "Aerofoil Section Data : " + section + "<br>";
+ strng = strng + "Number of Surface Points used : " + num.toPrecision(1) + "<br>";
+ strng = strng + "Chord = " + chord.toPrecision(3) + " <br>";
+ strng = strng + "Span = " + span.toPrecision(3) + "<br>";
+ var tempr= rey/1000000.0;
+ strng = strng + "Reynolds Number = " + tempr.toPrecision(3) + " x 10^6 <br>";
+ strng = strng + "Angle Test Range = " + astart.toPrecision(3) + " to " + afin.to Precision(3) + " Degrees<br>&nbsp;<br>";
+ strng = strng + "<table><tr><td><pre>";
+ strng = strng + "                  Coeff.    Coeff.     Coeff.<br />";
+ strng = strng + "      Angle       Lift      Drag       Moment(c/4)<br />";
+ strng = strng + "--------------------------------------------------<br />";
+ var sumx,sumy,summ,cpmax,ax1,ay1,ax2,ay2,v0,v1,v2,cp,cl,fraction,a1;
+ var isep,istag,cp1s,cp2s,istag,sumxl,sumxu,jcntl,fract,jcntu,lsep,usep;
+ var aintsum,u0,sss,rd2,rd2crit,rex,ak,ak0,h0,h1,itrans,isepcnt,d1l,d2l;
+ var d1u,d2u,uu,sumx0,sumy0,sumx1,sumy1,summ0,summ1,v10,v11,v20,v21,cp1,cp2;
+ var cl0,cl10,cla0,cma,da,alpha0,alpha1,aspect,cd,cdi,clmax,cn;
+ var lower_x = [];
+ var lower_v = [];
+ var upper_x = [];
+ var upper_v = [];
+ var lower_grad = [];
+ var upper_grad = [];
+ var lower_moment = [];
+ var upper_moment = [];
+ var lower_disp = [];
+ var upper_disp = [];
+ while (alpha<=afin) {
+  sumx=0.0;
+  sumy=0.0;
+  summ=0.0;
+  cpmax=1.0;
+  i=0;
+  while (i<numpan) {
+   ax1=x[i];
+   ay1=y[i];
+   v1=rhs[i][0] + (rhs[i][1]-rhs[i][0])*alpha/10.0;
+   v1=1.0-v1*v1;
+   if (v1<cpmax) {
+    cpmax=v1;
+   } 
+   ax2=x[i+1];
+   ay2=y[i+1];
+   v2=rhs[i+1][0] + (rhs[i+1][1]-rhs[i+1][0])*alpha/10.0;
+   v2=1.0-v2*v2;
+   if (v2<cpmax) {
+    cpmax=v2;
+   } 
+   cp=(v1+v2)*0.5;
+   sumy=sumy + cp*(ax2-ax1);
+   sumx=sumx - cp*(ay2-ay1);
+   summ=summ + cp*(ax1-ax2)*((ax2+ax1)/2.0 - xmin);
+   summ=summ - cp*(ay2-ay1)*(ay2+ay1)/2.0;
+   i=i+1;
+  }
+  cl=sumy*Math.cos(alpha/180.0*PI);
+  summ=summ + cl/4.0;
+  isep=0;
+  i=0;
+  istag=0;
+  while (i<numpan) {
+   x1=x[i];
+   x2=x[i+1];
+   y1=y[i];
+   y2=y[i+1];
+   cp1s=rhs[i][0]+(rhs[i][1]-rhs[i][0])*alpha/10.0;
+   cp2s=rhs[i+1][0]+(rhs[i+1][1]-rhs[i+1][0])*alpha/10.0;
+   istag=0;
+   if (cp1s<0.0) {
+    if (cp2s>=0.0) { 
+     istag=i;
+     i=numpan+1;
+    }
+   } else if (cp1s>0.0) {
+    if (cp2s<=0.0) {
+     istag=i;
+     i=numpan+1;
+    } 
+   } 
+   i=i+1;
+  }
+  if (istag==0) {
+   alert ("Strange Flow Field? No Stagnation Point."); return;
+  }
+  lower_x[0]=0.0;
+  lower_v[0]=0.0;
+  upper_x[0]=0.0;
+  upper_v[0]=0.0;
+// LOWER SURFACE DISTANCES AND VELOCITIES
+  sumxl=0.0;
+  jcntl=1;
+  fract=0.0;
+  j=istag+1;
+  if (Math.abs(cp2s-cp1s)>1.0e-10) {
+   fract=cp2s/(cp2s-cp1s);
+   dx=x[istag+1] - x[istag];
+   dy=y[istag+1] - y[istag];
+   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+   sumxl=fract*al;
+   if (sumxl>1.0E-5*al) {
+    lower_x[jcntl]=sumxl;
+    lower_v[jcntl]=Math.abs(cp2s)*uscale;
+    jcntl=jcntl + 1;
+   }
+  }
+  j=j+1;
+  while (j<num) {
+   x1=x[j-1];
+   y1=y[j-1];
+   x2=x[j];
+   y2=y[j];
+   cp2=rhs[j][0]+(rhs[j][1]-rhs[j][0])*alpha/10.0;
+   dx=x2 - x1;
+   dy=y2 - y1;
+   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+   sumxl=sumxl+al;
+   lower_x[jcntl]=sumxl;
+   lower_v[jcntl]=Math.abs(cp2)*uscale;
+   jcntl=jcntl + 1;
+   j=j+1;
+  } 
+  lsep=jcntl;
+// UPPER SURFACE DISTANCES AND VELOCITIES
+  jcntu=1;
+  j=istag;
+  sumxu=0.0;
+  fract=0.0;
+  if (Math.abs(cp2s-cp1s)>1.0e-10) {
+   fract=Math.abs(cp1s/(cp2s-cp1s));
+   dx=x[j+1] - x[j];
+   dy=y[j+1] - y[j];
+   al=Math.sqrt(dx*dx+dy*dy);
+   sumxu=fract*al;
+   if (sumxu>1.0E-5*al) {
+    upper_x[jcntu]=sumxu;
+    upper_v[jcntu]=Math.abs(cp1s)*uscale;
+    jcntu=jcntu+1;
+   }
+  }
+  j=j-1;
+  while (j>=0) {
+   x2=x[j];
+   y2=y[j];
+   x1=x[j+1];
+   y1=y[j+1];
+   cp2=rhs[j][0]+(rhs[j][1]-rhs[j][0])*alpha/10.0;
+   dx=x2 - x1;
+   dy=y2 - y1;
+   al=Math.sqrt(Math.abs(dx*dx+dy*dy));
+   sumxu=sumxu+al;
+   upper_x[jcntu]=sumxu;
+   upper_v[jcntu]=Math.abs(cp2)*uscale;
+   jcntu=jcntu+1;
+   j=j-1;
+  }
+  usep=jcntu;
+//Calculate Gradients (LOWER SURFACE)
+  lower_grad[0]=(lower_v[1]-lower_v[0])/lower_x[1];
+  x0=lower_x[0];
+  x1=lower_x[1];
+  v0=lower_v[0];
+  v1=lower_v[1];
+  i=1;
+  while (i<jcntl-1) {
+   v2=lower_v[i+1];
+   x2=lower_x[i+1];
+   fraction=(x0-x1)/(x2-x1);
+   lower_grad[i]=((v2-v1)*fraction-(v0-v1)/fraction)/(x0-x1);
+   x0=x1;
+   v0=v1;
+   x1=x2;
+   v1=v2;
+   i=i+1;
+  } 
+  lower_grad[jcntl-1]=(lower_v[jcntl-1]-lower_v[jcntl-2])/(lower_x[jcntl-1]-lower_x[jcntl-2]);
+// Calculate Gradients (UPPER SURFACE)
+  upper_grad[0]=(upper_v[1]-upper_v[0])/upper_x[1];
+  x0=upper_x[0];
+  x1=upper_x[1];
+  v0=upper_v[0];
+  v1=upper_v[1];
+  i=1;
+  while (i<jcntu-1) {
+   v2=upper_v[i+1];
+   x2=upper_x[i+1];
+   fraction=(x0-x1)/(x2-x1);
+   upper_grad[i]=((v2-v1)*fraction-(v0-v1)/fraction)/(x0-x1);
+   x0=x1;
+   v0=v1;
+   x1=x2;
+   v1=v2;
+   i=i+1;
+  }
+  upper_grad[jcntu-1]=(upper_v[jcntu-1]-upper_v[jcntu-2])/(upper_x[jcntu-1]-upper_x[jcntu-2]);
+//LOWER SURFACE boundary layer, laminar boundary layer
+  aintsum=0.0;
+  u0=0.0;
+  i=1;
+  while (i<jcntl) {
+   u1=lower_v[i]/uscale;
+   sss=(lower_x[i] - lower_x[i-1]);
+   aintsum=aintsum + (u1*u1*u1*1*u1 + u0*u0*u0*u0*u0)*0.5*sss;
+   rd2=Math.sqrt(rey*0.47/(u1*u1*u1*u1)*aintsum);
+   lower_moment[i]=rd2*visc/lower_v[i];
+   ak=lower_moment[i]*lower_moment[i]/visc;
+   ak=ak*lower_grad[i];
+   ak0=ak;
+   if (ak>0.1) {
+    ak=0.1;
+   } else if (ak<-0.1) {
+    ak=-0.1;
+   }
+   if (ak>0) {
+    h0=2.61 - 3.75*ak + 5.24*ak*ak;
+   } else {
+    h0= 2.088 + 0.0731/(ak+0.14);
+   }
+   lower_disp[i]=lower_moment[i]*h0;
+   if (i==1) {
+    lower_disp[0]=lower_disp[1];
+    lower_moment[0]=lower_moment[1];
+   }
+   u0=u1;
+   if (ak0<(-0.15673)) {
+    itrans=(-i);
+// POSSIBLE LAMINAR BUBBLE
+    i=jcntl+1;
+   } else {
+    rex=lower_x[i]*lower_v[i]/visc;
+    if (rex>0.0) {
+     rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(rex,0.46);
+     if (rd2>rd2crit) {
+      itrans=i;
+// NATURAL TRANSITION
+      i=jcntl+1;
+     } 
+    }
+   } 
+   i=i+1;
+  } 
+  itrans=Math.abs(itrans);
+  if (h0<=1.6) {
+   h1=3.3 + 0.8234*Math.pow(h0 - 1.1,-1.287);
+  } else { 
+   h1=3.3 + 1.5501*Math.pow(h0 - 0.6778,-3.064);
+  }
+//    echo "Turbulence\n";
+  fn=h1;
+  isepcnt=0;
+  aintsum=0.0;
+  ak0=Math.pow(rd2,6.0/5.0);
+// turbulent boundary layer IntegratION (UPPER SURFACE)
+  i=itrans+1;
+  while (i<jcntl) {
+   sss=(lower_x[i]-lower_x[i-1]);
+   u1=lower_v[i]/uscale;
+   aintsum=aintsum + (u1*u1*u1*u1 + u0*u0*u0*u0)*0.5*sss;
+   u0=u1;
+   rd2=aintsum*rey*0.0106/(u1*u1*u1) + ak0;
+   rd2=Math.pow(rd2,5.0/6.0);
+   lower_moment[i]=rd2*visc/lower_v[i];
+   fndash=fn;
+   h1=fndash;
+   if (h1<= 3.0001) {
+    h1=3.0001;
+   }
+   fnplus=(lower_moment[i]-lower_moment[i-1])/sss;
+   fnplus= -h1*(lower_grad[i]/lower_v[i] + fnplus/lower_moment[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lower_moment[i];
+   fndash= fn + sss*fnplus;
+   fnhalf= fn + 0.5*sss*fnplus;
+   h1=fndash;
+   if (h1<=3.0001) {
+    h1=3.0001;
+   }
+   fnplus=(lower_moment[i]-lower_moment[i-1])/sss;
+   fnplus= -h1*(lower_grad[i]/lower_v[i] + fnplus/lower_moment[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/lower_moment[i];
+   fn= fnhalf + 0.5*sss*fnplus;
+   h1=fn;
+   if (h1<3.3) {
+    h0=3.0;
+   } else {
+    if (h1>=5.3) {
+     h0=1.1 + 0.86*Math.pow(h1 - 3.3,-0.777);
+    } else {
+     h0=0.6778 + 1.1536*Math.pow(h1 - 3.3,-0.326);
+    }
+   } 
+   lower_disp[i]=lower_moment[i]*h0;
+   if (h0>2.0 && alpha<0.0) {
+    if (isep==0) {
+     lsep=i;
+    } 
+    isep=1;
+    h0=2.0;
+   }
+   i=i+1;
+  }  
+  d1l=lower_disp[jcntl-1];
+  d2l=lower_moment[jcntl-1];
+  ul=lower_v[jcntl-1];
+// UPPER SURFACE boundary layer, laminar boundary layer
+  aintsum=0.0;
+  u0=0.0;
+  i=1;
+  while (i<jcntu) {
+   u1=upper_v[i]/uscale;
+   sss=(upper_x[i] - upper_x[i-1]);
+   aintsum=aintsum + (u1*u1*u1*u1*u1 + u0*u0*u0*u0*u0)*0.5*sss;
+   rd2=Math.sqrt(rey*0.47/(u1*u1*u1*u1)*aintsum);
+   upper_moment[i]=rd2*visc/upper_v[i];
+   ak=upper_moment[i]*upper_moment[i]/visc;
+   ak=ak*upper_grad[i];
+   ak0=ak;
+   if (ak>0.1) {
+    ak=0.1;
+   } else if (ak<-0.1) {
+    ak=-0.1;
+   }
+   if (ak>0) {
+    h0=2.61 - 3.75*ak + 5.24*ak*ak;
+   } else {
+    h0= 2.088 + 0.0731/(ak+0.14);
+   } 
+   upper_disp[i]=upper_moment[i]*h0;
+   if (i==1) {
+    upper_moment[0]=upper_moment[1];
+    upper_disp[0]=upper_disp[1];
+   } 
+   u0=u1;
+   if (ak0<(-0.15673)) {
+    itrans=(-i);
+// POSSIBLE LAMINAR BUBBLE
+    i=jcntu+1;
+   } else {
+    rex=upper_x[i]*upper_v[i]/visc;
+    if (rex>0.0) {
+     rd2crit=1.174*(1.0 + 22400.0/rex)*Math.pow(rex,0.46);
+     if (rd2>rd2crit) {
+      itrans=i;
+//  NATURAL TRANSITION
+      i=jcntu+1;
+     }
+    } 
+   } 
+   i++;
+  }   
+  itrans=Math.abs(itrans);
+  if (h0<=1.6) {
+   h1=3.3 + 0.8234*Math.pow(h0 - 1.1,-1.287);
+  } else {
+   h1= 3.3 + 1.5501*Math.pow(h0 -0.6778,-3.064);
+  }
+//    echo "Turbulence\n";
+  fn=h1;
+  isepcnt=0;
+  aintsum=0.0;
+  ak0=Math.pow(rd2,6.0/5.0);
+//  turbulent boundary layer Integration (LOWER SURFACE)
+  i=itrans+1;
+  while (i<jcntu) {
+   sss=(upper_x[i]-upper_x[i-1]);
+   u1=upper_v[i]/uscale;
+   aintsum=aintsum + (u1*u1*u1*u1 + u0*u0*u0*u0)*0.5*sss;
+   u0=u1;
+   rd2=aintsum*rey*0.0106/(u1*u1*u1) + ak0;
+   rd2=Math.pow(rd2,5.0/6.0);
+   upper_moment[i]=rd2*visc/upper_v[i];
+   fndash=fn;
+   h1=fndash;
+   if (h1<=3.0001) {
+    h1=3.0001;
+   }
+   fnplus=(upper_moment[i]-upper_moment[i-1])/sss;
+   fnplus= -h1*(upper_grad[i]/upper_v[i] + fnplus/upper_moment[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/upper_moment[i];
+   fndash= fn + sss*fnplus;
+   fnhalf= fn + 0.5*sss*fnplus;
+   h1=fndash;
+   if (h1<=3.0001) {
+    h1=3.0001;
+   }
+   fnplus= (upper_moment[i]-upper_moment[i-1])/sss;
+   fnplus= -h1*(upper_grad[i]/upper_v[i] + fnplus/upper_moment[i]);
+   fnplus= fnplus + 0.0306*Math.pow(h1 - 3.0,-0.6169)/upper_moment[i];
+   fn= fnhalf + 0.5*sss*fnplus;
+   h1=fn;
+   if (h1<3.3) {
+    h0=3.0;
+   } else { 
+    if (h1>=5.3) {
+     h0=1.1 + 0.86*Math.pow(h1 - 3.3,-0.777);
+    } else {
+     h0=0.6778 + 1.1536*Math.pow(h1 - 3.3,-0.326);
+    }
+   } 
+   upper_disp[i]=upper_moment[i]*h0;
+   if (h0>2.0 && $alpha>0.0) {
+    if (isep==0) {
+     usep=i;
+    } 
+    h0=2.0;
+    isep=1;
+   }
+   i=i+1;
+  } 
+// CALCULATE CL,CD,CM FOR $viscOUS FLOW
+  d1u=upper_disp[jcntu-1];
+  d2u=upper_moment[jcntu-1];
+  uu=upper_v[jcntu-1];
+  sumx0=0.0;
+  sumy0=0.0;
+  sumx1=0.0;
+  sumy1=0.0;
+  summ0=0.0;
+  summ1=0.0;
+  i=0;
+  while (i<numpan) {
+   x1=x[i];
+   y1=y[i];
+   v10=rhs[i][0];
+   v10=v10*v10-1.0;
+   v11=rhs[i][1];
+   v11=v11*v11-1.0;
+   x2=x[i+1];
+   y2=y[i+1];
+   v20=rhs[i+1][0];
+   v20=v20*v20-1.0;
+   v21=rhs[i+1][1];
+   v21=v21*v21-1.0;
+   cp1=(-v10-v20)*0.5;
+   cp2=(-v21-v21)*0.5;
+   sumy0=sumy0 - cp1*(x1-x2);
+   sumx0=sumx0 + cp1*(y1-y2);
+   sumy1=sumy1 - cp2*(x1-x2);
+   sumx1=sumx1 + cp2*(y1-y2);
+   summ0=summ0 + cp1*(x1-x2)*((x2+x1)/2.0 - xmin);
+   summ0=summ0 + cp1*(y1-y2)*(y2+y1)/2.0;
+   summ1=summ1 + cp2*(x1-x2)*((x2+x1)/2.0 - xmin);
+   summ1=summ1 + cp2*(y1-y2)*(y2+y1)/2.0;
+   i=i+1;
+  } 	
+  cl0=sumy0;
+  summ0=summ0 + cl0/4.0;
+  a1=10.0/180.0*PI;
+  sumy0=sumy1*Math.cos(a1) - sumx1*Math.sin(a1);
+  cl10=sumy0;
+  summ1=$summ1 + cl10/4.0;
+  cla0=(cl10-cl0)/(10.0/180.0*PI);
+  cma=(summ1-summ0)/10.0;
+  da=0.5*(d1u-d1l);
+  alpha0=-cl0/cla0;
+  a1=alpha/180.0*PI-da;
+  aspect=span*span/area;
+  cla=cla0/(1+cla0/PI/aspect);
+  if (span>8.0) {
+   cla=cla+(cla0-cla)*(span-8.0)/2.0;
+   if (cla>cla0) {
+    cla=cla0;
+   } 
+  }  
+  cl=cla*(a1-alpha0);
+  cdi=1.0/PI/aspect*1.05*cl*cl;
+  if (span>8.0) {
+   cdi=cdi*(10.0-span)/2.0;
+  } 
+  cd=2.0*(d2u+d2l)*Math.pow((ul+uu)/(2.0*uscale)),7.0/2.0);
+  cd=cd+cdi;
+  alpha1=a1*180.0/PI;
+  summ=summ+(alpha-alpha1)*cma;
+  clmax=0.9+(1.6-0.9)/(3.0e6-3.0e5)*(rey-3.0e5);
+  if (clmax>1.7) {
+   clmax=1.7;
+  }
+  if (cl>clmax) {
+   cn=1.0/(0.222+0.283/Math.sin(alpha/180.0*PI));
+   cl1=cn*Math.cos(alpha/180.0*PI);
+   cl=cl*portion+cl1*(1.0-portion);
+   portion=portion*0.5; 
+   cd=cn*Math.sin(alpha/180.0*PI);
+   summ=-cl/4.0;
+  }
+  if (cl<-clmax) {
+   cl=Math.cos(alpha/180.0*PI)*(-1.8)/40.0*alpha;
+   cd=Math.sin(alpha/180.0*PI)*1.8/40.0*alpha;
+   summ=-cl/4.0;
+  }
+  if (vel<5.1) {
+   cl=cl*Math.random();
+   cd=cd*Math.random();
+   summ=summ*Math.random();
+  }
+  strng = strng + " " + alpha.toPrecision(3) + " " + cl.toPrecision(4) + " ";
+  strng = strng + cd.toPrecision(4) + " " + summ.toPrecision(4) + "<br />";
+  alpha=alpha + 0.5;
+ }
+ strng = strng + "</pre>";
+
+//  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
  
- 
- 
- 
- document.getElementById("results").style.visibility="visible";
- document.getElementById("results1").style.visibility="visible";
+ document.getElementById("output").innerHTML=strng;
 }
 
 function ComputeLoad() {
