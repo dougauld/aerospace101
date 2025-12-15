@@ -317,7 +317,7 @@ function ComputeFlow() {
  i=0;
  if ((ymax-ymin)/(xmax-xmin)>0.25) {
  }
- var j,k,xc,yc,dx,dy,al,sni,csi,xt,yt,cs,sn,csm,snm,x1,x2,y1,r1,r2,th1,th2;
+ var j,k,xc,yc,dx,dy,al,sni,csi,xt,yt,cs,sn,csm,snm,r1,r2,th1,th2;
  var u1l,u2l,w1l,w2l,u1,u2,w1,w2,holda,fn,fndash,fnplus,fnhalf;
  var alf=10.0/180.0*PI;
  var amat = [];
@@ -332,6 +332,26 @@ function ComputeFlow() {
   rhs[i][1]=0.0;
  }
  numpan=num-1;
+ // reset coordinates
+ i=num-1;
+ j=0;
+ var x1,y1,x2,y2;
+ var x = [];
+ var y = [];
+ while (i>=0) {
+  x[j]=xu[i];
+  y[j]=yu[i];
+  i=i-1;
+  j=j+1;
+ }
+ i=0
+ j=j-1;
+ while (i<num) {
+  x[j]=xl[i];
+  y[j]=yl[i];
+  i=i+1;
+  j=j+1;
+ }
 // ASSEMBLE PANEL BY PANEL
 // Calculate two surface vorticity (gamma) distributions
 // for alpha = 0, 10  degrees.
