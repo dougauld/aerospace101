@@ -213,7 +213,7 @@ function ComputeFlow() {
  } else { 
   span = Number(spanstrng);
  }
- console.log(span);
+ // console.log(span);
  var num = Math.trunc(numpoint/2) + 1;
  var test=words[19];
  if (test!='Y') {
@@ -585,6 +585,7 @@ function ComputeFlow() {
  rhs[num-2][0]=amat[0][3]+amat[1][3]*x[num-2]+amat[2][3]*x[num-2]*x[num-2];
  rhs[num-1][1]=amat[0][4]+amat[1][4]*x[num-1]+amat[2][4]*x[num-1]*x[num-1];
  rhs[num-2][1]=amat[0][4]+amat[1][4]*x[num-2]+amat[2][4]*x[num-2]*x[num-2];
+ console.log(rhs);
  var alpha=astart;
  var uscale=vel*chord;
  var visc=1.445e-5;
@@ -1294,7 +1295,7 @@ function ComputeLoad() {
  y1=75+thick/5.0*300.0;
  x2=150+span/20.0*300.0;
  y2=75-thick/5.0*300.0;
- console.log(x1,y1,x2,y2);
+ // console.log(x1,y1,x2,y2);
  dtx.moveTo(x1,y1);
  dtx.lineTo(x2,y1);
  dtx.lineTo(x2,y2);
