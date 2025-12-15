@@ -427,7 +427,7 @@ function ComputeFlow() {
  i=0;
  while (i<num) {
   diag=amat[i][i];
-  if (abs(diag)<1.0e-7) {
+  if (Math.abs(diag)<1.0e-7) {
    alert ('Very strange section geometry (Flow broke model)'); return;
   } 
   j=i;
@@ -559,7 +559,7 @@ function ComputeFlow() {
  i=0;
  while (i<3) {
   diag=amat[i][i];
-  if (abs(diag)<1.0E-10) {
+  if (Math.abs(diag)<1.0E-10) {
    alert("Bad trailing edge shape. Model broke up in Flow"); return;
   } 
   j=i;
