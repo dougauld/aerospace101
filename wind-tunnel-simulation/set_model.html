@@ -293,7 +293,7 @@ function ComputeFlow() {
  if (chord>2.0) {
   alert('Model too Large. Too much Blockage...Tunnel cannot attain required speed.'); return;
  }
- if (astart<-30.0 || $astart>30.0) {
+ if (astart<-30.0 || astart>30.0) {
   alert('Angle setting out of Range (-30 Deg to +30 Deg).'); return;
  } 
  if (afin<astart) {
@@ -345,7 +345,7 @@ function ComputeFlow() {
   sni=dy/al;
   csi=dx/al;
   j=0;
-  while (j<$numpan) { 
+  while (j<numpan) { 
    xt=xc-x[j];
    yt=yc-y[j];
    dx=x[j+1]-x[j];
@@ -978,7 +978,7 @@ function ComputeFlow() {
     }
    } 
    upper_disp[i]=upper_moment[i]*h0;
-   if (h0>2.0 && $alpha>0.0) {
+   if (h0>2.0 && alpha>0.0) {
     if (isep==0) {
      usep=i;
     } 
@@ -1028,7 +1028,7 @@ function ComputeFlow() {
   a1=10.0/180.0*PI;
   sumy0=sumy1*Math.cos(a1) - sumx1*Math.sin(a1);
   cl10=sumy0;
-  summ1=$summ1 + cl10/4.0;
+  summ1=summ1 + cl10/4.0;
   cla0=(cl10-cl0)/(10.0/180.0*PI);
   cma=(summ1-summ0)/10.0;
   da=0.5*(d1u-d1l);
