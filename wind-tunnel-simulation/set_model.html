@@ -1047,7 +1047,7 @@ function ComputeFlow() {
   if (span>8.0) {
    cdi=cdi*(10.0-span)/2.0;
   } 
-  cd=2.0*(d2u+d2l)*Math.pow((ul+uu)/(2.0*uscale)),7.0/2.0);
+  cd=2.0*(d2u+d2l)*Math.pow((ul+uu)/(2.0*uscale),3.5);
   cd=cd+cdi;
   alpha1=a1*180.0/PI;
   summ=summ+(alpha-alpha1)*cma;
