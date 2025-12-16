@@ -607,9 +607,9 @@ function ComputeFlow() {
  strng = strng + "Span = " + span.toPrecision(4) + "<br>";
  var tempr= rey/1000000.0;
  strng = strng + "Reynolds Number = " + tempr.toPrecision(4) + " x 10^6 <br>";
- strng = strng + "Angle Test Range = " + astart.toPrecision(4) + " to " + afin.toPrecision(4) + " Degrees<br>&nbsp;<br></center>";
- strng = strng + "<table align='right' cellspacing='10' cellpadding='10'><tr><td>";
- strng = strng + " Angle</td><td> Coeff.<br />Lift</td><td> Coeff.<br />Drag</td><td> Coeff.<br />Moment(c/4)</td></tr>";
+ strng = strng + "Angle Test Range = " + astart.toPrecision(4) + " to " + afin.toPrecision(4) + " Degrees<br>&nbsp;<br>";
+ strng = strng + "<table cellspacing='10' cellpadding='10'><tr><td>";
+ strng = strng + " &nbsp.&nbsp;Angle</td><td> Coeff.<br />Lift</td><td> Coeff.<br />Drag</td><td> Coeff.<br />Moment(c/4)</td></tr>";
  strng = strng + "<tr><td colspan='4'><hr></td></tr>";
  var sumx,sumy,summ,cpmax,ax1,ay1,ax2,ay2,v0,v1,v2,cp,cl,fraction,a1;
  var isep,istag,cp1s,cp2s,istag,sumxl,sumxu,jcntl,fract,jcntu,lsep,usep;
@@ -1092,11 +1092,11 @@ function ComputeFlow() {
    cd=cd*Math.random();
    summ=summ*Math.random();
   }
-  strng = strng + "<tr><td>" + alpha.toPrecision(3) + "</td><td>" + cl.toPrecision(4) + "</td><td>";
+  strng = strng + "<tr><td> &nbsp;&nbsp;" + alpha.toPrecision(3) + "</td><td>" + cl.toPrecision(4) + "</td><td>";
   strng = strng + cd.toPrecision(4) + "</td><td>" + summ.toPrecision(4) + "</td></tr>";
   alpha=alpha + 0.5;
  }
- strng = strng + "</table>";
+ strng = strng + "</table></center>";
 
 //  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
  
