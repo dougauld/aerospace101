@@ -121,6 +121,7 @@
 
  const flines = document.getElementById("output");
  const fileInput = document.getElementById("upfile");
+ const loaded = 0;
  fileInput.addEventListener("change", handleFileSelection);
  
 function handleFileSelection(event) {
@@ -161,6 +162,7 @@ function HideResults() {
   document.getElementById("results2").style.visibility="hidden";
   document.getElementById("datafile").style.visibility="hidden";
   document.getElementById("output2").innerHTML=" "
+  loaded=0;
 }
 
 function ComputeFlow() {
@@ -171,6 +173,9 @@ function ComputeFlow() {
  var strng;
  var words = [];
  var i,j,k,l,m,n,found;
+ if (loaded==0) {
+  alert('No Model loaded into Test Section'); return;
+ } 
  strng = flines.textContent;
  i = strng.length;
  if (i>maxsize) {
@@ -1117,6 +1122,7 @@ function ComputeLoad() {
  }
  j=0;
  k=0;
+ loaded=1;
  words[0] = "";
  found = 0;
  while (j<i) {
