@@ -590,7 +590,7 @@ function ComputeFlow() {
  var uscale=vel*chord;
  var visc=1.445e-5;
  var rey=chord*vel/visc;
- var strng = "<dir><H2>SNR Wind Tunnel Test Results</H2>";
+ var strng = "<p style='background-image: url('paper1.gif');><H2>SNR Wind Tunnel Test Results</H2>";
  strng = strng + "<H3>----------------------------</H3>";
  strng = strng + "Tunnel Conditions<br>";
  strng = strng + "Pressure = " + pressure.toPrecision(3) + " KPa<br>";
@@ -1097,7 +1097,7 @@ function ComputeFlow() {
   strng = strng + cd.toPrecision(4) + "</td><td>" + summ.toPrecision(4) + "</td></tr>";
   alpha=alpha + 0.5;
  }
- strng = strng + "</table>";
+ strng = strng + "</table></p>";
 
 //  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
  
