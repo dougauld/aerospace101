@@ -100,7 +100,7 @@
   <font color='white'>Front View</font></center></span>
   </td></tr>
   <tr><td colspan='3'>
-  Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button <br />
+  Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button.
   <hr>
   <center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
   &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
@@ -108,7 +108,7 @@
   </td></tr>
  </table>
  <table><tr><td>
-  <p id="output2"> </p> 
+  <p style="background-image: url('paper1.gif');" id="output2"> </p> 
   </td><td>
   <fieldset id="results2">
   <canvas id="imageout2" width="600" height="450" style="border:1px solid_grey"></canvas>
@@ -219,7 +219,7 @@ function ComputeFlow() {
  if (test!='Y') {
    alert('Corrupt Data File'); return;
  } 
- var section = words[3];
+ var section = words[2];
  j=20;
  var xu = [];
  var yu = [];
@@ -590,7 +590,7 @@ function ComputeFlow() {
  var uscale=vel*chord;
  var visc=1.445e-5;
  var rey=chord*vel/visc;
- var strng = "<p style='background-image: url('paper1.gif');><H2>SNR Wind Tunnel Test Results</H2>";
+ var strng = "<H2>SNR Wind Tunnel Test Results</H2>";
  strng = strng + "<H3>----------------------------</H3>";
  strng = strng + "Tunnel Conditions<br>";
  strng = strng + "Pressure = " + pressure.toPrecision(3) + " KPa<br>";
@@ -602,7 +602,7 @@ function ComputeFlow() {
  }
  atmt=temperature;
  rho=1.225*atmp/101310.0*288.0/atmt;
- strng = strng + "Aerofoil Section Data : " + section + "<br>";
+ strng = strng + "Aerofoil Section Data : " + section + "<br />";
  strng = strng + "Number of Surface Points used : " + numpoint.toPrecision(4) + "<br>";
  strng = strng + "Chord = " + chord.toPrecision(4) + " <br>";
  strng = strng + "Span = " + span.toPrecision(4) + "<br>";
@@ -1097,7 +1097,7 @@ function ComputeFlow() {
   strng = strng + cd.toPrecision(4) + "</td><td>" + summ.toPrecision(4) + "</td></tr>";
   alpha=alpha + 0.5;
  }
- strng = strng + "</table></p>";
+ strng = strng + "</table>";
 
 //  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
  
