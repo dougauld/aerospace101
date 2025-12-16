@@ -61,24 +61,25 @@
   <form>
   <input type='hidden' name='MAX_FILE_SIZE' id='max_file_size' value='100000' />
   <input name='upfile' id='upfile' type='file' onfocus="HideResults();"  autofocus /><br />
+  <input id="ComputeButton" type="button" value="Load into Tunnel" onclick="ComputeLoad();" >
   <a href='pressure.html'>
   <b>2.</b> Input ambient pressure</a><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lab Pressure (KPa)<br />
-  <input type='text' name='p' id='p' size='20' value='101.3' onfocus="HideResults();"  autofocus /><br>
+  <input type='text' name='p' id='p' size='20' value='101.3' onfocus="HideResults1();"  autofocus /><br>
   <a href='temperature.html'>
   <b>3.</b> Input tunnel air temperature</a><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Air Temperature (Kelvin)<br />
-  <input type='text' name='t' id='t' size='20' value='288' onfocus="HideResults();"  autofocus /><br>
+  <input type='text' name='t' id='t' size='20' value='288' onfocus="HideResults1();"  autofocus /><br>
   <a href='angles.html'>
   <b>4.</b>Set angle of attack range for traverse</a><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start Angle of Attack (Deg)<br />
-  <input type='text' name='as' id='as' size='20' value='0.0' onfocus="HideResults();"  autofocus /><br>
+  <input type='text' name='as' id='as' size='20' value='0.0' onfocus="HideResults1();"  autofocus /><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final Angle of Attack (Deg)<br />
-  <input type='text' name='af' id='af' size='20' value='1.0' onfocus="HideResults();"  autofocus /><br>
+  <input type='text' name='af' id='af' size='20' value='1.0' onfocus="HideResults1();"  autofocus /><br>
   <a href='velocity.html'>
   <b>5.</b> Select Wind velocity for run</a><br />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tunnel Wind Speed (m/s)<br />
-  <input type='text' name='v' id='v' size='20' value='30.0'><br />
+  <input type='text' name='v' id='v' size='20' value='30.0' onfocus="HideResults1();"  autofocus /><br />
   </td><td valign=top>
   <center><span style='line-height:0'>
   <img src='mounted.jpg' width='300' />
@@ -97,8 +98,7 @@
   <tr><td colspan='3'>
   Click the 'Load' Button to mount the wing in the test section. Once you have correctly set all inputs then click the 'Start' button.
   <hr>
-  <center><input id="ComputeButton" type="button" value="Load" onclick="ComputeLoad();" >
-  &nbsp; &nbsp; &nbsp; <input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
+  <center><input id="ComputeButton" type="button" value="Start" onclick="ComputeFlow();" >
   </center>
   </td></tr>
  </table>
@@ -152,6 +152,11 @@ function handleFileSelection(event) {
 }  
   
 function HideResults() {
+  document.getElementById("results2").style.visibility="hidden";
+  document.getElementById("output2").innerHTML=" "
+}
+ 
+function HideResults1() {
   document.getElementById("results").style.visibility="hidden";
   document.getElementById("results1").style.visibility="hidden";
   document.getElementById("results2").style.visibility="hidden";
@@ -581,7 +586,7 @@ function ComputeFlow() {
  rhs[numpoint-2][0]=amat[0][3]+amat[1][3]*x[numpoint-2]+amat[2][3]*x[numpoint-2]*x[numpoint-2];
  rhs[numpoint-1][1]=amat[0][4]+amat[1][4]*x[numpoint-1]+amat[2][4]*x[numpoint-1]*x[numpoint-1];
  rhs[numpoint-2][1]=amat[0][4]+amat[1][4]*x[numpoint-2]+amat[2][4]*x[numpoint-2]*x[numpoint-2];
- console.log(rhs);
+ // console.log(rhs);
  var alpha=astart;
  var uscale=vel*chord;
  var visc=1.445e-5;
@@ -1148,7 +1153,7 @@ function ComputeLoad() {
  } else { 
   span = Number(spanstrng);
  }
- console.log(span);
+ // console.log(span);
  var num = Math.trunc(numpoint/2) + 1;
  var test=words[19];
  if (test!='Y') {
