@@ -311,7 +311,7 @@ function ComputeFlow() {
  if (afin<0.0) {
   afin=0.0;
  }
- if (num>181) { 
+ if (numpoint>181) { 
   alert ("Section TOO BIG (too many data points)"); return;
  } 
  i=0;
@@ -402,7 +402,7 @@ function ComputeFlow() {
     holda=-u2*sni+w2*csi;
    } else if (j==(numpan-1)) {
     amat[i][numpan-1]=-u1*sni+w1*csi+holda;
-    amat[i][num-1]=-u2*sni+w2*csi;
+    amat[i][numpan]=-u2*sni+w2*csi;
    } else {	 
     amat[i][j]=-u1*sni+w1*csi+holda;
     holda=-u2*sni+w2*csi;
