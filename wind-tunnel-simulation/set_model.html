@@ -590,8 +590,8 @@ function ComputeFlow() {
  var uscale=vel*chord;
  var visc=1.445e-5;
  var rey=chord*vel/visc;
- var strng = "<H3>SNR Wind Tunnel Test Results</H3>";
- strng = strng + "<center><u>Tunnel Conditions</u><br>";
+ var strng = "<center><H3>SNR Wind Tunnel Test Results</H3>";
+ strng = strng + "<u>Tunnel Conditions</u><br>";
  strng = strng + "Pressure = " + pressure.toPrecision(3) + " KPa<br>";
  var atmp=pressure*1000.0;
  strng = strng + "Temperature = " + temperature.toPrecision(3) + " K<br>";
@@ -608,8 +608,8 @@ function ComputeFlow() {
  var tempr= rey/1000000.0;
  strng = strng + "Reynolds Number = " + tempr.toPrecision(4) + " x 10^6 <br>";
  strng = strng + "Angle Test Range = " + astart.toPrecision(4) + " to " + afin.toPrecision(4) + " Degrees<br>&nbsp;<br>";
- strng = strng + "<table cellspacing='10' cellpadding='10'><tr><td>";
- strng = strng + " &nbsp.&nbsp;Angle</td><td> Coeff.<br />Lift</td><td> Coeff.<br />Drag</td><td> Coeff.<br />Moment(c/4)</td></tr>";
+ strng = strng + "<table cellspacing='0' cellpadding='5' border='1'><tr><td>";
+ strng = strng + " &nbsp.&nbsp;&nbsp;&nbsp;Angle</td><td> Coeff.<br />Lift</td><td> Coeff.<br />Drag</td><td> Coeff.<br />Moment(c/4)</td></tr>";
  strng = strng + "<tr><td colspan='4'><hr></td></tr>";
  var sumx,sumy,summ,cpmax,ax1,ay1,ax2,ay2,v0,v1,v2,cp,cl,fraction,a1;
  var isep,istag,cp1s,cp2s,istag,sumxl,sumxu,jcntl,fract,jcntu,lsep,usep;
@@ -1092,7 +1092,7 @@ function ComputeFlow() {
    cd=cd*Math.random();
    summ=summ*Math.random();
   }
-  strng = strng + "<tr><td> &nbsp;&nbsp;" + alpha.toPrecision(3) + "</td><td>" + cl.toPrecision(4) + "</td><td>";
+  strng = strng + "<tr><td> &nbsp;&nbsp;&nbsp;&nbsp;" + alpha.toPrecision(3) + "</td><td>" + cl.toPrecision(4) + "</td><td>";
   strng = strng + cd.toPrecision(4) + "</td><td>" + summ.toPrecision(4) + "</td></tr>";
   alpha=alpha + 0.5;
  }
