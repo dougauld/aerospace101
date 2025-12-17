@@ -1110,7 +1110,7 @@ function ComputeFlow() {
  strng = strng + "</table></center>";
 
 // Add values to the graph
- var imgWidth=640;
+ var imgWidth=620;
  var imgHeight=450;
 
 // Create image and define colors
@@ -1143,14 +1143,14 @@ function ComputeFlow() {
   etx.stroke();
   strng1 = clval.toPrecision(2);
   etx.fillStyle = "black"; 
-  etx.fillText(strng1,88,y0-15);  
+  etx.fillText(strng1,88,y0-5);  
   if (Math.abs(cmval)<1.0e-3) {
    etx.fillStyle = "blue"; 
-   etx.fillText("0.0",129,y0-15);  
+   etx.fillText("0.0",129,y0-5);  
   } else {
    strng1 = cmval.toPrecision(2);
    etx.fillStyle = "blue"; 
-   etx.fillText(strng1,129,y0-15);  
+   etx.fillText(strng1,129,y0-5);  
   }
   y0=y0+50;
   clval=clval-0.5; 
@@ -1182,7 +1182,7 @@ function ComputeFlow() {
   etx.stroke();
   strng1 = aval.toPrecision(2);
   etx.fillStyle = "black"; 
-  etx.fillText(strng1,x0,250);  
+  etx.fillText(strng1,x0,240);  
   x0=x0+60;
   aval=aval+10;
  }
@@ -1193,9 +1193,9 @@ function ComputeFlow() {
  etx.stroke();
  etx.fillStyle = "black"; 
  etx.fillText("CL",88,10);  
- etx.fillText("Alpha (Deg)",200,235);  
+ etx.fillText("Alpha (Deg)",200,225);  
  etx.fillStyle = "blue"; 
- etx.fillText("CM(1/4c)",127,10);  
+ etx.fillText("CM(1/4c)",127,15);  
  y0=0;
  x0=320;
  x1=620;
@@ -1222,9 +1222,9 @@ function ComputeFlow() {
   etx.moveTo(x0,y0);
   etx.lineTo(x1,y0);
   etx.stroke();
-  etx.fillStyle = "red";
+  etx.fillStyle = "black";
   strng1 = cdval.toPrecision(4); 
-  etx.fillText(strng1,393,y0-15);  
+  etx.fillText(strng1,393,y0-5);  
   y0=y0+50;
   cdval=cdval-dcdval; 
  }
