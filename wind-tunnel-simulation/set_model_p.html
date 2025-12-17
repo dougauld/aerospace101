@@ -574,8 +574,8 @@ function ComputeFlow() {
  strng = strng + "Chord = " + chord.toPrecision(4) + " <br>";
  strng = strng + "Span = " + span.toPrecision(4) + "<br>";
  var tempr= rey/1000000.0;
- strng = strng + "Reynolds Number = " + tempr.toPrecision(4) + " x 10^6 <br>";
- strng = strng + "Angle = " + astart.toPrecision(4) + " Degrees<br>&nbsp;<br>";
+ strng = strng + "Reynolds Number = " + tempr.toPrecision(4) + " x 10^6 <br />";
+ strng = strng + "Angle = " + astart.toPrecision(4) + " Degrees<br>&nbsp;<br />";
  var sumx,sumy,summ,cpmax,ax1,ay1,ax2,ay2,v0,v1,v2,cp,cl,fraction,a1;
  var isep,istag,cp1s,cp2s,istag,sumxl,sumxu,jcntl,fract,jcntu,lsep,usep;
  var aintsum,u0,sss,rd2,rd2crit,rex,ak,ak0,h0,h1,itrans,isepcnt,d1l,d2l;
@@ -1056,7 +1056,7 @@ function ComputeFlow() {
  }
  strng = strng + "CL = " + cl.toPrecision(4) + " CD = " + cd.toPrecision(4) + " CM(1/4c) =" + summ.toPrecision(4) + "<br />";
  strng = strng + "<table cellspacing='0' cellpadding='5' border='1'><tr><td>";
- strng = strng + " <b>X</b></td><td><b>Y</b><br /><b>Cp</b></td></tr>";
+ strng = strng + " &nbsp;&nbsp;&nbsp;&nbsp;<b>X</b></td><td><b>Y</b></td><td><b>Cp</b></td></tr>";
 
 // Add values to the graph
  var imgWidth=600;
@@ -1135,7 +1135,7 @@ function ComputeFlow() {
   v1=cpp[i];
   x1=100+Math.trunc(ax1*400.0/dxmax);
   y1=350+Math.trunc(v1*100.0);
-  strng = strng + "<tr><td>" + ax1.toPrecision(4) + "</td><td>" + ay1.toPrecision(4) + "</td><td>" + v1.toPrecision(4) + "</td></tr>";
+  strng = strng + "<tr><td>&nbsp;&nbsp;&nbsp; " + ax1.toPrecision(4) + "</td><td>" + ay1.toPrecision(4) + "</td><td>" + v1.toPrecision(4) + "</td></tr>";
   if (i>0) {
 // draw cp distribution
    etx.beginPath();
