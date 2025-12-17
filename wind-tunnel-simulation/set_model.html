@@ -1134,22 +1134,23 @@ function ComputeFlow() {
  y0=50;
  var clval=2.0;
  var cmval=0.4;
+ var strng1;
  etx.font = "12px Arial";
  while (y0<451) {
   etx.beginPath();
   etx.moveTo(x0,y0);
   etx.lineTo(x1,y0);
   etx.stroke();
-  strng = clval.toPrecision(2);
+  strng1 = clval.toPrecision(2);
   etx.fillStyle = "black"; 
-  etx.fillText(strng,88,y0-15);  
+  etx.fillText(strng1,88,y0-15);  
   if (Math.abs(cmval)<1.0e-3) {
    etx.fillStyle = "blue"; 
    etx.fillText("0.0",129,y0-15);  
   } else {
-   strng = cmval.toPrecision(2);
+   strng1 = cmval.toPrecision(2);
    etx.fillStyle = "blue"; 
-   etx.fillText(strng,129,y0-15);  
+   etx.fillText(strng1,129,y0-15);  
   }
   y0=y0+50;
   clval=clval-0.5; 
@@ -1179,9 +1180,9 @@ function ComputeFlow() {
   etx.moveTo(x0,y0);
   etx.lineTo(x0,y1);
   etx.stroke();
-  strng = aval.toPrecision(2);
+  strng1 = aval.toPrecision(2);
   etx.fillStyle = "black"; 
-  etx.fillText(strng,x0,250);  
+  etx.fillText(strng1,x0,250);  
   x0=x0+60;
   aval=aval+10;
  }
@@ -1222,8 +1223,8 @@ function ComputeFlow() {
   etx.lineTo(x1,y0);
   etx.stroke();
   etx.fillStyle = "red";
-  strng = cdval.toPrecision(4); 
-  etx.fillText(strng,393,y0-15);  
+  strng1 = cdval.toPrecision(4); 
+  etx.fillText(strng1,393,y0-15);  
   y0=y0+50;
   cdval=cdval-dcdval; 
  }
@@ -1248,8 +1249,8 @@ function ComputeFlow() {
  clval=-1.0;
  while (x0<601) {
   etx.fillStyle = "black";
-  strng = clval.toPrecision(2); 
-  etx.fillText(strng,x0,402);  
+  strng1 = clval.toPrecision(2); 
+  etx.fillText(strng1,x0,402);  
   x0=x0+60;
   clval=clval+0.5;
  }
