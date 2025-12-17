@@ -592,6 +592,10 @@ function ComputeFlow() {
  rhs[numpoint-2][1]=amat[0][4]+amat[1][4]*x[numpoint-2]+amat[2][4]*x[numpoint-2]*x[numpoint-2];
  // console.log(rhs);
  var alpha=astart;
+ var ig=0
+ var igcl = [];
+ var igcd = [];
+ var igcm = [];
  var uscale=vel*chord;
  var visc=1.445e-5;
  var rey=chord*vel/visc;
@@ -1010,7 +1014,7 @@ function ComputeFlow() {
    }
    i=i+1;
   } 
-// CALCULATE CL,CD,CM FOR $viscOUS FLOW
+// CALCULATE CL,CD,CM FOR viscOUS FLOW
   d1u=upper_disp[jcntu-1];
   d2u=upper_moment[jcntu-1];
   uu=upper_v[jcntu-1];
@@ -1096,14 +1100,208 @@ function ComputeFlow() {
    cd=cd*Math.random();
    summ=summ*Math.random();
   }
+  igcl[ig]=cl;
+  igcd[ig]=cd;
+  igcm[ig]=summ;
   strng = strng + "<tr><td> &nbsp;&nbsp;&nbsp;&nbsp;" + alpha.toPrecision(3) + "</td><td>" + cl.toPrecision(4) + "</td><td>";
   strng = strng + cd.toPrecision(4) + "</td><td>" + summ.toPrecision(4) + "</td></tr>";
   alpha=alpha + 0.5;
+  ig=ig+1;
  }
  strng = strng + "</table></center>";
 
-//  echo "<br>&nbsp;<br><img src='/tools/windt_run_graph.php?m=".$filename."&a=".$area."&l=".$chord."&p=".$pressure."&t=".$temperature."&as=".$astart."&af=".$afin."&v=".$vel."&go' width=600>";
+// Add values to the graph
+ var imgWidth=600;
+ var imgHeight=450;
+
+// Create image and define colors
+ const e = document.getElementById("imageout");
+ const etx = e.getContext("2d");
+ etx.fillStyle = "white";
+ etx.fillRect(0, 0, 600, 450);
+
+ etx.strokeStyle="grey";
+ etx.lineWidth=1;
+ y0=25;
+ x0=0;
+ x1=300;
+ while (y0<451) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x1,y0);
+  etx.stroke();
+  y0=y0+25;
+ } 
+ y0=50;
+ var clval=2.0;
+ var cmval=0.4;
+ etx.font = "12px Arial";
+ while (y0<451) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x1,y0);
+  etx.stroke();
+  strng = clval.toPrecision(2);
+  etx.fillStyle = "black"; 
+  etx.fillText(strng,88,y0-15);  
+  if (Math.abs(cmval)<1.0e-3) {
+   etx.fillStyle = "blue"; 
+   etx.fillText("0.0",129,y0-15);  
+  } else {
+   strng = cmval.toPrecision(2);
+   etx.fillStyle = "blue"; 
+   etx.fillText(strng,129,y0-15);  
+  }
+  y0=y0+50;
+  clval=clval-0.5; 
+  cmval=cmval-0.1; 
+ }
+ x0=0;
+ x1=300;
+ y0=250;
+ etx.beginPath();
+ etx.moveTo(x0,y0);
+ etx.lineTo(x1,y0);
+ etx.stroke();
+ x0=0;
+ y0=0;
+ y1=450; 
+ while (x0<301) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x0,y1);
+  etx.stroke();
+  x0=x0+12;
+ }
+ x0=0;
+ var aval=-20;
+ while (x0<301) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x0,y1);
+  etx.stroke();
+  strng = aval.toPrecision(2);
+  etx.fillStyle = "black"; 
+  etx.fillText(strng,x0,250);  
+  x0=x0+60;
+  aval=aval+10;
+ }
+ x0=120; 
+ etx.beginPath();
+ etx.moveTo(x0,y0);
+ etx.lineTo(x0,y1);
+ etx.stroke();
+ etx.fillStyle = "black"; 
+ etx.fillText("CL",88,5);  
+ etx.fillText("Alpha (Deg)",200,235);  
+ etx.fillStyle = "blue"; 
+ etx.fillText("CM(1/4c)",127,5);  
+ y0=0;
+ x0=300;
+ x1=600;
+ while (y0<401) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x1,y0);
+  etx.stroke();
+  y0=y0+10;
+ } 
+ y0=50;
+ var cdval,dcdval,cdmult
+ if (aspect>10 || span>9.5) {
+  cdval=0.035;
+  dcdval=0.005;
+  cdmult=2.0;  
+ } else { 
+  cdval=0.07;
+  dcdval=0.01;
+  cdmult=1.0;
+ } 
+ while (y0<399) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x1,y0);
+  etx.stroke();
+  etx.fillStyle = "red";
+  strng = cdval.toPrecision(4); 
+  etx.fillText(strng,393,y0-15);  
+  y0=y0+50;
+  cdval=cdval-dcdval; 
+ }
+ x0=300;
+ x1=600;
+ y0=400;
+ etx.beginPath();
+ etx.moveTo(x0,y0);
+ etx.lineTo(x1,y0);
+ etx.stroke(); 
+ x0=300;
+ y0=0;
+ y1=400;
+ while (x0<601) {
+  etx.beginPath();
+  etx.moveTo(x0,y0);
+  etx.lineTo(x0,y1);
+  etx.stroke();  
+  x0=x0+12;
+ }
+ x0=300;
+ clval=-1.0;
+ while (x0<601) {
+  etx.fillStyle = "black";
+  strng = clval.toPrecision(2); 
+  etx.fillText(strng,x0,402);  
+  x0=x0+60;
+  clval=clval+0.5;
+ }
+ x0=420; 
+ etx.beginPath();
+ etx.moveTo(x0,y0);
+ etx.lineTo(x0,y1);
+ etx.stroke();  
+ etx.fillStyle = "red";
+ etx.fillText("CD",455,5);  
+ etx.fillStyle = "black";
+ etx.fillText("CL",500,420);  
+ alpha = astart;
+ var gx0,gx1,gx00,gx01,gy0,gy1,gy00,gy01,gz0,gz1;
+ gx0=120 + intval(alpha*6.0);
+ gy0=250 - intval(igcl[0]*100.0);
+ gz0=250 - intval(igcm[0]*500.0);
+ gx00=420 + intval(igcl[0]*120.0);
+ gy00=400 - intval(igcd[0]*5000.0*cdmult);
+ i=1;
+ while (i<ig) {
+  alpha=alpha+0.5;
+  gx1=120 + intval(alpha*6.0);
+  gy1=250 - intval(igcl[i]*100.0);
+  gz1=250 - intval(igcm[i]*500.0);
+  gx01=420 + intval(igcl[i]*120.0);
+  gy01=400 - intval(igcd[i]*5000.0*cdmult);
+  etx.beginPath();
+  etx.moveTo(gx0,gy0);
+  etx.lineTo(gx1,gy1);
+  etx.strokeStyle = "black";
+  etx.stroke();  
+  etx.beginPath();
+  etx.moveTo(gx0,gz0);
+  etx.lineTo(gx1,gz1);
+  etx.strokeStyle = "blue";
+  etx.stroke();  
+  etx.beginPath();
+  etx.moveTo(gx00,gy00);
+  etx.lineTo(gx01,gy01);
+  etx.strokeStyle = "red";
+  etx.stroke();  
+  gx0=gx1;
+  gy0=gy1;
+  gz0=gz1;
+  gx00=gx01;
+  gy00=gy01;
+  i=i+1;  
+ }
  
+ document.getElementById("results2").style.visibility="visible";
  document.getElementById("output2").innerHTML=strng;
 }
 
