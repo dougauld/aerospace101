@@ -288,12 +288,6 @@ function ComputeFlow() {
  if (astart<-30.0 || astart>30.0) {
   alert('Angle setting out of Range (-30 Deg to +30 Deg).'); return;
  } 
- if (afin<astart) {
-  alert('Angle Start > Angle Finish... Balance cannot run Backward.'); return;
- }
- if (afin>30.0) {
-  alert('Angle setting out of Range (-30 Deg to +30 Deg).'); return;
- }
  if (vel<3.0) {
   alert('Velocity setting too Low. Unstable motor run.'); return;
  }
