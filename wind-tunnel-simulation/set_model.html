@@ -1146,7 +1146,7 @@ function ComputeFlow() {
   etx.fillText(strng1,88,y0-5);  
   if (Math.abs(cmval)<1.0e-3) {
    etx.fillStyle = "blue"; 
-   etx.fillText("0.0",129,y0-5);  
+   // etx.fillText("0.0",129,y0-5);  
   } else {
    strng1 = cmval.toPrecision(2);
    etx.fillStyle = "blue"; 
@@ -1182,7 +1182,7 @@ function ComputeFlow() {
   etx.stroke();
   strng1 = aval.toPrecision(2);
   etx.fillStyle = "black"; 
-  etx.fillText(strng1,x0,230);  
+  etx.fillText(strng1,x0,240);  
   x0=x0+60;
   aval=aval+10;
  }
@@ -1193,7 +1193,7 @@ function ComputeFlow() {
  etx.stroke();
  etx.fillStyle = "black"; 
  etx.fillText("CL",88,10);  
- etx.fillText("Alpha (Deg)",200,215);  
+ etx.fillText("Alpha (Deg)",200,235);  
  etx.fillStyle = "blue"; 
  etx.fillText("CM(1/4c)",127,15);  
  y0=0;
