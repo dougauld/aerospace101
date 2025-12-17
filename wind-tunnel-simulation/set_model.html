@@ -121,7 +121,7 @@
 
  const flines = document.getElementById("output");
  const fileInput = document.getElementById("upfile");
- const loaded = 0;
+ 
  fileInput.addEventListener("change", handleFileSelection);
  
 function handleFileSelection(event) {
@@ -162,7 +162,6 @@ function HideResults() {
   document.getElementById("results2").style.visibility="hidden";
   document.getElementById("datafile").style.visibility="hidden";
   document.getElementById("output2").innerHTML=" "
-  loaded=0;
 }
 
 function ComputeFlow() {
@@ -173,7 +172,8 @@ function ComputeFlow() {
  var strng;
  var words = [];
  var i,j,k,l,m,n,found;
- if (loaded==0) {
+ var loaded = document.getElement("output2").innerHTML;
+ if (loaded.length==1) {
   alert('No Model loaded into Test Section'); return;
  } 
  strng = flines.textContent;
@@ -1122,7 +1122,7 @@ function ComputeLoad() {
  }
  j=0;
  k=0;
- loaded=1;
+ document.getElement("output2").innerHTML="&nbsp;&nbsp;&nbsp;";
  words[0] = "";
  found = 0;
  while (j<i) {
