@@ -1070,7 +1070,7 @@ function ComputeFlow() {
 
  etx.strokeStyle="grey";
  etx.lineWidth=1;
- etx,fillStyle="black";
+ etx.fillStyle="black";
 
  y0=25;
  x0=0;
@@ -1134,7 +1134,7 @@ function ComputeFlow() {
   ay1=y[i];
   v1=cpp[i];
   x1=100+Math.trunc(ax1*400.0/dxmax);
-  y1=350+Math.trunc(v0*100.0);
+  y1=350+Math.trunc(v1*100.0);
   strng = strng + "<tr><td>" + ax1.toPrecision(4) + "</td><td>" + ay1.toPrecision(4) + "</td><td>" + v1.toPrecision(4) + "</td></tr>";
   if (i>0) {
 // draw cp distribution
