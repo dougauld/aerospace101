@@ -1264,8 +1264,8 @@ function ComputeLoad() {
  ctx.lineWidth=1;
  var x1,y1;
  while (i>=0) {
-  x1=50+Math.trunc(xu[i]*150.0/chord);
-  y1=75-Math.trunc(yu[i]*150.0/chord);
+  x1=50+Math.trunc(xu[i]*200.0/chord);
+  y1=75-Math.trunc(yu[i]*200.0/chord);
   if (i==(num-1)) {
    ctx.moveTo(x1,y1);
   } else {
@@ -1275,8 +1275,8 @@ function ComputeLoad() {
  }
  i=0
  while (i<num) {
-  x1=50+Math.trunc(xl[i]*150.0/chord);
-  y1=75-Math.trunc(yl[i]*150.0/chord);
+  x1=50+Math.trunc(xl[i]*200.0/chord);
+  y1=75-Math.trunc(yl[i]*200.0/chord);
   if (i==(num-1)) {
    ctx.moveTo(x1,y1);
   } else {
