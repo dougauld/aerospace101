@@ -1133,7 +1133,7 @@ function ComputeFlow() {
   ax1=x[i];
   ay1=y[i];
   v1=cpp[i];
-  x1=100+Math.trunc(xpos*400.0/dxmax);
+  x1=100+Math.trunc(ax1*400.0/dxmax);
   y1=350+Math.trunc(v0*100.0);
   strng = strng + "<tr><td>" + ax1.toPrecision(4) + "</td><td>" + ay1.toPrecision(4) + "</td><td>" + v1.toPrecision(4) + "</td></tr>";
   if (i>0) {
