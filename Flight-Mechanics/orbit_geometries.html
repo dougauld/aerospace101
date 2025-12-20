@@ -118,12 +118,12 @@ the angular velocity of the satellite which is related to the
 satellite velocity (<b>V</b>) as <b>&omega; = V/R</b>.</p>
 <p>For
 a stable circular path the accelerations must be equal so that</p>
-$${GM} over {R^2} = g = a = &omega;^2 R = {V^2} over R$$
+$${GM}/{R^2} = g = a = &omega;^2 R = {V^2}/R $$
 </p>
 <p>Thus
 the required satellite velocity for a stable circular orbit at a
 given radius will be</p>
-$$ V = &radic;{{GM} over R}$$
+$$ V = &radic;{{GM}/R}$$
 <h3>Elliptical Orbit</h3>
 <p>If
 the velocity of the satellite at a given altitude doesn't match the
@@ -139,34 +139,34 @@ where
 <b>m</b> is the mass of the satellite, is constant at all points on the
 orbit.  Taking perigee and apogee points gives the following balance,</p>
 $$ m &omega; = m V_p R_p = m V_a R_a $$
-$$ {V_p} over {V_a} = {R_a} over {R_p}$$
+$$ {V_p}/{V_a} = {R_a}/{R_p} $$
 <p>Conservation
 of energy implies that the sum of kinetic energy and gravitational
 potential for the satellite is also conserved along the path. 
 Kinetic energy of the satellite is $ 1 over 2 m V^2 $, 
 its potential energy in the Earth's gravitational field is 
-$ -mgR = -m{{GM} over R}$.
+$ -mgR = -m{{GM}/R}$.
  Equating the energy at perigee and apogee points  gives,</p>
-$$ 1 over 2 m V_p^2 - m{{GM} over R_p} = 1 over 2 m V_a^2 - m{{GM} over R_a}$$
-$$ V_p^2 - V_a^2 = 2GM ( 1 over R_p - 1 over R_a )$$
+$$ 1/2 m V_p^2 - m{{GM}/R_p} = 1/2 m V_a^2 - m{{GM}/R_a}$$
+$$ V_p^2 - V_a^2 = 2GM ( 1/R_p - 1/R_a ) $$
 <p>Applying
 the conservation of angular momentum result gives,</p>
-$$V_p^2 - V_p^2( {R_p^2} over {R_a^2} ) = 2GM( 1 over R_p - 1 over R_a )$$
+$$V_p^2 - V_p^2( {R_p^2}/{R_a^2} ) = 2GM( 1/R_p - 1/R_a )$$
 <p>or</p>
-$$V_a^2( {R_a^2} over {R_p^2} - V_a^2 = 2GM ( 1 over R_p - 1 over R_a )$$
+$$V_a^2( {R_a^2}/{R_p^2} - V_a^2 = 2GM ( 1/R_p - 1/R_a )$$
 <p>so that</p>
-$$V_p = &radic;{2GM( {R_a} over {R_p}) 1 over {R_a + R_p}$$
+$$V_p = &radic;{2GM( {R_a}/{R_p}) 1/{R_a + R_p}$$
 <p>or</p>
-$$V_a = &radic;{2GM( {R_p} over {R_a}{ 1 over {R_a + R_p}}$$
+$$V_a = &radic;{2GM( {R_p}/{R_a}{ 1/{R_a + R_p}}$$
 <p>or
 rearranging for solution of radius gives,</p>
-$$R_a = {R_p} over {( {2GM} over {R_p V_p^2} - 1)}$$
+$$R_a = {R_p}/{( {2GM}/{R_p V_p^2} - 1)}$$
 <p>and</p>
-$$R_p = {R_a} over {( {2GM} over {R_a V_a^2} - 1)}$$
+$$R_p = {R_a}/{( {2GM}/{R_a V_a^2} - 1)}$$
 <p>The
 eccentricity (<b>e</b>) of the orbit can be calculated as
 </p>
-$$ e = {R_p V_p^2} over {GM} -1 $$
+$$ e = {R_p V_p^2}/{GM} -1 $$
 <p>Given
 the conditions at a perigee or apogee, the shape of the orbit can
 thus be determined accurately.</p>
@@ -176,7 +176,7 @@ a circular orbit the period can be calculated from the constant
 angular velocity.</p>
 <center><img src="orbit2.png" border="0" />
 </center>
-##P = {2 &pi;} over &omega; = {2 &pi; R} over V = {2 &pi; R^{3/2}} over {&radic; GM} ##
+##P = {2 &pi;}/&omega; = {2 &pi; R}/V = {2 &pi; R^{3/2}}/{&radic; GM} ##
 <p>For
 an elliptical orbit the conservation laws allow a mean motion
 approximation to be applied.  Even though the satellite velocity is
@@ -185,7 +185,7 @@ orbit based on the center of the ellipse, an equivalent period is
 obtained with the simulated satellite moving at a constant velocity
 along this mean motion path. The period of the elliptical orbit will
 be </p>
-##P = {2 &pi; a^{3/2}} over {&radic; GM}##
+##P = {2 &pi; a^{3/2}}/{&radic; GM}##
 <h3>Location within an Orbit</h3>
 <p>Location
 of the satellite at any point in time within the orbit can be found
@@ -213,7 +213,7 @@ E</b>.</p>
 exact relationship is shown in the following figure.</p>
 <center><img src="orbit4.png" border="0"/></center>
 <p>The geometric relationship between true anomaly and eccentric anomaly</p>
-## \tan( &nu; over 2 ) = &radic;{{1+e} over {1-e} \tan( E over 2)} ##
+## \tan( &nu;/2 ) = &radic;{{1+e}/{1-e} \tan( E/2)} ##
 <p>For small eccentricity, the
 	relationship between true anomaly and mean anomaly can be
 	approximated by,</p>
@@ -241,10 +241,10 @@ simple orbital plane (two dimensional).</p>
 an initial point (x<sub>0</sub>,y<sub>0</sub>) the satellite can be
 assumed to have x-dirn and y-dirn velocity components (u<sub>0</sub>,v<sub>0</sub>)
 and will be subject to accelerations,</p>
-##  a_x = -g \cos(&theta;)= -g { x_0 over R } ##
-##  a_y = -g \sin(&theta;)= -g { y_0 over R } ##
+##  a_x = -g \cos(&theta;)= -g { x_0/R } ##
+##  a_y = -g \sin(&theta;)= -g { y_0/R } ##
 <p>where
-the local gravitational value will be # g = {GM} over R^2 #.</p> 
+the local gravitational value will be # g = {GM}/R^2 #.</p> 
 <p>Over
 a small time step (<b>&Delta; t</b>) the change in velocity can be approximated as : </p>
 ## u=u_0 + %Delta; t.a_x ##
