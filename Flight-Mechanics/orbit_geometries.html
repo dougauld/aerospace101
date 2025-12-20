@@ -178,7 +178,7 @@ a circular orbit the period can be calculated from the constant
 angular velocity.</p>
 <center><img src="orbit2.png" border="0" />
 </center>
-##P = {2 &pi;}/&omega; = {2 &pi; R}/V = {2 &pi; R^{3/2}}/{&radic; GM} ##
+$$P = {2 &pi;}/&omega; = {2 &pi; R}/V = {2 &pi; R^{3/2}}/{&radic; GM} $$
 <p>For
 an elliptical orbit the conservation laws allow a mean motion
 approximation to be applied.  Even though the satellite velocity is
@@ -187,7 +187,7 @@ orbit based on the center of the ellipse, an equivalent period is
 obtained with the simulated satellite moving at a constant velocity
 along this mean motion path. The period of the elliptical orbit will
 be </p>
-##P = {2 &pi; a^{3/2}}/{&radic; GM}##
+$$P = {2 &pi; a^{3/2}}/{&radic; GM}$$
 <h3>Location within an Orbit</h3>
 <p>Location
 of the satellite at any point in time within the orbit can be found
@@ -205,7 +205,7 @@ geometry as shown in the above figure true anomaly (<b>&nu;</b>)
 can be obtained from <b>E.</b></p>
 <p>The
 relationship between <b>E</b> and <b>M</b> is</p>
-## M = E - e \sin(E) ##
+$$ M = E - e \sin(E) $$
 <p>
 Unfortunately
 this is a transcendental function and is not directly invertable, so
@@ -215,11 +215,11 @@ E</b>.</p>
 exact relationship is shown in the following figure.</p>
 <center><img src="orbit4.png" border="0"/></center>
 <p>The geometric relationship between true anomaly and eccentric anomaly</p>
-## \tan( &nu;/2 ) = &radic;{{1+e}/{1-e} \tan( E/2)} ##
+$$ \tan( &nu;/2 ) = &radic;{{1+e}/{1-e} \tan( E/2)} $$
 <p>For small eccentricity, the
 	relationship between true anomaly and mean anomaly can be
 	approximated by,</p>
-## &nu = M + 2e \sin(M) + 1.25 e^2 \sin(2M) ##
+$$ &nu = M + 2e \sin(M) + 1.25 e^2 \sin(2M) $$
 <p>Alternate solutions to find
 	satellite positions will require a numerical approach.
 </p>
@@ -243,18 +243,18 @@ simple orbital plane (two dimensional).</p>
 an initial point (x<sub>0</sub>,y<sub>0</sub>) the satellite can be
 assumed to have x-dirn and y-dirn velocity components (u<sub>0</sub>,v<sub>0</sub>)
 and will be subject to accelerations,</p>
-##  a_x = -g \cos(&theta;)= -g { x_0/R } ##
-##  a_y = -g \sin(&theta;)= -g { y_0/R } ##
+$$  a_x = -g \cos(&theta;)= -g { x_0/R } $$
+$$  a_y = -g \sin(&theta;)= -g { y_0/R } $$
 <p>where
-the local gravitational value will be # g = {GM}/R^2 #.</p> 
+the local gravitational value will be $ g = {GM}/R^2 $.</p> 
 <p>Over
 a small time step (<b>&Delta; t</b>) the change in velocity can be approximated as : </p>
-## u=u_0 + %Delta; t.a_x ##
-## v=v_0 + %Delta; t.a_y ##
+$$ u=u_0 + %Delta; t.a_x $$
+$$ v=v_0 + %Delta; t.a_y $$
 <p>The
 change in position will be : </p>
-##x = x_0 + u_0 &Delta; t + 1/2 a_x &Delta; t^2 ##
-##y = y_0 + v_0 &Delta; t + 1/2 a_y &Delta; t^2 ##
+$$ x = x_0 + u_0 &Delta; t + 1/2 a_x &Delta; t^2 $$
+$$ y = y_0 + v_0 &Delta; t + 1/2 a_y &Delta; t^2 $$
 <p>The
 new position can be used as the initial position for the next time
 step.  The acceleration can be recalculated for the new position and
