@@ -150,17 +150,17 @@ function ComputeFlow() {
   y1=yi+vi*dtime+0.5*ay*dtime*dtime;
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
-  vi:=vi+ay*dtime;
-  ix1:=Math.trunc(x1*scale)+250;
-  iy1:=Math.trunc(y1*scale)+250;
+  vi=vi+ay*dtime;
+  ix1=Math.trunc(x1*scale)+250;
+  iy1=Math.trunc(y1*scale)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
-  ix0:=ix1;
-  iy0:=iy1;
-  xi:=x1;
-  yi:=y1;
+  ix0=ix1;
+  iy0=iy1;
+  xi=x1;
+  yi=y1;
   if (rad<earth_radius) {
    i=2000000;
   }
@@ -239,17 +239,17 @@ function ComputeExpand() {
   y1=yi+vi*dtime+0.5*ay*dtime*dtime;
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
-  vi:=vi+ay*dtime;
-  ix1:=Math.trunc(x1*scale)+250;
-  iy1:=Math.trunc(y1*scale)+250;
+  vi=vi+ay*dtime;
+  ix1=Math.trunc(x1*scale)+250;
+  iy1=Math.trunc(y1*scale)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
-  ix0:=ix1;
-  iy0:=iy1;
-  xi:=x1;
-  yi:=y1;
+  ix0=ix1;
+  iy0=iy1;
+  xi=x1;
+  yi=y1;
   if (rad<earth_radius) {
    i=2000000;
   }
@@ -329,17 +329,17 @@ function ComputeShrink() {
   y1=yi+vi*dtime+0.5*ay*dtime*dtime;
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
-  vi:=vi+ay*dtime;
-  ix1:=Math.trunc(x1*scale)+250;
-  iy1:=Math.trunc(y1*scale)+250;
+  vi=vi+ay*dtime;
+  ix1=Math.trunc(x1*scale)+250;
+  iy1=Math.trunc(y1*scale)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
-  ix0:=ix1;
-  iy0:=iy1;
-  xi:=x1;
-  yi:=y1;
+  ix0=ix1;
+  iy0=iy1;
+  xi=x1;
+  yi=y1;
   if (rad<earth_radius) {
    i=2000000;
   }
