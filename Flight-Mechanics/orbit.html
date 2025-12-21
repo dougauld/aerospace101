@@ -75,7 +75,7 @@ Velocity (V<sub>r</sub> m/s)<br>
 <fieldset id="results">
 <canvas id="imageout" width="600" height="450" style="border:1px solid grey"></canvas>
 </fieldset>
-<input id="Expand" type="button" value="Expand" onclick="ExpandFlow();" ><input id="Shrink" type="button" value="Srink" onclick="ShrinkFlow();" >
+<center></center><input id="Expand" type="button" value="Expand" onclick="ExpandFlow();" >&nbsp;&nbsp;<input id="Shrink" type="button" value="Shrink" onclick="ShrinkFlow();" >
 <fieldset id="datafile"> 
 <p id='output' hidden></p>
 </fieldset>
@@ -101,6 +101,7 @@ function ComputeFlow() {
  var earth_radius=6371.0e3;
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
+ consolelog(scalefield);
  if (scale < 10.0) {
   scale=500.0/8.0/earth_radius;
   strng = scale.toPrecision(5);
@@ -193,12 +194,15 @@ function ExpandFlow() {
  var earth_radius=6371.0e3;
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
+ console.log(scalefield);
  if (scale < 10.0) {
   scale=500.0/8.0/earth_radius;
   strng = scale.toPrecision(5);
   document.getElementById("output").innerHTML = strng 
  } else {
   scale = scale*2.0;
+  strng = scale.toPrecision(5);
+  document.getElementById("output").innerHTML = strng 
  } 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
