@@ -101,7 +101,7 @@ function ComputeFlow() {
  var earth_radius=6371.0e3;
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
- console.log(scalefield);
+ //console.log(scalefield);
  scale=1.0;
  scale00=scale*500.0/8.0/earth_radius;
  strng = scale.toPrecision(5);
@@ -193,7 +193,7 @@ function ExpandFlow() {
  var earth_radius=6371.0e3;
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
- console.log(scalefield);
+ //console.log(scalefield);
  scale=scale*2.0;
  if (scale > 100.0 ) {
   scale=100.0;
