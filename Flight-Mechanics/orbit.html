@@ -77,7 +77,7 @@ Velocity (V<sub>r</sub> m/s)<br>
 </fieldset>
 <center></center><input id="Expand" type="button" value="Expand" onclick="ExpandFlow();" >&nbsp;&nbsp;<input id="Shrink" type="button" value="Shrink" onclick="ShrinkFlow();" >
 <fieldset id="datafile"> 
-<p id='output' hidden></p>
+<p id='output' hidden>1</p>
 </fieldset>
 </td></tr></table> 
 
@@ -91,7 +91,7 @@ function HideResults() {
 
 function ComputeFlow() {
 
- var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale;
+ var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale,scale00;
  var gravity,x1,y1,angle,strng;
  var ixa,iya,ix0,iy0,ix1,iy1;
 
@@ -102,11 +102,10 @@ function ComputeFlow() {
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
  console.log(scalefield);
- if (scale < 0.000000001 ) {
-  scale=500.0/8.0/earth_radius;
-  strng = scale.toPrecision(5);
-  document.getElementById("output").innerHTML = strng 
- }
+ scale=1.0;
+ scale00=scale*500.0/8.0/earth_radius;
+ strng = scale.toPrecision(5);
+ document.getElementById("output").innerHTML = strng 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
  GM= 3.986005e14;
@@ -115,7 +114,7 @@ function ComputeFlow() {
  var vifield = document.getElementById("vr").value;
  vi=Number(vifield);
  dtime=1;
- ix0=Math.trunc(earth_radius*scale)+250;
+ ix0=Math.trunc(earth_radius*scale00)+250;
  iy0=250;
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
@@ -129,8 +128,8 @@ function ComputeFlow() {
  ctx.strokeStyle="blue";
  while (i<200) {
   angle=2.0*PI/200*i;
-  ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
-  iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
+  ix1=Math.trunc(earth_radius*scale00*Math.cos(angle))+250;
+  iy1=Math.trunc(earth_radius*scale00*Math.sin(angle))+250;
   if (i>0) {
    ctx.lineTo(ix1,iy1);
   } else {
@@ -141,8 +140,8 @@ function ComputeFlow() {
  ctx.closePath();
  ctx.fill();
  ctx.stroke();
- ix0=Math.trunc(xi*scale)+250;
- iy0=Math.trunc(yi*scale)+250;
+ ix0=Math.trunc(xi*scale00)+250;
+ iy0=Math.trunc(yi*scale00)+250;
  ixa=ix0;
  iya=iy0;
  i=0;
@@ -155,8 +154,8 @@ function ComputeFlow() {
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
   vi=vi+ay*dtime;
-  ix1=Math.trunc(x1*scale)+250;
-  iy1=Math.trunc(y1*scale)+250;
+  ix1=Math.trunc(x1*scale00)+250;
+  iy1=Math.trunc(y1*scale00)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
@@ -184,7 +183,7 @@ function ComputeFlow() {
 
 function ExpandFlow() {
 
- var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale;
+ var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale,scale00;
  var gravity,x1,y1,angle,strng;
  var ixa,iya,ix0,iy0,ix1,iy1;
 
@@ -195,15 +194,13 @@ function ExpandFlow() {
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
  console.log(scalefield);
- if (scale < 0.00000001 ) {
-  scale=500.0/8.0/earth_radius;
-  strng = scale.toPrecision(5);
-  document.getElementById("output").innerHTML = strng 
- } else {
-  scale = scale*2.0;
-  strng = scale.toPrecision(5);
-  document.getElementById("output").innerHTML = strng 
+ scale=scale*2.0;
+ if (scale > 100.0 ) {
+  scale=100.0;
  } 
+ scale00=scale*500.0/8.0/earth_radius;
+ strng = scale.toPrecision(5);
+ document.getElementById("output").innerHTML = strng 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
  GM= 3.986005e14;
@@ -212,7 +209,7 @@ function ExpandFlow() {
  var vifield = document.getElementById("vr").value;
  vi=Number(vifield);
  dtime=1;
- ix0=Math.trunc(earth_radius*scale)+250;
+ ix0=Math.trunc(earth_radius*scale00)+250;
  iy0=250;
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
@@ -226,8 +223,8 @@ function ExpandFlow() {
  ctx.strokeStyle="blue";
  while (i<200) {
   angle=2.0*PI/200*i;
-  ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
-  iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
+  ix1=Math.trunc(earth_radius*scale00*Math.cos(angle))+250;
+  iy1=Math.trunc(earth_radius*scale00*Math.sin(angle))+250;
   if (i>0) {
    ctx.lineTo(ix1,iy1);
   } else {
@@ -238,8 +235,8 @@ function ExpandFlow() {
  ctx.closePath();
  ctx.fill();
  ctx.stroke();
- ix0=Math.trunc(xi*scale)+250;
- iy0=Math.trunc(yi*scale)+250;
+ ix0=Math.trunc(xi*scale00)+250;
+ iy0=Math.trunc(yi*scale00)+250;
  ixa=ix0;
  iya=iy0;
  i=0;
@@ -252,8 +249,8 @@ function ExpandFlow() {
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
   vi=vi+ay*dtime;
-  ix1=Math.trunc(x1*scale)+250;
-  iy1=Math.trunc(y1*scale)+250;
+  ix1=Math.trunc(x1*scale00)+250;
+  iy1=Math.trunc(y1*scale00)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
@@ -282,7 +279,7 @@ function ExpandFlow() {
 
 function ShrinkFlow() {
 
- var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale;
+ var xi,yi,altitude,GM,ui,vi,ax,ay,dtime,rad,scale,scale00;
  var gravity,x1,y1,angle,strng;
  var ixa,iya,ix0,iy0,ix1,iy1;
 
@@ -292,13 +289,13 @@ function ShrinkFlow() {
  var earth_radius=6371.0e3;
  var scalefield = document.getElementById("output").innerHTML;
  scale = Number(scalefield);
- if (scale < 0.000000001) {
-  scale=500.0/8.0/earth_radius;
-  strng = scale.toPrecision(5);
-  document.getElementById("output").innerHTML = strng 
- } else {
  scale = scale*0.5;
+ if (scale < 0.01) {
+  scale=0.01;
  } 
+ scale00=scale*500.0/8.0/earth_radius;
+ strng = scale.toPrecision(5);
+ document.getElementById("output").innerHTML = strng 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
  GM= 3.986005e14;
@@ -307,7 +304,7 @@ function ShrinkFlow() {
  var vifield = document.getElementById("vr").value;
  vi=Number(vifield);
  dtime=1;
- ix0=Math.trunc(earth_radius*scale)+250;
+ ix0=Math.trunc(earth_radius*scale00)+250;
  iy0=250;
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
@@ -321,8 +318,8 @@ function ShrinkFlow() {
  ctx.strokeStyle="blue";
  while (i<200) {
   angle=2.0*PI/200*i;
-  ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
-  iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
+  ix1=Math.trunc(earth_radius*scale00*Math.cos(angle))+250;
+  iy1=Math.trunc(earth_radius*scale00*Math.sin(angle))+250;
   if (i>0) {
    ctx.lineTo(ix1,iy1);
   } else {
@@ -333,8 +330,8 @@ function ShrinkFlow() {
  ctx.closePath();
  ctx.fill();
  ctx.stroke();
- ix0=Math.trunc(xi*scale)+250;
- iy0=Math.trunc(yi*scale)+250;
+ ix0=Math.trunc(xi*scale00)+250;
+ iy0=Math.trunc(yi*scale00)+250;
  ixa=ix0;
  iya=iy0;
  i=0;
@@ -347,8 +344,8 @@ function ShrinkFlow() {
   rad=Math.sqrt(x1*x1+y1*y1);
   ui=ui+ax*dtime;
   vi=vi+ay*dtime;
-  ix1=Math.trunc(x1*scale)+250;
-  iy1=Math.trunc(y1*scale)+250;
+  ix1=Math.trunc(x1*scale00)+250;
+  iy1=Math.trunc(y1*scale00)+250;
   ctx.beginPath();
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
