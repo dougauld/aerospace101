@@ -160,6 +160,7 @@ function ComputeFlow() {
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
+  ctx.stroke();
   ix0=ix1;
   iy0=iy1;
   xi=x1;
@@ -253,6 +254,7 @@ function ExpandFlow() {
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
+  ctx.stroke();
   ix0=ix1;
   iy0=iy1;
   xi=x1;
@@ -347,6 +349,7 @@ function ShrinkFlow() {
   ctx.strokeStyle="black";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix1,iy1);
+  ctx.stroke();
   ix0=ix1;
   iy0=iy1;
   xi=x1;
