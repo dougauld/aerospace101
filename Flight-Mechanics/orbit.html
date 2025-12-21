@@ -122,11 +122,12 @@ function ComputeFlow() {
  ctx.fillRect(0, 0, 600, 450);
 
  i=0;
+ var PI=3.1415926;
  ctx.beginPath();
  ctx.fillStyle="green";
  ctx.strokeStyle="blue";
  while (i<200) {
-  angle=2.0*pi/200*i;
+  angle=2.0*PI/200*i;
   ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
   iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
   if (i>0) {
@@ -214,11 +215,12 @@ function ComputeExpand() {
  ctx.fillRect(0, 0, 600, 450);
 
  i=0;
+ var PI=3.1415926;
  ctx.beginPath();
  ctx.fillStyle="green";
  ctx.strokeStyle="blue";
  while (i<200) {
-  angle=2.0*pi/200*i;
+  angle=2.0*PI/200*i;
   ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
   iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
   if (i>0) {
@@ -307,11 +309,12 @@ function ComputeShrink() {
  ctx.fillRect(0, 0, 600, 450);
 
  i=0;
+ var PI=3.1415926;
  ctx.beginPath();
  ctx.fillStyle="green";
  ctx.strokeStyle="blue";
  while (i<200) {
-  angle=2.0*pi/200*i;
+  angle=2.0*PI/200*i;
   ix1=Math.trunc(earth_radius*scale*Math.cos(angle))+250;
   iy1=Math.trunc(earth_radius*scale*Math.sin(angle))+250;
   if (i>0) {
