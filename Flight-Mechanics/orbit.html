@@ -194,7 +194,8 @@ function ComputeExpand() {
   strng = scale.toPrecision(5);
   document.getElementById("output").innerHTML = strng 
  } else {
- scale = scale*2.0;
+  scale = scale*2.0;
+ } 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
  GM= 3.986005e14;
@@ -285,6 +286,7 @@ function ComputeShrink() {
   document.getElementById("output").innerHTML = strng 
  } else {
  scale = scale*0.5;
+ } 
  yi= (earth_radius + altitude*1000.0);
  rad=yi;
  GM= 3.986005e14;
