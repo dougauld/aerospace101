@@ -154,22 +154,28 @@ $$C_{M 1/4 c}= &sum;_{i=1}^N Cp_i {(x_i-x_{i+1})}/c ({(x_i+x_{i+1})}/{2c} - 1/4)
 </p><p>Both calculations assume the cos(α) effect due to the difference between chord line and freestream direction are negligible.</p>
 <p>Solutions only need to be calculated for one or two angles of attack as the lift curve will be linear. Stall and boundary layer effects are not predicted by the first part of the process as it deals only with inviscid flow.</p>
 <h3><span style="color: #800000;">APPLICATION : 2D Panel Code Computer Program.</span></h3>
-<p>The following program accepts ASCII data files which consist of a list 2-D aerofoil section coordinate points (x,y). The format of these aerofoil input data files is the same as that produced by the <a href="naca.exe" rel="nofollow">NACA section generation program</a>.</p>
+<p>The following program accepts ASCII data files which consist of a list 2-D aerofoil section coordinate points (x,y). 
+The format of these aerofoil input data files is the same as that produced by the <a href="nacacalc.html">NACA section generation application</a>.</p>
 <p>The data file structure used is shown below,</p>
-<p>Header Line<br />
- N (Number of Data Points describing section)<br />
- X(1)   Y(1)<br />
- X(2)   Y(2)<br />
- X(3)   Y(3)<br />
+<pre>Section : xxxxxxxx<br />
+ Number of Data Points = NN <br />
+ Span = 2D       (or width for SNR tunnel use)
+ Upper Surface        Lower Surface
+ XU(1) YU(1)           XL(1)   YL(1)<br />
+ XU(2) YU(2)           XL(2)   YL(2)<br /> 
+ XU(3) YU(3)           XL(3)   YL(3)<br />
  ...<br />
- X(N)  Y(N)</p>
-<p>There is an initial header line, followed by a line giving the number of data points used to describe the aerofoil and then pairs of surface coordinate points (x,y). The order of surface points is anti-clockwise, starting at the trailing edge, going back over the upper surface around the nose and then forward along the underside back to the trailing edge. Data files for other aerofoil sections can be created using a spreadsheet or text editor to give a data file in the correct format.</p>
+ XU(NN/2) YU(NN/2)     XL(NN/2) XL(NN/2)<br /></pre>
+<p>There is an initial header line with section information (xxxxxxx - numbers,letters,no spaces), followed by a line giving the number of data points used to describe the aerofoil. 
+ Note: the first point on the upper and lower 
+ surfaces is usually the same point so that NN is typically an odd number. The next lines are headers for surfaces and x y coordinates and then pairs of surface coordinate points (xu,yu)  (xl,yl). 
+ The order of surface points begins at the leading edge and 
+ finishes at the trailing edge. Data files for other aerofoil sections can be created using a spreadsheet or text editor to give a data file in the correct format.</p>
 <p>Some sample section files are <a href="NACA0012.txt" rel="nofollow">NACA 0012</a>, <a href="NACA4412.txt"> NACA 4412</a> and <a href="NACA64-012.txt">NACA 64-012</a>.</p>
-<p>From the surface coordinate data file, the program calculates an inviscid flow solution. The 1-D momentum integration is run to predict the boundary layer near the aerofoil surface. The program can predict C<sub>L</sub>, C<sub>m(1/4c)</sub> and C<sub>D</sub> for the specified aerofoil section at a given angle and Reynolds number.</p>
+<p>From the surface coordinate data file, the program calculates an inviscid flow solution. The 1-D momentum integration is run to predict the boundary layer near the aerofoil surface. 
+ The program can predict C<sub>L</sub>, C<sub>m(1/4c)</sub> and C<sub>D</sub> for the specified aerofoil section at a given angle and Reynolds number.</p>
 <ul>
-<li>Old Executable Program : <a href="panel2d.exe">2-D Panel Method Solution</a> MS Windows downloadable</li>
-<li>Old Executable Program : <a href="naca.exe">2-D NACA Aerofoil Section Generator</a> MS Windows downloadable</li>
-<li>Executable Program : <a href="panel2d.html">2-D Aerofoil Section Analysis</a></li>
+<li>2-D Panel Method Solver : <a href="panel2d.html">2-D Aerofoil Section Analysis</a></li>
 <li>Virtual Wind Tunnel System : <a href="../wind-tunnel-simulation/index.html">Program Suite to allow a number of different solutions</a></li>
 <li>Alternately for a more elaborate section solver try the XFOIL program, visit the Marc Drela GPL Aerofoil Solution System site at <a href="http://web.mit.edu/drela/Public/web/xfoil/" rel="nofollow">MIT XFOIL site.</a></li>
 </ul>
