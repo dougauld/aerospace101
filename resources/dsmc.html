@@ -1007,8 +1007,8 @@ C THE SURFACE TEMPERATURE IS EQUAL TO THE STAGNATION TEMPERATURE
      bb=Math.max(3.0,s+3.0);
      gotone=0;
      gotcnt=0;
-     while gotone==0) {
-      vn=aa+(bb-aa)*random();
+     while (gotone==0) {
+      vn=aa+(bb-aa)*Math.random();
       v=vn-s
       if (k==1) {
        e3=ent1[3];
@@ -1245,5 +1245,6 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
