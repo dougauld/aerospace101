@@ -228,8 +228,9 @@ function ComputeFlow() {
        if (y>(k-1)*ch) {
         if (y>k*ch) {
          cv[n]=cv[n]-0.01*cvi;
-        }
-        cv[n]=cv[n]-((y-(k-1)*ch)/ch)*0.01*cvi;
+        } else {
+         cv[n]=cv[n]-((y-(k-1)*ch)/ch)*0.01*cvi;
+		}	
        }
        i=i+1; 
       }
@@ -271,21 +272,7 @@ function ComputeFlow() {
   if (a<rcc) {
    nm=nm-1;
    ilost=1;
-  } else {
-   if (Math.abs(ppx[nm])<xp) {
-    if (ppy[nm]<yp) {
-     if (ppx[nm]<0.0) {
-      y=yp+yp*ppx[nm]/xp;
-     } else {
-      y=yp-yp*ppx[nm]/xp;
-     }
-     if (ppy[nm]<=y) {
-      nm=nm-1;
-      ilost=1;
-     }
-    }
-   }
-  }
+  } 
   if (ilost==0) {
    a=slr[ircnt];
    ircnt=ircnt+1;
@@ -735,6 +722,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
