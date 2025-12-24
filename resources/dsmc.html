@@ -154,25 +154,23 @@ function ComputeFlow() {
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 640, 480);
  var n=0;
- while n<20000 {
+ while (n<20000) {
   slr[n]=Math.sqrt(-Math.log(Math.random()));
   n=n+1;
  }
  var ircnt=1;
- var jrcnt=1;
- var nch=2;
- var nflow=3;
 // nflow IS THE INITIAL GEOMETRY NUMBER
  var iref=1;
 // SURFACE REFLECTION 0=SPECULAR, 1=DIFFUSE
  var modt=1;
 // modt=0,1 FOR SURFACE TEMPERATURE=STREAM, STAGNATION TEMP
  var ar=640.0/480.0;
-// AR IS THE ASPECT RATIO (X EXTENT)/(Y EXTENT) IF THE FLOWFIELD
+// AR IS THE ASPECT RATIO (X EXTENT)/(Y EXTENT) OF THE FLOWFIELD
 //    THE COMPUTATIONAL REGION IS ABOVE THE PLANE OF SYMMETRY AT Y=0
  var ncx=30;
 // ncx IS THE NUMBER CELL INTERVALS IN THE X DIRECTION
  var ncy=20;
+ var nch=2;
 //ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
  if (ncx*ncy != NC) {
   alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
@@ -200,7 +198,6 @@ function ComputeFlow() {
  var pdia=4.0e-10;
  var dtm=5.0e-6;
 // DTM THE TIME STEP
- var ch=0.1/nch;
  var cw=ch*ar*ncy/ncx;
  var xf=-ncxf*cw;
  var xr=(ncx-ncxf)*cw;
@@ -354,8 +351,8 @@ function ComputeFlow() {
    }
   }
   if (ilost==0) {
-   a=slr(ircnt);
-   ircnt=ircnt+1;
+   a=slr();
+   =+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
@@ -1248,3 +1245,4 @@ function erf(s) {
 
 </body>
 </html>
+
