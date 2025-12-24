@@ -303,14 +303,14 @@ function ComputeFlow() {
  var ent2 = [];
  var ent3 = [];
  if (s<9.0) {
-  a=(Math.exp(-s*s)+spi*s*(1.0+erf(s)))/(2.0*spi);
-  b=(Math.exp(-s*s)-spi*s*(1.0-erf(s)))/(2.0*spi);
+  a=(Math.exp(-s*s)+SPI*s*(1.0+erf(s)))/(2.0*SPI);
+  b=(Math.exp(-s*s)-SPI*s*(1.0-erf(s)))/(2.0*SPI);
  } else {
   a=s;
   b=0.0;
  }
  ent1[1]=yu*dtm*fnd*vmpf*a/fnum;
- ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*spi*fnum);
+ ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*SPI*fnum);
  ent3[1]=yu*dtm*fnd*vmpf*b/fnum;
  ent1[2]=Math.random();
  ent2[2]=Math.random();
@@ -722,6 +722,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
