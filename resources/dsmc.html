@@ -87,7 +87,7 @@ Flow Mach Number:<br />
 </td></tr>
 <tr><td><center>
 <fieldset id="results">
-<canvas id="imageout" width="640" height="480" style="border:1px solid grey"></canvas>
+<canvas id="imageout" width="640" height="480" ="border:1px solid grey"></canvas>
 </fieldset>
 </center>
 <p id='output'> </p>
@@ -96,7 +96,7 @@ Flow Mach Number:<br />
 
 function HideResults() {
 //  alert("Hiding results");
-  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("results")..visibility="hidden";
   document.getElementById("output").innerHTML = " ";
 }
 
@@ -124,7 +124,7 @@ function ComputeFlow() {
  var slr = [];
  const c = document.getElementById("imageout");
  const ctx = c.getContext("2d");
- ctx.fillStyle = "white";
+ ctx.fill = "white";
  ctx.fillRect(0, 0, 640, 480);
  var n=0;
  while (n<20000) {
@@ -452,8 +452,8 @@ function ComputeFlow() {
       icol=ip2[n];
      }
 	}	
-    ctx.strokeStyle()=icol;
-    ctx.moveTo(ix0,iyo);
+    ctx.strokeStyle=icol;
+    ctx.moveTo(ix0,iy0);
     ctx.lineTo(ix0+1,iy0);
     ctx.stroke();
     nrow=y*ncy/yu+0.999999;
@@ -722,6 +722,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
