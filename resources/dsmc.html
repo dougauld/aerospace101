@@ -210,10 +210,10 @@ function ComputeFlow() {
    cv[n]=cvi;
    x1=xf+(j-1)*cw;
    x2=xf+j*cw;
-   if (x2>=-xp) {
-    if (x1<=xp) {
+   if (x2>=-rc) {
+    if (x1<=rc) {
      y1=(k-1)*ch;
-     if (y1<=yp) {
+     if (y1<=rc) {
       i=1;
       while (i<=100) {
        x=xf+(j-1)*cw+(i-0.5)*cw/100.0;
@@ -731,6 +731,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
