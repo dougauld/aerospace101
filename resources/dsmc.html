@@ -681,7 +681,7 @@ function erf(s) {
 // CALCULATION OF THE ERROR FUNCTION
  var c,t,d;
  var b=Math.abs(s);
- if( b<4 ) {
+ if ( b<4 ) {
   c = Math.exp(-b*b);
   t = 1./(1.+0.3275911*b);
   d = 1. - (0.254829592*t-0.284496736*t*t+1.421413741*t*t*t-1.453152027*t*t*t*t+1.061405429*t*t*t*t*t)*c;
@@ -693,24 +693,6 @@ function erf(s) {
  } 
  return d;
 } 
-//C
-//      FUNCTION RANF(I)
-//      REAL*8 A
-//      INTEGER*4 IXR,IYR,IZR,IMOUSE,ircnt,jrcnt
-//      COMMON /ONE/ IMOUSE,IXR,IYR,IZR,ircnt,jrcnt
-//      IF (I.LT.0) THEN
-//       IXR=27351
-//       IYR=16023
-//       IZR=9643
-//      ENDIF
-//99    IXR=MOD(171*IXR,30269)
-//      IYR=MOD(172*IYR,30307)
-//      IZR=MOD(170*IZR,30323)
-//      A=AMOD(FLOAT(IXR)/30269.+FLOAT(IYR)/30307.+FLOAT(IZR)/30323.,1.)
-//      IF (A.LE.0.) GOTO 99
-//      RANF=A
-//      RETURN
-//      END
 
 </script>
 
@@ -746,6 +728,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
