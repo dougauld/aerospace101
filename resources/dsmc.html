@@ -92,6 +92,7 @@ Flow Mach Number:<br />
 
 <script>
 
+
 function HideResults() {
 //  alert("Hiding results");
   document.getElementById("results").style.visibility="hidden";
@@ -152,13 +153,8 @@ function ComputeFlow() {
  const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 640, 480);
- var ax=100.0;
- var ay=270.0;	
- var yp=math.random();
  var n=0;
- var rnd = [];
  while n<20000 {
-  rnd[n]=Math.random();
   slr[n]=Math.sqrt(-Math.log(Math.random()));
   n=n+1;
  }
@@ -270,7 +266,7 @@ function ComputeFlow() {
   while (k<=ncy) {
    n=(k-1)*ncx+j;
 // N IS THE CELL NUMBER
-   cv(n)=cvi;
+   cv[n]=cvi;
 //    if (nflow.LT.3) GOTO 779
    x1=xf+(j-1)*cw;
    x2=xf+j*cw;
@@ -331,8 +327,8 @@ function ComputeFlow() {
  m=1;
  while (m<=k) {
   nm=nm+1
-  ppx[nm]=xf+random()*(xr-xf);
-  ppy[nm]=yu*random();
+  ppx[nm]=xf+Math.random()*(xr-xf);
+  ppy[nm]=yu*Math.random();
 //       IF (nflow.EQ.3) THEN
   a=ppx[nm]*ppx[nm]+ppy[nm]*ppy[nm];
   if (a<rcc) {
