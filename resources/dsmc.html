@@ -193,7 +193,7 @@ function ComputeFlow() {
  var vmps=Math.sqrt(2.0*boltz*stmp/pmass);
  var iflag=0;
 //201
- var cxs,rcc,fnum,cvi,j,k,n;
+ var cxs,rcc,fnum,cvi,j,k,n,a,x,y;
  var rcfield = document.getElementById("radius").value;
  var rc = Number(rcfield);	
  cxs=cxsi*velk/20.
@@ -220,7 +220,9 @@ function ComputeFlow() {
        a=rcc-x*x;
        if (a>0.0) {
         y=Math.sqrt(a);
-       }  
+       } else {
+		y=0.0;
+	   }	   
        if (y>(k-1)*ch) {
         if (y>k*ch) {
          cv[n]=cv[n]-0.01*cvi;
@@ -731,6 +733,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
