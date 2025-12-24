@@ -103,7 +103,7 @@ function HideResults() {
 function ComputeFlow() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
  const MNM=4000;
- const NC=600;
+ const nc=600;
 // MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
 // NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
 // nch IS THE NUMBER OF CELLS ALONG THE PLATE
@@ -143,7 +143,7 @@ function ComputeFlow() {
  var ncy=20;
  var nch=2;
 //ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
- if (ncx*ncy != NC) {
+ if (ncx*ncy != nc) {
   alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
  }
 // THE PRODUCT NCX*NCY MUST EQUAL NC IN THE PARAMETER STATEMENT
@@ -733,6 +733,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
