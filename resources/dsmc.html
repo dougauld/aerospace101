@@ -351,19 +351,19 @@ function ComputeFlow() {
    }
   }
   if (ilost==0) {
-   a=slr();
-   =+1;
+   a=slr[ircnt];
+   ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
    pvx[nm]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
-   a=slr(ircnt);
+   a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
    pvy[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
-   a=slr(ircnt);
+   a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
@@ -836,21 +836,21 @@ C THE SURFACE TEMPERATURE IS EQUAL TO THE STAGNATION TEMPERATURE
           sth=Math.sin(theta);
           ip2[n]="yellow";
           if (iref==1) {
-           slra=slr(ircnt);
+           slra=slr[ircnt];
            ircnt=ircnt+1;
            if (ircnt>20000) {
             ircnt=1;
            } 
-	   vn=slra*vmps;
-	   a=TWOPI*Math.random();
-	   slra=slr(ircnt);
+	       vn=slra*vmps;
+	       a=TWOPI*Math.random();
+	       slra=slr[ircnt];
            ircnt=ircnt+1;
            if (ircnt>20000) {
             ircnt=1;
            } 
            b=slra*vmps;
-	   vp=b*Math.sin(a);
-	   pvz[n]=b*Math.cos(a);
+	       vp=b*Math.sin(a);
+	       pvz[n]=b*Math.cos(a);
           } else {
 	   vn=pvx[n]*cth+pvy[n]*sth;
 	   vp=pvy[n]*cth-pvx[n]*sth;
@@ -1024,7 +1024,7 @@ C THE SURFACE TEMPERATURE IS EQUAL TO THE STAGNATION TEMPERATURE
       if (a>Math.random()) {
        vn=vn*vmpf;
        a=TWOPI*Math.random();
-       slra=slr(ircnt);
+       slra=slr[ircnt];
        ircnt=ircnt+1;
        if (ircnt>20000) {
         ircnt=1;
@@ -1245,4 +1245,5 @@ function erf(s) {
 
 </body>
 </html>
+
 
