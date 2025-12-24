@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>DSMC | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content">
+<h3>DSMC Molecular Simulation of Flow</h3>
+<center>
+<table border="1" cellpadding="10" bgcolor="#dfdfff">
+<tr><td>      
+<p>The direct simulation Monte Carlo (or 
+DSMC) method is widely used for the modeling of gas flows through the 
+computation of the motion and collisions of representative molecules. 
+Computation at the molecular level is necessary for studies in rarefied 
+gas dynamics (or RGD) because the transport terms in the Navier-Stokes
+ equations are not valid in this flow regime. The essential 
+characteristic of a "rarefied" flow is that the molecular mean free path
+ is not negligible. &nbsp;This means that many applications involve 
+normal and high density flows with very small physical dimensions. 
+&nbsp;&nbsp;At sufficiently high density, the DSMC fluctuations can be 
+physically real and the method then goes beyond the mathematical model 
+provided by the Boltzmann equation. &nbsp;In addition, the DSMC method 
+is employed for the study of chemical reactions for which inverse 
+collisions cannot be defined and the Boltzmann model is inapplicable.
+</p>
+The principles of DSMC are best understood by running a program that animates the motion of 
+the simulated molecules in a simplified implementation of the method. 
+This is an interactive program that allows the user to vary the flow 
+geometry and the flow parameters during the running of the program.</p>
+</td></tr>
+<tr><td>
+<form>
+Cylinder Radius:<br />
+<input type='text' id='radius' name='radius' value='0.1' size='10' onfocus="HideResults();" autofocus><br />
+&nbsp;<br />
+Flow Mach Number:<br />
+<input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
+&nbsp;<br /> 	
+<INPUT id='Compute' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+</form>
+</td></tr>
+<tr><td>
+<fieldset id="results">
+<canvas id="imageout" width="640" height="480" style="border:1px solid grey"></canvas>
+</fieldset>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").style.visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}
+
+function ComputeFlow() {
+// VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
+ const MNM=4000;
+ const NC=600;
+//      CHARACTER*80 TXTBUF
+//      REAL*4 BOX(10)
+//      INTEGER*4 IXR,IYR,IZR,IMOUSE,ISAMP
+//      INTEGER*2 CH1,CH2,CMDCNT
+// MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
+// NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
+// nch IS THE NUMBER OF CELLS ALONG THE PLATE
+ var ppx= [];
+ var ppy= [];
+ var pvx= [];
+ var pvy= [];
+ var pvz= [];
+ var ip1 = [];
+ var ip2 = [];     
+ var cv = [];
+ var sample1 =[];
+ var sample2 =[];
+ var sample3 =[];
+ var sample4 =[];
+//      REAL*4 PP(2,MNM),PV(3,MNM),C(2,NC),ENT(3,4),CV(NC)
+//      INTEGER*4 IP(2,MNM),IR(MNM),IC(2,NC)
+//      REAL*4 VRC(3),VCCM(3),SAMPLE(NC,4)
+//      COMMON /ONE/ IMOUSE,IXR,IYR,IZR
+//C VRC STORES THE COMPONENTS OF THE RELATIVE VELOCITY
+//C VCCM SIMILARLY FOR THE CENTRE OF MASS VELOCITY
+//C PPx(N),PPy(N) THE X,Y COORDINATE OF MOLECULE N
+//C PVx(N), PVy(N), PVz(N) ARE THE U, V, W VELOCITY COMPONENTS
+//C IP1(N) THE SUB-CELL IN WHICH MOLECULE N IS LOCATED
+//C IP2(N) COLOR CODE FOR MOLECULE, 1 OR 9 BLUE, 15 YELLOW, 12 RED
+//C IR A CROSS-REFERENCE ARRAY IN WHICH THE NM MOLECULE NUMBERS ARE
+//C     ARRANGED IN ORDER OF CELLS AND THEN SUB-CELLS WITHIN EACH CELL
+//C C1(N) IS THE REMAINDER WHEN THE NUMBER OF COLLISION SELECTIONS IN
+//C     CELL N IS ROUNDED TO AN INTEGER AT EACH TIME STEP
+//C C3(N) IS THE MAXIMUM VALUE OF THE RELATIVE VELOCITY
+//C CV(N) IS THE CELL VOLUME FOR FLOW
+//C IC1(N) THE (START ADDRESS -1) OF THE MOLECULES IN THIS CELL
+//C     IN THE MOLECULE CROSS-REFERENCE ARRAY IR
+//C IC2(N) IS THE NUMBER OF MOLECULES IN THE CELL
+//C ENT(1,L) FOR ENTERING MOLECULES ACROSS X=XF
+//C ENT(2,L) FOR ENTERING MOLECULES ACROSS Y=YU
+//C ENT(3,L) FOR ENTERING MOLECULES ACROSS X=XR
+//C L=1 FOR ENTERING NUMBER
+//C L=2 FOR REMAINDER
+//C L=3,4  CONSTANTS IN DISTRIBUTION
+//C********************* SET DATA  ( ALL QUANTITIES ARE IN BASE SI UNITS)
+//C INITIALISE CANVAS
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 640, 480);
+ var ax=100.0;
+ var ay=270.0;	
+ var yp=math.random();
+ var n=0;
+ var rnd = [];
+ while n<20000 {
+  rnd[n]=Math.random();
+  slr[n]=Math.sqrt(-Math.log(Math.random()));
+  n=n+1;
+ }
+ var ircnt=1;
+ var jrcnt=1;
+ var nch=2;
+ var nflow=3;
+// nflow IS THE INITIAL GEOMETRY NUMBER
+ var iref=1;
+// SURFACE REFLECTION 0=SPECULAR, 1=DIFFUSE
+ var modt=1;
+// modt=0,1 FOR SURFACE TEMPERATURE=STREAM, STAGNATION TEMP
+ var ar=640.0/480.0;
+// AR IS THE ASPECT RATIO (X EXTENT)/(Y EXTENT) IF THE FLOWFIELD
+//    THE COMPUTATIONAL REGION IS ABOVE THE PLANE OF SYMMETRY AT Y=0
+ var ncx=30;
+// ncx IS THE NUMBER CELL INTERVALS IN THE X DIRECTION
+ var ncy=20;
+//ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
+ if (ncx*ncy != NC) {
+  alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
+ }
+// THE PRODUCT NCX*NCY MUST EQUAL NC IN THE PARAMETER STATEMENT
+  var ncxf=20;
+// ncxf SETS THE LOCATION OF THE FRONT BOUNDARY AS CELL MULTIPLE
+  var rnm=0.2
+// rnm IS THE RATIO OF THE INITIAL NUMBER OF MOLECULES TO THE
+// MAXIMUM NUMBER THAT IS SET IN THE PARAMETER STATEMENT
+  var fnd=1.4067E20;
+// THIS DENSITY WITH MOL. DIAMETER PDIA GIVES A MEAN FREE PATH OF 0.01
+  var ftmp=347.67;
+// THIS TEMPERATURE WITH MOL. MASS PMASS GIVES SPEED OF SOUND 400.
+// FND IS THE NUMBER DENSITY OF THE INITIAL GAS AT TEMPERATURE FTMP
+// FTMP IS THE TEMPERATURE OF THE INITIAL GAS
+ var machfield = document.getElementById("mach").value;
+ var amach = Number(machfield);	
+ var svel=amach*400.0;
+// SVEL IS THE VELOCITY OF THE STREAM (MUST BE POSITIVE)
+ var velk=10.0;
+ var aknud=0.1;
+ var stmp=ftmp*(1+0.33333*amach*amach)
+ var pmass=5.0e-26;
+ var pdia=4.0e-10;
+ var dtm=5.0e-6;
+// DTM THE TIME STEP
+ var ch=0.1/nch;
+ var cw=ch*ar*ncy/ncx;
+ var xf=-ncxf*cw;
+ var xr=(ncx-ncxf)*cw;
+ var yu=ch*ncy;
+ var fmax=xf;
+ if (yu>fmax) {
+  fmax=yu;
+ }
+ if (Math.abs(xr)>fmax) {
+  fmax=xr;
+ } 
+ fmax=210.0/fmax;
+// FLOWFIELD BOUNDARIES
+// SET CONSTANTS
+ var PI=3.141592654;
+ var SPI=Math.sqrt(PI);
+ var TWOPI=2.0*PI;
+ var boltz=1.380622e-23;
+ var cxsi=PI*pdia*pdia;
+ var vmpf=Math.sqrt(2.0*boltz*ftmp/pmass);
+ var vmps=Math.sqrt(2.0*boltz*stmp/pmass);
+ var iflag=0;
+//201
+ var cxs,rcc,fnum,cvi,j,k,n;
+ var rcfield = document.getElementById("radius").value;
+ var rc = Number(rcfield);	
+// while (iflag==0) {
+ cxs=cxsi*velk/20.
+//      IF (nflow.EQ.1) THEN
+//       YP=0.1
+// nch IS THE NUMBER OF CELLS ALONG THE SEMI-HEIGHT OF THE PLATE
+// YP IS THE Y COORDINATE OF THE UPPER TIP OF THE FLAT PLATE
+// THE CENTRE OF THE PLATE IS AT THE ORIGIN
+//      ELSEIF (nflow.EQ.2) THEN
+//       XP=-(nch+0.5)*CW
+//       IX1=NINT(400.+XP*FMAX)
+// XP IS THE APEX OF THE HORIZONTAL PLATE
+//THE PLATE EXTENDS FROM nch CELLS AHEAD OF THE ORIGIN
+//TO THE REAR BOUNDARY OF THE FLOW
+//       RATL=(XR-XP)/(2.*yu)
+// RATL IS THE LENGTH RATIO FOR nflow=2 OVER nflow=1
+// THE CROSS-SECTION FOR nflow=2 MUST BE DIVIDED BY THIS NUMBER
+//       CXS=CXSI*velk/(20.*RATL)
+//      ELSEIF (nflow.EQ.3) THEN
+// RC IS THE RADIUS OF THE CYLINDER
+ rcc=rc*rc;
+//      ELSEIF (nflow.EQ.4) THEN
+//       XP=0.2
+//       YP=0.05
+//       THETA=ATAN2(YP,XP)
+//       WCTH=COS(THETA)
+//       WSTH=SIN(THETA)
+//C THE WEDGE IN nflow=4 JOINS (-XP,0) TO (0,YP) TO (XP,0)
+//      ENDIF
+ fnum=fnd*yu*(xr-xf)/(rnm*MNM);
+// fnum IS THE NUMBER OF REAL MOLECULES THAT ARE REPRESENTED BY EACH
+// OF THE SIMULATED MOLECULES
+ cvi=ch*cw
+// cvi IS THE CELL VOLUME IF THE BODY DOES NOT INTRUDE
+ j=1;
+ while (j<=ncx) {
+  k=1;
+  while (k<=ncy) {
+   n=(k-1)*ncx+j;
+// N IS THE CELL NUMBER
+   cv(n)=cvi;
+//    if (nflow.LT.3) GOTO 779
+   x1=xf+(j-1)*cw;
+   x2=xf+j*cw;
+   if (x2>=-xp) {
+    if (x1<=xp) {
+     y1=(k-1)*ch;
+     if (y1<=yp) {
+      i=1;
+      while (i<=100) {
+       x=xf+(j-1)*cw+(i-0.5)*cw/100.0;
+//	 IF (nflow.EQ.3) THEN
+       a=rcc-x*x;
+       if (a>0.0) {
+        y=Math.sqrt(a);
+       }  
+//	 ELSEIF (nflow.EQ.4) THEN
+//	  IF (X.LT.0.) THEN
+//	   Y=YP+YP*X/XP
+//	  ELSE
+//	   Y=YP-YP*X/XP
+//	  ENDIF
+//	 ENDIF
+       if (y>(k-1)*ch) {
+        if (y>k*ch) {
+         cv[n]=cv[n]-0.01*cvi;
+        }
+        cv[n]=cv[n]-((y-(k-1)*ch)/ch)*0.01*cvi;
+       }
+       i=i+1; 
+      }
+      if (cv[n]< 0.1*cvi) {
+       cv[N]=0.1*cvi;
+      } 
+// ABOVE IS TEMPORARY TO AVOID INFINITE COLLISIONS
+     }
+    } 
+   }
+   k=k+1;
+  }
+  j=j+1;   
+ }
+ n=1;
+ while (n<=nc) {
+  c1[n]=0.0;
+  c2[n]=vmps+vsel/3.0;
+  sample1[n]=0.;
+  sample2[n]=0.;
+  sample3[n]=0.;
+  sample4[n]=0.;
+// THIS IS A REASONABLE INITIAL VALUE FOR THE RELATIVE VELOCITY 
+  n=n+1;
+ }  
+ var isamp=0;
+ var nm=0;
+ k=Math.round(rnm*MNM);
+ var kflag=1;
+ var ilost = 0;
+ m=1;
+ while (m<=k) {
+  nm=nm+1
+  ppx[nm]=xf+random()*(xr-xf);
+  ppy[nm]=yu*random();
+//       IF (nflow.EQ.3) THEN
+  a=ppx[nm]*ppx[nm]+ppy[nm]*ppy[nm];
+  if (a<rcc) {
+   nm=nm-1;
+   ilost=1;
+  } else {
+//   	 GOTO 250
+//	ENDIF
+//       ENDIF
+//       IF (nflow.EQ.4) THEN
+   if (Math.abs(ppx[nm])<xp) {
+    if (ppy[nm]<yp) {
+     if (ppx[nm]<0.0) {
+      y=yp+yp*ppx[nm]/xp;
+     } else {
+      y=yp-yp*ppx[nm]/xp;
+     }
+     if (ppy[nm]<=y) {
+      nm=nm-1;
+      ilost=1;
+     }
+    }
+   }
+  }
+  if (ilost==0) {
+   a=slr(ircnt);
+   ircnt=ircnt+1;
+   if (ircnt>20000) {
+    ircnt=1;
+   } 
+   pvx[nm]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
+   a=slr(ircnt);
+   ircnt=ircnt+1;
+   if (ircnt>20000) {
+    ircnt=1;
+   } 
+   pvy[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
+   a=slr(ircnt);
+   ircnt=ircnt+1;
+   if (ircnt>20000) {
+    ircnt=1;
+   } 
+   pvz[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
+   ip2[nm]="blue";
+  }
+  m=m+1;  
+ }    
+// SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
+ var s=svel/vmpf
+// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
+ var ent1 = [];
+ var ent2 = [];
+ var ent3 = [];
+ if (s<9.0) {
+  a=(Math.exp(-s*s)+spi*s*(1.0+erf(s)))/(2.0*spi);
+  b=(Math.exp(-s*s)-spi*s*(1.0-erf(s)))/(2.0*spi);
+ } else {
+  a=s;
+  b=0.0;
+ }
+ ent1[1]=yu*dtm*fnd*vmpf*a/fnum;
+ ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*spi*fnum);
+ ent3[1]=yu*dtm*fnd*vmpf*b/fnum;
+ ent1[2]=Math.random();
+ ent2[2]=Math.random();
+ ent3[2]=Math.random();
+ ent1[3]=s+Math.sqrt(s*s+2.0);
+ ent1[4]=0.5*(1.+s*(2.0*s-ent1[3]));
+ ent2[3]=Math.sqrt(2.0);
+ ent2[4]=0.5;
+ ent3[3]=-s+Math.sqrt(s*s+2.0);
+ ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
+ var col=0.0;
+ var iccnt=0;
+ var time=0.0;
+// THE PHYSICAL TIME TIME IS INITIALISED TO ZERO
+// DRAW 2-D SHAPES
+//      CALL PWINDOW(200.,25.,600.,425.,9)
+//      CALL LINECL(15)
+ ctx.strokeStyle="black";
+//      IF (nflow.EQ.1) THEN
+//       X0=400.0
+//       Y0=225.0-YP*FMAX
+//       CALL PPOINT(X0,Y0,-1)
+//       DY=2.*YP*FMAX
+//       CALL PVECT(0.0,DY,1)
+//      ELSEIF (nflow.EQ.2) THEN
+//       X0=400.0+XP*FMAX
+//       Y0=225.0
+//       CALL PPOINT(X0,Y0,-1)
+//       DX=595.-X0
+//       CALL PVECT(DX,0.0,1)
+//      ELSEIF (nflow.EQ.3) THEN
+//C DRAW CYLINDER AND WEDGE
+ ctx.fillStyle="green";      
+//       CALL FILLCL(7)
+ var rad=rc*fmax;
+ var x0=400.0;
+ var y0=225.0;
+ ctx.beginPath();
+ ctx.moveTo(x0+rad,y0);
+ var theta,x1,y1;
+ j=2;
+ while (j<362) {
+  theta=j*PI/180.0;
+  x1=x0+rad*Math.cos(theta);
+  y1=y0+rad*Math.sin(theta);
+  ctx.lineTo(x1,y1);
+  j=j+2;
+ }
+ ctx.closePath();
+ ctx.stroke();
+ ctx.fill();
+//       ELSEIF (nflow.EQ.4) THEN
+//       CALL FILLCL(7)
+//       CALL LINECL(15)
+//       BOX(1)=400.-XP*FMAX
+//       BOX(2)=225.
+//       BOX(3)=400.
+//       BOX(4)=225.+YP*FMAX
+//       BOX(5)=400.+XP*FMAX
+//       BOX(6)=225.
+//       BOX(7)=400.
+//       BOX(8)=225.0-YP*FMAX
+//       CALL PFILL(4,BOX,1)
+//     ENDIF
+//C SET TEXT
+//      CALL BUTTON(30.,340.,150.,20.,1,'MACH No.')
+//      CALL TEXTCL(15)
+//      CALL TXTBCL(1)
+//      CALL GTEXT(40.,325.,'               ')
+//      CALL PPOINT(40.,325.,-1)
+//      CALL GNUM(AMACH,12,1)
+//      CALL BUTTON(30.,300.,150.,20.,1,'KNUDSEN No.')
+//      CALL TEXTCL(15)
+//      CALL TXTBCL(1)
+//      CALL GTEXT(40.,285.,'               ')
+//      CALL PPOINT(40.,285.,-1)
+//      CALL GNUM(AKNUD,12,3)
+//      CALL BUTTON(30.,260.,150.,20.,1,'SURFACE MODE')
+//      CALL PPOINT(40.,245.,-1)
+//      CALL TEXTCL(15)
+//      CALL TXTBCL(1)
+//      IF (iref.EQ.1) THEN
+//       CALL PTEXT('DIFFUSE ')
+//      ELSE
+//       CALL PTEXT('SPECULAR')
+//      ENDIF
+//      CALL BUTTON(30.,220.,150.,20.,1,'2-D FLOW OBJECT')
+//      CALL PPOINT(40.,205.,-1)
+//      CALL TEXTCL(15)
+//      CALL TXTBCL(1)
+//      IF (nflow.EQ.1) THEN
+//       CALL PTEXT('VERTICAL PLATE   ')
+//      ELSEIF (nflow.EQ.2) THEN
+//       CALL PTEXT('HORIZONTAL PLATE ')
+//      ELSEIF (nflow.EQ.3) THEN
+//       CALL PTEXT('CIRCULAR CYLINDER')
+//      ELSEIF (nflow.EQ.4) THEN
+//       CALL PTEXT('DOUBLE WEDGE     ')
+//      ENDIF
+//      CALL BUTTON(30.0,180.,150.0,20.0,1,'sample PROPERTIES')
+//      CALL TEXTCL(11)
+//      CALL TXTBCL(1)
+//      CALL GTEXT(30.,115.,'No of Collisions')
+//      CALL EXITBOX
+//      CALL SHOWMS(AX,AY)
+//C CHECK FOR KEY INPUT
+ var istart=0;
+ while (istart==0) {
+  time=time+dtm;
+  iccnt=iccnt+1;
+//      IF (ICCNT.GT.10) THEN
+//       CALL PPOINT(30.,100.,-1)
+//       CALL TEXTCL(15)
+//       CALL TXTBCL(1)
+//       CALL GNUM(COL,15,0)
+//       ICCNT=1
+//      ENDIF
+//C MOUSE/KEYBOARD INPUT
+//      CALL BUTTMS(CH1,CH2,AX,AY)
+//      IF (CH1.NE.0 .OR. CH2.NE.0) THEN
+//       CALL HIDEMS()
+//       IF (CH1.EQ.-1) THEN
+//        IBUT=0
+//        IF (AX.GT.30.   .AND. AX.LT.190.) THEN
+//         IF (AY.GT.340. .AND. AY.LT.360.) THEN
+//          IBUT=1
+//  	 ELSEIF (AY.GT.300. .AND. AY.LT.320.) THEN
+// 	  IBUT=2
+//	 ELSEIF (AY.GT.260. .AND. AY.LT.280.) THEN
+//	  IBUT=3
+//	 ELSEIF (AY.GT.220. .AND. AY.LT.240.) THEN
+//	  IBUT=4
+//	 ENDIF
+//        ENDIF
+//        IF (AX.GT.20.  .AND. AX.LT.70.) THEN
+// 	 IF (AY.GT.20. .AND. AY.LT.50.) THEN
+//	  CH1=27
+//	 ENDIF
+//        ENDIF
+//        IF (AX.GT.30.   .AND. AX.LT.180.) THEN
+// 	 IF (AY.GT.180. .AND. AY.LT.200.) THEN
+//          IBUT=5
+//         ENDIF
+//        ENDIF
+//       ENDIF
+//       IF (IBUT.EQ.5) THEN
+//	 CALL BUTTON(30.,180.,150.,20.,0,'sample PROPERTIES')
+//	 IF (ISAMP.GT.2) THEN
+//	  CALL RECTFILL(211.,35.,591.,414.,9,-1)
+//	  DX=1./FLOAT(ISAMP)
+//	  AMAX=0.
+//          BMAX=0.
+//	  DO 2100 I=1,NC
+//	   IF (sample(I,1).LT.1.) GOTO 2100
+//	   VX=sample(I,2)/sample(I,1)*DX
+//	   VY=sample(I,3)/sample(I,1)*DX
+//	   VEL=SQRT(ABS(VX*VX+VY*VY))
+//	   sample(I,4)=sample(I,4)/sample(I,1)*DX-VEL*VEL
+//	   sample(I,1)=sample(I,1)/CV(I)*DX*sample(I,4)
+//	   if (sample(I,1).GT.AMAX) AMAX=sample(I,1)
+//           if (sample(I,4).GT.BMAX) BMAX=sample(I,4)
+/*
+2100      CONTINUE
+	  AMAX=2.5/AMAX
+          BMAX=2.5/BMAX
+	  DO 2101 J=1,NCX
+	   DO 2102 K=1,NCY
+	    X0=(J-1)*CW+xf
+	    X1=J*CW+xf
+	    Y0=(K-1)*CH
+	    Y1=K*CH
+	    M=(K-1)*NCX+J
+	    NUM=NINT(10**(sample(M,4)*BMAX))
+	    CALL LINECL(12)
+	    DO 871 N=1,NUM
+	     IX0=NINT(400.+(X0+(X1-X0)*Math.random();)*FMAX)
+	     IY0=NINT(255.-(Y0+(Y1-Y0)*Math.random();)*FMAX)
+	     IF (IX0.GT.210 .AND. IX0.LT.590) THEN
+	      IF (IY0.GT.65 .AND. IY0.LT.256) THEN
+	       CALL PDPF(IX0,IY0)
+	       IY0=255*2-IY0
+	       CALL PDPF(IX0,IY0)
+	      ENDIF
+	     ENDIF
+ 871	    CONTINUE
+	    NUM=NINT(10**(sample(M,1)*AMAX))
+	    CALL LINECL(15)
+	    DO 872 N=1,NUM
+	     IX0=NINT(400.+(X0+(X1-X0)*Math.random();)*FMAX)
+	     IY0=NINT(255.-(Y0+(Y1-Y0)*Math.random();)*FMAX)
+	     IF (IX0.GT.210 .AND. IX0.LT.590) THEN
+	      IF (IY0.GT.65 .AND. IY0.LT.256) THEN
+	       CALL PDPF(IX0,IY0)
+	       IY0=255*2-IY0
+	       CALL PDPF(IX0,IY0)
+	      ENDIF
+	     ENDIF
+872	    CONTINUE
+2102       CONTINUE
+2101      CONTINUE
+	 ENDIF
+	 ISAMP=0
+	 COL=0.
+	 DO 2301 I=1,NC
+	  DO 2311 J=1,4
+	   sample(I,J)=0.
+2311      CONTINUE
+2301     CONTINUE
+	 IF (nflow.EQ.1) THEN
+	  X0=400.0
+	  Y0=225.0-YP*FMAX
+	  CALL PPOINT(X0,Y0,-1)
+	  DY=2.*YP*FMAX
+	  CALL PVECT(0.0,DY,1)
+	 ELSEIF (nflow.EQ.2) THEN
+	  X0=400.0+XP*FMAX
+	  Y0=225.0
+	  CALL PPOINT(X0,Y0,-1)
+	  DX=595.-X0
+	  CALL PVECT(DX,0.0,1)
+	 ELSEIF (nflow.EQ.3) THEN
+C DRAW CYLINDER AND WEDGE
+	  CALL FILLCL(7)
+	 RAD=RC*FMAX
+	 X0=400.0
+	 Y0=225.0
+	 BOX(1)=X0+RAD
+	 BOX(2)=Y0
+	 BOX(5)=X0
+	 BOX(6)=Y0
+	 DO 3899 J=2,362,2
+	  THETA=(J-1)*PI/180.0
+	  BOX(3)=X0+RAD*COS(THETA)
+	  BOX(4)=Y0+RAD*SIN(THETA)
+	  CALL PFILL(3,BOX,-1)
+	  BOX(1)=BOX(3)
+	  BOX(2)=BOX(4)
+3899     CONTINUE
+	 X1=X0+RAD
+	 Y1=Y0
+	 CALL LINECL(15)
+	 DO 3869 J=1,366,5
+	  THETA=(J-1)*PI/180.0
+	  CALL PPOINT(X1,Y1,-1)
+	  X2=X0+RAD*COS(THETA)
+	  Y2=Y0+RAD*SIN(THETA)
+	  CALL PVECT(X2-X1,Y2-Y1,1)
+	  X1=X2
+	  Y1=Y2
+3869     CONTINUE
+	ELSEIF (nflow.EQ.4) THEN
+	 CALL FILLCL(7)
+	 CALL LINECL(15)
+	 BOX(1)=400.-XP*FMAX
+	 BOX(2)=225.
+	 BOX(3)=400.
+	 BOX(4)=225.+YP*FMAX
+	 BOX(5)=400.+XP*FMAX
+	 BOX(6)=225.
+	 BOX(7)=400.
+	 BOX(8)=225.0-YP*FMAX
+	 CALL PFILL(4,BOX,1)
+	ENDIF
+	DO 2056 N=1,20000
+	 RND(N)=Math.random();
+	 SLR(N)=SQRT(-LOG(Math.random();))
+2056    CONTINUE
+	CALL SHOWMS(AX,AY)
+        CH1=0
+	CH2=0
+2077    CONTINUE
+	CALL BUTTMS(CH1,CH2,AX,AY)
+        IF (CH1.EQ.0 .AND. CH2.EQ.0) GOTO 2077
+	CALL HIDEMS()
+	CALL BUTTON(30.,180.,150.,20.,1,'sample PROPERTIES')
+       ELSEIF (CH1.EQ.27) THEN
+        GOTO 888
+       ELSEIF (IBUT.EQ.1) THEN
+	CALL BUTTON(30.,340.,150.,20.,0,'MACH No.')
+	CALL PPOINT(40.,325.,-1)
+	CALL TEXTCL(15)
+	CALL TXTBCL(4)
+	CALL PTEXT('             ')
+	CALL PPOINT(40.,325.,-1)
+	CALL GINPUT(CMDCNT,TXTBUF)
+        IF (CMDCNT.GT.0) THEN
+         CMDCNT=1
+ 	 AMACH=ACCEPT(CMDCNT,TXTBUF)
+        ENDIF
+	SVEL=AMACH*400.
+	IF (modt.EQ.0) THEN
+C THE SURFACE TEMPERATURE IS EQUAL TO THE STREAM TEMPERATURE
+	 STMP=FTMP
+	 VMPS=VMPF
+	ELSEIF (modt.EQ.1) THEN
+C THE SURFACE TEMPERATURE IS EQUAL TO THE STAGNATION TEMPERATURE
+	 STMP=FTMP*(1+0.333333*AMACH*AMACH)
+	 VMPS=VMPF*SQRT(STMP/FTMP)
+	ENDIF
+       ELSEIF (IBUT.EQ.4) THEN
+	CALL BUTTON(30.,220.,150.,20.,0,'2-D FLOW OBJECT')
+	nflow=nflow+1
+	IF (nflow.GT.4) nflow=1
+       ELSEIF (IBUT.EQ.3) THEN
+	CALL BUTTON(30.,260.,150.,20.,0,'SURFACE MODE' )
+	IF (iref.EQ.0) THEN
+	 iref=1
+	ELSE
+	 iref=0
+	ENDIF
+       ELSEIF (IBUT.EQ.2) THEN
+	CALL BUTTON(30.,300.,150.,20.,0,'KNUDSEN No.')
+	CALL PPOINT(40.,285.,-1)
+	CALL TEXTCL(15)
+	CALL TXTBCL(4)
+	CALL PTEXT('             ')
+	CALL PPOINT(40.,285.,-1)
+	CALL GINPUT(CMDCNT,TXTBUF)
+	IF (CMDCNT.GT.0) THEN
+         CMDCNT=1
+         AKNUD=ACCEPT(CMDCNT,TXTBUF)
+        ENDIF
+	velk=1./AKNUD
+	CXS=CXSI*vel/20.
+       ENDIF
+       CH1=0
+       CH2=0
+       IBUT=0
+       GOTO 201
+      ENDIF
+1017  CONTINUE
+*/
+  ift =-1;
+// IFT BECOMES 1 FOR THE ENTERING MOLECULES
+  n=0;
+  while (n<nm) {
+   n=n+1;
+// MOVE MOLECULE N
+   at=dtm;
+   if (ift>0) {
+    at=Math.random()*dtm;
+   } 
+// ENTERING MOLECULES ARE UNIFORMLY DISTRIBUTED OVER THE TIME STEP
+   xi=ppx[n];
+   yi=ppy[n];
+   dx=pvx[n]*at;
+   x=xi+dx;
+   dy=pvy[n]*at;
+   y=yi+dy;
+   if (x<xf || y>yu || x>xr) {
+//C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
+    ppx[n]=ppx[nm];
+    ppy[n]=ppy[nm];
+    pvx[n]=pvx[nm];
+    pvy[n]=pvy[nm];
+    pvz[n]=pvz[nm];
+    ip1[n]=ip1[nm];
+    ip2[n]=ip2[nm];
+    nm=nm-1;
+    n=n-1;
+   } else {   
+//      IF (nflow.EQ.1) THEN
+//       IF (XI.LT.0..AND.X.LT.0.) GO TO 2345
+//       IF (XI.GT.0..AND.X.GT.0.) GO TO 2345
+//       IF (YI.GT.YP.AND.Y.GT.YP) GO TO 2345
+//       FTC=XI/(XI-X)
+//       YC=YI+FTC*(Y-YI)
+//       IF (YC.LE.YP) THEN
+//C MOLECULE N COLLIDES WITH PLATE AT Y=YC
+//	IF (YC.LT.0.) THEN
+//	 YC=-YC
+//	 PV(2,N)=-PV(2,N)
+// SPECULAR REFLECTION OF INCIDENT MOLECULE AT Y=0
+//	ENDIF
+//	IF (XI.LT.0.) K=1
+//	IF (XI.GT.0.) K=2
+//C K=1,2 FOR COLLISION WITH FRONT,REAR OF PLATE
+//	DTR=AT*(1.-FTC)
+//C DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
+//C NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
+//	IF (iref.EQ.1) THEN
+//	 PV(1,N)=-SLRA()*VMPS
+//	 IF (K.EQ.2) PV(1,N)=-PV(1,N)
+//	 A=TWOPI*RNDA()
+//	 B=SLRA()*VMPS
+//	 PV(2,N)=B*SIN(A)
+//	 PV(3,N)=B*COS(A)
+//	ELSE
+//	 PV(1,N)=-PV(1,N)
+//	ENDIF
+//C SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+//	IP(2,N)=14
+//	X=PV(1,N)*DTR
+//	Y=YC+PV(2,N)*DTR
+//       ENDIF
+//2345   CONTINUE
+//      ELSEIF (nflow.EQ.2) THEN
+//       IF (Y.GT.0.) GO TO 2346
+//       IF (XI.LT.XP.AND.X.LT.XP) GO TO 2346
+//       IF (iref.EQ.0) GOTO 2346
+//       FTC=YI/(YI-Y)
+//       XC=XI+FTC*(X-XI)
+//       IF (XC.GE.XP) THEN
+//C MOLECULE N COLLIDES WITH PLATE AT X=XC
+//	DTR=AT*(1.-FTC)
+//C DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
+//C NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
+//	PV(2,N)=-SLRA()*VMPS
+//	A=TWOPI*RNDA()
+//	IP(2,N)=14
+//	B=SLRA()*VMPS
+//	PV(1,N)=B*SIN(A)
+//	PV(3,N)=B*COS(A)
+//C SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+//	X=XC+PV(1,N)*DTR
+//	Y=PV(2,N)*DTR
+//      ENDIF
+//2346   CONTINUE
+//      ELSEIF (nflow.EQ.3) THEN
+    if (xi>-rc && x>-rc) {
+     if (xi<rc && x<rc) {
+      if (yi<rc && y<rc) {
+       a=dx*dx+dy*dy;
+       bd=(xi*dx+yi*dy)/a;
+       cd=(xi*xi+yi*yi-rc*rc)/a;
+       b=bd*bd-cd;
+       if (b>0.0) {
+        b=Math.sqrt(b);
+        s1=-bd+b;
+        s2=-bd-b;
+        if (s1<1.0 && s2<1.0) {
+         if (s1>0.0 && s2>0.0) {
+          ftc=Math.min(s1,s2);
+          xc=xi+0.999*ftc*(x-xi);
+          yc=yi+0.999*ftc*(y-yi);
+// MOLECULE N COLLIDES WITH CYLINDER AT XC)YC
+          if (yc<0.0) {
+           yc=-yc;
+          } 
+// SPECULAR REFLECTION OF INCIDENT MOLECULE AT Y=0
+          dtr=at*(1.0-ftc);
+// DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
+// NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
+          theta=Math.atan2(yc,xc);
+          cth=Math.cos(theta);
+          sth=Math.sin(theta);
+          ip2[n]="yellow";
+          if (iref==1) {
+           slra=slr(ircnt);
+           ircnt=ircnt+1;
+           if (ircnt>20000) {
+            ircnt=1;
+           } 
+	   vn=slra*vmps;
+	   a=TWOPI*Math.random();
+	   slra=slr(ircnt);
+           ircnt=ircnt+1;
+           if (ircnt>20000) {
+            ircnt=1;
+           } 
+           b=slra*vmps;
+	   vp=b*Math.sin(a);
+	   pvz[n]=b*Math.cos(a);
+          } else {
+	   vn=pvx[n]*cth+pvy[n]*sth;
+	   vp=pvy[n]*cth-pvx[n]*sth;
+	   vn=-vn;
+          }
+          pvx[n]=vn*cth-vp*sth;
+          pvy[n]=vn*sth+vp*cth;
+// SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+          x=xc+pvx[n]*dtr;
+          y=yc+pvy[n]*dtr;
+         }
+        }
+       }
+      }
+     }
+    }    
+//      ELSEIF (nflow.EQ.4) THEN
+//       IF (XI.LT.-XP.AND.X.LT.-XP) GO TO 2348
+//       IF (XI.GT.XP.AND.X.GT.XP) GO TO 2348
+//       IF (YI.GT.YP.AND.Y.GT.YP) GO TO 2348
+//       DO 1347 I=1,2
+//	IF (I.EQ.1) THEN
+//	 A1=YP/XP
+//	ELSE
+//	 A1=-YP/XP
+//	ENDIF
+//	AA=(X-XI)
+//	IF (ABS(AA).LT.1.E-10) THEN
+//	 XC=X
+//	 YC=A1*XC+YP
+//	 IF (YC.LT.Y  .AND. YC.LT.YI) GOTO 1347
+//	ELSE
+//	 AA=(Y-YI)/AA
+//	 BB=YI-AA*XI
+//	 IF (ABS(AA-A1).LT.1.0E-10) GOTO 1347
+//	 XC=(BB-YP)/(A1-AA)
+//	 YC=AA*XC+BB
+//	 IF (XC.LT.X  .AND. XC.LT.XI) GOTO 1347
+//	 IF (XC.GT.X  .AND. XC.GT.XI) GOTO 1347
+//	 IF (YC.LT.0. .OR.  YC.GT.YP) GOTO 1347
+//	 IF (I.EQ.1) THEN
+//	  IF (XC.LT.-XP .OR. XC.GT.0.) GOTO 1347
+//	 ELSE
+//	  IF (XC.LT.0. .OR.  XC.GT.XP) GOTO 1347
+//	 ENDIF
+//	ENDIF
+//C MOLECULE N COLLIDES WITH WEDGE AT Y=YC,X=XC
+//	FTC=(XC-XI)/(X-XI)
+//	DTR=AT*(1.-FTC)
+//C DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
+//C NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
+//	IP(2,N)=14
+//	IF (iref.EQ.1) THEN
+//	 VN=SLRA()*VMPS
+//	 A=TWOPI*RNDA()
+//	 B=SLRA()*VMPS
+//	 VP=B*SIN(A)
+//	ELSE
+//	 IF (I.EQ.1) THEN
+//	  VN=-PV(1,N)*WSTH+PV(2,N)*WCTH
+//	  VP=PV(1,N)*WCTH+PV(2,N)*WSTH
+//	 ELSE
+//	  VN=PV(2,N)*WCTH+PV(1,N)*WSTH
+//	  VP=PV(1,N)*WCTH-PV(2,N)*WSTH
+//	 ENDIF
+//	 VN=-VN
+//	ENDIF
+//	IF (I.EQ.1) THEN
+//	 PV(1,N)=-VN*WSTH+VP*WCTH
+//	 PV(2,N)=VN*WCTH+VP*WSTH
+//	ELSE
+//	 PV(1,N)=VN*WSTH+VP*WCTH
+//	 PV(2,N)=VN*WCTH-VP*WSTH
+//	ENDIF
+//	PV(3,N)=B*COS(A)
+//C SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+//	X=XC+PV(1,N)*DTR
+//	Y=YC+PV(2,N)*DTR
+//	GOTO 2348
+//1347   CONTINUE
+//2348   CONTINUE
+//      ENDIF
+    if (y<0.0) {
+// SPECULAR REFLECTION FROM Y=0
+     y=-y;
+    } 
+    pvy[n]=-pvy[n];
+    ppx[n]=x;
+    ppy[n]=y;
+    ix0=Math.round(400.0+x*fmax);
+    iy0=Math.round(255.0-y*fmax);
+    if (ix0>210 && ix0<590) {
+     if (iy0>65 && iy0<256) {
+//	IF (nflow.EQ.2) THEN
+//	 IF (IX0.LT.IX1 .OR. IY0.NE.255) THEN
+//	  ICOL=IP(2,N)
+//	 ELSE
+      icol=15;
+     } else {     
+     icol=ip2[n];
+    }
+    ctx.strokeStyle()=icol;
+    ctx.moveTo(ix0,iyo);
+    ctx.lineTo(ix0+1,iy0);
+    ctx.stroke();
+    nrow=y*ncy/yu+0.999999;
+    if (nrow==0) {
+     nrow=1;
+    }
+    ncol=(x-xf)*ncx/(xr-xf)+0.999999;
+    if (ncol==0) {
+     ncol=1;
+    } 
+// NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
+    ip1[n]=(nrow-1)*ncx+ncol;
+   }
+  }  
+//      GO TO 160
+//1601  IF (IFT.GT.0) GO TO 1801
+//C NEW MOLECULES ENTER
+//      IFT=1
+  k=1
+  while (k<=3) {
+   if (k==1) {
+    a=ent1[1]+ent1[2];
+    m=Math.trunc(a);
+    ent1[2]=a-m;
+   } else if (k=2) {
+    a=ent2[1]+ent2[2];
+    m=Math.trunc(a);
+    ent2[2]=a-m;
+   } else {
+    a=ent3[1]+ent3[2];
+    m=Math.trunc(a);
+    ent3[2]=a-m;
+   }
+   if (m>0) {
+    j=1;
+    while (j<=m) {
+     nm=nm+1;
+     if (nm>=MNM) {
+      alert ("maximum molecule storage reached. run ended."); return;
+     }
+     ip2[nm]="blue";
+     if (k==1) {
+      s=svel/vmpf;
+     } else if (k==2) { 
+      s=0.0;
+     } else {
+      s=-svel/vmpf;
+     } 
+// S IS THE SPEED RATIO BASED ON THE NORMAL VELOCITY COMPONENT
+     aa=Math.max(0.0,s-3.0);
+     bb=Math.max(3.0,s+3.0);
+     gotone=0;
+     gotcnt=0;
+     while gotone==0) {
+      vn=aa+(bb-aa)*random();
+      v=vn-s
+      if (k==1) {
+       e3=ent1[3];
+       e4=ent1[4];
+      } else if (k==2) {
+       e3=ent2[3];
+       e4=ent2[4];
+      } else { 
+       e3=ent3[3];
+       e4=ent3[4];
+      }
+      a=(2.0*vn/e3)*Math.exp(e4-v*v);
+      if (a>Math.random()) {
+       vn=vn*vmpf;
+       a=TWOPI*Math.random();
+       slra=slr(ircnt);
+       ircnt=ircnt+1;
+       if (ircnt>20000) {
+        ircnt=1;
+       } 
+       b=slra*vmpf;
+       vp=b*Math.sin(a)
+       pvz[nm]=b*Math.cos(a);
+       IF (k==1) {
+	pvx[nm]=vn;
+	pvy[nm]=vp;
+	ppx[nm]=xf;
+	ppy[nm]=Math.random()*yu;
+       } else if (k==2) {
+	pvx[nm]=vp+svel;
+	pvy[nm]=-vn;
+	ppy[nm]=yu;
+	ppx[nm)=xf+Math.random*(xr-xf);
+       } else {
+        pvx[nm]=-vn;
+	pvy[nm]=vp;
+	ppx[nm]=xr;
+	ppy[nm]=Math.random()*yu;
+       }
+       gotone=1;
+      }
+      gotcnt=gotcnt+1;
+      if (gotcnt>1000) {
+       gotone=1;
+      } 
+     }
+     j=j+1; 
+    }
+   }
+   k=k+1;
+  }     
+//C SET THE MOLECULE CROSS-REFERENCE ARRAY IR
+  n=1;
+  while (n<=nc) {
+   ic2[n]=0;
+   n=n+1;
+  }
+  isamp=isamp+1
+  n=1;
+  while (n<=nm) {
+   k=ip1[n];
+   sample1[k]=sample1[k]+1;
+   sample2[k]=sample2[k]+pvx[n];
+   sample3[k]=sample3[k]+pvy[n];
+   sample4[k]=sample4[k]+pvx[n]*pvx[n]+pvy[n]*pvy[n]+pvz[n]*pvz[n];
+   ic2[k]=ic2[k]+1;
+   n=n+1;
+  } 
+  m=0;
+  n=1;
+  while (n<=nc) {
+   ic1[n]=m;
+   m=m+ic2[n];
+   ic2[n]=0;
+   n=n+1;
+  } 
+  m=0;
+  n=1;
+  while (n<=nm) {
+   k=ip1[n];
+   ic2[k]=ic2[k]+1;
+   j=ic1[k]+ic2[k];
+   ir[j]=n;
+   n=n+1;
+  } 
+  if (aknud<1.0E5) {
+//  C CALCULATE COLLISIONS IN LOOP OVER CELLS
+   n=1;
+   while (n<=nc) {
+    dnn=ic2[n]*fnum/cv[n];
+    asel=0.5*ic2[n]*dnn*cxs*c2[n]*dtm+c1[n];
+    if (asel<100*ic2[n]) {
+// ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
+// ASEL IS THE NUMBER OF PAIR SELECTIONS
+     nsel=Math.trunc(asel);
+     c1[n]=asel-nsel;
+     if (nsel>0.5) {
+      if (ic2[n]<2) {
+       c1[n]=c1[n]+nsel;
+      } else {
+       cvm=c2[n];
+       isel=1;
+       while (isel<=nsel) {
+	k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
+	l=ir(k);
+//C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
+        gotone=0;
+        gotcount=0;
+        while (gotone==0) {
+         k=Math.trunc(Math.random*(ic2[n]-0.0001))+ic1[n]+1;
+	 m=ir[k];
+//C SECOND MOLECULE M HAS BEEN CHOSEN FROM SAME SUB-CELL, IF POSSIBLE
+	 if (m!=l) {
+	  vrcx=pvx[l]-pvx[m];
+	  vrcy=pvy[l]-pvy[m];
+	  vrcz=pvz[l]-pvz[m];
+	  vr=vrcx*vrcx+vrcy*vrcy+vrcz*vrcz;
+	  vr=Math.sqrt(vrr);
+//C VRR AND VR ARE THE SQUARE AND MAGNITUDE OF THE RELATIVE VELOCITY
+	  if (vr>cvm) {
+	   cvm=vr;
+	  } 
+	  if (vr/c2[n]>Math.random()) {
+//C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
+	   gotone=1;
+	   col=col+1.0;
+	   if (ip2[l]=='yellow' || ip2[m]=='yellow') {
+	    ip2[l]='yellow';
+	    ip2[m]='yellow';
+	   } 
+	   vccmx=0.5*(pvx[l]+pvx[m]);
+	   vccmy=0.5*(pvy[l]+pvy[m]);
+	   vccmz=0.5*(pvz[l]+pvz[m]);
+	   b=1.-2.*Math.random();
+	   a=Math.sqrt(1.-b*b);
+	   vrcx=b*vr;
+	   b=TWOPI*Math.random();
+	   vrcy=a*Math.cos(b)*vr;
+	   vrcz=a*Math.sin(b)*vr;
+// VRC IS THE COMPONENTS OF POST-COLLISION RELATIVE VEL
+	   pvx[l]=vccmx+vrcx*0.5;
+	   pvx[m]=vccmx-vrcx*0.5;
+	   pvy[l]=vccmy+vrcy*0.5;
+	   pvy[m]=vccmy-vrcy*0.5;
+	   pvz[l]=vccmz+vrcz*0.5;
+	   pvz[m]=vccmz-vrcz*0.5;
+	  }
+	 }
+	 gotcnt=gotcnt+1;
+	 if (gotcnt>100) {
+	  gotone=1;
+         }
+	}   
+        c2[n]=cvm;
+        isel=isel+1;
+       }  
+      }
+     }
+    }
+    n=n+1;
+   }    
+  }
+ }
+}
+
+
+function erf(s) {
+// CALCULATION OF THE ERROR FUNCTION
+ var c,t,d;
+ var b=Math.abs(s);
+ if( b<4 ) {
+  c = Math.exp(-b*b);
+  t = 1./(1.+0.3275911*b);
+  d = 1. - (0.254829592*t-0.284496736*t*t+1.421413741*t*t*t
+  d = d -  1.453152027*t*t*t*t+1.061405429*t*t*t*t*t)*c;
+ } else {
+  d = 1.;
+ }
+ if (s<0) {
+  d = -d;
+ } 
+ return d;
+} 
+//C
+//      FUNCTION RANF(I)
+//      REAL*8 A
+//      INTEGER*4 IXR,IYR,IZR,IMOUSE,ircnt,jrcnt
+//      COMMON /ONE/ IMOUSE,IXR,IYR,IZR,ircnt,jrcnt
+//      IF (I.LT.0) THEN
+//       IXR=27351
+//       IYR=16023
+//       IZR=9643
+//      ENDIF
+//99    IXR=MOD(171*IXR,30269)
+//      IYR=MOD(172*IYR,30307)
+//      IZR=MOD(170*IZR,30323)
+//      A=AMOD(FLOAT(IXR)/30269.+FLOAT(IYR)/30307.+FLOAT(IZR)/30323.,1.)
+//      IF (A.LE.0.) GOTO 99
+//      RANF=A
+//      RETURN
+//      END
+
+</script>
+
+</td></tr>
+</table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
