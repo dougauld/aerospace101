@@ -1032,21 +1032,21 @@ C THE SURFACE TEMPERATURE IS EQUAL TO THE STAGNATION TEMPERATURE
        b=slra*vmpf;
        vp=b*Math.sin(a)
        pvz[nm]=b*Math.cos(a);
-       IF (k==1) {
-	pvx[nm]=vn;
-	pvy[nm]=vp;
-	ppx[nm]=xf;
-	ppy[nm]=Math.random()*yu;
+       if (k==1) {
+	    pvx[nm]=vn;
+	    pvy[nm]=vp;
+	    ppx[nm]=xf;
+	    ppy[nm]=Math.random()*yu;
        } else if (k==2) {
-	pvx[nm]=vp+svel;
-	pvy[nm]=-vn;
-	ppy[nm]=yu;
-	ppx[nm)=xf+Math.random*(xr-xf);
+	    pvx[nm]=vp+svel;
+	    pvy[nm]=-vn;
+	    ppy[nm]=yu;
+	    ppx[nm)=xf+Math.random*(xr-xf);
        } else {
         pvx[nm]=-vn;
-	pvy[nm]=vp;
-	ppx[nm]=xr;
-	ppy[nm]=Math.random()*yu;
+	    pvy[nm]=vp;
+	    ppx[nm]=xr;
+	    ppy[nm]=Math.random()*yu;
        }
        gotone=1;
       }
@@ -1245,6 +1245,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
