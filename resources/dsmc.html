@@ -290,6 +290,7 @@ function ComputeFlow() {
    } 
    pvz[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
    ip2[nm]="blue";
+   ip1[nm]=0;	  
    nm=nm+1;	  
   }
   m=m+1;  
@@ -307,6 +308,9 @@ function ComputeFlow() {
   a=s;
   b=0.0;
  }
+ ent1[0]=0.0;
+ ent2[0]=0.0;
+ ent3[0]=0.0;	
  ent1[1]=yu*dtm*fnd*vmpf*a/fnum;
  ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*SPI*fnum);
  ent3[1]=yu*dtm*fnd*vmpf*b/fnum;
@@ -319,7 +323,7 @@ function ComputeFlow() {
  ent2[4]=0.5;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
- console.log(ent1);
+ console.log(ent1,ent2,ent3);
  var col=0.0;
  var iccnt=0;
  var time=0.0;
@@ -346,22 +350,16 @@ function ComputeFlow() {
  while (istart==0) {
   time=time+dtm;
   iccnt=iccnt+1;
-  ift =-1;
-// IFT BECOMES 1 FOR THE ENTERING MOLECULES
   n=0;
+// MOVE MOLECULES
   while (n<nm) {
    n=n+1;
 // MOVE MOLECULE N
-   at=dtm;
-   if (ift>0) {
-    at=Math.random()*dtm;
-   } 
-// ENTERING MOLECULES ARE UNIFORMLY DISTRIBUTED OVER THE TIME STEP
    xi=ppx[n];
    yi=ppy[n];
-   dx=pvx[n]*at;
+   dx=pvx[n]*dtm;
    x=xi+dx;
-   dy=pvy[n]*at;
+   dy=pvy[n]*dtm;
    y=yi+dy;
    if (x<xf || y>yu || x>xr) {
 //C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
@@ -375,9 +373,9 @@ function ComputeFlow() {
     nm=nm-1;
     n=n-1;
    } else {   
-    if (xi>-rc && x>-rc) {
-     if (xi<rc && x<rc) {
-      if (yi<rc && y<rc) {
+    if (x>-rc) {
+     if (x<rc) {
+      if (y<rc) {
        a=dx*dx+dy*dy;
        bd=(xi*dx+yi*dy)/a;
        cd=(xi*xi+yi*yi-rc*rc)/a;
@@ -437,9 +435,9 @@ function ComputeFlow() {
     }    
     if (y<0.0) {
 // SPECULAR REFLECTION FROM Y=0
-     y=-y;
-    } 
-    pvy[n]=-pvy[n];
+     y=-y; 
+     pvy[n]=-pvy[n];
+   }   
     ppx[n]=x;
     ppy[n]=y;
     ix0=Math.round(400.0+x*fmax);
@@ -467,6 +465,7 @@ function ComputeFlow() {
     ip1[n]=(nrow-1)*ncx+ncol;
    }
   }  
+//molecules entering flow	 
   k=1
   while (k<=3) {
    if (k==1) {
@@ -486,11 +485,6 @@ function ComputeFlow() {
    if (m>0) {
     j=1;
     while (j<=m) {
-     nm=nm+1;
-     if (nm>=MNM) {
-      alert ("maximum molecule storage reached. run ended."); return;
-     }
-     ip2[nm]="blue";
      if (k==1) {
       s=svel/vmpf;
      } else if (k==2) { 
@@ -518,6 +512,11 @@ function ComputeFlow() {
       }
       a=(2.0*vn/e3)*Math.exp(e4-v*v);
       if (a>Math.random()) {
+	   nm=nm+1;
+       if (nm>=MNM) {
+        alert ("maximum molecule storage reached. run ended."); return;
+       }
+       ip2[nm]="blue";
        vn=vn*vmpf;
        a=TWOPI*Math.random();
        slra=slr[ircnt];
@@ -722,6 +721,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
