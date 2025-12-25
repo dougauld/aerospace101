@@ -204,6 +204,7 @@ function ComputeFlow() {
  cvi=ch*cw
 // cvi IS THE CELL VOLUME IF THE BODY DOES NOT INTRUDE
  j=1;
+// set cell volumes	
  while (j<=ncx) {
   k=1;
   while (k<=ncy) {
@@ -246,6 +247,7 @@ function ComputeFlow() {
   j=j+1;   
  }
  n=1;
+// set sampling properties
  while (n<=nc) {
   c1[n]=0.0;
   c2[n]=vmps+svel/3.0;
@@ -257,24 +259,18 @@ function ComputeFlow() {
   n=n+1;
  }  
  var isamp=0;
- var nm=0;
+ var nm=1;
  k=Math.round(rnm*MNM);
  //console.log(k);
  var kflag=1;
  var ilost=0;
  m=1;
+// SET INITIAL FLOW FIELD	
  while (m<=k) {
-  nm=nm+1
-  ilost=0;
   ppx[nm]=xf+Math.random()*(xr-xf);
   ppy[nm]=yu*Math.random();
-//       IF (nflow.EQ.3) THEN
   a=ppx[nm]*ppx[nm]+ppy[nm]*ppy[nm];
-  if (a<rcc) {
-   nm=nm-1;
-   ilost=1;
-  } 
-  if (ilost==0) {
+  if (a>rcc) {
    a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
@@ -294,6 +290,7 @@ function ComputeFlow() {
    } 
    pvz[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
    ip2[nm]="blue";
+   nm=nm+1;	  
   }
   m=m+1;  
  }    
@@ -322,6 +319,7 @@ function ComputeFlow() {
  ent2[4]=0.5;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
+ console.log(ent1);
  var col=0.0;
  var iccnt=0;
  var time=0.0;
@@ -484,7 +482,7 @@ function ComputeFlow() {
     m=Math.trunc(a);
     ent3[2]=a-m;
    }
-   console.log(m);
+//   console.log(m);
    if (m>0) {
     j=1;
     while (j<=m) {
@@ -724,6 +722,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
