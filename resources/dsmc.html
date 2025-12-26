@@ -132,8 +132,6 @@ function ComputeInit() {
  var sample3 =[];
  var sample4 =[];
  var slr = [];
- const c = document.getElementById("imageout");
- const ctx = c.getContext("2d");
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 640, 480);
  var n=0;
@@ -214,6 +212,7 @@ function ComputeInit() {
  cvi=ch*cw
 // cvi IS THE CELL VOLUME IF THE BODY DOES NOT INTRUDE
  j=1;
+ cv[0]=0;
 // set cell volumes	
  while (j<=ncx) {
   k=1;
@@ -743,6 +742,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
