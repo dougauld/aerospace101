@@ -82,7 +82,8 @@ Cylinder Radius:<br />
 Flow Mach Number:<br />
 <input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
 &nbsp;<br /> 	
-<INPUT id='Compute' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> &nbsp; <INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+
 </form>
 </td></tr>
 <tr><td><center>
@@ -91,8 +92,25 @@ Flow Mach Number:<br />
 </fieldset>
 </center>
 <p id='output'> </p>
-<script>
 
+	
+<script>
+ let ppx= [];
+ let ppy= [];
+ let pvx= [];
+ let pvy= [];
+ let pvz= [];
+ let ip1 = [];
+ let ip2 = [];     
+ let cv = [];
+ let c1 = [];
+ let c2 = [];
+ let ic1 = [];
+ let ir = [];	
+ let ic2 = [];
+ let ent1 = [];
+ let ent2 = [];
+ let ent3 = [];
 
 function HideResults() {
 //  alert("Hiding results");
@@ -100,26 +118,13 @@ function HideResults() {
   document.getElementById("output").innerHTML = " ";
 }
 
-function ComputeFlow() {
+function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
  const MNM=4000;
  const nc=600;
 // MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
 // NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
 // nch IS THE NUMBER OF CELLS ALONG THE PLATE
- var ppx= [];
- var ppy= [];
- var pvx= [];
- var pvy= [];
- var pvz= [];
- var ip1 = [];
- var ip2 = [];     
- var cv = [];
- var c1 = [];
- var c2 = [];
- var ic1 = [];
- var ir = [];	
- var ic2 = [];
  var sample1 =[];
  var sample2 =[];
  var sample3 =[];
@@ -300,10 +305,19 @@ function ComputeFlow() {
  }    
 // SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
  var s=svel/vmpf;
-// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
- var ent1 = [];
- var ent2 = [];
- var ent3 = [];
+// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIESvar ppx= [];
+ var ppy= [];
+ var pvx= [];
+ var pvy= [];
+ var pvz= [];
+ var ip1 = [];
+ var ip2 = [];     
+ var cv = [];
+ var c1 = [];
+ var c2 = [];
+ var ic1 = [];
+ var ir = [];	
+ var ic2 = [];
  if (s<9.0) {
   a=(Math.exp(-s*s)+SPI*s*(1.0+erf(s)))/(2.0*SPI);
   b=(Math.exp(-s*s)-SPI*s*(1.0-erf(s)))/(2.0*SPI);
@@ -349,6 +363,9 @@ function ComputeFlow() {
  ctx.closePath();
  ctx.stroke();
  ctx.fill();
+}
+	
+function ComputeFlow() {	
  var istart=0;
  while (istart==0) {
   time=time+dtm;
@@ -724,6 +741,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
