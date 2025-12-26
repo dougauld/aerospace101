@@ -93,7 +93,6 @@ Flow Mach Number:<br />
 </center>
 <p id='output'> </p>
 
-	
 <script>
 
  var ppx= [];
@@ -120,6 +119,25 @@ function HideResults() {
   document.getElementById("results").visibility="hidden";
   document.getElementById("output").innerHTML = " ";
 }
+ var ppx= [];
+ var ppy= [];
+ var pvx= [];
+ var pvy= [];
+ var pvz= [];
+ var ip1 = [];
+ var ip2 = [];     
+ var cellvolume = [];
+ var c1 = [];
+ var c2 = [];
+ var ic1 = [];
+ var ir = [];	
+ var ic2 = [];
+ var ent1 = [];
+ var ent2 = [];
+ var ent3 = [];
+ const c = document.getElementById("imageout");
+ const ctx = c.getContext("2d");
+	
 
 function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
@@ -213,14 +231,14 @@ function ComputeInit() {
  cvi=ch*cw
 // cvi IS THE CELL VOLUME IF THE BODY DOES NOT INTRUDE
  j=1;
- cv[0]=0;
+ cellvolume[0]=0;
 // set cell volumes	
  while (j<=ncx) {
   k=1;
   while (k<=ncy) {
    n=(k-1)*ncx+j;
 // N IS THE CELL NUMBER
-   cv[n]=cvi;
+   cellvolume[n]=cvi;
    x1=xf+(j-1)*cw;
    x2=xf+j*cw;
    if (x2>=-rc) {
@@ -238,15 +256,15 @@ function ComputeInit() {
 	   }	   
        if (y>(k-1)*ch) {
         if (y>k*ch) {
-         cv[n]=cv[n]-0.01*cvi;
+         cellvolume[n]=cellvolume[n]-0.01*cvi;
         } else {
-         cv[n]=cv[n]-((y-(k-1)*ch)/ch)*0.01*cvi;
+         cellvolume[n]=cellvolume[n]-((y-(k-1)*ch)/ch)*0.01*cvi;
 		}	
        }
        i=i+1; 
       }
-      if (cv[n]< 0.1*cvi) {
-       cv[n]=0.1*cvi;
+      if (cellvolume[n]< 0.1*cvi) {
+       cellvolume[n]=0.1*cvi;
       } 
 // ABOVE IS TEMPORARY TO AVOID INFINITE COLLISIONS
      }
@@ -743,6 +761,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
