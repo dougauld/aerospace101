@@ -121,7 +121,7 @@ function HideResults() {
  const ctx = c.getContext("2d");
  const MNM = 4000;
  const nc = 600;
-	
+ var time = 0;
 
 function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
@@ -337,9 +337,7 @@ cell2[0]=0;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
  console.log(ent1,ent2,ent3);
- var col=0.0;
- var iccnt=0;
- var time=0.0;
+  var iccnt=0;
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
  var rad=rc*fmax;
@@ -359,11 +357,21 @@ cell2[0]=0;
  ctx.closePath();
  ctx.stroke();
  ctx.fill();
+ nm=nm-1;
+ m=1;
+ while (m<=nm) {
+  ix0=Math.round(400.0+particlex[m]*fmax);
+  iy0=Math.round(255.0-particley[m]*fmax);
+  ctx.strokeStyle="blue";
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0+1,iy0);
+  ctx.stroke();
+  m=m+1;
+ }	 
 }
 	
 function ComputeFlow() {	
- var istart=0;
- while (istart==0) {
+  while (istart==0) {
   time=time+dtm;
   iccnt=iccnt+1;
   n=0;
@@ -737,6 +745,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
