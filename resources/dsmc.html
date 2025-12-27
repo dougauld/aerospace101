@@ -123,6 +123,9 @@ function HideResults() {
  const nc = 600;
  var time = 0;
  var nm = 0;
+ var xf = -1.0;
+ var xr = 0.5;
+ var yu = 0.5
  let raf;
 
 function ComputeInit() {
@@ -182,9 +185,9 @@ function ComputeInit() {
 // DTM THE TIME STEP
  var ch=0.05;
  var cw=ch*ar*ncy/ncx;
- var xf=-ncxf*cw;
- var xr=(ncx-ncxf)*cw;
- var yu=ch*ncy;
+ xf=-ncxf*cw;
+ xr=(ncx-ncxf)*cw;
+ yu=ch*ncy;
 // FLOWFIELD BOUNDARIES
 // SET CONSTANTS
  var PI=3.141592654;
@@ -327,7 +330,6 @@ cell2[0]=0;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
  console.log(ent1,ent2,ent3);
-  var iccnt=0;
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
  var xscale=640.0/(xr-xf);
@@ -370,21 +372,25 @@ cell2[0]=0;
 }
 	
 function ComputeFlow() {	
-  var dtm=5.0e-6;
-  time=time+dtm;
-  iccnt=iccnt+1;
-  n=0;
+ 
+ var rcfield = document.getElementById("radius").value;
+ var rc = Number(rcfield);	
+
+ var dtm=5.0e-6;
+ var x,y,xi,yi,dx,dy,a;
+ time=time+dtm;
+ var n=0;
 // MOVE MOLECULES
-  while (n<nm) {
-   n=n+1;
+ while (n<nm) {
+  n=n+1;
 // MOVE MOLECULE N
-   xi=particlex[n];
-   yi=particley[n];
-   dx=pvx[n]*dtm;
-   x=xi+dx;
-   dy=pvy[n]*dtm;
-   y=yi+dy;
-   if (x<xf || y>yu || x>xr) {
+  xi=particlex[n];
+  yi=particley[n];
+  dx=pvx[n]*dtm;
+  x=xi+dx;
+  dy=pvy[n]*dtm;
+  y=yi+dy;
+  if (x<xf || y>yu || x>xr) {
 //C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
     particlex[n]=particlex[nm];
     particley[n]=particley[nm];
@@ -689,7 +695,6 @@ function ComputeFlow() {
     n=n+1;
    }    
   }
- }
  raf = window.requestAnimationFrame(ComputeFlow);
 }
 
@@ -752,6 +757,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
