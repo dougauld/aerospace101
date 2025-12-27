@@ -128,6 +128,7 @@ function HideResults() {
  var yu = 0.5;
  var vmpf = 400.0;
  var vmps = 400.0;
+ var start = 0;
  let raf;
 
 function ComputeInit() {
@@ -183,6 +184,7 @@ function ComputeInit() {
  var stmp=ftmp*(1+0.33333*amach*amach)
  var pmass=5.0e-26;
  var pdia=4.0e-10;
+ start = 1;
 
 // DTM THE TIME STEP
  var ch=0.05;
@@ -383,19 +385,20 @@ function ComputeFlow() {
  var svel=amach*400.0;
  var dtm=5.0e-6;
  var x,y,xi,yi,dx,dy,a;
- time=time+dtm;
- var n=0;
+ if (start == 1 ) {
+  time=time+dtm;
+  var n=0;
 // MOVE MOLECULES
- while (n<nm) {
-  n=n+1;
+  while (n<nm) {
+   n=n+1;
 // MOVE MOLECULE N
-  xi=particlex[n];
-  yi=particley[n];
-  dx=pvx[n]*dtm;
-  x=xi+dx;
-  dy=pvy[n]*dtm;
-  y=yi+dy;
-  if (x<xf || y>yu || x>xr) {
+   xi=particlex[n];
+   yi=particley[n];
+   dx=pvx[n]*dtm;
+   x=xi+dx;
+   dy=pvy[n]*dtm;
+   y=yi+dy;
+   if (x<xf || y>yu || x>xr) {
 //C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
     particlex[n]=particlex[nm];
     particley[n]=particley[nm];
@@ -700,6 +703,7 @@ function ComputeFlow() {
     n=n+1;
    }    
   }
+ }	 
  raf = window.requestAnimationFrame(ComputeFlow);
 }
 
@@ -762,6 +766,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
