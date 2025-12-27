@@ -122,14 +122,12 @@ function HideResults() {
  const MNM = 4000;
  const nc = 600;
  var time = 0;
-
+ var nm = 0;
+	
 function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
- const MNM=4000;
- const nc=600;
 // MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
 // NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
-// nch IS THE NUMBER OF CELLS ALONG THE PLATE
  var sample1 =[];
  var sample2 =[];
  var sample3 =[];
@@ -154,7 +152,6 @@ function ComputeInit() {
  var ncx=30;
 // ncx IS THE NUMBER CELL INTERVALS IN THE X DIRECTION
  var ncy=20;
- var nch=2;
 //ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
  if (ncx*ncy != nc) {
   alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
@@ -182,19 +179,11 @@ function ComputeInit() {
  var pdia=4.0e-10;
  var dtm=5.0e-6;
 // DTM THE TIME STEP
- var ch=0.1/nch;
+ var ch=0.05;
  var cw=ch*ar*ncy/ncx;
  var xf=-ncxf*cw;
  var xr=(ncx-ncxf)*cw;
  var yu=ch*ncy;
- var fmax=xf;
- if (yu>fmax) {
-  fmax=yu;
- }
- if (Math.abs(xr)>fmax) {
-  fmax=xr;
- } 
- fmax=210.0/fmax;
 // FLOWFIELD BOUNDARIES
 // SET CONSTANTS
  var PI=3.141592654;
@@ -340,9 +329,12 @@ cell2[0]=0;
   var iccnt=0;
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
- var rad=rc*fmax;
- var x0=400.0;
- var y0=225.0;
+ var xscale=640.0/(xr-xf);
+ var xcent=-xf*xscale;
+ var ycent=480.0/2.0;
+ var x0=xcent;
+ var y0=ycent;
+ var rad = rx*xscale;	
  ctx.beginPath();
  ctx.moveTo(x0+rad,y0);
  var theta,x1,y1;
@@ -360,8 +352,8 @@ cell2[0]=0;
  nm=nm-1;
  m=1;
  while (m<=nm) {
-  ix0=Math.round(400.0+particlex[m]*fmax);
-  iy0=Math.round(255.0-particley[m]*fmax);
+  ix0=Math.round(xcent+particlex[m]*xscale);
+  iy0=Math.round(ycent-particley[m]*xscale);
   ctx.strokeStyle="blue";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0+1,iy0);
@@ -745,6 +737,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
