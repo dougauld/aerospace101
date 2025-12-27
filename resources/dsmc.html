@@ -123,7 +123,8 @@ function HideResults() {
  const nc = 600;
  var time = 0;
  var nm = 0;
-	
+ let raf;
+
 function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
 // MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
@@ -177,7 +178,7 @@ function ComputeInit() {
  var stmp=ftmp*(1+0.33333*amach*amach)
  var pmass=5.0e-26;
  var pdia=4.0e-10;
- var dtm=5.0e-6;
+
 // DTM THE TIME STEP
  var ch=0.05;
  var cw=ch*ar*ncy/ncx;
@@ -352,18 +353,24 @@ cell2[0]=0;
  nm=nm-1;
  m=1;
  while (m<=nm) {
+  ctx.beginPath();	 
   ix0=Math.round(xcent+particlex[m]*xscale);
   iy0=Math.round(ycent-particley[m]*xscale);
   ctx.strokeStyle="blue";
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0+1,iy0);
   ctx.stroke();
-  m=m+1;
+  m=m+1; 
+  ctx.beginPath();	 
+  iy0=Math.round(ycent+particley[m]*xscale);
+  ctx.moveTo(ix0,iy0);
+  ctx.lineTo(ix0+1,iy0);
+  ctx.stroke();
  }	 
 }
 	
 function ComputeFlow() {	
-  while (istart==0) {
+  var dtm=5.0e-6;
   time=time+dtm;
   iccnt=iccnt+1;
   n=0;
@@ -683,8 +690,16 @@ function ComputeFlow() {
    }    
   }
  }
+ raf = window.requestAnimationFrame(ComputeFlow);
 }
 
+canvas.addEventListener("mouseover", (e) => {
+  raf = window.requestAnimationFrame(ComputeFlow);
+});
+
+canvas.addEventListener("mouseout", (e) => {
+  window.cancelAnimationFrame(raf);
+});
 
 function erf(s) {
 // CALCULATION OF THE ERROR FUNCTION
@@ -737,6 +752,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
