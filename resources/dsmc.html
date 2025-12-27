@@ -698,11 +698,11 @@ function ComputeFlow() {
  raf = window.requestAnimationFrame(ComputeFlow);
 }
 
-canvas.addEventListener("mouseover", (e) => {
+imageout.addEventListener("mouseover", (e) => {
   raf = window.requestAnimationFrame(ComputeFlow);
 });
 
-canvas.addEventListener("mouseout", (e) => {
+imageout.addEventListener("mouseout", (e) => {
   window.cancelAnimationFrame(raf);
 });
 
@@ -757,6 +757,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
