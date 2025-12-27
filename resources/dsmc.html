@@ -376,7 +376,9 @@ function ComputeFlow() {
  
  var rcfield = document.getElementById("radius").value;
  var rc = Number(rcfield);	
-
+ var machfield = document.getElementById("mach").value;
+ var amach = Number(machfield);	
+ var svel=amach*400.0;
  var dtm=5.0e-6;
  var x,y,xi,yi,dx,dy,a;
  time=time+dtm;
@@ -758,6 +760,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
