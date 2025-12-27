@@ -125,7 +125,9 @@ function HideResults() {
  var nm = 0;
  var xf = -1.0;
  var xr = 0.5;
- var yu = 0.5
+ var yu = 0.5;
+ var vmpf = 400.0;
+ var vmps = 400.0;
  let raf;
 
 function ComputeInit() {
@@ -195,8 +197,8 @@ function ComputeInit() {
  var TWOPI=2.0*PI;
  var boltz=1.380622e-23;
  var cxsi=PI*pdia*pdia;
- var vmpf=Math.sqrt(2.0*boltz*ftmp/pmass);
- var vmps=Math.sqrt(2.0*boltz*stmp/pmass);
+ vmpf=Math.sqrt(2.0*boltz*ftmp/pmass);
+ vmps=Math.sqrt(2.0*boltz*stmp/pmass);
  var iflag=0;
 //201
  var cxs,rcc,fnum,cvi,j,k,n,a,x,y;
@@ -760,6 +762,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
