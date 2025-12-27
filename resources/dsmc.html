@@ -101,8 +101,8 @@ function HideResults() {
   document.getElementById("output").innerHTML = " ";
 }
 	
- var ppx = [];
- var ppy = [];
+ var particlex = [];
+ var particley = [];
  var pvx = [];
  var pvy = [];
  var pvz = [];
@@ -279,13 +279,13 @@ cell2[0]=0;
  var kflag=1;
  var ilost=0;
  m=1;
- ppx[0]=0;
- ppy[0]=0;
+ particlex[0]=0;
+ particley[0]=0;
 // SET INITIAL FLOW FIELD	
  while (m<=k) {
-  ppx[nm]=xf+Math.random()*(xr-xf);
-  ppy[nm]=yu*Math.random();
-  a=ppx[nm]*ppx[nm]+ppy[nm]*ppy[nm];
+  particlex[nm]=xf+Math.random()*(xr-xf);
+  particley[nm]=yu*Math.random();
+  a=particlex[nm]*particlex[nm]+particley[nm]*particley[nm];
   if (a>rcc) {
    a=slr[ircnt];
    ircnt=ircnt+1;
@@ -313,19 +313,7 @@ cell2[0]=0;
  }    
 // SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
  var s=svel/vmpf;
-// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIESvar ppx= [];
- var ppy= [];
- var pvx= [];
- var pvy= [];
- var pvz= [];
- var ip1 = [];
- var ip2 = [];     
- var cv = [];
- var c1 = [];
- var c2 = [];
- var ic1 = [];
- var ir = [];	
- var ic2 = [];
+// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIESvar particlex= [];
  if (s<9.0) {
   a=(Math.exp(-s*s)+SPI*s*(1.0+erf(s)))/(2.0*SPI);
   b=(Math.exp(-s*s)-SPI*s*(1.0-erf(s)))/(2.0*SPI);
@@ -383,16 +371,16 @@ function ComputeFlow() {
   while (n<nm) {
    n=n+1;
 // MOVE MOLECULE N
-   xi=ppx[n];
-   yi=ppy[n];
+   xi=particlex[n];
+   yi=particley[n];
    dx=pvx[n]*dtm;
    x=xi+dx;
    dy=pvy[n]*dtm;
    y=yi+dy;
    if (x<xf || y>yu || x>xr) {
 //C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
-    ppx[n]=ppx[nm];
-    ppy[n]=ppy[nm];
+    particlex[n]=particlex[nm];
+    particley[n]=particley[nm];
     pvx[n]=pvx[nm];
     pvy[n]=pvy[nm];
     pvz[n]=pvz[nm];
@@ -466,8 +454,8 @@ function ComputeFlow() {
      y=-y; 
      pvy[n]=-pvy[n];
    }   
-    ppx[n]=x;
-    ppy[n]=y;
+    particlex[n]=x;
+    particley[n]=y;
     ix0=Math.round(400.0+x*fmax);
     iy0=Math.round(255.0-y*fmax);
     if (ix0>210 && ix0<590) {
@@ -558,18 +546,18 @@ function ComputeFlow() {
        if (k==1) {
 	    pvx[nm]=vn;
 	    pvy[nm]=vp;
-	    ppx[nm]=xf;
-	    ppy[nm]=Math.random()*yu;
+	    particlex[nm]=xf;
+	    particley[nm]=Math.random()*yu;
        } else if (k==2) {
 	    pvx[nm]=vp+svel;
 	    pvy[nm]=-vn;
-	    ppy[nm]=yu;
-	    ppx[nm]=xf+Math.random()*(xr-xf);
+	    particley[nm]=yu;
+	    particlex[nm]=xf+Math.random()*(xr-xf);
        } else {
         pvx[nm]=-vn;
 	    pvy[nm]=vp;
-	    ppx[nm]=xr;
-	    ppy[nm]=Math.random()*yu;
+	    particlex[nm]=xr;
+	    particley[nm]=Math.random()*yu;
        }
        gotone=1;
       }
@@ -749,6 +737,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
