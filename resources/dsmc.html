@@ -130,6 +130,7 @@ function HideResults() {
  var vmps = 400.0;
  var start = 0;
  var slr = [];
+ var ircnt = 1;	
  let raf;
 
 function ComputeInit() {
@@ -148,7 +149,6 @@ function ComputeInit() {
   slr[n]=Math.sqrt(-Math.log(Math.random()));
   n=n+1;
  }
- var ircnt=1;
 // nflow IS THE INITIAL GEOMETRY NUMBER
  var iref=1;
 // SURFACE REFLECTION 0=SPECULAR, 1=DIFFUSE
@@ -477,7 +477,9 @@ function ComputeFlow() {
        }
       }
      }
-    }    
+    }
+	var ncy = 20;
+	var ncx = 30;   
     if (y<0.0) {
 // SPECULAR REFLECTION FROM Y=0
      y=-y; 
@@ -487,6 +489,7 @@ function ComputeFlow() {
     particley[n]=y;
     ix0=Math.round(xcent+x*xscale);
     iy0=Math.round(ycent-y*xscale);
+	ctx.beginPath();   
     ctx.strokeStyle=ip2[n];
     ctx.moveTo(ix0,iy0);
     ctx.lineTo(ix0+1,iy0);
@@ -767,6 +770,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
