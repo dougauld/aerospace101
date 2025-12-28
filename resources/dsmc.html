@@ -634,17 +634,17 @@ function ComputeFlow() {
   n=1;
   while (n<=nc) {
    dnn=ic2[n]*fnum/cellvolume[n];
-   asel=0.5*ic2[n]*dnn*cxs*c2[n]*dtm+c1[n];
+   asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
     nsel=Math.trunc(asel);
-    c1[n]=asel-nsel;
+    cell1[n]=asel-nsel;
     if (nsel>0.5) {
      if (ic2[n]<2) {
-      c1[n]=c1[n]+nsel;
+      cell1[n]=cell1[n]+nsel;
      } else {
-      cvm=c2[n];
+      cvm=cell2[n];
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
@@ -768,6 +768,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
