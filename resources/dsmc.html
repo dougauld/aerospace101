@@ -421,6 +421,7 @@ function ComputeFlow() {
     if (x>-rc) {
      if (x<rc) {
       if (y<rc) {
+	   console.log('collision');
        a=dx*dx+dy*dy;
        bd=(xi*dx+yi*dy)/a;
        cd=(xi*xi+yi*yi-rc*rc)/a;
@@ -472,6 +473,7 @@ function ComputeFlow() {
 // SET NEW POSITION AND sample THE REFLECTED PROPERTIES
           x=xc+pvx[n]*dtr;
           y=yc+pvy[n]*dtr;
+		  console.log(x,y);	 
          }
         }
        }
@@ -778,6 +780,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
