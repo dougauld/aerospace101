@@ -181,7 +181,6 @@ function ComputeInit() {
  var svel=amach*400.0;
 // SVEL IS THE VELOCITY OF THE STREAM (MUST BE POSITIVE)
  var velk=10.0;
- var aknud=0.1;
  var stmp=ftmp*(1+0.33333*amach*amach)
  var pmass=5.0e-26;
  var pdia=4.0e-10;
@@ -630,83 +629,81 @@ function ComputeFlow() {
    ir[j]=n;
    n=n+1;
   } 
-  if (aknud<1.0E5) {
 //  C CALCULATE COLLISIONS IN LOOP OVER CELLS
-   n=1;
-   while (n<=nc) {
-    dnn=ic2[n]*fnum/cv[n];
-    asel=0.5*ic2[n]*dnn*cxs*c2[n]*dtm+c1[n];
-    if (asel<100*ic2[n]) {
+  n=1;
+  while (n<=nc) {
+   dnn=ic2[n]*fnum/cv[n];
+   asel=0.5*ic2[n]*dnn*cxs*c2[n]*dtm+c1[n];
+   if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
-     nsel=Math.trunc(asel);
-     c1[n]=asel-nsel;
-     if (nsel>0.5) {
-      if (ic2[n]<2) {
-       c1[n]=c1[n]+nsel;
-      } else {
-       cvm=c2[n];
-       isel=1;
-       while (isel<=nsel) {
-	    k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
-	    l=ir(k);
+    nsel=Math.trunc(asel);
+    c1[n]=asel-nsel;
+    if (nsel>0.5) {
+     if (ic2[n]<2) {
+      c1[n]=c1[n]+nsel;
+     } else {
+      cvm=c2[n];
+      isel=1;
+      while (isel<=nsel) {
+       k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
+	   l=ir(k);
 //C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
-        gotone=0;
-        gotcount=0;
-        while (gotone==0) {
-         k=Math.trunc(Math.random*(ic2[n]-0.0001))+ic1[n]+1;
-	     m=ir[k];
+       gotone=0;
+       gotcount=0;
+       while (gotone==0) {
+        k=Math.trunc(Math.random*(ic2[n]-0.0001))+ic1[n]+1;
+	    m=ir[k];
 //C SECOND MOLECULE M HAS BEEN CHOSEN FROM SAME SUB-CELL, IF POSSIBLE
-	     if (m!=l) {
-	      vrcx=pvx[l]-pvx[m];
-	      vrcy=pvy[l]-pvy[m];
-	      vrcz=pvz[l]-pvz[m];
-	      vrr=vrcx*vrcx+vrcy*vrcy+vrcz*vrcz;
-	      vr=Math.sqrt(vrr);
+	    if (m!=l) {
+	     vrcx=pvx[l]-pvx[m];
+	     vrcy=pvy[l]-pvy[m];
+	     vrcz=pvz[l]-pvz[m];
+	     vrr=vrcx*vrcx+vrcy*vrcy+vrcz*vrcz;
+	     vr=Math.sqrt(vrr);
 //C VRR AND VR ARE THE SQUARE AND MAGNITUDE OF THE RELATIVE VELOCITY
-	      if (vr>cvm) {
-	       cvm=vr;
-	      } 
-	      if (vr/c2[n]>Math.random()) {
+	     if (vr>cvm) {
+	      cvm=vr;
+	     } 
+	     if (vr/c2[n]>Math.random()) {
 //C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
-	       gotone=1;
-	       col=col+1.0;
-	       if (ip2[l]=='yellow' || ip2[m]=='yellow') {
-	        ip2[l]='yellow';
-	        ip2[m]='yellow';
-	       } 
-	       vccmx=0.5*(pvx[l]+pvx[m]);
-	       vccmy=0.5*(pvy[l]+pvy[m]);
-	       vccmz=0.5*(pvz[l]+pvz[m]);
-	       b=1.-2.*Math.random();
-	       a=Math.sqrt(1.-b*b);
-	       vrcx=b*vr;
-	       b=TWOPI*Math.random();
-	       vrcy=a*Math.cos(b)*vr;
-	       vrcz=a*Math.sin(b)*vr;
+	      gotone=1;
+	      col=col+1.0;
+	      if (ip2[l]=='yellow' || ip2[m]=='yellow') {
+	       ip2[l]='yellow';
+	       ip2[m]='yellow';
+	      } 
+	      vccmx=0.5*(pvx[l]+pvx[m]);
+	      vccmy=0.5*(pvy[l]+pvy[m]);
+	      vccmz=0.5*(pvz[l]+pvz[m]);
+	      b=1.-2.*Math.random();
+	      a=Math.sqrt(1.-b*b);
+	      vrcx=b*vr;
+	      b=TWOPI*Math.random();
+	      vrcy=a*Math.cos(b)*vr;
+	      vrcz=a*Math.sin(b)*vr;
 // VRC IS THE COMPONENTS OF POST-COLLISION RELATIVE VEL
-	       pvx[l]=vccmx+vrcx*0.5;
-	       pvx[m]=vccmx-vrcx*0.5;
-	       pvy[l]=vccmy+vrcy*0.5;
-	       pvy[m]=vccmy-vrcy*0.5;
-	       pvz[l]=vccmz+vrcz*0.5;
-	       pvz[m]=vccmz-vrcz*0.5;
-	      }
-		  gotcnt=gotcnt+1;
-	      if (gotcnt>100) {
-	       gotone=1;
-	      }
+	      pvx[l]=vccmx+vrcx*0.5;
+	      pvx[m]=vccmx-vrcx*0.5;
+	      pvy[l]=vccmy+vrcy*0.5;
+	      pvy[m]=vccmy-vrcy*0.5;
+	      pvz[l]=vccmz+vrcz*0.5;
+	      pvz[m]=vccmz-vrcz*0.5;
 	     }
-	    }   
-        c2[n]=cvm;
-        isel=isel+1;
-       }  
-      }
+	     gotcnt=gotcnt+1;
+	     if (gotcnt>100) {
+	      gotone=1;
+	     }
+	    }
+	   }   
+       c2[n]=cvm;
+       isel=isel+1;
+      }  
      }
     }
-    n=n+1;
-   }    
-  }
+   }
+   n=n+1;
+  }    
  }	 
  raf = window.requestAnimationFrame(ComputeFlow);
 }
@@ -770,6 +767,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
