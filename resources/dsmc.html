@@ -184,7 +184,6 @@ function ComputeInit() {
  var velk=10.0;
  var stmp=ftmp*(1+0.33333*amach*amach)
  var pmass=5.0e-26;
- var pdia=4.0e-10;
  start = 1;
 
 // DTM THE TIME STEP
@@ -199,15 +198,13 @@ function ComputeInit() {
  var SPI=Math.sqrt(PI);
  var TWOPI=2.0*PI;
  var boltz=1.380622e-23;
- var cxsi=PI*pdia*pdia;
  vmpf=Math.sqrt(2.0*boltz*ftmp/pmass);
  vmps=Math.sqrt(2.0*boltz*stmp/pmass);
  var iflag=0;
 //201
- var cxs,rcc,cvi,j,k,n,a,x,y;
+ var rcc,cvi,j,k,n,a,x,y;
  var rcfield = document.getElementById("radius").value;
  var rc = Number(rcfield);	
- cxs=cxsi*velk/20.
  rcc=rc*rc;
  fnum=fnd*yu*(xr-xf)/(rnm*MNM);
  cvi=ch*cw
@@ -391,7 +388,10 @@ function ComputeFlow() {
  var xscale=640.0/(xr-xf);
  var xcent=-xf*xscale;
  var ycent=480.0/2.0;
- var x,y,xi,yi,dx,dy,a,n;
+ var pdia=4.0e-10;
+ var x,y,xi,yi,dx,dy,a,n,cxsi;
+ var cxsi=PI*pdia*pdia;
+ var cxs=cxsi*0.5;
  if (start == 1 ) {
   time=time+dtm;
 
@@ -768,6 +768,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
