@@ -270,7 +270,7 @@ cell2[0]=0;
 // THIS IS A REASONABLE INITIAL VALUE FOR THE RELATIVE VELOCITY 
   n=n+1;
  }  
- var isamp=0;
+// var isamp=0;
  var nm=1;
  k=Math.round(rnm*MNM);
  //console.log(k);
@@ -602,14 +602,14 @@ function ComputeFlow() {
    ic2[n]=0;
    n=n+1;
   }
-  isamp=isamp+1
+ // isamp=isamp+1
   n=1;
   while (n<=nm) {
    k=ip1[n];
-   sample1[k]=sample1[k]+1;
-   sample2[k]=sample2[k]+pvx[n];
-   sample3[k]=sample3[k]+pvy[n];
-   sample4[k]=sample4[k]+pvx[n]*pvx[n]+pvy[n]*pvy[n]+pvz[n]*pvz[n];
+//   sample1[k]=sample1[k]+1;
+//   sample2[k]=sample2[k]+pvx[n];
+//   sample3[k]=sample3[k]+pvy[n];
+//   sample4[k]=sample4[k]+pvx[n]*pvx[n]+pvy[n]*pvy[n]+pvz[n]*pvz[n];
    ic2[k]=ic2[k]+1;
    n=n+1;
   } 
@@ -770,6 +770,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
