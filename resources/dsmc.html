@@ -384,10 +384,17 @@ function ComputeFlow() {
  var amach = Number(machfield);	
  var svel=amach*400.0;
  var dtm=5.0e-6;
- var x,y,xi,yi,dx,dy,a;
+ var PI=3.141592654;
+ var SPI=Math.sqrt(PI);
+ var TWOPI=2.0*PI; 
+ var xscale=640.0/(xr-xf);
+ var xcent=-xf*xscale;
+ var ycent=480.0/2.0;
+ var x,y,xi,yi,dx,dy,a,n;
  if (start == 1 ) {
   time=time+dtm;
-  var n=0;
+
+  n=0;
 // MOVE MOLECULES
   while (n<nm) {
    n=n+1;
@@ -477,16 +484,9 @@ function ComputeFlow() {
    }   
     particlex[n]=x;
     particley[n]=y;
-    ix0=Math.round(400.0+x*fmax);
-    iy0=Math.round(255.0-y*fmax);
-    if (ix0>210 && ix0<590) {
-     if (iy0>65 && iy0<256) {
-      icol='blue';
-     } else {     
-      icol=ip2[n];
-     }
-	}	
-    ctx.strokeStyle=icol;
+    ix0=Math.round(xcent+x*xscale);
+    iy0=Math.round(ycent-y*xscale);
+    ctx.strokeStyle=ip2[n];
     ctx.moveTo(ix0,iy0);
     ctx.lineTo(ix0+1,iy0);
     ctx.stroke();
@@ -766,6 +766,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
