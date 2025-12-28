@@ -392,6 +392,7 @@ function ComputeFlow() {
  var x,y,xi,yi,dx,dy,a,n,cxsi;
  var cxsi=PI*pdia*pdia;
  var cxs=cxsi*0.5;
+ var iref=1;	
  if (start == 1 ) {
   time=time+dtm;
 
@@ -421,61 +422,93 @@ function ComputeFlow() {
     if (x>-rc) {
      if (x<rc) {
       if (y<rc) {
-	   console.log('collision');
-       a=dx*dx+dy*dy;
-       bd=(xi*dx+yi*dy)/a;
-       cd=(xi*xi+yi*yi-rc*rc)/a;
-       b=bd*bd-cd;
-       if (b>0.0) {
-        b=Math.sqrt(b);
-        s1=-bd+b;
-        s2=-bd-b;
-        if (s1<1.0 && s2<1.0) {
-         if (s1>0.0 && s2>0.0) {
-          ftc=Math.min(s1,s2);
-          xc=xi+0.999*ftc*(x-xi);
-          yc=yi+0.999*ftc*(y-yi);
+	   
+       a = (y-yi)/(x-xi);
+	   b = y-a*x;
+	   bd = -2*a*b;
+	   bc = 4*a*a*b*b - 4*(1+a*a)*(b*b-rc*rc);
+	   if (bc>0) {
+		bc = Math.sqrt(bc);
+	   } else {
+		bc = 0.0;
+	   }
+	   xc1 = (bd - bc)/2.0/(1+a*a);
+	   xc2 = (bd + bc)/2.0/(1+a*a);
+	   gotone = 0;	  
+	   if (xc1>x && xc1>xi) {
+		gotone=0;
+	   else if (xc1<x && xc1<xi) {
+		gotone=0;
+	   else {
+		gotone=1;
+		xc=xc1;
+	   }   
+	   if (gtone==0) {
+		if (xc2>x && xc2>xi) {
+		 gotone=0;
+	    else if (xc2<x && xc2<xi) {
+		 gotone=0;
+	    else {
+		 gotone=1;
+	   	 xc=xc2;
+	    }   
+	   } 
+//	   a=dx*dx+dy*dy;
+//     bd=(xi*dx+yi*dy)/a;
+//     cd=(xi*xi+yi*yi-rc*rc)/a;
+//     b=bd*bd-cd;
+//       if (b>0.0) {
+//        b=Math.sqrt(b);
+//        s1=-bd+b;
+//        s2=-bd-b;
+//        if (s1<1.0 && s2<1.0) {
+//         if (s1>0.0 && s2>0.0) {
+//          ftc=Math.min(s1,s2);
+//          xc=xi+0.999*ftc*(x-xi);
+//          yc=yi+0.999*ftc*(y-yi);
+	   if (gotone==1) {   
+		console.log('collision');
 // MOLECULE N COLLIDES WITH CYLINDER AT XC,YC
-          if (yc<0.0) {
-           yc=-yc;
-          } 
+        yc = a*xc + b;
+		ftc = (xc-xi)/(x-xi);   
+	    if (yc<0.0) {
+         yc=-yc;
+        } 
 // SPECULAR REFLECTION OF INCIDENT MOLECULE AT Y=0
-          dtr=at*(1.0-ftc);
+        dtr=at*(1.0-ftc);
 // DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
 // NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
-          theta=Math.atan2(yc,xc);
-          cth=Math.cos(theta);
-          sth=Math.sin(theta);
-          ip2[n]="red";
-          if (iref==1) {
-           slra=slr[ircnt];
-           ircnt=ircnt+1;
-           if (ircnt>20000) {
-            ircnt=1;
-           } 
-	       vn=slra*vmps;
-	       a=TWOPI*Math.random();
-	       slra=slr[ircnt];
-           ircnt=ircnt+1;
-           if (ircnt>20000) {
-            ircnt=1;
-           } 
-           b=slra*vmps;
-	       vp=b*Math.sin(a);
-	       pvz[n]=b*Math.cos(a);
-          } else {
-	       vn=pvx[n]*cth+pvy[n]*sth;
-	       vp=pvy[n]*cth-pvx[n]*sth;
-	       vn=-vn;
-          }
-          pvx[n]=vn*cth-vp*sth;
-          pvy[n]=vn*sth+vp*cth;
-// SET NEW POSITION AND sample THE REFLECTED PROPERTIES
-          x=xc+pvx[n]*dtr;
-          y=yc+pvy[n]*dtr;
-		  console.log(x,y);	 
-         }
+        theta=Math.atan2(yc,xc);
+        cth=Math.cos(theta);
+        sth=Math.sin(theta);
+        ip2[n]="red";
+        if (iref==1) {
+         slra=slr[ircnt];
+         ircnt=ircnt+1;
+         if (ircnt>20000) {
+          ircnt=1;
+         } 
+	     vn=slra*vmps;
+	     a=TWOPI*Math.random();
+	     slra=slr[ircnt];
+         ircnt=ircnt+1;
+         if (ircnt>20000) {
+          ircnt=1;
+         } 
+         b=slra*vmps;
+	     vp=b*Math.sin(a);
+	     pvz[n]=b*Math.cos(a);
+        } else {
+	     vn=pvx[n]*cth+pvy[n]*sth;
+	     vp=pvy[n]*cth-pvx[n]*sth;
+	     vn=-vn;
         }
+        pvx[n]=vn*cth-vp*sth;
+        pvy[n]=vn*sth+vp*cth;
+// SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+        x=xc+pvx[n]*dtr;
+        y=yc+pvy[n]*dtr;
+		console.log(x,y);	 
        }
       }
      }
@@ -780,6 +813,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
