@@ -434,7 +434,7 @@ function ComputeFlow() {
           ftc=Math.min(s1,s2);
           xc=xi+0.999*ftc*(x-xi);
           yc=yi+0.999*ftc*(y-yi);
-// MOLECULE N COLLIDES WITH CYLINDER AT XC)YC
+// MOLECULE N COLLIDES WITH CYLINDER AT XC,YC
           if (yc<0.0) {
            yc=-yc;
           } 
@@ -445,7 +445,7 @@ function ComputeFlow() {
           theta=Math.atan2(yc,xc);
           cth=Math.cos(theta);
           sth=Math.sin(theta);
-          ip2[n]="yellow";
+          ip2[n]="red";
           if (iref==1) {
            slra=slr[ircnt];
            ircnt=ircnt+1;
@@ -484,11 +484,17 @@ function ComputeFlow() {
 // SPECULAR REFLECTION FROM Y=0
      y=-y; 
      pvy[n]=-pvy[n];
-   }   
+    }   
     particlex[n]=x;
     particley[n]=y;
     ix0=Math.round(xcent+x*xscale);
     iy0=Math.round(ycent-y*xscale);
+	ctx.beginPath();   
+    ctx.strokeStyle=ip2[n];
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix0+1,iy0);
+    ctx.stroke();
+	iy0=Math.round(ycent+y*xscale);
 	ctx.beginPath();   
     ctx.strokeStyle=ip2[n];
     ctx.moveTo(ix0,iy0);
@@ -674,6 +680,10 @@ function ComputeFlow() {
 	       ip2[l]='yellow';
 	       ip2[m]='yellow';
 	      } 
+		  if (ip2[l]=='red' || ip2[m]=='red') {
+	       ip2[l]='yellow';
+	       ip2[m]='yellow';
+	      } 
 	      vccmx=0.5*(pvx[l]+pvx[m]);
 	      vccmy=0.5*(pvy[l]+pvy[m]);
 	      vccmz=0.5*(pvz[l]+pvz[m]);
@@ -768,6 +778,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
