@@ -113,6 +113,7 @@ var yu = 0.5;
 var vmpf = 400.0;
 var vmps = 400.0;
 var start = 0; 
+var collisions = 0;	
 var particlex = [];
 var particley = [];
 var pvx = [];
@@ -392,7 +393,6 @@ function ComputeFlow() {
  var cxsi=PI*pdia*pdia;
  var cxs=cxsi*0.5;
  var iref=1;	
- var collisions = 0;
 // console.log(xf,xr,yu);
  if (start == 1 ) {
   time=time+dtm;
@@ -698,6 +698,7 @@ function ComputeFlow() {
       cell1[n]=cell1[n]+nsel;
      } else {
       cvm=cell2[n];
+	  console.log(cvm);	 
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
@@ -827,6 +828,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
