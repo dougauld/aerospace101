@@ -82,8 +82,10 @@ Cylinder Radius:<br />
 Flow Mach Number:<br />
 <input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
 &nbsp;<br /> 	
+<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> 
+	&nbsp; 
 <!--
-	<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> &nbsp; <INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+	<INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
 -->
 Place mouse over flowfield to commence run.	
 </form>
@@ -832,6 +834,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
