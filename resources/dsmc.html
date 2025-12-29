@@ -421,8 +421,7 @@ function ComputeFlow() {
    } else {   
     if (x>-rc) {
      if (x<rc) {
-      if (y<rc) {
-	   
+      if (y<rc) {   
        a = (y-yi)/(x-xi);
 	   b = y-a*x;
 	   bd = -2*a*b;
@@ -437,18 +436,18 @@ function ComputeFlow() {
 	   gotone = 0;	  
 	   if (xc1>x && xc1>xi) {
 		gotone=0;
-	   else if (xc1<x && xc1<xi) {
+	   } else if (xc1<x && xc1<xi) {
 		gotone=0;
-	   else {
+	   } else {
 		gotone=1;
 		xc=xc1;
 	   }   
 	   if (gtone==0) {
 		if (xc2>x && xc2>xi) {
 		 gotone=0;
-	    else if (xc2<x && xc2<xi) {
+		} else if (xc2<x && xc2<xi) {
 		 gotone=0;
-	    else {
+		} else {
 		 gotone=1;
 	   	 xc=xc2;
 	    }   
@@ -813,6 +812,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
