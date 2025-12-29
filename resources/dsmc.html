@@ -625,6 +625,16 @@ function ComputeFlow() {
 	    particlex[nm]=xr;
 	    particley[nm]=Math.random()*yu;
        }
+	   nrow=particley[nm]*ncy/yu+0.999999;
+       if (nrow==0) {
+        nrow=1;
+       }
+       ncol=(particlex[nm]-xf)*ncx/(xr-xf)+0.999999;
+       if (ncol==0) {
+        ncol=1;
+       } 
+// NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
+       ip1[nm]=(nrow-1)*ncx+ncol;
        gotone=1;
       }
       gotcnt=gotcnt+1;
@@ -814,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
