@@ -474,7 +474,7 @@ function ComputeFlow() {
          yc=-yc;
         } 
 // SPECULAR REFLECTION OF INCIDENT MOLECULE AT Y=0
-        dtr=at*(1.0-ftc);
+        dtr=dtm*(1.0-ftc);
 // DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
 // NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
         theta=Math.atan2(yc,xc);
@@ -812,6 +812,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
