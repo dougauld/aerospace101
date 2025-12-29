@@ -745,12 +745,12 @@ function ComputeFlow() {
 	      pvy[m]=vccmy-vrcy*0.5;
 	      pvz[l]=vccmz+vrcz*0.5;
 	      pvz[m]=vccmz-vrcz*0.5;
-	     }
-	     gotcnt=gotcnt+1;
-		// console.log(gotcnt);	
-	     if (gotcnt>100) {
-	      gotone=1;
-	     }
+	     }	
+	    }
+		gotcnt=gotcnt+1;
+// console.log(gotcnt);	
+	    if (gotcnt>100) {
+	     gotone=1;
 	    }
 	   }   
        cell2[n]=cvm;
@@ -824,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
