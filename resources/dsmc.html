@@ -122,7 +122,7 @@ function HideResults() {
  const MNM = 4000;
  const nc = 600;
  var time = 0;
- var nm = 0;
+ var nmol;
  var xf = -1.0;
  var xr = 0.5;
  var yu = 0.5;
@@ -268,7 +268,7 @@ cell2[0]=0;
   n=n+1;
  }  
 // var isamp=0;
- var nm=1;
+ var nmol=1;
  k=Math.trunc(rnm*MNM);
  var ilost=0;
  m=1;
@@ -276,31 +276,31 @@ cell2[0]=0;
  particley[0]=0;
 // SET INITIAL FLOW FIELD	
  while (m<=k) {
-  particlex[nm]=xf+Math.random()*(xr-xf);
-  particley[nm]=yu*Math.random();
-  a=particlex[nm]*particlex[nm]+particley[nm]*particley[nm];
+  particlex[nmol]=xf+Math.random()*(xr-xf);
+  particley[nmol]=yu*Math.random();
+  a=particlex[nmol]*particlex[nmol]+particley[nmol]*particley[nmol];
   if (a>rcc) {
    a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
-   pvx[nm]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
+   pvx[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
    a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
-   pvy[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
+   pvy[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
    a=slr[ircnt];
    ircnt=ircnt+1;
    if (ircnt>20000) {
     ircnt=1;
    } 
-   pvz[nm]=a*Math.abs(TWOPI*Math.random())*vmpf;
-   ip2[nm]="blue";
-   ip1[nm]=0;	  
-   nm=nm+1;	  
+   pvz[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
+   ip2[nmol]="blue";
+   ip1[nmol]=0;	  
+   nmol=nmol+1;	  
   }
   m=m+1;  
  }    
@@ -352,24 +352,24 @@ cell2[0]=0;
  ctx.closePath();
  ctx.stroke();
  ctx.fill();
- nm=nm-1;
- m=1;
- while (m<=nm) {
-  ctx.beginPath();	 
-  ix0=Math.round(xcent+particlex[m]*xscale);
-  iy0=Math.round(ycent-particley[m]*xscale);
-  ctx.strokeStyle="blue";
-  ctx.moveTo(ix0,iy0);
-  ctx.lineTo(ix0+1,iy0);
-  ctx.stroke();
-  m=m+1; 
-  ctx.beginPath();	 
-  iy0=Math.round(ycent+particley[m]*xscale);
-  ctx.moveTo(ix0,iy0);
-  ctx.lineTo(ix0+1,iy0);
-  ctx.stroke();
+ nmol=nmol-1;
+// m=1;
+// while (m<=nm) {
+//  ctx.beginPath();	 
+//  ix0=Math.round(xcent+particlex[m]*xscale);
+//  iy0=Math.round(ycent-particley[m]*xscale);
+//  ctx.strokeStyle="blue";
+//  ctx.moveTo(ix0,iy0);
+//  ctx.lineTo(ix0+1,iy0);
+//  ctx.stroke();
+//  m=m+1; 
+//  ctx.beginPath();	 
+//  iy0=Math.round(ycent+particley[m]*xscale);
+//  ctx.moveTo(ix0,iy0);
+//  ctx.lineTo(ix0+1,iy0);
+//  ctx.stroke();
  }
- console.log(nm);	
+ console.log(nmol);	
 }
 	
 function ComputeFlow() {	
@@ -391,14 +391,13 @@ function ComputeFlow() {
  var cxsi=PI*pdia*pdia;
  var cxs=cxsi*0.5;
  var iref=1;	
+ console.log(nmol)
  if (start == 1 ) {
   time=time+dtm;
-
   n=0;
   ip1[0]=0;	 
-  console.log(nm);	 
 // MOVE MOLECULES
-  while (n<nm) {
+  while (n<nmol) {
    n=n+1;
 // MOVE MOLECULE N
    xi=particlex[n];
@@ -409,15 +408,15 @@ function ComputeFlow() {
    y=yi+dy;
    if (x<xf || y>yu || x>xr) {
 //C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
-    particlex[n]=particlex[nm];
-    particley[n]=particley[nm];
-    pvx[n]=pvx[nm];
-    pvy[n]=pvy[nm];
-    pvz[n]=pvz[nm];
-    ip1[n]=ip1[nm];
-    ip2[n]=ip2[nm];
-    nm=nm-1;
-	console.log(nm,x,y,'out');   
+    particlex[n]=particlex[nmol];
+    particley[n]=particley[nmol];
+    pvx[n]=pvx[nmol];
+    pvy[n]=pvy[nmol];
+    pvz[n]=pvz[nmol];
+    ip1[n]=ip1[nmol];
+    ip2[n]=ip2[nmol];
+    nmol=nmol-1;
+	console.log(nmol,x,y,'out');   
     n=n-1;
    } else {   
     if (x>-rc) {
@@ -546,7 +545,6 @@ function ComputeFlow() {
 //	console.log(n,nrow,ncol);   
    }
   }
-  console.log(nm);	 
 //  console.log(ip1);	 
 //molecules entering flow	 
   k=1
@@ -594,11 +592,11 @@ function ComputeFlow() {
       }
       a=(2.0*vn/e3)*Math.exp(e4-v*v);
       if (a>Math.random()) {
-	   nm=nm+1;
-       if (nm>=MNM) {
+	   nmol=nmol+1;
+       if (nmol>=MNM) {
         alert ("maximum molecule storage reached. run ended."); return;
        }
-       ip2[nm]="blue";
+       ip2[nmol]="blue";
        vn=vn*vmpf;
        a=TWOPI*Math.random();
        slra=slr[ircnt];
@@ -608,33 +606,33 @@ function ComputeFlow() {
        } 
        b=slra*vmpf;
        vp=b*Math.sin(a)
-       pvz[nm]=b*Math.cos(a);
+       pvz[nmol]=b*Math.cos(a);
        if (k==1) {
-	    pvx[nm]=vn;
-	    pvy[nm]=vp;
-	    particlex[nm]=xf;
-	    particley[nm]=Math.random()*yu;
+	    pvx[nmol]=vn;
+	    pvy[nmol]=vp;
+	    particlex[nmol]=xf;
+	    particley[nmol]=Math.random()*yu;
        } else if (k==2) {
-	    pvx[nm]=vp+svel;
-	    pvy[nm]=-vn;
-	    particley[nm]=yu;
-	    particlex[nm]=xf+Math.random()*(xr-xf);
+	    pvx[nmol]=vp+svel;
+	    pvy[nmol]=-vn;
+	    particley[nmol]=yu;
+	    particlex[nmol]=xf+Math.random()*(xr-xf);
        } else {
-        pvx[nm]=-vn;
-	    pvy[nm]=vp;
-	    particlex[nm]=xr;
-	    particley[nm]=Math.random()*yu;
+        pvx[nmol]=-vn;
+	    pvy[nmol]=vp;
+	    particlex[nmol]=xr;
+	    particley[nmol]=Math.random()*yu;
        }
-	   nrow=Math.trunc(particley[nm]*ncy/yu+0.999999);
+	   nrow=Math.trunc(particley[nmol]*ncy/yu+0.999999);
        if (nrow==0) {
         nrow=1;
        }
-       ncol=Math.trunc((particlex[nm]-xf)*ncx/(xr-xf)+0.999999);
+       ncol=Math.trunc((particlex[nmol]-xf)*ncx/(xr-xf)+0.999999);
        if (ncol==0) {
         ncol=1;
        } 
 // NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
-       ip1[nm]=Math.trunc((nrow-1)*ncx+ncol);
+       ip1[nmol]=Math.trunc((nrow-1)*ncx+ncol);
        gotone=1;
       }
       gotcnt=gotcnt+1;
@@ -647,7 +645,6 @@ function ComputeFlow() {
    }
    k=k+1;
   }  
-  console.log(nm);	 
 //C SET THE MOLECULE CROSS-REFERENCE ARRAY IR
   n=1;
   while (n<=nc) {
@@ -656,7 +653,7 @@ function ComputeFlow() {
   }
  // isamp=isamp+1
   n=1;
-  while (n<=nm) {
+  while (n<=nmol) {
    k=ip1[n];
 //   sample1[k]=sample1[k]+1;
 //   sample2[k]=sample2[k]+pvx[n];
@@ -677,7 +674,7 @@ function ComputeFlow() {
   m=0;
   n=1;
 //  console.log(ip1);	 
-  while (n<=nm) {
+  while (n<=nmol) {
    k=ip1[n];
    ic2[k]=ic2[k]+1;
    j=ic1[k]+ic2[k];
@@ -827,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
