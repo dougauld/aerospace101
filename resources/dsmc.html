@@ -698,17 +698,19 @@ function ComputeFlow() {
       cell1[n]=cell1[n]+nsel;
      } else {
       cvm=cell2[n];
-	  console.log(nsel);	 
+	//  console.log(nsel);	 
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
+	   console.log('k1',k,ir[k]);	  
 	   l=ir[k];
 //C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
        gotone=0;
        gotcnt=0;
        while (gotone==0) {
         k=Math.trunc(Math.random*(ic2[n]-0.0001))+ic1[n]+1;
-	    m=ir[k];
+        console.log('k2',k,ir[k]);  
+		m=ir[k];
 //C SECOND MOLECULE M HAS BEEN CHOSEN FROM SAME SUB-CELL, IF POSSIBLE
 	    if (m!=l) {
 	     vrcx=pvx[l]-pvx[m];
@@ -828,6 +830,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
