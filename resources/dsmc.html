@@ -82,8 +82,10 @@ Cylinder Radius:<br />
 Flow Mach Number:<br />
 <input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
 &nbsp;<br /> 	
-<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> &nbsp; <INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
-
+<!--
+	<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> &nbsp; <INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+-->
+Place mouse over flowfield to commence run.	
 </form>
 </td></tr>
 <tr><td><center>
@@ -270,42 +272,42 @@ cell2[0]=0;
   n=n+1;
  }  
 // var isamp=0;
- var nmol=1;
+ nmol=0;
  k=Math.trunc(rnm*MNM);
- var ilost=0;
- m=1;
+// var ilost=0;
+// m=1;
  particlex[0]=0;
  particley[0]=0;
 // SET INITIAL FLOW FIELD	
- while (m<=k) {
-  particlex[nmol]=xf+Math.random()*(xr-xf);
-  particley[nmol]=yu*Math.random();
-  a=particlex[nmol]*particlex[nmol]+particley[nmol]*particley[nmol];
-  if (a>rcc) {
-   a=slr[ircnt];
-   ircnt=ircnt+1;
-   if (ircnt>20000) {
-    ircnt=1;
-   } 
-   pvx[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
-   a=slr[ircnt];
-   ircnt=ircnt+1;
-   if (ircnt>20000) {
-    ircnt=1;
-   } 
-   pvy[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
-   a=slr[ircnt];
-   ircnt=ircnt+1;
-   if (ircnt>20000) {
-    ircnt=1;
-   } 
-   pvz[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
-   ip2[nmol]="blue";
-   ip1[nmol]=0;	  
-   nmol=nmol+1;	  
-  }
-  m=m+1;  
- }    
+// while (m<=k) {
+// particlex[nmol]=xf+Math.random()*(xr-xf);
+// particley[nmol]=yu*Math.random();
+// a=particlex[nmol]*particlex[nmol]+particley[nmol]*particley[nmol];
+// if (a>rcc) {
+//   a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvx[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
+//  a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvy[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
+//   a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvz[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
+//   ip2[nmol]="blue";
+//   ip1[nmol]=0;	  
+//   nmol=nmol+1;	  
+//  }
+//  m=m+1;  
+// }    
 // SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
  var s=svel/vmpf;
 // S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
@@ -354,7 +356,7 @@ cell2[0]=0;
  ctx.closePath();
  ctx.stroke();
  ctx.fill();
- nmol=nmol-1;
+// nmol=nmol-1;
 // m=1;
 // while (m<=nm) {
 //  ctx.beginPath();	 
@@ -830,6 +832,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
