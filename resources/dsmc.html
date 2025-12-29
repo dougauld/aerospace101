@@ -634,7 +634,7 @@ function ComputeFlow() {
         ncol=1;
        } 
 // NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
-       ip1[nm]=(nrow-1)*ncx+ncol;
+       ip1[nm]=Math.trunc((nrow-1)*ncx+ncol);
        gotone=1;
       }
       gotcnt=gotcnt+1;
@@ -674,6 +674,7 @@ function ComputeFlow() {
   } 
   m=0;
   n=1;
+  console.log(ip1);	 
   while (n<=nm) {
    k=ip1[n];
    ic2[k]=ic2[k]+1;
@@ -827,6 +828,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
