@@ -101,47 +101,47 @@ function HideResults() {
   document.getElementById("output").innerHTML = " ";
 }
 	
- var particlex = [];
- var particley = [];
- var pvx = [];
- var pvy = [];
- var pvz = [];
- var ip1 = [];
- var ip2 = [];     
- var cellvolume = [];
- var cell1 = [];
- var cell2 = [];
- var ic1 = [];
- var ir = [];	
- var ic2 = [];
- var ent1 = [];
- var ent2 = [];
- var ent3 = [];
- const c = document.getElementById("imageout");
- const ctx = c.getContext("2d");
- const MNM = 4000;
- const nc = 600;
- var time = 0;
- var nmol = 0;
- var xf = -1.0;
- var xr = 0.5;
- var yu = 0.5;
- var vmpf = 400.0;
- var vmps = 400.0;
- var start = 0;
- var slr = [];
- var ircnt = 1;	
- var fnum = 0;
- let raf;
+const c = document.getElementById("imageout");
+const ctx = c.getContext("2d");
+const MNM = 4000;
+const nc = 600;
+var time = 0;
+var nmol = 0;
+var xf = -1.0;
+var xr = 0.5;
+var yu = 0.5;
+var vmpf = 400.0;
+var vmps = 400.0;
+var start = 0; 
+var particlex = [];
+var particley = [];
+var pvx = [];
+var pvy = [];
+var pvz = [];
+var ip1 = [];
+var ip2 = [];     
+var cellvolume = [];
+var cell1 = [];
+var cell2 = [];
+var ic1 = [];
+var ir = [];	
+var ic2 = [];
+var ent1 = [];
+var ent2 = [];
+var ent3 = [];
+var slr = [];
+var ircnt = 1;	
+var fnum = 0;
+let raf;
 
 function ComputeInit() {
 // VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
 // MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
 // NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
- var sample1 =[];
- var sample2 =[];
- var sample3 =[];
- var sample4 =[];
+// var sample1 =[];
+// var sample2 =[];
+// var sample3 =[];
+// var sample4 =[];
  
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, 640, 480);
@@ -306,7 +306,7 @@ cell2[0]=0;
  }    
 // SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
  var s=svel/vmpf;
-// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIESvar particlex= [];
+// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
  if (s<9.0) {
   a=(Math.exp(-s*s)+SPI*s*(1.0+erf(s)))/(2.0*SPI);
   b=(Math.exp(-s*s)-SPI*s*(1.0-erf(s)))/(2.0*SPI);
@@ -391,7 +391,7 @@ function ComputeFlow() {
  var cxsi=PI*pdia*pdia;
  var cxs=cxsi*0.5;
  var iref=1;	
- console.log(nmol);
+ console.log(slr);
  if (start == 1 ) {
   time=time+dtm;
   n=0;
@@ -824,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
