@@ -692,6 +692,7 @@ function ComputeFlow() {
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
     nsel=Math.trunc(asel);
     cell1[n]=asel-nsel;
+	console.log(nsel,ir);   
     if (nsel>0) {
      if (ic2[n]<2) {
       cell1[n]=cell1[n]+nsel;
@@ -700,7 +701,7 @@ function ComputeFlow() {
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
-	   console.log(k);	  
+//	   console.log(k);	  
 	   l=ir[k];
 //C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
        gotone=0;
@@ -826,6 +827,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
