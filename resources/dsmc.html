@@ -314,7 +314,7 @@ cell2[0]=0;
   a=s;
   b=0.0;
  }
- var dtm=5.0e-6;
+ var dtm=5.0E-6;
  ent1[0]=0.0;
  ent2[0]=0.0;
  ent3[0]=0.0;	
@@ -416,7 +416,7 @@ function ComputeFlow() {
     ip1[n]=ip1[nm];
     ip2[n]=ip2[nm];
     nm=nm-1;
-	consol.log(nm,'out');   
+	consol.log(nm,x,y,'out');   
     n=n-1;
    } else {   
     if (x>-rc) {
@@ -826,6 +826,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
