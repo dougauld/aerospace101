@@ -270,7 +270,6 @@ cell2[0]=0;
 // var isamp=0;
  var nm=1;
  k=Math.round(rnm*MNM);
- //console.log(k);
  var kflag=1;
  var ilost=0;
  m=1;
@@ -332,7 +331,6 @@ cell2[0]=0;
  ent2[4]=0.5;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
- // console.log(ent1,ent2,ent3);
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
  var xscale=640.0/(xr-xf);
@@ -466,7 +464,6 @@ function ComputeFlow() {
 //          xc=xi+0.999*ftc*(x-xi);
 //          yc=yi+0.999*ftc*(y-yi);
 	   if (gotone==1) {   
-		// console.log('collision');
 // MOLECULE N COLLIDES WITH CYLINDER AT XC,YC
         yc = a*xc + b;
 		ftc = (xc-xi)/(x-xi);   
@@ -506,8 +503,7 @@ function ComputeFlow() {
         pvy[n]=vn*sth+vp*cth;
 // SET NEW POSITION AND sample THE REFLECTED PROPERTIES
         x=xc+pvx[n]*dtr;
-        y=yc+pvy[n]*dtr;
-		// console.log(x,y);	 
+        y=yc+pvy[n]*dtr; 
        }
       }
      }
@@ -543,10 +539,10 @@ function ComputeFlow() {
      ncol=1;
     } 
 // NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
-    ip1[n]=(nrow-1)*ncx+ncol;
+    ip1[n]=Math.trunc((nrow-1)*ncx+ncol);
    }
-  }
-//  console.log(ip1);	 
+  } 
+  console.log(ip1);	 
 //molecules entering flow	 
   k=1
   while (k<=3) {
@@ -563,7 +559,6 @@ function ComputeFlow() {
     m=Math.trunc(a);
     ent3[2]=a-m;
    }
-//   console.log(m);
    if (m>0) {
     j=1;
     while (j<=m) {
@@ -646,7 +641,8 @@ function ComputeFlow() {
     }
    }
    k=k+1;
-  }     
+  }  
+  console.log(ip1);	 
 //C SET THE MOLECULE CROSS-REFERENCE ARRAY IR
   n=1;
   while (n<=nc) {
@@ -666,6 +662,7 @@ function ComputeFlow() {
   } 
   m=0;
   n=1;
+  console.log(ic2);	 
   while (n<=nc) {
    ic1[n]=m;
    m=m+ic2[n];
@@ -687,13 +684,11 @@ function ComputeFlow() {
   while (n<=nc) {
    dnn=ic2[n]*fnum/cellvolume[n];
    asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
-   // console.log(dnn,fnum,cxs,dtm);	  
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
     nsel=Math.trunc(asel);
     cell1[n]=asel-nsel;
-	console.log(nsel,ir);   
     if (nsel>0) {
      if (ic2[n]<2) {
       cell1[n]=cell1[n]+nsel;
@@ -702,7 +697,6 @@ function ComputeFlow() {
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
-//	   console.log(k);	  
 	   l=ir[k];
 //C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
        gotone=0;
@@ -828,6 +822,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
