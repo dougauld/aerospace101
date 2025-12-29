@@ -534,11 +534,11 @@ function ComputeFlow() {
     ctx.moveTo(ix0,iy0);
     ctx.lineTo(ix0+1,iy0);
     ctx.stroke();
-    nrow=y*ncy/yu+0.999999;
+    nrow=Math.trunc(y*ncy/yu+0.999999);
     if (nrow==0) {
      nrow=1;
     }
-    ncol=(x-xf)*ncx/(xr-xf)+0.999999;
+    ncol=Math.trunc((x-xf)*ncx/(xr-xf)+0.999999);
     if (ncol==0) {
      ncol=1;
     } 
@@ -625,11 +625,11 @@ function ComputeFlow() {
 	    particlex[nm]=xr;
 	    particley[nm]=Math.random()*yu;
        }
-	   nrow=particley[nm]*ncy/yu+0.999999;
+	   nrow=Math.trunc(particley[nm]*ncy/yu+0.999999);
        if (nrow==0) {
         nrow=1;
        }
-       ncol=(particlex[nm]-xf)*ncx/(xr-xf)+0.999999;
+       ncol=Math.trunc((particlex[nm]-xf)*ncx/(xr-xf)+0.999999);
        if (ncol==0) {
         ncol=1;
        } 
@@ -824,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
