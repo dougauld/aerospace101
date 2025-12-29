@@ -392,7 +392,8 @@ function ComputeFlow() {
  var cxsi=PI*pdia*pdia;
  var cxs=cxsi*0.5;
  var iref=1;	
- console.log(xf,xr,yu);
+ var collisions = 0;
+// console.log(xf,xr,yu);
  if (start == 1 ) {
   time=time+dtm;
   n=0;
@@ -721,7 +722,8 @@ function ComputeFlow() {
 	     if (vr/cell2[n]>Math.random()) {
 //C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
 	      gotone=1;
-//	      col=col+1.0;
+	      collisions=colllisions+1.0;
+		  console.log(collisions);	 
 //	      if (ip2[l]=='yellow' || ip2[m]=='yellow') {
 //	       ip2[l]='yellow';
 //	       ip2[m]='yellow';
@@ -825,6 +827,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
