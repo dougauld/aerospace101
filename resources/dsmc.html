@@ -718,7 +718,7 @@ function ComputeFlow() {
 	     if (vr>cvm) {
 	      cvm=vr;
 	     } 
-	     if (vr/c2[n]>Math.random()) {
+	     if (vr/cell2[n]>Math.random()) {
 //C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
 	      gotone=1;
 	      col=col+1.0;
@@ -753,7 +753,7 @@ function ComputeFlow() {
 	     }
 	    }
 	   }   
-       c2[n]=cvm;
+       cell2[n]=cvm;
        isel=isel+1;
       }  
      }
@@ -824,6 +824,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
