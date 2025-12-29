@@ -379,7 +379,7 @@ function ComputeFlow() {
  var machfield = document.getElementById("mach").value;
  var amach = Number(machfield);	
  var svel=amach*400.0;
- var dtm=5.0e-6;
+ var dtm=5.0E-6;
  var PI=3.141592654;
  var SPI=Math.sqrt(PI);
  var TWOPI=2.0*PI; 
@@ -416,6 +416,7 @@ function ComputeFlow() {
     ip1[n]=ip1[nm];
     ip2[n]=ip2[nm];
     nm=nm-1;
+	consol.log(nm,'out');   
     n=n-1;
    } else {   
     if (x>-rc) {
@@ -825,6 +826,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
