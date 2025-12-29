@@ -675,7 +675,7 @@ function ComputeFlow() {
   while (n<=nc) {
    dnn=ic2[n]*fnum/cellvolume[n];
    asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
-   console.log(asel);	  
+   console.log(dnn,fnum,cxs.dtm);	  
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
@@ -813,6 +813,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
