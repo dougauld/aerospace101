@@ -332,7 +332,7 @@ cell2[0]=0;
  ent2[4]=0.5;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
- console.log(ent1,ent2,ent3);
+ // console.log(ent1,ent2,ent3);
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
  var xscale=640.0/(xr-xf);
@@ -466,7 +466,7 @@ function ComputeFlow() {
 //          xc=xi+0.999*ftc*(x-xi);
 //          yc=yi+0.999*ftc*(y-yi);
 	   if (gotone==1) {   
-		console.log('collision');
+		// console.log('collision');
 // MOLECULE N COLLIDES WITH CYLINDER AT XC,YC
         yc = a*xc + b;
 		ftc = (xc-xi)/(x-xi);   
@@ -507,7 +507,7 @@ function ComputeFlow() {
 // SET NEW POSITION AND sample THE REFLECTED PROPERTIES
         x=xc+pvx[n]*dtr;
         y=yc+pvy[n]*dtr;
-		console.log(x,y);	 
+		// console.log(x,y);	 
        }
       }
      }
@@ -675,6 +675,7 @@ function ComputeFlow() {
   while (n<=nc) {
    dnn=ic2[n]*fnum/cellvolume[n];
    asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
+   console.log(asel);	  
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
@@ -812,6 +813,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
