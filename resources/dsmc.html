@@ -686,13 +686,13 @@ function ComputeFlow() {
   while (n<=nc) {
    dnn=ic2[n]*fnum/cellvolume[n];
    asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
-   console.log(dnn,fnum,cxs,dtm);	  
+   // console.log(dnn,fnum,cxs,dtm);	  
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
 // ASEL IS THE NUMBER OF PAIR SELECTIONS
     nsel=Math.trunc(asel);
     cell1[n]=asel-nsel;
-    if (nsel>0.5) {
+    if (nsel>0) {
      if (ic2[n]<2) {
       cell1[n]=cell1[n]+nsel;
      } else {
@@ -748,6 +748,7 @@ function ComputeFlow() {
 	      pvz[m]=vccmz-vrcz*0.5;
 	     }
 	     gotcnt=gotcnt+1;
+		 console.log(gotcnt);	
 	     if (gotcnt>100) {
 	      gotone=1;
 	     }
@@ -824,6 +825,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
