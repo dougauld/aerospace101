@@ -260,17 +260,16 @@ cell2[0]=0;
  while (n<=nc) {
   cell1[n]=0.0;
   cell2[n]=vmps+svel/3.0;
-  sample1[n]=0.;
-  sample2[n]=0.;
-  sample3[n]=0.;
-  sample4[n]=0.;
+// sample1[n]=0.;
+// sample2[n]=0.;
+// sample3[n]=0.;
+// sample4[n]=0.;
 // THIS IS A REASONABLE INITIAL VALUE FOR THE RELATIVE VELOCITY 
   n=n+1;
  }  
 // var isamp=0;
  var nm=1;
- k=Math.round(rnm*MNM);
- var kflag=1;
+ k=Math.trunc(rnm*MNM);
  var ilost=0;
  m=1;
  particlex[0]=0;
@@ -369,7 +368,8 @@ cell2[0]=0;
   ctx.moveTo(ix0,iy0);
   ctx.lineTo(ix0+1,iy0);
   ctx.stroke();
- }	 
+ }
+ console.log(nm);	
 }
 	
 function ComputeFlow() {	
@@ -541,11 +541,11 @@ function ComputeFlow() {
     } 
 // NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
     ip1[n] = Math.trunc((nrow-1)*ncx+ncol);
-	console.log(n,nrow,ncol);   
+//	console.log(n,nrow,ncol);   
    }
   }
   console.log(nm);	 
-  console.log(ip1);	 
+//  console.log(ip1);	 
 //molecules entering flow	 
   k=1
   while (k<=3) {
@@ -825,6 +825,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
