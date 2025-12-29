@@ -104,7 +104,7 @@ function HideResults() {
 const c = document.getElementById("imageout");
 const ctx = c.getContext("2d");
 const MNM = 4000;
-const nc = 600;
+const nc = 1200;
 var time = 0;
 var nmol = 0;
 var xf = -1.0;
@@ -155,10 +155,10 @@ function ComputeInit() {
 // SURFACE REFLECTION 0=SPECULAR, 1=DIFFUSE
  var modt=1;
 // modt=0,1 FOR SURFACE TEMPERATURE=STREAM, STAGNATION TEMP
- var ar=640.0/480.0;
+ var ar=640.0/340.0;
 // AR IS THE ASPECT RATIO (X EXTENT)/(Y EXTENT) OF THE FLOWFIELD
 //    THE COMPUTATIONAL REGION IS ABOVE THE PLANE OF SYMMETRY AT Y=0
- var ncx=30;
+ var ncx=60;
 // ncx IS THE NUMBER CELL INTERVALS IN THE X DIRECTION
  var ncy=20;
 //ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
@@ -166,7 +166,7 @@ function ComputeInit() {
   alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
  }
 // THE PRODUCT NCX*NCY MUST EQUAL NC IN THE PARAMETER STATEMENT
-  var ncxf=20;
+  var ncxf=40;
 // ncxf SETS THE LOCATION OF THE FRONT BOUNDARY AS CELL MULTIPLE
   var rnm=0.2
 // rnm IS THE RATIO OF THE INITIAL NUMBER OF MOLECULES TO THE
@@ -187,11 +187,12 @@ function ComputeInit() {
  start = 1;
 
 // DTM THE TIME STEP
- var ch=0.05;
+ var ch=0.025;
  var cw=ch*ar*ncy/ncx;
  xf=-ncxf*cw;
  xr=(ncx-ncxf)*cw;
  yu=ch*ncy;
+ console.log(ch,cw,xf,xr,yu);	
 // FLOWFIELD BOUNDARIES
 // SET CONSTANTS
  var PI=3.141592654;
@@ -824,6 +825,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
