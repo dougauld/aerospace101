@@ -395,6 +395,7 @@ function ComputeFlow() {
   time=time+dtm;
 
   n=0;
+  ip1[0]=0;	 
 // MOVE MOLECULES
   while (n<nm) {
    n=n+1;
@@ -542,7 +543,8 @@ function ComputeFlow() {
     ip1[n] = Math.trunc((nrow-1)*ncx+ncol);
 	console.log(n,nrow,ncol);   
    }
-  } 
+  }
+  console.log(nm);	 
   console.log(ip1);	 
 //molecules entering flow	 
   k=1
@@ -643,7 +645,7 @@ function ComputeFlow() {
    }
    k=k+1;
   }  
-  console.log(ip1);	 
+  console.log(nm);	 
 //C SET THE MOLECULE CROSS-REFERENCE ARRAY IR
   n=1;
   while (n<=nc) {
@@ -663,7 +665,7 @@ function ComputeFlow() {
   } 
   m=0;
   n=1;
-  console.log(ic2);	 
+//  console.log(ic2);	 
   while (n<=nc) {
    ic1[n]=m;
    m=m+ic2[n];
@@ -672,7 +674,7 @@ function ComputeFlow() {
   } 
   m=0;
   n=1;
-  console.log(ip1);	 
+//  console.log(ip1);	 
   while (n<=nm) {
    k=ip1[n];
    ic2[k]=ic2[k]+1;
@@ -683,7 +685,7 @@ function ComputeFlow() {
 //  C CALCULATE COLLISIONS IN LOOP OVER CELLS
   n=1;
   while (n<=nc) {
-   dnn=ic2[n]*fnum/cellvolume[n];
+   dnn=ic2[n]*fnum/cellvolume[n];ir[
    asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
    if (asel<100*ic2[n]) {
 // ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
@@ -746,7 +748,7 @@ function ComputeFlow() {
 	      pvz[m]=vccmz-vrcz*0.5;
 	     }
 	     gotcnt=gotcnt+1;
-		 console.log(gotcnt);	
+		// console.log(gotcnt);	
 	     if (gotcnt>100) {
 	      gotone=1;
 	     }
@@ -823,6 +825,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
