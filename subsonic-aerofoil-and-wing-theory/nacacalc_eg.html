@@ -83,16 +83,17 @@ aerofoil images or using "right click" to save a link to the coordinates to a ".
 </center>
 </font>
 <br/>
-<p><u>Note:</u> Coordinate file format was updated in 2025. It no longer runs along the surface from trailing to leading edge. Coordinates are now given for both upper and lower surface starting form the leading edge.
+<p><u>Note:</u> Coordinate file format was updated in 2025. It no longer runs along the surface from trailing to leading edge then back to trailing edge.<br />
+Coordinates are now given for both upper and lower surface starting from the leading edge.
 </p> 
 <pre>
  <u>Eg.</u>
  Section : xxxxxx           <i>(numbers,letter only,no spaces)</i>
  Number of Data Points = N  <i>(total surface points, leading edge counted only once)</i>
  Span = 2D                  <i>(2D or wing span in meters</i>
- Upper Surface	      Lower Surface
+ Upper Surface	          Lower Surface
   X	       Y	          X	     Y
-  0		      0		         0		     0
+  0		      0		     0		     0
 0.0027  	0.009   	0.0027  	-0.009
 0.0109  	0.017  	 0.0109 	 -0.017
  ...     ...       ...      ...
