@@ -1090,7 +1090,7 @@ function ComputeFlow() {
   etx.lineTo(x1,y0);
   etx.stroke();
   strng1=cpval.toPrecision(3);
-  etx.fillText(strng1,60,y0-15);
+  etx.fillText(strng1,60,y0-5);
   y0=y0+50;
   cpval=cpval+0.5; 
  }
@@ -1112,7 +1112,7 @@ function ComputeFlow() {
 
  var dxmax=xmax-xmin;
 // draw section;
- etx,lineWidth="2";
+ etx.lineWidth="2";
  i=0; 
  while (i<numpoint) {
   x1=100+Math.trunc(x[i]*400.0/dxmax);
