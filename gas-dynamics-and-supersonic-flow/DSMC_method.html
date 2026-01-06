@@ -128,7 +128,7 @@ random points in the time interval.  The number and speed of
 molecules entering via a stream boundary is predicted using a skewed
 gaussian distribution based on flow entry or exit speed, 
 </p>
-$$Ne = n/{nR}*{Vmp}*A*(e^(-(V_&infin;/{Vmp})^2+&sqrt;(&pi;)*V_&infin;/{Vmp}*(1+erf(V_&infin;/{Vmp})))/(2*&sqrt;(&pi;))) $$
+$$Ne = n/{nR}*{Vmp}*A*(e^(-(V_&infin;/{Vmp})^2+&radic;(&pi;)*V_&infin;/{Vmp}*(1+erf(V_&infin;/{Vmp})))/(2*&radic;(&pi;))) $$
 
 <p> where <b>Ne</b> is number
 of molecules entering flow during time step,<br />
@@ -163,13 +163,13 @@ selected at random from the cell and probabilty of collision is
 calculated,</p>
 $$p = CVR/Vol$$
 <p> where <b>CVR</b> is the collision volume crosssection for the pair</p>
-$$CVR =  Vr * Xref (2*Bz*Tref)/(m/2*Vr^2)^(&nu;-0.5)*1/(&gamma;(2.5-&nu;))$$
+$$CVR =  {Vr} * {Xref} (2*Bz*Tref)/(m/2*Vr^2)^(&nu;-0.5)*1/(&gamma;(2.5-&nu;))$$
 <b>Xref</b> is the Reference cross-section of molecule at Tref<br />
 <b>Tref</b>  is the reference Temperature<br />    
 <b>Vr</b> is the relative speed of molecules<br />
 <b>&nu;</b> is the viscosity power law coefficient for the molecule.</p>
-<center>
-<img src="DSMC_method_5.png" name="Image5" align="left" width="368" height="269" border="0"/></center>
+<p><center>
+<img src="DSMC_method_5.png" name="Image5" align="left" width="368" height="269" border="0"/></center></p>
 <p>A
 selection/rejection process is carried out until the correct number
 of collisions for the time step has been achieved. Molecules which
