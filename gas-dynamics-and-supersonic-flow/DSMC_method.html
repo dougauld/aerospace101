@@ -105,8 +105,8 @@ representing up to 10<sup>11 </sup> to 10<sup>14</sup> real molecules.</p>
 <p>The transport phase of the time step
 involves Lagrangian motion of the simulated molecules and calculation
 of the interactions with flow boundaries and solid surfaces.</p>
-<p><img src="DSMC_method_1.png" name="Image1" border="0" align="center">
-</p>                  
+<p><center><img src="DSMC_method_1.png" name="Image1" border="0" align="center">
+</center></p>                  
 $$ds = V.dt$$
 <p>Where the molecule
 encounters a solid surface during this move, the interaction can be
@@ -128,17 +128,17 @@ random points in the time interval.  The number and speed of
 molecules entering via a stream boundary is predicted using a skewed
 gaussian distribution based on flow entry or exit speed, 
 </p>
-$$Ne = n/nR*Vmp*A*(e^(-(V_&infin;/Vmp)^2+sqrt(&pi;)*V_&infin;/Vmp*(1+erf(V_&infin;/Vmp)))/(2*sqrt(&pi;))$$
+$$Ne = n/{nR}*{Vmp}*A*(e^(-(V_&infin;/{Vmp})^2+&sqrt;(&pi;)*V_&infin;/{Vmp}*(1+erf(V_&infin;/{Vmp})))/(2*&sqrt;(&pi;))) $$
 
 <p> where <b>Ne</b> is number
 of molecules entering flow during time step,<br />
 <b>n</b> is stream number density<br />
-<b>V<sub>&infin;</sub> is the stream average velocity<br />
+<b>V<sub>&infin;</sub></b> is the stream average velocity<br />
 <b>nR</b> is number of real molecules represented by each simulation molecule<br />
 <b>A</b> is the area of the entry surface.</br>
 <b>Vmp</b> is the most probable thermal speed of the entering gas</p>
-$$ Vmp = sqrt((2.0*Bz*T)/m)$$
-<p><b>Bz</b> is the Boltzmann constant =  1.3806x10^(-23)<br />
+$$ {Vmp} = &sqrt;((2.0*Bz*T)/m)$$
+<p><b>Bz</b> is the Boltzmann constant =  1.3806x10<sup>(-23)</sup><br />
 <b>T</b> is the stream tempeerature<br />
  and <b>m</b> is the mass of a molecule</p>
 <p>&nbsp;</p> 
@@ -149,11 +149,11 @@ ideally containing from 8  to 20 simulated molecules. The cells can
 form a regular or irregular mesh but should be very small relative to
 the flow field dimensions. “Nearest neighbour” collisions will be
 simulated using pairs of molecules selected at random from the cell.</p>
-<center>
- <img src="DSMC_method_4.png" name="Image4" align="left" width="540" height="372" border="0"/>
-</center>
+<p></p><center>
+ <img src="DSMC_method_4.png" name="Image4" width="540" height="372" border="0"/>
+</center></p>
 <p>The number of collisions over a time step within a cell can be estimated as</p>
-$$ NC = (N*(N-1)*nR*Vpm*Xm)*Dt/Vol$$
+$$ NC = (N*(N-1)*{nR}*{Vpm}*{Xm})*Dt/Vol$$
 <p> where <b>N</b> is the number of molecules in the cell<br />
 <b>Xm</b> is the collision crosssection of the molecule<br />
 <b>Vol</b> is the cell volume<br />
