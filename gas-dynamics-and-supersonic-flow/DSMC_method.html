@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Gas Dynamics and Supersonic Flow | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a>
+   <ul class="sub-menu">
+   <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1.html">Compressible Flow</a></li>
+   <li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics1a.html">Equations of Motion for Compressible Flow</a></li>
+   <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics2.html">1-D Isentropic Relations</a></li>
+   <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics3.html">Wave Propogation</a></li>
+   <li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics4.html">Flow through Nozzles and Ducts</a></li>
+   <li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics5.html">2-D Compressible Flow</a></li>
+   <li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics6.html">Prandtl-Meyer Expansions</a></li>
+   <li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics7.html">Shock Interactions and Detached Shocks</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics8.html">Shock Expansion Techniques for Aerofoils</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9.html">Method of Characteristics</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics9a.html">Unsteady Supersonic Flow</a></li>
+   <li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="../gas-dynamics-and-supersonic-flow/gasdynamics10.html">Compressible Flow Tables and Software</a></li>
+   </ul>
+   </li>   
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li> 
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>Rarefied flow molecular simulation</h2>
+
+<p>The direct simulation Monte Carlo (or
+DSMC) method is widely used for the modeling of gas flows through the
+computation of the motion and collisions of representative molecules.
+It attempts to provide a numerical simulation of the Boltzmann
+equation. The technique was pioneered by the late  Professor Graeme
+Bird from the Department of Aeronautical Engineering, University of
+Sydney. The method was originally used for simulation of rarefied gas
+flow around rentry vehicles, but has now progressed to the stage of
+being a useful tool for solving a large range of aerodynamic and
+aerospace problems. 
+</p>
+<p>Computation at the molecular level is
+necessary for studies in rarefied gas dynamics (or RGD) because the
+transport terms in the Navier-Stokes equations are not valid in this
+flow regime. The essential characteristic of a &quot;rarefied&quot;
+flow is that the molecular mean free path is not negligible. This
+means that many applications involve normal and high density flows
+with very small physical dimensions. At sufficiently high density,
+the DSMC fluctuations can be physically real and the method then goes
+beyond the mathematical model provided by the Boltzmann equation. In
+addition, the DSMC method can be employed for the study of chemical
+reactions for which inverse collisions cannot be defined and the
+Boltzmann model is inapplicable.</p>
+<p>The simulation method progresses in
+extremely small time steps (approx 10<sup>-6</sup> sec) and is
+divided into a transport phase and an energy redistribution or
+molecular collision phase. This is valid where the mean free path is
+large compared to the size of the molecules and the primary
+interaction between molecules is a two body collision.  As there are
+normally too many real molecules in a volume of gas to permit
+simulation of every one in a computer, a statistical approach is used
+by tracking representative molecules. Reasonable results are obtained
+using 10<sup>6</sup> or more simulation molecules each one
+representing up to 10<sup>11 </sup> to 10<sup>14</sup> real molecules.</p>
+<p><b>Transport Phase</b></p>
+<p>The transport phase of the time step
+involves Lagrangian motion of the simulated molecules and calculation
+of the interactions with flow boundaries and solid surfaces.</p>
+<center><img src="DSMC_method_1.png" name="Image1" align="left" width="174" height="126" border="0"/>
+<br />                    
+ ds = V.dt</center>
+<p>Where the molecule
+encounters a solid surface during this move, the interaction can be
+modelled as specular (with perfect conservation of momentum) or
+diffuse (with perfect conservation of energy).</p>
+<p>In some cases the inteaction could be a fraction of both or an interaction with a
+chemically reacting surface.</p>
+<center><img src="DSMC_method_2.png" name="Image2" align="left" width="231" height="224" border="0"/>
+<img src="DSMC_method_3.png" name="Image3" align="left" width="227" height="230" border="0"/>
+<br />
+                    
+   Specular &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Diffuse
+
+</center>
+<p>Where there are
+stream boundaries, incoming or outgoing, a specified number of
+molecules will be introduced at random along the boundary and at
+random points in the time interval.  The number and speed of
+molecules entering via a stream boundary is predicted using a skewed
+gaussian distribution based on flow entry or exit speed, 
+</p>
+$$Ne = n/nR*Vmp*A*(e^(-(V_&infin;/Vmp)^2+sqrt(&pi;)*V_&infin;/Vmp*(1+erf(V_&infin;/Vmp)))/(2*sqrt(&pi;))$$
+
+<p> where <b>Ne</b> is number
+of molecules entering flow during time step,<br />
+<b>n</b> is stream number density<br />
+<b>V<sub>&infin;</sub> is the stream average velocity<br />
+<b>nR</b> is number of real molecules represented by each simulation molecule<br />
+<b>A</b> is the area of the entry surface.</br>
+<b>Vmp</b> is the most probable thermal speed of the entering gas</p>
+$$ Vmp = sqrt((2.0*Bz*T)/m)$$
+<p><b>Bz</b> is the Boltzmann constant =  1.3806x10^(-23)<br />
+<b>T</b> is the stream tempeerature<br />
+ and <b>m</b> is the mass of a molecule</p>
+<p>&nbsp;</p> 
+<p><b>Collision Phase</b></p>
+<p>
+The flow field is sub-divided into small cellular volumes each
+ideally containing from 8  to 20 simulated molecules. The cells can
+form a regular or irregular mesh but should be very small relative to
+the flow field dimensions. “Nearest neighbour” collisions will be
+simulated using pairs of molecules selected at random from the cell.</p>
+<center>
+ <img src="DSMC_method_4.png" name="Image4" align="left" width="540" height="372" border="0"/>
+</center>
+<p>The number of collisions over a time step within a cell can be estimated as</p>
+$$ NC = (N*(N-1)*nR*Vpm*Xm)*Dt/Vol$$
+<p> where <b>N</b> is the number of molecules in the cell<br />
+<b>Xm</b> is the collision crosssection of the molecule<br />
+<b>Vol</b> is the cell volume<br />
+and <b>Dt</b> is the time step</p>
+<p>Collision pairs are
+selected at random from the cell and probabilty of collision is
+calculated,</p>
+$$p = CVR/Vol$$
+<p> where <b>CVR</b> is the collision volume crosssection for the pair</p>
+$$CVR =  Vr * Xref (2*Bz*Tref)/(m/2*Vr^2)^(&nu;-0.5)*1/(&gamma;(2.5-&nu;))$$
+<b>Xref</b> is the Reference cross-section of molecule at Tref<br />
+<b>Tref</b>  is the reference Temperature<br />    
+<b>Vr</b> is the relative speed of molecules<br />
+<b>&nu;</b> is the viscosity power law coefficient for the molecule.</p>
+<center>
+<img src="DSMC_method_5.png" name="Image5" align="left" width="368" height="269" border="0"/></center>
+<p>A
+selection/rejection process is carried out until the correct number
+of collisions for the time step has been achieved. Molecules which
+have already collided are rejected as are molecules with low relative
+speed.collision</p>
+<p>Post Collision velocities are calculated based on either one of the following models</p>
+<ul>
+<li>variable hard sphere</li>
+<li>variable soft sphere</li>
+</ul>
+<p>depending on the
+initial energy of the collision pair. Random scattering of the
+velocity components is applied in a manner that ensues conservation
+of momentum and energy for the centroid of the pair.  If required
+rotational and vibrational energy effects can be included in the
+collision processing.</p>
+
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>
