@@ -139,7 +139,7 @@ of molecules entering flow during time step,<br />
 <b>Vmp</b> is the most probable thermal speed of the entering gas</p>
 $$ {Vmp} = &radic;((2.0*Bz*T)/m)$$
 <p><b>Bz</b> is the Boltzmann constant =  1.3806x10<sup>(-23)</sup><br />
-<b>T</b> is the stream tempeerature<br />
+<b>T</b> is the stream temperature<br />
  and <b>m</b> is the mass of a molecule</p>
 <p>&nbsp;</p> 
 <p><b>Collision Phase</b></p>
@@ -153,7 +153,7 @@ simulated using pairs of molecules selected at random from the cell.</p>
  <img src="DSMC_method_4.png" name="Image4" width="540" height="372" border="0"/>
 </center></p>
 <p>The number of collisions over a time step within a cell can be estimated as</p>
-$$ NC = (N*(N-1)*{nR}*{Vpm}*{Xm})*Dt/Vol$$
+$$ NC = (N*(N-1)*{nR}*{Vpm}*{Xm})*{Dt}/Vol$$
 <p> where <b>N</b> is the number of molecules in the cell<br />
 <b>Xm</b> is the collision crosssection of the molecule<br />
 <b>Vol</b> is the cell volume<br />
@@ -187,6 +187,7 @@ of momentum and energy for the centroid of the pair.  If required
 rotational and vibrational energy effects can be included in the
 collision processing.</p>
 
+<p><b>Flow Properties</b></p>
 
 <center><a href="#top">Back to Top</a></center>
 
