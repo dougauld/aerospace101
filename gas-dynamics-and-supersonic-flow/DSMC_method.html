@@ -189,6 +189,15 @@ collision processing.</p>
 
 <p><b>Flow Properties</b></p>
 
+<p>Flow properties in each cell can be evaluated after sufficient time steps have occured. This is done by averaging the molecular properties that have been recorded at a cell 
+over a specified length of time.</p>
+$$ &rho; = { {&Sigma; N} * {nR} * m }/{Vol * Nsamples} $$
+$$ Vf = { {&Sigma; V} / {&Sigma; N} $$ 
+$$ T = ({&Sigma; V^2 - {Vf}^2  )/{( Bz * {&Sigma; N})} $$
+<p> Surface properties can be calulated by sampliing the momentum transfer from molecules to surface over a specified length of time.</p>      
+      
+      
+
 <center><a href="#top">Back to Top</a></center>
 
 
