@@ -101,7 +101,7 @@ simulation of every one in a computer, a statistical approach is used
 by tracking representative molecules. Reasonable results are obtained
 using 10<sup>6</sup> or more simulation molecules each one
 representing up to 10<sup>11 </sup> to 10<sup>14</sup> real molecules.</p>
-<p><b>Transport Phase</b></p>
+<p><h3>Transport Phase</h3></p>
 <p>The transport phase of the time step
 involves Lagrangian motion of the simulated molecules and calculation
 of the interactions with flow boundaries and solid surfaces.</p>
@@ -142,7 +142,7 @@ $$ {Vmp} = &radic;((2.0*Bz*T)/m)$$
 <b>T</b> is the stream temperature<br />
  and <b>m</b> is the mass of a molecule</p>
 <p>&nbsp;</p> 
-<p><b>Collision Phase</b></p>
+<p><h3>Collision Phase</h3></p>
 <p>
 The flow field is sub-divided into small cellular volumes each
 ideally containing from 8  to 20 simulated molecules. The cells can
@@ -187,7 +187,7 @@ of momentum and energy for the centroid of the pair.  If required
 rotational and vibrational energy effects, disassociation and chemical reactions can be included in the
 collision processing.</p>
 
-<p><b>Flow Properties</b></p>
+<p><h3>Flow Properties</h3></p>
 
 <p>Flow properties in each cell can be evaluated after sufficient time steps have occured. This is done by averaging the molecular properties that have been recorded at a cell 
 over a specified length of time.</p>
@@ -203,9 +203,14 @@ where <b>&sigma; N</b> is the number of molecules smapled<br />
 <b>V</b> is the flow average velocity<br />
 and <b>T</b> is the flow temperature</p>
 <p> Surface properties can be calulated by sampliing the momentum transfer from molecules to surface over a specified length of time.</p>      
-      
-      
 
+<h3>Software</h3>
+<p>A simple demonstration program is available : <a href="../resources/dsmc.html>dsmc.html</a></p>    
+<p>Sample DSMC solutions are shown here </p>
+<p><a href="./dsmc1.png"><img src="dsmc1.png" height="150"></a>
+<a href="./dalek14.mpg"><img src="dsmc2.png" height="150"></a>
+<a href="./dsmc3.png"><img src="dsmc3.png" height="150"></a>
+</p>
 <center><a href="#top">Back to Top</a></center>
 
 
