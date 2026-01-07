@@ -174,7 +174,7 @@ function ComputeInit() {
   alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
  }
 // THE PRODUCT NCX*NCY MUST EQUAL NC IN THE PARAMETER STATEMENT
-  var ncxf=50;
+  var ncxf=75;
 // ncxf SETS THE LOCATION OF THE FRONT BOUNDARY AS CELL MULTIPLE
   var rnm=0.2
 // rnm IS THE RATIO OF THE INITIAL NUMBER OF MOLECULES TO THE
@@ -351,24 +351,6 @@ cell2[0]=0;
  ctx.closePath();
  ctx.stroke();
  ctx.fill();
-// nmol=nmol-1;
-// m=1;
-// while (m<=nm) {
-//  ctx.beginPath();	 
-//  ix0=Math.round(xcent+particlex[m]*xscale);
-//  iy0=Math.round(ycent-particley[m]*xscale);
-//  ctx.strokeStyle="blue";
-//  ctx.moveTo(ix0,iy0);
-//  ctx.lineTo(ix0+1,iy0);
-//  ctx.stroke();
-//  m=m+1; 
-//  ctx.beginPath();	 
-//  iy0=Math.round(ycent+particley[m]*xscale);
-//  ctx.moveTo(ix0,iy0);
-//  ctx.lineTo(ix0+1,iy0);
-//  ctx.stroke();
-// }
-// console.log(nmol);	
 }
 	
 function ComputeFlow() {	
@@ -501,12 +483,6 @@ function ComputeFlow() {
     particley[n]=y;
     ix0=Math.round(xcent+x*xscale);
     iy0=Math.round(ycent-y*xscale);
-    ctx.beginPath();   
-    ctx.strokeStyle=ip2[n];
-    ctx.moveTo(ix0,iy0);
-    ctx.lineTo(ix0+1,iy0);
-    ctx.stroke();
-    iy0=Math.round(ycent+y*xscale);
     ctx.beginPath();   
     ctx.strokeStyle=ip2[n];
     ctx.moveTo(ix0,iy0);
@@ -820,6 +796,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
