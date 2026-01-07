@@ -312,23 +312,23 @@ cell2[0]=0;
  ent1[0]=0.0;
  ent2[0]=0.0;
  ent3[0]=0.0;	
- [0]=0.0; 
+ ent4[0]=0.0; 
  ent1[1]=2*yu*dtm*fnd*vmpf*a/fnum;
  ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*SPI*fnum);
  ent3[1]=2*yu*dtm*fnd*vmpf*b/fnum;
- [1]=ent2[1];
+ ent4[1]=ent2[1];
  ent1[2]=Math.random();
  ent2[2]=Math.random();
  ent3[2]=Math.random();
- [2]=Math.random();
+ ent4[2]=Math.random();
  ent1[3]=s+Math.sqrt(s*s+2.0);
  ent1[4]=0.5*(1.+s*(2.0*s-ent1[3]));
  ent2[3]=Math.sqrt(2.0);
  ent2[4]=0.5;
  ent3[3]=-s+Math.sqrt(s*s+2.0);
  ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
- [3]=ent2[3];
- [4]=0.5;
+ ent4[3]=ent2[3];
+ ent4[4]=0.5;
  ctx.strokeStyle="black";
  ctx.fillStyle="green";      
  var xscale=640.0/(xr-xf);
@@ -796,6 +796,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
