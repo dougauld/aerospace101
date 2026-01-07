@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>DSMC | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a></li>
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a> </li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a> </li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a> </li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a> </li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-364 current_page_item menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content">
+<h3>DSMC Molecular Simulation of Flow</h3>
+<center>
+<table border="1" cellpadding="10" bgcolor="#dfdfff">
+<tr><td>      
+<p>The direct simulation Monte Carlo (or 
+DSMC) method is widely used for the modeling of gas flows through the 
+computation of the motion and collisions of representative molecules. 
+Computation at the molecular level is necessary for studies in rarefied 
+gas dynamics (or RGD) because the transport terms in the Navier-Stokes
+ equations are not valid in this flow regime. The essential 
+characteristic of a "rarefied" flow is that the molecular mean free path
+ is not negligible. &nbsp;This means that many applications involve 
+normal and high density flows with very small physical dimensions. 
+&nbsp;&nbsp;At sufficiently high density, the DSMC fluctuations can be 
+physically real and the method then goes beyond the mathematical model 
+provided by the Boltzmann equation. &nbsp;In addition, the DSMC method 
+is employed for the study of chemical reactions for which inverse 
+collisions cannot be defined and the Boltzmann model is inapplicable.
+</p>
+The principles of DSMC are best understood by running a program that animates the motion of 
+the simulated molecules in a simplified implementation of the method. 
+This is an interactive program that allows the user to vary the flow 
+geometry and the flow parameters during the running of the program.</p>
+</td></tr>
+<tr><td>
+<form>
+Cylinder Radius:<br />
+<input type='text' id='radius' name='radius' value='0.1' size='10' onfocus="HideResults();" autofocus><br />
+&nbsp;<br />
+Flow Mach Number:<br />
+<input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
+&nbsp;<br /> 	
+<INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> 
+	&nbsp; 
+<!--
+	<INPUT id='Compute1' TYPE='button' VALUE='Start Flow' onclick="ComputeFlow();">
+-->
+Place mouse over flowfield to commence run.	
+</form>
+</td></tr>
+<tr><td><center>
+<fieldset id="results">
+<canvas id="imageout" width="640" height="480" ="border:1px solid grey"></canvas>
+</fieldset>
+</center>
+<p id='output'> </p>
+
+<script>
+
+function HideResults() {
+//  alert("Hiding results");
+  document.getElementById("results").visibility="hidden";
+  document.getElementById("output").innerHTML = " ";
+}
+	
+const c = document.getElementById("imageout");
+const ctx = c.getContext("2d");
+const MNM = 8000;
+const nc = 15000;
+var time = 0;
+var nmol = 0;
+var xf = -1.0;
+var xr = 0.5;
+var yu = 0.5;
+var yl =-0.5;
+var vmpf = 400.0;
+var vmps = 400.0;
+var start = 0; 
+var collisions = 0;	
+var particlex = [];
+var particley = [];
+var pvx = [];
+var pvy = [];
+var pvz = [];
+var ip1 = [];
+var ip2 = [];     
+var cellvolume = [];
+var cell1 = [];
+var cell2 = [];
+var ic1 = [];
+var ir = [];	
+var ic2 = [];
+var ent1 = [];
+var ent2 = [];
+var ent3 = [];
+var ent4 = [];
+var slr = [];
+var ircnt = 1;	
+var fnum = 0;
+let raf;
+
+function ComputeInit() {
+// VISUALISATION OF THE TWO-DIMENSIONAL FLOW PAST SIMPLE SHAPES
+// MNM IS THE MAXIMUM NUMBER OF SIMULATED MOLECULES
+// NC IS THE NUMBER OF CELLS (THE PRODUCT OF NCX AND NCY)
+// var sample1 =[];
+// var sample2 =[];
+// var sample3 =[];
+// var sample4 =[];
+ 
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, 640, 480);
+ var n=0;
+ var r1,r2,r3,r4;
+ while (n<20000) {
+  slr[n]=Math.sqrt(-Math.log(Math.random()));
+  n=n+1;
+ }
+// nflow IS THE INITIAL GEOMETRY NUMBER
+ var iref=1;
+// SURFACE REFLECTION 0=SPECULAR, 1=DIFFUSE
+ var modt=1;
+// modt=0,1 FOR SURFACE TEMPERATURE=STREAM, STAGNATION TEMP
+ var ar=640.0/480.0;
+// AR IS THE ASPECT RATIO (X EXTENT)/(Y EXTENT) OF THE FLOWFIELD
+//    THE COMPUTATIONAL REGION IS ABOVE THE PLANE OF SYMMETRY AT Y=0
+ var ncx=150;
+// ncx IS THE NUMBER CELL INTERVALS IN THE X DIRECTION
+ var ncy=100;
+//ncy  IS THE NUMBER CELL INTERVALS IN THE Y DIRECTION
+ if (ncx*ncy != nc) {
+  alert (' NC MUST EQUAL THE PRODUCT OF NCX AND NCY '); return;
+ }
+// THE PRODUCT NCX*NCY MUST EQUAL NC IN THE PARAMETER STATEMENT
+  var ncxf=50;
+// ncxf SETS THE LOCATION OF THE FRONT BOUNDARY AS CELL MULTIPLE
+  var rnm=0.2
+// rnm IS THE RATIO OF THE INITIAL NUMBER OF MOLECULES TO THE
+// MAXIMUM NUMBER THAT IS SET IN THE PARAMETER STATEMENT
+  var fnd=1.4067E20;
+// THIS DENSITY WITH MOL. DIAMETER PDIA GIVES A MEAN FREE PATH OF 0.01
+  var ftmp=347.67;
+// THIS TEMPERATURE WITH MOL. MASS PMASS GIVES SPEED OF SOUND 400.
+// FND IS THE NUMBER DENSITY OF THE INITIAL GAS AT TEMPERATURE FTMP
+// FTMP IS THE TEMPERATURE OF THE INITIAL GAS
+ var machfield = document.getElementById("mach").value;
+ var amach = Number(machfield);	
+ var svel=amach*400.0;
+// SVEL IS THE VELOCITY OF THE STREAM (MUST BE POSITIVE)
+ var velk=10.0;
+ var stmp=ftmp*(1+0.33333*amach*amach)
+ var pmass=5.0e-26;
+ start = 1;
+
+// DTM THE TIME STEP
+ var ch=0.01;
+ var cw=ch*ar*ncy/ncx;
+ xf=-ncxf*cw;
+ xr=(ncx-ncxf)*cw;
+ yu=ch*ncy/2.0;
+ yl=-yu;
+// console.log(ch,cw,xf,xr,yu);	
+// FLOWFIELD BOUNDARIES
+// SET CONSTANTS
+ var PI=3.141592654;
+ var SPI=Math.sqrt(PI);
+ var TWOPI=2.0*PI;
+ var boltz=1.380622e-23;
+ vmpf=Math.sqrt(2.0*boltz*ftmp/pmass);
+ vmps=Math.sqrt(2.0*boltz*stmp/pmass);
+ var iflag=0;
+//201
+ var rcc,cvi,j,k,n,a,x,y;
+ var rcfield = document.getElementById("radius").value;
+ var rc = Number(rcfield);	
+ rcc=rc*rc;
+ fnum=fnd*yu*(xr-xf)/(rnm*MNM);
+ cvi=ch*cw
+// cvi IS THE CELL VOLUME IF THE BODY DOES NOT INTRUDE
+ j=1;
+ cellvolume[0]=0;
+// set cell volumes	
+ while (j<=ncx) {
+  k=1;
+  while (k<=ncy) {
+   n=(k-1)*ncx+j;
+// N IS THE CELL NUMBER
+   cellvolume[n]=cvi;
+   x1=xf+(j-1)*cw;
+   x2=xf+j*cw;
+   y1=(k-1)*ch-1.0;
+   y2=k*ch-1.0;
+   r1=x1*x1+y1*y1;
+   r2=x1*x1+y2*y2;
+   r3=x2*x2+y1*y1;
+   r4=x2*x2+y2*y2;
+   if (r1>=rcc && r2>=rcc && r3>=rcc && r4>=rcc) {
+    cellvolume[n]=cvi;
+   } else if (r1<=rcc && r2<rcc && r3<rcc && r4<rcc) {
+    cellvolume[n]=0.1*cvi;
+   } else {
+    cellvolume[n]=0.5*cvi;
+   }
+   k=k+1;
+  }
+  j=j+1;   
+ }
+ n=1;
+// set sampling properties
+cell1[0]=0;
+cell2[0]=0;
+ while (n<=nc) {
+  cell1[n]=0.0;
+  cell2[n]=vmps+svel/3.0;
+// sample1[n]=0.;
+// sample2[n]=0.;
+// sample3[n]=0.;
+// sample4[n]=0.;
+// THIS IS A REASONABLE INITIAL VALUE FOR THE RELATIVE VELOCITY 
+  n=n+1;
+ }  
+// var isamp=0;
+ nmol=0;
+ k=Math.trunc(rnm*MNM);
+// var ilost=0;
+// m=1;
+ particlex[0]=0;
+ particley[0]=0;
+// SET INITIAL FLOW FIELD	
+// while (m<=k) {
+// particlex[nmol]=xf+Math.random()*(xr-xf);
+// particley[nmol]=yu*Math.random();
+// a=particlex[nmol]*particlex[nmol]+particley[nmol]*particley[nmol];
+// if (a>rcc) {
+//   a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvx[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
+//  a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvy[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
+//   a=slr[ircnt];
+//   ircnt=ircnt+1;
+//   if (ircnt>20000) {
+//    ircnt=1;
+//   } 
+//   pvz[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
+//   ip2[nmol]="blue";
+//   ip1[nmol]=0;	  
+//   nmol=nmol+1;	  
+//  }
+//  m=m+1;  
+// }    
+// SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
+ var s=svel/vmpf;
+// S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
+ if (s<9.0) {
+  a=(Math.exp(-s*s)+SPI*s*(1.0+erf(s)))/(2.0*SPI);
+  b=(Math.exp(-s*s)-SPI*s*(1.0-erf(s)))/(2.0*SPI);
+ } else {
+  a=s;
+  b=0.0;
+ }
+ var dtm=5.0E-6;
+ ent1[0]=0.0;
+ ent2[0]=0.0;
+ ent3[0]=0.0;	
+ ent4[0]=0.0; 
+ ent1[1]=2*yu*dtm*fnd*vmpf*a/fnum;
+ ent2[1]=(xr-xf)*dtm*fnd*vmpf/(2.*SPI*fnum);
+ ent3[1]=2*yu*dtm*fnd*vmpf*b/fnum;
+ ent4[1]=ent2[1];
+ ent1[2]=Math.random();
+ ent2[2]=Math.random();
+ ent3[2]=Math.random();
+ ent4[2]=Math.random();
+ ent1[3]=s+Math.sqrt(s*s+2.0);
+ ent1[4]=0.5*(1.+s*(2.0*s-ent1[3]));
+ ent2[3]=Math.sqrt(2.0);
+ ent2[4]=0.5;
+ ent3[3]=-s+Math.sqrt(s*s+2.0);
+ ent3[4]=0.5*(1.-s*(-2.0*s-ent3[3]));
+ ent4[3]=ent2[3];
+ ent4[4]=0.5;
+ ctx.strokeStyle="black";
+ ctx.fillStyle="green";      
+ var xscale=640.0/(xr-xf);
+ var xcent=-xf*xscale;
+ var ycent=480.0/2.0;
+ var x0=xcent;
+ var y0=ycent;
+ var rad = rc*xscale;	
+ ctx.beginPath();
+ ctx.moveTo(x0+rad,y0);
+ var theta,x1,y1;
+ j=2;
+ while (j<362) {
+  theta=j*PI/180.0;
+  x1=x0+rad*Math.cos(theta);
+  y1=y0+rad*Math.sin(theta);
+  ctx.lineTo(x1,y1);
+  j=j+2;
+ }
+ ctx.closePath();
+ ctx.stroke();
+ ctx.fill();
+// nmol=nmol-1;
+// m=1;
+// while (m<=nm) {
+//  ctx.beginPath();	 
+//  ix0=Math.round(xcent+particlex[m]*xscale);
+//  iy0=Math.round(ycent-particley[m]*xscale);
+//  ctx.strokeStyle="blue";
+//  ctx.moveTo(ix0,iy0);
+//  ctx.lineTo(ix0+1,iy0);
+//  ctx.stroke();
+//  m=m+1; 
+//  ctx.beginPath();	 
+//  iy0=Math.round(ycent+particley[m]*xscale);
+//  ctx.moveTo(ix0,iy0);
+//  ctx.lineTo(ix0+1,iy0);
+//  ctx.stroke();
+// }
+// console.log(nmol);	
+}
+	
+function ComputeFlow() {	
+ 
+ var rcfield = document.getElementById("radius").value;
+ var rc = Number(rcfield);	
+ var machfield = document.getElementById("mach").value;
+ var amach = Number(machfield);	
+ var svel=amach*400.0;
+ var dtm=5.0E-6;
+ var PI=3.141592654;
+ var SPI=Math.sqrt(PI);
+ var TWOPI=2.0*PI; 
+ var xscale=640.0/(xr-xf);
+ var xcent=-xf*xscale;
+ var ycent=480.0/2.0;
+ var pdia=4.0e-10;
+ var x,y,xi,yi,dx,dy,a,n,cxsi;
+ var cxsi=PI*pdia*pdia;
+ var cxs=cxsi*0.5;
+ var iref=1;	
+// console.log(xf,xr,yu);
+ if (start == 1 ) {
+  time=time+dtm;
+  n=0;
+  ip1[0]=0;	 
+// MOVE MOLECULES
+  while (n<nmol) {
+   n=n+1;
+// MOVE MOLECULE N
+   xi=particlex[n];
+   yi=particley[n];
+   dx=pvx[n]*dtm;
+   x=xi+dx;
+   dy=pvy[n]*dtm;
+   y=yi+dy;
+   if (x<xf || y>yu || x>xr || y<(-yu) ) {
+//C MOLECULES THAT MOVE OUTSIDE THE FLOWFIELD ARE REMOVED
+    particlex[n]=particlex[nmol];
+    particley[n]=particley[nmol];
+    pvx[n]=pvx[nmol];
+    pvy[n]=pvy[nmol];
+    pvz[n]=pvz[nmol];
+    ip1[n]=ip1[nmol];
+    ip2[n]=ip2[nmol];
+    nmol=nmol-1;
+//	console.log(nmol,x,y,'out');   
+    n=n-1;
+   } else {   
+    if (x>-rc) {
+     if (x<rc) {
+      if (y<rc) {
+       if (y>-rc) {   
+        a = (y-yi)/(x-xi);
+	b = y-a*x;
+	bd = -2*a*b;
+	bc = 4*a*a*b*b - 4*(1+a*a)*(b*b-rc*rc);
+	if (bc>0) {
+	 bc = Math.sqrt(bc);
+	} else {
+	 bc = 0.0;
+	}
+	xc1 = (bd - bc)/2.0/(1+a*a);
+	xc2 = (bd + bc)/2.0/(1+a*a);
+	gotone = 0;	  
+	if (xc1>x && xc1>xi) {
+	 gotone=0;
+	} else if (xc1<x && xc1<xi) {
+	 gotone=0;
+	} else {
+	 gotone=1;
+	 xc=xc1;
+	}   
+	if (gotone==0) {
+	 if (xc2>x && xc2>xi) {
+	  gotone=0;
+	 } else if (xc2<x && xc2<xi) {
+	  gotone=0;
+	 } else {
+	  gotone=1;
+	  xc=xc2;
+	 }   
+	} 
+//	   a=dx*dx+dy*dy;
+//     bd=(xi*dx+yi*dy)/a;
+//     cd=(xi*xi+yi*yi-rc*rc)/a;
+//     b=bd*bd-cd;
+//       if (b>0.0) {
+//        b=Math.sqrt(b);
+//        s1=-bd+b;
+//        s2=-bd-b;
+//        if (s1<1.0 && s2<1.0) {
+//         if (s1>0.0 && s2>0.0) {
+//          ftc=Math.min(s1,s2);
+//          xc=xi+0.999*ftc*(x-xi);
+//          yc=yi+0.999*ftc*(y-yi);
+	if (gotone==1) {   
+// MOLECULE N COLLIDES WITH CYLINDER AT XC,YC
+        yc = a*xc + b;
+	ftc = (xc-xi)/(x-xi);   
+// SPECULAR REFLECTION OF INCIDENT MOLECULE AT Y=0
+        dtr=dtm*(1.0-ftc);
+// DTR IS THE TIME INTERVAL FOR THE REFLECTED MOLECULE TO MOVE
+// NOW CALCULATE THE REFLECTED VELOCITY COMPONENTS
+        theta=Math.atan2(yc,xc);
+        cth=Math.cos(theta);
+        sth=Math.sin(theta);
+        ip2[n]="red";
+        if (iref==1) {
+         slra=slr[ircnt];
+         ircnt=ircnt+1;
+         if (ircnt>20000) {
+          ircnt=1;
+         } 
+         vn=slra*vmps;
+         a=TWOPI*Math.random();
+         slra=slr[ircnt];
+         ircnt=ircnt+1;
+         if (ircnt>20000) {
+          ircnt=1;
+         } 
+         b=slra*vmps;
+         vp=b*Math.sin(a);
+         pvz[n]=b*Math.cos(a);
+        } else {
+         vn=pvx[n]*cth+pvy[n]*sth;
+         vp=pvy[n]*cth-pvx[n]*sth;
+         vn=-vn;
+        }
+        pvx[n]=vn*cth-vp*sth;
+        pvy[n]=vn*sth+vp*cth;
+// SET NEW POSITION AND sample THE REFLECTED PROPERTIES
+        x=xc+pvx[n]*dtr;
+        y=yc+pvy[n]*dtr; 
+       }
+      }
+     }
+    }
+    var ncy = 100;
+    var ncx = 150;   
+//    if (y<0.0) {
+// SPECULAR REFLECTION FROM Y=0
+//     y=-y; 
+//     pvy[n]=-pvy[n];
+//    }   
+    particlex[n]=x;
+    particley[n]=y;
+    ix0=Math.round(xcent+x*xscale);
+    iy0=Math.round(ycent-y*xscale);
+    ctx.beginPath();   
+    ctx.strokeStyle=ip2[n];
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix0+1,iy0);
+    ctx.stroke();
+    iy0=Math.round(ycent+y*xscale);
+    ctx.beginPath();   
+    ctx.strokeStyle=ip2[n];
+    ctx.moveTo(ix0,iy0);
+    ctx.lineTo(ix0+1,iy0);
+    ctx.stroke();
+    nrow=Math.trunc((y-yl)*ncy/(yu-yl)+0.999999);
+    if (nrow==0) {
+     nrow=1;
+    }
+    ncol=Math.trunc((x-xf)*ncx/(xr-xf)+0.999999);
+    if (ncol==0) {
+     ncol=1;
+    } 
+// NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
+    ip1[n] = Math.trunc((nrow-1)*ncx+ncol);
+//	console.log(n,nrow,ncol);   
+   }
+  }
+//  console.log(ip1);	 
+//molecules entering flow	 
+  k=1
+  while (k<=4) {
+   if (k==1) {
+    a=ent1[1]+ent1[2];
+    m=Math.trunc(a);
+    ent1[2]=a-m;
+   } else if (k==2) {
+    a=ent2[1]+ent2[2];
+    m=Math.trunc(a);
+    ent2[2]=a-m;	   
+   } else if (k==3) {
+    a=ent3[1]+ent3[2];
+    m=Math.trunc(a);
+    ent3[2]=a-m;	   
+   } else {
+    a=ent4[1]+ent4[2];
+    m=Math.trunc(a);
+    ent4[2]=a-m;
+   }
+   if (m>0) {
+    j=1;
+    while (j<=m) {
+     if (k==1) {
+      s=svel/vmpf;
+     } else if (k==2) { 
+      s=0.0;
+     } else {
+      s=-svel/vmpf;
+     } 
+// S IS THE SPEED RATIO BASED ON THE NORMAL VELOCITY COMPONENT
+     aa=Math.max(0.0,s-3.0);
+     bb=Math.max(3.0,s+3.0);
+     gotone=0;
+     gotcnt=0;
+     while (gotone==0) {
+      vn=aa+(bb-aa)*Math.random();
+      v=vn-s
+      if (k==1) {
+       e3=ent1[3];
+       e4=ent1[4];
+      } else if (k==2) {
+       e3=ent2[3];
+       e4=ent2[4];
+      } else if (k==3) { 
+       e3=ent3[3];
+       e4=ent3[4];
+      } else {
+       e3=ent4[3];
+       e4=ent4[4];
+      }
+      a=(2.0*vn/e3)*Math.exp(e4-v*v);
+      if (a>Math.random()) {
+       nmol=nmol+1;
+       if (nmol>=MNM) {
+        alert ("maximum molecule storage reached. run ended."); return;
+       }
+       ip2[nmol]="blue";
+       vn=vn*vmpf;
+       a=TWOPI*Math.random();
+       slra=slr[ircnt];
+       ircnt=ircnt+1;
+       if (ircnt>20000) {
+        ircnt=1;
+       } 
+       b=slra*vmpf;
+       vp=b*Math.sin(a)
+       pvz[nmol]=b*Math.cos(a);
+       if (k==1) {
+        pvx[nmol]=vn;
+        pvy[nmol]=vp;
+        particlex[nmol]=xf;
+        particley[nmol]=yl+Math.random()*(yu-yl);
+       } else if (k==2) {
+        pvx[nmol]=vp+svel;
+        pvy[nmol]=-vn;
+        particley[nmol]=yu;
+        particlex[nmol]=xf+Math.random()*(xr-xf);
+       } else if (k=3) {
+        pvx[nmol]=-vn;
+        pvy[nmol]=vp;
+        particlex[nmol]=xr;
+        particley[nmol]=yl+Math.random()*(yu-yl);
+       } else {
+        pvx[nmol]=vp+svel;
+        pvy[nmol]=vn;
+        particley[nmol]=yl;
+        particlex[nmol]=xf+Math.random()*(xr-xf);
+       } 
+       nrow=Math.trunc((particley[nmol]-yl)*ncy/(yu-yl)+0.999999);
+       if (nrow==0) {
+        nrow=1;
+       }
+       ncol=Math.trunc((particlex[nmol]-xf)*ncx/(xr-xf)+0.999999);
+       if (ncol==0) {
+        ncol=1;
+       } 
+// NROW AND NCOL ARE THE SUB-CELL ROWS AND COLUMNS
+       ip1[nmol]=Math.trunc((nrow-1)*ncx+ncol);
+       gotone=1;
+      }
+      gotcnt=gotcnt+1;
+      if (gotcnt>1000) {
+       gotone=1;
+      } 
+     }
+     j=j+1; 
+    }
+   }
+   k=k+1;
+  }  
+//C SET THE MOLECULE CROSS-REFERENCE ARRAY IR
+  n=1;
+  while (n<=nc) {
+   ic2[n]=0;
+   n=n+1;
+  }
+ // isamp=isamp+1
+  n=1;
+  while (n<=nmol) {
+   k=ip1[n];
+//   sample1[k]=sample1[k]+1;
+//   sample2[k]=sample2[k]+pvx[n];
+//   sample3[k]=sample3[k]+pvy[n];
+//   sample4[k]=sample4[k]+pvx[n]*pvx[n]+pvy[n]*pvy[n]+pvz[n]*pvz[n];
+   ic2[k]=ic2[k]+1;
+   n=n+1;
+  } 
+  m=0;
+  n=1;
+//  console.log(ic2);	 
+  while (n<=nc) {
+   ic1[n]=m;
+   m=m+ic2[n];
+   ic2[n]=0;
+   n=n+1;
+  } 
+  m=0;
+  n=1;
+//  console.log(ip1);	 
+  while (n<=nmol) {
+   k=ip1[n];
+   ic2[k]=ic2[k]+1;
+   j=ic1[k]+ic2[k];
+   ir[j]=n;
+   n=n+1;
+  } 
+//  C CALCULATE COLLISIONS IN LOOP OVER CELLS
+  n=1;
+  while (n<=nc) {
+   dnn=ic2[n]*fnum/cellvolume[n];
+   asel=0.5*ic2[n]*dnn*cxs*cell2[n]*dtm+cell1[n];
+   if (asel<100*ic2[n]) {
+// ABOVE IS TEMPORARY TO COPE WTH WEDGE ANOMALIES
+// ASEL IS THE NUMBER OF PAIR SELECTIONS
+    nsel=Math.trunc(asel);
+    cell1[n]=asel-nsel;
+    if (nsel>0) {
+     if (ic2[n]<2) {
+      cell1[n]=cell1[n]+nsel;
+     } else {
+      cvm=cell2[n];
+	//  console.log(nsel);	 
+      isel=1;
+      while (isel<=nsel) {
+       k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
+//	   console.log('k1',k,ir[k]);	  
+	   l=ir[k];
+//C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
+       gotone=0;
+       gotcnt=0;
+       while (gotone==0) {
+        k=Math.trunc(Math.random()*(ic2[n]-0.0001))+ic1[n]+1;
+//        console.log('k2',k,ir[k]);  
+		m=ir[k];
+//C SECOND MOLECULE M HAS BEEN CHOSEN FROM SAME SUB-CELL, IF POSSIBLE
+	    if (m!=l) {
+	     vrcx=pvx[l]-pvx[m];
+	     vrcy=pvy[l]-pvy[m];
+	     vrcz=pvz[l]-pvz[m];
+	     vrr=vrcx*vrcx+vrcy*vrcy+vrcz*vrcz;
+	     vr=Math.sqrt(vrr);
+//C VRR AND VR ARE THE SQUARE AND MAGNITUDE OF THE RELATIVE VELOCITY
+	     if (vr>cvm) {
+	      cvm=vr;
+	     } 
+	     if (vr/cell2[n]>Math.random()) {
+//C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
+	      gotone=1;
+	      collisions=collisions+1.0;
+//		  console.log(collisions);	 
+          if (ip2[l]=='yellow' || ip2[m]=='yellow') {
+		   ip2[l]='yellow';
+		   ip2[m]='yellow';
+          } 
+		  if (ip2[l]=='red' || ip2[m]=='red') {
+	       ip2[l]='yellow';
+	       ip2[m]='yellow';
+	      } 
+	      vccmx=0.5*(pvx[l]+pvx[m]);
+	      vccmy=0.5*(pvy[l]+pvy[m]);
+	      vccmz=0.5*(pvz[l]+pvz[m]);
+	      b=1.-2.*Math.random();
+	      a=Math.sqrt(1.-b*b);
+	      vrcx=b*vr;
+	      b=TWOPI*Math.random();
+	      vrcy=a*Math.cos(b)*vr;
+	      vrcz=a*Math.sin(b)*vr;
+// VRC IS THE COMPONENTS OF POST-COLLISION RELATIVE VEL
+	      pvx[l]=vccmx+vrcx*0.5;
+	      pvx[m]=vccmx-vrcx*0.5;
+	      pvy[l]=vccmy+vrcy*0.5;
+	      pvy[m]=vccmy-vrcy*0.5;
+	      pvz[l]=vccmz+vrcz*0.5;
+	      pvz[m]=vccmz-vrcz*0.5;
+	     }	
+	    }
+		gotcnt=gotcnt+1;
+// console.log(gotcnt);	
+	    if (gotcnt>100) {
+	     gotone=1;
+	    }
+	   }   
+       cell2[n]=cvm;
+       isel=isel+1;
+      }  
+     }
+    }
+   }
+   n=n+1;
+  }    
+ }	 
+ raf = window.requestAnimationFrame(ComputeFlow);
+}
+
+imageout.addEventListener("mouseover", (e) => {
+  raf = window.requestAnimationFrame(ComputeFlow);
+});
+
+imageout.addEventListener("mouseout", (e) => {
+  window.cancelAnimationFrame(raf);
+});
+
+function erf(s) {
+// CALCULATION OF THE ERROR FUNCTION
+ var c,t,d;
+ var b=Math.abs(s);
+ if ( b<4 ) {
+  c = Math.exp(-b*b);
+  t = 1./(1.+0.3275911*b);
+  d = 1. - (0.254829592*t-0.284496736*t*t+1.421413741*t*t*t-1.453152027*t*t*t*t+1.061405429*t*t*t*t*t)*c;
+ } else {
+  d = 1.;
+ }
+ if (s<0) {
+  d = -d;
+ } 
+ return d;
+} 
+
+</script>
+
+</td></tr>
+</table>
+
+<center><a href="#top">Back to Top</a></center>
+
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<div id="footer-widgets" class="full-container">
+<center><a href="../terms_and_conditions.pdf"><img border="0" Height="25" src="../c-foot.png" /></a></center>
+</div>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDXEPQKPZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NDXEPQKPZS');
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
