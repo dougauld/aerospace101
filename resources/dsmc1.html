@@ -268,37 +268,7 @@ cell2[0]=0;
 // m=1;
  particlex[0]=0;
  particley[0]=0;
-// SET INITIAL FLOW FIELD	
-// while (m<=k) {
-// particlex[nmol]=xf+Math.random()*(xr-xf);
-// particley[nmol]=yu*Math.random();
-// a=particlex[nmol]*particlex[nmol]+particley[nmol]*particley[nmol];
-// if (a>rcc) {
-//   a=slr[ircnt];
-//   ircnt=ircnt+1;
-//   if (ircnt>20000) {
-//    ircnt=1;
-//   } 
-//   pvx[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf + svel;
-//  a=slr[ircnt];
-//   ircnt=ircnt+1;
-//   if (ircnt>20000) {
-//    ircnt=1;
-//   } 
-//   pvy[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
-//   a=slr[ircnt];
-//   ircnt=ircnt+1;
-//   if (ircnt>20000) {
-//    ircnt=1;
-//   } 
-//   pvz[nmol]=a*Math.abs(TWOPI*Math.random())*vmpf;
-//   ip2[nmol]="blue";
-//   ip1[nmol]=0;	  
-//   nmol=nmol+1;	  
-//  }
-//  m=m+1;  
-// }    
-// SET THE NUMBERS OF ENTERING MOLECULES AT EACH TIME STEP
+
  var s=svel/vmpf;
 // S IS THE FREESTREAM SPEED RATIO FOR THIS SPECIES
  if (s<9.0) {
@@ -379,6 +349,7 @@ function ComputeFlow() {
   time=time+dtm;
   n=0;
   ip1[0]=0;	 
+ console.log(nmol);
 // MOVE MOLECULES
   while (n<nmol) {
    n=n+1;
@@ -666,7 +637,7 @@ function ComputeFlow() {
       isel=1;
       while (isel<=nsel) {
        k=Math.trunc(Math.random()*ic2[n])+ic1[n]+1;
-       console.log('k1',k,ir[k]);	  
+  //     console.log('k1',k,ir[k]);	  
 	   l=ir[k];
 //C FIRST MOLECULE L IS A RANDOMLY SELECTED MOLECULE FROM CELL N
        gotone=0;
@@ -690,7 +661,7 @@ function ComputeFlow() {
 //C PAIR IS ACCEPTED WITH PROBABILITY PROPORTIONAL TO CVR
 	      gotone=1;
 	      collisions=collisions+1.0;
-//		  console.log(collisions);	 
+//     	  console.log(collisions);	 
           if (ip2[l]=='yellow' || ip2[m]=='yellow') {
 		   ip2[l]='yellow';
 		   ip2[m]='yellow';
@@ -794,6 +765,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
