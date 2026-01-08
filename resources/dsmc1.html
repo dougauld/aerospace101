@@ -529,8 +529,10 @@ function ComputeFlow() {
       s=svel/vmpf;
      } else if (k==2) { 
       s=0.0;
-     } else {
+     } else if (k==3) {
       s=-svel/vmpf;
+	 } else {
+	  s=0.0;
      } 
 // S IS THE SPEED RATIO BASED ON THE NORMAL VELOCITY COMPONENT
      aa=Math.max(0.0,s-3.0);
@@ -796,6 +798,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
