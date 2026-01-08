@@ -80,7 +80,7 @@ Cylinder Radius:<br />
 <input type='text' id='radius' name='radius' value='0.1' size='10' onfocus="HideResults();" autofocus><br />
 &nbsp;<br />
 Flow Mach Number:<br />
-<input type='text' id='mach' name='mach' value='5.0' size='10' onfocus="HideResults();" autofocus><br />
+<input type='text' id='mach' name='mach' value='3.0' size='10' onfocus="HideResults();" autofocus><br />
 &nbsp;<br /> 	
 <INPUT id='Compute' TYPE='button' VALUE='Initialise Flow' onclick="ComputeInit();"> 
 	&nbsp; 
@@ -92,7 +92,7 @@ Place mouse over flowfield to commence run.
 </td></tr>
 <tr><td><center>
 <fieldset id="results">
-<canvas id="imageout" width="640" height="480" ="border:1px solid grey"></canvas>
+<canvas id="imageout" width="640" height="480" style="border:1px solid grey"></canvas>
 </fieldset>
 </center>
 <p id='output'> </p>
@@ -765,6 +765,7 @@ function erf(s) {
 
 </body>
 </html>
+
 
 
 
