@@ -22,15 +22,28 @@
    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
    <ul class="sub-menu">
    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
-   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
-   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="../structures/index.html">Aerospace Structures</a> 
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
    <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
    <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
    <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
    <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
-   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance and Aircraft Instruments</a></li>
-   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>
-   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
    <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
    </ul>
    </li>
@@ -276,7 +289,212 @@ is</p>
 </TR>
 </TABLE>
 </center>
-<P>&nbsp;</P>
+
+<h2>EFFECT OF VARIABLE STRINGER AREAS ON SKIN SHEAR FLOW</h2>
+<p>
+Most aircraft have wings/fuselages which are tapered and contain stringers whose cross-sectional
+areas vary along their length.
+</p><p>
+This is done to maintain a constant stress along the length of the stringer.
+</p><p>
+Look at a single boom/stringer in y-z axis:
+</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image104.png"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 104:</B>&nbsp;
+Diagram of variable area
+boom with axial loads P<sub>z1</sub> and P<sub>z2</sub></P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+From this diagram we can determine the change in load carried by the stringer/boom per unit
+length, in other words the shear flow induced to the boom to by this change in load due to the
+area change or taper.
+</p><p>
+If it is assumed that the stringer load varies linearly between these two points then:
+</p>
+$$ &Delta;q = {P_{zq} - P_{z2}}/{z_1 - z_2} = {&Delta;P}/{&Delta;z} $$
+<p>
+The shear flow is then determined by:
+</p><p>
+<b>1)</b> Determine shear flow equilibrium for each boom
+</p><p>
+<b>2)</b> Equate all shear flows as a function of one of the shear flows
+</p><p>
+<b>3)</b> Equate shear flow moments with externally applied moments.
+</p><p>
+<h3>EXAMPLE :</h3> 
+<p>Determine the shear flow distribution in the beam of example 13 by
+considering the variation in load at either side of the specified location.
+Boom areas are: B<sub>1</sub> = B<sub>3</sub> = B<sub>4</sub> =
+B<sub>6</sub> = 900 mm<sup>2</sup>, B<sub>2</sub> = B<sub>5</sub> = 1200
+mm<sup>2</sup>.
+</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image105.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 105:</B>&nbsp;
+Tapered Beam Box
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The view of the cross section 2 m from the end is:</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image106.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 106:</B>&nbsp;
+View of section 2 m from end
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+What is now required is the determination of the direct forces carried by the booms at either side
+of this section. We do this by looking at locations on either side of this one, and very close to it.
+</p><p>
+<b>a)</b> Determine sectional properties at z = 1900 mm
+ where height = 610 mm, width = 1220 mm, Mx =-210 MNmm</p>
+$$ I_{xx} = 4&times;900&times;305^2 + 2&times;1200&times;305^2 = 558.15&times;10^6 {mm}^4 $$
+<p><b>b)</b> Determine sectional properties at z= 2100 mm where
+height = 590 mm, width = 1180 mm, Mx = -190 MNmm</p>
+$$ I_{xx} = 4&times;900&times;295^2 + 2&times;1200&times;295^2 = 522.15x10^6
+{mm}^4 $$
+
+<p><b>c)</b> Determine axial loads carried by booms at two locations and induced shear
+flow</p>
+<center>
+<table width="400" border="1"><tr><th>Boom</th><th>Area(mm<sup>2</sup>)</th><th>h1
+(mm)</th><th>&sigma;<sub>z</sub> (MPa)</th><th>P<sub>z1</sub>
+(kN)</th><th>h<sub>2</sub> (mm)</th><th>&sigma;<sub>z</sub> (MPa)</th><th>P<sub>z2</sub>
+(kN)</th><th> &Delta;q (N/mm)</th><tr> 
+<tr><td>1</td><td>900</td><td>305</td><td>-115</td><td>-103.28</td><td>295</td><td>-107</td><td>-96.61</td><td>33.34</td></tr>
+<tr><td>2</td><td>1200</td><td>305</td><td>-115</td><td>-137.70</td><td>295</td><td>-107</td><td>-128.81</td><td>44.46</td></tr>
+<tr><td>3</td><td>900</td><td>305</td><td>-115</td><td>-103.28</td><td>295</td><td>-107</td><td>-96.61</td><td>33.34</td></tr>
+<tr><td>4</td><td>900</td><td>-305</td><td>115</td><td>103.28</td><td>-295</td><td>107</td><td>96.61</td><td>-33.34</td></tr>
+<tr><td>5</td><td>1200</td><td>-305</td><td>115</td><td>137.70</td><td>-295</td><td>107</td><td>128.81</td><td>-44.46</td></tr>
+<tr><td>6</td><td>900</td><td>-305</td><td>115</td><td>103.28</td><td>-295</td><td>107</td><td>96.61</td><td>-33.34</td></tr></table>
+</center>
+<p>Now that the booms induced shear flow are know a FBD needs to be
+drawn.</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image108.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 109:</B>&nbsp;
+Shear flow induced by booms direct load differential
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>d)</b> Determine skin shear flows</p>
+<p>
+To do this it is necessary to draw a do a free body diagram of each boom and carry out force
+equilibrium</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image109.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 109:</B>&nbsp;
+Free body diagram showing equilibrium of boom 2
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Because these shear flows act over the same length, equating equilibrium for boom 2
+gives:</p>
+$$ -q_{12} + 44.46 + q_{23} = 0 $$
+<p>giving that:</p>
+$$ q_{23} = q_{12} - 44.46 $$
+
+<p>By then constructing a FBD of all the booms and equating them to equilibrium the following
+equations can be obtained:</p>
+$$q_{34} = q_{12} - 77.8 $$
+$$q_{45} = q_{12} - 44.46 $$
+$$q_{56} = q_{12} $$
+$$q_{61} = q_{12} + 33.34 $$
+<p><b>e)</b> Equate moments about any point, for this example the centre of symmetry was
+selected.</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image110.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 110:</B>&nbsp;
+Diagram showing the shear flows and applied loads at analysed section
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Take moments about the centre of symmetry of the section to obtain the following
+equation:</p>
+$$ -100&times;10^3&times;400 = 600&times;300(q_{12} + q_{23} + q_{45} +
+q_{56}) + 600&times;600(q_{34} + q_{61}) $$
+<p>and by substituting the above equations for the different shear flows, it
+gives:</p>
+$$ q_{12} = —5.548 \text"&nbsp;&nbsp; N/mm" $$
+<p>and substituting this value into the above equations gives:</p>
+$$ q_{23} = -50 \text"&nbsp;&nbsp; N/mm" $$
+$$ q_{34} = -83.348 \text"&nbsp;&nbsp; N/mm" $$
+$$ q_{45} = -50 \text"&nbsp;&nbsp; N/mm" $$
+$$ q_{56} = -5.548 \text"&nbsp;&nbsp; N/mm" $$
+$$ q_{61} = 27.792 \text"&nbsp;&nbsp; N/mm" $$
+<p>
+and the shear flow distribution will look like this:</p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image111.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 111:</B>&nbsp;
+Final shear flow distribution for section 2 m from end
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>These results are almost identical with the results of the previuos example which
+were:<p>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image112.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 112:</B>&nbsp;
+Shear flow distribution for the
+same section but using the method of
+prior example
+</P></TD>
+</TR>
+</TABLE>
+</center>
+
+<p><b>Note:</b>
+When doing a complete wing or fuselage analysis, the procedure explained here should
+be carried out to a series of sections along the length of their span. With interval
+lengths being reasonably small compared to the length of the
+wing/fuselage.</p>
+
+<p>&nbsp;</p>
+
 
 <center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
 
@@ -304,5 +522,4 @@ is</p>
 
 </body>
 </html>							
-
 
