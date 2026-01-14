@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aerospace Structures | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>STRESS, STRAIN AND DISPLACEMENT RELATIONSHIPS FOR OPEN AND CLOSED SINGLE CELL THIN WALLED BEAMS</h2>
+<P>Assumptions:</P>
+<P>1)&nbsp;&nbsp;&nbsp;Axial constraint effects are negligible</P>
+<P>2)&nbsp;&nbsp;&nbsp;Shear stresses normal to surface can be neglected</P>
+<P>3)&nbsp;&nbsp;&nbsp;Direct and shear stresses on planes normal to surface are constant across thickness</P>
+<P>4)&nbsp;&nbsp;&nbsp;Beams have uniform section, with skin thickness varying around the section but constant<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;along length of the beam</P>
+<P></P>
+The parameter <b>'s'</b> in this analysis is the distance measured around the cross-section of the tube/beam from some convenient origin. 
+<P></P>
+For a loaded beam, look at an element of size $&delta;s &times; dz &times; t $ of its wall showing all shear and direct stresses necessary to keep it in equilibrium.
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image13.gif" WIDTH=268 HEIGHT=188></P></TD>
+<TD><P ALIGN="CENTER"><IMG SRC="image12.gif" WIDTH=402 HEIGHT=159></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 23:</STRONG>&nbsp;Loaded beam structure.</P></TD>
+<TD><P ALIGN="CENTER"><STRONG>Figure 24:</STRONG>&nbsp;General stress system on element of closed or open beam section.</P></TD>
+</TR>
+</TABLE>
+</center>
+<P></P>
+<p>These shear and direct stresses are produced by the bending moments, 
+shear loads and internal 
+pressures. Although 't' can vary with 's' for each element of length
+<b>&delta;s</b>, we can assume that this length is small enough to make 't' 
+constant over this length.</p>
+<P>From Elasticity we have that:</P>
+$$ &tau;_{sz} = &tau;_{zs} = &tau; $$
+<P>Instead of using shear stress, the analysis will become easier if we introduce 
+the term <B>Shear Flow</B> $ q = &tau; t$, which is the shear force per unit length rather than shear
+stress.<p> 
+<p>Shear flow is defined positive if it is in the same direction as increasing 's'. 
+<P>What we are attempting to determine in this analysis are two things, firstly
+ a relationship between the shear and direct stresses, and secondly a 
+ relationship between shear strain and the deformation of this element. 
+ So we may then use these relationships to determine a shear flow equation and 
+ an angle of twist equation.</P>
+<p>We now replace the shear stress values in the element with those of shear
+flow:</p> 
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN=CENTER><IMG SRC="image117.gif" WIDTH=412 HEIGHT=123></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<b><P ALIGN=CENTER>Figure 25:</b>&nbsp;Element showing the direct stresses and shear flow.</TD>
+</TR>
+</TABLE>
+</center>
+<p>Using equilibrium about the z-axis and neglecting body forces gives:<p> 
+$$&Sigma; F_z = ( &sigma;_z + {&part;&sigma;_z}/{&part;z} &delta;z)t &delta;s - &sigma;_z t &delta;s +( q + {&part; q}/{&part;s} &delta;s) &delta;z - q &delta;z = 0 $$
+<p>Dividing by &delta;z and in the limit as <b>δz → 0 </b>, it simplifies
+to:</p> 
+$${&part;q}/{&part;s} + t {&part; &sigma;_z} /{&part;z} = 0 $$
+<p>and using equilibrium about the 's' direction, then, </p> 
+$${&part;q}/{&part;z} + t {&part; &sigma;_s} /{&part;s} = 0 $$
+<p>We now need to look at strain relationships. Starting by defining the three
+ components of displacement at a point on the tube wall.</p> 
+<CENTER>
+<TABLE WIDTH=50% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image126.gif" WIDTH=255 HEIGHT=159></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 26:</b>&nbsp;Axial, tangential and normal components of displacement of a point in beam wall.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Where :</p> 
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w &nbsp;&nbsp;=&nbsp;&nbsp; displacement in the z axis</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<SUB>t</SUB>&nbsp;&nbsp; =&nbsp;&nbsp; tangential displacement, positive with increasing 's'</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<SUB>n</SUB>&nbsp;&nbsp;=&nbsp;&nbsp; normal displacement, positive outwards</P>
+<p>
+From Elasticity :</p>
+$$&epsilon;_z = {&part;w}/{&part;z}$$
+<p>To define Shear strain look at how the element is distorted by shear:</p>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image128.gif" WIDTH=253 HEIGHT=135></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 27:</b>&nbsp;Element distorted due to shear.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Shear strain is then defined as the addition of the two angles of 
+rotation of the sides, such that:</p>
+$$ &gamma; = &phi;_1 + &phi;_2 $$
+where in the limits as the element size goes to zero:
+$$ &gamma; = {&part;w}/{&part;s} + {&part;v_t}/{&part; z} $$
+<p>It is now necessary to define the term <b>v<SUB>t</SUB></b> as a function of
+ displacements u and v ( in x and y axis) and angle of twist of the section
+<b>&theta;</b>. In order to do this it is necessary to assume that the ribs are 
+able to hold the cross section rigidly enough so that when it twists it holds 
+its cross sectional 
+shape. However the ribs have no strength in a plane normal to them, allowing 
+the section to 
+warp or deform in the z axis.</P>
+<P>Define</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&Psi;&nbsp;&nbsp;=&nbsp;&nbsp;Angle between the tangent to the surface of the beam's cross section and the x-axis.</P>
+<CENTER>
+<TABLE WIDTH="20%" CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR><TD><p align="center"><IMG SRC="image131.gif" WIDTH=376 HEIGHT=257></p></TD>
+</TR>
+<TR>
+<TD><P align="center"><B>Figure 28:</B>&nbsp;Beam cross section rotated by angle
+&theta;, showing the rotation of the normal to surface.</p></TD>
+</TR>
+</TABLE>
+</center>
+<p>Tangential displacement at any point N on the tube is :</P>
+$$v_t = p&theta; + u cos (&psi;) + v sin(&psi;) $$
+<p>
+Relating these displacements about a point R, which is the centre of twist gives:
+<CENTER>
+<TABLE CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR>
+<TD><p ALIGN="CENTER"><IMG SRC="image133.gif" WIDTH=356 HEIGHT=219></p></TD>
+</TR>
+<TR>
+<TD><p align="center"><B>Figure 29:</B>&nbsp;Rotation of beam section about centre of
+twist</p></TD>
+</TR>
+</TABLE>
+</center>
+<p>the displacement <b>v<SUB>t</SUB></b> is</p>
+$$v_t = p_R &theta; $$
+<p>and</p>
+$$p_R = p - x_R sin(&psi;) + y_R cos(&psi); $$
+<p>which when combined give:</p>
+$$v_t = p &theta; - x_R &theta; sin(&psi;) + y_R &theta; cos(&psi;) $$
+<p>These two equations which describe the tangential displacement of the tube. 
+In order to determine the second term of the equation for &gamma; it is 
+necessary to differentiate the equations for v<sub>t</sub> with respect to
+z.</p>
+$$ {&part; v_t}/{&part;z} = p {d&theta;}/{dz} + {du}/{dz} cos(&psi) + {dv}/{dz} sin(&psi) $$
+<p>and</p>
+$$ {&part; v_t}/{&part;z} = p {d&theta;}/{dz} - x_R sin(&psi;) {d&theta;}/{dz} + y_R cos(&psi;) {d&theta;}/{dz} $$
+<p>These two equations represent the same value, therefore the centre of rotation
+is:</p>
+$$ x_R = -{({dv}/{dz})}/{({d&theta;}/{dz})} \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" y_R =
+{({du}/{dz})}/{({d&theta;}/{dz})} $$
+<p>These equations will be used to determine the shear stress distribution in 
+a thin walled open or closed tube, as well as the displacement, warping and 
+angle of twist of the section due to these shear
+loads.</p>
+<h3>SHEAR FLOW IN BEAMS WITH OPEN SECTIONS</h3>
+<P>Look at a beam with an open section, with applied shear forces S<SUB>x</SUB> and S<SUB>y</SUB> about a point which<BR>produces no twisting of the tube cross section (<EM>Shear Centre</EM>).</P>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image140.gif" WIDTH=310 HEIGHT=233></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 30:</b>&nbsp;Open beam section loaded with two shear loads (S<SUB>y</SUB> and S<SUB>x</SUB>)</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+The relationship between shear flow and axial stress is given by :
+$${&part;q}/{&part;s} + t {&part; &sigma;_z} /{&part;z} = 0 $$
+<p>and the equation for direct stress is given by equation :
+$$ &sigma;_x = {M&nwarr;{-}_x}/{I_{xx}} y + {M&nwarr;{-}_y}/{I_{yy}} x $$
+<p>differentiating this equation gives:</p>
+$$ {&part;&sigma;_x}/{&part;z} = {&part;M&nwarr;{-}_x}/{&part;z} y/{I_{xx}} +
+{&part; M&nwarr;{-}_y}/{&part;z} x/{I_{yy}} $$
+<p>substituting back into the first equation gives:<p>
+$$ {&part;q}/{&part;s} = - {&part;M&nwarr;{-}_x}/{&part;z} {ty}/{I_{xx}} + {&part; M&nwarr;{-}_y}/{&part;z} {tx}/{I_{yy}} $$
+<p>substituting for the effective shear forces gives:</p>
+$$ {&part;q}/{&part;s} = - {S&nwarr;{-}_y}/{I_{xx}} ty - {S&nwarr;{-}_x}/{I_{yy}} tx $$
+<p>Integrating this equation wrt 's' from one point to another along the beam 
+surface gives:</p>
+$$ q_2 - q_1 = &int;^2_1 {&part;q}/{&part;s}.ds = - {S&nwarr;{-}_y}/{I_{xx}} &int;_1^2 ty.ds - {S&nwarr;{-}_x}/{I_{yy}} &int;_1^2 tx.ds $$
+<p>But by starting at s = 0 where q = 0 for an open beam, then:</p>
+$$ q_s  = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s ty.ds - {S&nwarr;{-}_x}/{I_{yy}} &int;_0^s tx.ds $$
+<BR>
+<h3>Example:</h3> 
+<p>Determine the shear flow distribution in the thin walled channel section 
+loaded by a single vertical force applied through the shear centre.</p>
+<CENTER>
+<TABLE WIDTH=50% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image148.gif" WIDTH=194 HEIGHT=276></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 31:</b>&nbsp;Channel section loaded vertically through shear centre.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Since the applied vertical load passes through the shear centre, there is 
+no torque applied to the beam, so shear flow equation applies.</p>
+Since only S<SUB>y</SUB> is applied, then:
+$$ S&nwarr;{-}_y = {S_y}/{1 - {I_{xy}}^2/{I_{xx}I_{yy}}} \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" S&nwarr;{-}_x = {- S_y {I_{xy}}/{I_{xx}}/{1 - {I_{xy}}^2/{I_{xx} I_{yy}}} $$
+<p>Where :</p> 
+$$ I_{xx} = 8/3 h^3 t  \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" I_{yy}= 5/{12} h^3 t  \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" I_{xy} = 0 $$
+<P>Which gives that </P>
+$$ S&nwarr;{-}_y = S_y \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" S&nwarr;{-}_x = 0 $$
+<P> So shear flow equation becomes: </P>
+$$ q_s =  - {S_y}/{I_xx} &int;_0^s ty. ds $$
+<P>
+On the bottom flange 1 --> 2, at s<SUB>1</SUB> = 0, y = -h and at s<SUB>1</SUB>
+ = h, y = -h which by using the equation of a 
+ line y = ms<SUB>1</SUB> + b gives that: y = -h, where 0 &lt; s<SUB>1 </SUB>&lt; h 
+ so the shear flow between points 1 and 2 is: </P>
+$$ q_{12} =   {3 S_y}/{8h^3t} &int;_0^{s_1} ht. ds_1 $$
+<p>giving:</p>
+$$ q_{12} =   {3 S_y}/{8h^2} s_1 $$
+<p>Now at s<SUB>1</SUB> = 0, q<SUB>12</SUB> = 0, at s<SUB>1</SUB> = h, 
+q<SUB>2</SUB> = 3S<SUB>y</SUB> / 8h, and from the above it can be seen that we 
+have a linear increasing shear flow.</p>
+On the web 2-->3, at s<SUB>2</SUB> = 0 , y = -h and at s<SUB>2</SUB> = 2h, y = 
+h which by using the equation of a line y = ms<SUB>2</SUB> + b gives that 
+y = - h + s<SUB>2</SUB>, where 0 &lt; s<SUB>2</SUB> &lt; 2h , but at point 2 
+the shear flow is not 0 so:</p> 
+$$ q_{23} =   {3 S_y}/{8h^3t} &int;_0^{s_2} t(h -s_2).ds_2 + q_2 $$
+<p>giving:</p> 
+$$ q_{23} =   {3 S_y}/{8h^3} (h^2 + hs_2 - {s_2^2}/2) $$
+<p>Which has the form of a parabola symmetrical about the x-axis, with the 
+maximum value of shear flow at s<SUB>2</SUB> = h, of q<SUB>23</SUB> = 9S<SUB>y</SUB>
+ / 16h, and at s<SUB>2</SUB> = 2h, q<SUB>3</SUB> = 3S<SUB>y</SUB> / 8h.</p> 
+<p>On the top flange 34, at s3 = 0, y = h and at s3 = h, y = h which by using 
+the equation of a line y = ms<SUB>3</SUB> + b gives that y = h, where 0 &lt; s<SUB>3 </SUB>&lt; h 
+so the shear flow between points 3 and 4 is: </P>
+$$ q_{34} =  - {3 S_y}/{8h^3t} &int;_0^{s_3} ht.ds_3 + q_3 $$
+<p>giving:</p> 
+$$ q_{34} =   {3 S_y}/{8h^2} (h - s_3) $$
+<p>And at s<SUB>3</SUB> = h , q<SUB>4</SUB> = 0, which is a linearly decreasing shear
+flow.</p> 
+<p>The shear flow distribution looks like this:</p>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image163.gif" WIDTH=486 HEIGHT=353></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 32:</b>&nbsp;Shear flow distribution on channel section</P></TD>
+</TR>
+</TABLE>
+</center>
+
+<h3>SHEAR CENTRE OF OPEN BEAM SECTION</h3>
+<P>The shear centre is that point in the cross section through which the 
+shear loads produce no twisting. It is also the centre of twist when torsional 
+loads are applied. As a rule, if a cross-section has an axis of symmetry, then 
+the shear centre must lie on that axis and in cruciform or angle sections, the 
+shear centre is located at the intersections. It is important to define the 
+position of the shear centre because although most wings are not loaded at this point, if we 
+know its location, we can represent the shear loads applied as combinations of shear loads through 
+the shear centre and a torque.</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image164.gif" WIDTH=391 HEIGHT=162></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 33:</b>&nbsp;Shear centre locations for some typical open beam sections.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+To calculate the shear centre, determine the moment generated by the shear 
+flow about an appropriate point in the cross section. This moment is equal to 
+the moment generated by the applied shear force about this same point.</p>
+$$ &Sigma; M_{applied} = &Sigma; M_{shear flow} $$
+<h3>Example :</h3> 
+<p>For the open beam section of the previous example, determine the position 
+of the shear centre.</p>
+<CENTER>
+<TABLE WIDTH="45%" BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image166.gif" WIDTH=255 HEIGHT=252></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 34:</b>&nbsp;Channel section with load through shear centre.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Because shape is symmetrical the shear centre must lie on the x-axis, 
+a distance sc<SUB>x</SUB> from the web.
+</P>
+<p>The steps in determining the shear centre are as follows:</p>
+<P>1)&nbsp;&nbsp;&nbsp;Determine the equations which describe the shear flow in the 
+cross section.</P>
+<p>These were found to be:</p>
+$$ q_{12} =   {3 S_y}/{8h^2} s_1 $$
+$$ q_{23} =   {3 S_y}/{8h^3} (h^2 + hs_2 - {s_2^2}/2) $$
+$$ q_{34} =   {3 S_y}/{8h^2} (h - s_3) $$
+<p>2) &nbsp;&nbsp;&nbsp;Find an appropriate point in the cross section and take moments about it. In this case <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point 3. This eliminates the moments caused by the shear flow in the web 23 and flange 34.
+</P>
+<p>The moment equation is:</p>
+$$ S_y sc_x = &int;_0^h q_{12} 2h .ds_1 $$ 
+<p>substituting the equation for q<SUB>12</SUB> defined previously,
+gives:</p>
+$$ S_y sc_x = 2h {3 S_y}/{8h^2} &int;_0^h s_1. ds_1 = 3/4 S_y/h ( S_i^2 /2 ) = 3/8 h S_y $$
+<p>which gives:</p>
+$$ sc_x = 3/8 h $$
+<p><b>Note: </b>In the case of unsymmetrical sections, the coordinates (sc<SUB>x</SUB>, sc<SUB>y</SUB>) of the 
+shear centre have to be found. This is best achieved by first applying a vertical 
+shear force S<SUB>y</SUB>, determining sc<SUB>x</SUB>, then applying a horizontal 
+force S<SUB>x</SUB> determining sc<SUB>y</SUB>. </p>
+
+<h2>SHEAR FLOW OF CLOSED TUBES</h2>
+<p>
+This solution is similar to that for an open beam section but with 2
+differences:</p>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1)&nbsp;&nbsp;&nbsp;Shear loads may be applied through any point in cross section;</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;2)&nbsp;&nbsp;&nbsp;&nbsp;At origin of 's', the value of shear flow q<SUB>s,0</SUB> is unknown </P>
+<P>Look at arbitrary closed beam, with applied shear forces S<SUB>x</SUB> and S<SUB>y</SUB></P><BR>
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN="CENTER"><IMG SRC="image173.gif" WIDTH=416 HEIGHT=245></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<b><P ALIGN="CENTER">Figure 35:</b>&nbsp;Closed beam section with two shear loads (S<SUB>y</SUB> and S<SUB>x</SUB>)</TD>
+</TR>
+</TABLE>
+</center>
+<P>If hoop stresses and body forces are absent, it is necessary to use shear
+flow equation as: </P>
+$$ {&part;q}/{&part;s} + t {&part; &sigma;_z}/{&part;z} = 0 $$
+<P>and as for the analysis of open beam sections, when substituting for
+&sigma;<SUB>z</SUB>, we obtained: </P>
+$$ &int;_0^s {&part;q}/{&part;s}.ds = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s ty.ds - {S&nwarr;{-}_x}/{I_{yy}} &int;_0^s tx.ds $$ 
+<P>However unlike for open beams, at s = 0, q<SUB>s0</SUB>&ne;0, so when integrating 
+we get: </P>
+$$ q_s = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s ty.ds - {S&nwarr;{-}_x}/{I_{yy}} &int;_0^s tx.ds + q_{s0}$$ 
+<P>The first two terms are identical to the equation of shear flow of open 
+tube loaded through shear centre. If we let this terms be q<SUB>b</SUB> then: </P>
+$$ q_s = q_b + q_{s0} $$
+<p>To obtain q<SUB>b</SUB> we assume the beam section is cut at some point to produce an open tube, and the shear flow 
+distribution is then given by the following equation, 
+$$ q_b = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s ty.ds - {S&nwarr;{-}_x}/{I_{yy}} &int;_0^s tx.ds $$ 
+where at s = 0 , q<SUB>s</SUB> = 0.
+<p>What is now required, is a way of determining the value of the shear 
+stress at the point where the beam was cut. </p>
+<P>
+To do this, look at beam cross section loaded at some point:</p>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image179.gif" WIDTH=227 HEIGHT=231></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 36:</b>&nbsp;Resolving moments due to applied loads and shear flow about a point.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Take moments about a convenient point inside the beam.
+</P>
+<p>The moment equation will look like this</p>
+$$ S_x &eta;_0 - S_y &epsilon;_0 = &#8750; pq.ds $$
+<p>but the shear flow term is given as two parts, so substituting for q
+gives:</p>
+$$ S_x &eta;_0 - S_y &epsilon;_0 = &#8750; pq_b.ds + &#8750; pq_{s0}.ds $$
+<p>The term &#8750; s the integral around the cross section.</p>  
+<p>By looking at the area enclosed by the elemental distance <SUB>s</SUB> and 
+the point where moments are taken, then:</p> 
+$$  &delta; A = 1/2 p.&delta;s $$
+<p>Integrating this over the cross section as the element &delta;s&#8594;0, 
+gives:</p>
+$$ &#8750; dA = 1/2 &#8750; p ds $$
+<p>Which means that: </p>
+$$ &#8750; p.ds = 2A $$ 
+<p>where A = Area enclosed by the mid-line of the beam section wall</P>
+<p>Giving that:</p> 
+$$ S_x &eta;_0 - S_y &epsilon;_0 = &#8750; pq_b.ds + 2pq_{s0}A $$
+<p>But if we take moments about the points where the shear forces are applied, 
+then this equation becomes:</p> 
+$$ 0 = &#8750; pq_b.ds + 2pq_{s0}A $$
+<p>which can easily be used to determine the value of q<SUB>s,0</SUB>.</p> 
+<h2>TWIST AND WARPING OF SHEAR LOADED CLOSED SECTIONS</h2>
+<p>If a shear load is not applied at the shear centre, the closed beam 
+section will both twist and have an out of plane axial displacement
+(warp).</p>
+<p>From the definition of shear flow and from elasticity: 
+$$ q_s = &tau; t \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" &tau; = G &gamma; $$ 
+<p>with the term for shear strain given by
+$$ &gamma; = {&part;w}/{&part;s} + {&part;v_t}/{&part;z} $$
+Combining all equations gives:
+$$ q_s = Gt ({&part;w}/{&part;s} + {&part;v_t}/{&part;z}) $$
+<p>and substituting for v<sub>t</sub> gives:
+$$ {q_s}/{Gt} = {&part;w}/{&part;s} + p {d&theta;}/{dz} + {du}/{dz} cos(&psi;) + {dv}/{dz} sin(&psi;) $$
+<p>Integrating this equation around the cross section wrt 's' gives:</p>
+$$ {d&theta;}/{dz} = 1/{2A} &#8750; {q_s}/{Gt} .ds $$ 
+<p>Which is the rate of twist of the beam wrt z. </p>
+<P>If however, the previous equation was integrated wrt 's' from some origin 
+point on the surface of the beam to any other point in the cross section, 
+with the <B>axis origin at the shear centre</B>, it gives:</p>
+$$ w_s = w_b + w_0 $$
+<p>where :</p>
+$$ w_b = &int_0^s {q_s}/{Gt}.ds - {A_{0s}}/A &#8750; {q_s}/{Gt}.ds $$
+<p>and</p>
+$$ A_{0s} = 1/2 &int;_0^s p.ds = \text" area swept by generator about shear centre" $$
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image199.gif" WIDTH=226 HEIGHT=207></P></TD>
+</TR>
+<TD><P ALIGN=CENTER><b>Figure 37:</b>&nbsp;Beam section showing area swept by generator.</P></TD>
+</TABLE>
+</center>
+<p>This equation gives the axial displacement or warping of the beam. 
+If the cross section was singly or doubly symmetrical, at the axis of symmetry 
+the warping would be zero. If the origin of 's' was taken at any of these 
+points then at s = 0, w<SUB>0</SUB> = 0 and the rest of the warping would be 
+easily found.</b>
+<p>For unsymmetrical sections, the unknown warping displacement at s = 0 is 
+given by:</p>
+$$ w_0 = { &#8750; w_s t.ds }/ { &#8750; t.ds } $$
+<p>However in order to obtain these values, you must first know the position 
+of the shear centre.</p>
+<h2>SHEAR CENTRE OF CLOSED BEAM SECTIONS</h2>
+<p>The position of the shear centre for a beam loaded as shown in Figure 38, 
+can be found by using equation : </p>
+$$ S_y &epsilon;_0 - S_x &eta;_0 = &#8750 pq_b.ds + 2 q_{s0} A $$
+<p>where:</p>
+<P>&eta;<sub>0</SUB>  =  vertical distance from x-axis to shear centre from reference axis</P>
+<P>&epsilon;<SUB>0</SUB>   =  horizontal distance from y-axis to shear centre from reference axis</P>
+<CENTER>
+<TABLE WIDTH=30% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image202.gif" WIDTH=188 HEIGHT=172></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 38:</b>&nbsp;Determining location of the shear centre for closed beam section.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>In order to determine the shear centre we need to determine q<SUB>s,0</SUB>. 
+ From the definition for shear centre, if a shear load is applied here, 
+ it produces no twist, so by using previous equation for rate of twist :</p>
+$$ 1/{2A} &#8750; {q_s}/{Gt}.ds = 0 $$
+<p>and substituting for q<SUB>s0</SUB> it gives:</p>
+$$ 1/{2A} &#8750; 1/{Gt}.(q_b + q_{s0}). ds = 0 $$
+<p>which gives that:</p>
+$$ q_{s0} = - { &#8750; {q_b}/{Gt} .ds }/ { &#8750; 1/{Gt} .ds } $$
+<p>and if Gt is constant:</p>
+$$ q_{s0} = - { &#8750; {q_b}.ds }/ { &#8750; .ds } $$
+<p>With these equations the shear flow , shear centre, the rate of twist, 
+and warping in a closed beam section can now be determined. </p>
+<h3>Example:</h3> 
+<p>Determine shear flow, shear centre and warping in the following closed beam
+section loaded with a shear force S<SUB>y</SUB> at the s.c.. G is constant
+.</p>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image207.gif" WIDTH=419 HEIGHT=293></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 39:</b>&nbsp;Closed section of Example</P></TD>
+</TR>
+</TABLE>
+</center>
+<P><B>1)&nbsp;&nbsp;&nbsp;Determine sectional properties</B></P>
+<p>Since section symmetrical  I<SUB>xy</SUB> = 0, and since only loaded 
+vertically , only need  I<SUB>xx</SUB>, which is:</p>
+$$ I_{xx} = {3th^3}/{12} + {th^3}/{12} + 2 ( {3ht^3}/{12} + (h/2)^2 3th) $$
+<p>giving:</p>
+$$ I_{xx} = {11}/6 th^3 $$
+<p>Therefore:</p>
+$$ S&nwarr;{-}_x = 0 \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" S&nwarr;{-}_y = S_y $$
+<P><B>2)&nbsp;&nbsp;&nbsp;Determine Shear Flows</B></P>
+Between 1 and 2, y = s<SUB>1</SUB> and at s<SUB>1</SUB> = 0 , q<SUB>1</SUB> = q<SUB>0</SUB>
+$$ q_{12} = q_0 - {S_y}/{I_{xx}} &int;_0^s1 3ts_1 .ds_1 $$  
+<p>giving:</p>
+$$ q_{12} = q_0 - 9/{11} {S_y}/{h^3} s_1^2 $$  
+<p>between 2 and 3, y = h/2, at s<SUB>2</SUB> = 0, q<SUB>2</SUB> = q<SUB>0</SUB> - 9S<SUB>y</SUB>/44h, giving:
+</p>
+$$ q_{23} = q_0 - 9/{44} {S_y}/h - 3/{11} {S_y}/{h^2} s_2 $$
+<p>between 3 and 4, y = h/2 - s<SUB>3</SUB>, at s<SUB>3</SUB> = 0, q<SUB>3</SUB> = q<SUB>0</SUB> - 45S<SUB>y</SUB>/44h,
+giving:</p>
+$$ q_{34} = q_0 - {48}/{44} {S_y}/h + 3/{11} {s_y}/{h^3} ( h/2 - s_3 )^2 $$
+at s<SUB>3</SUB> = h/2, q<SUB>3</SUB> = q<SUB>0</SUB> - 48S<SUB>y</SUB>/44h 
+<P>The shear flow distribution will look like this:</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image215.gif" WIDTH=494 HEIGHT=358></DIV></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 40:</b>&nbsp;Shear flow distribution with constant q<SUB>0</SUB></P></TD>
+</TR>
+</TABLE>
+</center>
+<P><B>3)&nbsp;&nbsp;&nbsp;Determine q<SUB>0</SUB></B></P>
+<P>Because 't' is not constant, shear flow equation becomes:</P>
+$$ q_{s0} = - { &#8750; {q_b}/t .ds } / { &#8750; 1/t .ds $$
+<p>where due to symmetry:</p>
+$$ &#8750 {q_b}/t ds = 2 ( &int;_1^2 {q_{b12}} / {t_{12}}.ds + &int;_2^3 {q_{b23}} / {t_{23}}.ds + &int;_3^4 {q_{b34}} / {t_{34}}.ds) = - {105}/{22} {S_y}/t $$ 
+<p>and</p>
+$$ &#8750 1/t ds = 2 ( &int;_1^2 1/{t_{12}}.ds + &int;_2^3 1/{t_{23}}.ds + &int;_3^4 1/{t_{34}}.ds) = {22}/3 h/t $$
+<p>giving that:</p>
+$$ q_{s0} = {315}/{484} {S_y}/h $$
+<p>Substituting this into previous q<sub>ij</sub> equations gives:</p>
+$$ q_{12} = {315}/{484} {S_y}/{h} - {9}/{11} {S_y}/{h^3} s_1^2 $$  
+<p> </p>
+$$ q_{23} = {54}/{121} {S_y}/h - 3/{11} {S_y}/{h^2} s_2 $$
+<p> </p>
+$$ q_{34} = {213}/{484} {S_y}/h + 3/{11} {s_y}/{h^3} ( h/2 - s_3 )^2 $$
+<p>Plotting the shear flow distribution, it would look like this:</p>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image223.gif" WIDTH=479 HEIGHT=340></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 41:</b>&nbsp;Shear flow distribution of closed beam.</P></TD>
+</TR>
+</TABLE>
+</center>
+<P><b>4)&nbsp;&nbsp;&nbsp; Determine Shear Centre</b></P>
+<p>To determine the shear centre you can use full equation or since q<SUB>s0</SUB> was found, use equilibrium. If you use the latter it a lot
+easier.</p>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image224.gif" WIDTH=277 HEIGHT=194></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 42:</b>&nbsp;Closed beam indicating applied shear force and the direction of the shear flow.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+From definition of applied moments and resultant moments due to internal
+stresses:</p>
+$$ &Sigma;\text"Applied Torque" = &Sigma;\text"Shear Flow Torque Resultant" $$
+<p>Taking moments about point 1</p>
+$$ S_y &epsilon;_0 = -2( &int;_0^{3h} q_{23} h/2 .ds_2 + &int;_0^{h/2} q_{34} 3h. ds_3 ) $$
+<p>First term:</p>
+$$ &int;_0^{3h} q_{23} h/2 .ds_2 = h/2 &int;_0^{3h} ( {54}/{121} {S_y}/h - 3/{11} {S_y}/{h^2} s_2) .ds_2 = {27}/{484} S_y h $$
+<p>Second Term:</p>
+$$ &int;_0^{h/2} q_{34} 3 h.ds_3 = 3h &int;_0^{h/2} ( - {213}/{484} {S_y}/h + 3/{11} {S_y}/{h^3}( h/2 - s_3)^2).ds_3 = - {303}/{484} S_y h $$
+<p>Substituting gives:</p>
+$$ &epsilon;_0 = {138}/{121}h = 1.14h $$
+<B>5 )&nbsp;&nbsp;&nbsp;&nbsp;Determine Section Warping</B>
+<P>This is done using equation for w<sub>s</sub> but first the axis must be moved to the shear centre:</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image230.gif" WIDTH=280 HEIGHT=208></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 43:</b>&nbsp;Closed beam with axis shifted to shear centre.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Since our origin is point 1, the at s = 0 , w<SUB>0</SUB> = 0, so equation becomes:
+$$ w_s = &int;_0^s {q_s}/{Gt}.ds - {A_{0s}}/A &#8750; {q_s}/{Gt}.ds $$
+<p>
+But because the load is applied through the shear centre, the right hand term 
+goes to zero, giving that</p>
+$$ w_s = &int;_0^s {q_s}/{Gt} .ds $$
+<p>Between 1 and 2,</p> 
+$$ w_{12} = 1/{3Gt} &int;_0^{s_1} q_{12}.ds_1 = 1/{3Gt} &int;_0^{s_1} ({315}/{484} {S_y}/h - 9/{11} {S_y}/{h^3}s_1^2).ds_1 =
+({105}/{484}{S_y}/h - 1/{11} {s_1^3}/{h^3}) {S_y}/{Gt} $$
+<p>At point 2,</p>
+$$ w_2 = {47}/{484} {S_y}/{Gt} $$
+<p>and between 2 and 3,</p>
+$$ w_{23} = w_2 + 1/{Gt} &int;_0^{s_2} q_{23}.ds_2 = 1/{Gt} &int;_0^{s_2}({54}/{121} {S_y}/h - 3/{11} {S_y}/{h^2} s_2).ds_2 =
+({47}/{484}- {54}/{121} {s_2}/h - 3/{22} {s_2^2}/{h^2} ) {S_y}/{Gt} $$
+<p>at point 3,</p>
+$$ w_3 = {101}/{404} {S_y}/{Gt} $$
+<p>and between 3 and 4</p>
+$$ w_{34} = w_3 + 1/{Gt} &int;_0^{s_3} q_{34}.ds_3 = 1/{Gt} &int;_0^{s_3} -
+{213}/{484} {S_y}/h + 3/{11} {S_y}/{h^3}( h/2 - s_3)^2).ds_3 = ({213}/{968}
+- {213}/{484} {S_3}/h - 1/{11h^3}(h/2 - s_3)^3){S_y}/{Gt} $$  
+<p>Because the section is symmetrical about the x-axis, the warping distribution is equal in magnitude but opposite in direction. If this is plotted, it looks like
+this:</p>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image238.gif" WIDTH=391 HEIGHT=164></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><b>Figure 44:</b>&nbsp;Diagram showing the warping distribution on the closed beam.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><br /></p>
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							

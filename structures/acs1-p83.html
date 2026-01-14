@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aerospace Structures | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+
+<h2>MULTICELL BEAMS</h2>
+
+<h3>BENDING</h3>
+<P>
+When determining the bending stresses, there is no difference if the section 
+is multicell or not because for bending only the boom areas are used. So in 
+order to do this calculation just use the equations derived in section :
+Bending of Beams with non-symmetrical Cross Sections. 
+</P>
+<h3>TORSION</h3>
+<p>
+Look at a wing section made of 'N' cells carrying a torque 'T'.
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P align="center"><IMG align="center" SRC="image385.gif" WIDTH=386 HEIGHT=156></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 80:</B>&nbsp;Multicell wing structure with applied torque T</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+The torque T, generates individual torques in each cell, the sum of which must 
+equal T, so:</p>
+$$ T = T_1 + T_2 + ... + T_N = &Sigma;_{i=1}^N T_i $$
+<p>But a torque in a closed cell (beam section) produces a constant shear flow, 
+given by :</p>
+$$ T_i = 2 A_i q_i $$
+<p>Substituting this gives:</p>
+$$T = &Sigma;_{i=1}^N 2 A_i q_i $$
+<p>However since we have 'N' cells this equation is statically indeterminate, 
+so we need a compatibility relationship.</p>
+<h3>Effect of Booms on Shear Flow Distribution</h3>
+<p>Look at an elemental section of wing of length z, where three skin sections 
+are in contact with a boom of area B, Figure 81.</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P align="center"><IMG SRC="image390.gif" WIDTH=388 HEIGHT=185></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 81:</B>&nbsp;Equilibrium of boom/skin/web junction</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>At this boom/skin/web junction, the shear flows must all be in equilibrium. 
+The element <b>&delta;z</b> of the boom experiences forces only produced by 
+shear flows because no direct stresses are present.  Therefore the booms 
+don't affect the analysis in pure torsion</p>.
+<p>Summing the forces along boom gives:
+$$ &Sigma; F_{boom} = 0 = q_1 &delta;z - q_2 &delta; z - q_3 &delta; z $$
+<p>which simplifies to:</p>
+$$ q_1 = q_2 + q_3 $$
+<p>If no booms are present a similar relationship is obtained.</p>
+<P>This equation means that the sum of the shear flows into a junction must 
+equal the sum of the shear flows out of the junction. This is similar to fluid 
+flow in a multi pipe system. Which is why we use the term shear flow.</P>
+<h3>Compatibility Equation for Each Cell</h3>
+<P>
+Due to the ribs in aircraft wings, the rate of twist is constant for all cells 
+in the section. So look at the rate of twist of cell <B>i</B> in the wing 
+section of Figure 80 . The twist rate equation then becomes for cell <B>i</B>
+ equal to:</p>
+$$ {d&theta;_i}/{dz} = 1/{2A_i} &#8750; {q_{si}}/{G_i t_i} .ds $$
+<p>In order to derive the rate of twist for cell <b>i</b>, it is necessary to 
+look at the three cells: <B>i - 1</B>, <B>i</B> and <B>i + 1</B>, and determine
+ the bound integral at cell <B>i</B> of the twist rate equation.</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image395.gif" WIDTH=376 HEIGHT=211></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 82:</B>&nbsp;Shear flow distribution in the i<SUP>th</SUP> cell of an 'N' cell wing beam section</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Let :</p>
+$$ &Delta; = &int;_L 1/{Gt}.ds = {\text"Length of wall"}/{\text"Shear
+Modulus " &times; \text" thickness of wall" } $$
+<p>It is now necessary to determine the rate of twist for cell <B>i</B>
+giving:</p>
+$$ {d&theta;}/{dz} = 1/{2A_i} ( q_i &Delta;_{1-2} +(q_i - q_{i-1})
+&Delta;_{2-3} + q_i &Delta;_{3-4} +( q_i- q_{i+1})&Delta;_{4-1} ) $$
+<p>Rearranging this gives:</p>
+$$ {d&theta;}/{dz} = 1/{2A_i} ( -q_{i-1} &Delta;_{2-3} + q_i (&Delta;_{1-2}
++&Delta;_{2-3} + &Delta;_{3-4} + &Delta;_{4-1} ) - q_{i+1} &Delta;_{4-1} )
+$$
+<p>and in general terms for the configuration of Figure 82, the rate of twist equation for cell <B>i</B> becomes:</P>
+$$ {d&theta;}/{dz} = 1/{2A_i} ( -q_{i-1} &Delta;_{i-1,i} + q_i &Delta;_{i}
+-  q_{i+1} &Delta;_{i+1,i} ) $$
+<p>where:</P>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;<SUB>i-1,i</SUB> &nbsp;=&nbsp; &nbsp;&nbsp;&nbsp; length of wall common with the cell <B>i</B> and <B>i-1</B> cell 
+divided by the multiple of its thickness times its shear modulus<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;<SUB>i</SUB>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &nbsp;&nbsp;&nbsp;&nbsp;Sum of all &Delta;s for cell <B>i</B><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;<SUB>i+1,i</SUB> &nbsp;= &nbsp; &nbsp;&nbsp;&nbsp;length of wall common with the <B>i</B> and <B>i+1</B> cell divided by the multiple of its thickness times its shear modulus
+</P>
+<p>
+With the rate of twist equation for all cells in the structure and the torque 
+equation, you can solve them simultaneously to determine the value of the 
+shear flows in the structure.</p> 
+<h3>Example :</h3> 
+<p>Calculate shear stress distribution in the walls of the 3 cell wing section 
+ subjected to a positive torque of 12000 kNmm</p> 
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=4 WIDTH=249>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN="CENTER"><IMG SRC="image400.gif" WIDTH=302 HEIGHT=118></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">Figure 83:</B>&nbsp;Three cell wing section loaded by a pure torque</TD>
+</TR>
+</TABLE>
+</center>
+<p>Where the cell areas are : A<SUB>I</SUB> = 258000 mm<SUP>2</SUP>, A<SUB>II</SUB> = 355000 mm<SUP>2</SUP>, A<SUB>III</SUB> = 161000
+mm<SUP>2</SUP></p> 
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image401.gif" WIDTH=312 HEIGHT=156></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 84:</B>&nbsp;Table where <FONT FACE=SYMBOL>D</FONT> is calculated</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Determine the rate of twist of all cells: </p>
+$$ {d&theta;}/{dz} = 1/{2A_i} ( -q_{i-1} &Delta;_{i-1,i} + q_i &Delta;_{i}
+-  q_{i+1} &Delta;_{i+1,i} ) $$
+<p>For cell I</p> 
+$$ {d&theta;_I}/{dz} = 1/{2 &times; 258000} ( q_{I}(0.04125 + 0.0254) -
+0.0254q_{II} ) $$
+<p>For cell II</p> 
+$$ {d&theta;_{II}}/{dz} = 1/{2 &times; 355000} ( -0.0254 q_{I} + q_{II}
+(0.02583 + 0.0254 +0.02583 + 0.019) - 0.019 q_{III} ) $$
+<p>For cell III</p> 
+$$ {d&theta;_{III}}/{dz} = 1/{2 &times; 161000} ( -0.0254 q_{II} + q_{III}
+(0.0254 + 0.019 +0.0254 + 0.0127)) $$
+<p>And from equation for Torque</p>
+$$ 12 &times 10^6 = 2(258000q_I + 355000q_{II} + 161000 q_{III}) $$
+<p>These four equations can now be solved simultaneously to give the shear flows. This is done in the following way: 
+$$ {d&theta;_I}/{dz} = {d&theta;_{II}}/{dz} --> 2342.2 q_I - 2620.34 q_{II}
++ 380 q_{III} = 0 $$
+<p>and</p>
+$$ {d&theta;_I}/{dz} = {d&theta;_{III}}/{dz} --> 1333.2 q_I - 100.1 q_{II}
+- 2644.1 q_{III} = 0 $$
+<p>Solving the above three equations simultaneously gives: </p>
+<P>q<SUB>I</SUB> = 8.6923 N/mm, q<SUB>II</SUB> = 8.4515 N/mm, q<SUB>III</SUB> = 4.7021 N/mm</P>
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image409.gif" WIDTH=324 HEIGHT=135></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 85:</B>&nbsp;Shear flow distribution in three cell wing section with applied torque</P></TD>
+</TR>
+</TABLE>
+</center>
+<P><B>Note</B>: By dividing the above values of shear flow by the respective 
+wall thickness, gives the Shear Stresses in the walls in MPa.</P>
+<h3>SHEAR LOADS</h3>
+<p>To determine the shear flow distribution in a multicell beam we use the 
+same analysis as for a single close cell beam.</p>
+<CENTER>
+<TABLE WIDTH=55% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image410.gif" WIDTH=431 HEIGHT=149></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 86:</B>&nbsp;Multicell wing section with applied shear loads</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Because a single closed beam is a statically indeterminate structure, we need 
+to cut it in order to determine the shear flow due to an open beam section, 
+then determine the cut skin sections shear flow, <B>q<SUB>s0</SUB></B>, add this to the open beam 
+shear flow and determine the true shear flow experienced by the section. 
+</P>
+<p>
+A multicell wing section can be made statically determinate by cutting a skin 
+panel in each cell. The best place to cut the cells is always at the centre of 
+the top or bottom skin panels.</p>
+<p>
+The reason for this is that when a cell is loaded vertically, the shear flows 
+are zero at these positions, so that when determining the cut section shear 
+flow its value will be close to zero, minimising numerical errors.</p>
+<p>
+If we do this to our idealised wing section, then that panel's shear flow 
+would be zero. If that section was symmetrical, the bottom panel will also 
+have a zero open cell shear flow. The section will look like this:</P>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image411.gif" WIDTH=458 HEIGHT=154></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 87:</B>&nbsp;Multicell wing structure loaded by shear loads, indicating the best location for cutting the cell.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The shear flow equation for an idealised beam close section subjected to 
+shear loads was found previously and was given by the following
+equations.</p>
+$$ q_i = q_{i-1} + &Delta;q_k $$
+$$ &Delta; q_k = - {S&nwarr;{-}_y}/{I_{xx}} B_k y_k -
+{S&nwarr;{-}_x}/{I_{yy}} B_k x_k $$
+$$ q_{si} = q_{s0} + q_{bi} $$
+<p>where q<SUB>b</SUB> is the cut section shear flow and q<SUB>bi</SUB> is the open beam shear
+flow</p>.
+<p>By using these equations the open section shear flow distribution can be 
+found in the multicell wing section. However there remain <B>N</B> number of 
+unknown values of shear flows at each of the cuts, ie: <B>q<SUB>s0,i</SUB>,
+i = I to N</b>, which are constant for each cell, shown in Figure 88.</p>
+<CENTER>
+<TABLE WIDTH=50% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image415.gif" WIDTH=372 HEIGHT=157></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 88:</B>&nbsp;Redundant shear flow in the i<SUP>th</SUP> cell of <I>N</I> cell wing structure loaded in shear</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+From equation for the rate of twist for i<SUP>th</SUP> cell:</p>
+$$ {d&theta;_i}/{dz} = 1/{2A_i} &#8750;_i q_{si}/{G_it_i} .ds $$
+<p>Substituting gives:</p>
+$$ {d&theta;_i}/{dz} = 1/{2A_i} &#8750;_i {(q_b +q_{s0i})}/{G_it_i} .ds $$
+<p>but because <B>q<SUB>s0i</SUB></b> is a constant, then this term in the 
+integral is similar to that of the compatability equation, thus giving:</p>
+$$ {d&theta;_i}/{dz} = 1/{2A_i} ( -q_{s0i-1}&Delta;_{i-1,i} + q_{s0i}&Delta;_i -
+q_{s0i+1}&Delta;_{i+1.i} + &#8750;_i {q_{bi}}/{G_it_i} .ds $$
+<p>where as before:</p>
+$$ &Delta; = &int;_L 1/{Gt}.ds = {\text"Length of wall"}/{\text"Shear
+Modulus " &times; \text" thickness of wall" } $$
+<p>where the bound integral term of the above equation can be represented in 
+summation of the open beam shear flow multiplied by <b>&Delta;</b> for all the 
+skin sections surrounding cell <B>i</B>, the equation becomes : </p>
+$$ &#8750;_i q_b/{Gt} .ds = &Sigma;_{k=1}^N q_{bk_i} &Delta;_{k_i} $$
+<p>where:</p>
+ <b>k<sub>i</sub></b> = Skin segment around cell <B>i</B></p>
+<p>and the compatibility equation is then that as for previous section:</p>
+$$ {d&theta;_1}/{dz} = {d&theta;_2}/{dz} = {d&theta;_3}/{dz} = \text". . ."
+{d&theta;_N}/{dz}$$
+<p>Using the above equations for all cells, (N - 1) equations can be generated, 
+requiring 1 more to make N equations to solve for the unknown
+<B>q<SUB>s0i</sub></B>'s. The extra equation is found by considering the 
+moment equilibrium of all cells.</p>
+<p>Look at the i<SUP>th</SUP> cell, the moment M<SUB>qi</SUB> produced by the 
+total shear flow about some point '0' is as follows:</p>
+<CENTER>
+<TABLE WIDTH=50% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image422.gif" WIDTH=440 HEIGHT=223></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 89:</B>&nbsp;Moment equilibrium of i<SUP>th</SUP> cell</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The moment about point 0 due to cell i is given by:</p>
+$$ M_{qi} = &#8750 q_i p_0 .ds $$
+<p>substituting gives:</p>
+$$ M_{qi} = &#8750 (q_{s0} + q_b) p_0 .ds $$
+<p>which simplifies to:</p>
+$$ M_{qi} = &#8750 q_b p_0 .ds  + 2 A_i q_{s0i} $$
+<p>The sum of the moment of the individual cells is equal to the moment 
+produced by the applied loads so:</p>
+$$ &Sigma; \text"Moments of applied loads about a point O" = &Sigma;_{i=1}^N
+&#8750;_i q_b p_0 .ds + &Sigma;_{i=1}^N 2 A_i q_{s0i} $$
+<p>And if moments are taken about the point where the loads are applied
+then:</p>
+$$ 0 = &Sigma;_{i=1}^N
+&#8750;_i q_b p_0 .ds + &Sigma;_{i=1}^N 2 A_i q_{s0i} $$
+<h3>Example :</h3> <p>The following wing section carries a vertical load of 
+80 kN in the plane of web 3-4, determine the shear flow distribution and the 
+rate of twist. Boom areas, B<SUB>1-6</SUB> = 2580 mm<SUP>2</SUP>, B<SUB>2-5</SUB> = 3880 mm<SUP>2</SUP>,
+ B<SUB>3-4</SUB> = 3250 mm<SUP>2</SUP>.</p>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image428.gif" WIDTH=526 HEIGHT=223></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 90:</B>&nbsp;Idealised wing section with applied vertical shear load</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Where the cell areas are A<SUB>I</SUB> = 256000 mm<SUP>2</SUP>, A<SUB>II</SUB> = 560000 mm<SUP>2</SUP>, A<SUB>III</SUB> = 413000
+mm<SUP>2</SUP></p>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image429.gif" WIDTH=312 HEIGHT=156></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 91:</B>&nbsp;Table with calculated
+<b>&Delta;</b></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+<b>1)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Determine sectional properties:
+<P>
+Because the section is symmetrical we only need I<SUB>xx</SUB> = 810.99
+&times;10<SUP>6</SUP> mm<SUP>4</P></SUP></P>
+<p><b>2)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Determine the open section shear flow by cutting the top skin panels, like
+this:</p>
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image430.gif" WIDTH=429 HEIGHT=166></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 92:</B>&nbsp;Three cell wing section cut to determine open beam shear flows</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Using equations for open beam shear flows these were calculated in the table of Figure
+93.</p>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image431.gif" WIDTH=618 HEIGHT=239></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 93:</B>&nbsp;Table where the open beam shear flows were calculated</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The shear flow distribution in the open beam section looks like this:</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image432.gif" WIDTH=431 HEIGHT=139></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 94:</B>&nbsp;Idealised wing section showing open beam shear flows</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>3)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Determine rate of twist
+${d&theta;}/{dz}$ for each cell :</p>
+$$ {d&theta;_i}/{dz} = 1/{2A_i} ( - q_{s0i-1} &Delta;_{i-1,i} + q_{s0i}
+&Delta;_i - q_{s0i+1} &Delta;_{i+1,i} + &#8750;_i q_b/{Gt} .ds ) $$
+<p>For Cell I</p>
+$$ {d&theta;_I}/{dz} = 1/{2 &times; 256000} ( - q_{s0I}( 0.0542 + 0.0076)
+- q_{s0II}(0.0076) + 64.12 &times; 0.0076 ) $$ 
+<p>For Cell II</p>
+$$ {d&theta;_{II}}/{dz} = 1/{2 &times; 560000} ( - q_{s0I}(0.0076)
++ q_{s0II}(0.0391 + 0.0076 + 0.0391 +0.0087) -q_{s0III} (0.0087) - 64.12 &times; 0.0076
++ 99.03 &times; 0.0087) $$ 
+<p>For Cell III</p>
+$$ {d&theta;_{III}}/{dz} = 1/{2 &times; 413000} ( - q_{s0II}(0.0087)
++ q_{s0III}(0.0419 + 0.0087 + 0.0419 +0.0101) - 88.03 &times; 0.0087
++ 42 &times; 0.0101) $$ 
+<p>Because all rates of twist are the same we can now equate them
+together:</p>
+$$ {d&theta;_I}/{dz} = {d&theta;_{III}}/{dz} --> 1436.5 a_{s0I} - 2 q_{S0II}
++ 2053.7 q_{s0III} = - 18127.4 $$ 
+$$ {d&theta;_I}/{dz} = {d&theta;_{II}}/{dz} --> 2853.5 a_{s0I} - 2220.3 q_{S0II}
++ 174.2 q_{s0III} = - 15629.1 $$ 
+<p><b>4)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equate moments about the point of application of load
+gives:</p>
+$$ 0 = 2 (246000 q_{s0I} + 560000 q_{s0II} + 413000 q_{S0III} ) + 88.03
+&times 460 &times; 170 + 42 &times; 330 (1027 + 1720) $$
+<P>which simplifies to:</P>
+$$ 512000 q_{s0I} + 1120000 q_{s0II} + 826000 q_{s0III} = - 83263546 $$	
+<p>Solving these 3 equations simultaneously gives:</p>
+<p> q<sub>s0I</sub> = - 38.31 N/mm, q<sub>s0II</sub> = -43.61 Nm and
+q<sub>s0III</sub> = -17.93 N/mm </p>
+<p>Superimposing these shear flows with the open beam values gives:</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image443.gif" WIDTH=345 HEIGHT=147></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 95:</B>&nbsp;Wing section with final shear flows</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>5)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determine rate of twist:</p>
+<p>By substituting these values into any of the rate of twist equations we can find it to be
+:</p>
+<p>${d&theta;}/{dz}$ = -3.0273 &times; 10<sup>-6</sup> rad/mm = -0.1734
+&times; 10<sup>-3</sup> Deg/mm </p> 
+<h3>SHEAR CENTRE</h3>
+<p>
+The position of the shear centre is found in an identical manner to that of 
+section for open beams. Arbitrary loads S<SUB>y</SUB> and S<SUB>x</SUB> are applied in turn 
+through the shear centre <STRONG>s.c.</STRONG>, the corresponding shear flow 
+distributions determined and moments taken about some convenient point.</P>
+<p>
+The shear flow distributions are found as described in the previous section, 
+except that the N equations derived in previous section are enough to determine
+ the unknown shear flows. This is because the rate of twist of a beam loaded 
+ at the shear centre is zero, ($ {d&theta;}/{dz} = 0 $).</p>
+<p><br /></p>
+
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							

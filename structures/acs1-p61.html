@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aerospace Structures | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>STRUCTURAL IDEALISATION</h2>
+<p>In the work done so far, the aircraft structural components analysed have 
+been relatively simple. However an aircraft wing (for example) can be made up 
+of many cell compartments. Each section of the wing would be covered by a thin 
+skin, and the skins would be reinforced by many stringers of Z, C or T section. 
+The analysis of such a structure would be extremely complex and time consuming. 
+In order to simplify this, structural idealisation should be carried
+out.</p> 
+<h3>Assumptions</h3>
+<P>&nbsp;&nbsp;&nbsp;1)&nbsp;&nbsp;&nbsp;The longitudinal stiffeners and spar flanges carry only axial stresses </P>
+<P>&nbsp;&nbsp;&nbsp;2)&nbsp;&nbsp;&nbsp;The web, skin and spars webs carry only shear stresses </P>
+<P>&nbsp;&nbsp;&nbsp;3)&nbsp;&nbsp;&nbsp;The axial stress is constant over the cross section of each longitudinal stiffener </P>
+<P>&nbsp;&nbsp;&nbsp;4)&nbsp;&nbsp;&nbsp;The shearing stress is uniform through the thickness of the webs </P>
+<P>&nbsp;&nbsp;&nbsp;5)&nbsp;&nbsp;&nbsp;Transverse frames and ribs are rigid within their own planes and have no rigidity normal to their plane.</P>
+<p>
+In idealising a structural component by following these five points the new 
+simpler structure looks something like this: 
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image297.gif" WIDTH=243 HEIGHT=186></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 54:</B>&nbsp;Original and Idealised wing sections</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+For which: 
+<UL>
+<LI>&nbsp;&nbsp;&nbsp;The stiffeners are represented by circles called booms, which have a concentrated mass in the plane of the skin. </LI>
+<LI>&nbsp;&nbsp;&nbsp;The direct stresses are calculated at the centroid of these booms and are assumed to have constant stress through their cross-section. </LI>
+<LI>&nbsp;&nbsp;&nbsp;Shear stresses are assumed uniform through the thickness of the skins and webs.</LI>
+<LI>&nbsp;&nbsp;&nbsp;The direct stress carrying capability of skin is represented as an addition to existing booms or as additional separate booms.</LI>
+</UL>
+<P>Because the skin can carry some direct load, usually tensile (although some 
+can be carried in compression but this is determined by the buckling load of 
+the skin), the Direct Stress Carrying Thickness of the skin is defined as: </P>
+<P>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; t<SUB>D</SUB>&nbsp; &nbsp; &nbsp; = &nbsp; &nbsp; &nbsp; Actual skin thickness <b>t</b>, if skin resists totally direct load </P>
+<P>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; t<SUB>D</SUB>&nbsp; &nbsp; &nbsp; = &nbsp; &nbsp; &nbsp; Percentage of
+<b>t</b>, if partially resists applied load </P>
+<P>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; t<SUB>D</SUB>&nbsp; &nbsp; &nbsp; = &nbsp; &nbsp; &nbsp; 0 if skin only able to resist shear load </P>
+<P>We now need to look at how these idealisation techniques can be applied:</P>
+<P>Look at a typical stiffened panel: </P>
+<CENTER>
+<TABLE WIDTH=70% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image298.gif" WIDTH=438 HEIGHT=288></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=center><B>Figure 55:</B>&nbsp;&nbsp;a) Actual panel<br
+/>&nbsp;&nbsp;b) Idealised panel with same number of 
+ stiffeners and booms<br />&nbsp;&nbsp;c) Idealised panel with reduced boom 
+ number<br />&nbsp;&nbsp;d) Further Idealised panel with all stiffener
+ and bending carrying areas lumped into two booms</P></TD>
+</TR>
+</TABLE>
+</center>
+<P>To idealise a structure you can: </P>
+<P>&nbsp;&nbsp;&nbsp;1)&nbsp;&nbsp;&nbsp;Replace the spar web by replacing its area to the major booms </P>
+<P>&nbsp;&nbsp;&nbsp;2)&nbsp;&nbsp;&nbsp;Reduce the number of stiffeners or booms by combining the stiffener mass with that of the skin into one boom </P>
+<P>If you wish, this could be simplified even further by: </P>
+<P>1)&nbsp;&nbsp;&nbsp;Increasing the cross-sectional area of just two of the 
+booms with the direct carrying capacity of the skin and stiffeners.</P>
+<P><b>REMEMBER :</B>&nbsp;&nbsp;&nbsp;&nbsp;When idealising a structure, the 
+elastic characteristics of the idealised structure must be the same as for the 
+original structure.</P>
+<h3>IDEALISED SHEET TO SUPPORT TENSILE LOAD P</h3>
+<CENTER>
+<TABLE WIDTH=75% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image299.gif" WIDTH=240 HEIGHT=204></P></TD>
+<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+<TD><P ALIGN=CENTER><IMG SRC="image300.gif" WIDTH=236 HEIGHT=157></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 56:</B>&nbsp;Actual sheet to be Idealised.</P></TD>
+<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+<TD><P ALIGN=CENTER><B>Figure 57:</B>&nbsp;Idealised structure.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>What needs to be done is to idealise the structure of Figure 56 into that 
+of Figure 57. In order to do this two things must be considered, force (stress)
+ equilibrium and compatibility (displacement)</p> 
+<p>In the real structure the direct stress is determined using:</p> 
+$$ &sigma;_z = P/{b t_D} $$
+<p>and its elongation is given by : </p>
+$$ &delta; = {FL}/{EA} = {PL}/{Ebt_D} $$
+<p>In the idealised structure, however, the direct stress is given by: </p> 
+$$ &sigma;_z = P/{2B}  \text"&nbsp;&nbsp;&nbsp;&nbsp;(in the booms)" $$
+<p>And its elongation is given by:</P> 
+$$  &delta; = {PL}/{E2B} $$
+<p>Since the approximation and the ideal should give the same elongation, then we 
+can define the relationship:</p>
+$$ B = {bt_D}/2 $$
+<p>If you look at the stress in the booms they are the same as those of the original
+structure.</p>
+<h3>IDEALISED SHEET TO SUPPORT BENDING MOMENT M</h3>
+<p>
+The bending moment is applied at the end of the plate as follows:</p>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image307.gif" WIDTH=274 HEIGHT=185></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 58:</B>&nbsp;Actual sheet to be idealised with applied bending moment M.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The stress in this sheet is given by : </p>
+$$ &sigma;_z = {My}/I = {6M}/{b^2 t_D} $$
+<p>The second moment of area for the idealised booms is (using parallel axis theorem) 
+is given by:</p> 
+$$ I = 2B( b^2/4 ) = {Bb^2}/2 $$
+<p>and its stress is given by :</p>
+$$ &sigma;_z = M/{Bb} \text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (booms) " $$
+<p>Since approximation and ideal should give the same maximum stresses
+then:</p>
+$$ B = {bt_D}/6 $$
+<p>As can be seen by this equation, a different idealised boom area equation is required for a different loading
+condition.</p> 
+<h3>IDEALISED SHEET TO SUPPORT DIRECT LOAD AND BENDING MOMENT</h3>
+<p>The stress distribution for a combined loading case with a direct load and 
+a bending moment looks like Figure 59.</p> 
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image313.gif" WIDTH=309 HEIGHT=188></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 59:</B>&nbsp;Actual sheet supporting direct load and bending moment.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+In the idealised structure, the maximum and minimum stresses need to be carried 
+by the booms as actual direct stresses, Figure 60.</P> 
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image314.gif" WIDTH=256 HEIGHT=181></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 60:</B>&nbsp;Idealised sheet supporting maximum stresses in booms.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Equating the direct loads along the z-axis gives that: </p>
+$$ B_1 &sigma;_1 + B_2 &sigma;_2 = 1/2 b t_D ( &sigma;_1 + &sigma;_2 ) $$ 
+<p>If the neutral axis in the idealised structure is in the same position as 
+in the original sheet, the bending moment carried by the idealised structure 
+must be the same as that carried by the real structure.</p> 
+<p>Equating moments about neutral plane gives the following:</p> 
+$$ &sigma;_1 B_1 b/2 - &sigma;_2 B_2 b/2 = b t_d {(&sigma;_1 - &sigma;_2)}/2
+.(b/6) = {b^2 t_D}/{12}( &sigma;_1 - &sigma;_2 ) $$
+<p>multiplying by 2 gives:</p>
+$$ &sigma;_1 B_1 - &sigma;_2 B_2 = {b t_D}/{6}( &sigma;_1 - &sigma;_2 ) $$
+<p>Adding these equations and simplifying, gives: </p>
+$$ B_1 = {b t_D}/6 ( 2 + &sigma;_2/&sigma;_1 ) $$
+$$ B_2 = {b t_D}/6 ( 2 + &sigma;_1/&sigma;_2 ) $$
+<p>By calculating the bending stresses, the structure can then be
+idealised.</p> 
+<P><B>WARNING :</B>There is a problem with the above equations. It has to do 
+with idealising sections of skin very close to the neutral axis of the cross 
+section, see Figure 61.</P>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image319.gif" WIDTH=246 HEIGHT=229></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 61:</B>&nbsp;Skin segment very close to Neutral Axis to be idealised into booms i & j</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Equations for B<sub>1</sub> and B<sub>2</sub> can be generalised in the form of :
+</p>
+$$ B_i = {Lt}/6 ( 2 + &sigma;_j/&sigma;_i) $$
+<p>However if &sigma;<SUB>i</SUB> &lt;&lt; &sigma;<sub>j</SUB> or &sigma;<SUB>i</SUB> = 0, 
+B<SUB>i</SUB> becomes extremely large, giving an incorrect approximation for 
+the boom area. </p>
+<P>To correct this problem, use the following correction. However be aware that 
+this is just a simplified correction method and that large errors can obtained 
+if proper care is not taken to observe how these corrections alter the solution.</P>
+<h3>IDEALISED SHEET TO SUPPORT DIRECT COMPRESSIVE LOAD</h3>
+<p>
+When supporting a compressive load, the metal sheet is usually critical in 
+buckling. Because of this, only a small fraction of its width 'b' is effective 
+in compression. Experimental research has led to the derivation of the 
+following equations for the effective area of skin in compression.</p> 
+<CENTER>
+<TABLE WIDTH=70% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image322.gif" ALIGN=MIDDLE WIDTH=222 HEIGHT=202></P></TD>
+<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+<TD><P ALIGN=CENTER><IMG SRC="image300.gif" ALIGN=MIDDLE WIDTH=236 HEIGHT=157></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 62:</B>&nbsp;Sheet to be idealised in compression.</P></TD>
+<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+<TD><P ALIGN=CENTER><B>Figure 63:</B>&nbsp;Idealised sheet.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Area of boom:</p> 
+$$ B = Ct $$
+<p>where 'C' is the effective width of metal in compression, given by:</p>
+$$ C = {&pi; t}/ {&radic;{12 (1- v^2)}} &radic;{ E/{&sigma;_{yield}}} = 20 t
+$$
+<p><b>Note : </B> Although the idealisation given by the above equations for a 
+metal sheet in compression is valid, it is sometimes better to idealise the 
+structure using the equations derived for the other three load cases. When the 
+stresses on the metal skin are known we can then use critical buckling 
+stresses for thin metal sheets to determine if they will be effective in 
+compression.</P>
+<h3>Example:</h3>
+<p>Part of a wing section is in the form of a two-cell box shown. 
+All the vertical spar webs are connected to the skins through spar caps, 
+all with cross-sectional areas of 300 mm<SUP>2</SUP>. Idealise the section 
+into direct stress carrying booms and shear stress only carrying skin when the 
+wing is subjected to an applied bending moment Mx = -150 kNm. Position the 
+booms at the spar/skin junctions.</P>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image325.gif" WIDTH=437 HEIGHT=209></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 64:</B>&nbsp;Wing section to be idealised,subject to a bending moment Mx = -150 KNm.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Since all skin panels experience both a tensile/compressive load together with
+ a bending moment, then appropriate B.M. approximations are the ones to use 
+ when idealising this section.</p>
+<p>Now, from symmetry : B<SUB>1</SUB> = B<SUB>6</SUB>, B<SUB>2</SUB> = B<SUB>5</SUB> and B<SUB>3</SUB> = B<SUB>4</SUB>,
+ saving us some calculations. This would not be the case if the wing wasn't 
+ symmetrical.</p>
+<p>
+Lets start with determining the area of boom 1.
+This boom must have first of all the area of spar cap 1, which is 300 mm<SUP>2</SUP>, together with the area 
+contributions of the two adjacent skins.</p>
+<p>
+Therefore:</p>
+$$ B_1 = 300 + {1.5 &times; 600}/6 ( 2 + &sigma;_2/&sigma;_1 ) + {2 &times;
+200}/6 ( 2 + &sigma;_6/&sigma;_1 ) $$
+<p>Since the equation for stress for a beam with symmetrical cross section is :
+</p>
+$$ &sigma; = {M&nwarr;{-}_x}/{I_{xx}} + {M&nwarr;{-}_y}/{I_{yy}} $$
+<p>Then by substituting into this equation for the different stresses, their ratios 
+simplifies to just the ratios of their vertical distances.</p>
+<p>
+Which gives:>/p>
+$$ B_1 = 300 + {1.5 &times; 600}/6 ( 2 + {150}/{100}) + {2 &times;
+200}/6 ( 2 - 1 ) $$
+<p>So&nbsp;&nbsp;&nbsp;&nbsp;B<SUB>1</SUB> = B<SUB>6</SUB> = 891.67
+mm<SUP>2</SUP></p>
+<p>For boom 2 we have to consider the contribution of the two spar caps, and the three adjacent skins. Giving
+:</p>
+$$ B_2 = 2 &times; 300 + {2 &times; 600}/6 ( 2 + &sigma;_3/&sigma;_2) + {2.5 &times;
+300}/6 ( 2 - &sigma;_5/&sigma;_2) + {1.5 &times; 600}/6 (2 +
+&sigma;_1/&sigma;_2 ) $$
+<p>When substituting for the bending moment equation it becomes:</p>
+$$ B_2 = 2 &times; 300 + {2 &times; 600}/6 ( 2 + {200}/{150}) + {2.5 &times;
+300}/6 ( 2 - 1) + {1.5 &times; 600}/6 (2 + {100}/{150} ) $$
+<p>So&nbsp;&nbsp;&nbsp;&nbsp;B<SUB>2</SUB> = B<SUB>5</SUB> = 1791.67
+mm<SUP>2</SUP></p>
+<p>And for boom 3 we only have one spar cap and two adjacent skins:</p>
+$$ B_3 = 300 + {2 &times; 600}/6 ( 2 + &sigma;_2/&sigma;_3) + {3 &times;
+400}/6 ( 2 - &sigma;_4/&sigma;_3)$$
+<p>When substituting for the bending moment equation it becomes:</p>
+$$ B_3 = 2 &times; 300 + {2 &times; 600}/6 ( 2 + {150}/{200}) + {3 &times;
+400}/6 ( 2 - 1) $$
+<p>giving that&nbsp;&nbsp;&nbsp;&nbsp;B<SUB>3</SUB> = B<SUB>4</SUB> = 1050
+mm<SUP>2</SUP></p>
+<p>So the idealised wing now looks like this:</p>
+<CENTER>
+<TABLE WIDTH=45% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image334.gif" WIDTH=449 HEIGHT=145></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 65:</B>&nbsp;Final idealised wing with boom areas marked.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The above method explains how to calculate the boom areas if carried out by 
+hand. The next section will carry out the same example but using table format, 
+specifically using a spreadsheet</p>.
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image336.gif" WIDTH=815 HEIGHT=369></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 66:</B>&nbsp;Spread Sheet where the sectional properties and stresses of the real structure are calculated.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>&nbsp;</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image337.gif" WIDTH=891 HEIGHT=212></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 67:</B>&nbsp;Spread Sheet where the boom areas are calculated based on the stresses calculated in the sheet of Figure 66.</P></TD>
+</TR>
+</TABLE>
+</center>
+<P>&nbsp;</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image338.gif" WIDTH=632 HEIGHT=264></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 68:</B>&nbsp;Spread Sheet where the sectional properties and bending stresses of the idealised structure are calculated.</P></TD>
+</TR>
+</TABLE>
+</center>
+<h3>Example : </h3>&nbsp;&nbsp;&nbsp;The singly symmetrical fuselage 
+cross-section is subjected to a bending moment Mx = 100 kNm. If all direct 
+stresses are carried by the booms, determine the average direct stress in 
+each boom.</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image339.gif" WIDTH=492 HEIGHT=276></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 69:</B>&nbsp;Idealised fuselage cross section.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Because the section is symmetrical about the y-axis (I<SUB>x,y</SUB> = 0), and 
+M<SUB>y</SUB> = 0, the effective bending moment equations reduces to:</p>
+$$  &sigma;_z = M_x/I_{xx} y $$
+a)&nbsp;&nbsp;&nbsp;Determine location of centroid</p> 
+$$ y&nwarr;{-} = {1200 &times; 640 + 2 &times;1140&times;600+
+2&times;768&times;600 + 2 &times;565&times 620 + 2 &times; 336 &times;640 +
+2 &times; 144&times;640 + 2 &times;38&times;850 }/{640&times;6 + 600&times;6
++620&times;2 +850&times;2 } $$ 
+<p>&nbsp;</p>
+$$ y&nwarr;{-} = 538.5 \text" mm" $$
+<p>b)&nbsp;&nbsp;&nbsp;Determine sectional properties and stresses in
+booms</p>
+<P>Now that we have the position of the neutral axis, the best way to 
+determine the stresses in each boom is by using a table</P>
+<CENTER>
+<TABLE BORDER=1 CELLSPACING=1 BORDERCOLOR="#000000" WIDTH=624>
+<TR><TH VALIGN="MIDDLE"><b>Boom</b></TH>
+<TH VALIGN="MIDDLE"><b>y (mm)</b></TH>
+<TH VALIGN="MIDDLE"><b>B (mm<SUP>2</SUP>)</b></TH>
+<TH VALIGN="MIDDLE"><b>&Delta;I<SUB>xx</SUB> = By<SUP>2</SUP>
+(mm<SUP>4</SUP>)</b></TH>
+<TH VALIGN="MIDDLE"> <b>&sigma;<SUB>z</SUB> (MPa)</FONT></b></TH>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>1</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>661.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>640</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>2.8005e+08</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>35.67</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>2</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>601.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>600</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>2.1708e+08</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>32.43</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>3</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>421.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>600</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>1.0660e+08</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>22.73</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>4</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>229.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>600</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>3.1602e+07</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>12.37</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>26.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>620</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>4.3540e+05</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">
+<FONT SIZE=2>1.43</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>6</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-202.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>640</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>2.6244e+07</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-10.92</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>7</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-394.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>640</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>9.9603e+07</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-21.27</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>8</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-500.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>850</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>2.1293e+08</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-26.99</FONT></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>9</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-538.5</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>640</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>1.8559e+08</FONT></TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE"><FONT SIZE=2>-29.04</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="MIDDLE" colspan="2">&nbsp;</TD>
+<TD ALIGN=RIGHT VALIGN="MIDDLE" colspan="2">I<SUB>xx</SUB> = 1.8546e+09</TD>
+<TD VALIGN="MIDDLE">&nbsp;</TD>
+</TR>
+</TABLE>
+</center>
+<P><b>Note:</b> Because of symmetry, this table doesn't contain values for the 
+booms on the left hand side of the y-axis. However when calculating the second 
+moment of area I<SUB>xx</SUB>, the values &Delta;I<SUB>xx</SUB> for booms 2 - 8 
+were multiplied by 2 when doing the summation.</P>
+<h2>SHEAR OF OPEN SECTION BEAMS</h2>
+<p>
+The equation for shear flow for an open beam section was found to be:</p>
+$$ q_s = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s ty.ds -
+{S&nwarr;{-}_x}/{I_{yy}} &int;_0^s tx.ds $$
+<p>From its derivation, the value of 't' was the direct stress carrying 
+thickness 't<SUB>D</SUB>' of the skin. Such that it could either be equal to : 
+t<SUB>D</SUB> = t, if the skin was fully effective in carrying direct stress,
+or t<SUB>D</SUB> = 0, if skin was assumed to carry only shear stresses.
+</P>
+<p>So:</p>
+$$ q_s = - {S&nwarr;{-}_y}/{I_{xx}} &int;_0^s t_D y.ds -
+{S&nwarr;{-}_x}/{I_{yy}} &int;_0^s t_D x.ds $$
+<p>So that if we are idealising the beam's cross section, based on our 
+idealisation technique, the value of 't<SUB>D</SUB>' may or may not be equal 
+to zero.</p>
+<p>This equation, however does not consider the effect of the idealised booms 
+to the overall shear flow. To account for this, we need to consider the 
+equilibrium of one such boom.</p>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image346.gif" WIDTH=547 HEIGHT=216></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 70:</B>&nbsp;Shear loaded open beam with booms, and equilibrium of i<SUP>th</SUP> boom.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Summing the forces along the length of the elemental length of the boom
+gives:</p>
+$$ &Sigma; F_z = ( &sigma;_z + {&part; &sigma;_z}/{&part;z}. &delta;_z )B_2 -
+&sigma;_z B_2 + q_2 &delta;_z - q_1 &delta;_z = 0 $$
+<p>this equation simplifies to :</p>
+$$ q_2 - q_1 = - {&part; &sigma;_z}/{&part;z} B_2 $$
+<p>but since the direct stress is given as follows:</p>
+$$ &sigma;_z = {M&nwarr;{-}_x}/{I_{xx}} y + {M&nwarr;{-}_y}/{I_{yy}} x $$
+<p>then substituting for it gives:</p>
+$$ &Delta;q_{1-2} = q_2 - q_1 = - {S&nwarr;{-}_y}/{I_{xx}} B_2 y_2 -
+{S&nwarr;{-}_x}/{I_{yy}} B_2 x_2 $$ 
+<p>Given the change in shear flow induced in the skin by the presence of a 
+boom. If several booms were present, their presence becomes an additive one, 
+such that for a beam with 'n' booms, the equation becomes:</p>
+$$ q_s = - {S&nwarr;{-}_y}/{I{xx}}( &int;_0^s t_d y .ds + &Sigma;_{i=1}^N B_i
+y_i ) - {S&nwarr;{-}_x}/{I{yy}}( &int;_0^s t_d x .ds + &Sigma;_{i=1}^N B_i
+x_i ) $$
+<p>But because in an idealised structure the skin only carries the shear 
+stresses, then equation can be simplified to have only the summation terms. 
+To give: </p>
+$$ q_s = - {S&nwarr;{-}_y}/{I{xx}} &Sigma;_{i=1}^N B_i y_i  - {S&nwarr;{-}_x}/{I{yy}}  &Sigma;_{i=1}^N B_i
+x_i $$ 
+<p>A simpler way of thinking of this equation is by looking at the shear flow 
+in a skin segment <B>i</B> due to the shear flow in skin segment <B>i-1</B> 
+and the change of shear flow due to the boom <B>k</B> separating these two 
+skin segments, Figure 71.</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image354.gif" WIDTH=278 HEIGHT=116></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 71:</B>&nbsp;Sketch of skin segments <B><EM>i</EM></B> and <B><I>i-1</I></B> and boom <B><I>k</I></B> to show how the shear flow is determined.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+In general terms, the change in shear flow between any two skin elements 
+(<B>i</B> and <B>i-1</B>) due to the area of boom <B>k</B> of coordinates 
+<B>x<SUB>k</SUB></b> and <B>y<SUB>k</SUB></b> about the structures' centroid 
+is:</p>
+$$ &Delta;q_k = - {S&nwarr;{-}_y}/{I_{xx}}B_k y_k - {S&nwarr;{-}_x}/{I_{yy}}B_k
+x_k $$
+<p>The shear flow in skin segment<B><EM> i</B></EM> is then a function of the 
+shear flow in the previous skin segment (<B>i - 1</B>) and the change in shear 
+flow due to boom k ( <b>&Delta;q<SUB>k</B></SUB></b>), is : </p>
+$$ q_i = q_{i-1} + &Delta; q_k $$
+<p><b>Note:</b> Because of the idealisation process, the shear flow in any skin 
+section between any two booms always has a constant value.</p>
+<h3>Example :</h3>
+<p>Calculate the shear flow in the following channel section. The skin is 
+only effective in shear (t<SUB>D</SUB>=0), area of all booms 1 &amp; 4 = 250 mm<SUP>2 </SUP>, 
+areas of booms 2 &amp; 3 = 350 mm<SUP>2</SUP>.</p>
+<CENTER>
+<TABLE BORDER=0 WIDTH=40% CELLPADDING=2 CELLSPACING=4>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image357.gif" WIDTH=271 HEIGHT=246></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 72:</B>&nbsp;Open channel with 5 kN force applied through shear centre.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Because the structure is symmetrical I<SUB>xy</SUB> = 0 and as we are only 
+applying a vertical load, the equation becomes:</p>
+$$ q_s = - S&nwarr;{-}_y/{I_{xx}} &Sigma;_{i=1}^N B_i y_i $$ 
+<p>The second moment of area I<SUB>xx</SUB> is</p>
+
+<CENTER>
+<TABLE ALIGN=CENTER WIDTH=350 CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR>
+<TD ALIGN=CENTER></TD>
+<TD ALIGN=LEFT VALIGN=BOTTOM>I<sub>xx</sub> = 48 &times; 10<sup>6</sup>
+mm<sup>4</sup></TD>
+</TR>
+</TABLE>
+</center>
+<p>On the RHS of boom 1, q<SUB>s</SUB> = 0, so the change in shear flow due to 
+boom 1 is:</p>
+<CENTER>
+<TABLE ALIGN=CENTER WIDTH=350 CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR>
+<TD ALIGN=CENTER></TD>
+<TD ALIGN=LEFT VALIGN=BOTTOM>&Delta;q<sub>1</sub> = q<sub>12</sub> = -5.208 N/mm</TD>
+</TR>
+</TABLE>
+</center>
+<p>
+This shear flow is constant until boom 2, where:</p>
+<CENTER>
+<TABLE ALIGN=CENTER WIDTH=350 CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR>
+<TD ALIGN=CENTER></TD>
+<TD ALIGN=LEFT VALIGN=BOTTOM>q<sub>23</sub> = q<sub>12</sub> +
+&Delta;q<sub>2</sub> = -12.5 N/mm</TD>
+</TR>
+</TABLE>
+</center>
+<p>
+which is constant until boom 3, where:</p>
+<CENTER>
+<TABLE ALIGN=CENTER WIDTH=350 CELLSPACING=4 CELLPADDING=2 BORDER=0>
+<TR>
+<TD ALIGN=CENTER></TD>
+<TD ALIGN=LEFT VALIGN=BOTTOM>q<sub>34</sub> = q<sub>23</sub> +
+&Delta;q<sub>3</sub> = -5.208 N/mm</TD>
+</TR>
+</TABLE>
+</center>
+<P>
+and you can see that after boom 4, q = 0.</p>
+<CENTER>
+<TABLE BORDER=0 WIDTH=40% CELLPADDING=2 CELLSPACING=4>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image363.gif" WIDTH=174 HEIGHT=294></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 73:</B>&nbsp;Shear flow distribution around channel of example 7.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+And when this problem is done using a spread sheet program, the solution would look like this:</P>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image364.gif" WIDTH=600 HEIGHT=254></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 74:</B>&nbsp;Excel sheet indicating how this problem can be solved</P></TD>
+</TR>
+</TABLE>
+</center>
+<h3>SHEAR OF CLOSED SECTION BEAMS</h3>
+<p>
+The derivation of the equation to determine this shear flow is identical as the 
+analysis for open beam sections, making the equation look like this:</p> 
+$$q_s = q_{s0} - {S&nwarr;{-}_y}/{I_{xx}} ( &int;_0^s t_d y.ds + &Sigma;_{i=1}^N
+B_i y_i ) - {S&nwarr;{-}_x/{I_{yy}} ( &int;_0^s t_d x.ds + &Sigma;_{i=1}^N
+B_i x_i ) $$
+<p>Since the structure has been idealised, the equation is simplified
+to:</p>
+$$ q_{si} = q_{s0} + q_{bi} $$ 
+<p>where:</p>
+<p><B>q<SUB>bi</SUB></B> is the open beam shear flow of skin segment <B>i,</B> and 
+which can be calculated either using previous q_<sub>s</sub> equations.</p> 
+<p><B>q<SUB>s0</B></SUB> is the residual shear flow due to making the closed 
+beam into an open beam section. It can be calculated using equations for
+shear flow in closed tubes (see previous section) depending if we know the location of the applied 
+load or if we are trying to determine the shear centre.</p> 
+<h3>Example :</h3> 
+<p>Determine shear flow in the following wing structure with an applied 
+vertical load in the plane of booms 3 and 6. This structure has been idealised 
+into direct stress carrying booms and shear only stress skin (ie t<SUB>D</SUB> = 0). 
+Boom areas are: B<SUB>1</SUB>= B<SUB>8</SUB> = 200 mm<SUP>2</SUP>, B<SUB>2</SUB> = B<SUB>7</SUB> = 300 mm<SUP>2</SUP>, 
+B<SUB>3</SUB> = B<SUB>6</SUB> = 400 mm<SUP>2</SUP>, B<SUB>4</SUB> = B<SUB>5</SUB> = 150 mm<SUP>2</SUP>.</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image367.gif" WIDTH=449 HEIGHT=209></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 75:</B>&nbsp;Closed wing section with applied shear force between booms 3 &amp; 6</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Because the section is symmetrical, I<SUB>xy</SUB> = 0. Skin carries only 
+shear load, t<SUB>D</SUB> = 0 so use equation for Effect width as shown
+previously. Only a vertical load is applied, S<SUB>x</SUB>=0. Reducing the equation
+to:</p>
+$$ q_s = q_{s0} - {S&nwarr;{-}_y}/{I_{xx}} &Sigma;_{i=1}^N B_i y_i $$
+<p>where:</p>
+<p>S<SUB>y</SUB> = 15 kN, </P>
+<p>I<SUB>xx</SUB> = 2x(200x25<SUP>2</SUP> + 300x125<SUP>2</SUP> + 400x125<SUP>2</SUP> + 150x75<SUP>2</SUP>)  =  23.813x10<SUP>6</SUP>
+mm<SUP>4</sup></P>
+<P>Substituting this into the above equation gives:</P>
+$$ q_s =  - 6.2991 &times; 10^{-4} &Sigma;_{i=1}^N B_i y_i + q_{S0} = q_b +
+q_{s0} $$
+<p> Where q<SUB>b</SUB> is the shear flow for an open section. Cutting the 
+beam between sections 2 and 3 and doing the analysis in a counter clockwise sense we
+get:</p>
+$$ q_{b2-3} = 0 $$
+$$ q_{b3-4} = -6.299 &times; 10^{-4} (400 &times; 125) = -31.5 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b4-5} = -31.5 - 6.299 &times; 10^{-4} (150 &times; 75) = -38.59 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b5-6} = -38.59 - 6.299 &times; 10^{-4} (150 &times; (-75) ) = -31.5 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b6-7} = -31.5 - 6.299 &times; 10^{-4} (150 &times; (-125) ) = 0 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b7-8} = - 6.299 &times; 10^{-4} (300 &times; (-125) ) = 23.61 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b8-1} = 23.61 - 6.299 &times; 10^{-4} (200 &times; (-25) ) = 26.77 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+$$ q_{b1-2} = 26.77 - 6.299 &times; 10^{-4} (200 &times; 25 ) = 23.62 \text"&nbsp;&nbsp;&nbsp;N/mm" $$
+<p>It is now necessary to determine q<SUB>s0</SUB>. This can be done by using 
+same method as in shear flow for closed tubes, because we know the position of 
+the applied force. Or we could take moments anywhere about the line of action 
+of the applied force, both these statements mean the same thing.</p>
+<p>Taking moments about point 3, gives:</p>
+
+<p>0 = (q<SUB>4-5</SUB>&times;150&times;150 +
+q<SUB>5-6</sub>&times;158.11&times;237.17 + q<SUB>6-7</SUB>&times;300&times;250 +
+q<SUB>7-8</SUB>&times;412.31&times;315.3 + q<SUB>8-1</SUB>&times;50&times;700
+ + q<SUB>1-2</SUB>&times;412.31&times;72.76) + 2&times;165,000q<SUB>s0</SUB>
+</P>
+<p>
+giving that q<SUB>s0</SUB> = -8.08 N/mm
+</P>
+From equation above we have that q<SUB>s</SUB> = q<SUB>b</SUB> + q<SUB>s0</SUB>,
+so:</p>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s1-2</SUB> = 23.62 - 8.08 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 15.54 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s2-3</SUB> = 0 - 8.08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;= -8.08 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s3-4</SUB> = -31.5 - 8.08 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= - 39.58 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s4-5</SUB> = -38.59 - 8.08 &nbsp;&nbsp;&nbsp;= - 46.67 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s5-6</SUB> = -31.5 - 8.08 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= - 39.58 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s6-7</SUB> = 0 - 8.08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; = - 8.08 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s7-8</SUB> = 23.62 - 8.08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 15.54 N/mm</P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q<SUB>s8-1</SUB> = 26.67 - 8.08&nbsp;&nbsp;&nbsp;&nbsp; = 18.59 N/mm</P>
+<CENTER>
+<TABLE WIDTH=40% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image379.gif" WIDTH=411 HEIGHT=151></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 76:</B>&nbsp;Shear flow distribution of loaded closed wing section</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+When this problem is solved using a spread sheet program, the solution would look as follows:</P>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image380.gif" WIDTH=583 HEIGHT=514></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 77:</B>&nbsp;Spread sheet where the open beam shear flows are calculated</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+In order to calculate the value of q<SUB>s0</SUB>, moments were taken about 
+the centroid for this spread sheet example. </P>
+<p>
+However, in order for the spread sheet to calculate the perpendicular distance 
+between a point in space and a segment of skin the following equation was used, with reference to Figure 78.</P>
+<CENTER>
+<TABLE WIDTH=35% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image381.gif" WIDTH=314 HEIGHT=195></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 78:</B>&nbsp;Perpendicular distance <B><I>d</I></B> between a point A and skin segment <B><I>i-j</I></B></P></TD>
+</TR>
+</TABLE>
+</center>
+$$ d = ( {Ax_A + By_A + C}/{&radic;{A^2 + B^2}} ) $$
+<p>where:</p>
+<p>&Delta;y = y<sub>j</sub> - y<sub>i</sub> &nbsp;,&nbsp;&nbsp; &Delta;x =
+x<sub>j</sub> - x<sub>i</sub> &nbsp;,&nbsp;&nbsp;
+A = -&Delta;y &nbsp;,&nbsp;&nbsp; B = -&Delta;x &nbsp;,&nbsp;&nbsp; C =
+x<sub>i</sub>&Delta;y - y<sub>i</sub>&Delta;x </p>   
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG Src="image383.gif" WIDTH=971 HEIGHT=302></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 79:</B>&nbsp;Excel sheet showing the calculation of q<SUB>s0</SUB> and the final shear flow distribution</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>Note:</b>Column P gives the twice the area between the centroid and each 
+skin segment, and the value of cell P15 is equal to 2A, twice the enclosed 
+area of the wing section</p> 
+<p><br /></p>
+
+
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							

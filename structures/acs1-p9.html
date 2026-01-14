@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Fluid Mechanics | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>BENDING OF BEAMS WITH NON-SYMMETRICAL CROSS SECTIONS</h2>
+<P>The majority of aircraft structural components consist of beams with non-symmetrical cross 
+section acting in bending . For this reason an expression needs to be derived to allow for the determination of the stresses induced by bending moments to such sections. </P>
+<STRONG><P>SIGN CONVENTION AND NOTATION</P>
+</STRONG><P>Look at the Oxyz system of axis, with an arbitrary beam parallel to the z-axis:</P>
+<TABLE BORDER=0 cellpadding=5 cellspacing=2>
+<TR>
+<TD><p ALIGN="CENTER"><IMG SRC="image3.gif"></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN="LEFT"><STRONG>Figure 8 :</STRONG>&nbsp; Notation and sign convention for positive forces, moments and displacements.</P></TD>
+</TR>
+</TABLE>
+<P>Where :</P>
+<P>T = Torque</P>
+<P>M = Bending Moment</P>
+<P>S = Shear Force</P>
+<EM><P>w</EM> = Distributed load</P>
+<P>P = Axial or direct load</P>
+<P>u,v,w = Axial displacements </P>
+<P>All of these externally applied loads are positive in the direction indicated in the figure. Internal moment and forces applied to face A are in the same direction and sense as externally applied
+loads. However on face B, the positive internal moments and forces are in the opposite sense.</P>
+<p></p>
+<STRONG> RESOLUTION OF BENDING MOMENTS</STRONG>
+<P>A bending moment M applied in any plane parallel to the z-axis can be resolved into M<SUB>x</SUB> and M<SUB>y</SUB> components by normal vector rules.</P>
+<P>By doing it in a visual way it will be easier to see:</P>
+
+<table border=0 cellpadding=5 cellspacing=2>
+<tr>
+	<td><p align="CENTER"><img src="image5.gif" width=507 height=221></p></td>
+
+</tr>
+<tr>
+	<td><P ALIGN="CENTER"><STRONG>Figure 9:</STRONG>&nbsp; Resolved bending moment about x and y axis.</P></td>
+
+</tr>
+</table>
+
+
+<P>From Figure 9, the following relationships can be obtained:</P>
+$$M_x = M sin(&theta;)$$
+$$M_y = M cos(&theta;)$$
+</FONT><P>and that these moments can have different sign depending on the value of
+&theta;. For example if $&theta; &gt; &pi;/2$ , M<SUB>x</SUB> is positive and M<SUB>y</SUB> is negative.</P>
+
+<h3>STRESS DISTRIBUTION DUE TO BENDING (ETB-NonSym)</h3>
+
+<P>Consider a beam of arbitrary non-symmetrical cross section, which supports bending moments
+M<sub>x</sub> and M<sub>y</sub>, bending about some axis in the cross section. This is the plane of no bending stress, called Neutral Axis (N.A.).</P>
+<P></P>
+<DIV ALIGN="CENTER"><table border=0 cellpadding=4 cellspacing=2>
+<tr>
+	<td><p align="CENTER"><img src="image6.gif"></p>
+</td>
+</tr>
+<tr>
+	<td><P ALIGN="CENTER"><STRONG>Figure 10:</STRONG>&nbsp; Determination of Neutral Axis location.</P></td>
+</tr>
+</table></DIV>
+
+<P>Let the axis origin coincide with the centroid G of the cross section, and that the neutral axis is a distance <EM>p</EM> from G. </P>
+<P>The direct stress <b>&sigma;<SUB>z</SUB></b> on element <b>d<SUB>A</SUB></b> at point (x,y) and distance 
+<b>&zeta;</b> from the neutral axis is:</P>
+$$&sigma;_z = E &epsilon;_z$$ 
+<P>Look at the beam in a plane parallel to the neutral axis with two segments <B><EM>ij</B></EM> and <B><EM>kl</B></EM> which are of equal length when the beam is undeflected:</P>
+<CENTER><table border=0 cellpadding=4 cellspacing=2>
+<tr>
+<td><p align="CENTER"><img src="image8.gif" width=468 height=178></p>
+</td>
+</tr>
+<tr>
+<td><P ALIGN="CENTER"><STRONG>Figure 11:</STRONG>&nbsp; Side view of undeflected beam with segments <I><B>ij</B></I> and <I><B>kl</B></I> marked.</P></td>
+</tr>
+</table></center>
+<P></P>
+<P>Once the beam has been deflected this section will look like this: </P>
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN="CENTER"><IMG SRC="image9.gif"></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<STRONG><P ALIGN="CENTER">Figure 12:</STRONG>&nbsp;Deflected beam.</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+<P>where: </P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R&nbsp;</b>&nbsp;&nbsp;=&nbsp;&nbsp;the radius of curvature </P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>d&theta;</b>&nbsp;&nbsp;=&nbsp;&nbsp;angle between planes<I> <B>ik</B></I> and<B><I> jl</B></I> </P>
+<P>The strain in plane <B><I>kl</B></I> can be defined as: </P>
+$$&epsilon; = {&Delta;L}/{L} = {kl-ij}/{ij}$$
+<P>with </P>
+$$ij = R d&theta;$$
+<P>and </P>
+$$kl = (R + &zeta;)d&theta;$$
+<P>giving </P>
+$$&epsilon; = &zeta;/R$$
+<P>By substituting back into the stress equation it gives:</P>
+$$&sigma;_z = {&zeta;E}/R$$
+<P>Now that a stress equation has been obtained, it is necessary to satisfy both rotational and linear equilibrium at the ends of the beam. That is, the summation of the forces through the depth of the beam is equal to '0', and the summation of the moments through the depth of the beam is equal the applied moments
+M<sub>x</sub> and M<sub>y</sub>.</P>
+<P>As the beam supports pure bending, the resultant load on the end section must be zero. Hence</P>
+$$&Sigma;F_z = &int;_A &sigma;_z dA = 0 $$
+<P>Substituting for <b>&sigma;<sub>z</sub></b> gives:</P>
+$$ &int;_A {E &zeta;}/R .dA = E/R &int;_A &zeta; dA = &int;_A &zeta; dA = 0$$
+<P>This equation defines the location of the centroid of the section, it follows that the neutral axis must pass through the centroid.</P>
+<P>Rather than use this equation to find the location of the centroid, it is much easier to locate the centroid about the xy-axis by using </P>
+$$x&nwarr;{-} = { &Sigma; x&nwarr;{-}_i * A_i }/{ &Sigma; A_i}$$ 
+$$y&nwarr;{-} = { &Sigma; y&nwarr;{-}_i * A_i }/{ &Sigma; A_i}$$ 
+<p>In order to have moment equilibrium, it is necessary to re-draw Figure 10 but with the axis passing through the centroid.
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><TD>
+<P ALIGN="CENTER"><IMG SRC="image25.gif"></TD>
+</TR>
+<TR><TD>
+<STRONG><P ALIGN="CENTER">Figure 13:</STRONG>&nbsp; Beam section with Neutral Axis passing through centroid.</TD>
+</TR>
+</TABLE>
+
+</center>
+<P>In order to see this in more detail, Figure 14 shown a close up of the axis and the area
+<b>dA</b>.</P>
+
+<P><CENTER></P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><td>
+<P ALIGN="CENTER"><IMG SRC="image26.gif"></TD>
+</TR>
+<TR><TD>
+<STRONG><P ALIGN="CENTER">Figure 14:</STRONG>&nbsp; Detail of area <B>dA</B> in beam cross-section.</TD>
+</TR>
+</TABLE></center>
+<P>If the inclination of the Neutral Axis (N.A.) is at an angle from the x-axis then :</P>
+$$&zeta; = x.sin(&alpha;) + y.cos(&alpha;)$$
+<P>and substituting into equation for <b>&sigma;_z</b> gives:</P>
+$$&sigma;_z = E/R (x.sin(&alpha;)+ y.cos(&alpha;))$$
+<P>The moment resultants have the same sense as the applied moments, hence:</P>
+$$ M_x = &int;_A &sigma;_z.y.dA &nbsp;&nbsp;,&nbsp;&nbsp; M_y = &int;_A &sigma;_z.x.dA$$
+<P>and substituting from above gives:</P>
+$$M_x  = E/R &int;_A (xy.sin(&alpha;) + y^2.cos(&alpha;)).dA$$
+<p> and </p>
+$$M_y  = E/R &int;_A (x^2.sin(&alpha;) + xy.cos(&alpha;)).dA$$
+<P>Both the sin(&alpha;) and cos(&alpha;) terms are not a function of dA, so they can be
+treated as constants for the integration. What remain are terms which only have to do with the characteristics of the cross sectional shapes of the beam, and these are just the 2<SUP>nd</SUP> moments of area of the beam. </P>
+<P>The second moments of area about the xy axes are: </P>
+$$I_{xx} = &int;_A y^2 dA \text"&nbsp;, &nbsp;&nbsp;" I_{yy} = &int;_A x^2 dA \text"&nbsp;, &nbsp;&nbsp;" I_{xy} = &int;_A xy.dA $$
+<P>which gives: </P>
+$$M_x = {E.sin(&alpha;)}/R I_{xy} + {E.cos(&alpha;)}/R I_xx $$
+$$M_y = {E.sin(&alpha;)}/R I_{yy} + {E.cos(&alpha;)}/R I_xy $$
+<P>solving simultaneously gives, </P>
+$${E cos(&alpha;)}/R = {M_x I_{yy} - M_y I_{xy}}/{I_xx I_yy - I_{xy}^2}$$ 
+<P>Substituting into Equation for <b>&sigma;<sub>z</sub></b> gives: </P>
+$$ &sigma;_z = ({M_y I_{xx} - M_x I_{xy}}/{I_{xx} I_{yy} - I_{xy}^2}) x + ({M_x I_{yy} - M_y I_{xy}}/{I_{xx} I_{yy} - I_{xy}^2}) y $$
+<P>By defining the terms shown as <B>Effective Bending Moment</B>, </P>
+$$M&nwarr;{-}_x = {M_x - M_y I_{xy} / I_{yy}}/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<P>and </P>
+$$M&nwarr;{-}_y = {M_y - M_x I_{xy} / I_{xx}}/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<P>Equation for <b> &sigma;>sub>z</sub></b> can be re-written as follows: </P>
+<U>Note</U> that if the beam is symmetrical about the x -axis or y-axis then:
+$$ I_{xy} = 0 \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" M&nwarr;{-}_x = M_x \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" M&nwarr;{-}_y = M_y $$
+<P>and the x &amp; y axes are the <B>principal axes</B>.</P>
+<h3>POSITION OF NEUTRAL AXIS</h3>
+<P>The location of the Neutral Axis was defined by using the centroid as
+shown above.</P>
+$$x&nwarr;{-} = { &Sigma; x&nwarr;{-}_i * A_i }/{ &Sigma; A_i} \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" y&nwarr;{-} = { &Sigma; y&nwarr;{-}_i * A_i }/{ &Sigma; A_i}$$ 
+<P>For a beam with a symmetrical cross section, the centroid is the point defined by equation 3.3 and the Neutral Axis is parallel to the x and y axis. For a non-symmetrical beam cross
+section however, the Neutral Axis passes at some angle <b>&alpha;</b> with respect to the x-axis. What needs to be done
+is to define the angle of the neutral axis (N.A.)</P>
+<P>At the N.A. the normal bending stresses are equal to
+<b>&sigma;<sub>z</sub> = 0</b>, given that:</P>
+$$ 0 = {M&nwarr;{-}_x}/{I_{xx}} y_{N.A.} + {M&nwarr;{-}_y}/{I_{yy}} x_{N.A.} $$
+<P>where:</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x<SUB>N.A.</SUB> and y<SUB>N.A.</SUB> are coordinates of points
+on the neutral axis, giving:</P>
+$$ {y_{N.A.}}/{x_{N.A.}} = - {M&nwarr;{-}_y}/{M&nwarr;{-}_x} {I_{xx}}/{I_{yy}} $$
+<P>By taking the inverse tan of the angle <b>&alpha;</b>, the angle of the Neutral Axis with respect to the x-axis can be found, given by</P>
+$$ tan(&alpha;) = {y_{N.A.}}/{x_{N.A.}} = - {M&nwarr;{-}_y}/{M&nwarr;{-}_x} {I_{xx}/{I_{yy}} $$
+<h3>Example 1:</h3>
+<p>The beam shown is subjected to a bending moment of 150Nm about the x-axis.
+Calculate the maximum direct stress due to bending and the location where it acts.</p>
+<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image64.gif"></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><STRONG>Figure 15:</STRONG>&nbsp; Beam cross section with applied bending moment.</P></TD>
+</TR>
+</TABLE></center>
+a) &nbsp;&nbsp;Determine the location of the centroid about point A
+$$x&nwarr;{-} = { &Sigma; x&nwarr;{-}_i * A_i }/{ &Sigma; A_i}$$ 
+<p>and</p>
+$$y&nwarr;{-} = { &Sigma; y&nwarr;{-}_i * A_i }/{ &Sigma; A_i}$$ 
+<P>b) &nbsp;&nbsp;Shift axis to centroid</P>
+<CENTER><TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image68.gif"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 16:</STRONG>&nbsp; Beam cross section with axis shifted to centroid position.</P></TD>
+</TR>
+</TABLE></center>
+<P>c) &nbsp;&nbsp;Determine other sectional properties</P>
+$$ I_{xx} = &int;_{A} y^2 dA $$
+$$ I_{yy} = &int;_{A} x^2 dA $$
+$$ I_{xy} = &int;_{A} xy dA $$
+<P>d) &nbsp;&nbsp;Calculate effective bending moments</P>
+<P>Since <b>M<SUB>x</SUB> = 1500</b> and <b>M<SUB>y</SUB> = 0</b>, substituting these values into
+equations gives:</P>
+$$M&nwarr;{-}_x = {M_x - M_y I_{xy} / I_{yy}}/{1 - I_{xy}^2/{I_{xx} I_{yy}}}$$
+<p> </p>
+$$M&nwarr;{-}_y = {M_y - M_x I_{xy} / I_{xx}}/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<P>e) &nbsp;&nbsp;Determine bending stress equation and cross section stresses</P>
+<P>Substitute the values calculated above into the equation for <b>&sigma;<sub>z</sub></b>.</P>
+$$ &sigma;_z = -0.03886 x + 0.14972 y \text"&nbsp;&nbsp;&nbsp;&nbsp;Mpa"$$
+<P>Substituting the coordinates of all the corner points from Figure 16 give that:</P>
+<CENTER>
+<TABLE BORDER=1 CELLSPACING=1 BORDERCOLOR="#000000" WIDTH=624>
+<TR><TH VALIGN="MIDDLE">
+<b>Point</b></TH>
+<TH VALIGN="MIDDLE">
+<b>x (mm)</b></TH>
+<TH VALIGN="MIDDLE">
+<b>y (mm)<b></TH>
+<TH VALIGN="MIDDLE">
+<b>&sigma;<SUB>z</SUB> (MPa)</b></TH>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">1</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">72</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">21.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">0.436</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">2</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-48</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">21.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">5.1</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">3</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-48</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">13.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">3.9</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">4</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-16</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">13.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">2.66</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">5</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-16</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-66.4</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-9.32</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-8</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-66.4</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-9.63</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">7</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-8</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">13.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">2.34</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER VALIGN="MIDDLE">8</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">72</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">13.6</TD>
+<TD ALIGN=CENTER VALIGN="MIDDLE">-0.76</TD>
+</TR>
+</TABLE>
+</center>
+<P>This method can be used to determine the stresses due to bending in any type of beam with any type of cross section.</P></B></EM>
+<P></P>
+<h3>APPROXIMATION FOR THIN WALLED SECTIONS</h3>
+<P>Due to the thin nature of aircraft structures, the assumption can be made that stresses are constant through the thickness 't' of the skin. By saying this, the square and higher powers of 't' can be neglected from the computation of sectional properties.</P>
+<P></P>
+<P>To see this, look at a channel section:</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image75.gif" WIDTH=219 HEIGHT=274></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 17:</STRONG>&nbsp;Thin-walled channel section.</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>1)&nbsp;&nbsp; Because the section is symmetrical about the x-axis, then I<SUB>xy</SUB> =
+0</p>
+<p>2)&nbsp;&nbsp;The second moment of area I<SUB>xx</SUB> is given by:</p>
+$$ I_{xx} = 2 ( {b t^3}/{12} + b t h^2 ) + { t ( 2 (h - t/2))^3}/{12}$$
+<p>Expanding the RHS, gives:</p>
+$$ I_{xx} = 2 ( {b t^3}/{12} + b t h^2 ) + t /{12} ( 2^3 (h^3 - -3h^2 t/2 + 3h t^2/4 - t^3/8))$$
+by eliminating <b>t<SUP>2</SUP></b> powers and higher it becomes:
+$$ I_{xx} = 2bth^2 + { 8th^3 } /{12} $$
+<p>and similarly</p>
+$$ I_{yy} = 2 {tb^3}/{12} + 2tb ({hb}/{2b + 2h})^2 + 2ht ( {b^2}/{2b + 2h})^2$$
+<P>This indicates that the sectional properties may be calculated as if the section was represented by a thin line, as shown in Figure 18, disregarding any
+<b>t<SUP>2</SUP></b> or higher terms.</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image80.gif" WIDTH=235 HEIGHT=253></P>
+</TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 18:</STRONG>&nbsp;Approximation of channel section.</P></TD>
+</TR>
+</TABLE>
+</center>
+<P>For this discrete thin walled section, the sectional properties would be found as follows:</P>
+<P>1)&nbsp;&nbsp;&nbsp;&nbsp;Determine location of centroid</P>
+$$x&nwarr;{-} = {2bt b/2}/{2bt+2ht} = b^2/{2b + 2h}$$
+<p> </p> 
+$$y&nwarr;{-} = {bt(2h)+ (2ht) h} / {2bt + 2ht} = h $$
+<P>2)&nbsp;&nbsp;&nbsp;&nbsp;Shift axis to centroid</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image82.gif" WIDTH=212 HEIGHT=288></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 19:</STRONG>&nbsp;Axis at centroid</P></TD>
+</TR>
+</TABLE>
+</center>
+<P>3) &nbsp;&nbsp;&nbsp;Determining moments of inertia</P>
+$$I_{xx} = {t(2h)^3}/{12} + 2bth^2 $$
+<p> </p>
+$$I_{yy} = {2tb^3}/{12} + 2bt( {hb}/{2b + 2h}) + 2ht ( b^2/{2b + 2h}) $$
+<P>These results are exactly the same as for the section considering the skin material thickness and then disregarding all
+<b>t<SUP>2</SUP></b> and higher terms.</P>
+<P>Since not all skin sections will lie parallel to either the x or y axis, the local moments or area for a section of skin at an angle <FONT FACE="Symbol">q</FONT> with respect to the x-axis are given by the following equations.</P>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=2>
+<TR>
+<TD><P ALIGN="CENTER"><IMG SRC="image85.gif" WIDTH=252 HEIGHT=270></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN="CENTER"><STRONG>Figure 20:</STRONG>&nbsp;Thin skin section inclined at an angle
+<b>&theta;</b> wrt the x-axis</P></TD>
+</TR>
+</TABLE>
+</center>
+$$I_{xx}= {L^3 t sin^2(&theta;)}/{12} \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" I_{xy} = {L^3 t cos^2(&theta;)}/{12} \text"&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;" I_{yy} = {L^3 t sin(2 &theta;)}/{24} $$
+<h3>GENERAL LOADING RELATIONSHIPS</h3>
+<P>Consider an element of length <b>&delta;z</b> from a beam with an unsymmetrical cross section with all types of loads applied in the y-z plane, Figure 21.</P>
+<CENTER>
+<TABLE CELLSPACING=2 BORDER=0 CELLPADDING=4>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN="CENTER"><IMG SRC="image87.gif"></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<b><P ALIGN="CENTER">Figure 21:</b>&nbsp;Equilibrium of generally loaded beam element in zy-plane.</TD>
+</TR>
+</TABLE>
+</center>
+Equilibrium of element in y direction gives:
+$$ &Sigma; F_y = 0 = ( S_y + {&part;S_y}/{&part;z} &delta;z ) + w_y
+&delta; z - S_y $$ 
+dividing by <b>&delta;z</b> and in the limit as <b>&delta;z &#8594; 0</b>, this equation simplifies to :
+$$w_y = - {&part; S_y}/{&part;z}$$
+<p>Taking moments about A gives:</p>
+$$ &Sigma; M_A = 0 = ( M_x + {&part; M_x}/{&part;z} &delta;z) - S_y &delta;z + w_y {&delta;z^2}/2 - M_x $$
+<p>dividing by <b>&delta;z</b> and in the limit as <b>&delta;z &#8594; 0</b>
+, this equation simplifies to :</p>
+$$ S_y = {&part; M_x}/{&part; z}$$
+<p>Combining these two equations gives:</p>
+$${&part;^2 M_x} / { &part; z^2} = {&part; S_y}/{&part; z} = -w_y$$
+<p>Similarly, about the x-z plane:</p>
+$${&part;^2 M_y} / { &part; z^2} = {&part; S_x}/{&part; z} = -w_x$$
+<p>Consider now an element of length <b>&delta;z</b> from a beam with an unsymmetrical cross section with only an applied torque
+(&tau;(z)) about z-axis, Figure 22. 
+<CENTER>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5>
+<TR><TD VALIGN="MIDDLE">
+<P ALIGN="CENTER"><IMG SRC="image95.gif"></TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<b><P ALIGN="CENTER">Figure 22:</b>&nbsp;Torque equilibrium of beam section of length <FONT FACE="Symbol">d</FONT>z.</TD>
+</TR>
+</TABLE>
+</center>
+<p>Taking moments about the z-axis:</p> 
+$$&Sigma; T = 0 = -T_{(z)} + ( T_{(z)} + {d T_{(z)}}/{dz} &delta;z) + &tau;_{(z)} &delta;z$$
+<p>dividing by <b>&delta;z</b> and in the limit as <b>&delta;z &#8594; 0</b>
+, this equation simplifies to :</p> 
+$$ {d T_{(z)})/ {dz} = - &tau;_{(z)}$$
+<p>By assuming that a parameter <b>$S&nwarr;{-}_y$</b> has the same relationship to
+<b>$M&nwarr;{-}_x$</b>as <b>S<SUB>y</SUB></b> has to <b>M<SUB>x</SUB></b> 
+then by differentiating above equations, produces: </p>
+$$S&nwarr;{-}_x = {&part; M&nwarr;{-}_y}/{&part;z} = {S_x - S_y {I_{xy}}/{I_{xx}} }/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<p> </p>
+$$S&nwarr;{-}_y = {&part; M&nwarr;{-}_x}/{&part;z} = {S_y - S_x {I_{xy}}/{I_{xx}} }/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<p>Also the parameters $w&nwarr;{-}_x$ and $w&nwarr;{-}_y$ are related to the load intensities
+<b>w<SUB>x</SUB></b> and <b>w<SUB>y</SUB></b> in the same manner such that by differentiating
+above equations gives:</p> 
+$$w&nwarr;{-}_x = {w_x - w_y {I_{xy}}/{I_{xx}} }/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+<p> </p>
+$$w&nwarr;{-}_y = {w_y - w_x {I_{xy}}/{I_{xx}} }/{1 - I_{xy}^2/{I_{xx} I_{yy}}} $$
+
+<p>The parameters $S&nwarr;{-}$, $S&nwarr;{-}$, $w&nwarr;{-}_x$ and
+$w&nwarr;{-}_y$ are called the <B>EFFECTIVE SHEAR FORCES</B> and <B>LOAD INTENSITIES</B>.
+<P></P>
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							
