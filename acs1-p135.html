@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aerospace Structures | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>STRUCTURAL CONSTRAINTS</h2>
+<p>
+In the analysis so far, we have assumed that structures were totally free to deflect. To prevent
+their free movement in space they must be supported in some way.
+</p><p>
+These supports prevent the structure from deforming or warping about any axis at the supports,
+thus generating extra loads. Also because of the thin nature of aircraft structural components,
+when bending occurs, the shear strains in the skin are significantly large to modify the loads
+carried by the booms.
+</p><p>
+This causes significant warpage through the beam section, so our assumption that plane sections
+remain plane after bending is no longer valid.
+</p><p>
+This type of analysis is extremely complex, which is why Finite Element Analysis is generally
+used to solve these types of problems.
+</p><p>
+However there are a number of simple problems that we can work through that will illustrate this
+analysis.
+</p>
+<h3>SHEAR STRESS DISTRIBUTION AT THE BUILT-IN END OF A CLOSED
+BEAM SECTION</h3>
+<table>
+<tr><td>
+<p>This analysis is relatively easy as the solution
+is statically determinate.
+</p><p>
+Look at an arbitrary beam built-in at a wall
+with two shear loads S, and S,. Still assuming
+that the cross section remains undistorted by
+the applied loads.
+</p>
+<p>
+The equation for shear flow as a function of shear strain is:</p>
+<center>q = &tau;t = G&gamma;t</center>
+<p>
+but from the equation for &gamma; we have that:</p>
+$$ &gamma; = {&part;w}/{&part;s} + {&part;v_t}/{&part;z} $$
+<p>and the equation for rate of tangential displacement w.r.t  <b>z</z> 
+location is </p>
+$$ {&part;v_t}/{&part;z} = p {d&theta;}/{dz} + {du}/{dz} cos(&psi;) +
+{dv}/{dz} sin(&psi;) $$
+</td><td>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image157.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 157:</B>&nbsp;
+Cross section of thin-walled
+beam at built-in end
+</P></TD>
+</TR>
+</TABLE>
+</center>
+</td><tr></table>
+<p>where :</p>
+&nbsp;&nbsp;&nbsp;&nbsp;v<sub>t</sub> : Tangential displacement of beam<br
+/>
+&nbsp;&nbsp;&nbsp;&nbsp;&psi; : Angle between tangent to surface of beam cross-section and positive
+x-axis<br />
+&nbsp;&nbsp;&nbsp;&nbsp;p : Normal distance between origin and tangent to beam surface. Positive if<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movement of positive direction of tangent creates a positive rotation of 'p'
+about<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis origin.</p>
+<p>Combining these three equations gives:</p>
+$$ q = &tau;t = Gt( {&part;w}/{&part;s} + p {d&theta;}/{dz} + {du}/{dz}
+cos(&psi;) + {dv}/{dz} sin(&psi;) ) $$
+<p>But, since the beam is built-in at the wall, its warping and rate of change of warping must be 
+zero, ie: ${&part;w}/{&part;z} = 0 $,</p>
+$$ q = &tau;t = Gt( p {d&theta;}/{dz} + {du}/{dz}
+cos(&psi;) + {dv}/{dz} sin(&psi;) ) $$
+
+<p>which has 3 unknowns, ${d&theta;}/{dz}$ , ${du}/{dz}$ and ${dv}/{dz}$ .
+<p>To solve for these 3 unknowns we need to use equilibrium </p>
+<p>
+Equating the shear flow about the x-axis gives:</p>
+$$ &Sigma; F_x \text"&nbsp;&nbsp;-->&nbsp;&nbsp;" S_x = &#8750; q
+cos(&psi;).ds $$
+<p>Equating the shear flow about the y-axis gives:</p>
+$$ &Sigma; F_y \text"&nbsp;&nbsp;-->&nbsp;&nbsp;" S_y = &#8750; q
+sin(&psi;).ds $$
+<p>Equating the moments generated by the shear flow about the z-axis gives:</p>
+$$ &Sigma; M_z \text"&nbsp;&nbsp;-->&nbsp;&nbsp;" S_yx_R - S_x y_R  = &#8750;
+qp.ds $$
+<p>Substituting the initial definition into the above three equations and assuming the shear modulus to
+be constant over the beam's cross section gives:</p>
+$$ {d&theta;}/{dz}&#8750;ptcos(&psi;).ds + {du}/{dz} &#8750; t cos^2(&psi;) +
+{dv}/{dz} &#8750; t cos(&psi;)sin(&psi;).ds = S_x/G $$
+<p> &nbsp;</p>
+$$ {d&theta;}/{dz}&#8750;ptsin(&psi;).ds + {du}/{dz} &#8750; t
+cos(&psi;)sin(&phi;) +
+{dv}/{dz} &#8750; t sin^2(&psi;).ds = S_y/G $$
+<p> &nbsp;</p>
+$$ {d&theta;}/{dz}&#8750;p^2t.ds + {du}/{dz} &#8750; tp
+cos(&psi;) +
+{dv}/{dz} &#8750; tp sin(&psi;).ds = {S_yx_R - S_xy_R}/G $$
+<p>
+By making the following substitutions: </p>
+$$ &theta;' = {d&theta;}/{dz} \text "&nbsp; , &nbsp;&nbsp;&nbsp;" u' =
+{du}/{dz} \text "&nbsp; , &nbsp;&nbsp;&nbsp;" v' = {dv}/{dz} $$
+<p>and arranging the three equations in matrix form :</p>
+$$ [ \table
+ &#8750;ptcos(&psi;).ds, &#8750;tcos^2(&psi;).ds, &#8750;tcos(&psi;)sin(&psi;).ds;
+ &#8750;ptsin(&psi;).ds, &#8750;tcos(&psi;)sin(&psi;).ds, &#8750;tsin^2(&psi;).ds;
+ &#8750;p^2.ds, &#8750;tpcos(&psi;).ds, &#8750;tpsin(&psi;).ds ]. 
+ ( \table
+  &theta;' ;
+  u' ;
+  v' ) = 
+  ( \table
+   S_x/G ;
+   S_y/G ;
+   {S_yx_R - S_xy_R}/G ) $$
+   
+<p>Solving this matrix for &theta;', u' and v’, we can then substitute these values into
+previous equations to
+determine the shear flow distribution at the built in end on the beam.</p>
+
+<h3>EXAMPLE :</h3> <p>Calculate the shear stress distribution at the built-in end of the following
+single cell wing.<p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image158.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 155:</B>&nbsp;
+Single cell wing cross-section at built-in end
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+<b>1)</b> Determine the integral terms, which are:</p>
+$$  \table
+ &#8750;ptcos(&psi;).ds, &#8750;tcos^2(&psi;).ds, &#8750;tcos(&psi;)sin(&psi;).ds;
+ &#8750;ptsin(&psi;).ds, &#8750;tcos(&psi;)sin(&psi;).ds, &#8750;tsin^2(&psi;).ds;
+ &#8750;p^2.ds, &#8750;tpcos(&psi;).ds, &#8750;tpsin(&psi;).ds $$ 
+<p>of which only 6 have to be determined as 3 are repeated.</p>
+<p>The best way of determining these terms is by means of a table and by replacing the integral with
+a summation. The format of the table should be as follows:</p>
+<table border="1"><tr>
+<th>Segment</th><th>t(mm)</th><th>p(mm)</th><th>&Delta;s(mm)</th><th>&psi;^o</th><th>ptcos(&psi;)&Delta;s</th><th>tcos^2(&psi;)&Delta;s</th><th>tcos(&psi;)sin(&psi;)&Delta;s</th><th>ptsin(&psi;)&Delta;s</th><th>tsin^2(&psi;)&Delta;s</th><th>p^2t&Delta;s</th></tr> 
+<tr><td>1-2</td><td>1   </td><td>308.48</td><td>581.89</td><td>160.942</td><td>-160662.7</td><td>519.8</td><td>-179.6</td><td>58611.7  </td><td>62.0 </td><td>55372600</td></tr>
+<tr><td>2-3</td><td>1.25</td><td>240   </td><td>450   </td><td>180    </td><td>-135000.0</td><td>562.5</td><td>0.0   </td><td>0.0      </td><td>0.0  </td><td>32400000</td></tr>
+<tr><td>3-4</td><td>1.25</td><td>310.63</td><td>270.42</td><td>213.69 </td><td>-87365.9 </td><td>234.0</td><td>156.0 </td><td>-58243.8 </td><td>104.0</td><td>32616369</td></tr>
+<tr><td>4-5</td><td>2   </td><td>425   </td><td>180   </td><td>270    </td><td>0.0      </td><td>0.0  </td><td>0.0   </td><td>-153000.0</td><td>360.0</td><td>65025000</td></tr>
+<tr><td>5-6</td><td>1.25</td><td>310.63</td><td>270.42</td><td>326.31 </td><td>87365.9  </td><td>234.0</td><td>-156.0</td><td>-58243.8 </td><td>104.0</td><td>32616369</td></tr>
+<tr><td>6-7</td><td>1.25</td><td>240   </td><td>450   </td><td>0      </td><td>135000.0 </td><td>562.5</td><td>0.0   </td><td>0.0      </td><td>0.0  </td><td>32400000</td></tr>
+<tr><td>7-8</td><td>1   </td><td>308.48</td><td>581.89</td><td>19.058</td><td>169662.7  </td><td>519.8</td><td>179.6 </td><td>58611.7  </td><td>62.0 </td><td>55372600</td></tr>
+<tr><td>8-1</td><td>1   </td><td>800   </td><td>100   </td><td>90    </td><td>0.0       </td><td>0.0  </td><td>0.0   </td><td>80000.0  </td><td>100.0</td><td>64000000</td></tr>
+<tr><td colspan="4"><td><b>&Sigma;</b></td><td>0.0</td><td>2632.7</td><td>0.0</td><td>-72264.2</td><td>792.1</td><td>369802939</td></tr>
+<tr><td colspan="11"><p align="center"><b>Table 1:</b>&nbsp;Calculation of integrals for matrix</p></td></tr>
+</table>
+<p>By then summing each of the calculated columns we can obtain the terms :
+</p>
+$$ [ \table
+ 0, 2632.7, 0 ;
+ -72264.2,  0, 792.1;
+ 369802929, 0, 72264.2 ] 
+ ( \table
+  &theta;' ;
+  u' ;
+  v' ) = 
+  1/G ( \table
+   45&times10^3 ;
+   200&times10^3 ;
+   0 ) $$
+<p>Solving this matrix gives:</p>
+<center> &theta;' = 0.050236/G </center>
+<center> u' = 17.0927/G</center>
+<center> v' = 257.0765/G</center>
+<p>Substituting these values into the shear flow equations we can determine the shear flows in each of the segments of the wing at the built-in
+end.</p>
+$$ q = Gt (p&theta;' + u' cos(&psi;) + v' sin(&psi;) ) $$
+<p>&nbsp;</p>
+<center>
+<table width=500 border="1"><tr>
+<th>Segment</th><th>t(mm)</th><th>p(mm)</th><th>&Delta;s(mm)</th><th>&psi;^o</th><th>q</th></tr> 
+<tr><td>1-2</td><td>1   </td><td>308.48</td><td>581.89</td><td>160.942</td><td>83.3</td></tr>
+<tr><td>2-3</td><td>1.25</td><td>240   </td><td>450   </td><td>180    </td><td>-6.3</td></tr>
+<tr><td>3-4</td><td>1.25</td><td>310.63</td><td>270.42</td><td>213.69 </td><td>-176.5</td></tr>
+<tr><td>4-5</td><td>2   </td><td>425   </td><td>180   </td><td>270    </td><td>-471.5</td></tr>
+<tr><td>5-6</td><td>1.25</td><td>310.63</td><td>270.42</td><td>326.31 </td><td>-141.0</td></tr>
+<tr><td>6-7</td><td>1.25</td><td>240   </td><td>450   </td><td>0      </td><td>36.4</td></tr>
+<tr><td>7-8</td><td>1   </td><td>308.48</td><td>581.89</td><td>19.058 </td><td>115.6</td></tr>
+<tr><td>8-1</td><td>1   </td><td>800   </td><td>100   </td><td>90     </td><td>297.3</td></tr>
+<tr><td colspan="6"><p align="center"><b>Table 2:</b>&nbsp;Final tabulated shear flow values</p></td></tr>
+</table>
+</center>
+<p>Which gives the following shear flow distribution at the built-in
+wall:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image159.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 159:</B>&nbsp;
+Final shear flow distribution
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+And we can determine the centre of rotation or shear centre:</p>
+<center> x<sub>R</sub> = ${-v'}/{&theta;'} $ = -5117.4 mm ,
+&nbsp;&nbsp;&nbsp; y<sub>R</sub> = ${u'}/{&theta;'} $ = 340.2 mm </center>
+<p>An analysis of this same section away from the influence of the built-in end gives the following
+shear flow distribution and location of shear centre:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image160.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 160:</B>&nbsp;
+Shear flow distribution for wing section away from built-
+in effects
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The location of the shear centre is: x<sub>R</sub> =35.5mm,
+&nbsp;&nbsp;&nbsp;y<sub>R</sub>= 0 mm</p>
+<h3>EFFECT OF TORSION ON BUILT-IN RECTANGULAR BEAM</h3>
+<p>
+If a torque is applied to a rectangular beam, it was shown in section 5.1 that it will warp in the
+following manner:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image161.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 161:</B>&nbsp;
+Unconstrained warping of rectangular beam with applied
+torque 'T'
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>If one end of this beam was built-in, there would be no warping at this location. However
+because of the structure wants to warp, additional stresses would be generated in both the skin
+and the booms.</p>
+<p>
+Lets now look at the same beam but built-in at one end, with all its
+dimensions.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image162.png" WIDTH="700"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 162:</B>&nbsp;
+Rectangular beam built-in at one and with applied torque T at the other
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>From equilibrium we have that:</p>
+$$ &Sigma; M_z = T = &#8750; qp.ds = 2 q_a a b/2 + 2 q_b b/2 $$
+<p>giving that:</p>
+$$ T = ab(q_a + q_b) $$
+<p>
+As stated previously, the equation for shear flow is given as : </p>
+$$ q = Gt ( {&part;w}/{&part;s} + {&part;v_t}/{&part;z} ) $$
+<p>Because the cross-section of the beam is doubly symmetrical, the shear centre coincides with the
+centre of symmetry, so the equation reduces to:</p>
+$$ {&part;v_t}/{&part;z} = P_R {d&theta;}/{dz} $$
+<p>where:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;P<sub>R</sub> = Perpendicular distance about
+shear-centre</p>
+<p>giving:</p>
+$$ q = Gt ( {&part;w}/{&part;s} + P_R {d&theta;}/{dz} ) $$
+<p>In the beam we are analysing, for the top and bottom skins, the perpendicular distance is given
+by:</p>
+<center> P<sub>Ra</sub> =  b/2 </center>
+<p>For the 2 webs the perpendicular distance is given by:</p>
+<center> P<sub>Rb</sub> =  a/2 </center>
+<p>We now need to determine a term relating the rate of warping w.r.t. distance s. From
+previous section we know that at the planes of symmetry the warping is zero. So looking at a distorted element
+on the top skin from above we have:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image163.png" WIDTH="200"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 163:</B>&nbsp;
+Distortion of top
+skin due to shear flow
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>From this figure you can determine that the rate of warping is:</p>
+$$ {&part;w}/{&part;s_a} = - w/{a/2} = -{2w}/a $$
+<p>And looking at a distorted element on the right web from the side we
+have:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image164.png" WIDTH="200"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 164:</B>&nbsp;
+Distortion of right
+web due to shear flow
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>From this figure you can determine that the rate of warping is:</p>
+$$ {&part;w}/{&part;s_b} = - w/{b/2} = -{2w}/b $$
+<p>Substituting these expressions into the shear flow equations gives, for the top &amp; bottom
+skins:</p>
+$$ q_a = Gt_a( -2w/a + b/2 {d&theta;}/{dz} ) $$
+<p>
+and for the side webs:</p>
+$$ q_b = Gt_b( -2w/b + a/2 {d&theta;}/{dz} )$$
+<p>And substituting these into first equation : </p>
+$$ T = abG ( t_a( -2w/a + b/2 {d&theta;}/{dz}) + t_b ( 2w/b + a/2
+{d&theta;}/{dz}) ) $$
+<p>On rearranging it gives:</p>
+$$ {d&theta;}/{dz} = {4w(bt_a - at_b)}/{ab(bt_a + at_b)} + {2T}/{abG(bt_a +
+at_b)} $$
+<p>Which when substituting into shear flow equations gives:</p>
+$$ q_a = - {4wGt_at_b}/{(bt_a + at_b)} + {Tt_a}/{a(bt_a + at_b)} $$
+<p>&nbsp;</p>
+$$ q_b = - {4wGt_at_b}/{(bt_a + at_b)} + {Tt_b}/{b(bt_a + at_b)} $$
+<p>These last three equations will give us the rate of twist of the section and the shear flows, except
+that they are a function of <b>w</b>. To eliminate this from these equations we need to consider boom
+equilibrium.<p>
+<p>
+However because of the built-in constraint, the booms carry a direct stress
+&sigma;<sub>z</sub>, but we don't know what it is yet.
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image165.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 165:</B>&nbsp;
+Equilibrium of top right hand boom
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Summing the forces about the z-axis gives:</p>
+$$ &Sigma; F_z = 0 = ( &sigma;_z + {&part;&sigma;_z}/{&part;z} &delta; z ) B -
+&sigma;_z B + q_a &delta;z - q_b &delta; z $$
+<p>
+which simplifies to:</p>
+$$ B {&part;&sigma;_z}/{&part;z}  + q_a - q_b = 0$$
+<p>From Elasticity we have that:</p>
+$$ &sigma;_z = E &epsilon;_z = E {&part; w}/{&part;z} $$
+<p>which then substitutes to give :</p>
+$$ BE {&part;^2 w}/{&part; z^2} + q_a - q_b = 0 $$
+<p>Substituting for q<sub>a</sub>, and q<sub>b</sub>, into this equation
+gives:</p>
+$$ {&part;^2 w}/{&part;z^2} - {8Gt_a t_b}/{BE(bt_a + a t_b)} w = - {T(bt_a -
+at_b) }/{ abBE(bt_a + at_b)} $$
+<p>This equation is in the form of a second order differential equation of the
+form:</p>
+$$ {&part;^2 w}/{&part;z^2} - &lambda;^2 w = - &beta; $$
+<p>where:</p>
+$$ &lambda;^2 = {8Gt_a t_b}/{BE(bt_a + a t_b)} \text"&nbsp; ,
+&nbsp;&nbsp;&nbsp;" &beta; = {T(bt_a - at_b) }/{ abBE(bt_a + at_b)} $$
+<p>This differential equation is of standard form and its solution is:</p>
+$$ w= C cosh(&lambda;z) + D sinh(&lambda;z) + &beta;/&lambda;^2 $$
+<p>
+Which when substituting for the constant term on the right hand side of the equation ,
+gives:</p>
+$$ w = C cosh (&lambda;z) + D sinh(&lambda;z) + T/{8abG} ( b/t_b - a/t_a ) $$
+<p>
+We now need to solve for the two unknown constants, however we have two boundary conditions
+that we can use to resolve these.</p>
+<p>
+<b>1)</b> At z=0, the warping is zero, w = 0, giving that:</p>
+$$ C = - T/{8abG}( b/t_b - a/t_a ) $$
+<p><b>2)</b> At z = L, because there is no applied direct load, $&epsilon;_z
+= {dw}/{dz} =0 $, giving that:</p>
+$$ D = T/{8abG}( b/t_b - a/t_a ) tanh(&lambda;L) $$
+<p>In a previous Example we had determined the warping at the corners of arectangular box beam.
+That term was found to be:</p>
+$$ w_0 = T/{8abG} ( b/t_b - a/t_a ) $$
+<p> So Substituting these constants and w<sub>0</sub> gives the warping of the box beam over its entire
+length:</p>
+$$ w= w_0(1 - cosh(&lambda;z) + tanh(&lambda;L)sinh(&lambda;z) ) $$
+<p>which simplifies to :</p>
+$$ w = w_0 ( 1 - {cosh(&lambda;(L - z))}/{cosh(&lambda;L)} ) $$
+<p>Substituting this gives us the direct stresses in the booms:</p>
+$$ &sigma;_z = &lambda; Ew_0 {sinh(&lambda;(L-z))}/{cosh(&lambda;L)} $$
+<p>The direct load carried by the booms is then:</p>
+$$ P_z = &sigma;_z B =  B &lambda; Ew_0 {sinh(&lambda;(L-z))}/{cosh(&lambda;L)} $$
+<p>and substituting back into equations for shear flow we obtain:</p>
+$$ q_a = T/{2ab}( 1 + {(bt_a - at_b)}/{(bt_a + at_b}
+{cosh(&lambda;(L-z))}/{cosh(&lambda;L)} ) $$
+<p> &nbsp;</p>
+$$ q_b = T/{2ab}( 1 - {(bt_a - at_b)}/{(bt_a + at_b}
+{cosh(&lambda;(L-z))}/{cosh(&lambda;L)} ) $$
+<p>The thing to note here is that as z —> L and L — Large, the RHS term in the brackets of these
+equation goes to zero, and these equations become:</p>
+$$ q_a = q_b = T/{2ab} $$
+<p>which is the shear flow for a closed beam under an applied torque.</p>
+<p>Plotting these results, it can be seen that the shear flows decays or grows; depending
+on the shear flow; exponentially and converges to the free beam shear flow
+solution.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image166.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 166:</B>&nbsp;
+Shear flow distribution in webs and skins along beams length
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<h3>SHEAR LAG</h3>
+<p>Aircraft structures consist of boom/skin/stringer combinations with booms and stringers carrying
+direct loads and the skin the shear loads.</p>
+<p>
+These direct loads are transmitted between the booms and stringers by shear flows/stresses in the
+skin. However as the skins are very thin, their deformation is very large and can only transmit
+a fraction of the applied load to the other booms/stringers. This phenomenon is called 'shear lag
+or diffusion.’
+</p>
+<p>Exact solutions of shear lag problems are very complex, however some simple problems can be
+done which will show this phenomenon.</p>
+<h3>EXAMPLE :</h3>
+<p>The singly symmetrical flat panel of constant 't' is reinforced by two edge
+booms, constant area 'B', and a central stringer of constant area 'A’, loaded
+as shown. Determine the load &amp; stress distribution in the booms and shear
+flow distribution in the webs.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image167.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 167:</B>&nbsp;
+Symmetrical 3-boom flat pane! with assumed shear
+flows
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>1)</b>Sketch on each skin/web an assumed direction for the shear
+flow</p>
+<p><b>2)</b>Consider equilibrium of an element of length 5z of the top
+boom</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image168.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 168:</B>&nbsp;
+Equilibrium of top boom
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Summing forces in about the z-axis:</p>
+$$ &Sigma; F_z = 0 = -P_B + P_B + {&part;P_B}/{&part;z} &delta;z - q
+&delta;z $$
+<p>which when simplified gives:</p>
+$$ {&part;P_B}/{&part;z} = q $$
+<p><b>3)</b> Consider equilibrium of central stringer</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image169.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 169:</B>&nbsp;
+Equilibrium of central stringer
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Which gives:</p>
+$$ {&part;P_S}/{&part;z} = - 2q $$
+<p><b>4)</b> Consider equilibrium of entire flat panel at any z location</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image170.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 170:</B>&nbsp;
+Equilibrium of flat panel at any z location
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Giving:</p>
+$$ 2P_B + P_S = 2 P_0 $$
+<p><b>5)</b> We now need to consider how the boom and stringer and skin between them deform.
+Remember that the skin is only affected by shear, and that the axial loads are taken by the
+boom and stringer.</p>
+<p>An element of length &delta;z between the stringer and boom will deflect something like
+this:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image171.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 171:</B>&nbsp;
+Undistorted and distorted element of beam &delta;z between top
+boom and middle stringer
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>NOTE : The boom and stringer must deflect by the same amount as the skin that is in
+attached to them, this is the principle of compatibility.</p>
+<p>
+From this diagram we can say that the displacement of the boom is equal to the displacement of
+the stringer plus the shear deformation of the skin. Using trigonometry, this
+gives:</p>
+$$ &delta;z ( 1 + &epsilon;_B ) = &delta;z ( 1 + &epsilon;_S ) +
+{&part;&gamma;}/{&part;z} &delta;z h $$
+<p>which simplifies to give:
+$$  {&part;&gamma;}/{&part;z} = 1/h ( &epsilon;_B - &epsilon;_S ) $$
+<p>From Elasticity we have that:</p>
+$$ &epsilon;_S = P_s/{EA} \text"&nbsp; , &nbsp;&nbsp;&nbsp;" &epsilon;_B =
+P_B/{EA} \text"&nbsp; , &nbsp;&nbsp;&nbsp;" &gamma; = q/{Gt} $$
+<p>Substituting these gives:</p>
+$$ {&part;q}/{&part;z} = {Gt}/{Eh} ( P_B/B - P_S/A ) $$
+We can now use these equations to substitute for either P<sub>B</sub> or
+P<sub>s</sub>. It really makes no difference which of the two forces is eliminated. For this example and I decided to
+eliminate P<sub>s</sub>.</p>
+<p>
+By doing this the equation becomes:</p>
+$$ {&part;^2P_B}/{&part;z^2} - {2Gt}/{Eh} ( 1/A + 1/{2B} )P_B = - {2P_0Gt}/{EAh} $$ 
+<p>which is in the same form as differential equation used previously which
+is:</p>
+$$ {&part;^2 P_B}/{&part; z} - &lambda;^2 P_B = - &beta; $$
+<p>where:</p>
+$$ &lambda;^2 = {2Gt}/{Eh} ( 1/A + 1/{2B} ) \text"&nbsp; , &nbsp;&nbsp;&nbsp;"
+&beta; = {2GtP_0}/{Eh} $$
+<p>As before, the solution for this type of equation is:</p>
+$$P_B = C cosh(&lambda;z) + D sinh(&lambda;z) + &beta;/{&lambda;^2} $$
+<p>We now need to determine the constraints of integration. To do this we need to look at the
+boundary conditions.</p>
+<p><b>a)</b> At z=L, P<sub>B</sub> = P<sub>0</sub>, Substituting these values into the above equation and solving for C,
+gives:</p>
+$$ C = {P_0 - &beta;/&lambda;^2}/{cosh(&lambda;L)} - D tanh(&lambda;L) $$
+<p><b>b)</b> At z= 0, the warpage w = 0, so the shear strain &gamma; = 0, which meaning that the shear
+flow q = 0, substituting this gives:</p>
+$$ {&part;P_B}/{&part;z} = 0 = C&lambda;sinh(0) + D&lambda; cosh(0)
+\text"&nbsp;&nbsp; --> &nbsp;&nbsp;" D = 0 $$
+<p>which means that</p>
+$$ C = {P_0 - &beta;/&lambda;^2}/{cosh(&lambda;L)} = {P_0A}/{(A+2B)}
+1/{cosh(&lambda;L)} $$
+<p>and when we substitute into the equation for P, it gives:</p>
+$$ P_B = {2B}/{A+2B} P_0 ( 1 + A/{2B} {cosh(&lambda;z)}/{cosh(&lambda;L)} ) $$
+<p>which can then be substituted  to determine the shear flow distribution
+and the load carried by the stringer, giving that:</p>
+$$ P_S = {2A}/{A+2B} P_0 ( 1 - {cosh(&lambda;z)}/{cosh(&lambda;L)} ) $$
+<p>and</p>
+$$ q = {&lambda;P_0 A}/{(A + 2B)} {sinh(&lambda;z)}/{cosh(&lambda;L) } $$
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							
+

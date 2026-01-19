@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<title>Aerospace Structures | Aerospace 101</title>
+<link rel='stylesheet' id='style-css'  href='../style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="../jqmath/jqmath-0.4.3.css">
+<script src="../jqmath/jquery-1.4.3.min.js"></script>
+<script src="../jqmath/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script>M.MathPlayer = false; M.trustHtml = true;</script>
+</head>
+
+<body class="page page-id-364 page-parent page-template page-template-templates page-template-template-full-notitle page-template-templatestemplate-full-notitle-php siteorigin-panels responsive layout-full no-js has-menu-search panels-style-force-full">
+<a id="top"></a>
+<div id="page-wrapper">
+ <header id="masthead" class="site-header masthead-logo-in-menu" role="banner">
+ <nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu">
+ <div class="full-container">
+  <a href="../" title="Aerospace 101" rel="home" class="logo"><img src="../aerospacelogo.png"  class="logo-height-constrain"  width="1000"  height="100"  alt="Aerospace 101 Logo"  /></a>
+  <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="../index.html">Welcome</a></li>
+   <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-222"><a href="/toc.html">Table of Contents</a>
+   <ul class="sub-menu">
+   <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="../introduction/index.html">Introduction</a></li>
+   <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-224"><a href="../fluid-mechanics/index.html">Fluid Mechanics</a>
+    <ul class="sub-menu">
+    <li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="./fluidmechanics1.html">Properties of Fluids</a></li>
+    <li id="menu-item-218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="./fluidmechanics2.html">Fluid Statics<a></li>
+    <li id="menu-item-219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a href="./fluidmechanics3.html">C.V. Analysis, Integral Methods</a></li>
+    <li id="menu-item-220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a href="./fluidmechanics4.html">Applications of Integral Methods</a></li>
+    <li id="menu-item-221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221"><a href="./fluidmechanics5.html">Potential Flow Theory</a></li>
+    <li id="menu-item-222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-222"><a href="./fluidmechanics6.html">Examples of Potential Flow</a></li>
+    <li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a href="./fluidmechanics7.html">Dimensional Analsys</a></li>
+    <li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="./fluidmechanics8.html">Introduction to Boundary Layers</a></li>
+    <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="./fluidmechanics9.html">Viscous Flow in Pipes</a></li>
+   </ul>
+   </li>  
+   <li id="menu-item-225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-225"><a href="../flow-visualisation/index.html">Flow Visualisation</a></li>
+   <li id="menu-item-226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-226"><a href="../properties-of-the-atmosphere/index.html">Properties of the Atmosphere</a></li>
+   <li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-233"><a href="../subsonic-aerofoil-and-wing-theory/index.html">Subsonic Aerofoil and Wing Theory</a></li>
+   <li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="../gas-dynamics-and-supersonic-flow/index.html">Gas Dynamics and Supersonic Flow</a></li>
+   <li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="../propulsion/index.html">Propulsion</a></li>
+   <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="../aircraft-instruments/index.html">Aircraft Instruments</a></li>
+   <li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="../aircraft-performance/index.html">Aircraft Performance</a></li>
+   <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="../Flight-Mechanics/index.html">Flight Mechanics</a></li>   
+   <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-356"><a href="../aeroelasticity/index.html">Aeroelasticity</a></li>
+   <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="../wind-tunnel-simulation/index.html">Wind Tunnel Simulation</a></li>
+   </ul>
+   </li>
+   <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../resources/index.html">Resources</a></li>
+   <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="../contact-us/index.html">Contact Us</a></li>
+   </ul>
+  </div>
+ </div>
+ </nav><!-- .site-navigation .main-navigation -->
+ </header><!-- #masthead .site-header -->
+  <div id="main" class="site-main"> 
+  <div class="full-container">
+   <div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+     <article id="post-364" class="post-364 page type-page status-publish hentry post">
+     <div class="entry-main">
+     <div class="entry-content"> 
+
+<h2>SHEAR PANELS, RIBS & CUT-OUTS</h2>
+<p>
+This section details the technique for analysing shear panels and ribs. It also looks at the effect
+of large cut-outs regions in the skin regions on the overall stress field of the aircraft.
+</p>
+<h3>ANALYSIS OF SHEAR PANELS</h3>
+<p>
+Thin metal skins are used in the manufacture of most aircraft. These skins are only capable of
+resisting in-plane tension and shear loads, but buckle under very small compressive loads.
+</p>
+<p>Longitudinal stringers are then used to :</p>
+<p><b>a)</b> Reduce the effective length in compression of the skin.</p>
+<p><b>b)</b> Transmit point loads applied to ribs or fuselage frames onto the plane of the skin
+When shear panels/ribs have loads applied to them, the stringers or stiffening members must be
+aligned with the direction of the applied load. If this is impossible, the load should be applied
+at the intersection of two stiffeners so that each can resist the load component in that direction.
+</p>
+<p>Shear panels look something like this:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image113.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 113:</B>&nbsp;
+Cantilever beam made from shear
+webs and stiffener members with various loads
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>When analysing such a structure or any other panel carrying directly applied loads and made from
+stiffener members and skin we are interested in determining :</p>
+<p><b>a)</b> The shear flow distribution in the skin</p>
+<p><b>b)</b> The stiffener/Flange loads</p>
+<h3>EXAMPLE :</h3>
+<p>
+The short cantilever beam carries concentrated loads. Determine the
+stiffener loads and shear flow distribution in the web panels. Assume all
+skin to be effective in shear only.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image114.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 114:</B>&nbsp;
+Cantilever beam with concentrated loads
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>a)</b> Draw FBD of beam indicating direction of unknown shear flows in
+web</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image115.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 115:</B>&nbsp;
+FBD of cantilever beam including orientation of unknown shear flows
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>Note</b> : In this type of analysis it is necessary to assume that:
+<ol>
+<li>Webs are only effective in carrying shear loads</li>
+<li>Stiffeners and flanges carry only direct loads</li>
+<li>Stiffeners DO NOT carry bending moments, these are carried by extra
+stiffeners in the direction of the load and by the webs as shear flows.</li>
+</ol></p>
+<p><b>b)</b>Draw FBD of stiffeners LE & DEF and solve for q, and q,</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image116.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 116:</B>&nbsp;
+FBD if stiffener LE
+</P></TD>
+</TR>
+</TABLE>
+</center>
+$$ &Sigma; F_x = 0 = (q_2 - q_1)&times; 250 + 2828.4 $$
+<p>which gives:</p>
+$$q_1 - q_2 = 11.314 \text"&nbsp;&nbsp; N/mm" $$
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image117.png" WIDTH="200"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 117:</B>&nbsp;
+FBD of stiffener
+</P></TD>
+</TR>
+</TABLE>
+</center>
+$$ &Sigma; F_y = 0 = -150q_2 - 250 q_1 - 2828.4 $$
+<p>gives</p> 
+$$ q_1 + 0.6 q_2 = -11.314 \text"&nbsp;&nbsp; N/mm" $$
+<p>Solving equations simultaneously gives:</p>
+$$ q_1 = -2.828 \text"&nbsp;&nbsp; N/mm , &nbsp;&nbsp;&nbsp;" q_2 = -14.142 \text"&nbsp;&nbsp; N/mm" $$
+
+<p><b>c)</b> Draw FBD of stiffeners JK & CKLG and solve for q<sub>3</sub> and
+q<sub>4</sub></p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image118.png" WIDTH=400></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 118:</B>&nbsp;
+FBD of stiffener JK
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+which gives:</p>
+$$ &Sigma; F_x = 0 = (q_4 - q_3)300 + 2500 $$
+$$ q_3 - q_4 = 8.333 \text"&nbsp;&nbsp; N/mm" $$
+<p>&nbsp;</p>
+<table><tr><td>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image119.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 119:</B>&nbsp;
+FBD of stiffener CKLG
+</P></TD>
+</TR>
+</TABLE>
+</center>
+</td><td valign="middle">
+$$ &Sigma; F_y = 0 = 150q_2 + 250q_1 - 300q_4 - 100q_3 - 4330.1 $$
+<p>which gives:</p>
+ $$ q_3 + 3q_4 = — 71.584 \text"&nbsp;&nbsp; N/mm" $$
+<p>Solving equations simultaneously gives:</p>
+$$  q_3 = -11.646 \text"&nbsp;&nbsp; N/mm, &nbsp;&nbsp;&nbsp;" q_4 = -19.979
+\text"&nbsp;&nbsp; N/mm " $$
+</td></tr></table>
+<p><b>d)</b> Draw FBD of stiffeners BJH and solve for q<sub>5</sub> </p>
+<table><tr><td>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image120.png" WIDTH="200"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 120:</B>&nbsp;
+FBD of stiffener BJH
+</P></TD>
+</TR>
+</TABLE>
+</center>
+</td><td>
+$$ &Sigma; F_y = 0 = 300q_4 + 100q_3 - 400q_5 - 3000 $$
+<p>which gives: q<sub>5</sub> = -25.396 N/mm
+</td></tr></table>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image121.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 121:</B>&nbsp;
+FBD of cantilever beam with resolved shear flows
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p><b>e)</b> Calculate flange and stiffener load distributions</p>
+<p>
+These loads can be calculated by using the equilibrium equation at various cuts along the length
+of each of the stiffeners:</p>
+<p>Flange IHGF</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image122.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 122:</B>&nbsp;
+Shear flow and load distribution in flange IHGF
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Flange ABCD</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image123.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 123:</B>&nbsp;
+Shear flow and load distribution in flange ABCD
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Stiffener BJH</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image124.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 124:</B>&nbsp;
+Shear flow and load distribution in stiffener BJH
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Stiffener JK</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image125.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 125:</B>&nbsp;
+Shear flow and load distribution in stiffener JK
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Stiffener CKLG</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image126.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 126:</B>&nbsp;
+Shear flow and load distribution in stiffener CKLG
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Stiffener LE</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image127.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 127:</B>&nbsp;
+Shear flow and load distribution in stiffener LE
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Stiffener DEF</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image128.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 128:</B>&nbsp;
+Shear flow and load distribution in stiffener DEP
+</P></TD>
+</TR>
+</TABLE>
+</center>
+
+<h3>ANALYSIS OF WING RIBS</h3>
+<p>
+Wing ribs maintain the shape of the wing section, transmit the externally applied loads to the skin
+and reduce the column length of the stringers and skin panels thus increasing their buckling
+strength.
+</p><p>
+External loads in the plane of the rib change the shear load distribution in the wing across the rib,
+inducing shear flows around its perimeter.
+</p>
+<h3>EXAMPLE :</h3>
+<p> A cantilever beam 2400 mm long with 6 booms has at its free end a rib to
+transmit the applied load to the skin. Determine the shear flows in the web
+panels and axial loads in the stiffening members. Boom areas
+A<sub>1</sub>=A<sub>2</sub>=A<sub>7</sub>=A<sub>8</sub>= 500 mm<sup>2</sup>, 
+A<sub>4</sub>=A<sub>5</sub> = 1000 mm<sup>2</sup>.
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image129.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 129:</B>&nbsp;
+Beam rib used to transmit
+load to adjacent skin
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Using the methods shown previously, the shear flow distribution in the skin 
+surrounding the rib is:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image130.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 130:</B>&nbsp;
+Shear flow distribution in beam skin
+</P></TD>
+</TR>
+</TABLE>
+</center>
+
+<p>
+Since the aim of the rib is to transmit the applied load to the adjacent skin, the shear flow
+distribution acting on the rib and its surrounding stiffeners is:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image131.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 131:</B>&nbsp;
+Applied external loads and shear flows to rib
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Consider the section of the rib to the left of points 3 & 6</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image132.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 132:</B>&nbsp;
+FBD of rib cut before section 3 - 6
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Now use the 3 equilibrium equations to solve for, P<sub>3</sub>,
+P<sub>6</sub> &amp; q<sub>3-6</sub>.</p>
+$$ &Sigma; F_x \text"&nbsp;&nbsp;-->&nbsp;&nbsp;"  P_3 = -P_6 $$
+$$ &Sigma; F_y \text"&nbsp;&nbsp;-->&nbsp;&nbsp;"  q_{3-6} = 57 \text"&nbsp;&nbsp; N/mm" $$
+$$ &Sigma; M_6 = 0 = 57&times;250&times;100 + 17&times;100&times;250 -
+P_3&times; 250 \text"&nbsp;&nbsp;-->&nbsp;&nbsp;" P_3 = 7400
+\text"&nbsp;&nbsp; N" $$
+<p>It is now necessary to consider the stiffener 3-6</p>
+<table><tr><td>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image133.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 133:</B>&nbsp;
+FBD of stiffener 3-6
+</P></TD>
+</TR>
+</TABLE>
+</center>
+</td><td>
+$$ &Sigma; F_y = 250 (-57 + q_2) + 20,000 = 0  $$
+<center>q<sub>2</sub> = -23 N/mm</center>
+</td></tr></table>
+<p>Draw a FBD of the rib showing the shear flow distribution in the web:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image134.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 134:</B>&nbsp;
+FBD of rib with resolved shear flows
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+From this the load distribution in each of the stiffeners can be calculated. Notice that both
+stiffener 8-1 and 4-5 carry no axial loads.</p>
+
+<p>For Stiffener 1-2-3-4:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image135.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 135:</B>&nbsp;
+Shear flow and load distribution in stiffener 1-2-3-4
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+For stiffener 5-6-7-8 the loading has the same magnitude as for 1-2-3-4 but 
+it's in compression.</p>
+<p>For stiffener 3-6:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image136.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 136:</B>&nbsp;
+FBD of stiffener 3-6
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<h3>CUT-OUTS IN WINGS AND FUSELAGES</h3>
+<p>
+In our analysis so far, wings and fuselages have been closed boxes stiffened by ribs, frames and
+stringers. In practise, however openings must be provided to allow access to the inside of an
+aircraft.</p>
+<p>
+These openings or cut-outs produce discontinuities in the otherwise continuous structure causing
+the loads to be re-distributed in the vicinity of the cut-out region, thus affecting the loads in the
+skin, stringers, ribs and frames of the wing or fuselage.
+</p>
+<h3>Cut-Outs in Wings</h3>
+<p>
+As for all the work in this section we need to draw FBD of the sections analysed and equate the
+internal and external loads to equilibrium.</p>
+<h3>EXAMPLE :</h3>
+<p> Determine the shear loads in the webs and axial loads in the flanges of the
+three cell box beam under an applied 10 KNm torque when the central cell
+has a skin panel removed.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image137.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 137:</B>&nbsp;
+Three-bay box beam structure with cut-out in central section
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>If this beam was continuous, without a cut out, and we disregarded any built-in effects the shear
+flow in the all the skin panels would be :</p>
+$$ q = T/{2A} = {10&times;10^6}/{2&times;200&times;800} = 31.25
+\text"&nbsp;&nbsp; N/mm" $$
+<p>The four booms would carry no load.</p>
+<p>However, the removal, of the cut-out region creates a torsionally weak open
+channel.</p>
+<p>To analyse this structure we need to do the following:</p>
+<p><b>a)</b> Determine the spar web shear loads and boom axial loads in the bay with the
+cut-out.</p>
+<p>In order to do this relatively easily we need to assume that the applied torque is transmitted
+through bay 2 only by the front and rear spars as a bending moment.</p>
+<p>
+This is achieved by transforming the torque into a downwards shear load at section 3 in the
+front spar and upwards at section 3 in the rear spar. These loads can then only be resisted by boom
+loads P , as shown.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image138.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 138:</B>&nbsp;
+Distribution of torque in central bay
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+The couple generated by the shear loads 'S' must be equal to the applied torque,
+so:</p>
+<center> 800 &times; S = 10 MNmm</center>
+<p>so</p>
+<center>S = 12.5 kN</center>
+<p>This shear load can only be resisted by the spar web, hence the shear flow 
+in the web is:</p>
+$$  q_1 = 12500/200 = 62.5 \text"&nbsp;&nbsp; N/mm" $$
+<p>To determine the load 'P' carried by the booms we consider the equilibrium of the bottom
+boom.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image139.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 139:</B>&nbsp;
+Equilibrium of bottom boom in front spar
+</P></TD>
+</TR>
+</TABLE>
+</center>
+$$ &Sigma; F_x = 0 = 2P - 1500&times;62.5 \text"&nbsp;&nbsp;-->&nbsp;&nbsp;" P = 46875
+\text"&nbsp;&nbsp; N" $$
+<p>These boom loads 'P' are reacted by loads in the booms of bays 1 and 3, which are then
+transmitted to the adjacent spar webs and skin panels.</p>
+<p><b>b)</b> Determine web and skin shear loads and boom axial loads in the bays adjacent to
+cut-out</p>
+<p>To do this we first need to draw a FBD of the bay to be analysed, in this case we will look at the
+third bay.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image140.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 140:</B>&nbsp;
+Equilibrium analysis of bay 3 with resultant
+boom loads from bay 2
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+Due to the structure's symmetry, the webs and skins have the same shear
+flow.</p>
+<p>As there are two unknown shear flows we need two equations to solve the system. We start by
+looking at boom ‘a’.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image141.png" WIDTH="300"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 141:</B>&nbsp;
+Equilibrium of boom
+</P></TD>
+</TR>
+</TABLE>
+</center>
+$$ &Sigma; F_z = 0 = 46875 + (- q_2 + q_3)&times;1500 $$
+<p>givinh that:</p>
+<center>q<sub>2</sub> - q<sub>3</sub> = 31.25 N/mm </center
+<p>
+The resultant torque produced by the shear flows q, & q, at section 4 must be equal to the applied
+torque, such that:</p>
+<center> &Sigma; Applied Torque = &Sigma; Internal torque generated by shear
+flow.</center>
+<p>Therefore</p>
+<center>10&times;10<sup>6</sup> = 2&times;q<sub>2</sub>&times;800&times;100 +
+2&times;q<sub>3</sub>&times;200&times;400 </center>
+<p>giving that:</p>
+<center>q<sub>2</sub> + q<sub>3</sub> = 62.5 N/mm</center>
+<p>Solving these equations simultaneously gives that:</p>
+<center>q<sub>2</sub> = 46.875 N/mm, &nbsp;&nbsp;q<sub>3</sub> =15.625
+N/mm</center>
+<p>
+We now need to draw the axial load distribution in one of the booms, in this case
+'a’.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image142.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 142:</B>&nbsp;
+Shear flow and axial load distribution in boom 'a’
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+This is the distribution for booms 'a’ and 'c', but for booms ‘b' and 'd' the axial load distribution
+would have the opposite sign, although it would have the same magnitude.</p>
+<p><b>c)</b> Determine ribs shear flow distribution</p>
+<p>
+To do this we need to look at the equilibrium of the webs and skin at stations 2
+&amp;
+3.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image143.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 143:</B>&nbsp;
+Equilibrium of junction at section
+3 between spar webs and rib skin
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>From the shear flow analogy it is evident that the shear flow acting in the rib is of magnitude
+46.875 N/mm.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image144.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 144:</B>&nbsp;
+Shear flow distribution in ribs
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+This example has dealt with a beam with an applied torque, we now need to look at how to
+determine the effect of cut out if shear loads are applied.
+</p>
+<h3>EXAMPLE :</h3>
+<p> Determine the shear and axial loads in a 3 bay wing box under applied shear
+loads due to a cut-out panel in the second bay.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image145.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 145:</B>&nbsp;
+Three bay box beam structure with cut out in central bay loaded with 2 shear
+forces at free end
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>The easiest way to carry out this analysis is to do the following:</p>
+
+<p><b>1)</b> Determine the shear flow distribution as if the box were continuous, ie: without a cut
+out.</p>
+<p>The cross sectional properties are:</p>
+<center>I<sub>xx</sub> = 25&times;10<sup>6</sup> mm<sup>4</sup> , &nbsp;&nbsp; I<sub>yy</sub> =
+384 &times;10<sup>6</sup> mm<sup>4</sup> </center>
+<p>and the shear flow distribution is:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image146.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 146:</B>&nbsp;
+Shear flow distribution in continuous beam
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+<b>2)</b> Determine the cut-out section shear flows. Since the loading is not at the shear centre of
+the section the easiest way to determine these values is to do a force and moment
+equilibrium of the section.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image147.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 147:</B>&nbsp;
+Determination of shear flow for cut-out
+section
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>Summing forces in about the x-axis:</p>
+<center> &Sigma; F<sub>x</sub> --> q<sub>2</sub> = -62.5 N/mm</center>
+<p>Summing forces in about the y-axis:</p>
+<center> &Sigma; F<sub>y</sub> --> q<sub>1</sub> - q<sub>3</sub> = 750 N/mm</center>
+<p>Summing moments about symmetry line:</p>
+<center> &Sigma; M<sub>z</sub> --> q<sub>1</sub> + q<sub>2</sub> + q<sub>3</sub> =
+0</center>
+<p>solving the three equations simultaneously gives:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image148.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 148:</B>&nbsp;
+Shear flow distribution in cut-out bay
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+The difference between these two shear flow distributions, that with and without a cut-out, has
+to somehow be carried by the booms. So we now need to determine the correction shear flow
+distribution carried by the boom.</p>
+<p><b>3)</b> Determine the correction shear flow carried by the booms their axial loads and the
+correction shear flows for adjacent bay skins.</p>
+<p>This is done by subtracting from the cut-out shear flow distribution the continuous closed beam
+shear flow distribution.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image149.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 149:</B>&nbsp;
+Correction shear flow carried by booms
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+We now need to draw the corrected shear flows in the section where the cut-out is so that we can
+determine the loads carried by each of the booms.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image150.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 150:</B>&nbsp;
+Correction Shear flow distribution in cut-out bay
+with unknown boom loads
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+The only assumption we can make here is that the boom loads have the same magnitude on either
+side of the cut-out region and in the same direction.</p>
+<p>
+The loads at the ends of any of the booms can now be determined by considering their
+equilibrium. For example for boom b:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image151.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 151:</B>&nbsp;
+Equilibrium of boom 'b'
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<center> &Sigma; F<sub>x</sub> = 0 = 2P<sub>b</sub> + 1500&times;68.75 -->
+P<sub>b></sub> = - 103.1 kNM</center>
+<p>And in a similar way you can find that:</p>
+<center>P<sub>a</sub> = P<sub>c</sub> = -P<sub>d</sub> = 103.1 kN</center>
+<p>These boom loads produce correction shear flows $q_1', q_2', q_3', q_4' $, in the skin and web panels of
+the adjacent bays 1 &amp; 3.</p>
+<p>We first need to draw a FBD of bay 3 to be able to do the analysis.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image152.png" WIDTH="500"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 152:</B>&nbsp;
+FBD of bay 3 with loads carried by booms and
+unknown correction shear flows
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+To solve for these unknown correction shear flows we need to solve for equilibrium of the
+flanges and about the x &amp; Moments about the z-axis.</p>
+<p>
+For equilibrium at boom ‘b' the following equation is obtained:</p>
+<center> $q_1' - q_2' = 68.75 $ N/mm</center>
+<p>From equilibrium of boom 'a’ the following equation is obtained :</p>
+<center> $q_3' - q_4' = 68.75 $ N/mm</center>
+<p>From equilibrium about the x-axis the following equation is obtained:</p>
+<center> $q_1' = q_3'$ </center>
+<p>From Moment equilibrium about the y-axis the following equation is
+obtained:</p>
+<center> $q_1' + q_2' + q_3' + q_4' = 0 $ </center>
+<p>Solving these 4 equations simultaneously gives that:</p>
+<center> $q_1' =  q_3' = -q_2' = -q_4' = 34.375 $ N/mm</center>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image153.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 153:</B>&nbsp;
+Correction shear flow in bays 1 and 3
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+These correction shear flows can now be superimposed onto the original continuous beam shear
+flows, giving the following distribution:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image154.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 154:</B>&nbsp;
+Final shear flow. distribution in bays 1 & 3
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>And if we consider the equilibrium of the rib at location 3, we obtain the following shear flow
+distribution:</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image155.png" WIDTH="400"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 155:</B>&nbsp;
+Shear flow distribution of rib at location 3
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>
+With the axial loads in the booms found by determining the loads generated by the bending
+moment at different z locations and superimposing to this the axial loads generated by these shear
+flows.</p>
+<h3>Cut-Outs in Fuselages</h3>
+<p>
+When you have large openings in an aircraft fuselage ribs, rings or rigid frames may be inserted
+to carry the loads induced by the opening. The analysis of such sections may be carried out with
+the method described in previous section.</p>
+<p>If small openings are incorporated in fuselages, such as the cut-outs for windows, a relatively
+easy approximation method can be used to determine their (cut-outs) effect on the overall shear
+flow distribution of the section.</p>
+<p>
+Consider a fuselage section with a row of windows.</p>
+<CENTER>
+<TABLE WIDTH=60% BORDER=0 CELLSPACING=4 CELLPADDING=2>
+<TR>
+<TD><P ALIGN=CENTER><IMG SRC="image156.png" WIDTH="600"></P></TD>
+</TR>
+<TR>
+<TD><P ALIGN=CENTER><B>Figure 156:</B>&nbsp;
+Fuselage section with window cut-outs
+</P></TD>
+</TR>
+</TABLE>
+</center>
+<p>To determine the magnitude of the average shear flow ‘$q_{av}$', we assume that the cut-outs are not
+there, performing the usual shear flow analysis.</p>
+<p>We next consider horizontal equilibrium between two such window
+cut-outs.</p>
+$$q_1 l_1 = q_{av} l$$
+<p>
+giving that:</p>
+$$ q_1 = l/l_1 q_{av} $$
+<p>Considering vertical equilibrium between two window cut-outs.</p>
+$$ q_2 h_2 = q_{av} h $$
+<p>giving that:>/p>
+$$ q_2 = h/h_2 q_{av}$$
+<p>If we now consider either horizontal or vertical equilibrium between two sections without a cut-
+out we get:</p>
+$$ q_3 l_1 + q_2 l_w = q_{av} l $$
+<p>which when simplified, it gives:<p/>
+$$ q_3 = q_{av} ( 1 - h_w/h_2 l_w/l_1 ) $$
+
+
+<center><a href="#top"><span style="color : #3F3FFF;">Back to Top</span></a></center>
+
+</div><!-- .entry-content -->
+</div>
+</article><!-- #post-364 -->
+</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+</div><!-- .full-container -->
+</div><!-- #main .site-main -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+<a href="../terms_and_conditions.pdf"><img height="25" border="0" src="../c-foot.png"></a>
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page-wrapper -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-NNSJP9PH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GT-NNSJP9PH');
+</script>
+
+</body>
+</html>							
+

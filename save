@@ -1,0 +1,27 @@
+Summing the forces about the z-axis gives:</p>
+$$ &Sigma; F_z = 0 = ( &sigma;_z + {&part;sigma;_z}/{&part;z} &delta; z ) B -
+&sigma;_z B + q_a &delta;z - q_b &delta; z $$
+<p>
+which simplifies to:</p>
+$$ &Sigma; B {&part;sigma;_z}/{&part;z} ) + q_a - q_b = 0$$
+<p>From Elasticity we have that:</p>
+$$ &sigma;_z = E &epsilon;_z = E {&part; w}/{&part;z} $$
+<p>which then substitutes to give :</p>
+$$ BE {&part;^2 w}/{&part; z^2} + q_a - q_b = 0 $$
+<p>Substituting for q<sub>a</sub>, and q<sub>b</sub>, into this equation
+gives:</p>
+$$ {&part;^2 w}/{&part;z^2} - {8Gt_a t_b}/{BE(bt_a + a t_b)} w = - {T(bt_a -
+at_b) }/{ abBE(bt_a + at_b)} $$
+<p>This equation is in the form of a second order differential equation of the
+form:</p>
+$$ {&part;^2 w}/{&part;z^2} - &lambda;^2 w = - &beta; $$
+<p>where:</p>
+$$ &lambda^2 = {8Gt_a t_b}/{BE(bt_a + a t_b)} \text"&nbsp; ,
+&nbsp;&nbsp;&nbsp;" &beta; = {T(bt_a - at_b) }/{ abBE(bt_a + at_b)} $$
+<p>This differential equation is of standard form and its solution is:</p>
+$$ w= C cosh(&lambda;z) + D sinh(&lambda;z) + &beta;/&lambda;^2 $$
+<p>
+Which when substituting for the constant term on the right hand side of the equation ,
+gives:</p>
+$$ w = C cosh (&lambda;z) + D sinh(&lambda;z) + T/{8abG} ( b/t_b - a/t_a )
+$$
